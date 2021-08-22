@@ -5,7 +5,8 @@
         }
 
         public function login(){
-            $data = ['title' => 'This is login page'];
+            $users = $this->postModel->getUsers();
+            $data = ['title' => 'This is login page','users' => $users];
             $this->view('users/login',$data);
 
         }

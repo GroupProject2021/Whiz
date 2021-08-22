@@ -6,7 +6,7 @@
             $this->db = new Database;
         }
 
-        public function getPosts() {
+        public function getUsers() {
             $this->db->query("SELECT * FROM user");
             return $results = $this->db->resultSet();
         }
