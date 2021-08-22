@@ -14,5 +14,6 @@
             $data = ['title' => 'This is about page'];
             $this->view('pages/about', $data);
         }
+
     }
 ?>
