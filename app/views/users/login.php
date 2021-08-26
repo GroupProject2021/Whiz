@@ -7,13 +7,14 @@
     <body>
         <!-- NAVIGATION BAR -->
         <?php require APPROOT.'/views/inc/navbar.php'?>
-
         <!-- LOGIN FORM -->
         <form action="<?php echo URLROOT; ?>/users/login" method="post">
             <div class="container">
                 <h1>Login</h1>
                 <p>Please enter your credentials</p>
                 <hr>
+                <!-- flash message -->              
+                <?php flash('register_success'); ?>
                 <label for="email"><b>Email</b></label>
                 <input type="text" placeholder="Enter email" name="email" id="email" value="<?php echo $data['email']; ?>">
                 <span class="invalid"><?php echo $data['email_err']; ?></span><br>
@@ -24,7 +25,7 @@
                 <button type="submit" class="loginBtn">Login</button>
             </div>
             <div class="container register">
-                <p>Don't have an account? <a href="#">Register</a></p>
+                <p>Don't have an account? <a href="<?php echo URLROOT; ?>/users/register">Register</a></p>
             </div>
         </form>
     </body>

@@ -31,7 +31,7 @@
                 <button type="submit" class="registerBtn">Register</button>
             </div>
             <div class="container signin">
-                <p>Already have an account? <a href="#">Sign in</a></p>
+                <p>Already have an account? <a href="<?php echo URLROOT; ?>/users/login">Sign in</a></p>
             </div>
         </form>
     </body>
