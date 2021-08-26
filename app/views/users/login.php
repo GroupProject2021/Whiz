@@ -1,16 +1,31 @@
-<?php require APPROOT.'/views/inc/header.php'; ?>
-<?php require APPROOT.'/views/inc/navbar.php'; ?>
-<h1><?php echo $data['title']; ?></h1>
-<form action="" method="post">
-    <p>Name: <input type="text" name="name"></p>
-    <p>Email: <input type="text" name="email"></p>
-    <p>Password: <input type="password" name="pwd"></p>
-    <p>Confirm password: <input type="password" name="c_pwd"></p>
-    <p><input type="submit" value="submit"></p>
-</form>
-    <ul>
-        <?php foreach($data['users'] as $user) :?>
-        <li><?php echo $user->user_name; ?></li>
-        <?php endforeach;?>
-    </ul>
-<?php require APPROOT.'/views/inc/footer.php'; ?>
+<html lang="en">
+    <head>
+        <title><?php echo SITENAME; ?></title>
+        <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
+        <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/users/login_style.css">
+    </head>
+    <body>
+        <!-- NAVIGATION BAR -->
+        <?php require APPROOT.'/views/inc/navbar.php'?>
+
+        <!-- LOGIN FORM -->
+        <form action="<?php echo URLROOT; ?>/users/login" method="post">
+            <div class="container">
+                <h1>Login</h1>
+                <p>Please enter your credentials</p>
+                <hr>
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter email" name="email" id="email" value="<?php echo $data['email']; ?>">
+                <span class="invalid"><?php echo $data['email_err']; ?></span><br>
+                <label for="password"><b>Password</b></label>
+                <input type="text" placeholder="Enter email" name="password" id="password" value="<?php echo $data['password']; ?>">
+                <span class="invalid"><?php echo $data['password_err']; ?></span><br>
+                <hr>
+                <button type="submit" class="loginBtn">Login</button>
+            </div>
+            <div class="container register">
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+        </form>
+    </body>
+</html>

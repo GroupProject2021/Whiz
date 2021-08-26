@@ -6,9 +6,38 @@
             $this->db = new Database;
         }
 
-        public function getUsers() {
-            $this->db->query("SELECT * FROM user");
-            return $results = $this->db->resultSet();
+        // Register user
+        public function register($data) {
+            $this->db->query('INSERT INTO users(name, email, password) VALUES(:name, :email, :password)');
+            // bind values
+            $this->db->bind(":name", $data['name']);
+            $this->db->bind(":email", $data['email']);
+            $this->db->bind(":password", $data['password']);
+
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        // Find user by email
+        public function findUserByEmail($email) {
+            $this->db->query('SELECT * FROM users WHERE email = :email'); // this is a prepared statement
+            // bind value
+            $this->db->bind(":email", $email);
+
+            $row = $this->db->single();
+
+            // Check row - return true if email exists. Because then rowCount is not 0
+            if($this->db->rowCount() > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
     }
 ?>

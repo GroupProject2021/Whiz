@@ -1,7 +1,10 @@
 /* If CSS didn't apply try Ctrl+F5 clear cache and then reload */
+
+/* navigation bar */
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Arial, Helvetica, sans-serif;
+  font-size: small;
 }
 
 .topnav {
