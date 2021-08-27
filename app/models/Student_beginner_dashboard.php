@@ -1,5 +1,5 @@
 <?php
-    class Post {
+    class Student_beginner_dashboard {
         private $db;
 
         public function __construct() {
@@ -7,7 +7,7 @@
         }
 
         public function getPosts() {
-            $this->db->query("SELECT * FROM posts");
+            $this->db->query("SELECT * FROM student");
             return $results = $this->db->resultSet();
         }
     }
