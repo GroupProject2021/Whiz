@@ -6,7 +6,7 @@ class Organization_university {
         $this->db = new Database;
     }
     public function check_user($user_name,$email_id) {
-        $result= $this->db->select("SELECT * FROM `user` WHERE user_name = '".$user_name."' OR user_email = '".$email_id."'");
+        $result= $this->db->query("SELECT * FROM `user` WHERE user_name = '".$user_name."' OR user_email = '".$email_id."'");
         $count = count($result);
         return $count;
     }

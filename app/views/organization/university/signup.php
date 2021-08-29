@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <form method="post" action="<?php echo URL; ?>Organizations_university/signup">
+        <form method="post" action="<?php echo URLROOT; ?>Organizations_university/signup">
             First name:<br>
             <input type="text" name="user_name" >
             <br>
