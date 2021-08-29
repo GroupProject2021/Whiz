@@ -1,12 +1,13 @@
 <html lang="en">
     <head>
         <title><?php echo SITENAME; ?></title>
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
+        <!-- Styles -->
+        <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/topnav.css">
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/users/upgrade_style.css">
     </head>
     <body>
-        <!-- NAVIGATION BAR -->
-        <?php require APPROOT.'/views/inc/student_navbar.php'?>
+        <!-- TOP NAVIGATION BAR -->
+        <?php require APPROOT.'/views/inc/components/topnav.php'?>
 
         <!-- REGISTRATION FORM -->
         <form action="<?php echo URLROOT; ?>/students_undergradGrad_upgradeScreen/register" method="post">
