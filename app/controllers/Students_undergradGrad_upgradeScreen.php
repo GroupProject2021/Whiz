@@ -4,7 +4,7 @@
             $this->studentUndergradGradUpgradeScreen = $this->model('Student_undergradGrad_upgradeScreen');
         }
 
-        public function idle() {
+        public function register() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Process form
@@ -39,7 +39,13 @@
 
                 // Make sure all errors are empty
                 if(empty($data['uni_name_err']) && empty($data['degree_err']) && empty($data['gpa_err'])) {
-                    redirect('students/login');
+                    // Register data
+                    if($this->studentUndergradGradUpgradeScreen->register($data)) {
+                        redirect('students_dashboard/index');
+                    }
+                    else {
+                        die('Something went wrong');
+                    }       
                 }
                 else {
                     // Load with errors

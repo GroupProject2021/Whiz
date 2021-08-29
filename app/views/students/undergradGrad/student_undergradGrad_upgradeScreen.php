@@ -9,7 +9,7 @@
         <?php require APPROOT.'/views/inc/student_navbar.php'?>
 
         <!-- REGISTRATION FORM -->
-        <form action="<?php echo URLROOT; ?>/students/register" method="post">
+        <form action="<?php echo URLROOT; ?>/students_undergradGrad_upgradeScreen/register" method="post">
             <div class="container">
                 <h1>Student Undergraduate/Graduate details</h1>
                 <p>Please fill the following details but you can skip this now and fill those in later as well.</p>

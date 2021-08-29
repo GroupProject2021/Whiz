@@ -4,7 +4,7 @@
             $this->studentAlQualifiedUpgradeScreen = $this->model('Student_alQualified_upgradeScreen');
         }
 
-        public function idle() {
+        public function register() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Process form
@@ -61,7 +61,13 @@
                 // Make sure all errors are empty
                 if(empty($data['al_school_err']) && empty($data['stream_err']) && empty($data['z_score_err'])
                     && empty($data['al_district_err']) && empty($data['general_test_grade_err']) && empty($data['general_english_grade_err'])) {
-                    redirect('Students_undergradGrad_upgradeScreen/idle');
+                    // Register data
+                    if($this->studentAlQualifiedUpgradeScreen->register($data)) {
+                        redirect('Students_undergradGrad_upgradeScreen/register');
+                    }
+                    else {
+                        die('Something went wrong');
+                    }                           
                 }
                 else {
                     // Load with errors
