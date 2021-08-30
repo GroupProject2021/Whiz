@@ -1,1 +1,18 @@
 /* If CSS didn't apply try Ctrl+F5 clear cache and then reload */
+
+/* seperate component styles */
+@import url('components/topnav.css');
+@import url('components/form.css');
+
+/* global styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-size: small;
+    background-color: #edf0f1;
+    text-align: left;
+}

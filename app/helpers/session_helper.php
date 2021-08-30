@@ -4,7 +4,7 @@
     // Flash message helper
     // EXAMPLE - flash('register_success', 'You are now registered', 'alert alert-success');
     // DISPLAY IN VIEW - <?php echo flash('register_success');
-    function flash($name = '', $message = '', $class = 'flashMesssage') {
+    function flash($name = '', $message = '', $class = 'form-flash') {
         if(!empty($name)) {
             if(!empty($message) && empty($_SESSION[$name])) {
                 // Unsetting
