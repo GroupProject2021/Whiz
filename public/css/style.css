@@ -3,6 +3,8 @@
 /* seperate component styles */
 @import url('components/topnav.css');
 @import url('components/form.css');
+@import url('components/sidebar.css');
+@import url('components/dashboard.css');
 
 /* global styles */
 * {
