@@ -6,11 +6,11 @@
     </head>
     <body>
         <!-- NAVIGATION BAR -->
-        <?php require APPROOT.'/views/inc/mentor_login_navbar.php'?>
+        <?php require APPROOT.'/views/inc/admin_login_navbar.php'?>
         <!-- LOGIN FORM -->
-        <form action="<?php echo URLROOT; ?>/mentors/login" method="post">
+        <form action="<?php echo URLROOT; ?>/admin/login" method="post">
             <div class="container">
-                <h1>Mentor Login</h1>
+                <h1>Admin Login</h1>
                 <p>Please enter your credentials</p>
                 <hr>
                 <!-- flash message -->              
@@ -27,7 +27,7 @@
                 <button type="submit" class="loginBtn">Login</button>
             </div>
             <div class="container register">
-                <p>Don't have an account? <a href="<?php echo URLROOT; ?>/mentors/register">Register</a></p>
+                <p>Don't have an account? <a href="<?php echo URLROOT; ?>/admin/register">Register</a></p>
             </div>
         </form>
     </body>
