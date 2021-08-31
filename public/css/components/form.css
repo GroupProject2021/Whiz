@@ -32,6 +32,7 @@ input[type=text]:focus, input[type=password]:focus {
 /* bold texts */
 .form-bold {
     margin: 16px 0 5px 0;
+    font-weight: bold;
     display: inline-block;
     border: none;
 }
@@ -52,6 +53,38 @@ input[type=text]:focus, input[type=password]:focus {
     opacity: 1;
 }
 
+/* Set a style for the skip button */
+.form-skip-button {
+    background-color: gray;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 49%;
+    opacity: 0.9;
+}
+
+.form-skip-button:hover {
+    opacity: 1;
+}
+
+/* Set a style for the next button */
+.form-next-button {
+    background-color: #db7e31;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 49%;
+    opacity: 0.9;
+}
+
+.form-next-button:hover {
+    opacity: 1;
+}
+
 /* Add a blue text color to links */
 .form-link {
     color: dodgerblue;
@@ -69,15 +102,24 @@ input[type=text]:focus, input[type=password]:focus {
     width: 100%;
 }
 
+tr {
+    height: 25px;
+}
+
+th {
+    font-size: small;
+    text-align: left;
+}
+
 /* Invalid message */
 .form-invalid {
-    color: #ff0000;
+    color: #dc3545;
     margin: 0 0 0 0;
 }
 
 /* Set a style for the submit button */
 .form-flash {
-    background-color: #2b8f00;
+    background-color: #28a745;
     color: white;
     padding: 16px 20px;
     margin: 8px 0;

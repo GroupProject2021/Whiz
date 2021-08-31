@@ -2,8 +2,7 @@
     <head>
         <title><?php echo SITENAME; ?></title>
         <!-- Styles -->
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/topnav.css">
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/users/login_style.css">
+        <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
     </head>
     <body>
         <!-- TOP NAVIGATION BAR -->

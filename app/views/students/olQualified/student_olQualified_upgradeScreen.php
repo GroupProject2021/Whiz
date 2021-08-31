@@ -2,254 +2,119 @@
     <head>
         <title><?php echo SITENAME; ?></title>
         <!-- Styles -->
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/topnav.css">
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/users/upgrade_style.css">
+        <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
     </head>
     <body>
         <!-- TOP NAVIGATION BAR -->
         <?php require APPROOT.'/views/inc/components/topnav.php'?>
 
         <!-- REGISTRATION FORM -->
-        <form action="<?php echo URLROOT; ?>/students_olQualified_upgradeScreen/register" method="post">
-            <div class="container">
+        <div class="form-container">
+            <form action="<?php echo URLROOT; ?>/students_olQualified_upgradeScreen/register" method="post">
                 <h1>Student OL details</h1>
                 <p>Please fill the following details but you can skip this now and fill those in later as well.</p>
-                <hr>
-                <label for="ol_school"><b>OL school</b></label>
+                <hr class="form-hr">
+                <label for="ol_school"><p class="form-bold">OL school</p></label>
                 <input type="text" placeholder="Enter ol school name" name="ol_school" id="ol_school" value="<?php echo $data['ol_school']; ?>">
-                <span class="invalid"><?php echo $data['ol_school_err']; ?></span><br>
+                <span class="form-invalid"><?php echo $data['ol_school_err']; ?></span><br>
 
-                <label for="ol_district"><b>District</b></label>
+                <label for="ol_district"><p class="form-bold">District</p></label>
                 <input type="text" placeholder="Enter district" name="ol_district" id="ol_district" value="<?php echo $data['ol_district']; ?>">
-                <span class="invalid"><?php echo $data['ol_district_err']; ?></span><br>
+                <span class="form-invalid"><?php echo $data['ol_district_err']; ?></span><br>
 
-                <label for="ol_results"><b>OL Results</b></label>
-                <ul>
-                    <li class="ul-listitem">
-                        Mathematics
-                        <lable class="ul-radioset">
-                            <lable class="ul-container">                        
-                                <input type="radio" checked="checked" name="radio_mathematics">A
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_mathematics">B
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_mathematics">C
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_mathematics">D
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_mathematics">E
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_mathematics">F
-                            </lable>
-                        </lable>
-                    </li>
-
-                    <li class="ul-listitem">
-                        Science
-                        <lable class="ul-radioset">
-                            <lable class="ul-container">                        
-                                <input type="radio" checked="checked" name="radio_science">A
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_science">B
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_science">C
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_science">D
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_science">E
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_science">F
-                            </lable>
-                        </lable>
-                    </li>
-
-                    <li class="ul-listitem">
-                        English
-                        <lable class="ul-radioset">
-                            <lable class="ul-container">                        
-                                <input type="radio" checked="checked" name="radio_english">A
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_english">B
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_english">C
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_english">D
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_english">E
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_english">F
-                            </lable>
-                        </lable>
-                    </li>
-
-                    <li class="ul-listitem">
-                        Sinhala
-                        <lable class="ul-radioset">
-                            <lable class="ul-container">                        
-                                <input type="radio" checked="checked" name="radio_sinhala">A
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_sinhala">B
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_sinhala">C
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_sinhala">D
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_sinhala">E
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_sinhala">F
-                            </lable>
-                        </lable>
-                    </li>
-
-                    <li class="ul-listitem">
-                        History
-                        <lable class="ul-radioset">
-                            <lable class="ul-container">                        
-                                <input type="radio" checked="checked" name="radio_history">A
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_history">B
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_history">C
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_history">D
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_history">E
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_history">F
-                            </lable>
-                        </lable>
-                    </li>
-
-                    <li class="ul-listitem">
-                        Religion
-                        <lable class="ul-radioset">
-                            <lable class="ul-container">                        
-                                <input type="radio" checked="checked" name="radio_religion">A
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_religion">B
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_religion">C
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_religion">D
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_religion">E
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_religion">F
-                            </lable>
-                        </lable>
-                    </li>
-
-                    <li class="ul-listitem">
-                        Basket 1
-                        <lable class="ul-radioset">
-                            <lable class="ul-container">                        
-                                <input type="radio" checked="checked" name="radio_basket1">A
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket1">B
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket1">C
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket1">D
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket1">E
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket1">F
-                            </lable>
-                        </lable>
-                    </li>
-
-                    <li class="ul-listitem">
-                        Basket 2
-                        <lable class="ul-radioset">
-                            <lable class="ul-container">                        
-                                <input type="radio" checked="checked" name="radio_basket2">A
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket2">B
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket2">C
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket2">D
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket2">E
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket2">F
-                            </lable>
-                        </lable>
-                    </li>
-
-                    <li class="ul-listitem">
-                        Basket 3
-                        <lable class="ul-radioset">
-                            <lable class="ul-container">                        
-                                <input type="radio" checked="checked" name="radio_basket3">A
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket3">B
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket3">C
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket3">D
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket3">E
-                            </lable>
-                            <lable class="ul-container">                        
-                                <input type="radio" name="radio_basket3">F
-                            </lable>
-                        </lable>
-                    </li>
-                </ul>
-
-                <hr>
-                <p>I do here by certify above details that I have entered are true and correct. <a href="#">Terms & Privacy</a></p>
-                <button type="submit" class="skipBtn">Skip</button>
-                <button type="submit" class="NextBtn">Next</button>
-            </div>
-            <div class="container signin">
-                <p>Contact for help? <a href="<?php echo URLROOT; ?>/students/login">Help & Services</a></p>
-            </div>
+                <label for="ol_results"><p class="form-bold">OL Results</p></label>
+                <table class="form-table">
+                    <tr>
+                        <th>Mathematics</th>
+                        <td><input type="radio" name="radio_mathematics">A</td>
+                        <td><input type="radio" name="radio_mathematics">B</td>
+                        <td><input type="radio" name="radio_mathematics">C</td>
+                        <td><input type="radio" name="radio_mathematics">D</td>
+                        <td><input type="radio" name="radio_mathematics">E</td>
+                        <td><input type="radio" name="radio_mathematics">F</td>
+                    </tr>
+                    <tr>
+                        <th>Science</th>
+                        <td><input type="radio" name="radio_science">A</td>
+                        <td><input type="radio" name="radio_science">B</td>
+                        <td><input type="radio" name="radio_science">C</td>
+                        <td><input type="radio" name="radio_science">D</td>
+                        <td><input type="radio" name="radio_science">E</td>
+                        <td><input type="radio" name="radio_science">F</td>
+                    </tr>
+                    <tr>
+                        <th>English</th>
+                        <td><input type="radio" name="radio_english">A</td>
+                        <td><input type="radio" name="radio_english">B</td>
+                        <td><input type="radio" name="radio_english">C</td>
+                        <td><input type="radio" name="radio_english">D</td>
+                        <td><input type="radio" name="radio_english">E</td>
+                        <td><input type="radio" name="radio_english">F</td>
+                    </tr>
+                    <tr>
+                        <th>Sinhala</th>
+                        <td><input type="radio" name="radio_sinhala">A</td>
+                        <td><input type="radio" name="radio_sinhala">B</td>
+                        <td><input type="radio" name="radio_sinhala">C</td>
+                        <td><input type="radio" name="radio_sinhala">D</td>
+                        <td><input type="radio" name="radio_sinhala">E</td>
+                        <td><input type="radio" name="radio_sinhala">F</td>
+                    </tr>
+                    <tr>
+                        <th>History</th>
+                        <td><input type="radio" name="radio_history">A</td>
+                        <td><input type="radio" name="radio_history">B</td>
+                        <td><input type="radio" name="radio_history">C</td>
+                        <td><input type="radio" name="radio_history">D</td>
+                        <td><input type="radio" name="radio_history">E</td>
+                        <td><input type="radio" name="radio_history">F</td>
+                    </tr>
+                    <tr>
+                        <th>Religion</th>
+                        <td><input type="radio" name="radio_religion">A</td>
+                        <td><input type="radio" name="radio_religion">B</td>
+                        <td><input type="radio" name="radio_religion">C</td>
+                        <td><input type="radio" name="radio_religion">D</td>
+                        <td><input type="radio" name="radio_religion">E</td>
+                        <td><input type="radio" name="radio_religion">F</td>
+                    </tr>
+                    <tr>
+                        <th>Basket 1</th>
+                        <td><input type="radio" name="radio_basket_1">A</td>
+                        <td><input type="radio" name="radio_basket_1">B</td>
+                        <td><input type="radio" name="radio_basket_1">C</td>
+                        <td><input type="radio" name="radio_basket_1">D</td>
+                        <td><input type="radio" name="radio_basket_1">E</td>
+                        <td><input type="radio" name="radio_basket_1">F</td>
+                    </tr>
+                    <tr>
+                        <th>Basket 2</th>
+                        <td><input type="radio" name="radio_basket_2">A</td>
+                        <td><input type="radio" name="radio_basket_2">B</td>
+                        <td><input type="radio" name="radio_basket_2">C</td>
+                        <td><input type="radio" name="radio_basket_2">D</td>
+                        <td><input type="radio" name="radio_basket_2">E</td>
+                        <td><input type="radio" name="radio_basket_2">F</td>
+                    </tr>
+                    <tr>
+                        <th>Basket 3</th>
+                        <td><input type="radio" name="radio_basket_3">A</td>
+                        <td><input type="radio" name="radio_basket_3">B</td>
+                        <td><input type="radio" name="radio_basket_3">C</td>
+                        <td><input type="radio" name="radio_basket_3">D</td>
+                        <td><input type="radio" name="radio_basket_3">E</td>
+                        <td><input type="radio" name="radio_basket_3">F</td>
+                    </tr>
+                </table>
+                <hr class="form-hr">
+                <p>I do here by certify above details that I have entered are true and correct. <a class="form-link" href="#">Terms & Privacy</a></p>
+                <button type="submit" class="form-skip-button">Skip</button>
+                <button type="submit" class="form-next-button">Next</button>
+            </form>
+        </div>
+        <div class="form-container signin">
+            <p>Contact for help? <a class="form-link" href="<?php echo URLROOT; ?>/students/login">Help & Services</a></p>
+        </div>
         </form>
     </body>
 </html>
