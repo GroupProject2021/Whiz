@@ -4,7 +4,7 @@
 
 * {
     box-sizing: border-box;
-    text-decoration: none;
+    /*text-decoration: none;*/
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@
     left: 0;
     top: 0;
     height: 100%;
-    padding: 1rem 1.2rem;
+    padding: 1rem 0.5rem;
     background: var(--color-main);
     color: #fff;
     transition: left 300ms;
@@ -71,27 +71,7 @@
     font-size: 0.8rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
-}
-
-.sidebar-menu ul {
-    margin-bottom: 1.5rem;
-}
-
-.sidebar-menu li {
-    margin-bottom: 0.8rem;
-}
-
-.sidebar-menu li a {
-    color: #efefef;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-}
-
-.sidebar-menu li a span {
-    font-size: 1.5rem;
-    display: inline-block;
-    margin-right: 0.8rem;
+    margin-top: 1rem;
 }
 
 #sidebar-toggle:checked ~ .sidebar {
@@ -106,4 +86,102 @@
 
 #sidebar-toggle:checked ~ .main-content {
     margin-left: 0;
+}
+
+
+/* user upgrade details */
+.sidebar-user-details {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.user-level-image img{
+    border-radius: 50%;
+    padding: 0.5rem;
+    height: 5rem;
+    width: 5rem;
+}
+
+.user-level-content {
+    display: grid;
+    grid-template-rows: 1fr 1fr 2fr;
+}
+
+.user-level-name{
+    text-align: center;
+}
+
+.user-level-name p{
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding-top: 0.2rem;
+}
+
+.profile-upgrade-prograse {
+    background: seagreen;
+    margin: 0.4rem;
+    border-radius: 3px;
+}
+
+.profile-upgrade-button-area {
+    text-align: center;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+}
+
+.profile-upgrade-button {
+    width: 100%;
+    height: 35px;
+    background: #5850ec;
+    color: #fff;
+    border: 1px solid #5850ec;
+    border-radius: 3px;
+}
+
+.profile-upgrade-button:hover {
+    width: 100%;
+    height: 35px;
+    background: #5e56ec;
+    color: #fff;
+    border: 1px solid #5850ec;
+    border-radius: 3px;
+}
+
+/* sidebar items */
+.sidebar-item {
+    margin-bottom: 0.2rem;
+}
+
+.sidebar-item button {
+    display: grid;
+    grid-template-columns: 3rem 6rem;
+    background: #1a202e;
+    height: 3rem;
+    color: #fff;
+    border: 1px solid #252250;
+    width: 100%;
+}
+
+.sidebar-item button:hover {
+    background: #131720;
+}
+
+.sidebar-item-icon {
+    margin: auto;
+    text-align: center;
+}
+
+.sidebar-item-name {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+/* common */
+hr {
+    margin-top: 0.5rem;
+    margin-bottom: 0.4rem;
+    border-color: #9e9e9e;
 }

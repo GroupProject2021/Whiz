@@ -45,6 +45,7 @@ main {
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
 }
+
     /* top panel */
 .top-panel {
     background: #fff;

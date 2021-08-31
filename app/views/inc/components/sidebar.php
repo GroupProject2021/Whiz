@@ -15,55 +15,59 @@
 
     <!-- sidebar main -->
     <div class="sidebar-main">
-        <div class="sidebar-user">
-            <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
-            <div>
-                <h3>
-                    Dhanushka
-                </h3>
-                <span>
-                    dhanushka@gmail.com
-                </span>
+        <hr>
+        <div class="sidebar-user-details">
+            <div class="user-level-image">
+                <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
+            </div>
+            <div class="user-level-content">
+                <div class="user-level-name">
+                    <p>Beginner</p>
+                </div>
+                <div class="profile-upgrade-prograse">
+
+                </div>
+                <div class="profile-upgrade-button-area">
+                    <input class="profile-upgrade-button" type="button" value="UPGRADE">
+                </div>
             </div>
         </div>
+        <hr>
 
-        <div class="sidebar-menu">
-            <div class="menu-head">
-                <span>Dashboard</span>
-            </div>
-            <ul>
-                <li>
-                    <a href="">
-                        <span class=""></span>
-                        Finance
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span class=""></span>
-                        Analytics
-                    </a>
-                </li>
-            </ul>
-
-            <div class="menu-head">
-                <span>Applications</span>
-            </div>
-            <ul>
-                <li>
-                    <a href="">
-                        <span class=""></span>
-                        Something
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span class=""></span>
-                        Anything
-                    </a>
-                </li>
-            </ul>
+        <div class="menu-head">
+            <span>Dashboard</span>
         </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/icon.png">
+                </div>
+                <div class="sidebar-item-name">
+                    cources
+                </div>
+            </button>
+        </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/icon.png">
+                </div>
+                <div class="sidebar-item-name">
+                    jobs
+                </div>
+            </button>
+        </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/icon.png">
+                </div>
+                <div class="sidebar-item-name">
+                    prediction
+                </div>
+            </button>
+        </div>
+
     </div>
 </div>
 
