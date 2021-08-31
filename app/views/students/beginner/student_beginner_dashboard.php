@@ -5,24 +5,20 @@
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
     </head>
     <body>
-        <!-- TOP NAVIGATION BAR -->
-        <?php require APPROOT.'/views/inc/components/topnav.php'?>
-
         <!-- SIDE BAR -->
         <?php require APPROOT.'/views/inc/components/sidebar.php'?>
 
         <div class="main-content">
-            <header>
+            <header>                
                 <div class="menu-toggle">
                     <label for="sidebar-toggle">
-                        <img src="<?php echo URLROOT; ?>/imgs/icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
                     </label>
                 </div>
-
-                <div class="header-icons">
-                <img src="<?php echo URLROOT; ?>/imgs/icon.png">
-                <img src="<?php echo URLROOT; ?>/imgs/icon.png">
-                <img src="<?php echo URLROOT; ?>/imgs/icon.png">
+                
+                <!-- TOP NAVIGATION BAR -->
+                <div class="topnav">
+                    <?php require APPROOT.'/views/inc/components/topnav.php'?>
                 </div>
             </header>
 

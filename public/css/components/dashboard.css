@@ -1,19 +1,17 @@
 header {
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto 1fr;
     background: #efefef;
-    padding: 1rem 1.5rem;
     position: fixed;
     left: 280px;
     width: calc(100% - 280px);
     top: 0;
     transition: margin-left 300ms;
+    height: 3rem;
 }
 
 .menu-toggle label {
-    height: 50px;
+    height: 3rem;
     width: 60px;
     display: grid;
     place-items: center;
@@ -24,12 +22,6 @@ header {
     background: #a5a4a4;
 }
 
-.header-icons img {
-    display: inline-block;
-    margin-left: 0.7rem;
-    font-size: 1.4rem;
-}
-
 .main-content {
     margin-left: 280px;
     transition: margin-left 300ms;
@@ -37,6 +29,7 @@ header {
 
 /* panels */
 main {
+    margin-top: 2.5rem;
     padding: 1rem;
 }
 

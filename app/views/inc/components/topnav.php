@@ -1,12 +1,33 @@
 <div class="topnav">
-  <a class="topnav-item" href="#home">Home</a>
-  <a class="topnav-item" href="#news">News</a>
-  <a class="topnav-item" href="#contact">Contact</a>
-  <a class="topnav-item" href="#about">About</a>
-  <?php if(isset($_SESSION['user_id'])) : ?>
-    <a class="topnav-item-active" href="<?php echo URLROOT; ?>/students/logout">Log Out</a>
-  <?php else: ?>
-    <a class="topnav-item-active" href="<?php echo URLROOT; ?>/students/register">Register</a>
-    <a class="topnav-item-active" href="<?php echo URLROOT; ?>/students/login">Log In</a>
-  <?php endif; ?>
+  <!-- Centered link -->
+  <!--
+  <div class="topnav-centered">
+    <a href="#home" class="active">Home</a>
+  </div>
+  -->
+
+  <!-- Left-aligned links (default) -->
+  <!--
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  -->
+
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+    <?php if(isset($_SESSION['user_id'])) : ?>      
+      <!-- User profile details -->
+      <div class="user-details">
+        <div class="user-profile-image">
+          <img src="<?php echo URLROOT; ?>/imgs/sidebar/logo.jpg">
+        </div>
+        <div class="user-profile-name">
+            Dhanushka
+        </div>
+      </div>
+      <a class="active" href="<?php echo URLROOT; ?>/students/logout">Log Out</a>
+    <?php else: ?>
+      <a class="active" href="<?php echo URLROOT; ?>/students/register">Register</a>
+      <a class="active" href="<?php echo URLROOT; ?>/students/login">Log In</a>
+    <?php endif; ?>
+  </div>
 </div>

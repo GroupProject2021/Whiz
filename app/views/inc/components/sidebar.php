@@ -4,11 +4,11 @@
     <!-- sidebar header -->
     <div class="sidebar-brand">
         <div class="brand-flex">
-            <img src="<?php echo URLROOT; ?>/imgs/sidebar/logo.jpg" width="50px" height="40px" alt="logo">
-
+            <img src="<?php echo URLROOT; ?>/imgs/sidebar/logo.png" width="60px" height="60px" alt="logo">
+            
             <div class="brand-icons">
-                <img src="<?php echo URLROOT; ?>/imgs/sidebar/icon.png">
-                <img src="<?php echo URLROOT; ?>/imgs/sidebar/icon.png">
+                <img src="<?php echo URLROOT; ?>/imgs/sidebar/top-idle.png">
+                <img src="<?php echo URLROOT; ?>/imgs/sidebar/top-idle.png">
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
         <div class="sidebar-item">
             <button>
                 <div class="sidebar-item-icon">
-                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/icon.png">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                 </div>
                 <div class="sidebar-item-name">
                     cources
@@ -50,7 +50,7 @@
         <div class="sidebar-item">
             <button>
                 <div class="sidebar-item-icon">
-                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/icon.png">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                 </div>
                 <div class="sidebar-item-name">
                     jobs
@@ -60,7 +60,7 @@
         <div class="sidebar-item">
             <button>
                 <div class="sidebar-item-icon">
-                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/icon.png">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                 </div>
                 <div class="sidebar-item-name">
                     prediction
