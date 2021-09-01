@@ -24,7 +24,7 @@
                 <div class="user-level-name">
                     <p>Beginner</p>
                 </div>
-                <div class="profile-upgrade-prograse">
+                <div class="profile-upgrade-progress">
 
                 </div>
                 <div class="profile-upgrade-button-area">

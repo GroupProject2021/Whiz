@@ -18,7 +18,7 @@
       <!-- User profile details -->
       <div class="user-details">
         <div class="user-profile-image">
-          <img src="<?php echo URLROOT; ?>/imgs/sidebar/logo.jpg">
+          <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg">
         </div>
         <div class="user-profile-name">
             Dhanushka

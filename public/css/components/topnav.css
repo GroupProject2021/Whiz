@@ -1,14 +1,26 @@
+:root {
+  --topnav-background-color: #333;
+  --topnav-a-color: #f2f2f2;
+  --topnav-a-hover-color: black;
+  --topnav-a-background-hover-color: #ddd;
+  --topnav-a-active-color: white;
+  --topnav-a-active-background-color: #e7971f;
+  --topnav-a-active-background-hover-color: #b37314;
+  --user-profile-image-border-color: #888888;
+  --user-profile-name-color: #ddd;
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
   position: relative;
-  background-color: #333;
+  background-color: var(--topnav-background-color);
   overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: var(--topnav-a-color);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -17,14 +29,18 @@
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: var(--topnav-a-background-hover-color);
+  color: var(--topnav-a-hover-color);
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #04AA6D;
-  color: white;
+  background-color: var(--topnav-a-active-background-color);
+  color:var(--topnav-a-active-color);
+}
+
+.topnav a.active:hover {
+  background-color: var(--topnav-a-active-background-hover-color);
 }
 
 /* Centered section inside the top navigation */
@@ -54,17 +70,14 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border-left: 2px solid #888888;
-  border-right: 2px solid #888888;
-  border-bottom: 2px solid #888888;
-  border-top: 2px solid #888888;
+  border: 2px solid var(--user-profile-image-border-color);
 }
 
 .user-profile-name {
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 1rem;
-  color: #ddd;
+  color: var(--user-profile-name-color);
 }
 
 /* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
