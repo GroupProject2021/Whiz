@@ -8,14 +8,15 @@
 
         // Register user
         public function register($data) {
-            $this->db->query('INSERT INTO mentor(name, address, gender, date_of_birth, email, phn_no, password) VALUES(:name, :address, :gender, :date_of_birth, :email, :phn_no, :password)');
+            $this->db->query('INSERT INTO mentor(name, email, mentor_type, password) VALUES(:name, :email, :mentor_type, :password)');
             // bind values
             $this->db->bind(":name", $data['name']);
-            $this->db->bind(":address", $data['address']);
-            $this->db->bind(":gender", $data['gender']);
-            $this->db->bind(":date_of_birth", $data['date_of_birth']);
+            //$this->db->bind(":address", $data['address']);
+            //$this->db->bind(":gender", $data['gender']);
+            //$this->db->bind(":date_of_birth", $data['date_of_birth']);
             $this->db->bind(":email", $data['email']);
-            $this->db->bind(":phn_no", $data['phn_no']);
+            $this->db->bind(":mentor_type", $data['mentor_type']);
+            //$this->db->bind(":phn_no", $data['phn_no']);
             $this->db->bind(":password", $data['password']);
 
             // Execute
