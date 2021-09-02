@@ -32,7 +32,7 @@
     // Check row - return true if email exists. Because then rowCount is not 0
             if($this->db->rowCount() > 0) {
                 return true;
-    }
+            }
              else {
                 return false;
             }
