@@ -23,21 +23,6 @@
         }
 
 
-        // Find user by email
-        public function findUserByEmail($email) {
-            $this->db->query('SELECT * FROM admin WHERE email = :email'); // this is a prepared statement
-            // bind value
-            $this->db->bind(":email", $email);
-
-            $row = $this->db->single();
-
-            // Check row - return true if email exists. Because then rowCount is not 0
-            if($this->db->rowCount() > 0) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
+        
     }
 ?>
