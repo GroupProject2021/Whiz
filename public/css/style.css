@@ -6,6 +6,12 @@
 @import url('components/sidebar.css');
 @import url('components/dashboard.css');
 
+/* fonts */
+@font-face {
+    font-family: Poppins-Regular;
+    src: url(fonts/poppins/Poppins-Regular.ttf);
+}
+
 /* global styles */
 * {
     box-sizing: border-box;
@@ -13,7 +19,8 @@
 
 body {
     margin: 0;
-    font-family: Arial, Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Arial, Helvetica, sans-serif; */
+    font-family: Poppins-Regular;
     font-size: small;
     background-color: #f8f9fa;
     text-align: left;

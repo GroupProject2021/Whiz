@@ -6,7 +6,7 @@ header {
     left: 280px;
     width: calc(100% - 280px);
     top: 0;
-    transition: margin-left 300ms;
+    transition: left 0.5s ease;
     height: 3rem;
 }
 
@@ -24,7 +24,7 @@ header {
 
 .main-content {
     margin-left: 280px;
-    transition: margin-left 300ms;
+    transition: margin-left 0.5s ease;
 }
 
 /* panels */
