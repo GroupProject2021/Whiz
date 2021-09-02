@@ -1,7 +1,7 @@
 <?php
     class Admin extends Controller {
         public function __construct() {
-            $this->AdminModel = $this->model('Admin');
+            $this->adminModel = $this->model('Admin');
         }
 public function login() {
             // Check for POST
@@ -30,7 +30,7 @@ public function login() {
                 }
 
                 // Check for user/email
-                if($this->AdminModel->findUserByEmail($data['email'])) {
+                if($this->adminModel->findUserByEmail($data['email'])) {
                     // User found
                 }
                 else {
@@ -42,7 +42,7 @@ public function login() {
                 if(empty($data['email_err']) && empty($data['password_err'])) {
                     // Validated
                     // Check and set logged in user
-                    $loggedInUser = $this->AdminModel->login($data['email'], $data['password']);
+                    $loggedInUser = $this->adminModel->login($data['email'], $data['password']);
 
                     if($loggedInUser) {
                         // Create session
@@ -51,12 +51,12 @@ public function login() {
                     else {
                         $data['password_err'] = 'Password incorrect';
 
-                        $this->view('Admin/Admin_login', $data);
+                        $this->view('admin/admin_login', $data);
                     }
                 }
                 else {
                     // Load view with errors
-                    $this->view('Admin/Admin_login', $data);
+                    $this->view('admin/admin_login', $data);
                 }
             }
             else {
@@ -70,7 +70,7 @@ public function login() {
             }
 
             // Load view
-            $this->view('Admin/Admin_login', $data);
+            $this->view('admin/admin_login', $data);
         }
 
         public function createUserSession($user) {
@@ -79,7 +79,7 @@ public function login() {
             $_SESSION['user_email'] = $user->email;
             $_SESSION['user_name'] = $user->name;
 
-            redirect('Admin_dashboard/index');
+            redirect('admin_dashboard/index');
         }
 
         public function logout() {
@@ -88,7 +88,7 @@ public function login() {
             unset($_SESSION['user_name']);
             session_destroy();
 
-            redirect('Admin/login');
+            redirect('admin/login');
         }
 
         public function isLoggedIn() {
