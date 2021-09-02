@@ -9,7 +9,7 @@
         <?php require APPROOT.'/views/inc/admin_login_navbar.php'?>
         <!-- LOGIN FORM -->
         <form action="<?php echo URLROOT; ?>/admin/login" method="post">
-            <div class="container">
+            <div class="form-container">
                 <h1>Admin Login</h1>
                 <p>Please enter your credentials</p>
                 <hr>
@@ -26,7 +26,7 @@
                 <hr>
                 <button type="submit" class="loginBtn">Login</button>
             </div>
-            <div class="container register">
+            <div class="form-container register">
                 <p>Don't have an account? <a href="<?php echo URLROOT; ?>/admin/register">Register</a></p>
             </div>
         </form>
