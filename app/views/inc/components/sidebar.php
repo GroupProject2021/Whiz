@@ -14,8 +14,9 @@
     </div>
 
     <!-- sidebar main -->
-    <div class="sidebar-main">
+    <div class="sidebar-main">        
         <hr>
+        <!-- Beginner to OL qualified upgrade -->
         <div class="sidebar-user-details">
             <div class="user-level-image">
                 <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
@@ -28,14 +29,69 @@
 
                 </div>
                 <div class="profile-upgrade-button-area">
-                    <input class="profile-upgrade-button" type="button" value="UPGRADE">
+                    <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToOlQualified">
+                        <input class="profile-upgrade-button" type="button" value="UPGRADE">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- OL qualified to AL qualified upgrade -->
+        <div class="sidebar-user-details">
+            <div class="user-level-image">
+                <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
+            </div>
+            <div class="user-level-content">
+                <div class="user-level-name">
+                    <p>OL Qualified</p>
+                </div>
+                <div class="profile-upgrade-progress">
+
+                </div>
+                <div class="profile-upgrade-button-area">
+                    <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToAlQualified">
+                        <input class="profile-upgrade-button" type="button" value="UPGRADE">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- AL qualified to UndergraduateGraduate upgrade -->
+        <div class="sidebar-user-details">
+            <div class="user-level-image">
+                <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
+            </div>
+            <div class="user-level-content">
+                <div class="user-level-name">
+                    <p>AL Qualified</p>
+                </div>
+                <div class="profile-upgrade-progress">
+
+                </div>
+                <div class="profile-upgrade-button-area">
+                    <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToUndergraduateGraduate">
+                        <input class="profile-upgrade-button" type="button" value="UPGRADE">
+                    </a>
                 </div>
             </div>
         </div>
         <hr>
 
+        
+
+        <!-- Beginner options -->
         <div class="menu-head">
-            <span>Dashboard</span>
+            <span>Beginner options</span>
+        </div>
+        <div class="sidebar-item">
+            <a href="">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        streams
+                    </div>
+                </button>
+            </a>
         </div>
         <div class="sidebar-item">
             <button>
@@ -43,9 +99,64 @@
                     <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                 </div>
                 <div class="sidebar-item-name">
-                    cources
+                    get guide
                 </div>
             </button>
+        </div>
+
+        <!-- OL qualified options -->
+        <div class="menu-head">
+            <span>OL Qualified options</span>
+        </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                </div>
+                <div class="sidebar-item-name">
+                    stream recommendation
+                </div>
+            </button>
+        </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                </div>
+                <div class="sidebar-item-name">
+                    get guide
+                </div>
+            </button>
+        </div>
+
+        <!-- AL qualified options -->
+        <div class="menu-head">
+            <span>AL Qualified options</span>
+        </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                </div>
+                <div class="sidebar-item-name">
+                    cource recommendation
+                </div>
+            </button>
+        </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                </div>
+                <div class="sidebar-item-name">
+                    get guide
+                </div>
+            </button>
+        </div>
+
+        <!-- Undergrad Grad options -->
+        <div class="menu-head">
+            <span>Underdraduate / graduate options</span>
         </div>
         <div class="sidebar-item">
             <button>
@@ -57,17 +168,6 @@
                 </div>
             </button>
         </div>
-        <div class="sidebar-item">
-            <button>
-                <div class="sidebar-item-icon">
-                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
-                </div>
-                <div class="sidebar-item-name">
-                    prediction
-                </div>
-            </button>
-        </div>
-
     </div>
 </div>
 

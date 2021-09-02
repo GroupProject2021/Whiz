@@ -1,19 +1,19 @@
 :root {
     --header-background-color: #efefef;
     --menu-toggle-color: #a5a4a4;
-    --top-panel-background-color: #fff;
+    --top-panel-background-color: #f1f5f9;
     --top-panel-h1-color: rgb(31, 29, 29);
-    --middle-left-panel-background-color: #fff;
-    --notices-background-color: #fff;
+    --middle-left-panel-background-color: #f1f5f9;
+    --notices-background-color: #f1f5f9;
     --notices-h2-color:  #555;
-    --notice-card-background-color: rgb(233, 231, 231);
+    --notice-card-background-color: #d0d7dd;
     --notice-card-content-image-border-color: #b0b0b3;
     --notice-card-content-button-background-color: #5850ec;
     --notice-card-content-button-color: #fff;
     --notice-card-content-button-border-color: #5850ec;
-    --updates-background-color: #fff;
+    --updates-background-color: #f1f5f9;
     --updates-h2-color: #555;
-    --bottom-panel-background-color: #fff;
+    --bottom-panel-background-color: #f1f5f9;
     --bottom-panel-p-color: #555;
     --box-shadow-color: rgba(0, 0, 0, 0.3);
 }
@@ -112,9 +112,10 @@ main {
 
 .notice-card {
     background: var(--notice-card-background-color);
-    padding: 1rem;
+    padding: 0.8rem;
     border-radius: 3px;
     margin-bottom: 0.3rem;
+    box-shadow: 1px 1px 1px var(--box-shadow-color);
 }
 
 .notice-card-content {

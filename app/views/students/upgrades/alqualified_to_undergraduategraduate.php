@@ -10,7 +10,7 @@
 
         <!-- REGISTRATION FORM -->
         <div class="form-container">
-            <form action="<?php echo URLROOT; ?>/students_undergradGrad_upgradeScreen/register" method="post">
+            <form action="<?php echo URLROOT; ?>/Students_ProfileUpgrades/upgradeToUndergraduateGraduate" method="post">
                 <h1>Student Undergraduate/Graduate details</h1>
                 <p>Please fill the following details but you can skip this now and fill those in later as well.</p>
                 <hr class="form-hr">

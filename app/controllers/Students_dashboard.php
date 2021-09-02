@@ -6,7 +6,7 @@
 
         public function index() {
             $posts = $this->studentDashboardModel->getPosts();
-            $data = ['title' => 'Welcome to Students dashboard', 'posts' => $posts];
+            $data = ['title' => 'Welcome to Students beginner dashboard', 'posts' => $posts];
             $this->view('students/student_dashboard', $data);
         }
     }

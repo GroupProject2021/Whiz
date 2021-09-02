@@ -1,17 +1,17 @@
 :root {
-    /*--color-main: #1a202e;*/
-    --color-main: #333;
-    --color-main-background: #fff;
+    --color-main: #1a202e;
+    /* --color-main: #333; */
+    --color-main-background: #efefef;
     --profile-upgrade-progressbar-color: seagreen;    
     --profile-upgrade-button-color: #5850ec;
     --profile-upgrade-button-color-hover: #6860ff;
-    --profile-upgrade-button-background-color: #fff;
+    --profile-upgrade-button-background-color: #efefef;
     --user-level-img-border: #efefef;
     --sidebar-item-header-color: #8da2fb;
-    --sidebar-item-color: #f1f1f1;
-    --sidebar-item-color-hover: #cecccc;
-    --sidebar-item-border-color: #252250;
-    --sidebar-item-background-color: #000;
+    --sidebar-item-color: #21293a;
+    --sidebar-item-color-hover: #3e4b68;
+    --sidebar-item-border-color: #1a202e;
+    --sidebar-item-background-color: #c4c3c3;
     --hr-color: #9e9e9e;
 }
 
@@ -180,6 +180,7 @@
     margin-top: auto;
     margin-bottom: auto;
     font-size: 0.8rem;
+    font-weight: 500;
     text-transform: uppercase;
     text-align: left;
 }
