@@ -13,9 +13,6 @@
                 <h1>Admin Login</h1>
                 <p>Please enter your credentials</p>
                 <hr>
-                <!-- flash message -->              
-                <?php flash('register_success'); ?>
-
                 <label for="email"><b>Email</b></label>
                 <input type="text" placeholder="Enter email" name="email" id="email" value="<?php echo $data['email']; ?>">
                 <span class="invalid"><?php echo $data['email_err']; ?></span><br>
