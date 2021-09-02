@@ -79,7 +79,7 @@ public function login() {
             $_SESSION['user_email'] = $user->email;
             $_SESSION['user_name'] = $user->name;
 
-            redirect('admins_dashboard/index');
+            redirect('students_beginner_dashboard/index');
         }
 
         public function logout() {
