@@ -7,7 +7,7 @@
         }
         // Login user
         public function login($email, $password) {
-            $this->db->query('SELECT * FROM Admin WHERE email = :email');
+            $this->db->query('SELECT * FROM admin WHERE email = :email');
             // bind values
             $this->db->bind(':email', $email);
 
@@ -25,7 +25,7 @@
 
         // Find user by email
         public function findUserByEmail($email) {
-            $this->db->query('SELECT * FROM Admin WHERE email = :email'); // this is a prepared statement
+            $this->db->query('SELECT * FROM admin WHERE email = :email'); // this is a prepared statement
             // bind value
             $this->db->bind(":email", $email);
 
