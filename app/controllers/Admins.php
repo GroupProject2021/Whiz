@@ -51,12 +51,12 @@ public function login() {
                     else {
                         $data['password_err'] = 'Password incorrect';
 
-                        $this->view('admin/admin_login', $data);
+                        $this->view('admins/admin_login', $data);
                     }
                 }
                 else {
                     // Load view with errors
-                    $this->view('admin/admin_login', $data);
+                    $this->view('admins/admin_login', $data);
                 }
             }
             else {
@@ -70,7 +70,7 @@ public function login() {
             }
 
             // Load view
-            $this->view('admin/admin_login', $data);
+            $this->view('admins/admin_login', $data);
         }
 
         public function createUserSession($user) {
@@ -79,7 +79,7 @@ public function login() {
             $_SESSION['user_email'] = $user->email;
             $_SESSION['user_name'] = $user->name;
 
-            redirect('admin_dashboard/index');
+            redirect('admins_dashboard/index');
         }
 
         public function logout() {
@@ -88,7 +88,7 @@ public function login() {
             unset($_SESSION['user_name']);
             session_destroy();
 
-            redirect('admin/login');
+            redirect('admins/login');
         }
 
         public function isLoggedIn() {
