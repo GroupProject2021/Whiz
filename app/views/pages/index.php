@@ -6,7 +6,7 @@
     </head>
     <body>
         <!-- NAVIGATION BAR -->
-        <?php require APPROOT.'/views/inc/navbar.php'?>
+        <?php require APPROOT.'/views/inc/components/topnav.php'?>
         
         <h1><?php echo $data['title']; ?></h1>
         <ul>

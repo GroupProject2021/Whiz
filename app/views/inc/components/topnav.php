@@ -1,10 +1,10 @@
 <div class="topnav">
   <!-- Centered link -->
-  <!--
+  
   <div class="topnav-centered">
-    <a href="#home" class="active">Home</a>
+    <a href="<?php echo URLROOT; ?>" class="active">Home</a>
   </div>
-  -->
+ 
 
   <!-- Left-aligned links (default) -->
   <!--
@@ -21,7 +21,7 @@
           <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg">
         </div>
         <div class="user-profile-name">
-            Dhanushka
+            <a href=""><?php echo $_SESSION['user_name']; ?></a>
         </div>
       </div>
       <a class="active" href="<?php echo URLROOT; ?>/students/logout">Log Out</a>

@@ -5,6 +5,12 @@
         }
 
         public function index() {
+            // if logged in rirectly go to the posts not home
+            // if(isLoggedIn())
+            // {
+            //     redirect('posts');
+            // }
+
             $posts = $this->postModel->getPosts();
             $data = ['title' => 'welcome', 'posts' => $posts];
             $this->view('pages/index', $data);

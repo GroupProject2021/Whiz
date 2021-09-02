@@ -6,7 +6,7 @@
     </head>
     <body>
         <!-- NAVIGATION BAR -->
-        <?php require APPROOT.'/views/inc/navbar.php'?>
+        <?php require APPROOT.'/views/inc/components/topnav.php'?>
         <!-- LOGIN FORM -->
         <form action="<?php echo URLROOT; ?>/users/login" method="post">
             <div class="container">
