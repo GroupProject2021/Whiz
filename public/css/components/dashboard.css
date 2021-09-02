@@ -1,12 +1,32 @@
+:root {
+    --header-background-color: #efefef;
+    --menu-toggle-color: #a5a4a4;
+    --top-panel-background-color: #fff;
+    --top-panel-h1-color: rgb(31, 29, 29);
+    --middle-left-panel-background-color: #fff;
+    --notices-background-color: #fff;
+    --notices-h2-color:  #555;
+    --notice-card-background-color: rgb(233, 231, 231);
+    --notice-card-content-image-border-color: #b0b0b3;
+    --notice-card-content-button-background-color: #5850ec;
+    --notice-card-content-button-color: #fff;
+    --notice-card-content-button-border-color: #5850ec;
+    --updates-background-color: #fff;
+    --updates-h2-color: #555;
+    --bottom-panel-background-color: #fff;
+    --bottom-panel-p-color: #555;
+    --box-shadow-color: rgba(0, 0, 0, 0.3);
+}
+
 header {
     display: grid;
     grid-template-columns: auto 1fr;
-    background: #efefef;
+    background: var(--header-background-color);
     position: fixed;
     left: 280px;
     width: calc(100% - 280px);
     top: 0;
-    transition: left 0.5s ease;
+    /* transition: left 0.5s ease; */
     height: 3rem;
 }
 
@@ -19,7 +39,7 @@ header {
 }
 
 .menu-toggle label:hover {
-    background: #a5a4a4;
+    background: var(--menu-toggle-color);
 }
 
 .main-content {
@@ -41,9 +61,9 @@ main {
 
     /* top panel */
 .top-panel {
-    background: #fff;
+    background: var(--top-panel-background-color);
     padding: 1rem;
-    box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 2px 6px var(--box-shadow-color);
     border-radius: 0px;
     grid-column: 1/3;
 }
@@ -51,7 +71,7 @@ main {
 .top-panel h1 {
     display: block;
     text-transform: uppercase;
-    color: rgb(31, 29, 29);
+    color: var(--top-panel-h1-color);
     font-size: 1.5rem;
 }
 
@@ -64,9 +84,9 @@ main {
 }
             /* middle panel left */
 .middle-left-panel {
-    background: #fff;
+    background: var(--middle-left-panel-background-color);
     padding: 1rem;
-    box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 2px 6px var(--box-shadow-color);
     border-radius: 0px;
 }
 
@@ -77,21 +97,21 @@ main {
 }
             /* notices */
 .notices {
-    background: #fff;
+    background: var(--notices-background-color);
     padding: 1rem;
-    box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 2px 6px var(--box-shadow-color);
     border-radius: 0px;
 }
 
 .notices h2 {
     display: block;
     text-transform: uppercase;
-    color: #555;
+    color:var(--notices-h2-color);
     font-size: 0.9rem;
 }
 
 .notice-card {
-    background: rgb(233, 231, 231);
+    background: var(--notice-card-background-color);
     padding: 1rem;
     border-radius: 3px;
     margin-bottom: 0.3rem;
@@ -104,7 +124,7 @@ main {
 }
 
 .notice-card-content-image {
-    border: 1px solid #b0b0b3;
+    border: 1px solid var(--notice-card-content-image-border-color);
     width: 4rem;
     height: 4rem;
 }
@@ -113,32 +133,32 @@ main {
     padding: 0.6rem 1rem;
     width: 100%;
     height: 45px;
-    background: #5850ec;
-    color: #fff;
-    border: 1px solid #5850ec;
+    background: var(--notice-card-content-button-background-color);
+    color: var(--notice-card-content-button-color);
+    border: 1px solid var(--notice-card-content-button-border-color);
     border-radius: 3px;
 }
 
             /* updates */
 .updates {
-    background: #fff;
+    background: var(--updates-background-color);
     padding: 1rem;
-    box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 2px 6px var(--box-shadow-color);
     border-radius: 0px;
 }
 
 .updates h2 {
     display: block;
     text-transform: uppercase;
-    color: #555;
+    color: var(--updates-h2-color);
     font-size: 0.9rem;
 }
 
     /* bottom panel */
 .bottom-panel {
-    background: #fff;
+    background: var(--bottom-panel-background-color);
     padding: 1rem;
-    box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 2px 6px var(--box-shadow-color);
     border-radius: 0px;
     grid-column: 1/3;
 }
@@ -146,7 +166,7 @@ main {
 .bottom-panel p {
     text-align: center;
     display: block;
-    color: #555;
+    color: var(--bottom-panel-p-color);
     font-size: 0.8rem;
 }
 

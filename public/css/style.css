@@ -1,5 +1,4 @@
 /* If CSS didn't apply try Ctrl+F5 clear cache and then reload */
-
 /* seperate component styles */
 @import url('components/topnav.css');
 @import url('components/form.css');
@@ -12,6 +11,10 @@
     src: url(fonts/poppins/Poppins-Regular.ttf);
 }
 
+:root {
+    --main-background-color: #f8f9fa;
+}
+
 /* global styles */
 * {
     box-sizing: border-box;
@@ -22,6 +25,6 @@ body {
     /* font-family: Arial, Arial, Helvetica, sans-serif; */
     font-family: Poppins-Regular;
     font-size: small;
-    background-color: #f8f9fa;
+    background-color: var(--main-background-color);
     text-align: left;
 }
