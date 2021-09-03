@@ -208,17 +208,24 @@
 
         public function createUserSession($user) {
             // taken from the database
-            $_SESSION['user_id'] = $user->stu_id;
+            // $_SESSION['user_id'] = $user->stu_id;
+            $_SESSION['user_id'] = $user->id;
             $_SESSION['user_email'] = $user->email;
             $_SESSION['user_name'] = $user->name;
+            // added later
+            $_SESSION['actor_type'] = $user->actor_type;
+            $_SESSION['specialized_actor_type'] = $user->specialized_actor_type;
 
-            redirect('students_beginner_dashboard/index');
+            redirect('students_dashboard/index');
         }
 
         public function logout() {
             unset($_SESSION['user_id']);
             unset($_SESSION['user_email']);
-            unset($_SESSION['user_name']);
+            unset($_SESSION['user_name']);            
+            // added later
+            unset($_SESSION['actor_type']);
+            unset($_SESSION['specialized_actor_type']);
             session_destroy();
 
             redirect('students/login');

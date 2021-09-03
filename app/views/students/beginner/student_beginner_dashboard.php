@@ -32,7 +32,7 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel">
                         <div class="middle-left-panel">
-
+                            
                         </div>
                         <div class="middle-right-panel">
                             <div class="notices">

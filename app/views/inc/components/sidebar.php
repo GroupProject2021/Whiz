@@ -16,6 +16,7 @@
     <!-- sidebar main -->
     <div class="sidebar-main">        
         <hr>
+        <?php if($_SESSION['specialized_actor_type'] == 'Beginner'): ?>
         <!-- Beginner to OL qualified upgrade -->
         <div class="sidebar-user-details">
             <div class="user-level-image">
@@ -35,6 +36,7 @@
                 </div>
             </div>
         </div>
+        <?php elseif($_SESSION['specialized_actor_type'] == 'OL qualified'): ?>
         <!-- OL qualified to AL qualified upgrade -->
         <div class="sidebar-user-details">
             <div class="user-level-image">
@@ -54,6 +56,7 @@
                 </div>
             </div>
         </div>
+        <?php else: ?>
         <!-- AL qualified to UndergraduateGraduate upgrade -->
         <div class="sidebar-user-details">
             <div class="user-level-image">
@@ -73,6 +76,7 @@
                 </div>
             </div>
         </div>
+        <?php endif; ?>
         <hr>
 
         

@@ -23,7 +23,7 @@
                 <textarea placeholder="Enter email" name="body" id="body"><?php echo $data['body']; ?></textarea>
                 <span class="form-invalid"><?php echo $data['body_err']; ?></span><br>
                 <hr  class="form-hr">
-                <button type="submit" class="form-submit">Login</button>
+                <button type="submit" class="form-submit">ADD</button>
             </form>
         </div>
         <div class="form-container content">

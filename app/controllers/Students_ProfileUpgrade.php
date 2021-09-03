@@ -33,8 +33,8 @@
                 // Make sure all errors are empty
                 if(empty($data['ol_school_err']) && empty($data['ol_district_err'])) {
                     // Register data
-                    if($this->studentProfileUpgrade->registerOLqualified($data)) {
-                        redirect('Students_alQualified_upgradeScreen/register');
+                    if($this->studentProfileUpgrade->registerOLqualified($_SESSION['user_id'], $data)) {
+                        redirect('Students_dashboard');
                     }
                     else {
                         die('Something went wrong');

@@ -10,8 +10,8 @@
 
         <!-- REGISTRATION FORM -->
         <div class="form-container">
-            <form action="<?php echo URLROOT; ?>/Students_ProfileUpgrades/upgradeToOlQualified" method="post">
-                <h1>Student OL details</h1>
+            <form action="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToOlQualified" method="post">
+                <h1>Student OL details<?php echo $_SESSION['user_id'];?></h1>
                 <p>Please fill the following details but you can skip this now and fill those in later as well.</p>
                 <hr class="form-hr">
                 <label for="ol_school"><p class="form-bold">OL school</p></label>

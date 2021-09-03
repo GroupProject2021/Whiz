@@ -7,7 +7,20 @@
         }
 
         // Register user
-        public function register($data) {
+        public function register($data) {        
+            // register as a user    
+            $this->db->query('INSERT INTO users(name, email, password, actor_type, specialized_actor_type) VALUES(:name, :email, :password, :actor_type, :specialized_actor_type)');
+            // bind values
+            $this->db->bind(':name', $data['name']);
+            $this->db->bind(':email', $data['email']);
+            $this->db->bind(':password', $data['password']);
+            $this->db->bind(':actor_type', 'Student');
+            $this->db->bind(':specialized_actor_type', 'Beginner');
+
+            $this->db->execute();
+
+
+            // register as a student
             $this->db->query('INSERT INTO student(name, address, gender, date_of_birth, email, phn_no, password) VALUES(:name, :address, :gender, :date_of_birth, :email, :phn_no, :password)');
             // bind values
             $this->db->bind(":name", $data['name']);
@@ -27,9 +40,29 @@
             }
         }
 
+        // this function not working i dont know why!!!!!!!!!!!!
+        // public function registerAsBeginner($data) {
+        //     // register as a beginner
+        //     $this->db->query('INSERT INTO beginner(stu_id, school) VALUES(:stuid, :school)');
+        //     // take stu_id from student table
+        //     $stuId = $this->findStudentIdbyEmail($data['email']);
+        //     //bind values
+        //     $this->db->bind(':stuid', $stuId);
+        //     $this->db->bind(':school', 'HRCC');
+
+        //     // Execute
+        //     if($this->db->execute()) {
+        //         return true;
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
+
         // Login user
         public function login($email, $password) {
-            $this->db->query('SELECT * FROM student WHERE email = :email');
+            // $this->db->query('SELECT * FROM student WHERE email = :email');
+            $this->db->query('SELECT * FROM users WHERE email = :email');
             // bind values
             $this->db->bind(':email', $email);
 
@@ -47,7 +80,8 @@
 
         // Find user by email
         public function findUserByEmail($email) {
-            $this->db->query('SELECT * FROM student WHERE email = :email'); // this is a prepared statement
+            // $this->db->query('SELECT * FROM student WHERE email = :email'); // this is a prepared statement
+            $this->db->query('SELECT * FROM users WHERE email = :email'); // this is a prepared statement
             // bind value
             $this->db->bind(":email", $email);
 
@@ -61,5 +95,17 @@
                 return false;
             }
         }
+
+        // useful for initialized the beginner details using students
+        // public function findStudentIdbyEmail($email) {
+        //     $this->db->query('SELECT * FROM student WHERE email = :email');
+        //     // bind values
+        //     $this->db->bind(':email', $email);
+
+        //     $row = $this->db->single();
+
+        //     $id = $row->stu_id;
+        //     return $id;
+        // }
     }
 ?>

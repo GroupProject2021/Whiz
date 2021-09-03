@@ -4,15 +4,35 @@
             $this->db = new Database;
         }
 
-        public function registerOLqualified($data) {
+        public function registerOLqualified($stuId, $data) {
+            // update user status
+            $this->db->query('UPDATE users SET specialized_actor_type = :specialized_actor_type WHERE id = :stuid');
+            // bind values
+            $this->db->bind(':specialized_actor_type', 'OL qualified');
+            $this->db->bind(':stuid', $stuId);
+
+            $this->db->execute();
+
+
+            // remove the beginner student
+            // $this->db->query('DELETE FROM users WHERE email = :email');
+            // // bind values
+            // $this->db->bind(':email', $data['email']);
+
+            // $this->db->execute();
+
+            // take stu id
+            $id = $this->findStudentIdbyEmail($_SESSION['user_email']);
+            // register as a ol qualified student
             $this->db->query('INSERT INTO olqualifiedStudent(stu_id, ol_school, district, ol_sub1_id, ol_sub1_grade, ol_sub2_id, ol_sub2_grade,
                                  ol_sub3_id, ol_sub3_grade, ol_sub4_id, ol_sub4_grade, ol_sub5_id, ol_sub5_grade, ol_sub6_id, ol_sub6_grade,
                                  ol_sub7_id, ol_sub7_grade, ol_sub8_id, ol_sub8_grade, ol_sub9_id, ol_sub9_grade)
                                  VALUES (:stu_id, :ol_school, :district, :ol_sub1_id, :ol_sub1_grade, :ol_sub2_id, :ol_sub2_grade,
                                  :ol_sub3_id, :ol_sub3_grade, :ol_sub4_id, :ol_sub4_grade, :ol_sub5_id, :ol_sub5_grade, :ol_sub6_id, :ol_sub6_grade,
                                  :ol_sub7_id, :ol_sub7_grade, :ol_sub8_id, :ol_sub8_grade, :ol_sub9_id, :ol_sub9_grade)');
-            
-            $this->db->bind(':stu_id', 1);
+            // bind values
+            $this->db->bind(':stu_id', $id);
+            $this->db->bind(':ol_school', $data['ol_school']);
             $this->db->bind(':ol_school', $data['ol_school']);
             $this->db->bind(':district', $data['ol_district']);
             $this->db->bind(':ol_sub1_id', 1);
@@ -44,11 +64,12 @@
         }
 
         public function registerALqualified($data) {
+            // register as a al qualified student
             $this->db->query('INSERT INTO alqualifiedStudent(stu_id, al_school, stream, z_score, district, al_general_test_grade, al_general_english_grade,
                                 al_sub1_id, al_sub1_grade, al_sub2_id, al_sub2_grade, al_sub3_id, al_sub3_grade)
                                 VALUES(:stu_id, :al_school, :stream, :z_score, :district, :al_general_test_grade, :al_general_english_grade,
                                 :al_sub1_id, :al_sub1_grade, :al_sub2_id, :al_sub2_grade, :al_sub3_id, :al_sub3_grade)');
-            
+            // bind values
             $this->db->bind(':stu_id', 1);
             $this->db->bind(':al_school', $data['al_school']);
             $this->db->bind(':stream', $data['stream']);
@@ -73,8 +94,9 @@
         }
 
         public function registerUndergraduateGraduate($data) {
+            // register as a undergraduate graduate
             $this->db->query('INSERT INTO undergraduategraduate(stu_id, degree, uni_name, gpa) VALUES(:stu_id, :degree, :uni_name, :gpa)');
-            
+            //bind values
             $this->db->bind(':stu_id', 1);
             $this->db->bind(':degree', $data['degree']);
             $this->db->bind(':uni_name', $data['uni_name']);
@@ -87,6 +109,18 @@
             else {
                 return false;
             }
+        }
+
+        // useful for initialized the beginner details using students
+        public function findStudentIdbyEmail($email) {
+            $this->db->query('SELECT * FROM student WHERE email = :email');
+            // bind values
+            $this->db->bind(':email', $email);
+
+            $row = $this->db->single();
+
+            $id = $row->stu_id;
+            return $id;
         }
     }
 ?>
