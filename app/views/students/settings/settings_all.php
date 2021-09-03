@@ -31,6 +31,7 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
+                        <?php flash('settings_message'); ?>
                         <div class="settings-header">
                                 <div class="settings-header-item"><h2>Basic details</h2></div>
                                 <div class="settings-header-item"><a href="<?php echo URLROOT; ?>/students_dashboard/editSettingsBeginner"><input class="edit-button" type="button" value="Edit"></a></div>
@@ -77,8 +78,12 @@
                         </div>
 
                         <br><br>
-                        <h2>OL details</h2>
-                        <br>   
+                        <div class="settings-header">
+                            <div class="settings-header-item"><h2>OL details</h2></div>
+                            <div class="settings-header-item"><a href="<?php echo URLROOT; ?>/students_dashboard/editSettingsOL"><input class="edit-button" type="button" value="Edit"></a></div>
+                        </div>
+                        <br>
+                        <div class="table-section"> 
                         <table class="settings-table">
                             <tr>
                                 <th class="A">OL School</th>
@@ -86,8 +91,8 @@
                                 <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                             </tr>
                             <tr>
-                                <th class="A">District</th>
-                                <td class="B"><p><?php echo $data['district'];?></p></td>
+                                <th class="A">District *there is an error</th>
+                                <td class="B"><p><?php echo $data['ol_district'];?></p></td>
                                 <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                             </tr>
                             <tr>
@@ -135,11 +140,16 @@
                                 <td class="B"><p><?php echo $data['ol_sub9_grade'];?></p></td>
                                 <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                             </tr>
-                        </table>  
+                        </table>
+                        </div>  
                         
                         <br><br>
-                        <h2>AL details</h2>
-                        <br>   
+                        <div class="settings-header">
+                            <div class="settings-header-item"><h2>AL details</h2></div>
+                            <div class="settings-header-item"><a href="<?php echo URLROOT; ?>/students_dashboard/editSettingsAL"><input class="edit-button" type="button" value="Edit"></a></div>
+                        </div>
+                        <br>
+                        <div class="table-section"> 
                         <table class="settings-table">
                             <tr>
                                 <th class="A">AL School</th>
@@ -148,7 +158,7 @@
                             </tr>
                             <tr>
                                 <th class="A">District</th>
-                                <td class="B"><p><?php echo $data['district'];?></p></td>
+                                <td class="B"><p><?php echo $data['al_district'];?></p></td>
                                 <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                             </tr>
                             <tr>
@@ -186,11 +196,16 @@
                                 <td class="B"><p><?php echo $data['al_sub3_grade'];?></p></td>
                                 <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                             </tr>
-                        </table> 
+                        </table>
+                        </div>
                         
                         <br><br>
-                        <h2>University details</h2>
+                        <div class="settings-header">
+                            <div class="settings-header-item"><h2>University details</h2></div>
+                            <div class="settings-header-item"><a href="<?php echo URLROOT; ?>/students_dashboard/editSettingsUG"><input class="edit-button" type="button" value="Edit"></a></div>
+                        </div>
                         <br>   
+                        <div class="table-section"> 
                         <table class="settings-table">
                             <tr>
                                 <th class="A">University</th>
@@ -208,6 +223,7 @@
                                 <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                             </tr>
                         </table> 
+                        </div>
                     </div>
 
 
