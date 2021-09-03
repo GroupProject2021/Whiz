@@ -62,5 +62,30 @@
             $id = $row->stu_id;
             return $id;
         }
+
+        // update setting for beginnner
+        public function updateStudentSettings($id, $data) {
+            $this->db->query('UPDATE student SET name = :name, address = :address, gender = :gender,
+                                date_of_birth = :date_of_birth, email = :email, phn_no = :phn_no, password = :password
+                                 WHERE stu_id = :id');
+            // bind values
+            
+            $this->db->bind(":name", $data['name']);
+            $this->db->bind(":address", $data['address']);
+            $this->db->bind(":gender", $data['gender']);
+            $this->db->bind(":date_of_birth", $data['date_of_birth']);
+            $this->db->bind(":email", $data['email']);
+            $this->db->bind(":phn_no", $data['phn_no']);
+            $this->db->bind(":password", $data['password']);
+            $this->db->bind(":id", $id);
+
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }
 ?>

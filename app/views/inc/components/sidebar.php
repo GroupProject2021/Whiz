@@ -192,7 +192,7 @@
     <?php endif; ?>
 
         <div class="sidebar-item">
-            <a href="">
+            <a href="<?php echo URLROOT; ?>/students_dashboard/settings">
             <button>
                 <div class="sidebar-item-icon">
                     <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">

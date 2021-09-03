@@ -150,5 +150,108 @@
             }
             
         }
+
+        public function editSettingsBeginner() {
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanetize the POST array
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                
+                $data = [
+                    'name' => trim($_POST['name']),
+                    'email' => trim($_POST['email']),
+                    'password' => trim($_POST['password']),
+                    'gender' => trim($_POST['gender']),
+                    'date_of_birth' => trim($_POST['date_of_birth']),
+                    'address' => trim($_POST['address']),
+                    'phn_no' => trim($_POST['phn_no']),
+
+                    'name_err' => '',
+                    'email_err' => '',
+                    'password_err' => '',
+                    'gender_err' => '',
+                    'date_of_birth_err' => '',
+                    'address_err' => '',
+                    'phn_no_err' => '',
+                ];
+
+                // Validate title
+                if(empty($data['name'])) {
+                    $data['name_err'] = 'Please enter name';
+                }
+
+                // Validate body
+                if(empty($data['email'])) {
+                    $data['email_err'] = 'Please enter email';
+                }
+
+                // Validate body
+                if(empty($data['password'])) {
+                    $data['password_err'] = 'Please enter password';
+                }
+
+                // Validate body
+                if(empty($data['gender'])) {
+                    $data['gender_err'] = 'Please enter gender';
+                }
+
+                // Validate body
+                if(empty($data['date_of_birth'])) {
+                    $data['date_of_birth_err'] = 'Please enter date of birth';
+                }
+
+                // Validate body
+                if(empty($data['address'])) {
+                    $data['address_err'] = 'Please enter address';
+                }
+
+                // Validate body
+                if(empty($data['phn_no'])) {
+                    $data['phn_no_err'] = 'Please enter phone number';
+                }
+
+                // Make sure no errors
+                if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['gender_err'])
+                    && empty($data['date_of_birth_err']) && empty($data['address_err']) && empty($data['phn_no_err'])) {
+                    // Validated                    
+                    $id = $this->studentDashboardModel->findStudentIdbyEmail($_SESSION['user_email']);
+                    if($this->studentDashboardModel->updateStudentSettings($id, $data)) {
+                        flash('settings_message', 'Student data updated');
+                        redirect('students_dashboard/settings');
+                    }
+                    else {
+                        die('Something went wrong');
+                    }
+                }
+                else {
+                    // Load view with errors
+                    $this->view('students/settings/edit_settings_beginner', $data);
+                }
+            }
+            else {
+                $id = $this->studentDashboardModel->findStudentIdbyEmail($_SESSION['user_email']);
+                // Get existing post from model                
+                $studentData = $this->studentDashboardModel->getStudentDetails($id);
+
+                $data = [
+                    'name' => $studentData->name,
+                    'email' => $studentData->email,
+                    'password' => $studentData->password,
+                    'gender' => $studentData->gender,
+                    'date_of_birth' => $studentData->date_of_birth,
+                    'address' => $studentData->address,
+                    'phn_no' => $studentData->phn_no,
+
+                    'name_err' => '',
+                    'email_err' => '',
+                    'password_err' => '',
+                    'gender_err' => '',
+                    'date_of_birth_err' => '',
+                    'address_err' => '',
+                    'phn_no_err' => '',
+                ];
+            }
+
+            $this->view('students/settings/edit_settings_beginner', $data);
+        }
     }
 ?>

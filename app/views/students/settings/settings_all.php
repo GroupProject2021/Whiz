@@ -31,8 +31,12 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <h2>Basic details</h2>
+                        <div class="settings-header">
+                                <div class="settings-header-item"><h2>Basic details</h2></div>
+                                <div class="settings-header-item"><a href="<?php echo URLROOT; ?>/students_dashboard/editSettingsBeginner"><input class="edit-button" type="button" value="Edit"></a></div>
+                        </div>                      
                         <br>
+                        <div class="table-section">
                         <table class="settings-table">
                             <tr>
                                 <th class="A">Name</th>
@@ -69,7 +73,8 @@
                                 <td class="B"><p><?php echo $data['phn_no'];?></p></td>
                                 <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                             </tr>
-                        </table> 
+                        </table>
+                        </div>
 
                         <br><br>
                         <h2>OL details</h2>
