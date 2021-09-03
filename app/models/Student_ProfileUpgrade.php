@@ -66,6 +66,7 @@
 
             /* Note that removing data is not necessary since tables are overlapping. But for the documentation i just leave here */
             /* This is how to perform DELETE */
+            
             /*
             // take stu id
             $id = $this->findStudentIdbyEmail($_SESSION['user_email']);
