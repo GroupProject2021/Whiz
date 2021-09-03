@@ -14,10 +14,10 @@
     </div>
 
     <!-- sidebar main -->
-    <div class="sidebar-main">        
-        <hr>
+    <div class="sidebar-main">
         <?php if($_SESSION['specialized_actor_type'] == 'Beginner'): ?>
         <!-- Beginner to OL qualified upgrade -->
+        <hr>
         <div class="sidebar-user-details">
             <div class="user-level-image">
                 <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
@@ -31,13 +31,15 @@
                 </div>
                 <div class="profile-upgrade-button-area">
                     <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToOlQualified">
-                        <input class="profile-upgrade-button" type="button" value="UPGRADE">
+                        <input class="profile-upgrade-button" type="button" value="UPGRADE TO OL">
                     </a>
                 </div>
             </div>
         </div>
+        <hr>
         <?php elseif($_SESSION['specialized_actor_type'] == 'OL qualified'): ?>
         <!-- OL qualified to AL qualified upgrade -->
+        <hr>
         <div class="sidebar-user-details">
             <div class="user-level-image">
                 <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
@@ -51,13 +53,15 @@
                 </div>
                 <div class="profile-upgrade-button-area">
                     <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToAlQualified">
-                        <input class="profile-upgrade-button" type="button" value="UPGRADE">
+                        <input class="profile-upgrade-button" type="button" value="UPGRADE TO AL">
                     </a>
                 </div>
             </div>
         </div>
-        <?php else: ?>
+        <hr>
+        <?php elseif($_SESSION['specialized_actor_type'] == 'AL qualified'): ?>
         <!-- AL qualified to UndergraduateGraduate upgrade -->
+        <hr>
         <div class="sidebar-user-details">
             <div class="user-level-image">
                 <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
@@ -71,16 +75,21 @@
                 </div>
                 <div class="profile-upgrade-button-area">
                     <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToUndergraduateGraduate">
-                        <input class="profile-upgrade-button" type="button" value="UPGRADE">
+                        <input class="profile-upgrade-button" type="button" value="UPGRADE TO UNI">
                     </a>
                 </div>
             </div>
         </div>
-        <?php endif; ?>
         <hr>
+        <?php else:?>
+            <!-- Nothing here -->
+        <?php endif; ?>
+        
 
         
 
+        <!-- OPTIONS -->
+        <?php if($_SESSION['specialized_actor_type'] == 'Beginner'): ?>
         <!-- Beginner options -->
         <div class="menu-head">
             <span>Beginner options</span>
@@ -107,7 +116,8 @@
                 </div>
             </button>
         </div>
-
+        
+        <?php elseif($_SESSION['specialized_actor_type'] == 'OL qualified'): ?>
         <!-- OL qualified options -->
         <div class="menu-head">
             <span>OL Qualified options</span>
@@ -133,6 +143,7 @@
             </button>
         </div>
 
+        <?php elseif($_SESSION['specialized_actor_type'] == 'AL qualified'): ?>
         <!-- AL qualified options -->
         <div class="menu-head">
             <span>AL Qualified options</span>
@@ -158,6 +169,7 @@
             </button>
         </div>
 
+        <?php elseif($_SESSION['specialized_actor_type'] == 'Undergraduate Graduate'): ?>
         <!-- Undergrad Grad options -->
         <div class="menu-head">
             <span>Underdraduate / graduate options</span>
@@ -172,6 +184,9 @@
                 </div>
             </button>
         </div>
+        <?php else: ?>
+            <!-- Nothing here -->
+        <?php endif;?>
     </div>
 </div>
 

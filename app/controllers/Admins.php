@@ -51,12 +51,12 @@ public function login() {
                     else {
                         $data['password_err'] = 'Password incorrect';
 
-                        $this->view('admins/admin_login', $data);
+                        $this->view('admin/login', $data);
                     }
                 }
                 else {
                     // Load view with errors
-                    $this->view('admins/admin_login', $data);
+                    $this->view('admin/login', $data);
                 }
             }
             else {
@@ -70,7 +70,7 @@ public function login() {
             }
 
             // Load view
-            $this->view('admins/admin_login', $data);
+            $this->view('admin/login', $data);
         }
 
         public function createUserSession($user) {

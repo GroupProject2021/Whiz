@@ -13,14 +13,6 @@
 
             $this->db->execute();
 
-
-            // remove the beginner student
-            // $this->db->query('DELETE FROM users WHERE email = :email');
-            // // bind values
-            // $this->db->bind(':email', $data['email']);
-
-            // $this->db->execute();
-
             // take stu id
             $id = $this->findStudentIdbyEmail($_SESSION['user_email']);
             // register as a ol qualified student
@@ -63,14 +55,38 @@
             }
         }
 
-        public function registerALqualified($data) {
+        public function registerALqualified($stuId, $data) {
+            // update user status
+            $this->db->query('UPDATE users SET specialized_actor_type = :specialized_actor_type WHERE id = :stuid');
+            // bind values
+            $this->db->bind(':specialized_actor_type', 'AL qualified');
+            $this->db->bind(':stuid', $stuId);
+
+            $this->db->execute();
+
+            /* Note that removing data is not necessary since tables are overlapping. But for the documentation i just leave here */
+            /* This is how to perform DELETE */
+            /*
+            // take stu id
+            $id = $this->findStudentIdbyEmail($_SESSION['user_email']);
+            // remove the ol qualified student
+            $this->db->query('DELETE FROM olqualifiedStudent WHERE stu_id = :id');
+            // bind values
+            $this->db->bind(':id', $id);
+
+            $this->db->execute();
+            */
+
+
+            // take stu id
+            $id = $this->findStudentIdbyEmail($_SESSION['user_email']);
             // register as a al qualified student
             $this->db->query('INSERT INTO alqualifiedStudent(stu_id, al_school, stream, z_score, district, al_general_test_grade, al_general_english_grade,
                                 al_sub1_id, al_sub1_grade, al_sub2_id, al_sub2_grade, al_sub3_id, al_sub3_grade)
                                 VALUES(:stu_id, :al_school, :stream, :z_score, :district, :al_general_test_grade, :al_general_english_grade,
                                 :al_sub1_id, :al_sub1_grade, :al_sub2_id, :al_sub2_grade, :al_sub3_id, :al_sub3_grade)');
             // bind values
-            $this->db->bind(':stu_id', 1);
+            $this->db->bind(':stu_id', $id);
             $this->db->bind(':al_school', $data['al_school']);
             $this->db->bind(':stream', $data['stream']);
             $this->db->bind(':z_score', $data['z_score']);
@@ -93,11 +109,22 @@
             }
         }
 
-        public function registerUndergraduateGraduate($data) {
+        public function registerUndergraduateGraduate($stuId, $data) {
+            // update user status
+            $this->db->query('UPDATE users SET specialized_actor_type = :specialized_actor_type WHERE id = :stuid');
+            // bind values
+            $this->db->bind(':specialized_actor_type', 'Undergraduate Graduate');
+            $this->db->bind(':stuid', $stuId);
+
+            $this->db->execute();
+
+
+            // take stu id
+            $id = $this->findStudentIdbyEmail($_SESSION['user_email']);
             // register as a undergraduate graduate
             $this->db->query('INSERT INTO undergraduategraduate(stu_id, degree, uni_name, gpa) VALUES(:stu_id, :degree, :uni_name, :gpa)');
             //bind values
-            $this->db->bind(':stu_id', 1);
+            $this->db->bind(':stu_id', $id);
             $this->db->bind(':degree', $data['degree']);
             $this->db->bind(':uni_name', $data['uni_name']);
             $this->db->bind(':gpa', $data['gpa']);
@@ -111,7 +138,7 @@
             }
         }
 
-        // useful for initialized the beginner details using students
+        // useful for take a student data from students
         public function findStudentIdbyEmail($email) {
             $this->db->query('SELECT * FROM student WHERE email = :email');
             // bind values
@@ -121,6 +148,16 @@
 
             $id = $row->stu_id;
             return $id;
+        }
+
+        // to get the updated results of the student - i added this later
+        public function getUpdatedSession($id) {
+            $this->db->query('SELECT * FROM users WHERE id = :id');
+            // bind values
+            $this->db->bind(':id', $id);
+
+            $row = $this->db->single();
+            return $row;
         }
     }
 ?>

@@ -34,6 +34,9 @@
                 if(empty($data['ol_school_err']) && empty($data['ol_district_err'])) {
                     // Register data
                     if($this->studentProfileUpgrade->registerOLqualified($_SESSION['user_id'], $data)) {
+                        // i added later
+                        $this->updateSession();
+
                         redirect('Students_dashboard');
                     }
                     else {
@@ -117,8 +120,11 @@
                 if(empty($data['al_school_err']) && empty($data['stream_err']) && empty($data['z_score_err'])
                     && empty($data['al_district_err']) && empty($data['general_test_grade_err']) && empty($data['general_english_grade_err'])) {
                     // Register data
-                    if($this->studentProfileUpgrade->registerALqualified($data)) {
-                        redirect('Students_undergradGrad_upgradeScreen/register');
+                    if($this->studentProfileUpgrade->registerALqualified($_SESSION['user_id'], $data)) {         
+                        // i added later
+                        $this->updateSession();
+
+                        redirect('Students_dashboard');
                     }
                     else {
                         die('Something went wrong');
@@ -187,8 +193,11 @@
                 // Make sure all errors are empty
                 if(empty($data['uni_name_err']) && empty($data['degree_err']) && empty($data['gpa_err'])) {
                     // Register data
-                    if($this->studentProfileUpgrade->registerUndergraduateGraduate($data)) {
-                        redirect('students_dashboard/index');
+                    if($this->studentProfileUpgrade->registerUndergraduateGraduate($_SESSION['user_id'], $data)) {
+                        // i added later
+                        $this->updateSession();
+
+                        redirect('Students_dashboard');
                     }
                     else {
                         die('Something went wrong');
@@ -213,6 +222,18 @@
                 // Load view
                 $this->view('students/upgrades/alqualified_to_undergraduategraduate', $data);
             }
+        }
+
+        // To update the existing session - i added later
+        public function updateSession() {
+            $user = $this->studentProfileUpgrade->getUpdatedSession($_SESSION['user_id']);
+
+            $_SESSION['user_id'] = $user->id;
+            $_SESSION['user_email'] = $user->email;
+            $_SESSION['user_name'] = $user->name;
+            // added later
+            $_SESSION['actor_type'] = $user->actor_type;
+            $_SESSION['specialized_actor_type'] = $user->specialized_actor_type;
         }
     }
 ?>
