@@ -73,14 +73,7 @@ public function login() {
             $this->view('admin/login', $data);
         }
 
-        public function createUserSession($user) {
-            // taken from the database
-            $_SESSION['user_id'] = $user->stu_id;
-            $_SESSION['user_email'] = $user->email;
-            $_SESSION['user_name'] = $user->name;
-
-            redirect('students_beginner_dashboard/index');
-        }
+        
 
         public function logout() {
             unset($_SESSION['user_id']);
