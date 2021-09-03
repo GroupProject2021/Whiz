@@ -36,7 +36,7 @@
                         <br>
                         <?php foreach($data['posts'] as $post): ?>
                             <!-- I added this later. So now it will only show the posts that are related to the user. Remove if statement and it will show all the posts -->
-                            <?php //if($post->id == $_SESSION['user_id']): ?>
+                            <?php if($post->id == $_SESSION['user_id']): ?>
                             <div>                                
                                 <h1><?php echo $post->title; ?></h1>
                                 <br>
@@ -45,7 +45,7 @@
                                 <p><?php echo $post->body; ?></p>
                                 <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>">More...</a>
                             </div>
-                            <?php //endif; ?>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </div>
 

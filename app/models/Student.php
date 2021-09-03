@@ -18,8 +18,9 @@
             $this->db->bind(':specialized_actor_type', 'Beginner');
 
             $this->db->execute();
+            
 
-
+           
             // register as a student
             $this->db->query('INSERT INTO student(name, address, gender, date_of_birth, email, phn_no, password) VALUES(:name, :address, :gender, :date_of_birth, :email, :phn_no, :password)');
             // bind values
@@ -29,7 +30,7 @@
             $this->db->bind(":date_of_birth", $data['date_of_birth']);
             $this->db->bind(":email", $data['email']);
             $this->db->bind(":phn_no", $data['phn_no']);
-            $this->db->bind(":password", $data['password']);
+            $this->db->bind(":password", $data['password']); 
 
             // Execute
             if($this->db->execute()) {
@@ -97,15 +98,14 @@
         }
 
         // useful for initialized the beginner details using students
-        // public function findStudentIdbyEmail($email) {
-        //     $this->db->query('SELECT * FROM student WHERE email = :email');
-        //     // bind values
-        //     $this->db->bind(':email', $email);
+        public function findStudentIdbyEmail($email) {
+            $this->db->query('SELECT * FROM student WHERE email = :email');
+            // bind values
+            $this->db->bind(':email', $email);
 
-        //     $row = $this->db->single();
+            $row = $this->db->single();
 
-        //     $id = $row->stu_id;
-        //     return $id;
-        // }
+            return $row->stu_id;
+        }
     }
 ?>
