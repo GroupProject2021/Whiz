@@ -10,7 +10,7 @@
 
         <!-- REGISTRATION FORM -->
         <div class="form-container">
-            <form action="<?php echo URLROOT; ?>/Students_ProfileUpgrades/upgradeToAlQualified" method="post">
+            <form action="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToAlQualified" method="post">
                 <h1>Student AL details</h1>
                 <p>Please fill the following details but you can skip this now and fill those in later as well.</p>
                 <hr class="form-hr">

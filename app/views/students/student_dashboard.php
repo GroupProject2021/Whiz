@@ -33,7 +33,8 @@
                     <div class="middle-panel">
                         <div class="middle-left-panel">                            
                             <?php echo $_SESSION['user_name']; ?>
-                            <?php echo 'hi'; ?>
+                            <br>
+                            <?php echo $_SESSION['specialized_actor_type']; ?>
                         </div>
                         <div class="middle-right-panel">
                             <div class="notices">
