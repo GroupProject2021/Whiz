@@ -15,6 +15,7 @@
 
     <!-- sidebar main -->
     <div class="sidebar-main">
+    <?php if(isset($_SESSION['user_id'])) : ?>
         <?php if($_SESSION['specialized_actor_type'] == 'Beginner'): ?>
         <!-- Beginner to OL qualified upgrade -->
         <hr>
@@ -84,11 +85,12 @@
         <?php else:?>
             <!-- Nothing here -->
         <?php endif; ?>
-        
+    <?php endif; ?>
 
         
 
         <!-- OPTIONS -->
+    <?php if(isset($_SESSION['user_id'])) : ?>
         <?php if($_SESSION['specialized_actor_type'] == 'Beginner'): ?>
         <!-- Beginner options -->
         <div class="menu-head">
@@ -187,6 +189,21 @@
         <?php else: ?>
             <!-- Nothing here -->
         <?php endif;?>
+    <?php endif; ?>
+
+        <div class="sidebar-item">
+            <a href="">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                </div>
+                <div class="sidebar-item-name">
+                    settings
+                </div>
+            </button>
+            </a>
+        </div>
+
     </div>
 </div>
 
