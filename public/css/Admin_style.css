@@ -12,19 +12,19 @@
 }
 
 :root {
-    --main-background-color: #948f8f;
+    --main-background-color: #a1a2ac;
 }
 
 /* global styles */
 * {
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
     /* font-family: Arial, Arial, Helvetica, sans-serif; */
     font-family: Poppins-Regular;
-    font-size: absolute;
+    font-size: small;
     background-color: var(--main-background-color);
     text-align: left;
 }
