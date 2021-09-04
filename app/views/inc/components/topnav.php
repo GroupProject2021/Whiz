@@ -26,7 +26,7 @@
       </div>
       <a class="active" href="<?php echo URLROOT; ?>/students/logout">Log Out</a>
     <?php else: ?>
-      <a class="active" href="<?php echo URLROOT; ?>/students/register">Register</a>
+      <a class="active" href="<?php echo URLROOT; ?>/commons/register">Register</a>
       <a class="active" href="<?php echo URLROOT; ?>/students/login">Log In</a>
     <?php endif; ?>
   </div>

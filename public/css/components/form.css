@@ -9,6 +9,8 @@
     --form-skip-button-color: white;
     --form-next-button-background-color: #db7e31;
     --form-next-button-color: white;
+    --form-actor-button-background-color: #db7e31;
+    --form-actor-button-color: white;
     --form-link-color: dodgerblue;
     --content-background-color: #f1f1f1;
     --form-invalid-color: #dc3545;
@@ -101,6 +103,22 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .form-next-button:hover {
+    opacity: 1;
+}
+
+/* Set a style for the actor button */
+.form-actor-button {
+    background-color: var(--form-actor-button-background-color);
+    color: var(--form-actor-button-color);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 49%;
+    opacity: 0.9;
+}
+
+.form-actor-button:hover {
     opacity: 1;
 }
 
