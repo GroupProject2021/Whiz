@@ -14,5 +14,5 @@
             <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
         </ul>
 
-        <p class="copyright">Company Name © 2018</p>
+        <p class="copyright">Whiz © 2021. All Rights Reserved</p>
 </div>

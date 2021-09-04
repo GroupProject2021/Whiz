@@ -2,8 +2,8 @@
     position: relative;
     overflow: hidden;
     padding:1rem;
-    background-color:#ffffff;
-    color:#4b4c4d;
+    background-color:#333;
+    color:#aaa;
     display: grid;
     grid-template-rows: 1fr 0.2fr;
 }

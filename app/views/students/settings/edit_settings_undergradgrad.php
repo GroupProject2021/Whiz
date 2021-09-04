@@ -66,7 +66,7 @@
 
                     <!-- BOTTOM PANEL -->
                     <div class="bottom-panel">
-                        <p>Whiz organization. All rights reserved.</p>
+                        <p>Whiz © 2021. All Rights Reserved.</p>
                     </div>
                 </div>
             </main>
