@@ -5,7 +5,8 @@
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/Admin_style.css">
     </head>
     <body>
-       
+        <!-- TOP NAVIGATION BAR -->
+        <?php require APPROOT.'/views/inc/admin_navbar.php'?>
         
         <!-- LOGIN FORM -->
         <div class="form-container">
