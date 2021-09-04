@@ -1,9 +1,9 @@
 :root{
-    --form-container-background-color: rgb(96, 138, 177);
+    --form-container-background-color: rgb(166, 158, 236);
     --input-field-background-color: #f1f1f1;
     --input-field-focus-background-color: #ddd;
     --form-hr-border-color: #f1f1f1;
-    --form-submit-button-background-color: #13034b;
+    --form-submit-button-background-color: #271a4d;
     --form-submit-button-color: white;
     --form-skip-button-background-color: gray;
     --form-skip-button-color: white;
