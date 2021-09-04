@@ -1,0 +1,30 @@
+/* If CSS didn't apply try Ctrl+F5 clear cache and then reload */
+/* seperate component styles */
+@import url('components/topnav.css');
+@import url('components/adminform.css');
+@import url('components/sidebar.css');
+@import url('components/dashboard.css');
+@import url('components/admin_image.css');
+/* fonts */
+@font-face {
+    font-family: Poppins-Regular;
+    src: url(fonts/poppins/Poppins-Regular.ttf);
+}
+
+:root {
+    --main-background-color: #a4bdee;
+}
+
+/* global styles */
+* {
+    box-sizing:border-box;
+}
+
+body {
+    margin: 0;
+    /* font-family: Arial, Arial, Helvetica, sans-serif; */
+    font-family: Poppins-Regular;
+    font-size: absolute;
+    background-color: var(--main-background-color);
+    text-align: left;
+}
