@@ -2,11 +2,10 @@
     <head>
         <title><?php echo SITENAME; ?></title>
         <!-- Styles -->
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
+        <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/Admin_style.css">
     </head>
     <body>
-        <!-- TOP NAVIGATION BAR -->
-        <?php require APPROOT.'/views/inc/components/admin_login_navbar.php'?>
+       
         
         <!-- LOGIN FORM -->
         <div class="form-container">
