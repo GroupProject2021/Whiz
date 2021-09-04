@@ -22,7 +22,7 @@
             </center>            
         </div>
         <div class="form-container content">
-            <p>Already have an account? <a class="form-link" href="<?php echo URLROOT; ?>/students/login">Sign in</a></p>
+            <p>Already have an account? <a class="form-link" href="<?php echo URLROOT; ?>/commons/login">Sign in</a></p>
         </div>
     </body>
 </html>

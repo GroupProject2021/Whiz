@@ -1,10 +1,11 @@
 <div class="topnav">
   <!-- Centered link -->
   
-  <div class="topnav-centered">
-    <a href="<?php echo URLROOT; ?>" class="active">Home</a>
-  </div>
- 
+  <!-- <div class="topnav-centered">
+    
+  </div> -->
+
+  <a href="<?php echo URLROOT; ?>" class="active">Home</a> 
 
   <!-- Left-aligned links (default) -->
   <!--
@@ -24,10 +25,10 @@
             <a href=""><?php echo $_SESSION['user_name']; ?></a>
         </div>
       </div>
-      <a class="active" href="<?php echo URLROOT; ?>/students/logout">Log Out</a>
+      <a class="active" href="<?php echo URLROOT; ?>/commons/logout">Log Out</a>
     <?php else: ?>
-      <a class="active" href="<?php echo URLROOT; ?>/commons/register">Register</a>
-      <a class="active" href="<?php echo URLROOT; ?>/students/login">Log In</a>
+      <a class="active" href="<?php echo URLROOT; ?>/commons/registerredirect">Register</a>
+      <a class="active" href="<?php echo URLROOT; ?>/commons/login">Log In</a>
     <?php endif; ?>
   </div>
 </div>
