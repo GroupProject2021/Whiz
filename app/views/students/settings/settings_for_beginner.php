@@ -31,45 +31,51 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <h2>Basic details</h2>
+                    <?php flash('settings_message'); ?>
+                        <div class="settings-header">
+                                <div class="settings-header-item"><h2>Basic details</h2></div>
+                                <div class="settings-header-item"><a href="<?php echo URLROOT; ?>/students_dashboard/editSettingsBeginner"><input class="edit-button" type="button" value="Edit"></a></div>
+                        </div>                      
                         <br>
-                        <table class="settings-table">
-                            <tr>
-                                <th class="A">Name</th>
-                                <td class="B"><p><?php echo $data['name'];?></p></td>
-                                <td class="C"><input class="edit-button" type="button" value="Edit"></td>
-                            </tr>
-                            <tr>
-                                <th class="A">Email</th>
-                                <td class="B"><p><?php echo $data['email'];?></p></td>
-                                <td class="C"><input class="edit-button" type="button" value="Edit"></td>
-                            </tr>
-                            <tr>
-                                <th class="A">Password</th>
-                                <td class="B"><p><?php echo $data['password'];?></p></td>
-                                <td class="C"><input class="edit-button" type="button" value="Edit"></td>
-                            </tr>
-                            <tr>
-                                <th class="A">Gender</th>
-                                <td class="B"><p><?php echo $data['gender'];?></p></td>
-                                <td class="C"><input class="edit-button" type="button" value="Edit"></td>
-                            </tr>
-                            <tr>
-                                <th class="A">Date of birth</th>
-                                <td class="B"><p><?php echo $data['date_of_birth'];?></p></td>
-                                <td class="C"><input class="edit-button" type="button" value="Edit"></td>
-                            </tr>
-                            <tr>
-                                <th class="A">Address</th>
-                                <td class="B"><p><?php echo $data['address'];?></p></td>
-                                <td class="C"><input class="edit-button" type="button" value="Edit"></td>
-                            </tr>
-                            <tr>
-                                <th class="A">Phone number</th>
-                                <td class="B"><p><?php echo $data['phn_no'];?></p></td>
-                                <td class="C"><input class="edit-button" type="button" value="Edit"></td>
-                            </tr>
-                        </table>
+                        <div class="table-section">
+                            <table class="settings-table">
+                                <tr>
+                                    <th class="A">Name</th>
+                                    <td class="B"><p><?php echo $data['name'];?></p></td>
+                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
+                                </tr>
+                                <tr>
+                                    <th class="A">Email</th>
+                                    <td class="B"><p><?php echo $data['email'];?></p></td>
+                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
+                                </tr>
+                                <tr>
+                                    <th class="A">Password</th>
+                                    <td class="B"><p><?php echo $data['password'];?></p></td>
+                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
+                                </tr>
+                                <tr>
+                                    <th class="A">Gender</th>
+                                    <td class="B"><p><?php echo $data['gender'];?></p></td>
+                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
+                                </tr>
+                                <tr>
+                                    <th class="A">Date of birth</th>
+                                    <td class="B"><p><?php echo $data['date_of_birth'];?></p></td>
+                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
+                                </tr>
+                                <tr>
+                                    <th class="A">Address</th>
+                                    <td class="B"><p><?php echo $data['address'];?></p></td>
+                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
+                                </tr>
+                                <tr>
+                                    <th class="A">Phone number</th>
+                                    <td class="B"><p><?php echo $data['phn_no'];?></p></td>
+                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
 
 
