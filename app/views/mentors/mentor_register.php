@@ -6,7 +6,7 @@
     </head>
     <body>
         <!-- TOP NAVIGATION BAR -->
-        <?php require APPROOT.'/views/inc/mentor_register_navbar.php'?>
+        <?php require APPROOT.'/views/inc/components/topnav.php'?>
 
         <!-- REGISTRATION FORM -->
         

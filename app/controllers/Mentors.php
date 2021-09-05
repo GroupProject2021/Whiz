@@ -15,44 +15,21 @@
                 // Init data
                 $data = [
                     'name' => trim($_POST['name']),
-                    // 'address' => trim($_POST['address']),
-                    // 'gender' => trim($_POST['gender']),
-                    // 'date_of_birth' => trim($_POST['date_of_birth']),
                     'email' => trim($_POST['email']),
                     'mentor_type' => trim($_POST['mentor_type']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
-                    //'phn_no' => trim($_POST['phn_no']),
                     'name_err' => '',
-                    // 'address_err' => '',
-                    // 'gender_err' => '',
-                    // 'date_of_birth_err' => '',
                     'email_err' => '',
                     'mentor_type_err' => '',
                     'password_err' => '',
-                    'confirm_password_err' => '',
-                    //'phn_no_err' => ''
+                    'confirm_password_err' => ''
                 ];
 
                 // Validate name
                 if(empty($data['name'])) {
                     $data['name_err'] = 'Please enter name';
                 }
-
-                // Validate address
-                // if(empty($data['address'])) {
-                //     $data['address_err'] = 'Please enter address';
-                // }
-
-                // // Validate gender
-                // if(empty($data['gender'])) {
-                //     $data['gender_err'] = 'Please enter gender';
-                // }
-
-                // // Validate date of birth
-                // if(empty($data['date_of_birth'])) {
-                //     $data['date_of_birth_err'] = 'Please enter date of birth';
-                // }
 
                 // Validate email
                 if(empty($data['email'])) {
@@ -88,11 +65,6 @@
                     }
                 }
 
-                // Validate phone number
-                // if(empty($data['phn_no'])) {
-                //     $data['phn_no_err'] = 'Please enter phone number';
-                // }
-
                 // Make sure errors are empty
                 if(empty($data['name_err']) && empty($data['email_err']) && empty($data['mentor_type_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
                     // Validated
@@ -104,7 +76,7 @@
                     if($this->mentorModel->register($data)) {
                         // Redirect
                         flash('register_success', 'You are registered can log in');
-                        redirect('mentors/login');
+                        redirect('commons/login');
                     }
                     else {
                         die('Something went wrong');
@@ -119,23 +91,15 @@
                 // Init data
                 $data = [
                     'name' => '',
-                    // 'address' => '',
-                    // 'gender' => '',
-                    // 'date_of_birth' => '',
                     'email' => '',
                     'mentor_type' => '',
                     'password' => '',
                     'confirm_password' => '',
-                    //'phn_no' => '',
                     'name_err' => '',
-                    // 'address_err' => '',
-                    // 'gender_err' => '',
-                    // 'date_of_birth_err' => '',
                     'email_err' => '',
                     'mentor_type_err' => '',
                     'password_err' => '',
-                    'confirm_password_err' => '',
-                    //'phn_no_err' => ''
+                    'confirm_password_err' => ''
                 ];
 
                 // Load view
