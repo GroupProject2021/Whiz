@@ -99,7 +99,7 @@
                     if($this->studentModel->register($data)) {
                         // Redirect
                         flash('register_success', 'You are registered can log in');
-                        redirect('students/login');
+                        redirect('commons/login');
                     }
                     else {
                         die('Something went wrong');

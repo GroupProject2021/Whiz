@@ -63,7 +63,6 @@
             return $row->ol_sub_name;
         }
 
-        // get subject details
         public function getALSubjectName($id) {
             $this->db->query('SELECT * FROM alsubject WHERE al_sub_id = :id');
             // bind values
