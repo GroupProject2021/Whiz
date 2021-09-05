@@ -14,6 +14,14 @@
                 <h1>Student Undergraduate/Graduate details</h1>
                 <p>Please fill the following details but you can skip this now and fill those in later as well.</p>
                 <hr class="form-hr">
+                <label for="uni_type"><p class="form-bold">University Type</p></label>
+                <select name="uni_type" id="uni_type">
+                    <option value="Government">Government</option>
+                    <option value="Semi-Governmen">Semi-Government</option>
+                    <option value="Private">Private</option>
+                </select>
+                <span class="form-invalid"><?php echo $data['uni_type_err']; ?></span><br>
+
                 <label for="uni_name"><p class="form-bold">University name</p></label>
                 <input type="text" placeholder="Enter university name" name="uni_name" id="uni_name" value="<?php echo $data['uni_name']; ?>">
                 <span class="form-invalid"><?php echo $data['uni_name_err']; ?></span><br>

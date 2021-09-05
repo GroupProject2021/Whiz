@@ -22,6 +22,7 @@
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
                     'phn_no' => trim($_POST['phn_no']),
+
                     'name_err' => '',
                     'address_err' => '',
                     'gender_err' => '',

@@ -11,7 +11,7 @@
         <!-- REGISTRATION FORM -->
         <div class="form-container">
             <form action="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToOlQualified" method="post">
-                <h1>Student OL details<?php echo $_SESSION['user_id'];?></h1>
+                <h1>Student OL details</h1>
                 <p>Please fill the following details but you can skip this now and fill those in later as well.</p>
                 <hr class="form-hr">
                 <label for="ol_school"><p class="form-bold">OL school</p></label>
@@ -19,93 +19,207 @@
                 <span class="form-invalid"><?php echo $data['ol_school_err']; ?></span><br>
 
                 <label for="ol_district"><p class="form-bold">District</p></label>
-                <input type="text" placeholder="Enter district" name="ol_district" id="ol_district" value="<?php echo $data['ol_district']; ?>">
+                <select name="ol_district" id="ol_district">
+                    <?php foreach($data['district_list'] as $district):?>
+                        <option value="<?php echo $district->district_name; ?>"><?php echo $district->district_name; ?></option>
+                    <?php endforeach; ?>
+                </select>
                 <span class="form-invalid"><?php echo $data['ol_district_err']; ?></span><br>
 
                 <label for="ol_results"><p class="form-bold">OL Results</p></label>
                 <table class="form-table">
                     <tr>
-                        <th>Mathematics</th>
-                        <td><input type="radio" name="radio_mathematics">A</td>
-                        <td><input type="radio" name="radio_mathematics">B</td>
-                        <td><input type="radio" name="radio_mathematics">C</td>
-                        <td><input type="radio" name="radio_mathematics">D</td>
-                        <td><input type="radio" name="radio_mathematics">E</td>
-                        <td><input type="radio" name="radio_mathematics">F</td>
+                        <th>Religion</th>
+                        <td colspan="5">
+                            <select name="religion" id="religion">
+                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                    <?php if($subjects->ol_type == 'Religion'):?>
+                                        <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                    <?php endif;?>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <th>Science</th>
-                        <td><input type="radio" name="radio_science">A</td>
-                        <td><input type="radio" name="radio_science">B</td>
-                        <td><input type="radio" name="radio_science">C</td>
-                        <td><input type="radio" name="radio_science">D</td>
-                        <td><input type="radio" name="radio_science">E</td>
-                        <td><input type="radio" name="radio_science">F</td>
+                        <th>
+                        </th>
+                        <td><input type="radio" name="radio_religion" value="B">B</td>
+                        <td><input type="radio" name="radio_religion" value="C">C</td>
+                        <td><input type="radio" name="radio_religion" value="D">D</td>
+                        <td><input type="radio" name="radio_religion" value="E">E</td>
+                        <td><input type="radio" name="radio_religion" value="F">F</td>                        
                     </tr>
                     <tr>
-                        <th>English</th>
-                        <td><input type="radio" name="radio_english">A</td>
-                        <td><input type="radio" name="radio_english">B</td>
-                        <td><input type="radio" name="radio_english">C</td>
-                        <td><input type="radio" name="radio_english">D</td>
-                        <td><input type="radio" name="radio_english">E</td>
-                        <td><input type="radio" name="radio_english">F</td>
+                        <th>Primary Language</th>
+                        <td colspan="5">
+                            <select name="primary_language" id="primary_language">
+                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                    <?php if($subjects->ol_type == 'Primary Language'):?>
+                                        <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                    <?php endif;?>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <th>Sinhala</th>
-                        <td><input type="radio" name="radio_sinhala">A</td>
-                        <td><input type="radio" name="radio_sinhala">B</td>
-                        <td><input type="radio" name="radio_sinhala">C</td>
-                        <td><input type="radio" name="radio_sinhala">D</td>
-                        <td><input type="radio" name="radio_sinhala">E</td>
-                        <td><input type="radio" name="radio_sinhala">F</td>
+                        <th>
+                        </th>
+                        <td><input type="radio" name="radio_primary_language" value="B">B</td>
+                        <td><input type="radio" name="radio_primary_language" value="C">C</td>
+                        <td><input type="radio" name="radio_primary_language" value="D">D</td>
+                        <td><input type="radio" name="radio_primary_language" value="E">E</td>
+                        <td><input type="radio" name="radio_primary_language" value="F">F</td>                        
+                    </tr>
+                    <tr>
+                        <th>Secondary Language</th>
+                        <td colspan="5">
+                            <select name="secondary_language" id="secondary_language">
+                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                    <?php if($subjects->ol_type == 'Secondary Language'):?>
+                                        <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                    <?php endif;?>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                        </th>
+                        <td><input type="radio" name="radio_secondary_language" value="B">B</td>
+                        <td><input type="radio" name="radio_secondary_language" value="C">C</td>
+                        <td><input type="radio" name="radio_secondary_language" value="D">D</td>
+                        <td><input type="radio" name="radio_secondary_language" value="E">E</td>
+                        <td><input type="radio" name="radio_secondary_language" value="F">F</td>                        
                     </tr>
                     <tr>
                         <th>History</th>
-                        <td><input type="radio" name="radio_history">A</td>
-                        <td><input type="radio" name="radio_history">B</td>
-                        <td><input type="radio" name="radio_history">C</td>
-                        <td><input type="radio" name="radio_history">D</td>
-                        <td><input type="radio" name="radio_history">E</td>
-                        <td><input type="radio" name="radio_history">F</td>
+                        <td colspan="5">
+                            <select name="history" id="history">
+                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                    <?php if($subjects->ol_type == 'History'):?>
+                                        <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                    <?php endif;?>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <th>Religion</th>
-                        <td><input type="radio" name="radio_religion">A</td>
-                        <td><input type="radio" name="radio_religion">B</td>
-                        <td><input type="radio" name="radio_religion">C</td>
-                        <td><input type="radio" name="radio_religion">D</td>
-                        <td><input type="radio" name="radio_religion">E</td>
-                        <td><input type="radio" name="radio_religion">F</td>
+                        <th>
+                        </th>
+                        <td><input type="radio" name="radio_history" value="B">B</td>
+                        <td><input type="radio" name="radio_history" value="C">C</td>
+                        <td><input type="radio" name="radio_history" value="D">D</td>
+                        <td><input type="radio" name="radio_history" value="E">E</td>
+                        <td><input type="radio" name="radio_history" value="F">F</td>                        
                     </tr>
                     <tr>
-                        <th>Basket 1</th>
-                        <td><input type="radio" name="radio_basket_1">A</td>
-                        <td><input type="radio" name="radio_basket_1">B</td>
-                        <td><input type="radio" name="radio_basket_1">C</td>
-                        <td><input type="radio" name="radio_basket_1">D</td>
-                        <td><input type="radio" name="radio_basket_1">E</td>
-                        <td><input type="radio" name="radio_basket_1">F</td>
+                        <th>Science</th>
+                        <td colspan="5">
+                            <select name="science" id="science">
+                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                    <?php if($subjects->ol_type == 'Science'):?>
+                                        <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                    <?php endif;?>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <th>Basket 2</th>
-                        <td><input type="radio" name="radio_basket_2">A</td>
-                        <td><input type="radio" name="radio_basket_2">B</td>
-                        <td><input type="radio" name="radio_basket_2">C</td>
-                        <td><input type="radio" name="radio_basket_2">D</td>
-                        <td><input type="radio" name="radio_basket_2">E</td>
-                        <td><input type="radio" name="radio_basket_2">F</td>
+                        <th>
+                        </th>
+                        <td><input type="radio" name="radio_science" value="B">B</td>
+                        <td><input type="radio" name="radio_science" value="C">C</td>
+                        <td><input type="radio" name="radio_science" value="D">D</td>
+                        <td><input type="radio" name="radio_science" value="E">E</td>
+                        <td><input type="radio" name="radio_science" value="F">F</td>                        
                     </tr>
                     <tr>
-                        <th>Basket 3</th>
-                        <td><input type="radio" name="radio_basket_3">A</td>
-                        <td><input type="radio" name="radio_basket_3">B</td>
-                        <td><input type="radio" name="radio_basket_3">C</td>
-                        <td><input type="radio" name="radio_basket_3">D</td>
-                        <td><input type="radio" name="radio_basket_3">E</td>
-                        <td><input type="radio" name="radio_basket_3">F</td>
+                        <th>Mathematics</th>
+                        <td colspan="5">
+                            <select name="mathematics" id="mathematics">
+                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                    <?php if($subjects->ol_type == 'Mathematics'):?>
+                                        <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                    <?php endif;?>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                        </th>
+                        <td><input type="radio" name="radio_mathematics" value="B">B</td>
+                        <td><input type="radio" name="radio_mathematics" value="C">C</td>
+                        <td><input type="radio" name="radio_mathematics" value="D">D</td>
+                        <td><input type="radio" name="radio_mathematics" value="E">E</td>
+                        <td><input type="radio" name="radio_mathematics" value="F">F</td>                        
+                    </tr>
+                    <tr>
+                        <th>Basket 1 Subject</th>
+                        <td colspan="5">
+                            <select name="basket1" id="basket1">
+                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                    <?php if($subjects->ol_category == 'Basket 1'):?>
+                                        <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                    <?php endif;?>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                        </th>
+                        <td><input type="radio" name="radio_basket_1" value="B">B</td>
+                        <td><input type="radio" name="radio_basket_1" value="C">C</td>
+                        <td><input type="radio" name="radio_basket_1" value="D">D</td>
+                        <td><input type="radio" name="radio_basket_1" value="E">E</td>
+                        <td><input type="radio" name="radio_basket_1" value="F">F</td>                        
+                    </tr>
+                    <tr>
+                        <th>Basket 2 Subject</th>
+                        <td colspan="5">
+                            <select name="basket2" id="basket2">
+                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                    <?php if($subjects->ol_category == 'Basket 2'):?>
+                                        <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                    <?php endif;?>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                        </th>
+                        <td><input type="radio" name="radio_basket_2" value="B">B</td>
+                        <td><input type="radio" name="radio_basket_2" value="C">C</td>
+                        <td><input type="radio" name="radio_basket_2" value="D">D</td>
+                        <td><input type="radio" name="radio_basket_2" value="E">E</td>
+                        <td><input type="radio" name="radio_basket_2" value="F">F</td>                        
+                    </tr>
+                    <tr>
+                        <th>Basket 3 Subject</th>
+                        <td colspan="5">
+                            <select name="basket3" id="basket3">
+                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                    <?php if($subjects->ol_category == 'Basket 3'):?>
+                                        <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                    <?php endif;?>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                        </th>
+                        <td><input type="radio" name="radio_basket_3" value="B">B</td>
+                        <td><input type="radio" name="radio_basket_3" value="C">C</td>
+                        <td><input type="radio" name="radio_basket_3" value="D">D</td>
+                        <td><input type="radio" name="radio_basket_3" value="E">E</td>
+                        <td><input type="radio" name="radio_basket_3" value="F">F</td>                        
                     </tr>
                 </table>
+                <span class="form-invalid"><?php echo $data['ol_results_err']; ?></span><br>
+
                 <hr class="form-hr">
                 <p>I do here by certify above details that I have entered are true and correct. <a class="form-link" href="#">Terms & Privacy</a></p>
                 <button type="submit" class="form-skip-button">Skip</button>

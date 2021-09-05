@@ -28,23 +28,23 @@
             $this->db->bind(':ol_school', $data['ol_school']);
             $this->db->bind(':ol_district', $data['ol_district']);
             $this->db->bind(':ol_sub1_id', 1);
-            $this->db->bind(':ol_sub1_grade', 'A');
+            $this->db->bind(':ol_sub1_grade', $data['radio_mathematics']);
             $this->db->bind(':ol_sub2_id', 2);
-            $this->db->bind(':ol_sub2_grade', 'A');
+            $this->db->bind(':ol_sub2_grade', $data['radio_science']);
             $this->db->bind(':ol_sub3_id', 3);
-            $this->db->bind(':ol_sub3_grade', 'A');
+            $this->db->bind(':ol_sub3_grade', $data['radio_english']);
             $this->db->bind(':ol_sub4_id', 4);
-            $this->db->bind(':ol_sub4_grade', 'A');
+            $this->db->bind(':ol_sub4_grade', $data['radio_sinhala']);
             $this->db->bind(':ol_sub5_id', 5);
-            $this->db->bind(':ol_sub5_grade', 'A');
+            $this->db->bind(':ol_sub5_grade', $data['radio_history']);
             $this->db->bind(':ol_sub6_id', 6);
-            $this->db->bind(':ol_sub6_grade', 'A');
+            $this->db->bind(':ol_sub6_grade', $data['radio_religion']);
             $this->db->bind(':ol_sub7_id', 7);
-            $this->db->bind(':ol_sub7_grade', 'A');
+            $this->db->bind(':ol_sub7_grade', $data['radio_basket_1']);
             $this->db->bind(':ol_sub8_id', 8);
-            $this->db->bind(':ol_sub8_grade', 'A');
+            $this->db->bind(':ol_sub8_grade', $data['radio_basket_2']);
             $this->db->bind(':ol_sub9_id', 9);
-            $this->db->bind(':ol_sub9_grade', 'A');
+            $this->db->bind(':ol_sub9_grade', $data['radio_basket_3']);
 
             // Execute
             if($this->db->execute()) {
@@ -93,13 +93,13 @@
             $this->db->bind(':z_score', $data['z_score']);
             $this->db->bind(':al_district', $data['al_district']);
             $this->db->bind(':al_general_test_grade', $data['general_test_grade']);
-            $this->db->bind(':al_general_english_grade', $data['general_english_grade']);
+            $this->db->bind(':al_general_english_grade', $data['radio_general_english']);
             $this->db->bind(':al_sub1_id', 1);
-            $this->db->bind(':al_sub1_grade', 'A');
+            $this->db->bind(':al_sub1_grade', $data['radio_subject_1']);
             $this->db->bind(':al_sub2_id', 2);
-            $this->db->bind(':al_sub2_grade', 'A');
+            $this->db->bind(':al_sub2_grade', $data['radio_subject_2']);
             $this->db->bind(':al_sub3_id', 3);
-            $this->db->bind(':al_sub3_grade', 'A');
+            $this->db->bind(':al_sub3_grade', $data['radio_subject_3']);
 
             // Execute
             if($this->db->execute()) {
@@ -123,10 +123,11 @@
             // take stu id
             $id = $this->findStudentIdbyEmail($_SESSION['user_email']);
             // register as a undergraduate graduate
-            $this->db->query('INSERT INTO undergraduategraduate(stu_id, degree, uni_name, gpa) VALUES(:stu_id, :degree, :uni_name, :gpa)');
+            $this->db->query('INSERT INTO undergraduategraduate(stu_id, degree, uni_type, uni_name, gpa) VALUES(:stu_id, :degree, :uni_type, :uni_name, :gpa)');
             //bind values
             $this->db->bind(':stu_id', $id);
             $this->db->bind(':degree', $data['degree']);
+            $this->db->bind(':uni_type', $data['uni_type']);
             $this->db->bind(':uni_name', $data['uni_name']);
             $this->db->bind(':gpa', $data['gpa']);
 
@@ -160,5 +161,38 @@
             $row = $this->db->single();
             return $row;
         }
+
+        // get districts 
+        public function getDistricts() {
+            $this->db->query("SELECT * FROM district");
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        // get ol subjects 
+        public function getOLSubjects() {
+            $this->db->query("SELECT * FROM olsubject");
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        // get streams 
+        public function getStreams() {
+            $this->db->query("SELECT * FROM stream");
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        // get al subjects 
+        public function getALSubjects() {
+            $this->db->query("SELECT * FROM alsubject");
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
     }
 ?>
