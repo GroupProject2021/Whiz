@@ -29,7 +29,7 @@
                 <label for="ol_results"><p class="form-bold">OL Results</p></label>
                 <table class="form-table">
                     <tr>
-                        <th>Religion</th>
+                        <th rowspan="2">Religion</th>
                         <td colspan="5">
                             <select name="religion" id="religion">
                                 <?php foreach($data['ol_subject_list'] as $subjects):?>
@@ -41,8 +41,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>
-                        </th>
                         <td><input type="radio" name="radio_religion" value="B">B</td>
                         <td><input type="radio" name="radio_religion" value="C">C</td>
                         <td><input type="radio" name="radio_religion" value="D">D</td>
@@ -50,7 +48,7 @@
                         <td><input type="radio" name="radio_religion" value="F">F</td>                        
                     </tr>
                     <tr>
-                        <th>Primary Language</th>
+                        <th rowspan="2">Primary Language</th>
                         <td colspan="5">
                             <select name="primary_language" id="primary_language">
                                 <?php foreach($data['ol_subject_list'] as $subjects):?>
@@ -62,8 +60,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>
-                        </th>
                         <td><input type="radio" name="radio_primary_language" value="B">B</td>
                         <td><input type="radio" name="radio_primary_language" value="C">C</td>
                         <td><input type="radio" name="radio_primary_language" value="D">D</td>
@@ -71,7 +67,7 @@
                         <td><input type="radio" name="radio_primary_language" value="F">F</td>                        
                     </tr>
                     <tr>
-                        <th>Secondary Language</th>
+                        <th rowspan="2">Secondary Language</th>
                         <td colspan="5">
                             <select name="secondary_language" id="secondary_language">
                                 <?php foreach($data['ol_subject_list'] as $subjects):?>
@@ -83,8 +79,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>
-                        </th>
                         <td><input type="radio" name="radio_secondary_language" value="B">B</td>
                         <td><input type="radio" name="radio_secondary_language" value="C">C</td>
                         <td><input type="radio" name="radio_secondary_language" value="D">D</td>
@@ -92,7 +86,7 @@
                         <td><input type="radio" name="radio_secondary_language" value="F">F</td>                        
                     </tr>
                     <tr>
-                        <th>History</th>
+                        <th rowspan="2">History</th>
                         <td colspan="5">
                             <select name="history" id="history">
                                 <?php foreach($data['ol_subject_list'] as $subjects):?>
@@ -104,8 +98,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>
-                        </th>
                         <td><input type="radio" name="radio_history" value="B">B</td>
                         <td><input type="radio" name="radio_history" value="C">C</td>
                         <td><input type="radio" name="radio_history" value="D">D</td>
@@ -113,7 +105,7 @@
                         <td><input type="radio" name="radio_history" value="F">F</td>                        
                     </tr>
                     <tr>
-                        <th>Science</th>
+                        <th rowspan="2">Science</th>
                         <td colspan="5">
                             <select name="science" id="science">
                                 <?php foreach($data['ol_subject_list'] as $subjects):?>
@@ -125,8 +117,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>
-                        </th>
                         <td><input type="radio" name="radio_science" value="B">B</td>
                         <td><input type="radio" name="radio_science" value="C">C</td>
                         <td><input type="radio" name="radio_science" value="D">D</td>
@@ -134,7 +124,7 @@
                         <td><input type="radio" name="radio_science" value="F">F</td>                        
                     </tr>
                     <tr>
-                        <th>Mathematics</th>
+                        <th rowspan="2">Mathematics</th>
                         <td colspan="5">
                             <select name="mathematics" id="mathematics">
                                 <?php foreach($data['ol_subject_list'] as $subjects):?>
@@ -146,8 +136,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>
-                        </th>
                         <td><input type="radio" name="radio_mathematics" value="B">B</td>
                         <td><input type="radio" name="radio_mathematics" value="C">C</td>
                         <td><input type="radio" name="radio_mathematics" value="D">D</td>
@@ -155,7 +143,7 @@
                         <td><input type="radio" name="radio_mathematics" value="F">F</td>                        
                     </tr>
                     <tr>
-                        <th>Basket 1 Subject</th>
+                        <th rowspan="2">Basket 1 Subject</th>
                         <td colspan="5">
                             <select name="basket1" id="basket1">
                                 <?php foreach($data['ol_subject_list'] as $subjects):?>
@@ -167,8 +155,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>
-                        </th>
                         <td><input type="radio" name="radio_basket_1" value="B">B</td>
                         <td><input type="radio" name="radio_basket_1" value="C">C</td>
                         <td><input type="radio" name="radio_basket_1" value="D">D</td>
@@ -176,7 +162,7 @@
                         <td><input type="radio" name="radio_basket_1" value="F">F</td>                        
                     </tr>
                     <tr>
-                        <th>Basket 2 Subject</th>
+                        <th rowspan="2">Basket 2 Subject</th>
                         <td colspan="5">
                             <select name="basket2" id="basket2">
                                 <?php foreach($data['ol_subject_list'] as $subjects):?>
@@ -188,8 +174,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>
-                        </th>
                         <td><input type="radio" name="radio_basket_2" value="B">B</td>
                         <td><input type="radio" name="radio_basket_2" value="C">C</td>
                         <td><input type="radio" name="radio_basket_2" value="D">D</td>
@@ -197,7 +181,7 @@
                         <td><input type="radio" name="radio_basket_2" value="F">F</td>                        
                     </tr>
                     <tr>
-                        <th>Basket 3 Subject</th>
+                        <th rowspan="2">Basket 3 Subject</th>
                         <td colspan="5">
                             <select name="basket3" id="basket3">
                                 <?php foreach($data['ol_subject_list'] as $subjects):?>
@@ -209,8 +193,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>
-                        </th>
                         <td><input type="radio" name="radio_basket_3" value="B">B</td>
                         <td><input type="radio" name="radio_basket_3" value="C">C</td>
                         <td><input type="radio" name="radio_basket_3" value="D">D</td>
