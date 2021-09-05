@@ -73,6 +73,7 @@
                     <tr>
                         <th>
                         </th>
+                        <td><input type="radio" name="radio_subject_1" value="A">A</td>
                         <td><input type="radio" name="radio_subject_1" value="B">B</td>
                         <td><input type="radio" name="radio_subject_1" value="C">C</td>
                         <td><input type="radio" name="radio_subject_1" value="D">D</td>
@@ -94,6 +95,7 @@
                     <tr>
                         <th>
                         </th>
+                        <td><input type="radio" name="radio_subject_2" value="A">A</td>
                         <td><input type="radio" name="radio_subject_2" value="B">B</td>
                         <td><input type="radio" name="radio_subject_2" value="C">C</td>
                         <td><input type="radio" name="radio_subject_2" value="D">D</td>
@@ -115,6 +117,7 @@
                     <tr>
                         <th>
                         </th>
+                        <td><input type="radio" name="radio_subject_3" value="A">A</td>
                         <td><input type="radio" name="radio_subject_3" value="B">B</td>
                         <td><input type="radio" name="radio_subject_3" value="C">C</td>
                         <td><input type="radio" name="radio_subject_3" value="D">D</td>

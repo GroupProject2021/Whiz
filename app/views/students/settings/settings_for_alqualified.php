@@ -95,47 +95,47 @@
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">Mathematics</th>
+                                    <th class="A"><?php echo $data['ol_sub1_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub1_grade'];?></p></td>
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">Science</th>
+                                    <th class="A"><?php echo $data['ol_sub2_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub2_grade'];?></p></td>
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">English</th>
+                                    <th class="A"><?php echo $data['ol_sub3_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub3_grade'];?></p></td>
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">Sinhala</th>
+                                    <th class="A"><?php echo $data['ol_sub4_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub4_grade'];?></p></td>
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">History</th>
+                                    <th class="A"><?php echo $data['ol_sub5_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub5_grade'];?></p></td>
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">Religion</th>
+                                    <th class="A"><?php echo $data['ol_sub6_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub6_grade'];?></p></td>
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">Basket 1</th>
+                                    <th class="A"><?php echo $data['ol_sub7_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub7_grade'];?></p></td>
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">Basket 2</th>
+                                    <th class="A"><?php echo $data['ol_sub8_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub8_grade'];?></p></td>
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">Basket 3</th>
+                                    <th class="A"><?php echo $data['ol_sub9_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub9_grade'];?></p></td>
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
@@ -181,17 +181,17 @@
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">Subject 1</th>
+                                    <th class="A"><?php echo $data['al_sub1_name']?></th>
                                     <td class="B"><p><?php echo $data['al_sub1_grade'];?></p></td>
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">Subject 2</th>
+                                    <th class="A"><?php echo $data['al_sub2_name']?></th>
                                     <td class="B"><p><?php echo $data['al_sub2_grade'];?></p></td>
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">Subject 3</th>
+                                    <th class="A"><?php echo $data['al_sub3_name']?></th>
                                     <td class="B"><p><?php echo $data['al_sub3_grade'];?></p></td>
                                     <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>

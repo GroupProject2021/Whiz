@@ -22,14 +22,23 @@
 
                     'ol_school' => trim($_POST['ol_school']),
                     'ol_district' => trim($_POST['ol_district']),
-                    'radio_mathematics' => $_POST['radio_mathematics'],
-                    'radio_science' => $_POST['radio_science'],
-                    'radio_english' => $_POST['radio_english'],
-                    'radio_sinhala' => $_POST['radio_sinhala'],
-                    'radio_history' => $_POST['radio_history'],
+                    'ol_sub1_id' => $_POST['religion'],
                     'radio_religion' => $_POST['radio_religion'],
+                    'ol_sub2_id' => $_POST['primary_language'],
+                    'radio_primary_language' => $_POST['radio_primary_language'],
+                    'ol_sub3_id' => $_POST['secondary_language'],
+                    'radio_secondary_language' => $_POST['radio_secondary_language'],
+                    'ol_sub4_id' => $_POST['history'],
+                    'radio_history' => $_POST['radio_history'],
+                    'ol_sub5_id' => $_POST['science'],
+                    'radio_science' => $_POST['radio_science'],
+                    'ol_sub6_id' => $_POST['mathematics'],
+                    'radio_mathematics' => $_POST['radio_mathematics'],
+                    'ol_sub7_id' => $_POST['basket1'],
                     'radio_basket_1' => $_POST['radio_basket_1'],
+                    'ol_sub8_id' => $_POST['basket2'],
                     'radio_basket_2' => $_POST['radio_basket_2'],
+                    'ol_sub9_id' => $_POST['basket3'],
                     'radio_basket_3' => $_POST['radio_basket_3'],
                     
                     'ol_school_err' => '',
@@ -48,8 +57,8 @@
                 }
 
                 // Validate Ol results
-                if(empty($data['radio_mathematics']) || empty($data['radio_science']) || empty($data['radio_english']) ||
-                    empty($data['radio_sinhala']) || empty($data['radio_history']) || empty($data['radio_religion']) ||
+                if(empty($data['radio_religion']) || empty($data['radio_primary_language']) || empty($data['radio_secondary_language']) ||
+                    empty($data['radio_history']) || empty($data['radio_science']) || empty($data['radio_mathematics']) ||
                     empty($data['radio_basket_1']) || empty($data['radio_basket_2']) || empty($data['radio_basket_3'])) {
                         $data['ol_results_err'] = 'Please check whether you have selected all the ol result check boxes';
                 }
@@ -80,14 +89,23 @@
 
                     'ol_school' => '',
                     'ol_district' => '',
-                    'radio_mathematics' => '',
-                    'radio_science' => '',
-                    'radio_english' => '',
-                    'radio_sinhala' => '',
-                    'radio_history' => '',
+                    'ol_sub1_id' => '',
                     'radio_religion' => '',
+                    'ol_sub2_id' => '',
+                    'radio_primary_language' => '',
+                    'ol_sub3_id' => '',
+                    'radio_secondary_language' => '',
+                    'ol_sub4_id' => '',
+                    'radio_history' => '',
+                    'ol_sub5_id' => '',
+                    'radio_science' => '',
+                    'ol_sub6_id' => '',
+                    'radio_mathematics' => '',
+                    'ol_sub7_id' => '',
                     'radio_basket_1' => '',
+                    'ol_sub8_id' => '',
                     'radio_basket_2' => '',
+                    'ol_sub9_id' => '',
                     'radio_basket_3' => '',
 
                     'ol_school_err' => '',
@@ -124,8 +142,11 @@
                     'al_district' => trim($_POST['al_district']),
                     'general_test_grade' => trim($_POST['general_test_grade']),
                     'radio_general_english' => trim($_POST['radio_general_english']),
+                    'al_sub1_id' => $_POST['subject1'],
                     'radio_subject_1' => trim($_POST['radio_subject_1']),
+                    'al_sub2_id' => $_POST['subject2'],
                     'radio_subject_2' => trim($_POST['radio_subject_2']),
+                    'al_sub3_id' => $_POST['subject3'],
                     'radio_subject_3' => trim($_POST['radio_subject_3']),
 
                     'al_school_err' => '',
@@ -203,9 +224,12 @@
                     'z_score' => '',
                     'al_district' => '',
                     'general_test_grade' => '',
-                    'radio_general_english' => '',                    
+                    'radio_general_english' => '',  
+                    'al_sub1_id' => '',                  
                     'radio_subject_1' => '',
+                    'al_sub2_id' => '',
                     'radio_subject_2' => '',
+                    'al_sub3_id' => '',
                     'radio_subject_3' => '',
 
                     'al_school_err' => '',

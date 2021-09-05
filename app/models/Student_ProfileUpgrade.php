@@ -25,25 +25,24 @@
             // bind values
             $this->db->bind(':stu_id', $id);
             $this->db->bind(':ol_school', $data['ol_school']);
-            $this->db->bind(':ol_school', $data['ol_school']);
             $this->db->bind(':ol_district', $data['ol_district']);
-            $this->db->bind(':ol_sub1_id', 1);
-            $this->db->bind(':ol_sub1_grade', $data['radio_mathematics']);
-            $this->db->bind(':ol_sub2_id', 2);
-            $this->db->bind(':ol_sub2_grade', $data['radio_science']);
-            $this->db->bind(':ol_sub3_id', 3);
-            $this->db->bind(':ol_sub3_grade', $data['radio_english']);
-            $this->db->bind(':ol_sub4_id', 4);
-            $this->db->bind(':ol_sub4_grade', $data['radio_sinhala']);
-            $this->db->bind(':ol_sub5_id', 5);
-            $this->db->bind(':ol_sub5_grade', $data['radio_history']);
-            $this->db->bind(':ol_sub6_id', 6);
-            $this->db->bind(':ol_sub6_grade', $data['radio_religion']);
-            $this->db->bind(':ol_sub7_id', 7);
+            $this->db->bind(':ol_sub1_id', $data['ol_sub1_id']);
+            $this->db->bind(':ol_sub1_grade', $data['radio_religion']);
+            $this->db->bind(':ol_sub2_id', $data['ol_sub2_id']);
+            $this->db->bind(':ol_sub2_grade', $data['radio_primary_language']);
+            $this->db->bind(':ol_sub3_id', $data['ol_sub3_id']);
+            $this->db->bind(':ol_sub3_grade', $data['radio_secondary_language']);
+            $this->db->bind(':ol_sub4_id', $data['ol_sub4_id']);
+            $this->db->bind(':ol_sub4_grade', $data['radio_history']);
+            $this->db->bind(':ol_sub5_id', $data['ol_sub5_id']);
+            $this->db->bind(':ol_sub5_grade', $data['radio_science']);
+            $this->db->bind(':ol_sub6_id', $data['ol_sub6_id']);
+            $this->db->bind(':ol_sub6_grade', $data['radio_mathematics']);
+            $this->db->bind(':ol_sub7_id', $data['ol_sub7_id']);
             $this->db->bind(':ol_sub7_grade', $data['radio_basket_1']);
-            $this->db->bind(':ol_sub8_id', 8);
+            $this->db->bind(':ol_sub8_id', $data['ol_sub8_id']);
             $this->db->bind(':ol_sub8_grade', $data['radio_basket_2']);
-            $this->db->bind(':ol_sub9_id', 9);
+            $this->db->bind(':ol_sub9_id', $data['ol_sub9_id']);
             $this->db->bind(':ol_sub9_grade', $data['radio_basket_3']);
 
             // Execute
@@ -94,11 +93,11 @@
             $this->db->bind(':al_district', $data['al_district']);
             $this->db->bind(':al_general_test_grade', $data['general_test_grade']);
             $this->db->bind(':al_general_english_grade', $data['radio_general_english']);
-            $this->db->bind(':al_sub1_id', 1);
+            $this->db->bind(':al_sub1_id', $data['al_sub1_id']);
             $this->db->bind(':al_sub1_grade', $data['radio_subject_1']);
-            $this->db->bind(':al_sub2_id', 2);
+            $this->db->bind(':al_sub2_id', $data['al_sub2_id']);
             $this->db->bind(':al_sub2_grade', $data['radio_subject_2']);
-            $this->db->bind(':al_sub3_id', 3);
+            $this->db->bind(':al_sub3_id', $data['al_sub3_id']);
             $this->db->bind(':al_sub3_grade', $data['radio_subject_3']);
 
             // Execute

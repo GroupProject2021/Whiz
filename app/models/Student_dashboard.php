@@ -6,6 +6,7 @@
             $this->db = new Database;
         }
 
+        // get student details
         public function getPosts() {
             $this->db->query("SELECT * FROM student");
             return $results = $this->db->resultSet();
@@ -49,6 +50,28 @@
             $row = $this->db->single();
 
             return $row;
+        }
+
+        // get subject details
+        public function getOLSubjectName($id) {
+            $this->db->query('SELECT * FROM olsubject WHERE ol_sub_id = :id');
+            // bind values
+            $this->db->bind(':id', $id);
+
+            $row = $this->db->single();
+
+            return $row->ol_sub_name;
+        }
+
+        // get subject details
+        public function getALSubjectName($id) {
+            $this->db->query('SELECT * FROM alsubject WHERE al_sub_id = :id');
+            // bind values
+            $this->db->bind(':id', $id);
+
+            $row = $this->db->single();
+
+            return $row->al_sub_name;
         }
 
         // useful for take a student data from students
