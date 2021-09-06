@@ -329,7 +329,7 @@
             $_SESSION['user_email'] = $user->email;
             $_SESSION['user_name'] = $user->name;
 
-            redirect('students_beginner_dashboard/index');
+            redirect('Professional_Guiders_dashboard/index');
         }
 
         public function logout() {
