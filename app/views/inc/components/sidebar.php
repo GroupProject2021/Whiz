@@ -87,7 +87,19 @@
         <?php endif; ?>
     <?php endif; ?>
 
-        
+    <!-- dashboard option -->
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/students_dashboard/index">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                </div>
+                <div class="sidebar-item-name">
+                    Dashboard
+                </div>
+            </button>
+            </a>
+        </div>
 
         <!-- OPTIONS -->
     <?php if(isset($_SESSION['user_id'])) : ?>
@@ -189,7 +201,7 @@
         <?php else: ?>
             <!-- Nothing here -->
         <?php endif;?>
-    <?php endif; ?>
+    <?php endif; ?>        
 
         <div class="sidebar-item">
             <a href="<?php echo URLROOT; ?>/students_dashboard/settings">
