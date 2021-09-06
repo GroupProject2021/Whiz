@@ -18,6 +18,7 @@
                 <input type="text" placeholder="Enter al school name" name="al_school" id="al_school" value="<?php echo $data['al_school']; ?>">
                 <span class="form-invalid"><?php echo $data['al_school_err']; ?></span><br>
 
+                <!-- stream -->
                 <label for="stream"><p class="form-bold">Stream</p></label>
                 <select name="stream" id="stream">
                     <?php foreach($data['stream_list'] as $stream):?>
@@ -58,6 +59,7 @@
 
                 <label for="al_results"><p class="form-bold">AL Results</p></label>
                 <table class="form-table">
+                    <!-- subject 1 - depend on stream -->
                     <tr>
                         <th>Subject 1</th>
                         <td colspan="5">
@@ -80,6 +82,7 @@
                         <td><input type="radio" name="radio_subject_1" value="E">E</td>
                         <td><input type="radio" name="radio_subject_1" value="F">F</td>                        
                     </tr>
+                    <!-- subject 2 - depend on stream + subject 1-->
                     <tr>
                         <th>Subject 2</th>
                         <td colspan="5">
@@ -102,6 +105,7 @@
                         <td><input type="radio" name="radio_subject_2" value="E">E</td>
                         <td><input type="radio" name="radio_subject_2" value="F">F</td>                        
                     </tr>
+                    <!-- subject 3 - depend on stream + subject 1 + subject 2-->
                     <tr>
                         <th>Subject 3</th>
                         <td colspan="5">
@@ -136,5 +140,19 @@
         <div class="form-container signin">
             <p>Contact for help? <a class="form-link" href="<?php echo URLROOT; ?>/students/login">Help & Services</a></p>
         </div>
+
+        
+        <script>
+            var stream = document.getElementById("stream");
+
+
+            stream.addEventListener("change", function() {
+                // alert(this.value);
+                // a.placeholder = this.value;
+
+                var selected_stream = this.value;
+
+            });
+        </script>
     </body>
 </html>

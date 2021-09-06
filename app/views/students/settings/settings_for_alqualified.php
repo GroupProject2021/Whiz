@@ -41,37 +41,30 @@
                                 <tr>
                                     <th class="A">Name</th>
                                     <td class="B"><p><?php echo $data['name'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Email</th>
                                     <td class="B"><p><?php echo $data['email'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Password</th>
                                     <td class="B"><p><?php echo $data['password'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Gender</th>
                                     <td class="B"><p><?php echo $data['gender'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Date of birth</th>
                                     <td class="B"><p><?php echo $data['date_of_birth'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Address</th>
                                     <td class="B"><p><?php echo $data['address'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Phone number</th>
                                     <td class="B"><p><?php echo $data['phn_no'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                             </table> 
                         </div>
@@ -87,57 +80,46 @@
                                 <tr>
                                     <th class="A">OL School</th>
                                     <td class="B"><p><?php echo $data['ol_school'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">District</th>
                                     <td class="B"><p><?php echo $data['ol_district'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A"><?php echo $data['ol_sub1_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub1_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A"><?php echo $data['ol_sub2_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub2_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A"><?php echo $data['ol_sub3_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub3_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A"><?php echo $data['ol_sub4_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub4_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A"><?php echo $data['ol_sub5_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub5_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A"><?php echo $data['ol_sub6_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub6_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A"><?php echo $data['ol_sub7_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub7_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A"><?php echo $data['ol_sub8_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub8_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A"><?php echo $data['ol_sub9_name']?></th>
                                     <td class="B"><p><?php echo $data['ol_sub9_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                             </table>
                         </div>
@@ -153,47 +135,38 @@
                                 <tr>
                                     <th class="A">AL School</th>
                                     <td class="B"><p><?php echo $data['al_school'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">District</th>
                                     <td class="B"><p><?php echo $data['al_district'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Stream</th>
                                     <td class="B"><p><?php echo $data['stream'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Z-Score</th>
                                     <td class="B"><p><?php echo $data['z_score'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">General test grade</th>
                                     <td class="B"><p><?php echo $data['al_general_test_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">General english grade</th>
                                     <td class="B"><p><?php echo $data['al_general_english_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A"><?php echo $data['al_sub1_name']?></th>
                                     <td class="B"><p><?php echo $data['al_sub1_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A"><?php echo $data['al_sub2_name']?></th>
                                     <td class="B"><p><?php echo $data['al_sub2_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A"><?php echo $data['al_sub3_name']?></th>
                                     <td class="B"><p><?php echo $data['al_sub3_grade'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                             </table> 
                         </div>

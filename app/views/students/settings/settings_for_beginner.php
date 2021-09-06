@@ -42,37 +42,30 @@
                                 <tr>
                                     <th class="A">Name</th>
                                     <td class="B"><p><?php echo $data['name'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Email</th>
                                     <td class="B"><p><?php echo $data['email'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Password</th>
                                     <td class="B"><p><?php echo $data['password'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Gender</th>
                                     <td class="B"><p><?php echo $data['gender'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Date of birth</th>
                                     <td class="B"><p><?php echo $data['date_of_birth'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Address</th>
                                     <td class="B"><p><?php echo $data['address'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Phone number</th>
                                     <td class="B"><p><?php echo $data['phn_no'];?></p></td>
-                                    <td class="C"><input class="edit-button" type="button" value="Edit"></td>
                                 </tr>
                             </table>
                         </div>
