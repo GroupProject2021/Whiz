@@ -143,7 +143,7 @@
                             </tr>
                             <tr>
                                 <th class="A">Stream</th>
-                                <td class="B"><p><?php echo $data['stream'];?></p></td>
+                                <td class="B"><p><?php echo $data['stream_name'];?></p></td>
                             </tr>
                             <tr>
                                 <th class="A">Z-Score</th>

@@ -44,58 +44,269 @@
                                 <table class="settings-table">
                                     <tr>
                                         <th class="A">OL School</th>
-                                        <td class="B"><p><input type="text" name="ol_school" id="ol_school" value="<?php echo $data['ol_school'];?>"></p></td>
+                                        <td class="B" colspan="6"><p><input type="text" name="ol_school" id="ol_school" value="<?php echo $data['ol_school'];?>"></p></td>
                                         <td class="C"><span class="form-invalid"><?php echo $data['ol_school_err']; ?></td>
                                     </tr>
                                     <tr>
                                         <th class="A">OL District</th>
-                                        <td class="B"><p><input type="text" name="ol_district" id="ol_district" value="<?php echo $data['ol_district'];?>"></p></td>
+                                        <td class="B" colspan="6">
+                                            <select name="ol_district" id="ol_district">
+                                                <?php foreach($data['district_list'] as $district):?>
+                                                    <?php if($district->district_name == $data['ol_district']): ?>
+                                                        <option value="<?php echo $district->district_name; ?>" selected><?php echo $district->district_name; ?></option>
+                                                    <?php else: ?>
+                                                        <option value="<?php echo $district->district_name; ?>"><?php echo $district->district_name; ?></option>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </td>
                                         <td class="C"><span class="form-invalid"><?php echo $data['ol_district_err']; ?></td>
                                     </tr>
                                     <tr>
-                                        <th class="A">Mathematics</th>
-                                        <td class="B"><p><input type="text" name="ol_sub1_grade" id="ol_sub1_grade" value="<?php echo $data['ol_sub1_grade'];?>"></p></td>
-                                        <td class="C"><span class="form-invalid"><?php echo $data['ol_sub1_grade_err']; ?></td>
+                                        <th class="A">
+                                            <select name="religion" id="religion">
+                                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                                    <?php if($subjects->ol_type == 'Religion'):?>
+                                                        <?php if($subjects->ol_sub_id == $data['ol_sub1_id']): ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>" selected><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php else: ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php endif;?>
+                                                    <?php endif;?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </th>
+                                        <?php 
+                                            $grades = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+                                            foreach($grades as $grade) {
+                                                if($data['radio_religion'] == $grade) {
+                                                    echo '<td><input type="radio" name="radio_religion" value="'.$grade.'" checked>'.$grade.'</td>';
+                                                }
+                                                else {
+                                                    echo '<td><input type="radio" name="radio_religion" value="'.$grade.'">'.$grade.'</td>';
+                                                }
+                                            }
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <th class="A">Science</th>
-                                        <td class="B"><p><input type="text" name="ol_sub2_grade" id="ol_sub2_grade" value="<?php echo $data['ol_sub2_grade'];?>"></p></td>
-                                        <td class="C"><span class="form-invalid"><?php echo $data['ol_sub2_grade_err']; ?></td>
+                                        <th class="A">
+                                            <select name="primary_language" id="primary_language">
+                                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                                    <?php if($subjects->ol_type == 'Primary Language'):?>
+                                                        <?php if($subjects->ol_sub_id == $data['ol_sub2_id']): ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>" selected><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php else: ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php endif;?>
+                                                    <?php endif;?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </th>
+                                        <?php 
+                                            $grades = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+                                            foreach($grades as $grade) {
+                                                if($data['radio_primary_language'] == $grade) {
+                                                    echo '<td><input type="radio" name="radio_primary_language" value="'.$grade.'" checked>'.$grade.'</td>';
+                                                }
+                                                else {
+                                                    echo '<td><input type="radio" name="radio_primary_language" value="'.$grade.'">'.$grade.'</td>';
+                                                }
+                                            }
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <th class="A">English</th>
-                                        <td class="B"><p><input type="text" name="ol_sub3_grade" id="ol_sub3_grade" value="<?php echo $data['ol_sub3_grade'];?>"></p></td>
-                                        <td class="C"><span class="form-invalid"><?php echo $data['ol_sub3_grade_err']; ?></td>
+                                        <th class="A">
+                                            <select name="secondary_language" id="secondary_language">
+                                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                                    <?php if($subjects->ol_type == 'Secondary Language'):?>
+                                                        <?php if($subjects->ol_sub_id == $data['ol_sub3_id']): ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>" selected><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php else: ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php endif;?>
+                                                    <?php endif;?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </th>
+                                        <?php 
+                                            $grades = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+                                            foreach($grades as $grade) {
+                                                if($data['radio_secondary_language'] == $grade) {
+                                                    echo '<td><input type="radio" name="radio_secondary_language" value="'.$grade.'" checked>'.$grade.'</td>';
+                                                }
+                                                else {
+                                                    echo '<td><input type="radio" name="radio_secondary_language" value="'.$grade.'">'.$grade.'</td>';
+                                                }
+                                            }
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <th class="A">Sinhala</th>
-                                        <td class="B"><p><input type="text" name="ol_sub4_grade" id="ol_sub4_grade" value="<?php echo $data['ol_sub4_grade'];?>"></p></td>
-                                        <td class="C"><span class="form-invalid"><?php echo $data['ol_sub4_grade_err']; ?></td>
+                                        <th class="A">
+                                            <select name="history" id="history">
+                                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                                    <?php if($subjects->ol_type == 'History'):?>
+                                                        <?php if($subjects->ol_sub_id == $data['ol_sub4_id']): ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>" selected><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php else: ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php endif;?>
+                                                    <?php endif;?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </th>
+                                        <?php 
+                                            $grades = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+                                            foreach($grades as $grade) {
+                                                if($data['radio_history'] == $grade) {
+                                                    echo '<td><input type="radio" name="radio_history" value="'.$grade.'" checked>'.$grade.'</td>';
+                                                }
+                                                else {
+                                                    echo '<td><input type="radio" name="radio_history" value="'.$grade.'">'.$grade.'</td>';
+                                                }
+                                            }
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <th class="A">History</th>
-                                        <td class="B"><p><input type="text" name="ol_sub5_grade" id="ol_sub5_grade" value="<?php echo $data['ol_sub5_grade'];?>"></p></td>
-                                        <td class="C"><span class="form-invalid"><?php echo $data['ol_sub5_grade_err']; ?></td>
+                                        <th class="A">
+                                            <select name="science" id="science">
+                                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                                    <?php if($subjects->ol_type == 'Science'):?>
+                                                        <?php if($subjects->ol_sub_id == $data['ol_sub5_id']): ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>" selected><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php else: ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php endif;?>
+                                                    <?php endif;?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </th>
+                                        <?php 
+                                            $grades = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+                                            foreach($grades as $grade) {
+                                                if($data['radio_science'] == $grade) {
+                                                    echo '<td><input type="radio" name="radio_science" value="'.$grade.'" checked>'.$grade.'</td>';
+                                                }
+                                                else {
+                                                    echo '<td><input type="radio" name="radio_science" value="'.$grade.'">'.$grade.'</td>';
+                                                }
+                                            }
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <th class="A">Religion</th>
-                                        <td class="B"><p><input type="text" name="ol_sub6_grade" id="ol_sub6_grade" value="<?php echo $data['ol_sub6_grade'];?>"></p></td>
-                                        <td class="C"><span class="form-invalid"><?php echo $data['ol_sub6_grade_err']; ?></td>
+                                        <th class="A">
+                                            <select name="mathematics" id="mathematics">
+                                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                                    <?php if($subjects->ol_type == 'Mathematics'):?>
+                                                        <?php if($subjects->ol_sub_id == $data['ol_sub6_id']): ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>" selected><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php else: ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php endif;?>
+                                                    <?php endif;?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </th>
+                                        <?php 
+                                            $grades = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+                                            foreach($grades as $grade) {
+                                                if($data['radio_mathematics'] == $grade) {
+                                                    echo '<td><input type="radio" name="radio_mathematics" value="'.$grade.'" checked>'.$grade.'</td>';
+                                                }
+                                                else {
+                                                    echo '<td><input type="radio" name="radio_mathematics" value="'.$grade.'">'.$grade.'</td>';
+                                                }
+                                            }
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <th class="A">Basket 1</th>
-                                        <td class="B"><p><input type="text" name="ol_sub7_grade" id="ol_sub7_grade" value="<?php echo $data['ol_sub7_grade'];?>"></p></td>
-                                        <td class="C"><span class="form-invalid"><?php echo $data['ol_sub7_grade_err']; ?></td>
+                                        <th class="A">
+                                            <select name="basket1" id="basket1">
+                                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                                    <?php if($subjects->ol_category == 'Basket 1'):?>
+                                                        <?php if($subjects->ol_sub_id == $data['ol_sub7_id']): ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>" selected><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php else: ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php endif;?>
+                                                    <?php endif;?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </th>
+                                        <?php 
+                                            $grades = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+                                            foreach($grades as $grade) {
+                                                if($data['radio_basket_1'] == $grade) {
+                                                    echo '<td><input type="radio" name="radio_basket_1" value="'.$grade.'" checked>'.$grade.'</td>';
+                                                }
+                                                else {
+                                                    echo '<td><input type="radio" name="radio_basket_1" value="'.$grade.'">'.$grade.'</td>';
+                                                }
+                                            }
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <th class="A">Basket 2</th>
-                                        <td class="B"><p><input type="text" name="ol_sub8_grade" id="ol_sub8_grade" value="<?php echo $data['ol_sub8_grade'];?>"></p></td>
-                                        <td class="C"><span class="form-invalid"><?php echo $data['ol_sub8_grade_err']; ?></td>
+                                        <th class="A">
+                                            <select name="basket2" id="basket2">
+                                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                                    <?php if($subjects->ol_category == 'Basket 2'):?>
+                                                        <?php if($subjects->ol_sub_id == $data['ol_sub8_id']): ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>" selected><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php else: ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php endif;?>
+                                                    <?php endif;?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </th>
+                                        <?php 
+                                            $grades = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+                                            foreach($grades as $grade) {
+                                                if($data['radio_basket_2'] == $grade) {
+                                                    echo '<td><input type="radio" name="radio_basket_2" value="'.$grade.'" checked>'.$grade.'</td>';
+                                                }
+                                                else {
+                                                    echo '<td><input type="radio" name="radio_basket_2" value="'.$grade.'">'.$grade.'</td>';
+                                                }
+                                            }
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <th class="A">Basket 3</th>
-                                        <td class="B"><p><input type="text" name="ol_sub9_grade" id="ol_sub9_grade" value="<?php echo $data['ol_sub9_grade'];?>"></p></td>
-                                        <td class="C"><span class="form-invalid"><?php echo $data['ol_sub9_grade_err']; ?></td>
+                                        <th class="A">
+                                            <select name="basket3" id="basket3">
+                                                <?php foreach($data['ol_subject_list'] as $subjects):?>
+                                                    <?php if($subjects->ol_category == 'Basket 3'):?>
+                                                        <?php if($subjects->ol_sub_id == $data['ol_sub9_id']): ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>" selected><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php else: ?>
+                                                            <option value="<?php echo $subjects->ol_sub_id; ?>"><?php echo $subjects->ol_sub_name; ?></option>
+                                                        <?php endif;?>
+                                                    <?php endif;?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </th>
+                                        <?php 
+                                            $grades = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+                                            foreach($grades as $grade) {
+                                                if($data['radio_basket_3'] == $grade) {
+                                                    echo '<td><input type="radio" name="radio_basket_3" value="'.$grade.'" checked>'.$grade.'</td>';
+                                                }
+                                                else {
+                                                    echo '<td><input type="radio" name="radio_basket_3" value="'.$grade.'">'.$grade.'</td>';
+                                                }
+                                            }
+                                        ?>
+                                    </tr>
+                                    <tr>                                        
+                                        <span class="form-invalid"><?php echo $data['ol_results_err']; ?></span><br>
                                     </tr>
                                 </table>
                                 </div>

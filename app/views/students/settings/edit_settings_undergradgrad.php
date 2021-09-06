@@ -34,7 +34,7 @@
                         <div class="settings-form-edit-container">
                             <form action="<?php echo URLROOT; ?>/students_dashboard/editSettingsUG" method="post">
                                 <div class="settings-header">
-                                        <div class="settings-header-item"><h2>OL details</h2></div>
+                                        <div class="settings-header-item"><h2>University details</h2></div>
                                         <div class="settings-header-item"><a href="<?php echo URLROOT; ?>/students_dashboard/settings"><input class="cancel-button" type="button" value="Cancel"></a></div>
                                         <div class="settings-header-item"><a href=""><input class="save-button" type="submit" value="Save"></a></div>
                                         <!-- <div class="settings-header-item"><button type="submit">Save</button></div> -->

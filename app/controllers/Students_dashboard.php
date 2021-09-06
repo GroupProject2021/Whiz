@@ -108,6 +108,7 @@
                         'al_school' => $studentALData->al_school,
                         'al_district' => $studentALData->al_district,
                         'stream' => $studentALData->stream,
+                        'stream_name' => $this->studentDashboardModel->getStreamNameById($studentALData->stream),
                         'z_score' => $studentALData->z_score,
                         'al_general_test_grade' => $studentALData->al_general_test_grade,
                         'al_general_english_grade' => $studentALData->al_general_english_grade,
@@ -161,6 +162,7 @@
                         'al_school' => $studentALData->al_school,
                         'al_district' => $studentALData->al_district,
                         'stream' => $studentALData->stream,
+                        'stream_name' => $this->studentDashboardModel->getStreamNameById($studentALData->stream),
                         'z_score' => $studentALData->z_score,
                         'al_general_test_grade' => $studentALData->al_general_test_grade,
                         'al_general_english_grade' => $studentALData->al_general_english_grade,
@@ -288,85 +290,63 @@
         }
 
         public function editSettingsOL() {
+            $district_list = $this->studentDashboardModel->getDistricts();
+            $ol_subject_list = $this->studentDashboardModel->getOLSubjects();
+
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanetize the POST array
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 
+                // Init data
                 $data = [
+                    'district_list' => $district_list,
+                    'ol_subject_list' => $ol_subject_list,
+
                     'ol_school' => trim($_POST['ol_school']),
                     'ol_district' => trim($_POST['ol_district']),
-                    'ol_sub1_grade' => trim($_POST['ol_sub1_grade']),
-                    'ol_sub2_grade' => trim($_POST['ol_sub2_grade']),
-                    'ol_sub3_grade' => trim($_POST['ol_sub3_grade']),
-                    'ol_sub4_grade' => trim($_POST['ol_sub4_grade']),
-                    'ol_sub5_grade' => trim($_POST['ol_sub5_grade']),
-                    'ol_sub6_grade' => trim($_POST['ol_sub6_grade']),
-                    'ol_sub7_grade' => trim($_POST['ol_sub7_grade']),
-                    'ol_sub8_grade' => trim($_POST['ol_sub8_grade']),
-                    'ol_sub9_grade' => trim($_POST['ol_sub9_grade']),
-
+                    'ol_sub1_id' => $_POST['religion'],
+                    'radio_religion' => $_POST['radio_religion'],
+                    'ol_sub2_id' => $_POST['primary_language'],
+                    'radio_primary_language' => $_POST['radio_primary_language'],
+                    'ol_sub3_id' => $_POST['secondary_language'],
+                    'radio_secondary_language' => $_POST['radio_secondary_language'],
+                    'ol_sub4_id' => $_POST['history'],
+                    'radio_history' => $_POST['radio_history'],
+                    'ol_sub5_id' => $_POST['science'],
+                    'radio_science' => $_POST['radio_science'],
+                    'ol_sub6_id' => $_POST['mathematics'],
+                    'radio_mathematics' => $_POST['radio_mathematics'],
+                    'ol_sub7_id' => $_POST['basket1'],
+                    'radio_basket_1' => $_POST['radio_basket_1'],
+                    'ol_sub8_id' => $_POST['basket2'],
+                    'radio_basket_2' => $_POST['radio_basket_2'],
+                    'ol_sub9_id' => $_POST['basket3'],
+                    'radio_basket_3' => $_POST['radio_basket_3'],
+                    
                     'ol_school_err' => '',
                     'ol_district_err' => '',
-                    'ol_sub1_grade_err' => '',
-                    'ol_sub2_grade_err' => '',
-                    'ol_sub3_grade_err' => '',
-                    'ol_sub4_grade_err' => '',
-                    'ol_sub5_grade_err' => '',
-                    'ol_sub6_grade_err' => '',
-                    'ol_sub7_grade_err' => '',
-                    'ol_sub8_grade_err' => '',
-                    'ol_sub9_grade_err' => ''
+                    'ol_results_err' => ''
                 ];
 
-                // Validate title
+                // Validate OL school
                 if(empty($data['ol_school'])) {
-                    $data['ol_school_err'] = 'Please enterol school name';
+                    $data['ol_school_err'] = 'Please enter your OL school name';
                 }
 
+                // Validate OL district
                 if(empty($data['ol_district'])) {
-                    $data['ol_district_err'] = 'Please enter district';
+                    $data['ol_district_err'] = 'Please enter your OL district';
                 }
 
-                if(empty($data['ol_sub1_grade'])) {
-                    $data['ol_sub1_grade_err'] = 'Please enter subject 1';
+                // Validate Ol results
+                if(empty($data['radio_religion']) || empty($data['radio_primary_language']) || empty($data['radio_secondary_language']) ||
+                    empty($data['radio_history']) || empty($data['radio_science']) || empty($data['radio_mathematics']) ||
+                    empty($data['radio_basket_1']) || empty($data['radio_basket_2']) || empty($data['radio_basket_3'])) {
+                        $data['ol_results_err'] = 'Please check whether you have selected all the ol result check boxes';
                 }
 
-                if(empty($data['ol_sub2_grade'])) {
-                    $data['ol_sub2_grade_err'] = 'Please enter subject 2';
-                }
-
-                if(empty($data['ol_sub3_grade'])) {
-                    $data['ol_sub3_grade_err'] = 'Please enter subject 3';
-                }
-
-                if(empty($data['ol_sub4_grade'])) {
-                    $data['ol_sub4_grade_err'] = 'Please enter subject 4';
-                }
-
-                if(empty($data['ol_sub5_grade'])) {
-                    $data['ol_sub5_grade_err'] = 'Please enter subject 5';
-                }
-
-                if(empty($data['ol_sub6_grade'])) {
-                    $data['ol_sub6_grade_err'] = 'Please enter subject 6';
-                }
-
-                if(empty($data['ol_sub7_grade'])) {
-                    $data['ol_sub7_grade_err'] = 'Please enter subject 7';
-                }
-
-                if(empty($data['ol_sub8_grade'])) {
-                    $data['ol_sub8_grade_err'] = 'Please enter subject 8';
-                }
-
-                if(empty($data['ol_sub9_grade'])) {
-                    $data['ol_sub9_grade_err'] = 'Please enter subject 9';
-                }
-
-                // Make sure no errors
-                if(empty($data['ol_school_err']) && empty($data['ol_district_err']) && empty($data['ol_sub1_grade_err']) && empty($data['ol_sub2_grade_err'])
-                    && empty($data['ol_sub3_grade_err']) && empty($data['ol_sub4_grade_err']) && empty($data['ol_sub5_grade_err']) && empty($data['ol_sub6_grade_err'])
-                    && empty($data['ol_sub7_grade_err']) && empty($data['ol_sub8_grade_err']) && empty($data['ol_sub9_grade_err'])) {
+                // Make sure all errors are empty
+                if(empty($data['ol_school_err']) && empty($data['ol_district_err']) && empty($data['ol_results_err'])) {
                     // Validated                    
                     $id = $this->studentDashboardModel->findStudentIdbyEmail($_SESSION['user_email']);
                     if($this->studentDashboardModel->updateStudentOLSettings($id, $data)) {
@@ -375,10 +355,10 @@
                     }
                     else {
                         die('Something went wrong');
-                    }
+                    }            
                 }
                 else {
-                    // Load view with errors
+                    // Load with errors
                     $this->view('students/settings/edit_settings_olqualified', $data);
                 }
             }
@@ -387,30 +367,35 @@
                 // Get existing post from model                
                 $studentData = $this->studentDashboardModel->getStudentOLDetails($id);
 
+                // Init data
                 $data = [
+                    'district_list' => $district_list,
+                    'ol_subject_list' => $ol_subject_list,
+
                     'ol_school' => $studentData->ol_school,
                     'ol_district' => $studentData->ol_district,
-                    'ol_sub1_grade' => $studentData->ol_sub1_grade,
-                    'ol_sub2_grade' => $studentData->ol_sub2_grade,
-                    'ol_sub3_grade' => $studentData->ol_sub3_grade,
-                    'ol_sub4_grade' => $studentData->ol_sub4_grade,
-                    'ol_sub5_grade' => $studentData->ol_sub5_grade,
-                    'ol_sub6_grade' => $studentData->ol_sub6_grade,
-                    'ol_sub7_grade' => $studentData->ol_sub7_grade,
-                    'ol_sub8_grade' => $studentData->ol_sub8_grade,
-                    'ol_sub9_grade' => $studentData->ol_sub9_grade,
+                    'ol_sub1_id' => $studentData->ol_sub1_id,
+                    'radio_religion' => $studentData->ol_sub1_grade,
+                    'ol_sub2_id' => $studentData->ol_sub2_id,
+                    'radio_primary_language' => $studentData->ol_sub2_grade,
+                    'ol_sub3_id' => $studentData->ol_sub3_id,
+                    'radio_secondary_language' => $studentData->ol_sub3_grade,
+                    'ol_sub4_id' => $studentData->ol_sub4_id,
+                    'radio_history' => $studentData->ol_sub4_grade,
+                    'ol_sub5_id' => $studentData->ol_sub5_id,
+                    'radio_science' => $studentData->ol_sub5_grade,
+                    'ol_sub6_id' => $studentData->ol_sub6_id,
+                    'radio_mathematics' => $studentData->ol_sub6_grade,
+                    'ol_sub7_id' => $studentData->ol_sub7_id,
+                    'radio_basket_1' => $studentData->ol_sub7_grade,
+                    'ol_sub8_id' => $studentData->ol_sub8_id,
+                    'radio_basket_2' => $studentData->ol_sub8_grade,
+                    'ol_sub9_id' => $studentData->ol_sub9_id,
+                    'radio_basket_3' => $studentData->ol_sub9_grade,
 
                     'ol_school_err' => '',
                     'ol_district_err' => '',
-                    'ol_sub1_grade_err' => '',
-                    'ol_sub2_grade_err' => '',
-                    'ol_sub3_grade_err' => '',
-                    'ol_sub4_grade_err' => '',
-                    'ol_sub5_grade_err' => '',
-                    'ol_sub6_grade_err' => '',
-                    'ol_sub7_grade_err' => '',
-                    'ol_sub8_grade_err' => '',
-                    'ol_sub9_grade_err' => ''
+                    'ol_results_err' => ''
                 ];
             }
 
@@ -418,74 +403,80 @@
         }
 
         public function editSettingsAL() {
+            $district_list = $this->studentDashboardModel->getDistricts();
+            $stream_list = $this->studentDashboardModel->getStreams();
+            $al_subject_list = $this->studentDashboardModel->getALSubjects();
+
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanetize the POST array
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 
+                // Init data
                 $data = [
+                    'district_list' => $district_list,
+                    'stream_list' => $stream_list,
+                    'al_subject_list' => $al_subject_list,                    
+
                     'al_school' => trim($_POST['al_school']),
                     'stream' => trim($_POST['stream']),
                     'z_score' => trim($_POST['z_score']),
                     'al_district' => trim($_POST['al_district']),
-                    'al_general_test_grade' => trim($_POST['al_general_test_grade']),
-                    'al_general_english_grade' => trim($_POST['al_general_english_grade']),
-                    'al_sub1_grade' => trim($_POST['al_sub1_grade']),
-                    'al_sub2_grade' => trim($_POST['al_sub2_grade']),
-                    'al_sub3_grade' => trim($_POST['al_sub3_grade']),
+                    'general_test_grade' => trim($_POST['general_test_grade']),
+                    'radio_general_english' => $_POST['radio_general_english'],
+                    'al_sub1_id' => $_POST['subject1'],
+                    'radio_subject_1' => $_POST['radio_subject_1'],
+                    'al_sub2_id' => $_POST['subject2'],
+                    'radio_subject_2' => $_POST['radio_subject_2'],
+                    'al_sub3_id' => $_POST['subject3'],
+                    'radio_subject_3' => $_POST['radio_subject_3'],
 
                     'al_school_err' => '',
                     'stream_err' => '',
                     'z_score_err' => '',
                     'al_district_err' => '',
-                    'al_general_test_grade_err' => '',
-                    'al_general_english_grade_err' => '',
-                    'al_sub1_grade_err' => '',
-                    'al_sub2_grade_err' => '',
-                    'al_sub3_grade_err' => ''
+                    'general_test_grade_err' => '',
+                    'radio_general_english_err' => '',
+                    'al_results_err' => ''
                 ];
 
-                // Validate
+                // Validate AL school
                 if(empty($data['al_school'])) {
-                    $data['al_school_err'] = 'Please enter AL school name';
+                    $data['al_school_err'] = 'Please enter your AL school name';
                 }
 
+                // Validate stream
                 if(empty($data['stream'])) {
-                    $data['stream_err'] = 'Please enter stream';
+                    $data['stream_err'] = 'Please enter your stream';
                 }
 
+                // Validate z score
                 if(empty($data['z_score'])) {
-                    $data['z_score_err'] = 'Please enter z score';
+                    $data['z_score_err'] = 'Please enter your z score';
                 }
 
+                // Validate AL district
                 if(empty($data['al_district'])) {
-                    $data['al_district_err'] = 'Please enter district';
+                    $data['al_district_err'] = 'Please enter your AL district';
                 }
 
-                if(empty($data['al_general_test_grade'])) {
-                    $data['al_general_test_grade_err'] = 'Please enter general test grade';
+                // Validate general test grade
+                if(empty($data['radio_general_english'])) {
+                    $data['radio_general_english_err'] = 'Please enter your general test grade';
                 }
 
-                if(empty($data['al_general_english_grade'])) {
-                    $data['al_general_english_grade_err'] = 'Please enter general english grade';
+                // Validate general english grade
+                if(empty($data['general_english_grade'])) {
+                    $data['general_english_grade_err'] = 'Please enter your english grade';
                 }
 
-                if(empty($data['al_sub1_grade'])) {
-                    $data['al_sub1_grade_err'] = 'Please enter subject 1';
+                if(empty($data['radio_subject_1']) || empty($data['radio_subject_2']) || empty($data['radio_subject_3'])) {
+                    $data['al_results_err'] = 'Please check whether you have selected all the al result check boxes';
                 }
 
-                if(empty($data['al_sub2_grade'])) {
-                    $data['al_sub2_grade_err'] = 'Please enter subject 2';
-                }
-
-                if(empty($data['al_sub3_grade'])) {
-                    $data['al_sub3_grade_err'] = 'Please enter subject 3';
-                }
-
-
-                // Make sure no errors
-                if(empty($data['al_school_err']) && empty($data['stream_err']) && empty($data['z_score_err']) && empty($data['al_district_err'])
-                    && empty($data['al_general_test_grade_err']) && empty($data['al_general_english_grade_err']) && empty($data['al_sub1_grade_err'])
-                    && empty($data['al_sub2_grade_err']) && empty($data['al_sub3_grade_err'])) {
+                // Make sure all errors are empty
+                if(empty($data['al_school_err']) && empty($data['stream_err']) && empty($data['z_score_err'])
+                    && empty($data['al_district_err']) && empty($data['general_test_grade_err']) && empty($data['radio_general_english_err'])
+                    && empty($data['al_results_err'])) {
                     // Validated                    
                     $id = $this->studentDashboardModel->findStudentIdbyEmail($_SESSION['user_email']);
                     if($this->studentDashboardModel->updateStudentALSettings($id, $data)) {
@@ -494,7 +485,7 @@
                     }
                     else {
                         die('Something went wrong');
-                    }
+                    }                  
                 }
                 else {
                     // Load view with errors
@@ -506,26 +497,32 @@
                 // Get existing post from model                
                 $studentData = $this->studentDashboardModel->getStudentALDetails($id);
 
+                // Init data
                 $data = [
+                    'district_list' => $district_list,
+                    'stream_list' => $stream_list,
+                    'al_subject_list' => $al_subject_list, 
+
                     'al_school' => $studentData->al_school,
                     'stream' => $studentData->stream,
                     'z_score' => $studentData->z_score,
                     'al_district' => $studentData->al_district,
-                    'al_general_test_grade' => $studentData->al_general_test_grade,
-                    'al_general_english_grade' => $studentData->al_general_english_grade,
-                    'al_sub1_grade' => $studentData->al_sub1_grade,
-                    'al_sub2_grade' => $studentData->al_sub2_grade,
-                    'al_sub3_grade' => $studentData->al_sub3_grade,
+                    'general_test_grade' => $studentData->al_general_test_grade,
+                    'radio_general_english' => $studentData->al_general_english_grade,  
+                    'al_sub1_id' => $studentData->al_sub1_id,                  
+                    'radio_subject_1' => $studentData->al_sub1_grade,
+                    'al_sub2_id' => $studentData->al_sub2_id,
+                    'radio_subject_2' => $studentData->al_sub2_grade,
+                    'al_sub3_id' => $studentData->al_sub3_id,
+                    'radio_subject_3' => $studentData->al_sub3_grade,
 
                     'al_school_err' => '',
                     'stream_err' => '',
                     'z_score_err' => '',
                     'al_district_err' => '',
-                    'al_general_test_grade_err' => '',
-                    'al_general_english_grade_err' => '',
-                    'al_sub1_grade_err' => '',
-                    'al_sub2_grade_err' => '',
-                    'al_sub3_grade_err' => ''
+                    'general_test_grade_err' => '',
+                    'radio_general_english_err' => '',
+                    'al_results_err' => ''
                 ];
             }
 

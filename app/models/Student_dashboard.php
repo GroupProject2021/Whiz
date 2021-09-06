@@ -112,24 +112,49 @@
 
         // update setting for ol qualified
         public function updateStudentOLSettings($id, $data) {
-            $this->db->query('UPDATE olqualifiedstudent SET ol_school = :ol_school, ol_district = :ol_district, ol_sub1_grade = :ol_sub1_grade,
-                                ol_sub2_grade = :ol_sub2_grade, ol_sub3_grade = :ol_sub3_grade, ol_sub4_grade = :ol_sub4_grade, ol_sub5_grade = :ol_sub5_grade,
-                                ol_sub6_grade = :ol_sub6_grade, ol_sub7_grade = :ol_sub7_grade, ol_sub8_grade = :ol_sub8_grade, ol_sub9_grade = :ol_sub9_grade
+            $this->db->query('UPDATE olqualifiedstudent SET ol_school = :ol_school, ol_district = :ol_district, ol_sub1_id = :ol_sub1_id, ol_sub1_grade = :ol_sub1_grade,
+                                ol_sub2_id = :ol_sub2_id, ol_sub2_grade = :ol_sub2_grade, ol_sub3_id = :ol_sub3_id, ol_sub3_grade = :ol_sub3_grade,
+                                ol_sub4_id = :ol_sub4_id, ol_sub4_grade = :ol_sub4_grade, ol_sub5_id = :ol_sub5_id, ol_sub5_grade = :ol_sub5_grade,
+                                ol_sub6_id = :ol_sub6_id, ol_sub6_grade = :ol_sub6_grade, ol_sub7_id = :ol_sub7_id, ol_sub7_grade = :ol_sub7_grade, 
+                                ol_sub8_id = :ol_sub8_id, ol_sub8_grade = :ol_sub8_grade, ol_sub9_id = :ol_sub9_id,  ol_sub9_grade = :ol_sub9_grade
                                  WHERE stu_id = :id');
             // bind values
             
-            $this->db->bind(":ol_school", $data['ol_school']);
-            $this->db->bind(":ol_district", $data['ol_district']);
-            $this->db->bind(":ol_sub1_grade", $data['ol_sub1_grade']);
-            $this->db->bind(":ol_sub2_grade", $data['ol_sub2_grade']);
-            $this->db->bind(":ol_sub3_grade", $data['ol_sub3_grade']);
-            $this->db->bind(":ol_sub4_grade", $data['ol_sub4_grade']);
-            $this->db->bind(":ol_sub5_grade", $data['ol_sub5_grade']);
-            $this->db->bind(":ol_sub6_grade", $data['ol_sub6_grade']);
-            $this->db->bind(":ol_sub7_grade", $data['ol_sub7_grade']);
-            $this->db->bind(":ol_sub8_grade", $data['ol_sub8_grade']);
-            $this->db->bind(":ol_sub9_grade", $data['ol_sub9_grade']);
-            $this->db->bind(":id", $id);
+            // $this->db->bind(":ol_school", $data['ol_school']);
+            // $this->db->bind(":ol_district", $data['ol_district']);
+            // $this->db->bind(":ol_sub1_grade", $data['ol_sub1_grade']);
+            // $this->db->bind(":ol_sub2_grade", $data['ol_sub2_grade']);
+            // $this->db->bind(":ol_sub3_grade", $data['ol_sub3_grade']);
+            // $this->db->bind(":ol_sub4_grade", $data['ol_sub4_grade']);
+            // $this->db->bind(":ol_sub5_grade", $data['ol_sub5_grade']);
+            // $this->db->bind(":ol_sub6_grade", $data['ol_sub6_grade']);
+            // $this->db->bind(":ol_sub7_grade", $data['ol_sub7_grade']);
+            // $this->db->bind(":ol_sub8_grade", $data['ol_sub8_grade']);
+            // $this->db->bind(":ol_sub9_grade", $data['ol_sub9_grade']);
+            // $this->db->bind(":id", $id);
+
+            // bind values
+            $this->db->bind(':id', $id);
+            $this->db->bind(':ol_school', $data['ol_school']);
+            $this->db->bind(':ol_district', $data['ol_district']);
+            $this->db->bind(':ol_sub1_id', $data['ol_sub1_id']);
+            $this->db->bind(':ol_sub1_grade', $data['radio_religion']);
+            $this->db->bind(':ol_sub2_id', $data['ol_sub2_id']);
+            $this->db->bind(':ol_sub2_grade', $data['radio_primary_language']);
+            $this->db->bind(':ol_sub3_id', $data['ol_sub3_id']);
+            $this->db->bind(':ol_sub3_grade', $data['radio_secondary_language']);
+            $this->db->bind(':ol_sub4_id', $data['ol_sub4_id']);
+            $this->db->bind(':ol_sub4_grade', $data['radio_history']);
+            $this->db->bind(':ol_sub5_id', $data['ol_sub5_id']);
+            $this->db->bind(':ol_sub5_grade', $data['radio_science']);
+            $this->db->bind(':ol_sub6_id', $data['ol_sub6_id']);
+            $this->db->bind(':ol_sub6_grade', $data['radio_mathematics']);
+            $this->db->bind(':ol_sub7_id', $data['ol_sub7_id']);
+            $this->db->bind(':ol_sub7_grade', $data['radio_basket_1']);
+            $this->db->bind(':ol_sub8_id', $data['ol_sub8_id']);
+            $this->db->bind(':ol_sub8_grade', $data['radio_basket_2']);
+            $this->db->bind(':ol_sub9_id', $data['ol_sub9_id']);
+            $this->db->bind(':ol_sub9_grade', $data['radio_basket_3']);
 
             // Execute
             if($this->db->execute()) {
@@ -144,20 +169,35 @@
         public function updateStudentALSettings($id, $data) {
             $this->db->query('UPDATE alqualifiedstudent SET al_school = :al_school, stream = :stream, z_score = :z_score,
                                 al_district = :al_district, al_general_test_grade = :al_general_test_grade, al_general_english_grade = :al_general_english_grade, 
-                                al_sub1_grade = :al_sub1_grade, al_sub2_grade = :al_sub2_grade, al_sub3_grade = :al_sub3_grade
+                                al_sub1_id = :al_sub1_id, al_sub1_grade = :al_sub1_grade, al_sub2_id = :al_sub2_id, al_sub2_grade = :al_sub2_grade,
+                                al_sub3_id = :al_sub3_id, al_sub3_grade = :al_sub3_grade
                                  WHERE stu_id = :id');
             // bind values
             
-            $this->db->bind(":al_school", $data['al_school']);
-            $this->db->bind(":stream", $data['stream']);
-            $this->db->bind(":z_score", $data['z_score']);
-            $this->db->bind(":al_district", $data['al_district']);
-            $this->db->bind(":al_general_test_grade", $data['al_general_test_grade']);
-            $this->db->bind(":al_general_english_grade", $data['al_general_english_grade']);
-            $this->db->bind(":al_sub1_grade", $data['al_sub1_grade']);
-            $this->db->bind(":al_sub2_grade", $data['al_sub2_grade']);
-            $this->db->bind(":al_sub3_grade", $data['al_sub3_grade']);
-            $this->db->bind(":id", $id);
+            // $this->db->bind(":al_school", $data['al_school']);
+            // $this->db->bind(":stream", $data['stream']);
+            // $this->db->bind(":z_score", $data['z_score']);
+            // $this->db->bind(":al_district", $data['al_district']);
+            // $this->db->bind(":al_general_test_grade", $data['al_general_test_grade']);
+            // $this->db->bind(":al_general_english_grade", $data['al_general_english_grade']);
+            // $this->db->bind(":al_sub1_grade", $data['al_sub1_grade']);
+            // $this->db->bind(":al_sub2_grade", $data['al_sub2_grade']);
+            // $this->db->bind(":al_sub3_grade", $data['al_sub3_grade']);
+            // $this->db->bind(":id", $id);
+
+            $this->db->bind(':id', $id);
+            $this->db->bind(':al_school', $data['al_school']);
+            $this->db->bind(':stream', $data['stream']);
+            $this->db->bind(':z_score', $data['z_score']);
+            $this->db->bind(':al_district', $data['al_district']);
+            $this->db->bind(':al_general_test_grade', $data['general_test_grade']);
+            $this->db->bind(':al_general_english_grade', $data['radio_general_english']);
+            $this->db->bind(':al_sub1_id', $data['al_sub1_id']);
+            $this->db->bind(':al_sub1_grade', $data['radio_subject_1']);
+            $this->db->bind(':al_sub2_id', $data['al_sub2_id']);
+            $this->db->bind(':al_sub2_grade', $data['radio_subject_2']);
+            $this->db->bind(':al_sub3_id', $data['al_sub3_id']);
+            $this->db->bind(':al_sub3_grade', $data['radio_subject_3']);
 
             // Execute
             if($this->db->execute()) {
@@ -186,6 +226,46 @@
             else {
                 return false;
             }
+        }
+
+         // get districts 
+         public function getDistricts() {
+            $this->db->query("SELECT * FROM district");
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        // get ol subjects 
+        public function getOLSubjects() {
+            $this->db->query("SELECT * FROM olsubject");
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        // get streams 
+        public function getStreams() {
+            $this->db->query("SELECT * FROM stream");
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        public function getStreamNameById($id) {
+            $this->db->query("SELECT * FROM stream WHERE stream_id = :id");
+            $this->db->bind(':id', $id);
+            $results = $this->db->single();
+
+            return $results->stream_name;
+        }
+
+        // get al subjects 
+        public function getALSubjects() {
+            $this->db->query("SELECT * FROM alsubject");
+            $results = $this->db->resultSet();
+
+            return $results;
         }
     }
 ?>
