@@ -31,7 +31,7 @@
                             $x = $data['recommended_streams'];
                             
                             foreach($x as $x => $x_value) {
-                                echo 'key='.$x.', value='.$x_value;
+                                echo '<b>key</b>='.$x.', <b>point weight</b>='.$x_value[0].', <b>controller method</b>='.$x_value[1];
                                 echo '<br>';
                             }
                         ?>
@@ -52,11 +52,11 @@
 
                             foreach($recommendStream as $recommendStream => $recommendStream_value) {
                                 // there is an issue in index linking -- fix it
-                                echo '<a class="card-link" href="'.URLROOT.'/students_dashboard/streamSelectionRedirect/'.$index.'">';
-                                if($recommendStream_value >= 4) {
+                                echo '<a class="card-link" href="'.URLROOT.'/students_dashboard/streamSelectionRedirect/'.$recommendStream_value[1].'">';
+                                if($recommendStream_value[0] >= 4) {
                                     echo '<div class="good-stream-recommend-card">';
                                 }
-                                elseif($recommendStream_value > 2) {
+                                elseif($recommendStream_value[0] > 2) {
                                     echo '<div class="normal-stream-recommend-card">';
                                 }
                                 else {
@@ -69,7 +69,7 @@
                                 echo '      <p>'.$recommendStream.'</p>';
                                 echo '  </div>';
                                 echo '  <div class="stream-recommend-card-analytics">';
-                                echo '      <p>Point | '.$recommendStream_value.'</p>';
+                                echo '      <p>Point | '.$recommendStream_value[0].'</p>';
                                 echo '  </div>';
                                 echo '</div>';
                                 echo '</a>';

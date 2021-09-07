@@ -13,6 +13,9 @@ class Students_dashboard extends Controller {
             $this->view('students/student_dashboard', $data);
         }
 
+
+
+
         // For beginner
         // option 1 - stream selection
         public function streamSelection() {
@@ -36,6 +39,9 @@ class Students_dashboard extends Controller {
 
             $this->view('students/streamselection/stream_selection_redirect', $data);
         }
+
+
+
 
         // For OL qualified
         // option 1 - stream recommendation
@@ -63,12 +69,12 @@ class Students_dashboard extends Controller {
         public function whizStreamRecommenadationAlgorithm($studentOLData) {
             // ORDER MATTERS - changing the order of keys may effect the output
             $rankArray = [
-                'a' => '',  // art
-                'c' => '',  // commerce
-                's' => '',  // science
-                'm' => '',  // maths
-                't' => '',  // tech
-                'o' => ''   // other
+                'a' => array('', ''),  // art
+                'c' => array('', ''),  // commerce
+                's' => array('', ''),  // science
+                'm' => array('', ''),  // maths
+                't' => array('', ''),  // tech
+                'o' => array('', '')   // other
             ];
 
             $m = $this->getRank($studentOLData->ol_sub6_grade); //taking maths rank
@@ -95,12 +101,12 @@ class Students_dashboard extends Controller {
 
             // set rank array - remember order matters
             $rankArray = [
-                'a' => $a,  // arts
-                'c' => $c,  // commerce
-                's' => $s,  // science
-                'm' => $m,  // maths
-                't' => $t,  // tech
-                'o' => $o   // other
+                'a' => array($a, 1),  // arts
+                'c' => array($c, 2),  // commerce
+                's' => array($s, 3),  // science
+                'm' => array($m, 4),  // maths
+                't' => array($t, 5),  // tech
+                'o' => array($o, 6)   // other
             ];
 
             // set array key names as actual stream names
@@ -151,6 +157,9 @@ class Students_dashboard extends Controller {
                     break;
             }
         }
+
+
+
 
         // Settings
         public function settings() {
@@ -734,6 +743,5 @@ class Students_dashboard extends Controller {
 
             $this->view('students/settings/edit_settings_undergradgrad', $data);
         }
-
     }
 ?>
