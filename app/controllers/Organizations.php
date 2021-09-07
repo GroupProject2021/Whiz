@@ -1,7 +1,7 @@
 <?php
     class Organizations extends Controller {
         public function __construct() {
-            $this->organiizationModel = $this->model('Organization');
+            $this->organizationModel = $this->model('Organization');
         }
 
         public function register() {
@@ -18,43 +18,47 @@
 
                 // Init data
                 $data = [
-                    'name' => trim($_POST['name']),
+                    'uniname' => trim($_POST['uniname']),
                     'address' => trim($_POST['address']),
-                    'gender' => trim($_POST['gender']),
-                    'date_of_birth' => trim($_POST['date_of_birth']),
                     'email' => trim($_POST['email']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
                     'phn_no' => trim($_POST['phn_no']),
+                    'website' => trim($_POST['website']),
+                    'founder' => trim($_POST['founder']),
+                    'founded_year' => trim($_POST['founded_year']),
+                    'approved' => trim($_POST['approved']),
+                    'rank' => trim($_POST['rank']),
+                    'amount' => trim($_POST['amount']),
+                    'rate' => trim($_POST['rate']),
+                    'descrip' => trim($_POST['descrip']),
+                    'type' => trim($_POST['type']),
 
-                    'name_err' => '',
+                    'uniname_err' => '',
                     'address_err' => '',
-                    'gender_err' => '',
-                    'date_of_birth_err' => '',
                     'email_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => '',
-                    'phn_no_err' => ''
+                    'phn_no_err' => '',
+                    'website_err' => '',
+                    'founder_err' => '',
+                    'founded_year_err' => '',
+                    'approved_err' => '',
+                    'rank_err' => '',
+                    'amount_err' => '',
+                    'rate_err' => '',
+                    'descrip_err' => '',
+                    'type_err' => ''
                 ];
 
                 // Validate name
-                if(empty($data['name'])) {
+                if(empty($data['uniname'])) {
                     $data['name_err'] = 'Please enter name';
                 }
 
                 // Validate address
                 if(empty($data['address'])) {
                     $data['address_err'] = 'Please enter address';
-                }
-
-                // Validate gender
-                if(empty($data['gender'])) {
-                    $data['gender_err'] = 'Please enter gender';
-                }
-
-                // Validate date of birth
-                if(empty($data['date_of_birth'])) {
-                    $data['date_of_birth_err'] = 'Please enter date of birth';
                 }
 
                 // Validate email
@@ -91,16 +95,57 @@
                     $data['phn_no_err'] = 'Please enter phone number';
                 }
 
+                // Validate website
+                if(empty($data['website'])) {
+                    $data['website_err'] = 'Please enter website';
+                }
+
+                // Validate founded_year
+                if(empty($data['founded_year'])) {
+                    $data['founded_year_err'] = 'Please enter founded year';
+                }
+
+                // Validate approved
+                if(empty($data['approved'])) {
+                    $data['approved_err'] = 'Please select approved or not';
+                }
+
+                // Validate rank
+                if(empty($data['rank'])) {
+                    $data['rank_err'] = 'Please enter rank';
+                }
+
+                // Validate amount
+                if(empty($data['amount'])) {
+                    $data['amount_err'] = 'Please enter student amount';
+                }
+
+                // Validate rate
+                if(empty($data['rate'])) {
+                    $data['rate_err'] = 'Please enter rate';
+                }
+
+                // Validate description
+                if(empty($data['descrip'])) {
+                    $data['descrip_err'] = 'Please enter description';
+                }
+
+                // Validate type
+                if(empty($data['type'])) {
+                    $data['type_err'] = 'Please select university type';
+                }
+
                 // Make sure errors are empty
-                if(empty($data['name_err']) && empty($data['address_err']) && empty($data['gender_err']) && empty($data['date_of_birth_err'])
-                    && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err']) && empty($data['phn_no_err'])) {
+                if(empty($data['uniname_err']) && empty($data['address_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err']) 
+                && empty($data['phn_no_err']) && empty($data['website_err']) && empty($data['founded_year_err']) && empty($data['approved_err']) && empty($data['rank_err']) 
+                && empty($data['amount_err']) && empty($data['rate_err']) && empty($data['descrip_err']) && empty($data['type_err'])) {
                     // Validated
                     
                     // Hash password - Using strog one way hashing algorithm
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
                     // Register User
-                    if($this->organizationModel->register($data)) {
+                    if($this->organizationModel->university_register($data)) {
                         // Redirect
                         flash('register_success', 'You are registered can log in');
                         redirect('commons/login');
@@ -117,22 +162,37 @@
             else {
                 // Init data
                 $data = [
-                    'name' => '',
+                    'uniname' => '',
                     'address' => '',
-                    'gender' => '',
-                    'date_of_birth' => '',
                     'email' => '',
                     'password' => '',
                     'confirm_password' => '',
                     'phn_no' => '',
-                    'name_err' => '',
+                    'website' => '',
+                    'founder' => '',
+                    'founded_year' => '',
+                    'approved' => '',
+                    'rank' => '',
+                    'amount' => '',
+                    'rate' => '',
+                    'descrip' => '',
+                    'type' => '',
+
+                    'uniname_err' => '',
                     'address_err' => '',
-                    'gender_err' => '',
-                    'date_of_birth_err' => '',
                     'email_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => '',
-                    'phn_no_err' => ''
+                    'phn_no_err' => '',
+                    'website_err' => '',
+                    'founder_err' => '',
+                    'founded_year_err' => '',
+                    'approved_err' => '',
+                    'rank_err' => '',
+                    'amount_err' => '',
+                    'rate_err' => '',
+                    'descrip_err' => '',
+                    'type_err' => ''
                 ];
 
                 // Load view
