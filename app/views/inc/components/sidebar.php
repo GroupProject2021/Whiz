@@ -109,13 +109,13 @@
             <span>Beginner options</span>
         </div>
         <div class="sidebar-item">
-            <a href="">
+            <a href="<?php echo URLROOT; ?>/students_dashboard/streamSelection">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                     </div>
                     <div class="sidebar-item-name">
-                        streams
+                        streams selection
                     </div>
                 </button>
             </a>
@@ -137,14 +137,28 @@
             <span>OL Qualified options</span>
         </div>
         <div class="sidebar-item">
-            <button>
-                <div class="sidebar-item-icon">
-                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
-                </div>
-                <div class="sidebar-item-name">
-                    stream recommendation
-                </div>
-            </button>
+            <a href="<?php echo URLROOT; ?>/students_dashboard/streamSelection">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        streams selection
+                    </div>
+                </button>
+            </a>
+        </div>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/students_dashboard/streamRecommendation">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        stream recommendation
+                    </div>
+                </button>
+            </a>
         </div>
         <div class="sidebar-item">
             <button>

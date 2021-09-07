@@ -1,0 +1,153 @@
+:root {
+    --btn1-bg-color: #1266F1;
+    --btn1-bg-color-hover: #135acc;
+    --btn1-color: #FBFBFB;
+
+    --btn2-bg-color: #B23CFD;
+    --btn2-bg-color-hover: #9d30e0;
+    --btn2-color: #FBFBFB;
+
+    --btn3-bg-color: #00B74A;
+    --btn3-bg-color-hover: #028135;
+    --btn3-color: #FBFBFB;
+
+    --btn4-bg-color: #F93154;
+    --btn4-bg-color-hover: #bd223c;
+    --btn4-color: #FBFBFB;
+
+    --btn5-bg-color: #FFA900;
+    --btn5-bg-color-hover: #ac7303;
+    --btn5-color: #FBFBFB;
+
+    --btn6-bg-color: #39C0ED;
+    --btn6-bg-color-hover: #2285a7;
+    --btn6-color: #FBFBFB;
+
+    --btn7-bg-color: #FBFBFB;
+    --btn7-bg-color-hover: #d3d2d2;
+    --btn7-color: #262626;
+
+    --btn8-bg-color: #262626;
+    --btn8-bg-color-hover: #575656;
+    --btn8-color: #FBFBFB;
+}
+
+.btn1 {
+    background-color: var(--btn1-bg-color);
+    color: var(--btn1-color);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10rem;
+    opacity: 0.9;
+}
+
+.btn1:hover {
+    background-color: var(--btn1-bg-color-hover);
+}
+
+.btn2 {
+    background-color: var(--btn2-bg-color);
+    color: var(--btn2-color);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10rem;
+    opacity: 0.9;
+}
+
+.btn2:hover {
+    background-color: var(--btn2-bg-color-hover);
+}
+
+.btn3 {
+    background-color: var(--btn3-bg-color);
+    color: var(--btn3-color);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10rem;
+    opacity: 0.9;
+}
+
+.btn3:hover {
+    background-color: var(--btn3-bg-color-hover);
+}
+
+.btn4 {
+    background-color: var(--btn4-bg-color);
+    color: var(--btn4-color);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10rem;
+    opacity: 0.9;
+}
+
+.btn4:hover {
+    background-color: var(--btn4-bg-color-hover);
+}
+
+.btn5 {
+    background-color: var(--btn5-bg-color);
+    color: var(--btn5-color);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10rem;
+    opacity: 0.9;
+}
+
+.btn5:hover {
+    background-color: var(--btn5-bg-color-hover);
+}
+
+.btn6 {
+    background-color: var(--btn6-bg-color);
+    color: var(--btn6-color);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10rem;
+    opacity: 0.9;
+}
+
+.btn6:hover {
+    background-color: var(--btn6-bg-color-hover);
+}
+
+.btn7 {
+    background-color: var(--btn7-bg-color);
+    color: var(--btn7-color);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10rem;
+    opacity: 0.9;
+}
+
+.btn7:hover {
+    background-color: var(--btn7-bg-color-hover);
+}
+
+.btn8 {
+    background-color: var(--btn8-bg-color);
+    color: var(--btn8-color);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10rem;
+    opacity: 0.9;
+}
+
+.btn8:hover {
+    background-color: var(--btn8-bg-color-hover);
+}

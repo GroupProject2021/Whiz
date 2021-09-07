@@ -1,0 +1,137 @@
+:root {
+    --good-bg-color: #00B74A;
+    --good-bg-color-hover: #028135;
+    --good-color: #FBFBFB;
+
+    --normal-bg-color: #FFA900;
+    --normal-bg-color-hover: #ac7303;
+    --normal-color: #FBFBFB;
+
+    --bad-bg-color: #F93154;
+    --bad-bg-color-hover: #bd223c;
+    --bad-color: #FBFBFB;
+
+    --idle-bg-color: #FBFBFB;
+    --idle-bg-color-hover: #d3d2d2;
+    --idle-color: #262626;
+
+    --box-shadow-color: 3px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card-link {
+    text-decoration: none;
+}
+
+.stream-selection-card {
+    color: var(--idle-color);
+    background-color: var(--idle-bg-color);
+    width: 45rem;
+    box-shadow: var(--box-shadow-color);
+    margin-bottom: 0.6rem;
+}
+
+.stream-selection-card:hover{
+    background-color: var(--idle-bg-color-hover);
+}
+
+.stream-selection-card-title {
+    text-align: left;
+    padding: 1rem;
+}
+
+.stream-selection-card-title {
+    font-size: 1.5rem;
+}
+
+/* good */
+.good-stream-recommend-card {
+    color: var(--good-color);
+    background-color: var(--good-bg-color);
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 0.6fr 4fr 0.6fr;
+    width: 45rem;
+    box-shadow: var(--box-shadow-color);
+    margin-bottom: 0.6rem;
+}
+
+.good-stream-recommend-card:hover{
+    background-color: var(--good-bg-color-hover);
+}
+
+/* normal */
+.normal-stream-recommend-card {
+    color: var(--normal-color);
+    background-color: var(--normal-bg-color);
+    padding: 0.2rem;
+    display: grid;
+    grid-template-columns: 0.6fr 4fr 0.6fr;
+    width: 45rem;
+    box-shadow: var(--box-shadow-color);
+    margin-bottom: 0.6rem;
+}
+
+.normal-stream-recommend-card:hover{
+    background-color: var(--normal-bg-color-hover);
+}
+
+/* bad */
+.bad-stream-recommend-card {
+    color: var(--bad-color);
+    background-color: var(--bad-bg-color);
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 0.6fr 4fr 0.6fr;
+    width: 45rem;
+    box-shadow: var(--box-shadow-color);
+    margin-bottom: 0.6rem;
+}
+
+.bad-stream-recommend-card:hover{
+    background-color: var(--bad-bg-color-hover);
+}
+
+/* common styles */
+.stream-recommend-card {
+    color: var(--idle-color);
+    background-color: var(--idle-bg-color);
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 0.6fr 4fr 0.6fr;
+    width: 45rem;
+    box-shadow: var(--box-shadow-color);
+    margin-bottom: 0.6rem;
+}
+
+.stream-recommend-card:hover{
+    background-color: var(--idle-bg-color-hover);
+}
+
+.stream-recommend-card-number {
+    text-align: center;
+    padding: 1rem;
+}
+
+.stream-recommend-card-number h1{
+    font-size: 1.7rem;
+}
+
+.stream-recommend-card-title {
+    text-align: left;
+    padding: 1rem;
+}
+
+.stream-recommend-card-title {
+    font-size: 1.5rem;
+}
+
+.stream-recommend-card-analytics p{
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+}
+
+.stream-recommend-card-analytics h1{
+    text-align: center;
+}

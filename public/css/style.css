@@ -6,6 +6,8 @@
 @import url('components/dashboard.css');
 @import url('components/bottomnav.css');
 @import url('utilities/responsive_grid_layout.css');
+@import url('components/cards.css');
+@import url('components/buttons.css');
 
 /* fonts */
 @font-face {

@@ -267,5 +267,14 @@
 
             return $results;
         }
+
+        public function getALSubjectsById($stream_id) {
+            $this->db->query("SELECT * FROM alsubject WHERE al_stream_id = :stream_id");
+            $this->db->bind(':stream_id', $stream_id);
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
     }
 ?>

@@ -10,6 +10,47 @@
             $this->view('students/student_dashboard', $data);
         }
 
+        // For beginner
+        // option 1 - stream selection
+        public function streamSelection() {
+            $streams = $this->studentDashboardModel->getStreams();
+            
+            $data = [
+                'streams' => $streams
+            ];
+
+            $this->view('students/streamselection/stream_selection', $data);
+        }
+
+        public function streamSelectionRedirect($stream_id) {
+            $stream_name = $this->studentDashboardModel->getStreamNameById($stream_id);
+            $al_subject_list =  $this->studentDashboardModel->getALSubjectsById($stream_id);
+
+            $data = [
+                'stream_name' => $stream_name,
+                'al_subject_list' => $al_subject_list
+            ];
+
+            $this->view('students/streamselection/stream_selection_redirect', $data);
+        }
+
+        // For OL qualified
+        // option 1 - stream recommendation
+        public function streamRecommendation() {
+            $streams = $this->studentDashboardModel->getStreams();
+
+            $data = [
+                'streams' => $streams
+            ];
+
+            if($_SESSION['specialized_actor_type'] == 'OL qualified') {
+                $this->view('students/streamrecommendation/stream_recommendation', $data);
+            }
+            else {
+                die('Please upgrade to OL qualifed to unlock this feature');
+            }
+        }
+
         // Settings
         public function settings() {
             $id = $this->studentDashboardModel->findStudentIdbyEmail($_SESSION['user_email']);
@@ -592,5 +633,6 @@
 
             $this->view('students/settings/edit_settings_undergradgrad', $data);
         }
+
     }
 ?>
