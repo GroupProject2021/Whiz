@@ -24,17 +24,17 @@
                     'name' => trim($_POST['name']),
                     'email' => trim($_POST['email']),
                     'institute' => trim($_POST['institute']),
-                    'subject1' => trim($_POST['subject1']),
-                    'subject2' => trim($_POST['subject2']),
-                    'subject3' => trim($_POST['subject3']),
+                    // 'subject1' => trim($_POST['subject1']),
+                    // 'subject2' => trim($_POST['subject2']),
+                    // 'subject3' => trim($_POST['subject3']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
                     'name_err' => '',
                     'email_err' => '',
                     'institute_err' => '',
-                    'subject1_err' => '',
-                    'subject2_err' => '',
-                    'subject3_err' => '',
+                    // 'subject1_err' => '',
+                    // 'subject2_err' => '',
+                    // 'subject3_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => '',
                 ];
@@ -61,19 +61,19 @@
                 }
 
                 // Validate sub 1
-                if(empty($data['subject1'])) {
-                    $data['subject1_err'] = 'Please enter mentor type';
-                }
+                // if(empty($data['subject1'])) {
+                //     $data['subject1_err'] = 'Please enter mentor type';
+                // }
 
-                // Validate sub 2
-                if(empty($data['subject2'])) {
-                    $data['subject2_err'] = 'Please enter mentor type';
-                }
+                // // Validate sub 2
+                // if(empty($data['subject2'])) {
+                //     $data['subject2_err'] = 'Please enter mentor type';
+                // }
 
-                // Validate sub 3
-                if(empty($data['subject3'])) {
-                    $data['subject3_err'] = 'Please enter mentor type';
-                }
+                // // Validate sub 3
+                // if(empty($data['subject3'])) {
+                //     $data['subject3_err'] = 'Please enter mentor type';
+                // }
 
                 // Validata password
                 if(empty($data['password'])) {
@@ -94,7 +94,7 @@
                 }
 
                 // Make sure errors are empty
-                if(empty($data['name_err']) && empty($data['email_err']) && empty($data['institute_err']) && empty($data['subject1_err']) && empty($data['subject2_err']) && empty($data['subject3_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
+                if(empty($data['name_err']) && empty($data['email_err']) && empty($data['institute_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
                     // Validated
                     
                     // Hash password - Using strog one way hashing algorithm
@@ -121,17 +121,17 @@
                     'name' => '',
                     'email' => '',
                     'institute' => '',
-                    'subject1' => '',
-                    'subject2' => '',
-                    'subject3' => '',
+                    // 'subject1' => '',
+                    // 'subject2' => '',
+                    // 'subject3' => '',
                     'password' => '',
                     'confirm_password' => '',
                     'name_err' => '',
                     'email_err' => '',
                     'institute_err' => '',
-                    'subject1_err' => '',
-                    'subject2_err' => '',
-                    'subject3_err' => '',
+                    // 'subject1_err' => '',
+                    // 'subject2_err' => '',
+                    // 'subject3_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => '',
                 ];
@@ -154,7 +154,7 @@
                     'name' => trim($_POST['name']),
                     'email' => trim($_POST['email']),
                     'school' => trim($_POST['school']),
-                    'subjects' => trim($_POST['subjects']),
+                    // 'subjects' => trim($_POST['subjects']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
                     'name_err' => '',
@@ -187,9 +187,9 @@
                 }
 
                 // Validate subjects
-                if(empty($data['subjects'])) {
-                    $data['subjects_err'] = 'Please enter mentor type';
-                }
+                // if(empty($data['subjects'])) {
+                //     $data['subjects_err'] = 'Please enter mentor type';
+                // }
 
                 // Validata password
                 if(empty($data['password'])) {
@@ -210,7 +210,7 @@
                 }
 
                 // Make sure errors are empty
-                if(empty($data['name_err']) && empty($data['email_err']) && empty($data['school_err']) && empty($data['subjects_err'])  && empty($data['password_err']) && empty($data['confirm_password_err'])) {
+                if(empty($data['name_err']) && empty($data['email_err']) && empty($data['school_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
                     // Validated
                     
                     // Hash password - Using strog one way hashing algorithm
@@ -237,13 +237,13 @@
                     'name' => '',
                     'email' => '',
                     'school' => '',
-                    'subjects' => '',
+                   // 'subjects' => '',
                     'password' => '',
                     'confirm_password' => '',
                     'name_err' => '',
                     'email_err' => '',
                     'school_err' => '',
-                    'subjects_err' => '',
+                    //'subjects_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => '',
                 ];
@@ -338,7 +338,7 @@
             unset($_SESSION['user_name']);
             session_destroy();
 
-            redirect('mentors/login');
+            redirect('commons/login');
         }
 
         public function isLoggedIn() {

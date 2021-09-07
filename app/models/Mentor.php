@@ -25,23 +25,24 @@
             $this->db->execute();
 
 /// HERE
-            $this->db->query('INSERT INTO mentor(name, email, mentor_type, password) VALUES(:name, :email, :mentor_type, :password)');
+            $this->db->query('INSERT INTO mentor(name, email, institute, mentor_type, password) VALUES(:name, :email, :institute, :mentor_type, :password)');
             // bind values
             $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
+            $this->db->bind(':institute', $data['institute']);
             $this->db->bind(':mentor_type', 'Professional Guider');
             $this->db->bind(':password', $data['password']); 
 
             //$this->db->execute();
 
-            $id = $this->findMentorIdbyId('mentor_id');
-            $this->db->query('INSERT INTO profguide(mentor_id, institute, subject1, subject2, subject3 , achivements) VALUES (:mentor_id, :institute, :subject1, :subject2, :subject3 , :achivements)');
-            // bind values
-            $this->db->bind(':mentor_id', $id);
-            $this->db->bind(':institute', $data['institute']);
-            $this->db->bind(':subject1', $data['subject1']);
-            $this->db->bind(':subject2', $data['subject2']);
-            $this->db->bind(':subject3', $data['subject3']);
+            // $id = $this->findMentorIdbyId('mentor_id');
+            // $this->db->query('INSERT INTO profguide(mentor_id, institute, subject1, subject2, subject3 , achivements) VALUES (:mentor_id, :institute, :subject1, :subject2, :subject3 , :achivements)');
+            // // bind values
+            // $this->db->bind(':mentor_id', $id);
+            // $this->db->bind(':institute', $data['institute']);
+            // $this->db->bind(':subject1', $data['subject1']);
+            // $this->db->bind(':subject2', $data['subject2']);
+            // $this->db->bind(':subject3', $data['subject3']);
             //$this->db->bind(":achivements", $data['achivements']);
 
             //$this->db->execute();
@@ -67,17 +68,18 @@
 
             $this->db->execute();
 
-            $this->db->query('INSERT INTO mentor(name, email, mentor_type, password) VALUES(:name, :email, :mentor_type, :password)');
+            $this->db->query('INSERT INTO mentor(name, email, school, mentor_type, password) VALUES(:name, :email, :school, :mentor_type, :password)');
             // bind values
             $this->db->bind(":name", $data['name']);
             $this->db->bind(":email", $data['email']);
+            $this->db->bind(":school", $data['school']);
             $this->db->bind(":mentor_type",'Teacher');
             $this->db->bind(":password", $data['password']); 
 
-            $this->db->query('INSERT INTO teacher(school, subjects) VALUES (:school, :subjects)');
-            // bind values
-            $this->db->bind(":school", $data['school']);
-            $this->db->bind(":subjects", $data['subjects']);
+            // $this->db->query('INSERT INTO teacher(school, subjects) VALUES (:school, :subjects)');
+            // // bind values
+            // $this->db->bind(":school", $data['school']);
+            // $this->db->bind(":subjects", $data['subjects']);
 
             // Execute
             if($this->db->execute()) {
@@ -134,15 +136,15 @@
             return $row->stu_id;
         }
 
-        public function findMentorIdbyId($mentor_id){
-            $this->db->query('SELECT * FROM mentor WHERE mentor_id = :mentor_id');
+        // public function findMentorIdbyId($mentor_id){
+        //     $this->db->query('SELECT * FROM mentor WHERE mentor_id = :mentor_id');
 
-            $this->db->bind(':mentor_id', $mentor_id);
+        //     $this->db->bind(':mentor_id', $mentor_id);
 
-            $row = $this->db->single();
+        //     $row = $this->db->single();
 
-            $id = $row->mentor_id;
-            return $id;
-        }
+        //     $id = $row->mentor_id;
+        //     return $id;
+        // }
     }
 ?>

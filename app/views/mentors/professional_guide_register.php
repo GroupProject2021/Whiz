@@ -27,7 +27,7 @@
                 <input type="text" placeholder="Enter institute" name="institute" id="institute" value="<?php echo $data['institute']; ?>">
                 <span class="form-invalid"><?php echo $data['institute_err']; ?></span><br>
 
-                <label for="subject1"><p class="form-bold">Subject 1</p></label>
+                <!-- <label for="subject1"><p class="form-bold">Subject 1</p></label>
                 <input type="text" placeholder="Enter sub 1" name="subject1" id="subject1" value="<?php echo $data['subject1']; ?>">
                 <span class="form-invalid"><?php echo $data['subject1_err']; ?></span><br>
 
@@ -37,7 +37,7 @@
 
                 <label for="subject3"><p class="form-bold">Subject 3</p></label>
                 <input type="text" placeholder="Enter sub 3" name="subject3" id="subject3" value="<?php echo $data['subject3']; ?>">
-                <span class="form-invalid"><?php echo $data['subject3_err']; ?></span><br>
+                <span class="form-invalid"><?php echo $data['subject3_err']; ?></span><br> -->
 
                 <label for="password"><p class="form-bold">Password</p></label>
                 <input type="text" placeholder="Enter password" name="password" id="password" value="<?php echo $data['password']; ?>">

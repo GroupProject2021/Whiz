@@ -27,9 +27,9 @@
                 <input type="text" placeholder="Enter school" name="school" id="school" value="<?php echo $data['school']; ?>">
                 <span class="form-invalid"><?php echo $data['school_err']; ?></span><br>
 
-                <label for="subjects"><p class="form-bold">Subject</p></label>
+                <!-- <label for="subjects"><p class="form-bold">Subject</p></label>
                 <input type="text" placeholder="Enter subject" name="subjects" id="subjects" value="<?php echo $data['subjects']; ?>">
-                <span class="form-invalid"><?php echo $data['subjects_err']; ?></span><br>
+                <span class="form-invalid"><?php echo $data['subjects_err']; ?></span><br> -->
 
                 <label for="password"><p class="form-bold">Password</p></label>
                 <input type="text" placeholder="Enter password" name="password" id="password" value="<?php echo $data['password']; ?>">
