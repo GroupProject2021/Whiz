@@ -47,9 +47,11 @@
                         <?php
                             $index = 1;     
                             
+                            $streams = $data['streams'];
                             $recommendStream = $data['recommended_streams'];
 
                             foreach($recommendStream as $recommendStream => $recommendStream_value) {
+                                // there is an issue in index linking -- fix it
                                 echo '<a class="card-link" href="'.URLROOT.'/students_dashboard/streamSelectionRedirect/'.$index.'">';
                                 if($recommendStream_value >= 4) {
                                     echo '<div class="good-stream-recommend-card">';
@@ -73,6 +75,8 @@
                                 echo '</a>';
                                 $index++;
                             }
+
+                            print_r($streams);
 
                             // foreach($data['streams'] as $stream) {
                             //     echo '<a class="card-link" href="'.URLROOT.'/students_dashboard/streamSelectionRedirect/'.$index.'">';
