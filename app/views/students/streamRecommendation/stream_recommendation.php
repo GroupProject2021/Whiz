@@ -27,6 +27,14 @@
                     <!-- TOP PANEL -->
                     <div class="top-panel">
                         <h1>Stream recommendaiton</h1>
+                        <?php
+                            $x = $data['recommended_streams'];
+                            
+                            foreach($x as $x => $x_value) {
+                                echo 'key='.$x.', value='.$x_value;
+                                echo '<br>';
+                            }
+                        ?>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -37,25 +45,51 @@
                         </div>                                      
                         <br>
                         <?php
-                            $index = 1;                            
+                            $index = 1;     
+                            
+                            $recommendStream = $data['recommended_streams'];
 
-                            foreach($data['streams'] as $stream) {
+                            foreach($recommendStream as $recommendStream => $recommendStream_value) {
                                 echo '<a class="card-link" href="'.URLROOT.'/students_dashboard/streamSelectionRedirect/'.$index.'">';
-                                echo '<div class="normal-stream-recommend-card">';
+                                if($recommendStream_value >= 4) {
+                                    echo '<div class="good-stream-recommend-card">';
+                                }
+                                elseif($recommendStream_value > 2) {
+                                    echo '<div class="normal-stream-recommend-card">';
+                                }
+                                else {
+                                    echo '<div class="bad-stream-recommend-card">';
+                                }
                                 echo '  <div class="stream-recommend-card-number">';
-                                echo '      <h1>1</h1>';
+                                echo '      <h1>'.$index.'</h1>';
                                 echo '  </div>';
                                 echo '  <div class="stream-recommend-card-title">';
-                                echo '      <p>'.$stream->stream_name.'</p>';
+                                echo '      <p>'.$recommendStream.'</p>';
                                 echo '  </div>';
                                 echo '  <div class="stream-recommend-card-analytics">';
-                                echo '      <p>Points</p>';
-                                echo '      <h1>4</h1>';
+                                echo '      <p>Point | '.$recommendStream_value.'</p>';
                                 echo '  </div>';
                                 echo '</div>';
                                 echo '</a>';
                                 $index++;
                             }
+
+                            // foreach($data['streams'] as $stream) {
+                            //     echo '<a class="card-link" href="'.URLROOT.'/students_dashboard/streamSelectionRedirect/'.$index.'">';
+                            //     echo '<div class="normal-stream-recommend-card">';
+                            //     echo '  <div class="stream-recommend-card-number">';
+                            //     echo '      <h1>1</h1>';
+                            //     echo '  </div>';
+                            //     echo '  <div class="stream-recommend-card-title">';
+                            //     echo '      <p>'.$stream->stream_name.'</p>';
+                            //     echo '  </div>';
+                            //     echo '  <div class="stream-recommend-card-analytics">';
+                            //     echo '      <p>Points 4</p>';
+                            //     echo '  </div>';
+                            //     echo '</div>';
+                            //     echo '</a>';
+                            //     $index++;
+                            // }
                         ?>
                     </div>
 
