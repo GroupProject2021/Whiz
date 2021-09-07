@@ -10,8 +10,8 @@
 
         <!-- REGISTRATION FORM -->
         <div class="form-container">
-            <form action="<?php echo URLROOT; ?>/students/register" method="post">
-                <h1>Student Register</h1>
+            <form action="<?php echo URLROOT; ?>/organizations/university_register" method="post">
+                <h1>University Register</h1>
                 <p>Please fill in this form to create an account</p>
                 <hr class="form-hr">
                 <label for="name"><p class="form-bold">Name</p></label>
