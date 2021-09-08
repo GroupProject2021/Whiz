@@ -4,11 +4,11 @@
     <!-- sidebar header -->
     <div class="sidebar-brand">
         <div class="brand-flex">
-            <img src="<?php echo URLROOT; ?>/imgs/sidebar/logo.png" width="60px" height="60px" alt="logo">
+            <a href="<?php echo URLROOT; ?>"><img src="<?php echo URLROOT; ?>/imgs/sidebar/logo2.jpg" width="90px" height="40px" alt="logo"></a>
             
             <div class="brand-icons">
-                <img src="<?php echo URLROOT; ?>/imgs/sidebar/top-idle.png">
-                <img src="<?php echo URLROOT; ?>/imgs/sidebar/top-idle.png">
+                <a href=""><img src="<?php echo URLROOT; ?>/imgs/sidebar/notification-bell.png"></a>
+                <a href="<?php echo URLROOT; ?>/students_dashboard/settings"><img src="<?php echo URLROOT; ?>/imgs/sidebar/settings.png"></a>
             </div>
         </div>
     </div>
@@ -87,20 +87,6 @@
         <?php endif; ?>
     <?php endif; ?>
 
-    <!-- dashboard option -->
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/students_dashboard/index">
-            <button>
-                <div class="sidebar-item-icon">
-                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
-                </div>
-                <div class="sidebar-item-name">
-                    Dashboard
-                </div>
-            </button>
-            </a>
-        </div>
-
         <!-- OPTIONS -->
     <?php if(isset($_SESSION['user_id'])) : ?>
         <?php if($_SESSION['specialized_actor_type'] == 'Beginner'): ?>
@@ -116,6 +102,18 @@
                     </div>
                     <div class="sidebar-item-name">
                         streams selection
+                    </div>
+                </button>
+            </a>
+        </div>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/students_dashboard/streamSelection">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        course selection
                     </div>
                 </button>
             </a>
@@ -160,6 +158,19 @@
                 </button>
             </a>
         </div>
+        
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/students_dashboard/streamSelection">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        course selection
+                    </div>
+                </button>
+            </a>
+        </div>
         <div class="sidebar-item">
             <button>
                 <div class="sidebar-item-icon">
@@ -182,6 +193,16 @@
                     <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                 </div>
                 <div class="sidebar-item-name">
+                    cource selection
+                </div>
+            </button>
+        </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                </div>
+                <div class="sidebar-item-name">
                     cource recommendation
                 </div>
             </button>
@@ -193,6 +214,16 @@
                 </div>
                 <div class="sidebar-item-name">
                     get guide
+                </div>
+            </button>
+        </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                </div>
+                <div class="sidebar-item-name">
+                    get teacher
                 </div>
             </button>
         </div>
@@ -212,23 +243,20 @@
                 </div>
             </button>
         </div>
-        <?php else: ?>
-            <!-- Nothing here -->
-        <?php endif;?>
-    <?php endif; ?>        
-
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/students_dashboard/settings">
             <button>
                 <div class="sidebar-item-icon">
                     <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                 </div>
                 <div class="sidebar-item-name">
-                    settings
+                    check my CV
                 </div>
             </button>
-            </a>
         </div>
+        <?php else: ?>
+            <!-- Nothing here -->
+        <?php endif;?>
+    <?php endif; ?>
 
     </div>
 </div>

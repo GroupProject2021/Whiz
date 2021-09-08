@@ -1,9 +1,9 @@
 <div class="bottomnav">
         <div class="social">
-            <a href="#"><i class="icon ion-social-instagram"></i></a>
-            <a href="#"><i class="icon ion-social-snapchat"></i></a>
-            <a href="#"><i class="icon ion-social-twitter"></i></a>
-            <a href="#"><i class="icon ion-social-facebook"></i></a>
+            <a href="#"><img src="<?php echo URLROOT; ?>/imgs/home/facebook.png" alt=""></a>
+            <a href="#"><img src="<?php echo URLROOT; ?>/imgs/home/instragram.png" alt=""></a>
+            <a href="#"><img src="<?php echo URLROOT; ?>/imgs/home/linkedin.png" alt=""></a>
+            <a href="#"><img src="<?php echo URLROOT; ?>/imgs/home/youtube.jpg" alt=""></a>
         </div>
 
         <ul class="list-inline">
