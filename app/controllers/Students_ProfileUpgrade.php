@@ -70,7 +70,7 @@
                         // i added later
                         $this->updateSession();
 
-                        redirect('Students_dashboard');
+                        redirect('dashboards/student_olqualified_dashboard');
                     }
                     else {
                         die('Something went wrong');
@@ -201,7 +201,7 @@
                         // i added later
                         $this->updateSession();
 
-                        redirect('Students_dashboard');
+                        redirect('dashboards/student_alqualified_dashboard');
                     }
                     else {
                         die('Something went wrong');
@@ -294,7 +294,7 @@
                         // i added later
                         $this->updateSession();
 
-                        redirect('Students_dashboard');
+                        redirect('dashboards/student_undergradgrad_dashboard');
                     }
                     else {
                         die('Something went wrong');
