@@ -31,8 +31,20 @@
                 <span class="form-invalid"><?php echo $data['degree_err']; ?></span><br>
 
                 <label for="gpa"><p class="form-bold">GPA</p></label>
-                <input type="text" placeholder="Enter GPA" name="gpa" id="gpa" value="<?php echo $data['gpa']; ?>">
+                <table width="100%">
+                    </tr>
+                    <tr>                        
+                        <td width="75%">
+                            <input type="range" min="0" max="4.0000" step="0.0001" oninput="fetch_gpa_value()" class="form-slider" placeholder="Enter GPA" name="gpa" id="gpa" value="<?php echo $data['gpa']; ?>">
+                        </td>
+                        <td>
+                            <input type="text" value="2.0000" oninput="fetch_gpa()" name="gpa_value" id="gpa_value">
+                            <!-- <span id="gpa_value"></span> -->
+                        </td>
+                    </tr>
+                </table>
                 <span class="form-invalid"><?php echo $data['gpa_err']; ?></span><br>
+
                 <hr class="form-hr">
                 <p>I do here by certify above details that I have entered are true and correct. <a class="form-link" href="#">Terms & Privacy</a></p>
                 <button type="submit" class="form-skip-button">Skip</button>
@@ -42,5 +54,18 @@
         <div class="form-container signin">
             <p>Contact for help? <a class="form-link" href="<?php echo URLROOT; ?>/students/login">Help & Services</a></p>
         </div>
+
+        <script>
+            // gpa_value range slider
+            function fetch_gpa_value() {
+                var gpa_value = document.getElementById("gpa").value;
+                document.getElementById("gpa_value").value = gpa_value;
+            }
+
+            function fetch_gpa() {
+                var gpa = document.getElementById("gpa_value").value;
+                document.getElementById("gpa").value = gpa;
+            }
+        </script>
     </body>
 </html>

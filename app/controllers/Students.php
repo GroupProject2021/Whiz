@@ -95,6 +95,8 @@
                     // Hash password - Using strog one way hashing algorithm
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
+                    // $this->sendVerificationEmail($data['email'], 'Whiz', 'segroupproject2021@gmail.com', 'hi');
+
                     // Register User
                     if($this->studentModel->register($data)) {
                         // Redirect
@@ -133,6 +135,34 @@
 
                 // Load view
                 $this->view('students/student_register', $data);
+            }
+        }
+
+        public function sendVerificationEmail($toEmail, $name, $email, $message) {
+            $toEmail = $toEmail;
+            $subject = "Verification email from Whiz";
+            $body = "<h2>Verification</h2>
+                    <p>Name </p>".$name."
+                    <p>Email </p>".$email."
+                    <p>Message </p>".$message."
+            ";
+
+            // Email headers
+            $headers = "MIME-Version: 1.0"."\r\n";
+            $headers .= "Content-Type: text/html; charset=UTF-8"."\r\n";
+
+            // additional headers
+            $headers .= "From: ".$name."<".$email.">"."\r\n";
+
+            if(mail($toEmail, $subject, $body, $headers)) {
+                // email sent
+                $msg = "Your email successfully sent";
+                echo $msg;
+            }
+            else {
+                // email not sent
+                $msg = "Your not sent";
+                echo $msg;
             }
         }
         

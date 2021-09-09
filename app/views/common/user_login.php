@@ -20,7 +20,7 @@
                 <input type="text" placeholder="Enter email" name="email" id="email" value="<?php echo $data['email']; ?>">
                 <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
                 <label for="password"><p class="form-bold">Password</p></label>
-                <input type="password" placeholder="Enter email" name="password" id="password" value="<?php echo $data['password']; ?>">
+                <input type="password" placeholder="Enter password" name="password" id="password" value="<?php echo $data['password']; ?>">
                 <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
                 <hr  class="form-hr">
                 <button type="submit" class="form-submit">Login</button>

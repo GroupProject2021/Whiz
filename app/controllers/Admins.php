@@ -72,6 +72,17 @@ public function login() {
             // Load view
             $this->view('admin/login', $data);
         }
+
+        public function createUserSession($user) {
+            // taken from the database
+            $_SESSION['user_id'] = $user->id;
+            $_SESSION['user_email'] = $user->email;
+            $_SESSION['user_name'] = $user->name;
+            $_SESSION['actor_type'] = $user->actor_type;
+            $_SESSION['specialized_actor_type'] = $user->specialized_actor_type;
+
+            redirect('admins_dashboard/index');
+        }
             public function logout() {
             unset($_SESSION['user_id']);
             unset($_SESSION['user_email']);

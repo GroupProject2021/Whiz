@@ -10,7 +10,29 @@ class Students_dashboard extends Controller {
         public function index() {
             $posts = $this->studentDashboardModel->getPosts();
             $data = ['title' => 'Welcome to Students beginner dashboard', 'posts' => $posts];
-            $this->view('students/student_dashboard', $data);
+            // $this->view('students/student_dashboard', $data);
+
+            switch($_SESSION['specialized_actor_type']) {
+                case 'Beginner' :
+                    $this->view('students/dashboards/student_beginner_dashboard', $data);
+                    break;
+                
+                case 'OL qualified' :
+                    $this->view('students/dashboards/student_olqualified_dashboard', $data);
+                    break;
+                
+                case 'AL qualified' :
+                    $this->view('students/dashboards/student_alqualified_dashboard', $data);
+                    break;
+
+                case 'Undergraduate Graduate' :
+                    $this->view('students/dashboards/student_undergradgrad_dashboard', $data);
+                    break;
+
+                default:
+                    // nothing
+                    break;
+            }
         }
 
 
