@@ -10,19 +10,19 @@
 
         <!-- REGISTRATION FORM -->
         <div class="form-container">
-            <form action="<?php echo URLROOT; ?>/organizations/university_register" method="post">
-                <h1>University Register</h1>
+            <form action="<?php echo URLROOT; ?>/organizations/company_register" method="post">
+                <h1>Company Register</h1>
                 <p>Please fill in this form to create an account</p>
                 <hr class="form-hr">
-                <label for="uniname"><p class="form-bold">University Name</p></label>
-                <input type="text" placeholder="Enter university name" name="uniname" id="uniname" value="<?php echo $data['uniname']; ?>">
-                <span class="form-invalid"><?php echo $data['uniname_err']; ?></span><br>
+                <label for="comname"><p class="form-bold">Company Name</p></label>
+                <input type="text" placeholder="Enter university name" name="comname" id="comname" value="<?php echo $data['comname']; ?>">
+                <span class="form-invalid"><?php echo $data['comname_err']; ?></span><br>
 
-                <label for="address"><p class="form-bold">University Address</p></label>
+                <label for="address"><p class="form-bold">Company Address</p></label>
                 <input type="text" placeholder="Enter address" name="address" id="address" value="<?php echo $data['address']; ?>">
                 <span class="form-invalid"><?php echo $data['address_err']; ?></span><br>
 
-                <label for="email"><p class="form-bold">University Email</p></label>
+                <label for="email"><p class="form-bold">Company Email</p></label>
                 <input type="text" placeholder="Enter email" name="email" id="email" value="<?php echo $data['email']; ?>">
                 <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
 
@@ -38,7 +38,7 @@
                 <input type="text" placeholder="Enter phone number" name="phn_no" id="phn_no" value="<?php echo $data['phn_no']; ?>">
                 <span class="form-invalid"><?php echo $data['phn_no_err']; ?></span><br>
 
-                <label for="website"><p class="form-bold">University Web Address</Address></p></label>
+                <label for="website"><p class="form-bold">Company Web Address</Address></p></label>
                 <input type="text" placeholder="Enter web address" name="website" id="website" value="<?php echo $data['website']; ?>">
                 <span class="form-invalid"><?php echo $data['website_err']; ?></span><br>
 
@@ -50,31 +50,26 @@
                 <input type="text" placeholder="Enter founder name" name="founded_year" id="founded_year" value="<?php echo $data['founded_year']; ?>">
                 <span class="form-invalid"><?php echo $data['founded_year_err']; ?></span><br>
 
-                <label for="approved"><p class="form-bold">UGC Approved?</p></label><br>
-                <input type="radio"  name="approved" value="Yes">Yes
-                <input type="radio"  name="approved" value="No">No
-                <span class="form-invalid"><?php echo $data['approved_err']; ?></span><br>
+                <label for="cur_emp"><p class="form-bold">No. of Current employees</p></label>
+                <input type="text" placeholder="Enter no. of employees" name="cur_emp" id="cur_emp" value="<?php echo $data['cur_emp']; ?>">
+                <span class="form-invalid"><?php echo $data['cur_emp_err']; ?></span><br>
 
-                <label for="rank"><p class="form-bold">World Rank</p></label>
-                <input type="text" placeholder="Enter world rank" name="rank" id="rank" value="<?php echo $data['rank']; ?>">
-                <span class="form-invalid"><?php echo $data['rank_err']; ?></span><br>
+                <label for="emp_size"><p class="form-bold">Company Size</p></label>
+                <input type="text" placeholder="Enter capable no. of employees" name="emp_size" id="emp_size" value="<?php echo $data['emp_size']; ?>">
+                <span class="form-invalid"><?php echo $data['emp_size_err']; ?></span><br>
 
-                <label for="amount"><p class="form-bold">Student Amount</p></label>
-                <input type="text" placeholder="Enter capable no. of students" name="amount" id="amount" value="<?php echo $data['amount']; ?>">
-                <span class="form-invalid"><?php echo $data['amount_err']; ?></span><br>
+                <label for="registered"><p class="form-bold">Registered Company?</p></label><br>
+                <input type="radio"  name="registered" value="Yes">Yes
+                <input type="radio"  name="registered" value="No">No
+                <span class="form-invalid"><?php echo $data['registered_err']; ?></span><br>
 
-                <label for="rate"><p class="form-bold">Graduate Job Rate</p></label>
-                <input type="text" placeholder="Enter job rate" name="rate" id="rate" value="<?php echo $data['rate']; ?>">
-                <span class="form-invalid"><?php echo $data['rate_err']; ?></span><br>
+                <label for="overview"><p class="form-bold">Overview</p></label>
+                <input type="text" placeholder="Enter overview" name="overview" id="overview" value="<?php echo $data['overview']; ?>">
+                <span class="form-invalid"><?php echo $data['overview_err']; ?></span><br>
 
-                <label for="descrip"><p class="form-bold">Description</p></label>
-                <input type="text" placeholder="Enter description" name="descrip" id="descrip" value="<?php echo $data['descrip']; ?>">
-                <span class="form-invalid"><?php echo $data['descrip_err']; ?></span><br>
-
-                <label for="type"><p class="form-bold">University Type</p></label><br>
-                <input type="radio" name="type" value="Semi Government">Semi-Government(Government Affiliated)<br>
-                <input type="radio" name="type" value="Private">Private
-                <span class="form-invalid"><?php echo $data['type_err']; ?></span><br>
+                <label for="services"><p class="form-bold">Services</p></label>
+                <input type="text" placeholder="Enter specialities of company" name="services" id="services" value="<?php echo $data['services']; ?>">
+                <span class="form-invalid"><?php echo $data['services_err']; ?></span><br>
 
                 <hr class="form-hr">
                 <p>By creating an account you agree to our <a class="form-link" href="#">Terms & Privacy</a></p>
