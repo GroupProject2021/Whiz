@@ -23,11 +23,18 @@
                 <span class="form-invalid"><?php echo $data['address_err']; ?></span><br>
 
                 <label for="gender"><p class="form-bold">Gender</p></label>
-                <input type="text" placeholder="Enter gender" name="gender" id="gender" value="<?php echo $data['gender']; ?>">
+                <select name="gender" id="gender" class="form-select">
+                    <option value="Male">Male</option>
+                    <option value="Male">Female</option>
+                    <option value="Male">Other</option>
+                    <option value="Male">Not perfer to say</option>
+                </select>
+                <!-- <input type="text" placeholder="Enter gender" name="gender" id="gender" value="<?php echo $data['gender']; ?>"> -->
                 <span class="form-invalid"><?php echo $data['gender_err']; ?></span><br>
 
                 <label for="date_of_birth"><p class="form-bold">Date of Birth</p></label>
-                <input type="text" placeholder="Enter date of birth" name="date_of_birth" id="date_of_birth" value="<?php echo $data['date_of_birth']; ?>">
+                <input type="date" name="date_of_birth" id="date_of_birth" class="form-select">
+                <!-- <input type="text" placeholder="Enter date of birth" name="date_of_birth" id="date_of_birth" value="<?php echo $data['date_of_birth']; ?>"> -->
                 <span class="form-invalid"><?php echo $data['date_of_birth_err']; ?></span><br>
 
                 <label for="email"><p class="form-bold">Email</p></label>
@@ -35,11 +42,11 @@
                 <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
 
                 <label for="password"><p class="form-bold">Password</p></label>
-                <input type="text" placeholder="Enter password" name="password" id="password" value="<?php echo $data['password']; ?>">
+                <input type="password" placeholder="Enter password" name="password" id="password" value="<?php echo $data['password']; ?>">
                 <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
 
                 <label for="confirm_password"><p class="form-bold">Confirm password</p></label>
-                <input type="text" placeholder="Enter confirm password" name="confirm_password" id="confirm_password" value="<?php echo $data['confirm_password']; ?>">
+                <input type="password" placeholder="Enter confirm password" name="confirm_password" id="confirm_password" value="<?php echo $data['confirm_password']; ?>">
                 <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span><br>
 
                 <label for="phn_no"><p class="form-bold">Phone number</p></label>
