@@ -28,6 +28,7 @@
     background-color: var(--form-container-background-color);
     width: 26%;
     box-shadow: 0 4px 8px 0 var(--box-shadow-color), 0 6px 20px 0 var(--box-shadow-color);
+    border: 1px solid #d3d3d3;
 }
 
 /* Full width input fields */

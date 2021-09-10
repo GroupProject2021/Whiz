@@ -41,42 +41,23 @@
             }
         }
 
-        // this function not working i dont know why!!!!!!!!!!!!
-        // public function registerAsBeginner($data) {
-        //     // register as a beginner
-        //     $this->db->query('INSERT INTO beginner(stu_id, school) VALUES(:stuid, :school)');
-        //     // take stu_id from student table
-        //     $stuId = $this->findStudentIdbyEmail($data['email']);
-        //     //bind values
-        //     $this->db->bind(':stuid', $stuId);
-        //     $this->db->bind(':school', 'HRCC');
+        // Login user
+        // public function login($email, $password) {
+        //     // $this->db->query('SELECT * FROM student WHERE email = :email');
+        //     $this->db->query('SELECT * FROM users WHERE email = :email');
+        //     // bind values
+        //     $this->db->bind(':email', $email);
 
-        //     // Execute
-        //     if($this->db->execute()) {
-        //         return true;
+        //     $row = $this->db->single();
+
+        //     $hashed_password = $row->password;
+        //     if(password_verify($password, $hashed_password)) {
+        //         return $row;
         //     }
         //     else {
         //         return false;
         //     }
         // }
-
-        // Login user
-        public function login($email, $password) {
-            // $this->db->query('SELECT * FROM student WHERE email = :email');
-            $this->db->query('SELECT * FROM users WHERE email = :email');
-            // bind values
-            $this->db->bind(':email', $email);
-
-            $row = $this->db->single();
-
-            $hashed_password = $row->password;
-            if(password_verify($password, $hashed_password)) {
-                return $row;
-            }
-            else {
-                return false;
-            }
-        }
 
 
         // Find user by email

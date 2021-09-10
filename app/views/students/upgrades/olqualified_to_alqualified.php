@@ -28,8 +28,18 @@
                 <span class="form-invalid"><?php echo $data['stream_err']; ?></span><br>
 
                 <label for="z_score"><p class="form-bold">Z-Score</p></label>
-                <input type="text" placeholder="Enter z score" name="z_score" id="z_score" value="<?php echo $data['z_score']; ?>">
-                <span class="form-invalid"><?php echo $data['z_score_err']; ?></span><br>
+                <!-- <input type="text" placeholder="Enter z score" name="z_score" id="z_score" value="<?php echo $data['z_score']; ?>"> -->
+                <table class="form-table">
+                    <tr>
+                        <td width="80%">
+                            <input type="range" min="0" max="4.0000" step="0.0001" class="form-slider" oninput="fetch_z_score_value()" name="z_score" id="z_score" value="<?php echo $data['z_score']; ?>">
+                        </td>
+                        <td>
+                            <input type="text" value="2.0000" oninput="fetch_z_score()" name="z_score_value" id="z_score_value">
+                        </td>
+                    </tr>
+                </table>
+                <span class="form-invalid"><?php echo $data['z_score_err']; ?></span>
 
                 <label for="al_district"><p class="form-bold">District</p></label>
                 <select name="al_district" id="al_district" class="form-select">
@@ -43,7 +53,7 @@
                 <table class="form-table">
                     <tr>
                         <td width="80%">
-                            <input type="range" min="0" max="100" step="1" class="form-slider" oninput="fetch_general_test_grade_value()" placeholder="Enter general test grade" name="general_test_grade" id="general_test_grade" value="<?php echo $data['general_test_grade']; ?>">
+                            <input type="range" min="0" max="100" step="1" class="form-slider" oninput="fetch_general_test_grade_value()" name="general_test_grade" id="general_test_grade" value="<?php echo $data['general_test_grade']; ?>">
                         </td>
                         <td>
                             <input type="text" value="50" oninput="fetch_general_test_grade()" name="general_test_grade_value" id="general_test_grade_value">
@@ -141,7 +151,10 @@
                 <span class="form-invalid"><?php echo $data['al_results_err']; ?></span><br>
 
                 <hr class="form-hr">
-                <p>I do here by certify above details that I have entered are true and correct. <a class="form-link" href="#">Terms & Privacy</a></p>
+                <p>
+                    <input type="checkbox">
+                    I do here by certify above details that I have entered are true and correct. <a class="form-link" href="#">Terms & Privacy</a>
+                </p>
                 <button type="submit" class="form-skip-button">Skip</button>
                 <button type="submit" class="form-next-button">Next</button>
             </form>
@@ -172,6 +185,17 @@
             function fetch_general_test_grade() {
                 var general_test_grade = document.getElementById("general_test_grade_value").value;
                 document.getElementById("general_test_grade").value = general_test_grade;
+            }
+
+             // z_score_value range slider
+             function fetch_z_score_value() {
+                var z_score_value = document.getElementById("z_score").value;
+                document.getElementById("z_score_value").value = z_score_value;
+            }
+
+            function fetch_z_score() {
+                var z_score = document.getElementById("z_score_value").value;
+                document.getElementById("z_score").value = z_score;
             }
         </script>
     </body>

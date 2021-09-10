@@ -230,7 +230,10 @@
                 <span class="form-invalid"><?php echo $data['ol_results_err']; ?></span><br>
 
                 <hr class="form-hr">
-                <p>I do here by certify above details that I have entered are true and correct. <a class="form-link" href="#">Terms & Privacy</a></p>
+                <p>
+                    <input type="checkbox">
+                    I do here by certify above details that I have entered are true and correct. <a class="form-link" href="#">Terms & Privacy</a>
+                </p>
                 <button type="submit" class="form-skip-button">Skip</button>
                 <button type="submit" class="form-next-button">Next</button>
             </form>
