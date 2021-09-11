@@ -15,7 +15,7 @@
                 <p>Please fill the following details but you can skip this now and fill those in later as well.</p>
                 <hr class="form-hr">
                 <label for="uni_type"><p class="form-bold">University Type</p></label>
-                <select name="uni_type" id="uni_type">
+                <select name="uni_type" id="uni_type" class="form-select">
                     <option value="Government">Government</option>
                     <option value="Semi-Governmen">Semi-Government</option>
                     <option value="Private">Private</option>

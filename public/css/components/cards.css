@@ -48,9 +48,6 @@
 .good-stream-recommend-card {
     color: var(--good-color);
     background-color: var(--good-bg-color);
-    padding: 0.5rem;
-    display: grid;
-    grid-template-columns: 0.6fr 4fr 0.6fr;
     width: 45rem;
     box-shadow: var(--box-shadow-color);
     margin-bottom: 0.6rem;
@@ -64,9 +61,6 @@
 .normal-stream-recommend-card {
     color: var(--normal-color);
     background-color: var(--normal-bg-color);
-    padding: 0.2rem;
-    display: grid;
-    grid-template-columns: 0.6fr 4fr 0.6fr;
     width: 45rem;
     box-shadow: var(--box-shadow-color);
     margin-bottom: 0.6rem;
@@ -80,9 +74,6 @@
 .bad-stream-recommend-card {
     color: var(--bad-color);
     background-color: var(--bad-bg-color);
-    padding: 0.5rem;
-    display: grid;
-    grid-template-columns: 0.6fr 4fr 0.6fr;
     width: 45rem;
     box-shadow: var(--box-shadow-color);
     margin-bottom: 0.6rem;
@@ -96,9 +87,6 @@
 .stream-recommend-card {
     color: var(--idle-color);
     background-color: var(--idle-bg-color);
-    padding: 0.5rem;
-    display: grid;
-    grid-template-columns: 0.6fr 4fr 0.6fr;
     width: 45rem;
     box-shadow: var(--box-shadow-color);
     margin-bottom: 0.6rem;
@@ -113,26 +101,24 @@
     padding: 1rem;
 }
 
-.stream-recommend-card-number h1{
-    font-size: 1rem;
+
+
+.stream-recommend-card-table {
+    width: 45rem;
+    height: 3.5rem;
+    color: #FBFBFB;
 }
 
-.stream-recommend-card-title {
-    text-align: left;
-    padding: 1rem;
-}
-
-.stream-recommend-card-title {
-    font-size: 1rem;
-}
-
-.stream-recommend-card-analytics{
-    
-}
-
-.stream-recommend-card-analytics p{
+.stream-recommend-card-table th {
+    width: 5rem;
     text-align: center;
-    padding-top: 1rem;
-    padding-left: 0.2rem;
-    padding-right: 0.2rem;
+}
+
+.stream-recommend-card-table-title {
+    width: 32rem;
+    padding-left: 1rem;
+}
+
+.stream-recommend-card-table-points {
+    text-align: center;
 }

@@ -28,22 +28,22 @@
                     <div class="top-panel">
                         <h1>Stream recommendaiton</h1>
                         <?php
-                            $x = $data['recommended_streams'];
+                            // FOR TESTING ONLY
+                            // $x = $data['recommended_streams'];
                             
-                            foreach($x as $x => $x_value) {
-                                echo '<b>key</b>='.$x.', <b>point weight</b>='.$x_value[0].', <b>controller method</b>='.$x_value[1];
-                                echo '<br>';
-                            }
+                            // foreach($x as $x => $x_value) {
+                            //     echo '<b>key</b>='.$x.', <b>point weight</b>='.$x_value[0].', <b>controller method</b>='.$x_value[1];
+                            //     echo '<br>';
+                            // }
                         ?>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <?php flash('settings_message'); ?>
                         <div class="settings-header">
                                 <div class="settings-header-item"><h2>Results</h2></div>
                         </div>                                      
-                        <br>
+                        <br>               
                         <?php
                             $index = 1;     
                             
@@ -62,38 +62,20 @@
                                 else {
                                     echo '<div class="bad-stream-recommend-card">';
                                 }
-                                echo '  <div class="stream-recommend-card-number">';
-                                echo '      <h1>'.$index.'</h1>';
-                                echo '  </div>';
-                                echo '  <div class="stream-recommend-card-title">';
-                                echo '      <p>'.$recommendStream.'</p>';
-                                echo '  </div>';
-                                echo '  <div class="stream-recommend-card-analytics">';
-                                echo '      <p>Point | '.$recommendStream_value[0].'</p>';
-                                echo '  </div>';
+                                echo '<table class="stream-recommend-card-table">';
+                                echo    '<tr>';
+                                echo        '<th>'.$index.'</th>';
+                                echo        '<td class="stream-recommend-card-table-title">'.$recommendStream.'</td>';
+                                echo        '<td class="stream-recommend-card-table-points">Points '.$recommendStream_value[0].'</td>';
+                                echo    '</tr>';
+                                echo '</table>';
                                 echo '</div>';
                                 echo '</a>';
                                 $index++;
                             }
 
-                            print_r($streams);
-
-                            // foreach($data['streams'] as $stream) {
-                            //     echo '<a class="card-link" href="'.URLROOT.'/students_dashboard/streamSelectionRedirect/'.$index.'">';
-                            //     echo '<div class="normal-stream-recommend-card">';
-                            //     echo '  <div class="stream-recommend-card-number">';
-                            //     echo '      <h1>1</h1>';
-                            //     echo '  </div>';
-                            //     echo '  <div class="stream-recommend-card-title">';
-                            //     echo '      <p>'.$stream->stream_name.'</p>';
-                            //     echo '  </div>';
-                            //     echo '  <div class="stream-recommend-card-analytics">';
-                            //     echo '      <p>Points 4</p>';
-                            //     echo '  </div>';
-                            //     echo '</div>';
-                            //     echo '</a>';
-                            //     $index++;
-                            // }
+                            // FOR TESTING ONLY
+                            // print_r($streams);
                         ?>
                     </div>
 
