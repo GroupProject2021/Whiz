@@ -31,7 +31,9 @@
                     <div class="profile-upgrade-progress">
                         <progress max="100" value="25"></progress>
                     </div>
-                    <center><p>Profile complete: 25%</p></center>
+                    <div class="profile-completion-text">
+                        <p>PROFILE COMPLETION: 25%</p>
+                    </div>
                 </div>
             </div>
             <div class="profile-upgrade-button-area">
@@ -56,7 +58,9 @@
                     <div class="profile-upgrade-progress">
                         <progress max="100" value="50"></progress>
                     </div>
-                    <center><p>Profile complete: 50%</p></center>
+                    <div class="profile-completion-text">
+                        <p>PROFILE COMPLETION: 50%</p>
+                    </div>
                 </div>
             </div>
             <div class="profile-upgrade-button-area">
@@ -81,7 +85,9 @@
                     <div class="profile-upgrade-progress">
                         <progress max="100" value="75"></progress>
                     </div>
-                    <center><p>Profile complete: 75%</p></center>
+                    <div class="profile-completion-text">
+                        <p>PROFILE COMPLETION: 75%</p>
+                    </div>
                 </div>
             </div>
             <div class="profile-upgrade-button-area">
@@ -106,7 +112,9 @@
                     <div class="profile-upgrade-progress">
                         <progress max="100" value="100"></progress>
                     </div>
-                    <center><p>Profile complete: 100%</p></center>
+                    <div class="profile-completion-text">
+                        <p>PROFILE COMPLETION: 100%</p>
+                    </div>
                 </div>
             </div>
         </div>

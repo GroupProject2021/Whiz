@@ -39,7 +39,7 @@
 
                         <form action="" method="post">
                             <h3>Select a subject</h3>
-                            <select name="subject1" id="subject1">
+                            <select name="subject1" id="subject1" class="custom-select">
                                 <?php
                                     foreach($data['al_subject_list'] as $al_subject) {
                                         echo '<option value="'.$al_subject->al_sub_id.'">';
@@ -51,7 +51,7 @@
                             <br>
 
                             <h3>Select another subject</h3>
-                            <select name="subject1" id="subject1">
+                            <select name="subject2" id="subject2" class="custom-select">
                                 <?php
                                     foreach($data['al_subject_list'] as $al_subject) {
                                         echo '<option value="'.$al_subject->al_sub_id.'">';
@@ -63,7 +63,7 @@
                             <br>
 
                             <h3>Select one more subject</h3>
-                            <select name="subject1" id="subject1">
+                            <select name="subject3" id="subject3" class="custom-select">
                                 <?php
                                     foreach($data['al_subject_list'] as $al_subject) {
                                         echo '<option value="'.$al_subject->al_sub_id.'">';

@@ -33,7 +33,7 @@
                 <span class="form-invalid"><?php echo $data['gender_err']; ?></span><br>
 
                 <label for="date_of_birth"><p class="form-bold">Date of Birth</p></label>
-                <input type="date" name="date_of_birth" id="date_of_birth" class="form-select">
+                <input type="date" name="date_of_birth" id="date_of_birth" class="form-date-select">
                 <!-- <input type="text" placeholder="Enter date of birth" name="date_of_birth" id="date_of_birth" value="<?php echo $data['date_of_birth']; ?>"> -->
                 <span class="form-invalid"><?php echo $data['date_of_birth_err']; ?></span><br>
 

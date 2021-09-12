@@ -265,3 +265,20 @@ main {
 .settings-header-item a input.save-button:hover {
     background-color: #83f083;
 }
+
+/* select option styles */
+.custom-select {
+    /* width: 100%; */
+    height: 40px;
+    padding-left: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.3rem;    
+}
+
+.custom-select:hover {    
+    cursor: pointer;
+}
+
+.custom-select:focus {
+    border: 2px solid #db7e31;
+}
