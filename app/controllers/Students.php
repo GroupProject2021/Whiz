@@ -64,12 +64,27 @@
                     }
                 }
 
+                echo $data['password'];
+
                 // Validata password
                 if(empty($data['password'])) {
                     $data['password_err'] = 'Please enter password';
                 }
-                else if(strlen($data['password']) < 6) {
-                    $data['password_err'] = 'Password must be at least 6 characters';
+                else if(strlen($data['password']) < 8) {
+                    $data['password_err'] = 'Password must be having at least 8 characters';
+                }
+                else {
+                    if(!preg_match('@[0-9]@', $data['password'])) {
+                        $data['password_err'] = 'Please must be having at least one number';
+                    }
+
+                    if(!preg_match('@[A-Z]@', $data['password'])) {
+                        $data['password_err'] = 'Password must be having at least one uppercase letter';
+                    }
+                    
+                    if(!preg_match('@[^\w]@', $data['password'])) {
+                        $data['password_err'] = 'Password must be having at least 1 special character';
+                    }
                 }
 
                 // Validata confirm password

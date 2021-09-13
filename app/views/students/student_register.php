@@ -42,11 +42,59 @@
                 <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
 
                 <label for="password"><p class="form-bold">Password</p></label>
-                <input type="password" placeholder="Enter password" name="password" id="password" value="<?php echo $data['password']; ?>">
+                <table class="form-table">
+                    <tr>
+                        <td>
+                            <input type="password" placeholder="Enter password" name="password" id="password" value="<?php echo $data['password']; ?>">
+                        </td>
+                        <td>
+                            <div class="toggle-password">
+                                <img src="<?php echo URLROOT; ?>/imgs/form/hide-eye-icon.png" class="hide-password-eye" width="25px" height="20px" alt="hide">
+                                <img src="<?php echo URLROOT; ?>/imgs/form/show-eye-icon.png" class="show-password-eye" width="25px" height="20px" alt="show">
+                            </div>
+                        </td>                    
+                    </tr>
+                </table>
+                <div class="password-policies">
+                    <div class="policy-length">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                        Minimum 8 Characters
+                    </div>
+                    <div class="policy-number">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                        Contains a number
+                    </div>
+                    <div class="policy-uppercase">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                        Contains uppercase
+                    </div>
+                    <div class="policy-special">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                        Contains special characters
+                    </div>
+                </div>
                 <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
 
                 <label for="confirm_password"><p class="form-bold">Confirm password</p></label>
-                <input type="password" placeholder="Enter confirm password" name="confirm_password" id="confirm_password" value="<?php echo $data['confirm_password']; ?>">
+                <table class="form-table">
+                    <tr>
+                        <td>
+                            <input type="password" placeholder="Enter confirm password" name="confirm_password" id="confirm_password" value="<?php echo $data['confirm_password']; ?>">
+                        </td>
+                        <td>
+                            <div class="toggle-confirm-password">
+                                <img src="<?php echo URLROOT; ?>/imgs/form/hide-eye-icon.png" class="hide-password-eye" width="25px" height="20px" alt="hide">
+                                <img src="<?php echo URLROOT; ?>/imgs/form/show-eye-icon.png" class="show-password-eye" width="25px" height="20px" alt="show">
+                            </div>
+                        </td>
+                    </tr>
+                </table>                
+                <div class="password-policies">
+                    <div class="policy-password-match">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" class="show-password-eye" width="15px" height="15px" alt="green-tick">
+                        Passwords are matching
+                    </div>
+                </div>
                 <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span><br>
 
                 <label for="phn_no"><p class="form-bold">Phone number</p></label>
@@ -60,5 +108,97 @@
         <div class="form-container content">
             <p>Already have an account? <a class="form-link" href="<?php echo URLROOT; ?>/commons/login">Sign in</a></p>
         </div>
+
+        <script>
+            function _id(name) {
+                return document.getElementById(name);
+            }
+
+            function _class(name) {
+                return document.getElementsByClassName(name);
+            }
+
+            // show/ hide eye toggle
+            _class("toggle-password")[0].addEventListener("click", function() {
+                _class("toggle-password")[0].classList.toggle("active");
+
+                if(_id("password").getAttribute("type") == "password") {
+                    _id("password").setAttribute("type", "text");
+                }
+                else {
+                    _id("password").setAttribute("type", "password");
+                }
+            });
+
+            // Password policies check on password
+            _id("password").addEventListener("keyup", function() {
+                let password = _id("password").value;
+
+                if(password.length >= 8) {
+                    _class("policy-length")[0].classList.add("active");
+                }
+                else {
+                    _class("policy-length")[0].classList.remove("active");
+                }
+                
+                if(/[0-9]/.test(password)) {
+                    _class("policy-number")[0].classList.add("active");
+                }
+                else {
+                    _class("policy-number")[0].classList.remove("active");
+                }
+
+                if(/[A-Z]/.test(password)) {
+                    _class("policy-uppercase")[0].classList.add("active");
+                }
+                else {
+                    _class("policy-uppercase")[0].classList.remove("active");
+                }
+
+                if(/[^a-zA-Z0-9]/.test(password)) {
+                    _class("policy-special")[0].classList.add("active");
+                }
+                else {
+                    _class("policy-special")[0].classList.remove("active");
+                }
+            });
+
+            // show/ hide eye toggle on confirm password
+            _class("toggle-confirm-password")[0].addEventListener("click", function() {
+                _class("toggle-confirm-password")[0].classList.toggle("active");
+
+                if(_id("confirm_password").getAttribute("type") == "password") {
+                    _id("confirm_password").setAttribute("type", "text");
+                }
+                else {
+                    _id("confirm_password").setAttribute("type", "password");
+                }
+            });
+
+            // Password matching check on both password and confirm password - BI-DIRECTIONAL PASSWORD MATCH
+            _id("password").addEventListener("keyup", function() {
+                let password = _id("password").value;
+                let confirm_password = _id("confirm_password").value;
+
+                if(password == confirm_password && password.length != 0) {
+                    _class("policy-password-match")[0].classList.add("active");
+                }
+                else {
+                    _class("policy-password-match")[0].classList.remove("active");
+                }
+            });
+
+            _id("confirm_password").addEventListener("keyup", function() {
+                let password = _id("password").value;
+                let confirm_password = _id("confirm_password").value;
+
+                if(password == confirm_password && confirm_password.length != 0) {
+                    _class("policy-password-match")[0].classList.add("active");
+                }
+                else {
+                    _class("policy-password-match")[0].classList.remove("active");
+                }
+            });
+        </script>
     </body>
 </html>

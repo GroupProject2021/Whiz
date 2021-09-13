@@ -43,8 +43,77 @@ input[type=text], input[type=password] {
 
 input[type=text]:focus, input[type=password]:focus {
     background-color: var(--input-field-focus-background-color);
-    border: 2px solid #db7e31;
+    border-inline: 2px solid #db7e31;
     outline: none;
+}
+
+/* password show / hide eye for password*/
+.form-container .toggle-password {
+    cursor: pointer;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.form-container .toggle-password.active .hide-password-eye {
+    display: none;
+}
+
+.form-container .toggle-password.active .show-password-eye {
+    display: inline;
+}
+
+.form-container .toggle-password .show-password-eye {
+    display: none;
+}
+
+/* password show / hide eye for confirm password*/
+.form-container .toggle-confirm-password {
+    cursor: pointer;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.form-container .toggle-confirm-password.active .hide-password-eye {
+    display: none;
+}
+
+.form-container .toggle-confirm-password.active .show-password-eye {
+    display: inline;
+}
+
+.form-container .toggle-confirm-password .show-password-eye {
+    display: none;
+}
+
+/* password policies */
+.form-container .password-policies {
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    transition: height 0.5s ease-in-out;
+    font-size: 0.8rem;
+}
+
+.form-container .password-policies.active {
+    opacity: 1;
+    height: auto;
+}
+
+.form-container .password-policies > div {
+    opacity: 0.5;
+}
+
+.form-container .password-policies div img {
+    opacity: 0;
+}
+
+.form-container .password-policies > div.active {
+    opacity: 1;
+    font-weight: 600;
+    color: #28a745;
+}
+
+.form-container ,.password-policies > div.active img{
+    opacity: 1;
 }
 
 /* form hr */
