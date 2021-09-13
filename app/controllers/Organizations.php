@@ -65,11 +65,12 @@
                 if(empty($data['email'])) {
                     $data['email_err'] = 'Please enter email';
                 }
-                else {
-                    // Check email
-                    if($this->organizationModel->findUserByEmail($data['email'])) {
-                        $data['email_err'] = 'Email is already taken'; 
-                    }
+                else if (!str_contains($data['email'],'@')){
+                    $data['email_err'] = 'Enter valid email'; 
+                }
+                // Check email
+                else if($this->organizationModel->findUserByEmail($data['email'])) {
+                    $data['email_err'] = 'Email is already taken'; 
                 }
 
                 // Validata password
@@ -260,11 +261,12 @@
                 if(empty($data['email'])) {
                     $data['email_err'] = 'Please enter email';
                 }
-                else {
-                    // Check email
-                    if($this->organizationModel->findUserByEmail($data['email'])) {
-                        $data['email_err'] = 'Email is already taken'; 
-                    }
+                else if (!str_contains($data['email'],'@')){
+                    $data['email_err'] = 'Enter valid email'; 
+                }
+                // Check email
+                else if($this->organizationModel->findUserByEmail($data['email'])) {
+                    $data['email_err'] = 'Email is already taken'; 
                 }
 
                 // Validata password
