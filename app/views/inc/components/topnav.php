@@ -14,12 +14,14 @@
   -->
 
   <!-- Right-aligned links -->
-  <div class="topnav-right">
+  <div class="topnav-right">    
+    <p style="color: white;">
+    </p>
     <?php if(isset($_SESSION['user_id'])) : ?>      
       <!-- User profile details -->
       <div class="user-details">
         <div class="user-profile-image">
-          <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg">
+          <img src="<?php echo URLROOT; ?>/profileimages/student/<?php echo $_SESSION['user_profile_image']; ?>" alt="profile_image">
         </div>
         <div class="user-profile-name">
             <a href="<?php echo URLROOT; ?>/students_dashboard/index"><?php echo $_SESSION['user_name']; ?></a>

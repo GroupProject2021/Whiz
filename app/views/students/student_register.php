@@ -10,10 +10,25 @@
 
         <!-- REGISTRATION FORM -->
         <div class="form-container">
-            <form action="<?php echo URLROOT; ?>/students/register" method="post">
+            <form action="<?php echo URLROOT; ?>/students/register" method="post" enctype="multipart/form-data">
                 <h1>Student Register</h1>
                 <p>Please fill in this form to create an account</p>
-                <hr class="form-hr">
+                <hr class="form-hr">           
+                <label for="profile_image"><p class="form-bold">Profile picture</p></label>
+                <div  class="profile_image_area">
+                    <img src="<?php echo URLROOT; ?>/imgs/form/profile-image-placeholder.png"  id="profile_image_placeholder" onclick="triggerClick()" width="130px" height="130px" alt="profile_image">
+                </div>
+                <input type="file" name="profile_image" id="profile_image" onchange="displayImage(this)" style="display: none;">
+                <div class="form-validation">
+                    <div class="profile-image-validation" style="text-align: center;">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                        Select a profile picture
+                    </div>
+                </div>
+                <!-- flash message -->              
+                <?php //flash('profile_image_upload'); ?>
+                <span class="form-invalid"><?php echo $data['profile_image_err'].'<br>'; ?></span>
+
                 <label for="name"><p class="form-bold">Name</p></label>
                 <input type="text" placeholder="Enter name" name="name" id="name" value="<?php echo $data['name']; ?>">
                 <span class="form-invalid"><?php echo $data['name_err']; ?></span><br>
@@ -39,6 +54,12 @@
 
                 <label for="email"><p class="form-bold">Email</p></label>
                 <input type="text" placeholder="Enter email" name="email" id="email" value="<?php echo $data['email']; ?>">
+                <div class="form-validation">
+                    <div class="email-validation">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                        Your email address is valid
+                    </div>
+                </div>
                 <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
 
                 <label for="password"><p class="form-bold">Password</p></label>
@@ -55,7 +76,7 @@
                         </td>                    
                     </tr>
                 </table>
-                <div class="password-policies">
+                <div class="form-validation">
                     <div class="policy-length">
                         <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
                         Minimum 8 Characters
@@ -89,9 +110,9 @@
                         </td>
                     </tr>
                 </table>                
-                <div class="password-policies">
+                <div class="form-validation">
                     <div class="policy-password-match">
-                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" class="show-password-eye" width="15px" height="15px" alt="green-tick">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
                         Passwords are matching
                     </div>
                 </div>
@@ -99,6 +120,12 @@
 
                 <label for="phn_no"><p class="form-bold">Phone number</p></label>
                 <input type="text" placeholder="Enter phone number" name="phn_no" id="phn_no" value="<?php echo $data['phn_no']; ?>">
+                <div class="form-validation">
+                    <div class="phn_no-validation">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                        Your phone number is valid
+                    </div>
+                </div>
                 <span class="form-invalid"><?php echo $data['phn_no_err']; ?></span><br>
                 <hr class="form-hr">
                 <p>By creating an account you agree to our <a class="form-link" href="#">Terms & Privacy</a></p>

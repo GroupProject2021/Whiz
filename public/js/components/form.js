@@ -1,9 +1,41 @@
+/* 
+    --- Regular Expressions - IMPORTANT NOTES ---
+    
+    \d or [0-9]- match any number
+    \w or [a-zA-Z0-9&_] - match any word character
+    \s - match whitespaces (tabs & spaces)
+    \t - match tab only
+
+    ^ - excluding the folowwing characters
+    $ - end of the regular expresstion
+*/
+
 function _id(name) {
     return document.getElementById(name);
 }
 
 function _class(name) {
     return document.getElementsByClassName(name);
+}
+
+// Profile image
+function triggerClick(){
+    document.querySelector('#profile_image').click();
+}
+
+function displayImage(image) {
+    if(image.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(image) {
+            let image_traget = image.target.result;
+            document.querySelector('#profile_image_placeholder').setAttribute('src', image_traget);
+        }
+
+        reader.readAsDataURL(image.files[0]);
+
+        _class("profile-image-validation")[0].classList.add("active");
+    }
 }
 
 // show/ hide eye toggle
@@ -15,6 +47,19 @@ _class("toggle-password")[0].addEventListener("click", function() {
     }
     else {
         _id("password").setAttribute("type", "password");
+    }
+});
+
+// Email validation
+_id("email").addEventListener("keyup", function() {
+    let email = _id("email").value;
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(email.match(pattern) && email.length != 0) {
+        _class("email-validation")[0].classList.add("active");
+    }
+    else {
+        _class("email-validation")[0].classList.remove("active");
     }
 });
 
@@ -85,5 +130,18 @@ _id("confirm_password").addEventListener("keyup", function() {
     }
     else {
         _class("policy-password-match")[0].classList.remove("active");
+    }
+});
+
+// Phone number validation
+_id("phn_no").addEventListener("keyup", function() {
+    let phn_no = _id("phn_no").value;
+    let pattern = /^[0][0-9]{9}$/;
+
+    if(phn_no.match(pattern) && phn_no.length != 0) {
+        _class("phn_no-validation")[0].classList.add("active");
+    }
+    else {
+        _class("phn_no-validation")[0].classList.remove("active");
     }
 });

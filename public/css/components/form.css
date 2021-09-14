@@ -31,6 +31,16 @@
     border: 1px solid #d3d3d3;
 }
 
+/* profile image */
+.form-container .profile_image_area {
+    text-align: center;
+    width: 100%;
+}
+
+.form-container .profile_image_area img {
+    border-radius: 50%;
+}
+
 /* Full width input fields */
 input[type=text], input[type=password] {
     width: 100%;
@@ -86,33 +96,33 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 /* password policies */
-.form-container .password-policies {
+.form-container .form-validation {
     padding-left: 0.5rem;
     padding-top: 0.5rem;
     transition: height 0.5s ease-in-out;
     font-size: 0.8rem;
 }
 
-.form-container .password-policies.active {
+.form-container .form-validation.active {
     opacity: 1;
     height: auto;
 }
 
-.form-container .password-policies > div {
+.form-container .form-validation > div {
     opacity: 0.5;
 }
 
-.form-container .password-policies div img {
+.form-container .form-validation div img {
     opacity: 0;
 }
 
-.form-container .password-policies > div.active {
+.form-container .form-validation > div.active {
     opacity: 1;
     font-weight: 600;
     color: #28a745;
 }
 
-.form-container ,.password-policies > div.active img{
+.form-container .form-validation > div.active img{
     opacity: 1;
 }
 

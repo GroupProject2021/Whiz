@@ -14,6 +14,8 @@
 
                 // Init data
                 $data = [
+                    'profile_image' => $_FILES['profile_image'],
+                    'profile_image_name' => time().'_'.$_FILES['profile_image']['name'],
                     'name' => trim($_POST['name']),
                     'address' => trim($_POST['address']),
                     'gender' => trim($_POST['gender']),
@@ -23,6 +25,7 @@
                     'confirm_password' => trim($_POST['confirm_password']),
                     'phn_no' => trim($_POST['phn_no']),
 
+                    'profile_image_err' => '',
                     'name_err' => '',
                     'address_err' => '',
                     'gender_err' => '',
@@ -32,6 +35,22 @@
                     'confirm_password_err' => '',
                     'phn_no_err' => ''
                 ];
+
+                // echo PUBROOT;
+                // echo '<pre>';
+                // print_r($data['profile_image']);
+                // echo '</pre>';
+
+                // $profile_image_name = $data['profile_image']['name'];
+                $target = PUBROOT.'/profileimages/student/'.$data['profile_image_name'];
+
+                if(move_uploaded_file($data['profile_image']['tmp_name'], $target)) {
+                    flash('profile_image_upload', 'Profile picture uploaded successfully');
+                }
+                else {
+                    // upload unsuccessfull
+                    $data['profile_image_err'] = 'Profile picture uploading unsuccessful';
+                }
 
                 // Validate name
                 if(empty($data['name'])) {
@@ -103,7 +122,7 @@
                 }
 
                 // Make sure errors are empty
-                if(empty($data['name_err']) && empty($data['address_err']) && empty($data['gender_err']) && empty($data['date_of_birth_err'])
+                if(empty($data['profile_image_err']) && empty($data['name_err']) && empty($data['address_err']) && empty($data['gender_err']) && empty($data['date_of_birth_err'])
                     && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err']) && empty($data['phn_no_err'])) {
                     // Validated
                     
@@ -130,6 +149,8 @@
             else {
                 // Init data
                 $data = [
+                    'profile_image' => '',
+                    'profile_image' => '',
                     'name' => '',
                     'address' => '',
                     'gender' => '',
@@ -138,6 +159,8 @@
                     'password' => '',
                     'confirm_password' => '',
                     'phn_no' => '',
+
+                    'profile_image_err' => '',
                     'name_err' => '',
                     'address_err' => '',
                     'gender_err' => '',

@@ -9,8 +9,9 @@
         // Register user
         public function register($data) {        
             // register as a user    
-            $this->db->query('INSERT INTO users(name, email, password, actor_type, specialized_actor_type) VALUES(:name, :email, :password, :actor_type, :specialized_actor_type)');
+            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type)');
             // bind values
+            $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
@@ -22,8 +23,9 @@
 
            
             // register as a student
-            $this->db->query('INSERT INTO student(name, address, gender, date_of_birth, email, phn_no, password) VALUES(:name, :address, :gender, :date_of_birth, :email, :phn_no, :password)');
+            $this->db->query('INSERT INTO student(profile_image, name, address, gender, date_of_birth, email, phn_no, password) VALUES(:profile_image, :name, :address, :gender, :date_of_birth, :email, :phn_no, :password)');
             // bind values
+            $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(":name", $data['name']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":gender", $data['gender']);
@@ -40,25 +42,6 @@
                 return false;
             }
         }
-
-        // Login user
-        // public function login($email, $password) {
-        //     // $this->db->query('SELECT * FROM student WHERE email = :email');
-        //     $this->db->query('SELECT * FROM users WHERE email = :email');
-        //     // bind values
-        //     $this->db->bind(':email', $email);
-
-        //     $row = $this->db->single();
-
-        //     $hashed_password = $row->password;
-        //     if(password_verify($password, $hashed_password)) {
-        //         return $row;
-        //     }
-        //     else {
-        //         return false;
-        //     }
-        // }
-
 
         // Find user by email
         public function findUserByEmail($email) {
