@@ -43,5 +43,8 @@
         <div class="form-container content">
             <p>Don't have an account? <a class="form-link" href="<?php echo URLROOT; ?>/students/register">Register</a></p>
         </div>
+
+        <!-- java script form validation -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/form.js"></script>
     </body>
 </html>

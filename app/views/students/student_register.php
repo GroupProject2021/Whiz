@@ -13,21 +13,28 @@
             <form action="<?php echo URLROOT; ?>/students/register" method="post" enctype="multipart/form-data">
                 <h1>Student Register</h1>
                 <p>Please fill in this form to create an account</p>
-                <hr class="form-hr">           
+                <hr class="form-hr">    
+
                 <label for="profile_image"><p class="form-bold">Profile picture</p></label>
-                <div  class="profile_image_area">
-                    <img src="<?php echo URLROOT; ?>/imgs/form/profile-image-placeholder.png"  id="profile_image_placeholder" onclick="triggerClick()" width="130px" height="130px" alt="profile_image">
+                <div class="form-drag-area">
+                    <div class="icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/profile-image-placeholder.png" id="profile_image_placeholder" width="90px" height="90px" alt="profile_image">
+                    </div>
+                    <div class="description">Drag & Drop to Upload File</div>
+                    <div class="form-upload">
+                        <input type="file" name="profile_image" id="profile_image" onchange="displayImage(this)" style="display: none;">
+                        Browse File
+                    </div>
                 </div>
-                <input type="file" name="profile_image" id="profile_image" onchange="displayImage(this)" style="display: none;">
                 <div class="form-validation">
-                    <div class="profile-image-validation" style="text-align: center;">
+                    <div class="profile-image-validation">
                         <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
                         Select a profile picture
                     </div>
                 </div>
                 <!-- flash message -->              
                 <?php //flash('profile_image_upload'); ?>
-                <span class="form-invalid"><?php echo $data['profile_image_err'].'<br>'; ?></span>
+                <span class="form-invalid"><?php echo $data['profile_image_err']; ?></span><br>
 
                 <label for="name"><p class="form-bold">Name</p></label>
                 <input type="text" placeholder="Enter name" name="name" id="name" value="<?php echo $data['name']; ?>">
@@ -138,5 +145,6 @@
 
         <!-- java script form validation -->
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/form.js"></script>
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/imageupload.js"></script>
     </body>
 </html>

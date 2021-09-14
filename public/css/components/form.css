@@ -3,6 +3,8 @@
     --input-field-background-color: #f1f1f1;
     --input-field-focus-background-color: #fcf0e8;
     --form-hr-border-color: #f1f1f1;
+    --form-upload-button-background-color: #4a73f8;
+    --form-upload-button-color: white;
     --form-submit-button-background-color: #db7e31;
     --form-submit-button-color: white;
     --form-skip-button-background-color: gray;
@@ -31,14 +33,38 @@
     border: 1px solid #d3d3d3;
 }
 
-/* profile image */
-.form-container .profile_image_area {
-    text-align: center;
+/* Drag and drop image upload*/
+.form-container .form-drag-area {    
+    background-color: #eeeded;
+    height: 12rem;
     width: 100%;
+    border: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.form-container .profile_image_area img {
+.form-container .form-drag-area.active {
+    transition: 300ms ease-in;
+    border: 2px dashed #888888;
+    background-color: #d8d8d8;
+}
+
+
+.form-container .form-drag-area .icon {
+    font-size: 1rem;
+    color: #494949;
+}
+
+.form-container .form-drag-area .icon img{
     border-radius: 50%;
+}
+
+.form-container .form-drag-area .description {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #494949;
 }
 
 /* Full width input fields */
@@ -143,6 +169,22 @@ input[type=text]:focus, input[type=password]:focus {
     font-weight: bold;
     display: inline-block;
     border: none;
+}
+
+/* Set a style for the submit button */
+.form-upload {
+    background-color: var(--form-upload-button-background-color);
+    color: var(--form-upload-button-color);
+    padding: 8px 8px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 3px;
+}
+
+.form-upload:hover {
+    opacity: 1;
 }
 
 /* Set a style for the submit button */

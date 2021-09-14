@@ -18,25 +18,7 @@ function _class(name) {
     return document.getElementsByClassName(name);
 }
 
-// Profile image
-function triggerClick(){
-    document.querySelector('#profile_image').click();
-}
 
-function displayImage(image) {
-    if(image.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function(image) {
-            let image_traget = image.target.result;
-            document.querySelector('#profile_image_placeholder').setAttribute('src', image_traget);
-        }
-
-        reader.readAsDataURL(image.files[0]);
-
-        _class("profile-image-validation")[0].classList.add("active");
-    }
-}
 
 // show/ hide eye toggle
 _class("toggle-password")[0].addEventListener("click", function() {
@@ -50,6 +32,8 @@ _class("toggle-password")[0].addEventListener("click", function() {
     }
 });
 
+
+
 // Email validation
 _id("email").addEventListener("keyup", function() {
     let email = _id("email").value;
@@ -62,6 +46,8 @@ _id("email").addEventListener("keyup", function() {
         _class("email-validation")[0].classList.remove("active");
     }
 });
+
+
 
 // Password policies check on password
 _id("password").addEventListener("keyup", function() {
@@ -96,6 +82,8 @@ _id("password").addEventListener("keyup", function() {
     }
 });
 
+
+
 // show/ hide eye toggle on confirm password
 _class("toggle-confirm-password")[0].addEventListener("click", function() {
     _class("toggle-confirm-password")[0].classList.toggle("active");
@@ -107,6 +95,8 @@ _class("toggle-confirm-password")[0].addEventListener("click", function() {
         _id("confirm_password").setAttribute("type", "password");
     }
 });
+
+
 
 // Password matching check on both password and confirm password - BI-DIRECTIONAL PASSWORD MATCH
 _id("password").addEventListener("keyup", function() {
@@ -132,6 +122,8 @@ _id("confirm_password").addEventListener("keyup", function() {
         _class("policy-password-match")[0].classList.remove("active");
     }
 });
+
+
 
 // Phone number validation
 _id("phn_no").addEventListener("keyup", function() {
