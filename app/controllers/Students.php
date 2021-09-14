@@ -36,15 +36,7 @@
                     'phn_no_err' => ''
                 ];
 
-                // echo PUBROOT;
-                // echo '<pre>';
-                // print_r($data['profile_image']);
-                // echo '</pre>';
-
-                // $profile_image_name = $data['profile_image']['name'];
-                $target = PUBROOT.'/profileimages/student/'.$data['profile_image_name'];
-
-                if(move_uploaded_file($data['profile_image']['tmp_name'], $target)) {
+                if(uploadImage($data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/student/')) {
                     flash('profile_image_upload', 'Profile picture uploaded successfully');
                 }
                 else {
@@ -202,108 +194,6 @@
                 $msg = "Your not sent";
                 echo $msg;
             }
-        }
-        
-
-        // public function login() {
-        //     // Check for POST
-        //     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //         // Process form
-
-        //         // Sanitize POST data
-        //         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-        //         // Init data
-        //         $data = [
-        //             'email' => trim($_POST['email']),
-        //             'password' => trim($_POST['password']),
-        //             'email_err' => '',
-        //             'password_err' => ''
-        //         ];
-
-        //         // Validate email
-        //         if(empty($data['email'])) {
-        //             $data['email_err'] = 'Please enter email';
-        //         }
-
-        //         // Validate password
-        //         if(empty($data['password'])) {
-        //             $data['password_err'] = 'Please enter password';
-        //         }
-
-        //         // Check for user/email
-        //         if($this->studentModel->findUserByEmail($data['email'])) {
-        //             // User found
-        //         }
-        //         else {
-        //             //user not found
-        //             $data['email_err'] = 'No user found';
-        //         }
-
-        //         // Make sure errors are empty
-        //         if(empty($data['email_err']) && empty($data['password_err'])) {
-        //             // Validated
-        //             // Check and set logged in user
-        //             $loggedInUser = $this->studentModel->login($data['email'], $data['password']);
-
-        //             if($loggedInUser) {
-        //                 // Create session
-        //                 $this->createUserSession($loggedInUser);
-        //             }
-        //             else {
-        //                 $data['password_err'] = 'Password incorrect';
-
-        //                 $this->view('students/student_login', $data);
-        //             }
-        //         }
-        //         else {
-        //             // Load view with errors
-        //             $this->view('students/student_login', $data);
-        //         }
-        //     }
-        //     else {
-        //         // Init data
-        //         $data = [
-        //             'email' => '',
-        //             'password' => '',
-        //             'email_err' => '',
-        //             'password_err' => ''
-        //         ];
-        //     }
-
-        //     // Load view
-        //     $this->view('students/student_login', $data);
-        // }
-
-        // public function createUserSession($user) {
-        //     // taken from the database
-        //     $_SESSION['user_id'] = $user->id;
-        //     $_SESSION['user_email'] = $user->email;
-        //     $_SESSION['user_name'] = $user->name;
-        //     $_SESSION['actor_type'] = $user->actor_type;
-        //     $_SESSION['specialized_actor_type'] = $user->specialized_actor_type;
-
-        //     redirect('students_dashboard/index');
-        // }
-
-        // public function logout() {
-        //     unset($_SESSION['user_id']);
-        //     unset($_SESSION['user_email']);
-        //     unset($_SESSION['user_name']);
-        //     unset($_SESSION['actor_type']);
-        //     unset($_SESSION['specialized_actor_type']);
-        //     session_destroy();
-
-        //     redirect('students/login');
-        // }
-
-        // public function isLoggedIn() {
-        //     if(isset($_SESSION['user_id'])) {
-        //         return true;
-        //     }
-        //     else {
-        //         return false;
-        //     }
-        // }    
+        }        
     }
 ?>

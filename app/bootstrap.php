@@ -5,6 +5,7 @@
     // Load helpers
     require_once 'helpers/url_helper.php';
     require_once 'helpers/session_helper.php';
+    require_once 'helpers/image_upload_helper.php';
 
     // Load libraries (Manual loading)
     // require_once 'libraries/Controller.php';
