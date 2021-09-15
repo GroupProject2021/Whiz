@@ -10,7 +10,9 @@
         
         <!-- LOGIN FORM -->
         <div class="form-container">
+       
             <form action="<?php echo URLROOT; ?>/admins/login" method="post">
+            
                 <h1>Admin Login</h1>
                 <p>Please enter your credentials</p>
                 <hr  class="form-hr">
@@ -22,10 +24,11 @@
                 <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
                 <hr  class="form-hr">
                 <button type="submit" class="form-submit">Login</button>
+                <center>
+                <img src="<?php echo URLROOT; ?>/imgs/sidebar/logo.png"width="200px" height="200px" alt="logo">
+             </center>
             </form>
-        </div>
-        
-            
-        </div>
+        </div>   
+       
     </body>
 </html>
