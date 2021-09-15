@@ -42,56 +42,7 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut est aliquid fugit porro hic iusto aliquam? Sit cumque, voluptates pariatur perspiciatis blanditiis tempora laborum fugiat maiores error odio quidem fuga!
                                 <hr>
 
-                                <div class="notice-card">
-                                    <div class="notice-card-title">
-                                        <b>Notice 1</b>
-                                    </div>
-                                    <div class="notice-card-content">
-                                        <div class="notice-card-content-image">
-                                            <img src="<?php echo URLROOT; ?>/imgs/icon.png" alt="img">
-                                        </div>
-                                        <div class="notice-card-content-description">
-                                            Lorem ipsum dolor sarum accusantium veritatis?
-                                        </div>
-                                        <div>
-                                            <input class="notice-card-content-button" type="button" value="view">
-                                        </div>
-                                    </div>                                    
-                                </div>
-
-                                <div class="notice-card">
-                                    <div class="notice-card-title">
-                                        <b>Notice 1</b>
-                                    </div>
-                                    <div class="notice-card-content">
-                                        <div class="notice-card-content-image">
-                                            <img src="<?php echo URLROOT; ?>/imgs/icon.png" alt="img">
-                                        </div>
-                                        <div class="notice-card-content-description">
-                                            Lorem ipsum dolor sarum accusantium veritatis?
-                                        </div>
-                                        <div>
-                                            <input class="notice-card-content-button" type="button" value="view">
-                                        </div>
-                                    </div>                                    
-                                </div>
-
-                                <div class="notice-card">
-                                    <div class="notice-card-title">
-                                        <b>Notice 1</b>
-                                    </div>
-                                    <div class="notice-card-content">
-                                        <div class="notice-card-content-image">
-                                            <img src="<?php echo URLROOT; ?>/imgs/icon.png" alt="img">
-                                        </div>
-                                        <div class="notice-card-content-description">
-                                            Lorem ipsum dolor sarum accusantium veritatis?
-                                        </div>
-                                        <div>
-                                            <input class="notice-card-content-button" type="button" value="view">
-                                        </div>
-                                    </div>                                    
-                                </div>
+                                
                             </div>
                             <div class="updates">
                                 <h2>Updates</h2>
