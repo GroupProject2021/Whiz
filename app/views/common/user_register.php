@@ -10,8 +10,14 @@
         
         <!-- LOGIN FORM -->
         <div class="form-container">
-            <h1>Registration</h1>
-            <p>Please select your type</p>
+            <div class="logo">
+                <img src="<?php echo URLROOT; ?>/imgs/sidebar/logo.png" alt="logo">
+            </div>
+            <center>
+                <h1>Sign up</h1>
+                <p>Please enter your type</p>
+            </center>
+
             <hr  class="form-hr">
             <center>
                 <a href="<?php echo URLROOT; ?>/students/register"><button class="form-actor-button">Student</button></a>
