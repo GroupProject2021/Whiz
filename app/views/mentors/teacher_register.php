@@ -15,30 +15,82 @@
                 <h1>Teacher Register</h1>
                 <p>Please fill in this form to create an account</p>
                 <hr class="form-hr">
-                <label for="name"><p class="form-bold">Name</p></label>
-                <input type="text" placeholder="Enter name" name="name" id="name" value="<?php echo $data['name']; ?>">
+
+                <!-- name -->
                 <span class="form-invalid"><?php echo $data['name_err']; ?></span><br>
+                <input type="text" placeholder=" " name="name" id="name" value="<?php echo $data['name']; ?>">
+                <label>Name</label>
 
-                <label for="email"><p class="form-bold">Email</p></label>
-                <input type="text" placeholder="Enter email" name="email" id="email" value="<?php echo $data['email']; ?>">
+                <!-- email -->
                 <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
+                <input type="text" placeholder=" " name="email" id="email" value="<?php echo $data['email']; ?>">
+                <label>Email</label>
 
-                <label for="school"><p class="form-bold">School</p></label>
-                <input type="text" placeholder="Enter school" name="school" id="school" value="<?php echo $data['school']; ?>">
+                
                 <span class="form-invalid"><?php echo $data['school_err']; ?></span><br>
+                <input type="text" placeholder=" " name="school" id="school" value="<?php echo $data['school']; ?>">
+                <label>School</label>
 
                 <!-- <label for="subjects"><p class="form-bold">Subject</p></label>
                 <input type="text" placeholder="Enter subject" name="subjects" id="subjects" value="<?php echo $data['subjects']; ?>">
                 <span class="form-invalid"><?php echo $data['subjects_err']; ?></span><br> -->
 
-                <label for="password"><p class="form-bold">Password</p></label>
-                <input type="text" placeholder="Enter password" name="password" id="password" value="<?php echo $data['password']; ?>">
-                <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
+                 <!-- password -->
+                 <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
+                <div class="password-area">
+                    <div class="pasword-content">                    
+                        <input type="password" placeholder=" " name="password" id="password" value="<?php echo $data['password']; ?>">                        
+                        <label>Password</label>
+                    </div>
+                    <div class="toggle-password">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/hide-eye-icon.png" class="hide-password-eye" width="25px" height="20px" alt="hide">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/show-eye-icon.png" class="show-password-eye" width="25px" height="20px" alt="show">
+                    </div>
+                </div>
+                <div class="bottom-content">
+                    <div class="form-validation">
+                        <div class="policy-length">
+                            <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                            Minimum 8 Characters
+                        </div>
+                        <div class="policy-number">
+                            <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                            Contains a number
+                        </div>
+                        <div class="policy-uppercase">
+                            <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                            Contains uppercase
+                        </div>
+                        <div class="policy-special">
+                            <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                            Contains special characters
+                        </div>
+                    </div>
+                </div>
 
-                <label for="confirm_password"><p class="form-bold">Confirm password</p></label>
-                <input type="text" placeholder="Re-enter password" name="confirm_password" id="confirm_password" value="<?php echo $data['confirm_password']; ?>">
+                <!-- confirm password -->
                 <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span><br>
+                <div class="password-area">
+                    <div class="pasword-content">                    
+                        <input type="password" placeholder=" " name="confirm_password" id="confirm_password" value="<?php echo $data['confirm_password']; ?>">                        
+                        <label>Confirm Password</label>
+                    </div>
+                    <div class="toggle-confirm-password">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/hide-eye-icon.png" class="hide-password-eye" width="25px" height="20px" alt="hide">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/show-eye-icon.png" class="show-password-eye" width="25px" height="20px" alt="show">
+                    </div>
+                </div>       
+                <div class="bottom-content">
+                    <div class="form-validation">
+                        <div class="policy-password-match">
+                            <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                            Passwords are matching
+                        </div>
+                    </div>
+                </div>
+
                 <hr class="form-hr">
+
                 <p>By creating an account you agree to our <a class="form-link" href="#">Terms & Privacy</a></p>
                 <button type="submit" class="form-submit">Register</button>
             </form>
@@ -47,5 +99,8 @@
             <p>Already have an account? <a class="form-link" href="<?php echo URLROOT; ?>/commons/login">Sign in</a></p>
         </div>
         
+        <!-- java script form validation -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/form.js"></script>
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/imageupload.js"></script>
     </body>
 </html>
