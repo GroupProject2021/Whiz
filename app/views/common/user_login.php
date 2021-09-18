@@ -50,7 +50,7 @@
             </form>
         </div>
         <div class="form-container content">
-            <p>Don't have an account? <a class="form-link" href="<?php echo URLROOT; ?>/Commons/registerRedirect">Create an accountgit </a></p>
+            <p>Don't have an account? <a class="form-link" href="<?php echo URLROOT; ?>/Commons/registerRedirect">Create an account</a></p>
         </div>
 
         <!-- java script form validation -->
