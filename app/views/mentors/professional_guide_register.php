@@ -16,19 +16,20 @@
                 <hr class="form-hr">
 
                 <!-- name -->
-                <span class="form-invalid"><?php echo $data['name_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="name" id="name" value="<?php echo $data['name']; ?>">
                 <label>Name</label>
+                <span class="form-invalid"><?php echo $data['name_err']; ?></span><br>
                 
                 <!-- email -->
-                <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
                 <input type="text" placeholder=" " name="email" id="email" value="<?php echo $data['email']; ?>">
                 <label>Email</label>
+                <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
 
                 <!-- institure -->
-                <span class="form-invalid"><?php echo $data['institute_err']; ?></span><br>
                 <input type="text" placeholder=" " name="institute" id="institute" value="<?php echo $data['institute']; ?>">
                 <label>Institure</label>
+                <span class="form-invalid"><?php echo $data['institute_err']; ?></span><br>
 
                 <!-- <label for="subject1"><p class="form-bold">Subject 1</p></label>
                 <input type="text" placeholder="Enter sub 1" name="subject1" id="subject1" value="<?php echo $data['subject1']; ?>">
@@ -43,7 +44,6 @@
                 <span class="form-invalid"><?php echo $data['subject3_err']; ?></span><br> -->
 
                 <!-- password -->
-                <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
                 <div class="password-area">
                     <div class="pasword-content">                    
                         <input type="password" placeholder=" " name="password" id="password" value="<?php echo $data['password']; ?>">                        
@@ -73,10 +73,10 @@
                             Contains special characters
                         </div>
                     </div>
-                </div>
+                </div>                
+                <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
 
                 <!-- confirm password -->
-                <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span><br>
                 <div class="password-area">
                     <div class="pasword-content">                    
                         <input type="password" placeholder=" " name="confirm_password" id="confirm_password" value="<?php echo $data['confirm_password']; ?>">                        
@@ -95,6 +95,7 @@
                         </div>
                     </div>
                 </div>
+                <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span><br>
 
                 <hr class="form-hr">
 

@@ -114,24 +114,30 @@ input[type=text]:focus, input[type=password]:focus {
 
 label{
     position: relative;
-    top: -30px;
+    top: -22px;
     left: 20px;
     font-size: 15px;
     color: #555;
     pointer-events: none;
     transition: .2s all;
     display: inline-block;
+    width: 100%;
+    height: 5px;
+    line-height: 5px;
+    vertical-align: middle;
 }
 
 .bottom-content {
-    margin-top: -15px;
+    /* margin-top: -15px; */
     margin-left: 10px;
 }
 
 input[type=text]:focus + label,input[type=password]:focus + label,
 input[type=text]:not(:placeholder-shown) + label, input[type=password]:not(:placeholder-shown) + label{
-    top: -52px;
+    top: -45px;
     left: 15px;
+    width: auto;
+    height: auto;
     background: #fff;
     padding: 0 5px;
     font-size: 14px;

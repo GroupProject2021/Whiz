@@ -12,7 +12,7 @@
             <header>                
                 <div class="menu-toggle">
                     <label for="sidebar-toggle">
-                        <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
+                        <!-- <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png"> -->
                     </label>
                 </div>
                 
@@ -26,7 +26,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Beginner dashboard</h1>
+                        <h1>AL Qualified dashboard</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

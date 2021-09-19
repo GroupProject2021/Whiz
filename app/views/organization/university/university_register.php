@@ -16,22 +16,25 @@
                 <hr class="form-hr">
 
                 <!-- university name -->
-                <span class="form-invalid"><?php echo $data['uniname_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="uniname" id="uniname" value="<?php echo $data['uniname']; ?>">
                 <label>University Name</label>
+                <span class="form-invalid"><?php echo $data['uniname_err']; ?></span><br>
 
                 <!-- address -->
-                <span class="form-invalid"><?php echo $data['address_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="address" id="address" value="<?php echo $data['address']; ?>">
                 <label>Address</label>
+                <span class="form-invalid"><?php echo $data['address_err']; ?></span><br>
 
                 <!-- email -->
-                <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="email" id="email" value="<?php echo $data['email']; ?>">
                 <label>Email</label>
+                <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
 
                 <!-- password -->
-                <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
+                <br>
                 <div class="password-area">
                     <div class="pasword-content">                    
                         <input type="password" placeholder=" " name="password" id="password" value="<?php echo $data['password']; ?>">                        
@@ -62,9 +65,9 @@
                         </div>
                     </div>
                 </div>
+                <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
 
                 <!-- confirm password -->
-                <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span><br>
                 <div class="password-area">
                     <div class="pasword-content">                    
                         <input type="password" placeholder=" " name="confirm_password" id="confirm_password" value="<?php echo $data['confirm_password']; ?>">                        
@@ -83,9 +86,9 @@
                         </div>
                     </div>
                 </div>
+                <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span><br>
 
                 <!-- phone number -->
-                <span class="form-invalid"><?php echo $data['phn_no_err']; ?></span><br>
                 <input type="text" placeholder=" " name="phn_no" id="phn_no" value="<?php echo $data['phn_no']; ?>">
                 <label>Phone number</label>
                 <div class="bottom-content">
@@ -96,49 +99,58 @@
                         </div>
                     </div>
                 </div>
+                <span class="form-invalid"><?php echo $data['phn_no_err']; ?></span><br>
 
                 <!-- website -->
-                <span class="form-invalid"><?php echo $data['website_err']; ?></span><br>
                 <input type="text" placeholder=" " name="website" id="website" value="<?php echo $data['website']; ?>">
                 <label>Website</label>
+                <span class="form-invalid"><?php echo $data['website_err']; ?></span><br>
 
                 <!-- founder -->
-                <span class="form-invalid"><?php echo $data['founder_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="founder" id="founder" value="<?php echo $data['founder']; ?>">
                 <label>Founder</label>
+                <span class="form-invalid"><?php echo $data['founder_err']; ?></span><br>
 
                 <!-- founded year -->
-                <span class="form-invalid"><?php echo $data['founded_year_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="founded_year" id="founded_year" value="<?php echo $data['founded_year']; ?>">
                 <label>Founded Year</label>
+                <span class="form-invalid"><?php echo $data['founded_year_err']; ?></span>
 
                 <!-- ugc approved? -->
-                <br><p class="form-bold">UGC Approved?</p><br>
+                <br>
+                <p class="form-bold">UGC Approved?</p><br>
                 <input type="radio"  name="approved" value="Yes">Yes
                 <input type="radio"  name="approved" value="No">No
                 <span class="form-invalid"><?php echo $data['approved_err']; ?></span><br>
 
                 <!-- world rank -->
-                <span class="form-invalid"><?php echo $data['rank_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="rank" id="rank" value="<?php echo $data['rank']; ?>">
                 <label>World Rank</label>
+                <span class="form-invalid"><?php echo $data['rank_err']; ?></span><br>
 
                 <!-- student amount -->
-                <span class="form-invalid"><?php echo $data['amount_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="amount" id="amount" value="<?php echo $data['amount']; ?>">
                 <label>Student Amount</label>
+                <span class="form-invalid"><?php echo $data['amount_err']; ?></span><br>
 
                 <!-- graduate job rate -->
-                <span class="form-invalid"><?php echo $data['rate_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="rate" id="rate" value="<?php echo $data['rate']; ?>">
                 <label>Graduate Job Rate</label>
+                <span class="form-invalid"><?php echo $data['rate_err']; ?></span><br>
 
                 <!-- description -->
-                <span class="form-invalid"><?php echo $data['descrip_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="descrip" id="descrip" value="<?php echo $data['descrip']; ?>">
                 <label>Desciption</label>
+                <span class="form-invalid"><?php echo $data['descrip_err']; ?></span><br>
 
                 <!-- university type -->
+                <br>
                 <br><p class="form-bold">University Type</p><br>
                 <input type="radio" name="type" value="Semi Government">Semi-Government(Government Affiliated)<br>
                 <input type="radio" name="type" value="Private">Private

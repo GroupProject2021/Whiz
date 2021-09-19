@@ -91,15 +91,22 @@
 
             // redirect('students_dashboard/index');
 
-            switch($user->actor_type) {
+            $this->userDashboardRedirect();
+        }
+
+        public function userDashboardRedirect() {
+            switch($_SESSION['actor_type']) {
                 case "Student": 
-                    redirect('students_dashboard/index');
+                    // redirect('students_dashboard/index');
+                    $this->studentDashboardRedirect();
                     break;
                 case "Organization": 
-                    redirect('organizations_dashboard/index');
+                    // redirect('organizations_dashboard/index');
+                    $this->organizationDashboardRedirect();
                     break;
                 case "Mentor": 
-                    redirect('mentors_dashboard/index');
+                    // redirect('mentors_dashboard/index');
+                    $this->mentorDashboardRedirect();
                     break;
                 case "Admin": 
                     redirect('admins_dashboard/index');
@@ -109,6 +116,42 @@
                     break;
             }
         }
+
+
+        public function studentDashboardRedirect() {
+            $data = ['title' => 'Welcome to Students beginner dashboard'];
+
+            switch($_SESSION['specialized_actor_type']) {
+                case 'Beginner' :
+                    redirect('C_S_Beginner_Dashboard/index');
+                    break;
+                
+                case 'OL qualified' :
+                    redirect('C_S_OL_Qualified_Dashboard/index');
+                    break;
+                
+                case 'AL qualified' :
+                    redirect('C_S_AL_Qualified_Dashboard/index');
+                    break;
+
+                case 'Undergraduate Graduate' :
+                    redirect('C_S_Undergrad_Grad_Dashboard/index');
+                    break;
+
+                default:
+                    // nothing
+                    break;
+            }
+        }
+
+        public function organizationDashboardRedirect() {
+
+        }
+
+        public function mentorDashboardRedirect() {
+
+        }
+
 
         public function logout() {
             unset($_SESSION['user_id']);
@@ -121,6 +164,7 @@
             // redirect('students/login');
             redirect('commons/login');
         }
+
 
         public function isLoggedIn() {
             if(isset($_SESSION['user_id'])) {

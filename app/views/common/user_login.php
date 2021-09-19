@@ -25,13 +25,14 @@
                 <?php flash('register_success'); ?>
 
                 <!-- email -->
-                <br><span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="email" id="email" value="<?php echo $data['email']; ?>">
                 <label>Email</label>
                 <div class="bottom-content"><a href="#" class="form-link">Forgot email?</a></div>
+                <span class="form-invalid"><?php echo $data['email_err']; ?></span>
      
-                <!-- password -->               
-                <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
+                <!-- password -->
+                <br>
                 <div class="password-area">
                     <div class="pasword-content">                    
                         <input type="password" placeholder=" " name="password" id="password" value="<?php echo $data['password']; ?>">                        
@@ -42,7 +43,8 @@
                         <img src="<?php echo URLROOT; ?>/imgs/form/hide-eye-icon.png" class="hide-password-eye" width="25px" height="20px" alt="hide">
                         <img src="<?php echo URLROOT; ?>/imgs/form/show-eye-icon.png" class="show-password-eye" width="25px" height="20px" alt="show">
                     </div>
-                </div>
+                </div>                
+                <span class="form-invalid"><?php echo $data['password_err']; ?></span>
                 
                 <hr  class="form-hr">
 

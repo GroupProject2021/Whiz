@@ -10,23 +10,22 @@ class Students_dashboard extends Controller {
         public function index() {
             $posts = $this->studentDashboardModel->getPosts();
             $data = ['title' => 'Welcome to Students beginner dashboard', 'posts' => $posts];
-            // $this->view('students/student_dashboard', $data);
 
             switch($_SESSION['specialized_actor_type']) {
                 case 'Beginner' :
-                    $this->view('students/dashboards/student_beginner_dashboard', $data);
+                    $this->view('students/dashboards/v_student_beg_dashboard', $data);
                     break;
                 
                 case 'OL qualified' :
-                    $this->view('students/dashboards/student_olqualified_dashboard', $data);
+                    $this->view('students/dashboards/v_student_ol_dashboard', $data);
                     break;
                 
                 case 'AL qualified' :
-                    $this->view('students/dashboards/student_alqualified_dashboard', $data);
+                    $this->view('students/dashboards/v_student_al_dashboard', $data);
                     break;
 
                 case 'Undergraduate Graduate' :
-                    $this->view('students/dashboards/student_undergradgrad_dashboard', $data);
+                    $this->view('students/dashboards/v_student_ug_dashboard', $data);
                     break;
 
                 default:
@@ -202,7 +201,7 @@ class Students_dashboard extends Controller {
                         'phn_no' => $studentData->phn_no
                     ];
 
-                    $this->view('students/settings/settings_for_beginner', $data);
+                    $this->view('students/opt_settings/default/v_def_beg_settings', $data);
                     break;
                 // For OL qualified
                 case 'OL qualified':
@@ -240,8 +239,9 @@ class Students_dashboard extends Controller {
                         'ol_sub9_grade' => $studentOLData->ol_sub9_grade
                     ];
 
-                    $this->view('students/settings/settings_for_olqualified', $data);
+                    $this->view('students/opt_settings/default/v_def_ol_settings', $data);
                     break;
+
                 // For AL qualified
                 case 'AL qualified':
                     $studentData = $this->studentDashboardModel->getStudentDetails($id);                    
@@ -293,8 +293,9 @@ class Students_dashboard extends Controller {
                         'al_sub3_grade' => $studentALData->al_sub3_grade
                     ];
 
-                    $this->view('students/settings/settings_for_alqualified', $data);
+                    $this->view('students/opt_settings/default/v_def_al_settings', $data);
                     break;
+
                 // For Undergraduate Graduate
                 case 'Undergraduate Graduate':
                     $studentData = $this->studentDashboardModel->getStudentDetails($id);                    
@@ -351,7 +352,7 @@ class Students_dashboard extends Controller {
                         'gpa' => $uniData->gpa
                     ];
 
-                    $this->view('students/settings/settings_all', $data);
+                    $this->view('students/opt_settings/default/v_def_ug_settings', $data);
                     break;
                 default:
                     break;
@@ -432,7 +433,7 @@ class Students_dashboard extends Controller {
                 }
                 else {
                     // Load view with errors
-                    $this->view('students/settings/edit_settings_beginner', $data);
+                    $this->view('students/opt_settings/edit/v_edit_beg_settings', $data);
                 }
             }
             else {
@@ -459,7 +460,7 @@ class Students_dashboard extends Controller {
                 ];
             }
 
-            $this->view('students/settings/edit_settings_beginner', $data);
+            $this->view('students/opt_settings/edit/v_edit_beg_settings', $data);
         }
 
         public function editSettingsOL() {
@@ -532,7 +533,7 @@ class Students_dashboard extends Controller {
                 }
                 else {
                     // Load with errors
-                    $this->view('students/settings/edit_settings_olqualified', $data);
+                    $this->view('students/opt_settings/edit/v_edit_ol_settings', $data);
                 }
             }
             else {
@@ -572,7 +573,7 @@ class Students_dashboard extends Controller {
                 ];
             }
 
-            $this->view('students/settings/edit_settings_olqualified', $data);
+            $this->view('students/opt_settings/edit/v_edit_ol_settings', $data);
         }
 
         public function editSettingsAL() {
@@ -662,7 +663,7 @@ class Students_dashboard extends Controller {
                 }
                 else {
                     // Load view with errors
-                    $this->view('students/settings/edit_settings_alqualified', $data);
+                    $this->view('students/opt_settings/edit/v_edit_al_settings', $data);
                 }
             }
             else {
@@ -699,7 +700,7 @@ class Students_dashboard extends Controller {
                 ];
             }
 
-            $this->view('students/settings/edit_settings_alqualified', $data);
+            $this->view('students/opt_settings/edit/v_edit_al_settings', $data);
         }
 
         public function editSettingsUG() {
@@ -744,7 +745,7 @@ class Students_dashboard extends Controller {
                 }
                 else {
                     // Load view with errors
-                    $this->view('students/settings/edit_settings_undergradgrad', $data);
+                    $this->view('students/opt_settings/edit/v_edit_ug_settings', $data);
                 }
             }
             else {
@@ -763,7 +764,7 @@ class Students_dashboard extends Controller {
                 ];
             }
 
-            $this->view('students/settings/edit_settings_undergradgrad', $data);
+            $this->view('students/opt_settings/edit/v_edit_ug_settings', $data);
         }
     }
 ?>

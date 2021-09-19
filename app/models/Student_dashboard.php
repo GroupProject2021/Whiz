@@ -118,20 +118,6 @@
                                 ol_sub6_id = :ol_sub6_id, ol_sub6_grade = :ol_sub6_grade, ol_sub7_id = :ol_sub7_id, ol_sub7_grade = :ol_sub7_grade, 
                                 ol_sub8_id = :ol_sub8_id, ol_sub8_grade = :ol_sub8_grade, ol_sub9_id = :ol_sub9_id,  ol_sub9_grade = :ol_sub9_grade
                                  WHERE stu_id = :id');
-            // bind values
-            
-            // $this->db->bind(":ol_school", $data['ol_school']);
-            // $this->db->bind(":ol_district", $data['ol_district']);
-            // $this->db->bind(":ol_sub1_grade", $data['ol_sub1_grade']);
-            // $this->db->bind(":ol_sub2_grade", $data['ol_sub2_grade']);
-            // $this->db->bind(":ol_sub3_grade", $data['ol_sub3_grade']);
-            // $this->db->bind(":ol_sub4_grade", $data['ol_sub4_grade']);
-            // $this->db->bind(":ol_sub5_grade", $data['ol_sub5_grade']);
-            // $this->db->bind(":ol_sub6_grade", $data['ol_sub6_grade']);
-            // $this->db->bind(":ol_sub7_grade", $data['ol_sub7_grade']);
-            // $this->db->bind(":ol_sub8_grade", $data['ol_sub8_grade']);
-            // $this->db->bind(":ol_sub9_grade", $data['ol_sub9_grade']);
-            // $this->db->bind(":id", $id);
 
             // bind values
             $this->db->bind(':id', $id);
@@ -172,18 +158,6 @@
                                 al_sub1_id = :al_sub1_id, al_sub1_grade = :al_sub1_grade, al_sub2_id = :al_sub2_id, al_sub2_grade = :al_sub2_grade,
                                 al_sub3_id = :al_sub3_id, al_sub3_grade = :al_sub3_grade
                                  WHERE stu_id = :id');
-            // bind values
-            
-            // $this->db->bind(":al_school", $data['al_school']);
-            // $this->db->bind(":stream", $data['stream']);
-            // $this->db->bind(":z_score", $data['z_score']);
-            // $this->db->bind(":al_district", $data['al_district']);
-            // $this->db->bind(":al_general_test_grade", $data['al_general_test_grade']);
-            // $this->db->bind(":al_general_english_grade", $data['al_general_english_grade']);
-            // $this->db->bind(":al_sub1_grade", $data['al_sub1_grade']);
-            // $this->db->bind(":al_sub2_grade", $data['al_sub2_grade']);
-            // $this->db->bind(":al_sub3_grade", $data['al_sub3_grade']);
-            // $this->db->bind(":id", $id);
 
             $this->db->bind(':id', $id);
             $this->db->bind(':al_school', $data['al_school']);

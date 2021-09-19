@@ -16,22 +16,25 @@
                 <hr class="form-hr">
 
                 <!-- company name -->
-                <span class="form-invalid"><?php echo $data['comname_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="comname" id="comname" value="<?php echo $data['comname']; ?>">
                 <label>Company Name</label>
+                <span class="form-invalid"><?php echo $data['comname_err']; ?></span><br>
 
                 <!-- company address -->
-                <span class="form-invalid"><?php echo $data['address_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="address" id="address" value="<?php echo $data['address']; ?>">
                 <label>Company address</label>
+                <span class="form-invalid"><?php echo $data['address_err']; ?></span><br>
 
                 <!-- company email -->
-                <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="email" id="email" value="<?php echo $data['email']; ?>">
                 <label>Company email</label>
+                <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
 
                 <!-- password -->
-                <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
+                <br>
                 <div class="password-area">
                     <div class="pasword-content">                    
                         <input type="password" placeholder=" " name="password" id="password" value="<?php echo $data['password']; ?>">                        
@@ -62,9 +65,9 @@
                         </div>
                     </div>
                 </div>
+                <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
 
                 <!-- confirm password -->
-                <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span><br>
                 <div class="password-area">
                     <div class="pasword-content">                    
                         <input type="password" placeholder=" " name="confirm_password" id="confirm_password" value="<?php echo $data['confirm_password']; ?>">                        
@@ -83,10 +86,10 @@
                         </div>
                     </div>
                 </div>
+                <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span><br>
 
 
                 <!-- phone number -->
-                <span class="form-invalid"><?php echo $data['phn_no_err']; ?></span><br>
                 <input type="text" placeholder=" " name="phn_no" id="phn_no" value="<?php echo $data['phn_no']; ?>">
                 <label>Phone number</label>
                 <div class="bottom-content">
@@ -97,47 +100,54 @@
                         </div>
                     </div>
                 </div>
+                <span class="form-invalid"><?php echo $data['phn_no_err']; ?></span><br>
 
                 <!-- company web address -->
-                <span class="form-invalid"><?php echo $data['website_err']; ?></span><br>
                 <input type="text" placeholder=" " name="website" id="website" value="<?php echo $data['website']; ?>">
                 <label>Company web address</label>
+                <span class="form-invalid"><?php echo $data['website_err']; ?></span><br>
 
                 <!-- founder -->
-                <span class="form-invalid"><?php echo $data['founder_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="founder" id="founder" value="<?php echo $data['founder']; ?>">
                 <label>Founder</label>
+                <span class="form-invalid"><?php echo $data['founder_err']; ?></span><br>
 
                 <!-- founded year -->
-                <span class="form-invalid"><?php echo $data['founded_year_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="founded_year" id="founded_year" value="<?php echo $data['founded_year']; ?>">
                 <label>Founded Year</label>
+                <span class="form-invalid"><?php echo $data['founded_year_err']; ?></span><br>
 
                 <!-- no. of current employees -->
-                <span class="form-invalid"><?php echo $data['cur_emp_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="cur_emp" id="cur_emp" value="<?php echo $data['cur_emp']; ?>">
                 <label>No. of Current Employees</label>
+                <span class="form-invalid"><?php echo $data['cur_emp_err']; ?></span><br>
 
                 <!-- company size -->
-                <span class="form-invalid"><?php echo $data['emp_size_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="emp_size" id="emp_size" value="<?php echo $data['emp_size']; ?>">
                 <label>Comapny Size</label>
+                <span class="form-invalid"><?php echo $data['emp_size_err']; ?></span><br>
 
                 <!-- registered company? -->
-                <br><p class="form-bold">Registered Company?</p><br>
+                <p class="form-bold">Registered Company?</p><br>
                 <input type="radio"  name="registered" value="Yes">Yes
                 <input type="radio"  name="registered" value="No">No
                 <span class="form-invalid"><?php echo $data['registered_err']; ?></span><br>
 
                 <!-- overview -->
-                <span class="form-invalid"><?php echo $data['overview_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="overview" id="overview" value="<?php echo $data['overview']; ?>">
                 <label>Overview</label>
+                <span class="form-invalid"><?php echo $data['overview_err']; ?></span><br>
 
                 <!-- services -->
-                <span class="form-invalid"><?php echo $data['services_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="services" id="services" value="<?php echo $data['services']; ?>">
                 <label>Services</label>
+                <span class="form-invalid"><?php echo $data['services_err']; ?></span><br>
 
                 <hr class="form-hr">
                 <p>By creating an account you agree to our <a class="form-link" href="#">Terms & Privacy</a></p>

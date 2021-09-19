@@ -36,17 +36,17 @@
                 <span class="form-invalid"><?php echo $data['profile_image_err']; ?></span><br>
 
                 <!-- name -->
-                <span class="form-invalid"><?php echo $data['name_err']; ?></span><br>
                 <input type="text" placeholder=" " name="name" id="name" value="<?php echo $data['name']; ?>">
                 <label>Name</label>
+                <span class="form-invalid"><?php echo $data['name_err']; ?></span><br>
 
                 <!-- address -->
-                <span class="form-invalid"><?php echo $data['address_err']; ?></span><br>
                 <input type="text" placeholder=" " name="address" id="address" value="<?php echo $data['address']; ?>">
                 <label>Address</label>
+                <span class="form-invalid"><?php echo $data['address_err']; ?></span><br>
 
                 <!-- gender -->
-                <br><p class="form-bold">Gender</p>
+                <p class="form-bold">Gender</p>
                 <select name="gender" id="gender" class="form-select">
                     <option value="Male">Male</option>
                     <option value="Male">Female</option>
@@ -62,7 +62,7 @@
                 <span class="form-invalid"><?php echo $data['date_of_birth_err']; ?></span><br>
 
                 <!-- email -->
-                <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
+                <br>
                 <input type="text" placeholder=" " name="email" id="email" value="<?php echo $data['email']; ?>">
                 <label>Email</label>
                 <div class="bottom-content">
@@ -72,10 +72,10 @@
                             Your email address is valid
                         </div>
                     </div>
-                </div>
+                </div>                
+                <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
 
                 <!-- password -->
-                <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
                 <div class="password-area">
                     <div class="pasword-content">                    
                         <input type="password" placeholder=" " name="password" id="password" value="<?php echo $data['password']; ?>">                        
@@ -105,10 +105,10 @@
                             Contains special characters
                         </div>
                     </div>
-                </div>
+                </div>                
+                <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
 
                 <!-- confirm password -->
-                <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span><br>
                 <div class="password-area">
                     <div class="pasword-content">                    
                         <input type="password" placeholder=" " name="confirm_password" id="confirm_password" value="<?php echo $data['confirm_password']; ?>">                        
@@ -126,10 +126,10 @@
                             Passwords are matching
                         </div>
                     </div>
-                </div>
+                </div>                
+                <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span><br>
 
                 <!-- phone number -->
-                <span class="form-invalid"><?php echo $data['phn_no_err']; ?></span><br>
                 <input type="text" placeholder=" " name="phn_no" id="phn_no" value="<?php echo $data['phn_no']; ?>">
                 <label>Phone number</label>
                 <div class="bottom-content">
@@ -140,6 +140,7 @@
                         </div>
                     </div>
                 </div>
+                <span class="form-invalid"><?php echo $data['phn_no_err']; ?></span><br>
 
                 <hr class="form-hr">
 

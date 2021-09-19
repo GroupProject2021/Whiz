@@ -12,7 +12,7 @@
             <header>                
                 <div class="menu-toggle">
                     <label for="sidebar-toggle">
-                        <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
+                        <!-- <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png"> -->
                     </label>
                 </div>
                 
