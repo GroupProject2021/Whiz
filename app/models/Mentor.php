@@ -68,11 +68,11 @@
 
             $this->db->execute();
 
-            $this->db->query('INSERT INTO mentor(name, email, school, mentor_type, password) VALUES(:name, :email, :school, :mentor_type, :password)');
+            $this->db->query('INSERT INTO mentor(name, email, institute, mentor_type, password) VALUES(:name, :email, :institute, :mentor_type, :password)');
             // bind values
             $this->db->bind(":name", $data['name']);
             $this->db->bind(":email", $data['email']);
-            $this->db->bind(":school", $data['school']);
+            $this->db->bind(":institute", $data['school']);
             $this->db->bind(":mentor_type",'Teacher');
             $this->db->bind(":password", $data['password']); 
 
@@ -146,5 +146,7 @@
         //     $id = $row->mentor_id;
         //     return $id;
         // }
+
+        
     }
 ?>
