@@ -6,16 +6,11 @@
             $this->db = new Database;
         }
 
-        // Register user
-        // public function register($data) {
-
-            
-        // }
-
         // Register professional guider
         public function registerasprofguider($data) {
-            $this->db->query('INSERT INTO users(name, email, password, actor_type, specialized_actor_type) VALUES(:name, :email, :password, :actor_type, :specialized_actor_type)');
+            $this->db->query('INSERT INTO users(profile_image,name, email, password, actor_type, specialized_actor_type) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type)');
             // bind values
+            $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
@@ -25,27 +20,17 @@
             $this->db->execute();
 
 /// HERE
-            $this->db->query('INSERT INTO mentor(name, email, institute, mentor_type, password) VALUES(:name, :email, :institute, :mentor_type, :password)');
+            $this->db->query('INSERT INTO mentor(profile_image,name, email, institute, mentor_type, password) VALUES(:profile_image, :name, :email, :institute, :mentor_type, :password)');
             // bind values
+            $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
+            $this->db->bind(":phn_no", $data['phn_no']);
+            $this->db->bind(":address", $data['address']);
+            $this->db->bind(":gender", $data['gender']);
             $this->db->bind(':institute', $data['institute']);
             $this->db->bind(':mentor_type', 'Professional Guider');
             $this->db->bind(':password', $data['password']); 
-
-            //$this->db->execute();
-
-            // $id = $this->findMentorIdbyId('mentor_id');
-            // $this->db->query('INSERT INTO profguide(mentor_id, institute, subject1, subject2, subject3 , achivements) VALUES (:mentor_id, :institute, :subject1, :subject2, :subject3 , :achivements)');
-            // // bind values
-            // $this->db->bind(':mentor_id', $id);
-            // $this->db->bind(':institute', $data['institute']);
-            // $this->db->bind(':subject1', $data['subject1']);
-            // $this->db->bind(':subject2', $data['subject2']);
-            // $this->db->bind(':subject3', $data['subject3']);
-            //$this->db->bind(":achivements", $data['achivements']);
-
-            //$this->db->execute();
 
             // Execute
             if($this->db->execute()) {
@@ -58,8 +43,9 @@
 
         // Register teacher
         public function registerasteacher($data) {
-            $this->db->query('INSERT INTO users(name, email, password, actor_type, specialized_actor_type) VALUES(:name, :email, :password, :actor_type, :specialized_actor_type)');
+            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type)');
             // bind values
+            $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
@@ -68,13 +54,16 @@
 
             $this->db->execute();
 
-            $this->db->query('INSERT INTO mentor(name, email, institute, mentor_type, password) VALUES(:name, :email, :institute, :mentor_type, :password)');
+            $this->db->query('INSERT INTO mentor(profile_image, name, email, institute, mentor_type, password) VALUES(:profile_image, :name, :email, :institute, :mentor_type, :password)');
             // bind values
-            $this->db->bind(":name", $data['name']);
-            $this->db->bind(":email", $data['email']);
-            $this->db->bind(":institute", $data['school']);
-            $this->db->bind(":mentor_type",'Teacher');
-            $this->db->bind(":password", $data['password']); 
+            $this->db->bind("profile_image", $data['profile_image_name']);
+            $this->db->bind(':name', $data['name']);
+            $this->db->bind(':email', $data['email']);
+            $this->db->bind(":phn_no", $data['phn_no']);
+            $this->db->bind(":address", $data['address']);
+            $this->db->bind(":gender", $data['gender']);
+            $this->db->bind(':mentor_type', 'Teacher');
+            $this->db->bind(':password', $data['password']); 
 
             // $this->db->query('INSERT INTO teacher(school, subjects) VALUES (:school, :subjects)');
             // // bind values

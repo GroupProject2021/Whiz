@@ -15,6 +15,26 @@
                 <p>Please fill in this form to create an account</p>
                 <hr class="form-hr">
 
+                <!-- profile picture -->
+                <p class="form-bold">Profile picture</p>
+                <div class="form-drag-area">
+                    <div class="icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/profile-image-placeholder.png" id="profile_image_placeholder" width="90px" height="90px" alt="profile_image">
+                    </div>
+                    <div class="description">Drag & Drop to Upload File</div>
+                    <div class="form-upload">
+                        <input type="file" name="profile_image" id="profile_image" onchange="displayImage(this)" style="display: none;">
+                        Browse File
+                    </div>
+                </div>
+                <div class="form-validation">
+                    <div class="profile-image-validation">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                        Select a profile picture
+                    </div>
+                </div>            
+                <span class="form-invalid"><?php echo $data['profile_image_err']; ?></span><br>
+
                 <!-- name -->
                 <br>
                 <input type="text" placeholder=" " name="name" id="name" value="<?php echo $data['name']; ?>">
@@ -24,11 +44,48 @@
                 <!-- email -->
                 <input type="text" placeholder=" " name="email" id="email" value="<?php echo $data['email']; ?>">
                 <label>Email</label>
+                <div class="bottom-content">
+                    <div class="form-validation">
+                        <div class="email-validation">
+                            <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                            Your email address is valid
+                        </div>
+                    </div>
+                </div>                
                 <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
 
-                <!-- institure -->
+                <!-- phone number -->
+                <input type="text" placeholder=" " name="phn_no" id="phn_no" value="<?php echo $data['phn_no']; ?>">
+                <label>Phone number</label>
+                <div class="bottom-content">
+                    <div class="form-validation">
+                        <div class="phn_no-validation">
+                            <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                            Your phone number is valid
+                        </div>
+                    </div>
+                </div>
+                <span class="form-invalid"><?php echo $data['phn_no_err']; ?></span><br>
+
+                <!--address -->
+                <input type="text" placeholder=" " name="address" id="address" value="<?php echo $data['address']; ?>">
+                <label>Address</label>
+                <span class="form-invalid"><?php echo $data['address_err']; ?></span><br>
+
+                <!-- gender -->
+                <p class="form-bold">Gender</p>
+                <select name="gender" id="gender" class="form-select">
+                    <option value="Male">Male</option>
+                    <option value="Male">Female</option>
+                    <option value="Male">Other</option>
+                    <option value="Male">Not perfer to say</option>
+                </select>
+                <!-- <input type="text" placeholder="Enter gender" name="gender" id="gender" value="<?php echo $data['gender']; ?>"> -->
+                <span class="form-invalid"><?php echo $data['gender_err']; ?></span><br>
+
+                <!-- institute -->
                 <input type="text" placeholder=" " name="institute" id="institute" value="<?php echo $data['institute']; ?>">
-                <label>Institure</label>
+                <label>Institute</label>
                 <span class="form-invalid"><?php echo $data['institute_err']; ?></span><br>
 
                 <!-- <label for="subject1"><p class="form-bold">Subject 1</p></label>

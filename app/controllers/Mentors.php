@@ -21,23 +21,41 @@
 
                 // Init data
                 $data = [
+                    'profile_image' => $_FILES['profile_image'],
+                    'profile_image_name' => time().'_'.$_FILES['profile_image']['name'],
                     'name' => trim($_POST['name']),
                     'email' => trim($_POST['email']),
+                    'phn_no' => trim($_POST['phn_no']),
+                    'address' => trim($_POST['address']),
+                    'gender' => trim($_POST['gender']),
                     'institute' => trim($_POST['institute']),
                     // 'subject1' => trim($_POST['subject1']),
                     // 'subject2' => trim($_POST['subject2']),
                     // 'subject3' => trim($_POST['subject3']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
+
+                    'profile_image_err' => '',
                     'name_err' => '',
                     'email_err' => '',
+                    'phn_no_err' => '',
+                    'address_err' => '',
+                    'gender_err' => '',
                     'institute_err' => '',
                     // 'subject1_err' => '',
                     // 'subject2_err' => '',
                     // 'subject3_err' => '',
                     'password_err' => '',
-                    'confirm_password_err' => '',
+                    'confirm_password_err' => ''
                 ];
+
+                if(uploadImage($data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/student/')) {
+                    flash('profile_image_upload', 'Profile picture uploaded successfully');
+                }
+                else {
+                    // upload unsuccessfull
+                    $data['profile_image_err'] = 'Profile picture uploading unsuccessful';
+                }
 
                 // Validate name
                 if(empty($data['name'])) {
@@ -53,6 +71,21 @@
                     if($this->mentorModel->findUserByEmail($data['email'])) {
                         $data['email_err'] = 'Email is already taken'; 
                     }
+                }
+
+                // Validate phone number
+                if(empty($data['phn_no'])) {
+                    $data['phn_no_err'] = 'Please enter phone number';
+                }
+
+                // Validate address
+                if(empty($data['address'])) {
+                    $data['address_err'] = 'Please enter address';
+                }
+
+                // Validate gender
+                if(empty($data['gender'])) {
+                    $data['gender_err'] = 'Please enter gender';
                 }
 
                 // Validate institute
@@ -79,9 +112,22 @@
                 if(empty($data['password'])) {
                     $data['password_err'] = 'Please enter password';
                 }
-                else if(strlen($data['password']) < 6) {
-                    $data['password_err'] = 'Password must be at least 6 characters';
+                else if(strlen($data['password']) < 8) {
+                    $data['password_err'] = 'Password must be at least 8 characters';
+                }else {
+                    if(!preg_match('@[0-9]@', $data['password'])) {
+                        $data['password_err'] = 'Please must be having at least one number';
+                    }
+
+                    if(!preg_match('@[A-Z]@', $data['password'])) {
+                        $data['password_err'] = 'Password must be having at least one uppercase letter';
+                    }
+                    
+                    if(!preg_match('@[^\w]@', $data['password'])) {
+                        $data['password_err'] = 'Password must be having at least 1 special character';
+                    }
                 }
+
 
                 // Validata confirm password
                 if(empty($data['confirm_password'])) {
@@ -94,7 +140,7 @@
                 }
 
                 // Make sure errors are empty
-                if(empty($data['name_err']) && empty($data['email_err']) && empty($data['institute_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
+                if(empty($data['profile_image_err']) && empty($data['name_err']) && empty($data['email_err']) && empty($data['phn_no_err']) && empty($data['address_err']) && empty($data['gender_err']) && empty($data['institute_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
                     // Validated
                     
                     // Hash password - Using strog one way hashing algorithm
@@ -118,22 +164,31 @@
             else {
                 // Init data
                 $data = [
+                    'profile_image' => '',
                     'name' => '',
                     'email' => '',
+                    'phn_no' => '',
+                    'address' => '',
+                    'gender' => '',
                     'institute' => '',
-                    // 'subject1' => '',
-                    // 'subject2' => '',
-                    // 'subject3' => '',
+                    // 'subject1_err' => '',
+                    // 'subject2_err' => '',
+                    // 'subject3_err' => '',
                     'password' => '',
                     'confirm_password' => '',
+
+                    'profile_image_err' => '',
                     'name_err' => '',
                     'email_err' => '',
+                    'phn_no_err' => '',
+                    'address_err' => '',
+                    'gender_err' => '',
                     'institute_err' => '',
                     // 'subject1_err' => '',
                     // 'subject2_err' => '',
                     // 'subject3_err' => '',
                     'password_err' => '',
-                    'confirm_password_err' => '',
+                    'confirm_password_err' => ''
                 ];
 
                 // Load view
@@ -151,19 +206,39 @@
 
                 // Init data
                 $data = [
+                    'profile_image' => $_FILES['profile_image'],
+                    'profile_image_name' => time().'_'.$_FILES['profile_image']['name'],
                     'name' => trim($_POST['name']),
                     'email' => trim($_POST['email']),
-                    'school' => trim($_POST['school']),
-                    // 'subjects' => trim($_POST['subjects']),
+                    'phn_no' => trim($_POST['phn_no']),
+                    'address' => trim($_POST['address']),
+                    'gender' => trim($_POST['gender']),
+                    // 'subject1' => trim($_POST['subject1']),
+                    // 'subject2' => trim($_POST['subject2']),
+                    // 'subject3' => trim($_POST['subject3']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
+
+                    'profile_image_err' => '',
                     'name_err' => '',
                     'email_err' => '',
-                    'school_err' => '',
-                    'subjects_err' => '',
+                    'phn_no_err' => '',
+                    'address_err' => '',
+                    'gender_err' => '',
+                    // 'subject1_err' => '',
+                    // 'subject2_err' => '',
+                    // 'subject3_err' => '',
                     'password_err' => '',
-                    'confirm_password_err' => '',
+                    'confirm_password_err' => ''
                 ];
+
+                if(uploadImage($data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/mentor/')) {
+                    flash('profile_image_upload', 'Profile picture uploaded successfully');
+                }
+                else {
+                    // upload unsuccessfull
+                    $data['profile_image_err'] = 'Profile picture uploading unsuccessful';
+                }
 
                 // Validate name
                 if(empty($data['name'])) {
@@ -181,9 +256,19 @@
                     }
                 }
 
-                // Validate school
-                if(empty($data['school'])) {
-                    $data['school_err'] = 'Please enter school';
+                // Validate phone number
+                if(empty($data['phn_no'])) {
+                    $data['phn_no_err'] = 'Please enter phone number';
+                }
+
+                // Validate address
+                if(empty($data['address'])) {
+                    $data['address_err'] = 'Please enter address';
+                }
+
+                // Validate gender
+                if(empty($data['gender'])) {
+                    $data['gender_err'] = 'Please enter gender';
                 }
 
                 // Validate subjects
@@ -197,6 +282,18 @@
                 }
                 else if(strlen($data['password']) < 6) {
                     $data['password_err'] = 'Password must be at least 6 characters';
+                }else {
+                    if(!preg_match('@[0-9]@', $data['password'])) {
+                        $data['password_err'] = 'Please must be having at least one number';
+                    }
+
+                    if(!preg_match('@[A-Z]@', $data['password'])) {
+                        $data['password_err'] = 'Password must be having at least one uppercase letter';
+                    }
+                    
+                    if(!preg_match('@[^\w]@', $data['password'])) {
+                        $data['password_err'] = 'Password must be having at least 1 special character';
+                    }
                 }
 
                 // Validata confirm password
@@ -210,7 +307,7 @@
                 }
 
                 // Make sure errors are empty
-                if(empty($data['name_err']) && empty($data['email_err']) && empty($data['school_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
+                if(empty($data['profile_image_err']) && empty($data['name_err']) && empty($data['email_err']) && empty($data['phn_no_err']) && empty($data['address_err']) && empty($data['gender_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
                     // Validated
                     
                     // Hash password - Using strog one way hashing algorithm
@@ -234,18 +331,30 @@
             else {
                 // Init data
                 $data = [
+                    'profile_image' => '',
+                    'profile_image_name' => '',
                     'name' => '',
                     'email' => '',
-                    'school' => '',
-                   // 'subjects' => '',
+                    'phn_no' => '',
+                    'address' => '',
+                    'gender' => '',
+                    // 'subject1' => '',
+                    // 'subject2' => '',
+                    // 'subject3' => '',
                     'password' => '',
                     'confirm_password' => '',
+
+                    'profile_image_err' => '',
                     'name_err' => '',
                     'email_err' => '',
-                    'school_err' => '',
-                    //'subjects_err' => '',
+                    'phn_no_err' => '',
+                    'address_err' => '',
+                    'gender_err' => '',
+                    // 'subject1_err' => '',
+                    // 'subject2_err' => '',
+                    // 'subject3_err' => '',
                     'password_err' => '',
-                    'confirm_password_err' => '',
+                    'confirm_password_err' => ''
                 ];
 
                 // Load view
