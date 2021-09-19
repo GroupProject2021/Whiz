@@ -24,12 +24,17 @@
           <img src="<?php echo URLROOT; ?>/profileimages/student/<?php echo $_SESSION['user_profile_image']; ?>" alt="profile_image">
         </div>
         <div class="user-profile-name">
-            <a href="<?php echo URLROOT; ?>/students_dashboard/index"><?php echo $_SESSION['user_name']; ?></a>
+            <a href="<?php echo URLROOT; ?>/commons/userDashboardRedirect"><?php echo $_SESSION['user_name']; ?></a>
         </div>
       </div>
+
+      <!-- log out -->
       <a class="active" href="<?php echo URLROOT; ?>/commons/logout">Log Out</a>
     <?php else: ?>
+      <!-- register -->
       <a class="active" href="<?php echo URLROOT; ?>/commons/registerredirect">Register</a>
+
+      <!-- log in -->
       <a class="active" href="<?php echo URLROOT; ?>/commons/login">Log In</a>
     <?php endif; ?>
   </div>

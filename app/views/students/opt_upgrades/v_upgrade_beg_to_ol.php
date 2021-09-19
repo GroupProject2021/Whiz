@@ -14,11 +14,15 @@
                 <h1>Student OL details</h1>
                 <p>Please fill the following details but you can skip this now and fill those in later as well.</p>
                 <hr class="form-hr">
-                <label for="ol_school"><p class="form-bold">OL school</p></label>
-                <input type="text" placeholder="Enter ol school name" name="ol_school" id="ol_school" value="<?php echo $data['ol_school']; ?>">
+
+                <!-- ol school -->
+                <br>
+                <input type="text" placeholder=" " name="ol_school" id="ol_school" value="<?php echo $data['ol_school']; ?>">
+                <label>OL School</label>
                 <span class="form-invalid"><?php echo $data['ol_school_err']; ?></span><br>
 
-                <label for="ol_district"><p class="form-bold">District</p></label>
+                <!-- district -->
+                <p class="form-bold">District</p>
                 <select name="ol_district" id="ol_district" class="form-select">
                     <?php foreach($data['district_list'] as $district):?>
                         <option value="<?php echo $district->district_name; ?>"><?php echo $district->district_name; ?></option>
@@ -26,7 +30,8 @@
                 </select>
                 <span class="form-invalid"><?php echo $data['ol_district_err']; ?></span><br>
 
-                <label for="ol_results"><p class="form-bold">OL Results</p></label>
+                <!-- ol results -->
+                <p class="form-bold">OL Results</p>
                 <table class="form-table">
                     <tr>
                         <th colspan="6">Religion</th>
@@ -242,5 +247,8 @@
             <p>Contact for help? <a class="form-link" href="<?php echo URLROOT; ?>/students/login">Help & Services</a></p>
         </div>
         </form>
+
+         <!-- java script form validation -->
+         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/form.js"></script>
     </body>
 </html>

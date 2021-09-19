@@ -16,6 +16,7 @@
                 <hr  class="form-hr">
                 <!-- flash message -->              
                 <?php flash('register_success'); ?>
+                
                 <label for="email"><p class="form-bold">Email</p></label>
                 <input type="text" placeholder="Enter email" name="email" id="email" value="<?php echo $data['email']; ?>">
                 <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>

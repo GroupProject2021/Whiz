@@ -8,7 +8,7 @@
             
             <div class="brand-icons">
                 <a href=""><img src="<?php echo URLROOT; ?>/imgs/sidebar/notification-bell.png"></a>
-                <a href="<?php echo URLROOT; ?>/students_dashboard/settings"><img src="<?php echo URLROOT; ?>/imgs/sidebar/settings.png"></a>
+                <a href="<?php echo URLROOT; ?>/C_S_Settings/settings"><img src="<?php echo URLROOT; ?>/imgs/sidebar/settings.png"></a>
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="profile-upgrade-button-area">
-                <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToAlQualified">
+                <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToOlQualified">
                     <input class="profile-upgrade-button" type="button" value="UPGRADE TO OL QUALIFIED">
                 </a>
             </div>
@@ -91,7 +91,7 @@
                 </div>
             </div>
             <div class="profile-upgrade-button-area">
-                <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToAlQualified">
+                <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToUndergraduateGraduate">
                     <input class="profile-upgrade-button" type="button" value="UPGRADE TO AL UNDERGRAD/GRAD">
                 </a>
             </div>
@@ -138,7 +138,7 @@
                         <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                     </div>
                     <div class="sidebar-item-name">
-                        streams selection
+                        streams
                     </div>
                 </button>
             </a>
@@ -150,7 +150,7 @@
                         <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                     </div>
                     <div class="sidebar-item-name">
-                        course selection
+                        courses
                     </div>
                 </button>
             </a>
@@ -161,7 +161,27 @@
                     <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                 </div>
                 <div class="sidebar-item-name">
-                    get guide
+                    jobs
+                </div>
+            </button>
+        </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                </div>
+                <div class="sidebar-item-name">
+                    professional guiders
+                </div>
+            </button>
+        </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                </div>
+                <div class="sidebar-item-name">
+                    community
                 </div>
             </button>
         </div>
@@ -178,24 +198,11 @@
                         <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                     </div>
                     <div class="sidebar-item-name">
-                        streams selection
+                        streams
                     </div>
                 </button>
             </a>
         </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/students_dashboard/streamRecommendation">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        stream recommendation
-                    </div>
-                </button>
-            </a>
-        </div>
-        
         <div class="sidebar-item">
             <a href="<?php echo URLROOT; ?>/students_dashboard/streamSelection">
                 <button>
@@ -203,7 +210,7 @@
                         <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                     </div>
                     <div class="sidebar-item-name">
-                        course selection
+                        courses
                     </div>
                 </button>
             </a>
@@ -214,15 +221,44 @@
                     <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                 </div>
                 <div class="sidebar-item-name">
-                    get guide
+                    jobs
+                </div>
+            </button>
+        </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                </div>
+                <div class="sidebar-item-name">
+                    professional guiders
+                </div>
+            </button>
+        </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                </div>
+                <div class="sidebar-item-name">
+                    community
                 </div>
             </button>
         </div>
 
         <?php elseif($_SESSION['specialized_actor_type'] == 'AL qualified'): ?>
         <!-- AL qualified options -->
-        <div class="menu-head">
-            <span>AL Qualified options</span>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/students_dashboard/streamSelection">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        courses
+                    </div>
+                </button>
+            </a>
         </div>
         <div class="sidebar-item">
             <button>
@@ -230,7 +266,7 @@
                     <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                 </div>
                 <div class="sidebar-item-name">
-                    cource selection
+                    jobs
                 </div>
             </button>
         </div>
@@ -240,7 +276,7 @@
                     <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                 </div>
                 <div class="sidebar-item-name">
-                    cource recommendation
+                    professional guiders
                 </div>
             </button>
         </div>
@@ -250,7 +286,7 @@
                     <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                 </div>
                 <div class="sidebar-item-name">
-                    get guide
+                    teachers
                 </div>
             </button>
         </div>
@@ -260,7 +296,7 @@
                     <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                 </div>
                 <div class="sidebar-item-name">
-                    get teacher
+                    community
                 </div>
             </button>
         </div>
@@ -286,7 +322,17 @@
                     <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                 </div>
                 <div class="sidebar-item-name">
-                    check my CV
+                    cv
+                </div>
+            </button>
+        </div>
+        <div class="sidebar-item">
+            <button>
+                <div class="sidebar-item-icon">
+                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                </div>
+                <div class="sidebar-item-name">
+                    professional guiders
                 </div>
             </button>
         </div>

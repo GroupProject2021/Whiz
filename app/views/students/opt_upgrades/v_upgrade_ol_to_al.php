@@ -14,12 +14,15 @@
                 <h1>Student AL details</h1>
                 <p>Please fill the following details but you can skip this now and fill those in later as well.</p>
                 <hr class="form-hr">
-                <label for="al_school"><p class="form-bold">AL school</p></label>
-                <input type="text" placeholder="Enter al school name" name="al_school" id="al_school" value="<?php echo $data['al_school']; ?>">
+
+                <!-- al school -->
+                <br>
+                <input type="text" placeholder=" " name="al_school" id="al_school" value="<?php echo $data['al_school']; ?>">
+                <label>AL School</label>
                 <span class="form-invalid"><?php echo $data['al_school_err']; ?></span><br>
 
                 <!-- stream -->
-                <label for="stream"><p class="form-bold">Stream</p></label>
+                <p class="form-bold">Stream</p>
                 <select name="stream" id="stream" class="form-select">
                     <?php foreach($data['stream_list'] as $stream):?>
                         <option value="<?php echo $stream->stream_id; ?>"><?php echo $stream->stream_name; ?></option>
@@ -27,8 +30,8 @@
                 </select>
                 <span class="form-invalid"><?php echo $data['stream_err']; ?></span><br>
 
-                <label for="z_score"><p class="form-bold">Z-Score</p></label>
-                <!-- <input type="text" placeholder="Enter z score" name="z_score" id="z_score" value="<?php echo $data['z_score']; ?>"> -->
+                <!-- z-score -->
+                <p class="form-bold">Z-Score</p>
                 <table class="form-table">
                     <tr>
                         <td width="80%">
@@ -41,7 +44,8 @@
                 </table>
                 <span class="form-invalid"><?php echo $data['z_score_err']; ?></span>
 
-                <label for="al_district"><p class="form-bold">District</p></label>
+                <!-- district -->
+                <p class="form-bold">District</p>
                 <select name="al_district" id="al_district" class="form-select">
                     <?php foreach($data['district_list'] as $district):?>
                         <option value="<?php echo $district->district_name; ?>"><?php echo $district->district_name; ?></option>
@@ -49,7 +53,8 @@
                 </select>
                 <span class="form-invalid"><?php echo $data['al_district_err']; ?></span><br>
 
-                <label for="general_test_grade"><p class="form-bold">General Test grade</p></label>
+                <!-- general test grade -->
+                <p class="form-bold">General Test grade</p>
                 <table class="form-table">
                     <tr>
                         <td width="80%">
@@ -60,10 +65,10 @@
                         </td>
                     </tr>
                 </table>
-                <!-- <input type="text" placeholder="Enter general test grade" name="general_test_grade" id="general_test_grade" value="<?php echo $data['general_test_grade']; ?>"> -->
                 <span class="form-invalid"><?php echo $data['general_test_grade_err']; ?></span>
 
-                <label for="radio_general_english"><p class="form-bold">General English grade</p></label>
+                <!-- general english grade -->
+                <p class="form-bold">General English grade</p>
                 <table class="form-table">
                     <tr>
                         <td><input type="radio" name="radio_general_english" id="radio_general_english" value="A" checked>A</td>
@@ -76,7 +81,8 @@
                 </table>
                 <span class="form-invalid"><?php echo $data['radio_general_english_err']; ?></span>
 
-                <label for="al_results"><p class="form-bold">AL Results</p></label>
+                <!-- al results -->
+                <p class="form-bold">AL Results</p>
                 <table class="form-table">
                     <!-- subject 1 - depend on stream -->
                     <tr>

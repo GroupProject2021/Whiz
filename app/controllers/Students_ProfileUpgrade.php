@@ -70,7 +70,7 @@
                         // i added later
                         $this->updateSession();
 
-                        redirect('dashboards/student_olqualified_dashboard');
+                        redirect('Students_dashboard/index');
                     }
                     else {
                         die('Something went wrong');
@@ -78,7 +78,7 @@
                 }
                 else {
                     // Load with errors
-                    $this->view('students/upgrades/beginner_to_olqualified', $data);
+                    $this->view('students/opt_upgrades/v_upgrade_beg_to_ol', $data);
                 }
             }
             else {
@@ -114,7 +114,7 @@
                 ];
 
                 // Load view
-                $this->view('students/upgrades/beginner_to_olqualified', $data);
+                $this->view('students/opt_upgrades/v_upgrade_beg_to_ol', $data);
             }
         }
 
@@ -201,7 +201,7 @@
                         // i added later
                         $this->updateSession();
 
-                        redirect('dashboards/student_alqualified_dashboard');
+                        redirect('Students_dashboard/index');
                     }
                     else {
                         die('Something went wrong');
@@ -209,7 +209,7 @@
                 }
                 else {
                     // Load with errors
-                    $this->view('students/upgrades/olqualified_to_alqualified', $data);
+                    $this->view('students/opt_upgrades/v_upgrade_ol_to_al', $data);
                 }
             }
             else {
@@ -242,7 +242,7 @@
                 ];
 
                 // Load view
-                $this->view('students/upgrades/olqualified_to_alqualified', $data);
+                $this->view('students/opt_upgrades/v_upgrade_ol_to_al', $data);
             }
         }
 
@@ -294,7 +294,7 @@
                         // i added later
                         $this->updateSession();
 
-                        redirect('dashboards/student_undergradgrad_dashboard');
+                        redirect('Students_dashboard/index');
                     }
                     else {
                         die('Something went wrong');
@@ -302,7 +302,7 @@
                 }
                 else {
                     // Load with errors
-                    $this->view('students/upgrades/alqualified_to_undergraduategraduate', $data);
+                    $this->view('students/opt_upgrades/v_upgrade_al_to_ug', $data);
                 }
             }
             else {
@@ -320,7 +320,7 @@
                 ];
 
                 // Load view
-                $this->view('students/upgrades/alqualified_to_undergraduategraduate', $data);
+                $this->view('students/opt_upgrades/v_upgrade_al_to_ug', $data);
             }
         }
 

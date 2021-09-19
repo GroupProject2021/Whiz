@@ -14,7 +14,9 @@
                 <h1>Student Undergraduate/Graduate details</h1>
                 <p>Please fill the following details but you can skip this now and fill those in later as well.</p>
                 <hr class="form-hr">
-                <label for="uni_type"><p class="form-bold">University Type</p></label>
+
+                <!-- university type -->
+                <p class="form-bold">University type</p>
                 <select name="uni_type" id="uni_type" class="form-select">
                     <option value="Government">Government</option>
                     <option value="Semi-Governmen">Semi-Government</option>
@@ -22,15 +24,18 @@
                 </select>
                 <span class="form-invalid"><?php echo $data['uni_type_err']; ?></span><br>
 
-                <label for="uni_name"><p class="form-bold">University name</p></label>
-                <input type="text" placeholder="Enter university name" name="uni_name" id="uni_name" value="<?php echo $data['uni_name']; ?>">
+                <!-- university name -->
+                <input type="text" placeholder=" " name="uni_name" id="uni_name" value="<?php echo $data['uni_name']; ?>">
+                <label>University name</label>
                 <span class="form-invalid"><?php echo $data['uni_name_err']; ?></span><br>
 
-                <label for="degree"><p class="form-bold">Degree</p></label>
-                <input type="text" placeholder="Enter degree" name="degree" id="degree" value="<?php echo $data['degree']; ?>">
+                <!-- degree name -->
+                <input type="text" placeholder=" " name="degree" id="degree" value="<?php echo $data['degree']; ?>">
+                <label>Degree name</label>
                 <span class="form-invalid"><?php echo $data['degree_err']; ?></span><br>
-
-                <label for="gpa"><p class="form-bold">GPA</p></label>
+                
+                <!-- gpa -->
+                <p class="form-bold">GPA</p>
                 <table width="100%">
                     </tr>
                     <tr>                        
