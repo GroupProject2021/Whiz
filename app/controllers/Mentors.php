@@ -49,7 +49,7 @@
                     'confirm_password_err' => ''
                 ];
 
-                if(uploadImage($data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/student/')) {
+                if(uploadImage($data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/mentor/')) {
                     flash('profile_image_upload', 'Profile picture uploaded successfully');
                 }
                 else {

@@ -20,7 +20,7 @@
             $this->db->execute();
 
 /// HERE
-            $this->db->query('INSERT INTO mentor(profile_image,name, email, institute, mentor_type, password) VALUES(:profile_image, :name, :email, :institute, :mentor_type, :password)');
+            $this->db->query('INSERT INTO mentor(profile_image,name, email, phn_no, address, gender, institute, mentor_type, password) VALUES(:profile_image, :name, :email, :phn_no, :address, :gender, :institute, :mentor_type, :password)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':name', $data['name']);
@@ -54,7 +54,7 @@
 
             $this->db->execute();
 
-            $this->db->query('INSERT INTO mentor(profile_image, name, email, institute, mentor_type, password) VALUES(:profile_image, :name, :email, :institute, :mentor_type, :password)');
+            $this->db->query('INSERT INTO mentor(profile_image, name, email, phn_no, address, gender, mentor_type, password) VALUES(:profile_image, :name, :email, :phn_no, :address, :gender, :mentor_type, :password)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':name', $data['name']);

@@ -9,34 +9,93 @@
         <?php require APPROOT.'/views/inc/components/topnav.php'?>
 
         <!-- REGISTRATION FORM -->
-        
         <div class="form-container">
-            <form action="<?php echo URLROOT; ?>/mentors/registerasteacher" method="post">
+        <form action="<?php echo URLROOT; ?>/mentors/registerasteacher" method="post"  enctype="multipart/form-data">
                 <h1>Teacher Register</h1>
                 <p>Please fill in this form to create an account</p>
                 <hr class="form-hr">
+
+                <!-- profile picture -->
+                <p class="form-bold">Profile picture</p>
+                <div class="form-drag-area">
+                    <div class="icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/profile-image-placeholder.png" id="profile_image_placeholder" width="90px" height="90px" alt="profile_image">
+                    </div>
+                    <div class="description">Drag & Drop to Upload File</div>
+                    <div class="form-upload">
+                        <input type="file" name="profile_image" id="profile_image" onchange="displayImage(this)" style="display: none;">
+                        Browse File
+                    </div>
+                </div>
+                <div class="form-validation">
+                    <div class="profile-image-validation">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                        Select a profile picture
+                    </div>
+                </div>            
+                <span class="form-invalid"><?php echo $data['profile_image_err']; ?></span><br>
 
                 <!-- name -->
                 <br>
                 <input type="text" placeholder=" " name="name" id="name" value="<?php echo $data['name']; ?>">
                 <label>Name</label>
                 <span class="form-invalid"><?php echo $data['name_err']; ?></span><br>
-
+                
                 <!-- email -->
                 <input type="text" placeholder=" " name="email" id="email" value="<?php echo $data['email']; ?>">
                 <label>Email</label>
+                <div class="bottom-content">
+                    <div class="form-validation">
+                        <div class="email-validation">
+                            <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                            Your email address is valid
+                        </div>
+                    </div>
+                </div>                
                 <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
 
-                <!-- school -->
-                <input type="text" placeholder=" " name="school" id="school" value="<?php echo $data['school']; ?>">
-                <label>School</label>
-                <span class="form-invalid"><?php echo $data['school_err']; ?></span><br>
+                <!-- phone number -->
+                <input type="text" placeholder=" " name="phn_no" id="phn_no" value="<?php echo $data['phn_no']; ?>">
+                <label>Phone number</label>
+                <div class="bottom-content">
+                    <div class="form-validation">
+                        <div class="phn_no-validation">
+                            <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                            Your phone number is valid
+                        </div>
+                    </div>
+                </div>
+                <span class="form-invalid"><?php echo $data['phn_no_err']; ?></span><br>
 
-                <!-- <label for="subjects"><p class="form-bold">Subject</p></label>
-                <input type="text" placeholder="Enter subject" name="subjects" id="subjects" value="<?php echo $data['subjects']; ?>">
-                <span class="form-invalid"><?php echo $data['subjects_err']; ?></span><br> -->
+                <!--address -->
+                <input type="text" placeholder=" " name="address" id="address" value="<?php echo $data['address']; ?>">
+                <label>Address</label>
+                <span class="form-invalid"><?php echo $data['address_err']; ?></span><br>
 
-                 <!-- password -->
+                <!-- gender -->
+                <p class="form-bold">Gender</p>
+                <select name="gender" id="gender" class="form-select">
+                    <option value="Male">Male</option>
+                    <option value="Male">Female</option>
+                    <option value="Male">Other</option>
+                    <option value="Male">Not perfer to say</option>
+                </select>
+                <!-- <input type="text" placeholder="Enter gender" name="gender" id="gender" value="<?php echo $data['gender']; ?>"> -->
+                <span class="form-invalid"><?php echo $data['gender_err']; ?></span><br>
+
+                <!-- <label for="subject1"><p class="form-bold">Subject 1</p></label>
+                <input type="text" placeholder="Enter sub 1" name="subject1" id="subject1" value="<?php echo $data['subject1']; ?>">
+                <span class="form-invalid"><?php echo $data['subject1_err']; ?></span><br>
+
+                <label for="subject2"><p class="form-bold">Subject 2</p></label>
+                <input type="text" placeholder="Enter sub 2" name="subject2" id="subject2" value="<?php echo $data['subject2']; ?>">
+                <span class="form-invalid"><?php echo $data['subject2_err']; ?></span><br>
+
+                <label for="subject3"><p class="form-bold">Subject 3</p></label>
+                <input type="text" placeholder="Enter sub 3" name="subject3" id="subject3" value="<?php echo $data['subject3']; ?>">
+                <span class="form-invalid"><?php echo $data['subject3_err']; ?></span><br> -->
+
+                <!-- password -->
                 <div class="password-area">
                     <div class="pasword-content">                    
                         <input type="password" placeholder=" " name="password" id="password" value="<?php echo $data['password']; ?>">                        
@@ -66,8 +125,8 @@
                             Contains special characters
                         </div>
                     </div>
-                </div>
-                 <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
+                </div>                
+                <span class="form-invalid"><?php echo $data['password_err']; ?></span><br>
 
                 <!-- confirm password -->
                 <div class="password-area">
@@ -89,7 +148,6 @@
                     </div>
                 </div>
                 <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span><br>
-
                 <hr class="form-hr">
 
                 <p>By creating an account you agree to our <a class="form-link" href="#">Terms & Privacy</a></p>

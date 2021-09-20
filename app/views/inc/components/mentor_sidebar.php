@@ -20,22 +20,26 @@
         <!-- Professional Guider to Teacher upgrade -->
         <hr>
         <div class="sidebar-user-details">
-            <div class="user-level-image">
+            <!-- <div class="user-level-image">
                 <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
+            </div> -->
+            <div class="user-level-image">
+                <img src="<?php echo URLROOT; ?>/profileimages/mentor/<?php echo $_SESSION['user_profile_image']; ?>" alt="prof_pic" >
             </div>
             <div class="user-level-content">
                 <div class="user-level-name">
-                    <p>Professional Guider</p>
+                    <!-- <p>Professional Guider</p> -->
+                    <p><?php echo $_SESSION['user_name']; ?></p>
                 </div>
-                <div class="profile-upgrade-progress">
+                <!-- <div class="profile-upgrade-progress"> -->
 
                 </div>
-                <div class="profile-upgrade-button-area">
-                    <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToOlQualified">  
+                <!-- <div class="profile-upgrade-button-area">
+                    <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToOlQualified">   -->
                     <!-- update button should come here -->
-                        <input class="profile-upgrade-button" type="button" value="UPGRADE TO OL">
+                        <!-- <input class="profile-upgrade-button" type="button" value="UPGRADE TO OL">
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
         <hr>
@@ -54,12 +58,12 @@
                 <div class="profile-upgrade-progress">
 
                 </div>
-                <div class="profile-upgrade-button-area">
+                <!-- <div class="profile-upgrade-button-area">
                     <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToAlQualified">
                      <!-- update button should come here -->
-                        <input class="profile-upgrade-button" type="button" value="UPGRADE TO AL">
+                        <!--<input class="profile-upgrade-button" type="button" value="UPGRADE TO AL">
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
         <hr>
@@ -69,7 +73,7 @@
     <?php endif; ?>
 
     <!-- dashboard option -->
-        <div class="sidebar-item">
+        <!-- <div class="sidebar-item">
             <a href="<?php echo URLROOT; ?>/Professional_Guiders_dashboard/index">
             <button>
                 <div class="sidebar-item-icon">
@@ -80,7 +84,7 @@
                 </div>
             </button>
             </a>
-        </div>
+        </div> -->
 
         <!-- OPTIONS -->
     <?php if(isset($_SESSION['user_id'])) : ?>
@@ -90,13 +94,39 @@
             <span>Professional Guider options</span>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/posts/index">
+            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/banner">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
                     </div>
                     <div class="sidebar-item-name">
                         Banners
+                    </div>
+                </button>
+            </a>
+        </div>
+
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/banner">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        Enrolment List
+                    </div>
+                </button>
+            </a>
+        </div>
+
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/banner">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        Complaints
                     </div>
                 </button>
             </a>
@@ -118,13 +148,35 @@
                     </div>
                 </button>
             </a>
+
+            <a href="<?php echo URLROOT; ?>/posts/index">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        Enrolment List
+                    </div>
+                </button>
+            </a>
+
+            <a href="<?php echo URLROOT; ?>/posts/index">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/idle.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        Complaints
+                    </div>
+                </button>
+            </a>
         </div>
         <?php else: ?>
             <!-- Nothing here -->
         <?php endif;?>
     <?php endif; ?>    
 
-        <div class="sidebar-item">
+        <!-- <div class="sidebar-item">
             <a href="<?php echo URLROOT; ?>/students_dashboard/settings">
             <button>
                 <div class="sidebar-item-icon">
@@ -135,7 +187,7 @@
                 </div>
             </button>
             </a>
-        </div>
+        </div> -->
 
     </div>
 </div>

@@ -2,17 +2,33 @@
     class Mentors_dashboard extends Controller{
         public function __construct() {
             $this->mentorDashboardModel = $this->model('Mentor_dashboard');
+            $this->postModel = $this->model('Post');
+            $this->userModel = $this->model('User');
         }
 
         public function index() {
             $posts = $this->mentorDashboardModel->getPosts();
             $data = ['title' => 'Welcome to Professional Guider dashboard', 'posts' => $posts];
-            $this->view('mentors/professional_guider/prof_guide_dashboard', $data);
+            //$this->view('mentors/professional_guider/prof_guide_dashboard', $data);
+
+            switch($_SESSION['specialized_actor_type']) {
+                case 'Professional Guider' :
+                    $this->view('mentors/professional_guider/prof_guide_dashboard', $data);
+                    break;
+                
+                case 'Teacher' :
+                    $this->view('mentors/teacher/teacher_dashboard', $data);
+                    break;
+
+                default:
+                    // nothing
+                    break;
+            }
         }
 
         // post functions
 
-        public function bannerIndex() {
+        public function banner() {
             // Get posts
             $posts = $this->postModel->getPosts();
 

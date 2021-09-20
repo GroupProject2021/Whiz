@@ -149,7 +149,21 @@
         }
 
         public function mentorDashboardRedirect() {
+            $data = ['title' => 'Welcome to Mentor dashboard'];
 
+            switch($_SESSION['specialized_actor_type']) {
+                case 'Professional Guider' :
+                    redirect('Mentors_dashboard/index');
+                    break;
+                
+                case 'Teacher' :
+                    redirect('Mentors_dashboard/index');
+                    break;
+
+                default:
+                    // nothing
+                    break;
+            }
         }
 
 
