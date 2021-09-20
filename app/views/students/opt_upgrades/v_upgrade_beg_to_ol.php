@@ -244,7 +244,7 @@
             </form>
         </div>
         <div class="form-container signin">
-            <p>Contact for help? <a class="form-link" href="<?php echo URLROOT; ?>/students/login">Help & Services</a></p>
+            <p>Contact for help? <a class="#n">Help & Services</a></p>
         </div>
         </form>
 
