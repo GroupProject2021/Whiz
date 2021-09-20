@@ -2,6 +2,8 @@
     class Students extends Controller {
         public function __construct() {
             $this->studentModel = $this->model('Student');
+
+            $this->verify_token = md5(rand());
         }
 
         public function register() {
@@ -168,32 +170,9 @@
             }
         }
 
-        public function sendVerificationEmail($toEmail, $name, $email, $message) {
-            $toEmail = $toEmail;
-            $subject = "Verification email from Whiz";
-            $body = "<h2>Verification</h2>
-                    <p>Name </p>".$name."
-                    <p>Email </p>".$email."
-                    <p>Message </p>".$message."
-            ";
+        public function sendVerificationEmail($name, $email, $verify_token) {
 
-            // Email headers
-            $headers = "MIME-Version: 1.0"."\r\n";
-            $headers .= "Content-Type: text/html; charset=UTF-8"."\r\n";
-
-            // additional headers
-            $headers .= "From: ".$name."<".$email.">"."\r\n";
-
-            if(mail($toEmail, $subject, $body, $headers)) {
-                // email sent
-                $msg = "Your email successfully sent";
-                echo $msg;
-            }
-            else {
-                // email not sent
-                $msg = "Your not sent";
-                echo $msg;
-            }
-        }        
+            
+        }    
     }
 ?>
