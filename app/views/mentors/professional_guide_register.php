@@ -10,7 +10,7 @@
 
         <!-- REGISTRATION FORM -->        
         <div class="form-container">
-            <form action="<?php echo URLROOT; ?>/mentors/registerasprofguider" method="post">
+            <form action="<?php echo URLROOT; ?>/mentors/registerasprofguider" method="post"  enctype="multipart/form-data">
                 <h1>Professional Guider Register</h1>
                 <p>Please fill in this form to create an account</p>
                 <hr class="form-hr">
