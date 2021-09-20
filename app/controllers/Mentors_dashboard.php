@@ -36,7 +36,18 @@
                 'posts' => $posts
             ];
 
-            $this->view('posts/index', $data);
+            $this->view('mentors/posts/index', $data);
+        }
+
+        public function poster() {
+            // Get posts
+            $posts = $this->postModel->getPosts();
+
+            $data = [
+                'posts' => $posts
+            ];
+
+            $this->view('mentors/posts/index', $data);
         }
 
         public function add() {
@@ -75,7 +86,7 @@
                 }
                 else {
                     // Load view with errors
-                    $this->view('posts/add', $data);
+                    $this->view('mentors/posts/add', $data);
                 }
             }
             else {
@@ -86,7 +97,7 @@
                 ];
             }
 
-            $this->view('posts/add', $data);
+            $this->view('mentors/posts/add', $data);
         }
 
         public function edit($id) {
@@ -126,7 +137,7 @@
                 }
                 else {
                     // Load view with errors
-                    $this->view('posts/edit', $data);
+                    $this->view('mentors/posts/edit', $data);
                 }
             }
             else {
@@ -147,7 +158,7 @@
                 ];
             }
 
-            $this->view('posts/edit', $data);
+            $this->view('mentors/posts/edit', $data);
         }
 
         public function show($id) {
@@ -159,7 +170,7 @@
                 'user' => $user
             ];
 
-            $this->view('posts/show', $data);
+            $this->view('mentors/posts/show', $data);
         }
 
         public function delete($id) {
