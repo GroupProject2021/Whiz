@@ -38,6 +38,7 @@
                     'phn_no_err' => ''
                 ];
 
+                // validate and upload profile image
                 if(uploadImage($data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/student/')) {
                     flash('profile_image_upload', 'Profile picture uploaded successfully');
                 }

@@ -18,6 +18,7 @@
 
                 // Init data
                 $data = [
+                    'profile_image' => $_FILES['profile_image'],
                     'uniname' => trim($_POST['uniname']),
                     'address' => trim($_POST['address']),
                     'email' => trim($_POST['email']),
@@ -34,6 +35,7 @@
                     'descrip' => trim($_POST['descrip']),
                     'type' => trim($_POST['type']),
 
+                    'profile_image_err' => '',
                     'uniname_err' => '',
                     'address_err' => '',
                     'email_err' => '',
@@ -50,6 +52,15 @@
                     'descrip_err' => '',
                     'type_err' => ''
                 ];
+
+                // validate and upload profile image
+                if(uploadImage($data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/student/')) {
+                    flash('profile_image_upload', 'Profile picture uploaded successfully');
+                }
+                else {
+                    // upload unsuccessfull
+                    $data['profile_image_err'] = 'Profile picture uploading unsuccessful';
+                }
 
                 // Validate name
                 if(empty($data['uniname'])) {
@@ -142,7 +153,7 @@
                 }
 
                 // Make sure errors are empty
-                if(empty($data['uniname_err']) && empty($data['address_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err']) 
+                if(empty($data['profile_image_err']) && empty($data['uniname_err']) && empty($data['address_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err']) 
                 && empty($data['phn_no_err']) && empty($data['website_err']) && empty($data['founded_year_err']) && empty($data['founder_err']) && empty($data['approved_err']) 
                 && empty($data['rank_err']) && empty($data['amount_err']) && empty($data['rate_err']) && empty($data['descrip_err']) && empty($data['type_err']) ) {
                     // Validated
@@ -168,6 +179,7 @@
             else {
                 // Init data
                 $data = [
+                    'profile_image' => '',
                     'uniname' => '',
                     'address' => '',
                     'email' => '',
@@ -184,6 +196,7 @@
                     'descrip' => '',
                     'type' => '',
 
+                    'profile_image_err' => '',
                     'uniname_err' => '',
                     'address_err' => '',
                     'email_err' => '',
@@ -216,6 +229,7 @@
 
                 // Init data
                 $data = [
+                    'profile_image' => $_FILES['profile_image'],
                     'comname' => trim($_POST['comname']),
                     'address' => trim($_POST['address']),
                     'email' => trim($_POST['email']),                    
@@ -231,6 +245,7 @@
                     'overview' => trim($_POST['overview']),
                     'services' => trim($_POST['services']),
 
+                    'profile_image_err' => '',
                     'comname_err' => '',
                     'address_err' => '',
                     'email_err' => '',
@@ -246,6 +261,15 @@
                     'overview_err' => '',
                     'services_err' => ''
                 ];
+
+                // validate and upload profile image
+                if(uploadImage($data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/student/')) {
+                    flash('profile_image_upload', 'Profile picture uploaded successfully');
+                }
+                else {
+                    // upload unsuccessfull
+                    $data['profile_image_err'] = 'Profile picture uploading unsuccessful';
+                }
 
                 // Validate name
                 if(empty($data['comname'])) {
@@ -338,7 +362,7 @@
                 }
 
                 // Make sure errors are empty
-                if(empty($data['comname_err']) && empty($data['address_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err']) 
+                if(empty($data['profile_image_err']) && empty($data['comname_err']) && empty($data['address_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err']) 
                 && empty($data['phn_no_err']) && empty($data['website_err']) && empty($data['founded_year_err']) && empty($data['founder_err']) && empty($data['registered_err']) 
                 && empty($data['cur_emp_err']) && empty($data['emp_size_err']) && empty($data['overview_err']) && empty($data['services_err'])) {
                     // Validated
@@ -364,6 +388,7 @@
             else {
                 // Init data
                 $data = [
+                    'profile_image' => '',
                     'comname' => '',
                     'address' => '',
                     'email' => '',                    
@@ -379,6 +404,7 @@
                     'overview' => '',
                     'services' => '',
 
+                    'profile_image_err' => '',
                     'comname_err' => '',
                     'address_err' => '',
                     'email_err' => '',

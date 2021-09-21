@@ -122,8 +122,8 @@ label{
     transition: .2s all;
     display: inline-block;
     width: 100%;
-    height: 5px;
-    line-height: 5px;
+    height: 8px;
+    line-height: 8px;
     vertical-align: middle;
 }
 
@@ -140,7 +140,8 @@ input[type=text]:not(:placeholder-shown) + label, input[type=password]:not(:plac
     height: auto;
     background: #fff;
     padding: 0 5px;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 600;
     color: #db7e31;
 }
 

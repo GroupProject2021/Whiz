@@ -1,10 +1,10 @@
 <div class="bottomnav">
-        <div class="social">
+        <!-- <div class="social">
             <a href="#"><img src="<?php echo URLROOT; ?>/imgs/home/facebook.png" alt=""></a>
             <a href="#"><img src="<?php echo URLROOT; ?>/imgs/home/instragram.png" alt=""></a>
             <a href="#"><img src="<?php echo URLROOT; ?>/imgs/home/linkedin.png" alt=""></a>
             <a href="#"><img src="<?php echo URLROOT; ?>/imgs/home/youtube.jpg" alt=""></a>
-        </div>
+        </div> -->
 
         <ul class="list-inline">
             <li class="list-inline-item"><a href="#">Home</a></li>

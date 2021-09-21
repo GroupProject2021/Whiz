@@ -15,23 +15,51 @@
                 <p>Please fill in this form to create an account</p>
                 <hr class="form-hr">
 
+                <!-- profile picture -->
+                <p class="form-bold">Profile picture</p>
+                <div class="form-drag-area">
+                    <div class="icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/profile-image-placeholder.png" id="profile_image_placeholder" width="90px" height="90px" alt="profile_image">
+                    </div>
+                    <div class="description">Drag & Drop to Upload File</div>
+                    <div class="form-upload">
+                        <input type="file" name="profile_image" id="profile_image" onchange="displayImage(this)" style="display: none;">
+                        Browse File
+                    </div>
+                </div>
+                <div class="form-validation">
+                    <div class="profile-image-validation">
+                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                        Select a profile picture
+                    </div>
+                </div>            
+                <span class="form-invalid"><?php echo $data['profile_image_err']; ?></span>
+
                 <!-- company name -->
                 <br>
                 <input type="text" placeholder=" " name="comname" id="comname" value="<?php echo $data['comname']; ?>">
                 <label>Company Name</label>
-                <span class="form-invalid"><?php echo $data['comname_err']; ?></span><br>
+                <span class="form-invalid"><?php echo $data['comname_err']; ?></span>
 
                 <!-- company address -->
                 <br>
                 <input type="text" placeholder=" " name="address" id="address" value="<?php echo $data['address']; ?>">
                 <label>Company address</label>
-                <span class="form-invalid"><?php echo $data['address_err']; ?></span><br>
+                <span class="form-invalid"><?php echo $data['address_err']; ?></span>
 
                 <!-- company email -->
                 <br>
                 <input type="text" placeholder=" " name="email" id="email" value="<?php echo $data['email']; ?>">
                 <label>Company email</label>
-                <span class="form-invalid"><?php echo $data['email_err']; ?></span><br>
+                <div class="bottom-content">
+                    <div class="form-validation">
+                        <div class="email-validation">
+                            <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                            Your email address is valid
+                        </div>
+                    </div>
+                </div>                
+                <span class="form-invalid"><?php echo $data['email_err']; ?></span>
 
                 <!-- password -->
                 <br>
@@ -105,25 +133,25 @@
                 <!-- company web address -->
                 <input type="text" placeholder=" " name="website" id="website" value="<?php echo $data['website']; ?>">
                 <label>Company web address</label>
-                <span class="form-invalid"><?php echo $data['website_err']; ?></span><br>
+                <span class="form-invalid"><?php echo $data['website_err']; ?></span>
 
                 <!-- founder -->
                 <br>
                 <input type="text" placeholder=" " name="founder" id="founder" value="<?php echo $data['founder']; ?>">
                 <label>Founder</label>
-                <span class="form-invalid"><?php echo $data['founder_err']; ?></span><br>
+                <span class="form-invalid"><?php echo $data['founder_err']; ?></span>
 
                 <!-- founded year -->
                 <br>
                 <input type="text" placeholder=" " name="founded_year" id="founded_year" value="<?php echo $data['founded_year']; ?>">
                 <label>Founded Year</label>
-                <span class="form-invalid"><?php echo $data['founded_year_err']; ?></span><br>
+                <span class="form-invalid"><?php echo $data['founded_year_err']; ?></span>
 
                 <!-- no. of current employees -->
                 <br>
                 <input type="text" placeholder=" " name="cur_emp" id="cur_emp" value="<?php echo $data['cur_emp']; ?>">
                 <label>No. of Current Employees</label>
-                <span class="form-invalid"><?php echo $data['cur_emp_err']; ?></span><br>
+                <span class="form-invalid"><?php echo $data['cur_emp_err']; ?></span>
 
                 <!-- company size -->
                 <br>
@@ -141,7 +169,7 @@
                 <br>
                 <input type="text" placeholder=" " name="overview" id="overview" value="<?php echo $data['overview']; ?>">
                 <label>Overview</label>
-                <span class="form-invalid"><?php echo $data['overview_err']; ?></span><br>
+                <span class="form-invalid"><?php echo $data['overview_err']; ?></span>
 
                 <!-- services -->
                 <br>

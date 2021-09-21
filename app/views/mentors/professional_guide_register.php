@@ -33,7 +33,7 @@
                         Select a profile picture
                     </div>
                 </div>            
-                <span class="form-invalid"><?php echo $data['profile_image_err']; ?></span><br>
+                <span class="form-invalid"><?php echo $data['profile_image_err']; ?></span>
 
                 <!-- name -->
                 <br>
