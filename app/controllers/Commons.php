@@ -22,8 +22,11 @@
                 $data = [
                     'email' => trim($_POST['email']),
                     'password' => trim($_POST['password']),
+                    'captcha_value' => trim($_POST['captcha_value']),
+
                     'email_err' => '',
-                    'password_err' => ''
+                    'password_err' => '',
+                    'captcha_value_err' => ''
                 ];
 
                 // Validate email
@@ -45,8 +48,12 @@
                     $data['email_err'] = 'No user found';
                 }
 
+                if($data['captcha_value'] != "true") {
+                    $data['captcha_value_err'] = 'Captcha not matched, Please try again';
+                }
+
                 // Make sure errors are empty
-                if(empty($data['email_err']) && empty($data['password_err'])) {
+                if(empty($data['email_err']) && empty($data['password_err']) && empty($data['captcha_value_err'])) {
                     // Validated
                     // Check and set logged in user
                     $loggedInUser = $this->userModel->login($data['email'], $data['password']);
@@ -71,8 +78,11 @@
                 $data = [
                     'email' => '',
                     'password' => '',
+                    'captcha_value' => '',
+
                     'email_err' => '',
-                    'password_err' => ''
+                    'password_err' => '',
+                    'captcha_value_err' => '',
                 ];
             }
 
