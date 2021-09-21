@@ -78,7 +78,7 @@
                     // Validated
                     if($this->postModel->addPost($data)) {
                         flash('post_message', 'Post added');
-                        redirect('posts');
+                        redirect('mentors_dashboard/banner');
                     }
                     else {
                         die('Something went wrong');
@@ -129,7 +129,7 @@
                     // Validated
                     if($this->postModel->updatePost($data)) {
                         flash('post_message', 'Post updated');
-                        redirect('posts');
+                        redirect('mentors_dashboard/banner');
                     }
                     else {
                         die('Something went wrong');
@@ -146,7 +146,7 @@
 
                 // Check for owner
                 if($post->user_id != $_SESSION['user_id']) {
-                    redirect('posts');
+                    redirect('mentors_dashboard/banner');
                 }
 
                 $data = [
@@ -180,19 +180,19 @@
 
                 // Check for owner
                 if($post->user_id != $_SESSION['user_id']) {
-                    redirect('posts');
+                    redirect('mentors_dashboard/banner');
                 }
                 
                 if($this->postModel->deletePost($id)) {
                     flash('post_message', 'Post Removed');
-                    redirect('posts');
+                    redirect('mentors_dashboard/banner');
                 }
                 else {
                     die('Something went wrong');
                 }
             }
             else {
-                redirect('posts');
+                redirect('mentors_dashboard/banner');
             }
         }
 

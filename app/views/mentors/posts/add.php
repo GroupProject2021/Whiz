@@ -1,5 +1,3 @@
-
-
 <html lang="en">
     <head>
         <title><?php echo SITENAME; ?></title>
@@ -28,7 +26,7 @@
             <?php if(isset($_SESSION['user_id'])) : ?>
                 <?php if($_SESSION['specialized_actor_type'] == 'Professional Guider'): ?>
                     <!-- Professional guider -->
-                    <div class="wrapper">
+                    <!-- <div class="wrapper"> -->
                         <!-- TOP PANEL -->
                         <div class="top-panel">
                             <h1>Banners > New Banner</h1>
@@ -36,41 +34,61 @@
 
                         <!-- MIDDLE PANEL -->
                         <div class="form-container">
-                            <!-- <a href="<?php echo URLROOT; ?>/posts">Back</a> -->
                             <form action="<?php echo URLROOT; ?>/Mentors_dashboard/add" method="post">
                                 <!-- <h1>Add posts</h1>
                                 <p>Please data</p> -->
                                 <hr  class="form-hr">
 
                                 <label for="title"><p class="form-bold">Title</p></label>
-                                <input type="text" placeholder="Enter email" name="title" id="title" value="<?php echo $data['title']; ?>">
+                                <input type="text" placeholder="" name="title" id="title" value="<?php echo $data['title']; ?>">
                                 <span class="form-invalid"><?php echo $data['title_err']; ?></span><br>
 
                                 <label for="body"><p class="form-bold">Content</p></label>
-                                <textarea placeholder="Enter email" name="body" id="body"><?php echo $data['body']; ?></textarea>
+                                <textarea placeholder="" name="body" id="body" rows="4" cols="37"><?php echo $data['body']; ?></textarea>
                                 <span class="form-invalid"><?php echo $data['body_err']; ?></span><br>
+
                                 <hr  class="form-hr">
                                 <button type="submit" class="form-submit">CREATE</button>
+                                <a href="<?php echo URLROOT; ?>/Mentors_dashboard/banner">Back</a>
                             </form>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 <?php elseif($_SESSION['specialized_actor_type'] == 'Teacher'): ?>
                     <!-- Teacher -->
-                    <div class="wrapper">
+                    <!-- <div class="wrapper"> -->
                         <!-- TOP PANEL -->
                         <div class="top-panel">
                             <h1>Posters > New Poster</h1>
                         </div>
 
                         <!-- MIDDLE PANEL -->
-                        
-                    </div>
+                        <div class="form-container">
+                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/add" method="post">
+                                <!-- <h1>Add posts</h1>
+                                <p>Please data</p> -->
+                                <hr  class="form-hr">
+
+                                <label for="title"><p class="form-bold">Title</p></label>
+                                <input type="text" placeholder="" name="title" id="title" value="<?php echo $data['title']; ?>">
+                                <span class="form-invalid"><?php echo $data['title_err']; ?></span><br>
+
+                                <label for="body"><p class="form-bold">Content</p></label>
+                                <textarea placeholder="" name="body" id="body" rows="4" cols="37"><?php echo $data['body']; ?></textarea>
+                                <span class="form-invalid"><?php echo $data['body_err']; ?></span><br>
+
+                                <hr  class="form-hr">
+                                <button type="submit" class="form-submit">CREATE</button>
+                                <a href="<?php echo URLROOT; ?>/Mentors_dashboard/poster">Back</a>
+                            </form>
+                        </div>
+                    <!-- </div> -->
                 <?php else: ?>
                     <!-- Nothing here -->
                 <?php endif;?>
             <?php endif; ?> 
 
                     <!-- BOTTOM PANEL -->
+                    <br>
                     <div class="bottom-panel">
                         <p>Whiz organization. All rights reserved.</p>
                     </div>

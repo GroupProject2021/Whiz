@@ -160,11 +160,12 @@
     background-color: var(--btn9-bg-color);
     color: var(--btn9-color);
     padding: 16px 20px;
-    margin: 8px 0;
+    margin: 4px 0;
     border: none;
     cursor: pointer;
     width: 10rem;
     opacity: 0.9;
+    border-radius: 3px;
 }
 
 .btn9:hover {
