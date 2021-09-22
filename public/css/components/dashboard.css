@@ -35,20 +35,20 @@ header {
 }
 
 .menu-toggle {
-    /* background-color: #0275d8; */
+    background-color: #979797;
 }
 
 .menu-toggle:hover {
-    background-color: #2995f3;
+    background-color: #505050;
 }
 
 .menu-toggle label {
     height: 3rem;
     width: 60px;
-    /* display: grid; */
-    /* place-items: center; */
-    /* font-size: 1.5rem; */
-    /* background-color: #0275d8; */
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    background-color: #0275d8;
 }
 
 .menu-toggle label:hover {

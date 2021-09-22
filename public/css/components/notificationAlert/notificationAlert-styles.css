@@ -23,7 +23,7 @@
     pointer-events: auto;
 }
 
-.icon {
+.alert-icon {
     position: absolute;
     left: 20px;
     top: 50%;

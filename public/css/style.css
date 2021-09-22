@@ -5,12 +5,15 @@
 @import url('components/sidebar.css');
 @import url('components/dashboard.css');
 @import url('components/bottomnav.css');
-@import url('utilities/responsive_grid_layout.css');
 @import url('components/cards.css');
 @import url('components/buttons.css');
 @import url('components/mycards.css');
-@import url('captcha/captcha-styles.css');
-@import url('notificationAlert/notificationAlert-styles.css');
+
+@import url('components/imageUpload/imageUpload-styles.css');
+@import url('components/captcha/captcha-styles.css');
+@import url('components/notificationAlert/notificationAlert-styles.css');
+
+@import url('utilities/responsive_grid_layout.css');
 
 /* fonts */
 @font-face {

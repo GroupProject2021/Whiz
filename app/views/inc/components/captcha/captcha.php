@@ -16,3 +16,6 @@
     <div class="matched-tick "><img src="<?php echo URLROOT;?>/imgs/captcha/matched-tick-icon.png" alt=""></div>
     <div class="matched-content">Captcha matched successfully</div>
 </div>
+
+<!-- javascript -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/captcha/captcha.js"></script>

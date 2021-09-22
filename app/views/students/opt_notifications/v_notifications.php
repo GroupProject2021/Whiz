@@ -6,7 +6,7 @@
     </head>
     <body>
         <!-- SIDE BAR -->
-        <?php require APPROOT.'/views/inc/components/student_sidebar.php'?>
+        <?php require APPROOT.'/views/inc/components/sideBar/studentSideBar/student_sidebar.php'?>
 
         <div class="main-content">
             <header>               

@@ -48,7 +48,7 @@
 
                 <!-- captcha checker -->
                 <br>
-                <?php require APPROOT.'/views/inc/captcha/captcha.php'?>
+                <?php require APPROOT.'/views/inc/components/captcha/captcha.php'?>
                 <span class="form-invalid"><?php echo $data['captcha_value_err']; ?></span>
 
                 <!-- notification alert -->
@@ -65,6 +65,5 @@
 
         <!-- java script form validation -->
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/form.js"></script>
-        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/captcha/captcha.js"></script>
     </body>
 </html>
