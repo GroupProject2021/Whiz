@@ -79,13 +79,13 @@
     left: -100%;
 }
 
-#sidebar-toggle:checked ~ .main-content header {
+#sidebar-toggle:checked ~ .main_content header {
     left: 0;
     width: 100%;
     right: 0;
 }
 
-#sidebar-toggle:checked ~ .main-content {
+#sidebar-toggle:checked ~ .main_content {
     margin-left: 0;
 } */
 
@@ -106,13 +106,13 @@
     left: -100%;
 }
 
-#sidebar-toggle:checked ~ .main-content header {
+#sidebar-toggle:checked ~ .main_content header {
     left: 0;
     width: 100%;
     right: 0;
 }
 
-#sidebar-toggle:checked ~ .main-content {
+#sidebar-toggle:checked ~ .main_content {
     margin-left: 0;
 }
 
@@ -251,7 +251,7 @@ hr {
         z-index: 30;
     }
 
-    .main-content {
+    .main_content {
         margin-left: 0;
     }
 

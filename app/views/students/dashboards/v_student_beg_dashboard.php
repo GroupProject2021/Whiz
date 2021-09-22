@@ -14,9 +14,9 @@
             <header>               
                  <!--CURRENTLY NOT AVAILABLE !!!  -->
                 <div class="menu-toggle">
-                    <label for="sidebar-toggle">
+                    <button type="button" class="sidebar-handle">
                         <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
-                    </label>
+                    </button>
                 </div>
                 
                 <!-- TOP NAVIGATION BAR -->
@@ -34,7 +34,7 @@
                         <h1>Beginner dashboard</h1>
                     </div>
                     
-                    <input type="button" class="sidebar-handle">
+                    
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
@@ -48,32 +48,4 @@
                 </div>
             </main>
         </div>
-
-        <script>
-            const sidebar = document.querySelector(".sidebar");
-            const sidebarHandler = document.querySelector(".sidebar-handle");
-
-            function hider() {
-                sidebar.style.left= "-100%";
-            }
-
-            function shower() {
-                sidebar.style.left= "0";
-            }
-
-            let x = true;
-            sidebarHandler.addEventListener("click", () => {
-                if(x) {
-                    hider();
-                    x = false;
-                }
-                else {
-                    shower();
-                    x = true;
-                }
-            });
-            
-           
-            
-        </script>
 <?php require APPROOT.'/views/inc/footer.php'; ?>

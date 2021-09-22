@@ -7,5 +7,4 @@
 </div>
 
 <!-- javascript -->
-
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/notificationAlert/notificationAlert.js"></script>

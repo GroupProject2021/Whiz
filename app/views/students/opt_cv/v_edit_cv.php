@@ -12,9 +12,9 @@
             <header>               
                  <!--CURRENTLY NOT AVAILABLE !!!  -->
                 <div class="menu-toggle">
-                    <label for="sidebar-toggle">
-                        <!-- <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png"> -->
-                    </label>
+                    <button type="button" class="sidebar-handle">
+                        <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
+                    </button>
                 </div>
                 
                 <!-- TOP NAVIGATION BAR -->
