@@ -10,6 +10,7 @@
 @import url('components/buttons.css');
 @import url('components/mycards.css');
 @import url('captcha/captcha-styles.css');
+@import url('notificationAlert/notificationAlert-styles.css');
 
 /* fonts */
 @font-face {

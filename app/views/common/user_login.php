@@ -48,25 +48,11 @@
 
                 <!-- captcha checker -->
                 <br>
-                <div class="captcha-wrapper">
-                    <div class="captcha-area">
-                        <div class="captcha-img">
-                            <img src="<?php echo URLROOT; ?>/imgs/captcha/captcha-bg-1.jpg" alt="">
-                            <span class="captcha">K 4 j v Y O</span>
-                        </div>
-                        <button class="reload-btn"><img src="<?php echo URLROOT; ?>/imgs/captcha/reload-icon.png" alt=""></button>
-                    </div>
-                    <div class="input-area">
-                        <input class="captcha-input" type="text" placeholder="Enter captcha" maxlength = "6" required  name="captcha_value" id="captcha_value" value="<?php echo $data['captcha_value']; ?>">
-                        <button class="check-btn">Check</button>
-                    </div>
-                    <div class="status-txt"></div>
-                </div>
-                <div class="captcha-matched-alert">
-                    <div class="matched-tick "><img src="<?php echo URLROOT;?>/imgs/captcha/matched-tick-icon.png" alt=""></div>
-                    <div class="matched-content">Captcha matched successfully</div>
-                </div>
+                <?php require APPROOT.'/views/inc/captcha/captcha.php'?>
                 <span class="form-invalid"><?php echo $data['captcha_value_err']; ?></span>
+
+                <!-- notification alert -->
+                
                 
                 <hr  class="form-hr">
 
@@ -79,81 +65,6 @@
 
         <!-- java script form validation -->
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/form.js"></script>
-
-        <script>
-            const captcha = document.querySelector(".captcha");
-            const reloadBtn = document.querySelector(".reload-btn");
-            const inputField = document.querySelector(".captcha-input");
-            const checkBtn = document.querySelector(".check-btn");
-            const statusTxt = document.querySelector(".status-txt");
-            const captchaWrapper = document.querySelector(".captcha-wrapper");
-            const captchaMatchedMsg = document.querySelector(".captcha-matched-alert");
-
-            // storing all captcha characters in arrray;
-            let allCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
-                                 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-                                 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-                                 '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-
-            function getCaptcha() {
-                for(let i = 0; i < 6; i++) {
-                    let randomChar = allCharacters[Math.floor(Math.random() * allCharacters.length)];
-                    captcha.innerHTML += ' '+randomChar;
-
-                }
-            };
-
-            function refreshCaptcha() {
-                statusTxt.innerText = "";
-                inputField.value = "";
-                captcha.innerText = "";
-                getCaptcha();
-            }
-
-            function showCaptchaMatchedMsg() {
-                captchaMatchedMsg.style.visibility = "visible";
-                captchaMatchedMsg.style.height = "54px";
-            }
-
-            function hideCaptchaMatchedMsg() {
-                captchaMatchedMsg.style.visibility = "hidden";
-                captchaMatchedMsg.style.height = 0;
-            }
-
-            hideCaptchaMatchedMsg();
-
-            refreshCaptcha();
-
-            reloadBtn.addEventListener("click", () => {
-                captcha.innerHTML = "";
-                getCaptcha();
-            });
-
-            checkBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-
-                let inputVal = inputField.value.split('').join(' ');
-
-                if(inputVal == captcha.innerText) {
-                    // statusTxt.style.color = "#4db2ec";
-                    // statusTxt.innerText = "You are not a robot";
-                    inputField.value = "true";
-
-                    captchaWrapper.style.visibility = "hidden";  
-                    captchaWrapper.style.height = 0;
-                    
-                    showCaptchaMatchedMsg();
-                }
-                else {
-                    statusTxt.style.color = "#ff0000";
-                    statusTxt.innerText = "Captcha not matched, Please try again";
-
-                    setTimeout(() => {
-                        refreshCaptcha();
-                    }, 2000);
-                }
-            });
-
-        </script>
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/captcha/captcha.js"></script>
     </body>
 </html>
