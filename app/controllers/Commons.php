@@ -52,7 +52,7 @@
             else {
                 // Init data
                 $data = [
-                    'email' => $_SESSION['verification_sent_email'],
+                    'email' => '',
                     'otp' => '',
 
                     'otp_err' => ''
