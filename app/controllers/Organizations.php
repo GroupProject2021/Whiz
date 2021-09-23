@@ -5,7 +5,8 @@
         }
 
         public function register() {
-            $this->view('organization/organization_register');
+            $data=[];
+            $this->view('organization/organization_register', $data);
         }
 
         public function university_register() {
@@ -19,6 +20,7 @@
                 // Init data
                 $data = [
                     'profile_image' => $_FILES['profile_image'],
+                    'profile_image_name' => time().'_'.$_FILES['profile_image']['name'],
                     'uniname' => trim($_POST['uniname']),
                     'address' => trim($_POST['address']),
                     'email' => trim($_POST['email']),
@@ -54,7 +56,7 @@
                 ];
 
                 // validate and upload profile image
-                if(uploadImage($data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/student/')) {
+                if(uploadImage($data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/organization/')) {
                     flash('profile_image_upload', 'Profile picture uploaded successfully');
                 }
                 else {
@@ -88,18 +90,29 @@
                 if(empty($data['password'])) {
                     $data['password_err'] = 'Please enter password';
                 }
-                else if(strlen($data['password']) < 6) {
-                    $data['password_err'] = 'Password must be at least 6 characters';
+                else if(strlen($data['password']) < 8) {
+                    $data['password_err'] = 'Password must be having at least 8 characters';
+                }
+                else {
+                    if(!preg_match('@[0-9]@', $data['password'])) {
+                        $data['password_err'] = 'Please must be having at least one number';
+                    }
+
+                    if(!preg_match('@[A-Z]@', $data['password'])) {
+                        $data['password_err'] = 'Password must be having at least one uppercase letter';
+                    }
+                    
+                    if(!preg_match('@[^\w]@', $data['password'])) {
+                        $data['password_err'] = 'Password must be having at least 1 special character';
+                    }
                 }
 
                 // Validata confirm password
                 if(empty($data['confirm_password'])) {
                     $data['confirm_password_err'] = 'Please confirm password';
                 }
-                else {
-                    if($data['password'] != $data['confirm_password']) {
-                        $data['confirm_password_err'] = 'Passwords do not match';
-                    }
+                else if($data['password'] != $data['confirm_password']) {
+                    $data['confirm_password_err'] = 'Passwords do not match';
                 }
 
                 // Validate phone number
@@ -184,6 +197,7 @@
                 // Init data
                 $data = [
                     'profile_image' => '',
+                    'profile_image_name' => '',
                     'uniname' => '',
                     'address' => '',
                     'email' => '',
@@ -234,6 +248,7 @@
                 // Init data
                 $data = [
                     'profile_image' => $_FILES['profile_image'],
+                    'profile_image_name' => time().'_'.$_FILES['profile_image']['name'],
                     'comname' => trim($_POST['comname']),
                     'address' => trim($_POST['address']),
                     'email' => trim($_POST['email']),                    
@@ -397,6 +412,7 @@
                 // Init data
                 $data = [
                     'profile_image' => '',
+                    'profile_image_name' => '',
                     'comname' => '',
                     'address' => '',
                     'email' => '',                    

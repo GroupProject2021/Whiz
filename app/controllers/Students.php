@@ -146,7 +146,7 @@
                 // Init data
                 $data = [
                     'profile_image' => '',
-                    'profile_image' => '',
+                    'profile_image_name' => '',
                     'name' => '',
                     'address' => '',
                     'gender' => '',
