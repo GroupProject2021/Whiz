@@ -24,7 +24,7 @@
                 <?php flash('register_success'); ?>
 
                 <!-- email -->
-                <input type="text" placeholder=" " name="otp" id="otp">
+                <input type="text" placeholder=" " name="otp" id="otp" maxlength = "6">
                 <label>Enter the verification code</label>
                 <span class="form-invalid"><?php echo $data['otp_err']; ?></span>
                 <div class="bottom-content"><a href="<?php echo URLROOT; ?>/Commons/resendVerificationCode" class="form-link">Didn't recieve yet? Resend the verification code.</a></div>
@@ -35,7 +35,7 @@
 
                 <hr  class="form-hr">
 
-                <button type="submit" class="form-submit">Login</button>
+                <button type="submit" class="form-submit">Verify</button>
             </form>
         </div>
         <div class="form-container content">

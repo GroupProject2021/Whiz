@@ -7,6 +7,8 @@
 
         // email verificaitons
         public function userEmailVerification() {
+            $_SESSION['verification_sent_email'] = 'dhanushkasandakelum711@gmail.com';
+            
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Process form
