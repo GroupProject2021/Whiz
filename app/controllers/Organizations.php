@@ -163,9 +163,13 @@
 
                     // Register User
                     if($this->organizationModel->university_register($data)) {
+                        // // Redirect
+                        // flash('register_success', 'You are registered can log in');
+                        // redirect('commons/login');
+
                         // Redirect
-                        flash('register_success', 'You are registered can log in');
-                        redirect('commons/login');
+                        flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
+                        redirect('Commons/userEmailVerification');
                     }
                     else {
                         die('Something went wrong');
@@ -372,9 +376,13 @@
 
                     // Register User
                     if($this->organizationModel->company_register($data)) {
+                        // // Redirect
+                        // flash('register_success', 'You are registered can log in');
+                        // redirect('commons/login');
+
                         // Redirect
-                        flash('register_success', 'You are registered can log in');
-                        redirect('commons/login');
+                        flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
+                        redirect('Commons/userEmailVerification');
                     }
                     else {
                         die('Something went wrong');

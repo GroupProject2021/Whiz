@@ -2,8 +2,6 @@
     class Students extends Controller {
         public function __construct() {
             $this->studentModel = $this->model('Student');
-
-            $this->verify_token = md5(rand());
         }
 
         public function register() {
@@ -173,10 +171,5 @@
                 $this->view('students/student_register', $data);
             }
         }
-
-        public function sendVerificationEmail($name, $email, $verify_token) {
-
-            
-        }    
     }
 ?>
