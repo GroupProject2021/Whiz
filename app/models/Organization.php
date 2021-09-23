@@ -11,7 +11,7 @@
             // register as a user    
             $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type) VALUES(:profile_image,:uniname, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
-            $this->db->bind("profile_image", $data['profile_image_name']);
+            $this->db->bind(":profile_image", $data['profile_image_name']);
             $this->db->bind(':uniname', $data['uniname']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
@@ -26,7 +26,7 @@
             // register as an organization
             $this->db->query('INSERT INTO organization(profile_image, org_name, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:profile_image,:uniname, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
             // bind values
-            $this->db->bind("profile_image", $data['profile_image_name']);
+            $this->db->bind(":profile_image", $data['profile_image_name']);
             $this->db->bind(":uniname", $data['uniname']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":email", $data['email']);
@@ -72,7 +72,7 @@
             // register as a user    
             $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image,:comname, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
-            $this->db->bind("profile_image", $data['profile_image_name']);
+            $this->db->bind(":profile_image", $data['profile_image_name']);
             $this->db->bind(':comname', $data['comname']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
@@ -85,7 +85,7 @@
             // register as an organization
             $this->db->query('INSERT INTO organization(profile_image, org_name, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:profile_image,:comname, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
             // bind values
-            $this->db->bind("profile_image", $data['profile_image_name']);
+            $this->db->bind(":profile_image", $data['profile_image_name']);
             $this->db->bind(":comname", $data['comname']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":email", $data['email']);

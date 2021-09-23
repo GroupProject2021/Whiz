@@ -53,7 +53,7 @@
                 <div class="bottom-content">
                     <div class="form-validation">
                         <div class="email-validation">
-                            <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                             <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
                             Your email address is valid
                         </div>
                     </div>
