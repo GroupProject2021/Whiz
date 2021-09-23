@@ -84,7 +84,7 @@ class M_S_Settings {
     // update settings for beginnner
     public function updateStudentSettings($id, $data) {
         $this->db->query('UPDATE student SET name = :name, address = :address, gender = :gender,
-                            date_of_birth = :date_of_birth, email = :email, phn_no = :phn_no, password = :password
+                            date_of_birth = :date_of_birth, email = :email, phn_no = :phn_no
                              WHERE stu_id = :id');
         // bind values
         
@@ -94,7 +94,6 @@ class M_S_Settings {
         $this->db->bind(":date_of_birth", $data['date_of_birth']);
         $this->db->bind(":email", $data['email']);
         $this->db->bind(":phn_no", $data['phn_no']);
-        $this->db->bind(":password", $data['password']);
         $this->db->bind(":id", $id);
 
         // Execute

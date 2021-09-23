@@ -291,7 +291,7 @@
 
                 // Init data
                 $data = [
-                    'email' => $_SESSION['verification_sent_email'],
+                    'email' => trim($_POST['email']),
 
                     'email_err' => ''
                 ];
@@ -331,7 +331,7 @@
             else {
                 // Init data
                 $data = [
-                    'email' => $_SESSION['verification_sent_email'],
+                    'email' => '',
 
                     'email_err' => ''
                 ];

@@ -88,6 +88,6 @@
         </div>
 
         <!-- java script form validation -->
-        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/form.js"></script>
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/passwordValidation.js"></script>
     </body>
 </html>
