@@ -23,6 +23,7 @@
 
                 <!-- flash message -->              
                 <?php flash('verified'); ?>
+                <?php flash('reset_success'); ?>
 
                 <!-- email -->
                 <input type="text" placeholder=" " name="email" id="email" value="<?php echo $data['email']; ?>">

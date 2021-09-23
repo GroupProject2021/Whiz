@@ -1,9 +1,5 @@
 <?php
-    function sendVerificationCode($email) {
-        $_SESSION['verification_sent_email'] = $email;
-        
-        $verificationCode = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
-
+    function sendPasswordReset($email) {
         // body contain image taken from google drive logo.png
         /* 
             later create a new gmail for whiz
@@ -13,8 +9,17 @@
             Drive link preview: https://drive.google.com/file/d/10XKWTckkC-tquXJYrDyQrluabr51FAJL/view
             Set it as this: https://drive.google.com/uc?export=view&id=10XKWTckkC-tquXJYrDyQrluabr51FAJL
         */
+
+        // body contains localhost redirect link
+        /*
+            Since we are currently using xamp localhost development we used only resent link as the localhost redirection
+            password-reset-button link: http://localhost/whiz/Commons/userPasswordReset
+
+            After deploying on server this must be changed with domain
+            for example: www.whiz.lk/Commons/userPasswordReset
+        */
         $receiver = $email;
-        $subject = "Whiz account email verification code";
+        $subject = "Whiz account password reset";
         $body =    '<html>
                         <head>
                             <style>
@@ -24,6 +29,7 @@
 
                                 .email-body{
                                     background-color: #FFF8F6;
+                                    box-shadow: 0 4px 8px 0 #888888;
                                     width: 600px;
                                     margin: 0 auto;
                                     height: auto;
@@ -54,12 +60,16 @@
                                     height: 50px;
                                 }
 
-                                .email-code {
-                                    font-size: 35px;
-                                    font-weight: bold;
-                                    height: auto;
-                                    line-height: 70px;
-                                    vertical-align: middle;
+                                .password-reset-button input{
+                                    background-color: #4a73f8;
+                                    color: #f1f4ff;
+                                    padding: 16px 20px;
+                                    margin: 8px 0;
+                                    border: none;
+                                    cursor: pointer;
+                                    width: 30%;
+                                    opacity: 0.9;
+                                    border-radius: 3px;
                                 }
 
                                 .email-footer {
@@ -90,18 +100,20 @@
                         <div class="email-title">
                             <img src="https://drive.google.com/uc?export=view&id=10XKWTckkC-tquXJYrDyQrluabr51FAJL" alt="">
                         </div>					
-                        <p>Hi there</p>
+                        <p>Password reset</p>
                         <div class="email-content">
-                            You have successfully created a Whiz account, Please enter the following code at the user verification form and complete the registration.
+                            A request has been received to change the password for your Whiz account.
                         </div>
-                        <div class="email-code">'.
-                            $verificationCode
-                        .'</div>
+                        <div class="password-reset-button">
+                            <a href="http://localhost/whiz/Commons/userPasswordReset">
+                                <input type="button" name="reset" id="reset" value="Reset password">
+                            </a>
+                        </div>
                         <div class="email-footer">
-                            Didn\'t create Whiz account? It\'s likely someone just typed in your email address by accident. Feel free to ignore this email.
+                            If you did not initiate this request, please contact us immediately at <a href="www.whiz.lk/contact">Contact</a>.
                             <br><br>
                             <div class="link">
-                                Visit Us: <a href="www.whiz.lk">www.whiz.lk</a>
+                                Visit us: <a href="www.whiz.lk">www.whiz.lk</a>
                             </div>						
                         </div>
                         </div>
@@ -117,14 +129,16 @@
         $header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         if(mail($receiver, $subject, $body, $header)) {
-            // set the verification code
-            $_SESSION['verification_code'] = $verificationCode;
+            // set the password reset sent mail
+            $_SESSION['password_reset_sent_email'] = $email;
 
             return true;
         }
         else {
-            // unset the sent verificaiton code
-            unset($_SESSION['verification_code']);
+            // unset the password reset sent mail
+            if(isset($_SESSION['password_reset_sent_email'])) {
+                unset($_SESSION['password_reset_sent_email']);
+            }
 
             return false;
         }

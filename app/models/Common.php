@@ -66,5 +66,21 @@
                 return false;
             }
         }
+
+        // reset old password to new
+        public function resetPassword($email, $password) {
+            $this->db->query('UPDATE users SET password = :password WHERE email = :email');
+            // bind values
+            $this->db->bind(':password', $password);
+            $this->db->bind(':email', $email);
+
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }
 ?>

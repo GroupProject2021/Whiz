@@ -18,8 +18,6 @@ function _class(name) {
     return document.getElementsByClassName(name);
 }
 
-
-
 // show/ hide eye toggle
 _class("toggle-password")[0].addEventListener("click", function() {
     _class("toggle-password")[0].classList.toggle("active");

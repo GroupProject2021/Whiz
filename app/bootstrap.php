@@ -7,6 +7,7 @@
     require_once 'helpers/session_helper.php';
     require_once 'helpers/image_upload_helper.php';
     require_once 'helpers/verification_code_sender.php';
+    require_once 'helpers/password_reset_sender.php';
 
     // Load libraries (Manual loading)
     // require_once 'libraries/Controller.php';

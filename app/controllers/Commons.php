@@ -6,9 +6,7 @@
         }
 
         // email verificaitons
-        public function userEmailVerification() {
-            $_SESSION['verification_sent_email'] = 'dhanushkasandakelum711@gmail.com';
-            
+        public function userEmailVerification() {            
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Process form
@@ -284,19 +282,156 @@
 
         // user forgot password
         public function forgetPassword() {
-            $receiver = "dhanushkasandakelum711@gmail.com";
-            $subject = "Forget password";
-            $body = "hi there";
-            $sender = "From:segroupproject2021@gmail.com";
+            // Check for POST
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Process form
 
-            if(mail($receiver, $subject, $body, $sender)) {
-                echo "success";
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                // Init data
+                $data = [
+                    'email' => $_SESSION['verification_sent_email'],
+
+                    'email_err' => ''
+                ];
+
+                // Validate email
+                if(empty($data['email'])) {
+                    $data['email_err'] = 'Please enter email';
+                }
+
+                // Check for user/email
+                if($this->userModel->findUserByEmail($data['email'])) {
+                    // User found
+                }
+                else {
+                    //user not found
+                    $data['email_err'] = 'No user found';
+                }
+
+                // Make sure errors are empty
+                if(empty($data['email_err'])) {
+                    if(sendPasswordReset($data['email'])) {
+                        // resend success
+                        flash('send_password_reset_successfull', 'We have sent password reset email. Please check your inbox.');
+                    }
+                    else {
+                        // resend failed
+                        flash('send_password_reset_failed', 'Password reset email sending failed! Check your internet connection or please try again waiting few minutes.', 'form-flash-warning');
+                    }
+
+                    // redirect('Commons/userPasswordReset');
+                }
+                else {
+                    // Load view with errors
+                    $this->view('common/user_forgot_password', $data);
+                }
             }
             else {
-                echo "failed";
+                // Init data
+                $data = [
+                    'email' => $_SESSION['verification_sent_email'],
+
+                    'email_err' => ''
+                ];
             }
+
+            // Load view
+            $this->view('common/user_forgot_password', $data);
         }
 
+        public function userPasswordReset() {
+            // Check for POST
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Process form
 
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                // Init data
+                $data = [
+                    'password' => trim($_POST['password']),
+                    'confirm_password' => trim($_POST['confirm_password']),
+
+                    'password_err' => '',
+                    'confirm_password_err' => ''
+                ];
+
+                 // Validata password
+                 if(empty($data['password'])) {
+                    $data['password_err'] = 'Please enter password';
+                }
+                else if(strlen($data['password']) < 8) {
+                    $data['password_err'] = 'Password must be having at least 8 characters';
+                }
+                else {
+                    if(!preg_match('@[0-9]@', $data['password'])) {
+                        $data['password_err'] = 'Please must be having at least one number';
+                    }
+
+                    if(!preg_match('@[A-Z]@', $data['password'])) {
+                        $data['password_err'] = 'Password must be having at least one uppercase letter';
+                    }
+                    
+                    if(!preg_match('@[^\w]@', $data['password'])) {
+                        $data['password_err'] = 'Password must be having at least 1 special character';
+                    }
+                }
+
+                // Validata confirm password
+                if(empty($data['confirm_password'])) {
+                    $data['confirm_password_err'] = 'Please confirm password';
+                }
+                else {
+                    if($data['password'] != $data['confirm_password']) {
+                        $data['confirm_password_err'] = 'Passwords do not match';
+                    }
+                }
+
+                // Make sure errors are empty
+                if(empty($data['password_err']) && empty($data['confirm_password_err'])) {
+                    // if(sendPasswordReset($data['email'])) {
+                    //     // resend success
+                    //     flash('send_password_reset_successfull', 'We have sent password reset email. Please check your inbox.');
+                    // }
+                    // else {
+                    //     // resend failed
+                    //     flash('send_password_reset_failed', 'Password reset email sending failed! Check your internet connection or please try again waiting few minutes.', 'form-flash-warning');
+                    // }
+
+                    // Hash password - Using strog one way hashing algorithm
+                    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+                    if($this->commonModel->resetPassword($_SESSION['password_reset_sent_email'], $data['password'])) {
+                        // Redirect
+                        flash('reset_success', 'Password reset successfully! ');
+                        redirect('Commons/login');
+                    }
+                    else {
+                        die('Something went wrong');
+                    }
+
+                    redirect('Commons/login');
+                }
+                else {
+                    // Load view with errors
+                    $this->view('common/user_reset_password', $data);
+                }
+            }
+            else {
+                // Init data
+                $data = [
+                    'password' => '',
+                    'confirm_password' => '',
+
+                    'password_err' => '',
+                    'confirm_password_err' => ''
+                ];
+            }
+
+            // Load view
+            $this->view('common/user_reset_password', $data);
+        }
     }
 ?>
