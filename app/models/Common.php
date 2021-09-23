@@ -51,5 +51,20 @@
 
             return $row;
         }       
+
+        // set verify user
+        public function setVerifiedUser($email) {
+            $this->db->query('UPDATE users SET status = "verified" WHERE email = :email');
+            // bind values
+            $this->db->bind(':email', $email);
+
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }
 ?>

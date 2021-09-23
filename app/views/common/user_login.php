@@ -22,13 +22,11 @@
                 <hr  class="form-hr">
 
                 <!-- flash message -->              
-                <?php flash('register_success'); ?>
+                <?php flash('verified'); ?>
 
                 <!-- email -->
-                <br>
                 <input type="text" placeholder=" " name="email" id="email" value="<?php echo $data['email']; ?>">
                 <label>Email</label>
-                <div class="bottom-content"><a href="#" class="form-link">Forgot email?</a></div>
                 <span class="form-invalid"><?php echo $data['email_err']; ?></span>
      
                 <!-- password -->

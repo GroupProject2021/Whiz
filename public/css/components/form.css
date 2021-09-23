@@ -16,8 +16,15 @@
     --form-link-color: dodgerblue;
     --content-background-color: #f1f1f1;
     --form-invalid-color: #dc3545;
-    --form-flash-background-color: #28a745;
-    --form-flash-color: white;
+
+    --form-flash-background-color: #bdecc7;
+    --form-flash-color: #003a0e;
+    --form-flash-border-color: #007e1d;
+
+    --form-flash-warning-background-color: #ecbdbd;
+    --form-flash-warning-color: #3a0000;
+    --form-flash-warning-border-color: #7e0000;
+
     --box-shadow-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -190,7 +197,7 @@ input[type=text]:not(:placeholder-shown) + label, input[type=password]:not(:plac
 /* form hr */
 .form-hr {
     border: 1px solid var(--form-hr-border-color);
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .form-hr-intermediate {
@@ -328,13 +335,26 @@ th {
     bottom: 5px;
 }
 
-/* Set a style for the submit button */
+/* form flash */
 .form-flash {
     background-color: var(--form-flash-background-color);
     color: var(--form-flash-color);
     padding: 16px 20px;
     margin: 8px 0;
-    border: none;
+    border: 1px solid var(--form-flash-border-color);
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.form-flash-warning {
+    background-color: var(--form-flash-warning-background-color);
+    color: var(--form-flash-warning-color);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: 1px solid var(--form-flash-warning-border-color);
+    border-radius: 5px;
     cursor: pointer;
     width: 100%;
     opacity: 0.9;

@@ -8,7 +8,7 @@
 
         // Register professional guider
         public function registerasprofguider($data) {
-            $this->db->query('INSERT INTO users(profile_image,name, email, password, actor_type, specialized_actor_type) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type)');
+            $this->db->query('INSERT INTO users(profile_image,name, email, password, actor_type, specialized_actor_type) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':name', $data['name']);
@@ -16,6 +16,7 @@
             $this->db->bind(':password', $data['password']);
             $this->db->bind(':actor_type', 'Mentor');
             $this->db->bind(':specialized_actor_type', 'Professional Guider');
+            $this->db->bind(':status', 'not verified');
 
             $this->db->execute();
 
@@ -43,7 +44,7 @@
 
         // Register teacher
         public function registerasteacher($data) {
-            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type)');
+            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':name', $data['name']);
@@ -51,6 +52,7 @@
             $this->db->bind(':password', $data['password']);
             $this->db->bind(':actor_type', 'Mentor');
             $this->db->bind(':specialized_actor_type', 'Teacher');
+            $this->db->bind(':status', 'not verified');
 
             $this->db->execute();
 

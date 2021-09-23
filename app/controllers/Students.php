@@ -128,9 +128,12 @@
 
                     // Register User
                     if($this->studentModel->register($data)) {
+                        // set the verification sent email                        
+                        sendVerificationCode($data['email']);
+
                         // Redirect
-                        flash('register_success', 'You are registered can log in');
-                        redirect('commons/login');
+                        flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
+                        redirect('Commons/userEmailVerification');
                     }
                     else {
                         die('Something went wrong');

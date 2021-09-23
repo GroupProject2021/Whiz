@@ -2,6 +2,80 @@
     class Commons extends Controller {
         public function __construct() {
             $this->userModel = $this->model('User');
+            $this->commonModel = $this->model('Common');
+        }
+
+        // email verificaitons
+        public function userEmailVerification() {
+            // Check for POST
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Process form
+
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                // Init data
+                $data = [
+                    'email' => $_SESSION['verification_sent_email'],
+                    'otp' => trim($_POST['otp']),
+
+                    'otp_err' => ''
+                ];
+
+                // Validate email
+                if(empty($data['otp'])) {
+                    $data['otp_err'] = 'Please enter verification code';
+                }
+
+                // Validate password
+                if($data['otp'] != $_SESSION['verification_code']) {
+                    $data['otp_err'] = 'Your verification is not matched. Please try again';
+                }
+
+                // Make sure errors are empty
+                if(empty($data['otp_err'])) {
+                    // matched
+                    if($this->commonModel->setVerifiedUser($data['email'])) {
+                        // unset the sessions
+                        unset($_SESSION['verification_code']);
+                        unset($_SESSION['verification_sent_email']);
+
+                        flash('verified', 'Your email verified successfully !');
+                        redirect('commons/login');
+                    }
+                }
+                else {
+                    // Load view with errors
+                    $this->view('common/user_email_verification', $data);
+                }
+            }
+            else {
+                // Init data
+                $data = [
+                    'email' => $_SESSION['verification_sent_email'],
+                    'otp' => '',
+
+                    'otp_err' => ''
+                ];
+            }
+
+            // Load view
+            $this->view('common/user_email_verification', $data);
+        }
+
+        public function resendVerificationCode() {
+            $email = $_SESSION['verification_sent_email'];
+
+            if(sendVerificationCode($email)) {
+                // resend success
+                flash('resend_verification_successfull', 'Verification code resend succcessfully');
+                redirect('Commons/userEmailVerification');
+            }
+            else {
+                // resend failed
+                flash('resend_verification_failed', 'Verification code resend failed! Check your internet connection or please try again waiting few minutes.', 'form-flash-warning');
+                redirect('Commons/userEmailVerification');
+            }
         }
 
         public function registerRedirect() {
@@ -10,6 +84,8 @@
             $this->view('common/user_register', $data);
         }
 
+
+        // user log in
         public function login() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -98,12 +174,15 @@
             $_SESSION['user_email'] = $user->email;
             $_SESSION['actor_type'] = $user->actor_type;
             $_SESSION['specialized_actor_type'] = $user->specialized_actor_type;
+            $_SESSION['status'] = $user->status;
 
             // redirect('students_dashboard/index');
 
             $this->userDashboardRedirect();
         }
 
+
+        // dashboard redirections
         public function userDashboardRedirect() {
             switch($_SESSION['actor_type']) {
                 case "Student": 
@@ -177,6 +256,7 @@
         }
 
 
+        // user log out
         public function logout() {
             unset($_SESSION['user_id']);
             unset($_SESSION['user_email']);
@@ -199,6 +279,8 @@
             }
         }    
 
+
+        // user forgot password
         public function forgetPassword() {
             $receiver = "dhanushkasandakelum711@gmail.com";
             $subject = "Forget password";
@@ -212,5 +294,7 @@
                 echo "failed";
             }
         }
+
+
     }
 ?>

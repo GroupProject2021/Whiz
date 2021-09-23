@@ -9,7 +9,7 @@
         // Register university
         public function university_register($data) {        
             // register as a user    
-            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type) VALUES(:uniname, :email, :password, :actor_type, :specialized_actor_type)');
+            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type) VALUES(:uniname, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':uniname', $data['uniname']);
@@ -17,6 +17,7 @@
             $this->db->bind(':password', $data['password']);
             $this->db->bind(':actor_type', 'Organization');
             $this->db->bind(':specialized_actor_type', 'University');
+            $this->db->bind(':status', 'not verified');
 
             $this->db->execute();
             
@@ -69,7 +70,7 @@
 
         public function company_register($data) {        
             // register as a user    
-            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type) VALUES(:comname, :email, :password, :actor_type, :specialized_actor_type)');
+            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:comname, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':comname', $data['comname']);
@@ -77,6 +78,7 @@
             $this->db->bind(':password', $data['password']);
             $this->db->bind(':actor_type', 'Organization');
             $this->db->bind(':specialized_actor_type', 'Company');
+            $this->db->bind(':status', 'not verified');
 
             $this->db->execute();
            
