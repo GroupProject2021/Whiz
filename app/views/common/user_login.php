@@ -37,7 +37,7 @@
                     <div class="pasword-content">                    
                         <input type="password" placeholder=" " name="password" id="password" value="<?php echo $data['password']; ?>">                        
                         <label>Password</label>
-                        <div class="bottom-content"><a href="#" class="form-link">Forgot password?</a></div>
+                        <div class="bottom-content"><a href="<?php echo URLROOT; ?>/Commons/forgetPassword" class="form-link">Forgot password?</a></div>
                     </div>
                     <div class="toggle-password">
                         <img src="<?php echo URLROOT; ?>/imgs/form/hide-eye-icon.png" class="hide-password-eye" width="25px" height="20px" alt="hide">

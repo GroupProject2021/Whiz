@@ -198,5 +198,19 @@
                 return false;
             }
         }    
+
+        public function forgetPassword() {
+            $receiver = "dhanushkasandakelum711@gmail.com";
+            $subject = "Forget password";
+            $body = "hi there";
+            $sender = "From:segroupproject2021@gmail.com";
+
+            if(mail($receiver, $subject, $body, $sender)) {
+                echo "success";
+            }
+            else {
+                echo "failed";
+            }
+        }
     }
 ?>
