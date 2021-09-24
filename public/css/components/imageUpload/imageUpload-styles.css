@@ -1,33 +1,65 @@
+:root {    
+    --form-upload-button-background-color: #4a73f8;
+    --form-upload-button-color: white;
+}
+
 /* Drag and drop image upload*/
 .form-drag-area {    
     background-color: #eeeded;
-    height: 12rem;
+    height: 100px;
     width: 100%;
     border: 5px;
-    display: flex;
+    border-radius: 5px;
+    /* display: flex; */
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    /* flex-direction: column; */
+    display: grid;
+    grid-template-columns: 1fr 2fr;    
+    transition: 300ms ease-in;
+    margin-bottom: 5px;
 }
 
 .form-drag-area.active {
-    transition: 300ms ease-in;
     border: 2px dashed #888888;
     background-color: #d8d8d8;
 }
 
-
-.form-drag-area .icon {
-    font-size: 1rem;
-    color: #494949;
+.right-content{
+    margin: 0 auto;
 }
 
-.form-drag-area .icon img{
+.form-upload {
+    background-color: #494949;
+}
+
+.icon {
+    margin: 0 auto;
+}
+
+.icon img{
     border-radius: 50%;
 }
 
-.form-drag-area .description {
+.description {
     font-size: 0.8rem;
     font-weight: 500;
     color: #494949;
+}
+
+/* browse button */
+.form-upload {
+    background-color: var(--form-upload-button-background-color);
+    color: var(--form-upload-button-color);
+    padding: 8px 8px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 3px;
+    width: 100px;
+}
+
+.form-upload:hover {
+    opacity: 1;
 }

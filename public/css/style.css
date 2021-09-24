@@ -15,6 +15,8 @@
 
 @import url('utilities/responsive_grid_layout.css');
 
+@import url('components/posts/posts-styles.css');
+
 /* fonts */
 @font-face {
     font-family: Poppins-Regular;

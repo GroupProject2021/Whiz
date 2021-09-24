@@ -5,15 +5,7 @@
         }
 
         public function index() {
-            // if logged in directly go to the posts not home
-            // if(isLoggedIn())
-            // {
-            //     redirect('posts');
-            // }
-
-            $posts = $this->postModel->getPosts();
-            $data = ['title' => 'hi', 'posts' => $posts];
-            $this->view('pages/index', $data);
+            $this->view('pages/index');
         }
 
         public function about() {

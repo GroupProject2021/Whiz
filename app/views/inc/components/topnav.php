@@ -5,7 +5,7 @@
     
   </div> -->
 
-  <a href="<?php echo URLROOT; ?>" class="active">Home</a> 
+  <a href="<?php echo URLROOT; ?>/index" class="active">Home</a> 
 
   <!-- Left-aligned links (default) -->
   <!--
