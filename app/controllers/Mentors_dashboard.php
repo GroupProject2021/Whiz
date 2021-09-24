@@ -30,7 +30,7 @@
 
         public function banner() {
             // Get posts
-            $posts = $this->postModel->getPosts();
+            $posts = $this->mentorDashboardModel->getPosters();
 
             $data = [
                 'posts' => $posts
@@ -41,7 +41,7 @@
 
         public function poster() {
             // Get posts
-            $posts = $this->postModel->getPosts();
+            $posts = $this->mentorDashboardModel->getPosters();
 
             $data = [
                 'posts' => $posts
@@ -91,9 +91,12 @@
             }
             else {
                 $data = [
-                    'id' => '',
+                    // 'id' => '',
                     'title' => '',
-                    'body' => ''
+                    'body' => '',
+
+                    'title_err' => '',
+                    'body_err' => ''
                 ];
             }
 

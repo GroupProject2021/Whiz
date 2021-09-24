@@ -10,9 +10,9 @@
         <div class="main-content">
             <header>                
                 <div class="menu-toggle">
-                    <label for="sidebar-toggle">
+                    <button type="button" class="sidebar-handle">
                         <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
-                    </label>
+                    </button>
                 </div>
                 
                 <!-- TOP NAVIGATION BAR -->
