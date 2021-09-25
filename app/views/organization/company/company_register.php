@@ -10,7 +10,7 @@
 
         <!-- REGISTRATION FORM -->
         <div class="form-container">
-            <form action="<?php echo URLROOT; ?>/organizations/company_register" method="post">
+            <form action="<?php echo URLROOT; ?>/organizations/company_register" method="post"  enctype="multipart/form-data">
                 <h1>Company Register</h1>
                 <p>Please fill in this form to create an account</p>
                 <hr class="form-hr">
@@ -172,6 +172,6 @@
         </div>
 
         <!-- java script form validation -->
-        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/form.js"></script>
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/completeFormValidation.js"></script>
     </body>
 </html>

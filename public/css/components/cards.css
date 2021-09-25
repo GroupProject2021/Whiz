@@ -11,7 +11,7 @@
     --bad-bg-color-hover: #bd223c;
     --bad-color: #FBFBFB;
 
-    --idle-bg-color: #FBFBFB;
+    --idle-bg-color: #d1d1d1;
     --idle-bg-color-hover: #d3d2d2;
     --idle-color: #262626;
 
@@ -24,16 +24,29 @@
 }
 
 .stream-selection-card {
-    color: var(--idle-color);
-    background-color: var(--idle-bg-color);
+    /* color: var(--idle-color); */
+    /* background-color: var(--idle-bg-color); */
+    color: #262626;
+    background-color: #d1d1d1;
     width: 45rem;
     box-shadow: var(--box-shadow-color);
     margin-bottom: 0.6rem;
+    border-radius: 2px;
+    animation: anim-card 1s ease forwards;
+}
+
+@keyframes anim-card {
+    0%{
+        transform: translateX(3%)
+    }
 }
 
 .stream-selection-card:hover{
-    background-color: var(--idle-bg-color-hover);
+    /* background-color: var(--idle-bg-color-hover); */
+    background-color: #d3d2d2;
 }
+
+
 
 .stream-selection-card-title {
     text-align: left;
@@ -44,6 +57,8 @@
     font-size: 1rem;
 }
 
+
+
 /* good */
 .good-stream-recommend-card {
     color: var(--good-color);
@@ -51,6 +66,7 @@
     width: 45rem;
     box-shadow: var(--box-shadow-color);
     margin-bottom: 0.6rem;
+    animation: anim-rec 1s ease forwards;
 }
 
 .good-stream-recommend-card:hover{
@@ -64,6 +80,7 @@
     width: 45rem;
     box-shadow: var(--box-shadow-color);
     margin-bottom: 0.6rem;
+    animation: anim-rec 1s ease forwards;
 }
 
 .normal-stream-recommend-card:hover{
@@ -77,6 +94,7 @@
     width: 45rem;
     box-shadow: var(--box-shadow-color);
     margin-bottom: 0.6rem;
+    animation: anim-rec 1s ease forwards;
 }
 
 .bad-stream-recommend-card:hover{
@@ -90,10 +108,17 @@
     width: 45rem;
     box-shadow: var(--box-shadow-color);
     margin-bottom: 0.6rem;
+    animation: anim-rec 1s ease forwards;
 }
 
 .stream-recommend-card:hover{
     background-color: var(--idle-bg-color-hover);
+}
+
+@keyframes anim-rec {
+    0%{
+        transform: translateX(3%)
+    }
 }
 
 .stream-recommend-card-number {

@@ -75,6 +75,7 @@
     cursor: pointer;
     width: 10rem;
     opacity: 0.9;
+    text-decoration: none;
 }
 
 .btn3:hover {

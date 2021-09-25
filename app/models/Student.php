@@ -24,16 +24,14 @@
 
            
             // register as a student
-            $this->db->query('INSERT INTO student(profile_image, name, address, gender, date_of_birth, email, phn_no, password) VALUES(:profile_image, :name, :address, :gender, :date_of_birth, :email, :phn_no, :password)');
+            $this->db->query('INSERT INTO student(name, address, gender, date_of_birth, email, phn_no) VALUES(:name, :address, :gender, :date_of_birth, :email, :phn_no)');
             // bind values
-            $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(":name", $data['name']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":gender", $data['gender']);
             $this->db->bind(":date_of_birth", $data['date_of_birth']);
             $this->db->bind(":email", $data['email']);
             $this->db->bind(":phn_no", $data['phn_no']);
-            $this->db->bind(":password", $data['password']); 
 
             // Execute
             if($this->db->execute()) {

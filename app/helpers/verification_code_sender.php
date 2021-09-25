@@ -4,9 +4,6 @@
         
         $verificationCode = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
 
-        $receiver = $email;
-        $subject = "Whiz account email verification code";
-
         // body contain image taken from google drive logo.png
         /* 
             later create a new gmail for whiz
@@ -16,6 +13,8 @@
             Drive link preview: https://drive.google.com/file/d/10XKWTckkC-tquXJYrDyQrluabr51FAJL/view
             Set it as this: https://drive.google.com/uc?export=view&id=10XKWTckkC-tquXJYrDyQrluabr51FAJL
         */
+        $receiver = $email;
+        $subject = "Whiz account email verification code";
         $body =    '<html>
                         <head>
                             <style>
@@ -102,7 +101,7 @@
                             Didn\'t create Whiz account? It\'s likely someone just typed in your email address by accident. Feel free to ignore this email.
                             <br><br>
                             <div class="link">
-                                Visit us: <a href="www.whiz.lk">www.whiz.lk</a>
+                                Visit Us: <a href="www.whiz.lk">www.whiz.lk</a>
                             </div>						
                         </div>
                         </div>
@@ -120,16 +119,10 @@
         if(mail($receiver, $subject, $body, $header)) {
             // set the verification code
             $_SESSION['verification_code'] = $verificationCode;
-            
-            // flash('resend_verification_successfull', 'Verification code resend succcessfully');
-            // redirect('Commons/userEmailVerification');
 
             return true;
         }
         else {
-            // flash('resend_verification_failed', 'Verification code resend failed! Check your internet connection or please try again waiting few minutes.');
-            // redirect('Commons/userEmailVerification');
-
             // unset the sent verificaiton code
             unset($_SESSION['verification_code']);
 

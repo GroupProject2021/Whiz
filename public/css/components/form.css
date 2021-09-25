@@ -3,8 +3,6 @@
     --input-field-background-color: #f1f1f1;
     --input-field-focus-background-color: #fcf0e8;
     --form-hr-border-color: #f1f1f1;
-    --form-upload-button-background-color: #4a73f8;
-    --form-upload-button-color: white;
     --form-submit-button-background-color: #db7e31;
     --form-submit-button-color: white;
     --form-skip-button-background-color: gray;
@@ -36,7 +34,8 @@
     margin-top: 20px;
     padding: 16px;
     background-color: var(--form-container-background-color);
-    width: 26%;
+    /* width: 26%; */
+    width: 400px;
     box-shadow: 0 4px 8px 0 var(--box-shadow-color);
     border: 1px solid #d3d3d3;
 }
@@ -214,21 +213,6 @@ input[type=text]:not(:placeholder-shown) + label, input[type=password]:not(:plac
     color: #555;
 }
 
-/* Set a style for the submit button */
-.form-upload {
-    background-color: var(--form-upload-button-background-color);
-    color: var(--form-upload-button-color);
-    padding: 8px 8px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    opacity: 0.9;
-    border-radius: 3px;
-}
-
-.form-upload:hover {
-    opacity: 1;
-}
 
 /* Set a style for the submit button */
 .form-submit {

@@ -1,15 +1,3 @@
-/* 
-    --- Regular Expressions - IMPORTANT NOTES ---
-    
-    \d or [0-9]- match any number
-    \w or [a-zA-Z0-9&_] - match any word character
-    \s - match whitespaces (tabs & spaces)
-    \t - match tab only
-
-    ^ - excluding the folowwing characters
-    $ - end of the regular expresstion
-*/
-
 function _id(name) {
     return document.getElementById(name);
 }
@@ -17,37 +5,6 @@ function _id(name) {
 function _class(name) {
     return document.getElementsByClassName(name);
 }
-
-
-
-// show/ hide eye toggle
-_class("toggle-password")[0].addEventListener("click", function() {
-    _class("toggle-password")[0].classList.toggle("active");
-
-    if(_id("password").getAttribute("type") == "password") {
-        _id("password").setAttribute("type", "text");
-    }
-    else {
-        _id("password").setAttribute("type", "password");
-    }
-});
-
-
-
-// Email validation
-_id("email").addEventListener("keyup", function() {
-    let email = _id("email").value;
-    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-
-    if(email.match(pattern) && email.length != 0) {
-        _class("email-validation")[0].classList.add("active");
-    }
-    else {
-        _class("email-validation")[0].classList.remove("active");
-    }
-});
-
-
 
 // Password policies check on password
 _id("password").addEventListener("keyup", function() {
@@ -82,22 +39,6 @@ _id("password").addEventListener("keyup", function() {
     }
 });
 
-
-
-// show/ hide eye toggle on confirm password
-_class("toggle-confirm-password")[0].addEventListener("click", function() {
-    _class("toggle-confirm-password")[0].classList.toggle("active");
-
-    if(_id("confirm_password").getAttribute("type") == "password") {
-        _id("confirm_password").setAttribute("type", "text");
-    }
-    else {
-        _id("confirm_password").setAttribute("type", "password");
-    }
-});
-
-
-
 // Password matching check on both password and confirm password - BI-DIRECTIONAL PASSWORD MATCH
 _id("password").addEventListener("keyup", function() {
     let password = _id("password").value;
@@ -123,17 +64,26 @@ _id("confirm_password").addEventListener("keyup", function() {
     }
 });
 
+// show/ hide eye toggle
+_class("toggle-password")[0].addEventListener("click", function() {
+    _class("toggle-password")[0].classList.toggle("active");
 
-
-// Phone number validation
-_id("phn_no").addEventListener("keyup", function() {
-    let phn_no = _id("phn_no").value;
-    let pattern = /^[0][0-9]{9}$/;
-
-    if(phn_no.match(pattern) && phn_no.length != 0) {
-        _class("phn_no-validation")[0].classList.add("active");
+    if(_id("password").getAttribute("type") == "password") {
+        _id("password").setAttribute("type", "text");
     }
     else {
-        _class("phn_no-validation")[0].classList.remove("active");
+        _id("password").setAttribute("type", "password");
+    }
+});
+
+// show/ hide eye toggle on confirm password
+_class("toggle-confirm-password")[0].addEventListener("click", function() {
+    _class("toggle-confirm-password")[0].classList.toggle("active");
+
+    if(_id("confirm_password").getAttribute("type") == "password") {
+        _id("confirm_password").setAttribute("type", "text");
+    }
+    else {
+        _id("confirm_password").setAttribute("type", "password");
     }
 });
