@@ -199,6 +199,18 @@
             }
         }
 
+        // Complaints
+        public function complaint() {
+            // Get posts
+            $posts = $this->mentorDashboardModel->getComplaints();
+
+            $data = [
+                'posts' => $posts
+            ];
+
+            $this->view('mentors/opt_complaint/v_complaint_index', $data);
+        }
+
         
     }
 
