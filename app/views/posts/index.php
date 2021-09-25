@@ -42,7 +42,8 @@
                         <?php //if($post->id == $_SESSION['user_id']): ?>
                             <div class="post">
                                 <div class="post-header">
-                                        <div class="post-header-icon"><img src="<?php echo URLROOT;?>/imgs/prof.jpg" alt=""></div>
+                                        <div class="post-header-icon"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt=""></div>
+                                        <div class="post-header-actortypeicon"><img src="<?php echo URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($post->actor_type).'-'.getActorSpecializedTypeForIcons($post->actor_type, $post->specialized_actor_type).'-icon.png'; ?>" alt=""></div>
                                         <div class="post-header-postedby"><?php echo $post->name; ?></div>
                                         <div class="post-header-verified"><img src="<?php echo URLROOT;?>/imgs/verified.png" alt=""></div>
                                         <div class="post-header-postedtime"><?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
@@ -56,9 +57,9 @@
                                 </div>
                                 <hr>
                                 <div class="post-footer">
-                                    <button>
+                                    <button id="like">
                                         <div class="post-footer-likebtn"><img src="<?php echo URLROOT;?>/imgs/like.png" alt=""></div>
-                                        <div class="post-footer-text"><?php echo $post->ups; ?></div>
+                                        <div class="post-footer-text" id="like-count"><?php echo $post->ups; ?></div>
                                     </button>
                                     <button>
                                         <div class="post-footer-dislikebtn"><img src="<?php echo URLROOT;?>/imgs/like.png" alt=""></div>
@@ -98,5 +99,22 @@
 
             //     console.log(i);
             // }            
+        </script>
+
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+        <script>
+            // for likes
+            $('#like').click(function(event) {
+                    event.preventDefault();
+
+                $.ajax({
+                    url: "<?php echo URLROOT;?>/posts/incUp/2",
+                    method: "post",
+                    data: $('form').serialize(),
+                    dataType: "text",
+                    success: function(strMessage) {
+                        $('#like-count').text(strMessage);
+                    }
+                })})
         </script>
 <?php require APPROOT.'/views/inc/footer.php'; ?>

@@ -22,26 +22,7 @@
       <div class="user-details">
         <div class="user-profile-image">
           <?php
-            echo '<img src="'.URLROOT.'/profileimages/';
-
-            switch($_SESSION['actor_type']) {
-              case 'Student': 
-                        echo 'student/';
-                        break;
-              case 'Organization': 
-                        echo 'organization/';
-                        break;
-              case 'Mentor': 
-                        echo 'mentor/';
-                        break;
-              case 'Admin':
-                        echo 'admin/';
-                        break;
-              default: 
-                        break;
-            }
-
-            echo $_SESSION['user_profile_image'].'?>" alt="profile_image">'
+            echo '<img src="'.URLROOT.'/profileimages/'.getActorTypeForIcons($_SESSION['actor_type']).'/'.$_SESSION['user_profile_image'].'?>" alt="profile_image">'
           ?>
         </div>
         <div class="user-profile-name">

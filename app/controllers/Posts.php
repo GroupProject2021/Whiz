@@ -236,13 +236,13 @@
             // RENDER COMMENTS
             foreach($comments as $comment) {
                 $user = $this->postModel->getUserDetails($comment->user_id);
-
+                $userProfileImgURL = URLROOT.'/profileimages/'.getActorTypeForIcons($user->actor_type).'/'.$user->profile_image;
+                $userActorTypeImgURL = URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($user->actor_type).'-'.getActorSpecializedTypeForIcons($user->actor_type, $user->specialized_actor_type).'-icon.png';
                 
-
                 echo '<div class="comment">';
                 echo '<div class="comment-header">';
-                echo    '<div class="comment-header-icon"><img src="'.URLROOT.'/profileimages/student/'.$user->profile_image.'" alt=""></div>';
-                echo    '<div class="comment-header-actortypeicon"><img src="'.URLROOT.'/imgs/prof.jpg" alt=""></div>';
+                echo    '<div class="comment-header-icon"><img src="'.$userProfileImgURL.'" alt=""></div>';
+                echo    '<div class="comment-header-actortypeicon"><img src="'.$userActorTypeImgURL.'" alt=""></div>';
                 echo    '<div class="comment-header-postedby">'.$user->name.'</div>';
                 if($user->status == "verified") {
                     echo    '<div class="comment-header-verified"><img src="'.URLROOT.'/imgs/verified.png" alt=""></div>';

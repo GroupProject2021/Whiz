@@ -9,6 +9,7 @@
     require_once 'helpers/verification_code_sender.php';
     require_once 'helpers/password_reset_sender.php';
     require_once 'helpers/time_conveter.php';
+    require_once 'helpers/get_user_session_details_helper.php';
 
     // Load libraries (Manual loading)
     // require_once 'libraries/Controller.php';

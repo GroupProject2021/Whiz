@@ -38,7 +38,8 @@
                         <!-- I added this later. So now it will only show the posts that are related to the user. Remove if statement and it will show all the posts -->
                             <div class="post">
                                 <div class="post-header">
-                                        <div class="post-header-icon"><img src="<?php echo URLROOT;?>/imgs/prof.jpg" alt=""></div>
+                                        <div class="post-header-icon"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image;?>" alt=""></div>
+                                        <div class="post-header-actortypeicon"><img src="<?php echo URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($data['user']->actor_type).'-'.getActorSpecializedTypeForIcons($data['user']->actor_type, $data['user']->specialized_actor_type).'-icon.png'; ?>" alt=""></div>
                                         <div class="post-header-postedby"><?php echo $data['user']->name; ?></div>
                                         <div class="post-header-verified"><img src="<?php echo URLROOT;?>/imgs/verified.png" alt=""></div>
                                         <div class="post-header-postedtime"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>

@@ -14,15 +14,34 @@
 }
 
 .post-header-icon{
-    width: 50px;
+    width: 40px;
     text-align: center;
-    padding: 5px;
+    padding-left: 5px;
+    padding-right: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .post-header-icon img {
     height: 30px;
     width: 30px;
     border-radius: 50%;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.post-header-actortypeicon{
+    width: 15px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.post-header-actortypeicon img {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: relative;
+    left: -15px;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -36,12 +55,12 @@
 
 .post-header-verified {
     width: fit-content;
-    padding: 5px;
+    padding: 10px 5px 10px 5px;
 }
 
 .post-header-verified img {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
 }
 
 .post-header-postedtime {
