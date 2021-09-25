@@ -1,4 +1,6 @@
 <?php
+
+
     class Posts extends Controller {
         public function __construct() {
             if(!isLoggedIn()){
@@ -7,7 +9,11 @@
 
             $this->postModel = $this->model('Post');
             $this->userModel = $this->model('User');
+
+            
         }
+
+        
 
         public function index() {
             // Get posts
@@ -30,7 +36,12 @@
                     'body' => trim($_POST['body']),
                     'user_id' => $_SESSION['user_id'],
                     'title_err' => '',
-                    'body_err' => ''
+                    'body_err' => '',
+                    
+                    'ups' => 0,
+                    'downs' => 0,
+                    'shares' => 0,
+                    'views' => 0
                 ];
 
                 // Validate title
@@ -63,7 +74,11 @@
                 $data = [
                     'id' => '',
                     'title' => '',
-                    'body' => ''
+                    'body' => '',
+                    'ups' => '',
+                    'downs' => '',
+                    'shares' => '',
+                    'views' => ''
                 ];
             }
 
@@ -132,15 +147,25 @@
         }
 
         public function show($id) {
+            $_SESSION['current_viewing_post_id'] = $id;
+
             $post = $this->postModel->getPostById($id);
             $user = $this->userModel->getUserById($post->user_id);
 
+            $ups = $this->postModel->getInc($id)->ups;
+            $downs = $this->postModel->getDown($id)->downs;
+
             $data = [
                 'post' => $post,
-                'user' => $user
+                'user' => $user,
+
+                'ups' => $ups,
+                'downs' => $downs
             ];
 
             $this->view('posts/show', $data);
+
+            
         }
 
         public function delete($id) {
@@ -164,6 +189,87 @@
             else {
                 redirect('posts');
             }
+        }
+
+
+        public function incUp($id) {
+            $ups = $this->postModel->incUp($id);
+            if($ups != false) {
+                echo $ups->ups;
+            }    
+        }
+
+        public function incDown($id) {
+            $downs = $this->postModel->incDown($id);
+            if($downs != false) {
+                echo $downs->downs;
+            }    
+        }
+
+        public function comment($id) {
+            $userId = $_SESSION['user_id'];
+            $postId = $id;
+            $commentContent = $_POST['post-comment'];
+
+
+            echo 'user: '.$userId.' post: '.$postId.' comment: '.$commentContent;
+
+            $data = [
+                'post_id' => $postId,
+                'user_id' => $userId,
+                'content' => $commentContent
+            ];
+
+            if($this->postModel->addComment($data)) {
+                echo 'success';
+            }
+            else {
+                echo 'failed';
+            }
+        }
+
+        public function showComments($id) {
+            $comments = $this->postModel->getComments($id);
+
+            // RENDER COMMENTS
+            foreach($comments as $comment) {
+                $user = $this->postModel->getUserDetails($comment->user_id);
+
+                echo '<div class="comment">';
+                echo '<div class="comment-header">';
+                echo    '<div class="comment-header-icon"><img src="'.URLROOT.'/profileimages/student/'.$user->profile_image.'" alt=""></div>';
+                echo    '<div class="comment-header-actortypeicon"><img src="'.URLROOT.'/imgs/prof.jpg" alt=""></div>';
+                echo    '<div class="comment-header-postedby">'.$user->name.'</div>';
+                echo    '<div class="comment-header-verified"><img src="'.URLROOT.'/imgs/verified.png" alt=""></div>';
+                echo    '<div class="comment-header-postedtime">'.$comment->created_at.'</div>';
+                echo '</div>';
+                echo '<div class="comment-body">';
+                echo    $comment->content;
+                echo '</div>';
+                echo '<div class="comment-footer">';
+                echo '<button>';
+                echo    '<div class="comment-footer-likebtn"><img src="'.URLROOT.'/imgs/up-icon.png" alt=""></div>';
+                echo    '<div class="comment-footer-text">likes</div>';
+                echo '</button>';
+                echo '<button>';
+                echo    '<div class="comment-footer-dislikebtn"><img src="'.URLROOT.'/imgs/down-icon.png" alt=""></div>';
+                echo    '<div class="comment-footer-text">dislikes</div>';
+                echo '</button>';
+                echo '<button>';
+                echo    '<div class="comment-footer-replybtn"><img src="'.URLROOT.'/imgs/reply-icon.png" alt=""></div>';
+                echo    '<div class="comment-footer-text">reply</div>';
+                echo '</button>';
+                echo '</div>';
+                echo '</div>';
+            }
+        }
+
+        public function incShare() {
+
+        }
+
+        public function incView() {
+
         }
     }
 ?>

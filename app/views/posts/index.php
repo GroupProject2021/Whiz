@@ -39,7 +39,7 @@
 
                     <?php foreach($data['posts'] as $post): ?>
                         <!-- I added this later. So now it will only show the posts that are related to the user. Remove if statement and it will show all the posts -->
-                        <?php if($post->id == $_SESSION['user_id']): ?>
+                        <?php //if($post->id == $_SESSION['user_id']): ?>
                             <div class="post">
                                 <div class="post-header">
                                         <div class="post-header-icon"><img src="<?php echo URLROOT;?>/imgs/prof.jpg" alt=""></div>
@@ -58,16 +58,16 @@
                                 <div class="post-footer">
                                     <button>
                                         <div class="post-footer-likebtn"><img src="<?php echo URLROOT;?>/imgs/like.png" alt=""></div>
-                                        <div class="post-footer-text">Like</div>
+                                        <div class="post-footer-text"><?php echo $post->ups; ?></div>
                                     </button>
                                     <button>
                                         <div class="post-footer-dislikebtn"><img src="<?php echo URLROOT;?>/imgs/like.png" alt=""></div>
-                                        <div class="post-footer-text">Disike</div>
+                                        <div class="post-footer-text"><?php echo $post->downs; ?></div>
                                     </button>
-                                    <div class="post-footer-input"><input type="text" placeholder="Comment..." name="post-comment" id="post-comment" class="post-comment"></div>
+                                    <!-- <div class="post-footer-input"><input type="text" placeholder="Comment..." name="post-comment" id="post-comment" class="post-comment"></div>
                                     <button>
                                         <div class="post-footer-commentbtn"><img src="<?php echo URLROOT;?>/imgs/comment.png" alt=""></div>
-                                    </button>
+                                    </button> -->
                                     <button>
                                         <div class="post-footer-sharebtn"><img src="<?php echo URLROOT;?>/imgs/share.png" alt=""></div>
                                         <div class="post-footer-text">Share</div>
@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                             <br>
-                        <?php endif; ?>
+                        <?php //endif; ?>
                     <?php endforeach; ?>
 
                     </div>
@@ -87,4 +87,16 @@
                 </div>
             </main>
         </div>
+
+        <script>
+            // var upBtns = document.getElementsByClassName("post-footer-likebtn");
+
+            // for(i = 0; i < upBtns.length; i++) {
+            //     upBtns[i].addEventListener("click", function() {
+            //         upBtns[i].classList.add("liked");
+            //     });
+
+            //     console.log(i);
+            // }            
+        </script>
 <?php require APPROOT.'/views/inc/footer.php'; ?>

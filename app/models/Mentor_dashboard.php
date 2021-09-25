@@ -84,5 +84,20 @@
                 return false;
             }
         }
+
+        // Complaint functions
+        public function getComplaints() {
+            $this->db->query("SELECT *, 
+                                complaints.id AS postId,
+                                users.id AS userId,
+                                complaints.created_at as postCreated
+                                FROM complaints
+                                INNER JOIN users  
+                                ON complaints.user_id = users.id 
+                                ORDER BY complaints.created_at DESC");
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
     }
 ?>
