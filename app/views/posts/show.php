@@ -41,7 +41,7 @@
                                         <div class="post-header-icon"><img src="<?php echo URLROOT;?>/imgs/prof.jpg" alt=""></div>
                                         <div class="post-header-postedby"><?php echo $data['user']->name; ?></div>
                                         <div class="post-header-verified"><img src="<?php echo URLROOT;?>/imgs/verified.png" alt=""></div>
-                                        <div class="post-header-postedtime"><?php echo $data['post']->created_at; ?></div>
+                                        <div class="post-header-postedtime"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
 
                                         <?php if($data['post']->user_id == $_SESSION['user_id']): ?>    
                                             <div class="post-control-buttons">                                        

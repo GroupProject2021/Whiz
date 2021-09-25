@@ -228,6 +228,8 @@
             }
         }
 
+        
+
         public function showComments($id) {
             $comments = $this->postModel->getComments($id);
 
@@ -235,13 +237,17 @@
             foreach($comments as $comment) {
                 $user = $this->postModel->getUserDetails($comment->user_id);
 
+                
+
                 echo '<div class="comment">';
                 echo '<div class="comment-header">';
                 echo    '<div class="comment-header-icon"><img src="'.URLROOT.'/profileimages/student/'.$user->profile_image.'" alt=""></div>';
                 echo    '<div class="comment-header-actortypeicon"><img src="'.URLROOT.'/imgs/prof.jpg" alt=""></div>';
                 echo    '<div class="comment-header-postedby">'.$user->name.'</div>';
-                echo    '<div class="comment-header-verified"><img src="'.URLROOT.'/imgs/verified.png" alt=""></div>';
-                echo    '<div class="comment-header-postedtime">'.$comment->created_at.'</div>';
+                if($user->status == "verified") {
+                    echo    '<div class="comment-header-verified"><img src="'.URLROOT.'/imgs/verified.png" alt=""></div>';
+                }
+                echo    '<div class="comment-header-postedtime">'.convertedToReadableTimeFormat($comment->created_at).'</div>';
                 echo '</div>';
                 echo '<div class="comment-body">';
                 echo    $comment->content;

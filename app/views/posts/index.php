@@ -45,7 +45,7 @@
                                         <div class="post-header-icon"><img src="<?php echo URLROOT;?>/imgs/prof.jpg" alt=""></div>
                                         <div class="post-header-postedby"><?php echo $post->name; ?></div>
                                         <div class="post-header-verified"><img src="<?php echo URLROOT;?>/imgs/verified.png" alt=""></div>
-                                        <div class="post-header-postedtime"><?php echo $post->postCreated; ?></div>
+                                        <div class="post-header-postedtime"><?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
                                 </div>
                                 <div class="post-body">
                                     <div class="post-body-title"><?php echo $post->title; ?></div>
