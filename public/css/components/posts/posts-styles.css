@@ -124,6 +124,10 @@ hr {
     border-radius: 5px
 }
 
+.post-footer-likebtn.liked {
+    background-color: #1266F1;
+}
+
 
 
 /* SHOW MORE POSTS */
