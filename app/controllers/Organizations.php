@@ -2,6 +2,7 @@
     class Organizations extends Controller {
         public function __construct() {
             $this->organizationModel = $this->model('Organization');
+            $this->commonModel = $this->model('Common');
         }
 
         public function register() {
@@ -81,7 +82,7 @@
                     $data['email_err'] = 'Enter valid email'; 
                 }
                 // Check email
-                else if($this->organizationModel->findUserByEmail($data['email'])) {
+                else if($this->commonModel->findUserByEmail($data['email'])) {
                     $data['email_err'] = 'Email is already taken'; 
                 }
 
@@ -306,7 +307,7 @@
                     $data['email_err'] = 'Enter valid email'; 
                 }
                 // Check email
-                else if($this->organizationModel->findUserByEmail($data['email'])) {
+                else if($this->commonModel->findUserByEmail($data['email'])) {
                     $data['email_err'] = 'Email is already taken'; 
                 }
 

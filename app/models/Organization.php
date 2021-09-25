@@ -40,14 +40,7 @@
             $this->db->execute();
 
             //finf org_id
-            $this->db->query('SELECT * FROM organization WHERE email = :email');
-            // bind values
-            $this->db->bind(':email', $data['email']);
-
-            $row = $this->db->single();
-            $uni_id = $row->org_id;
-            
-            //$uni_id = $this->findOrganizationIdbyEmail($data['email']);
+            $uni_id = $this->findOrganizationIdbyEmail($data['email']);
 
             // register as a university
             $this->db->query('INSERT INTO privateuniversity(privateuni_id, ugc_approval, world_rank, student_amount, graduate_job_rate, description, uni_type) VALUES(:id, :approved, :rank, :amount, :rate, :descrip, :type)');
@@ -101,14 +94,7 @@
             $this->db->execute();
 
             //finf org_id
-            $this->db->query('SELECT * FROM organization WHERE email = :email');
-            // bind values
-            $this->db->bind(':email', $data['email']);
-
-            $row = $this->db->single();
-            $com_id = $row->org_id;
-
-            //$com_id = $this->findOrganizationIdbyEmail($data['email']);
+            $com_id = $this->findOrganizationIdbyEmail($data['email']);
 
             // register as a company
             $this->db->query('INSERT INTO company(company_id, current_emplyee_amount, company_size, registered, overview, services) VALUES(:id, :cur_emp, :emp_size, :registered, :overview, :services)');
@@ -130,7 +116,7 @@
             }
         }
 
-        // Find user by email
+        /*// Find user by email
         public function findUserByEmail($email) {
             $this->db->query('SELECT * FROM users WHERE email = :email'); // this is a prepared statement
             // bind value
@@ -145,7 +131,7 @@
             else {
                 return false;
             }
-        }
+        }*/
 
         public function findOrganizationIdbyEmail($email) {
             $this->db->query('SELECT * FROM organization WHERE email = :email');
