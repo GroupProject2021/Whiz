@@ -64,10 +64,10 @@
                                         <div class="post-footer-dislikebtn"><img src="<?php echo URLROOT;?>/imgs/like.png" alt=""></div>
                                         <div class="post-footer-text"><?php echo $post->downs; ?></div>
                                     </button>
-                                    <div class="post-footer-input"><input type="text" placeholder="Comment..." name="post-comment" id="post-comment" class="post-comment"></div>
+                                    <!-- <div class="post-footer-input"><input type="text" placeholder="Comment..." name="post-comment" id="post-comment" class="post-comment"></div>
                                     <button>
                                         <div class="post-footer-commentbtn"><img src="<?php echo URLROOT;?>/imgs/comment.png" alt=""></div>
-                                    </button>
+                                    </button> -->
                                     <button>
                                         <div class="post-footer-sharebtn"><img src="<?php echo URLROOT;?>/imgs/share.png" alt=""></div>
                                         <div class="post-footer-text">Share</div>
