@@ -8,7 +8,7 @@
             
             <div class="brand-icons">
             <!-- <a href=""><img src="<?php echo URLROOT; ?>/imgs/sidebar/notification-bell.png"></a> -->
-            <a href="<?php echo URLROOT; ?>/C_M_Settings/settings"><img src="<?php echo URLROOT; ?>/imgs/sidebar/settings.png"></a>
+                <a href="<?php echo URLROOT; ?>/C_M_Settings/settings"><img src="<?php echo URLROOT; ?>/imgs/sidebar/settings.png"></a>
             </div>
         </div>
     </div>
