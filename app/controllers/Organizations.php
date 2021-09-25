@@ -5,8 +5,7 @@
         }
 
         public function register() {
-            $data=[];
-            $this->view('organization/organization_register', $data);
+            $this->view('organization/organization_register', '');
         }
 
         public function university_register() {
@@ -176,9 +175,7 @@
 
                     // Register User
                     if($this->organizationModel->university_register($data)) {
-                        // // Redirect
-                        // flash('register_success', 'You are registered can log in');
-                        // redirect('commons/login');
+                        // set the verification sent email
                         sendVerificationCode($data['email']);
 
                         // Redirect
@@ -392,9 +389,7 @@
 
                     // Register User
                     if($this->organizationModel->company_register($data)) {
-                        // // Redirect
-                        // flash('register_success', 'You are registered can log in');
-                        // redirect('commons/login');
+                        // set the verification sent email
                         sendVerificationCode($data['email']);
 
                         // Redirect

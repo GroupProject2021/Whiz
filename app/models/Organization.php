@@ -46,6 +46,8 @@
 
             $row = $this->db->single();
             $uni_id = $row->org_id;
+            
+            //$uni_id = $this->findOrganizationIdbyEmail($data['email']);
 
             // register as a university
             $this->db->query('INSERT INTO privateuniversity(privateuni_id, ugc_approval, world_rank, student_amount, graduate_job_rate, description, uni_type) VALUES(:id, :approved, :rank, :amount, :rate, :descrip, :type)');
@@ -105,6 +107,8 @@
 
             $row = $this->db->single();
             $com_id = $row->org_id;
+
+            //$com_id = $this->findOrganizationIdbyEmail($data['email']);
 
             // register as a company
             $this->db->query('INSERT INTO company(company_id, current_emplyee_amount, company_size, registered, overview, services) VALUES(:id, :cur_emp, :emp_size, :registered, :overview, :services)');

@@ -1,11 +1,12 @@
 <?php
     class Organizations_university extends Controller {
-        public function __construct() {
+        /*public function __construct() {
             $this->postModel = $this->model('Organization_university');
         }
 
         function signindex() {
-            $this->view->render('organization/university/signup');
+            $data =[];
+            $this->view('organization/university/signup', $data);
         }
 
         function signup() {
@@ -28,5 +29,5 @@
             }
         header('location:index');
         }
-    }
+    }*/
 ?>

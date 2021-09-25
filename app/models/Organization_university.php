@@ -1,6 +1,6 @@
 <?php
 class Organization_university {
-    private $db;
+    /*private $db;
 
     public function __construct(){
         $this->db = new Database;
@@ -14,5 +14,5 @@ class Organization_university {
     public function insert_user($data) {
         $this->db->insert('user', $data);
     }
-}
+}*/
 ?>

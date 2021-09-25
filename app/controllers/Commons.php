@@ -1,7 +1,7 @@
 <?php
     class Commons extends Controller {
         public function __construct() {
-            $this->userModel = $this->model('User');
+            //$this->userModel = $this->model('User');
             $this->commonModel = $this->model('Common');
         }
 
@@ -109,19 +109,18 @@
                 if(empty($data['email'])) {
                     $data['email_err'] = 'Please enter email';
                 }
-
-                // Validate password
-                if(empty($data['password'])) {
-                    $data['password_err'] = 'Please enter password';
-                }
-
                 // Check for user/email
-                if($this->userModel->findUserByEmail($data['email'])) {
+                else if($this->commonModel->findUserByEmail($data['email'])) {
                     // User found
                 }
                 else {
                     //user not found
                     $data['email_err'] = 'No user found';
+                }
+
+                // Validate password
+                if(empty($data['password'])) {
+                    $data['password_err'] = 'Please enter password';
                 }
 
                 if($data['captcha_value'] != "true") {
@@ -132,7 +131,7 @@
                 if(empty($data['email_err']) && empty($data['password_err']) && empty($data['captcha_value_err'])) {
                     // Validated
                     // Check and set logged in user
-                    $loggedInUser = $this->userModel->login($data['email'], $data['password']);
+                    $loggedInUser = $this->commonModel->login($data['email'], $data['password']);
 
                     if($loggedInUser) {
                         // Create session
@@ -234,6 +233,21 @@
         }
 
         public function organizationDashboardRedirect() {
+            $data = ['title' => 'Welcome to Organization dashboard'];
+
+            switch($_SESSION['specialized_actor_type']) {
+                case 'University' :
+                    redirect('University_dashboards/index');
+                    break;
+                
+                case 'Company' :
+                    redirect('Company_dashboards/index');
+                    break;
+
+                default:
+                    // nothing
+                    break;
+            }
 
         }
 
