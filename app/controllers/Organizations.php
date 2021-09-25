@@ -2,11 +2,11 @@
     class Organizations extends Controller {
         public function __construct() {
             $this->organizationModel = $this->model('Organization');
+            $this->commonModel = $this->model('Common');
         }
 
         public function register() {
-            $data=[];
-            $this->view('organization/organization_register', $data);
+            $this->view('organization/organization_register', '');
         }
 
         public function university_register() {
@@ -82,7 +82,7 @@
                     $data['email_err'] = 'Enter valid email'; 
                 }
                 // Check email
-                else if($this->organizationModel->findUserByEmail($data['email'])) {
+                else if($this->commonModel->findUserByEmail($data['email'])) {
                     $data['email_err'] = 'Email is already taken'; 
                 }
 
@@ -176,9 +176,7 @@
 
                     // Register User
                     if($this->organizationModel->university_register($data)) {
-                        // // Redirect
-                        // flash('register_success', 'You are registered can log in');
-                        // redirect('commons/login');
+                        // set the verification sent email
                         sendVerificationCode($data['email']);
 
                         // Redirect
@@ -309,7 +307,7 @@
                     $data['email_err'] = 'Enter valid email'; 
                 }
                 // Check email
-                else if($this->organizationModel->findUserByEmail($data['email'])) {
+                else if($this->commonModel->findUserByEmail($data['email'])) {
                     $data['email_err'] = 'Email is already taken'; 
                 }
 
@@ -392,9 +390,7 @@
 
                     // Register User
                     if($this->organizationModel->company_register($data)) {
-                        // // Redirect
-                        // flash('register_success', 'You are registered can log in');
-                        // redirect('commons/login');
+                        // set the verification sent email
                         sendVerificationCode($data['email']);
 
                         // Redirect

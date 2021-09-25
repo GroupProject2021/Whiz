@@ -5,7 +5,7 @@
     
   </div> -->
 
-  <a href="<?php echo URLROOT; ?>/index" class="active">Home</a> 
+  <!--<a href="//<?php echo URLROOT; ?>/index" class="active">Home</a> -->
 
   <!-- Left-aligned links (default) -->
   <!--
@@ -32,6 +32,7 @@
 
       <!-- log out -->
       <a class="active" href="<?php echo URLROOT; ?>/commons/logout">Log Out</a>
+      
     <?php else: ?>
       <!-- register -->
       <a class="active" href="<?php echo URLROOT; ?>/commons/registerredirect">Register</a>
