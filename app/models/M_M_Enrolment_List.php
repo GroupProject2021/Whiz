@@ -1,6 +1,6 @@
 <?php 
 
-class M_S_Enrolment_List{
+class M_M_Enrolment_List{
 
     private $db;
 
