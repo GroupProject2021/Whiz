@@ -1,0 +1,74 @@
+.banner {
+    width: 270px;
+    height: fit-content;
+    background-color: rgba(252, 252, 252, 0.377);
+    transition: .2s all;
+}
+
+.banner:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+.banner-header img {
+    width: 270px;
+}
+
+.banner-body {    
+    /* padding: 5px; */
+}
+
+.banner-body .title {
+    font-size: medium;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.banner-body .postedby {
+    color: gray;
+    padding: 0px 5px 5px 5px;
+}
+
+.banner-body .stats {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.banner-body .stats {
+    height: 30px;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.banner-body .stats img {
+    height: 15px;
+}
+
+.stats .ups-count {
+    color: green;
+}
+
+.stats .downs-count {
+    color: red;
+}
+
+.stats .rate {
+    color: rgb(209, 178, 0);
+}
+
+.banner-body .stats .rate {
+    padding-left: 10px;
+}
+
+
+.banner-body .stats .enrollment{
+    padding-left: 10px;
+}
+
+.banner-body .price {
+    font-size: 20px;
+    padding: 5px;
+    color: rgb(80, 80, 80);
+}

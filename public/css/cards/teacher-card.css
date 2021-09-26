@@ -1,0 +1,70 @@
+.t {
+    width: 270px;
+    height: fit-content;
+    background: rgb(195,255,199);
+background: linear-gradient(124deg, rgba(195,255,199,1) 0%, rgba(243,255,243,1) 33%, rgba(240,242,239,1) 69%, rgba(188,255,201,1) 92%);
+    border-top: 5px solid rgb(7, 124, 56);
+    -webkit-box-shadow: -2px 2px 15px -4px #620124; 
+    box-shadow: -2px 2px 15px -4px #620124;    
+    margin: 20px;
+    transition: .2s all;
+}
+
+.t:hover {
+    transform: scale(1.01);
+}
+
+.t-header {
+    padding: 5px;
+    text-align: center;
+}
+
+.t-header img {
+    width: 260px;
+    /* border-radius: 10px; */
+}
+
+.t-body {
+    /* padding: 0 10px 10px 10px; */
+}
+
+.t-body .name {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.t-body .description {
+    color: gray;
+    padding: 0 10px 10px 10px;
+    height: 70px;
+    text-align: center;
+}
+
+.t-body .stats {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(206, 206, 206);
+    font-size: 12px;
+    font-weight: 600;
+    color: rgb(78, 78, 78);
+    height: 26px;
+    padding: 3px 10px 3px 10px;
+}
+
+.t-body .stats .icon {
+    width: 25px;
+}
+
+.t-body .stats .icon img {
+    width: 20px;
+    height: 20px;
+}
+
+.t-footer {
+    padding-top: 10px;
+}
+
+.t-footer a button {
+    width: 100%;
+}

@@ -32,7 +32,7 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et est praesentium, accusamus dicta quaerat hic laborum ullam obcaecati quod doloremque fugiat necessitatibus eum, fuga autem consectetur id repellendus, repudiandae eveniet?
+
                     </div>
 
                     <!-- BOTTOM PANEL -->

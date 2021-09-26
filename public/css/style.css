@@ -17,7 +17,19 @@
 
 @import url('components/posts/posts-styles.css');
 
+@import url('lists/gov-course-list.css');
+
 @import url('components/commentsection/comment-styles.css');
+
+@import url('cards/professional-guider-card.css');
+@import url('cards/teacher-card.css');
+@import url('cards/jobs-card.css');
+@import url('cards/stream-related-cards.css');
+
+@import url('cards/professional-guider-banner.css');
+@import url('cards/teacher-poster.css');
+
+
 
 /* fonts */
 @font-face {

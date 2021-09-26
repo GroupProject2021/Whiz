@@ -27,17 +27,15 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>course selection</h1>
+                        <h1>government course view more</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
                         <div>
-                            <a href=""><button class="btn1">Private courses</button></a>
-                            <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList"><button class="btn2">Government courses</button></a>
-                        </div>
-                        <div>
-                                
+                            <div class="gov-viewmore-body">
+                                <div class=""></div>
+                            </div>
                         </div>
                     </div>
 
