@@ -3,6 +3,8 @@
     height: fit-content;
     background-color: rgba(252, 252, 252, 0.377);
     transition: .2s all;
+    -webkit-box-shadow: -2px 2px 15px -4px #5c5c5c; 
+    box-shadow: -2px 2px 15px -4px #5c5c5c;   
 }
 
 .job:hover {

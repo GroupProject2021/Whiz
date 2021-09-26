@@ -44,38 +44,35 @@
                                 <div class="settings-header-item"><h2>Results</h2></div>
                         </div>                                      
                         <br>               
-                        <?php
+
+                        <?php 
                             $index = 1;     
-                            
+                                
                             $streams = $data['streams'];
                             $recommendStream = $data['recommended_streams'];
 
                             foreach($recommendStream as $recommendStream => $recommendStream_value) {
-                                // there is an issue in index linking -- fix it
-                                echo '<a class="card-link" href="'.URLROOT.'/students_dashboard/streamSelectionRedirect/'.$recommendStream_value[1].'">';
+                                echo '<a href="'.URLROOT.'/C_S_Stream/streamSelectionRedirect/'.$index.'" class="card-link">';
                                 if($recommendStream_value[0] >= 4) {
-                                    echo '<div class="good-stream-recommend-card">';
+                                    echo '<div class="rec-stream good">';
                                 }
                                 elseif($recommendStream_value[0] > 2) {
-                                    echo '<div class="normal-stream-recommend-card">';
+                                    echo '<div class="rec-stream avg">';
                                 }
                                 else {
-                                    echo '<div class="bad-stream-recommend-card">';
+                                    echo '<div class="rec-stream bad">';
                                 }
-                                echo '<table class="stream-recommend-card-table">';
-                                echo    '<tr>';
-                                echo        '<th>'.$index.'</th>';
-                                echo        '<td class="stream-recommend-card-table-title">'.$recommendStream.'</td>';
-                                echo        '<td class="stream-recommend-card-table-points">Points '.$recommendStream_value[0].'</td>';
-                                echo    '</tr>';
-                                echo '</table>';
+                                echo    '<div class="index">'.$index.'</div>';
+                                echo    '<div class="name">'.$recommendStream.'</div>';
+                                echo    '<div class="points">';
+                                echo        '<div class="bar"><progress value="'.$recommendStream_value[0].'" max="6"></progress></div>';
+                                echo        '<div class="text"><b>'.$recommendStream_value[0].' points</b> out of 6</div>';
+                                echo    '</div>';
                                 echo '</div>';
                                 echo '</a>';
+
                                 $index++;
                             }
-
-                            // FOR TESTING ONLY
-                            // print_r($streams);
                         ?>
                     </div>
 

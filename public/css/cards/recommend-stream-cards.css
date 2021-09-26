@@ -1,0 +1,85 @@
+:root {
+    --good-bg-color-hover: rgb(126, 216, 108);
+    --good-bg-color:rgb(73, 165, 55);
+    --good-border-color: green;
+
+    --avg-bg-color-hover: rgb(216, 200, 108);
+    --avg-bg-color: rgb(170, 152, 48);
+    --avg-border-color: rgb(128, 98, 0);
+
+    --bad-bg-color-hover: rgb(216, 108, 108);
+    --bad-bg-color: rgb(197, 69, 69);
+    --bad-border-color: rgb(128, 0, 0);
+}
+
+.rec-stream {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    background-color: rgb(240, 238, 238);
+    border-left: 5px solid green;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    line-height: 60px;
+    vertical-align: middle;
+    color: rgb(255, 255, 255);
+    margin-bottom: 5px;
+    transition: .2s all;
+}
+
+.rec-stream:hover {
+    background-color: rgb(214, 206, 206);
+    transform: translateX(40px);
+}
+
+.rec-stream .index {
+    width: 80px;
+    text-align: center;
+}
+
+.rec-stream .name {
+    width: 100%;
+    font-size: medium;
+}
+
+.rec-stream .points {
+    padding-right: 10px;
+}
+
+.rec-stream .points .bar {
+    padding-top: 15px;
+}
+
+.rec-stream .points .text {
+    position: relative;
+    top: -20px;
+    text-align: center;
+}
+
+.rec-stream.good{
+    background-color: var(--good-bg-color);
+    border-left: 5px solid var(--good-border-color);
+}
+
+.rec-stream.good:hover {
+    background-color: var(--good-bg-color-hover);
+}
+
+.rec-stream.avg{
+    background-color: var(--avg-bg-color);
+    border-left: 5px solid var(--avg-border-color);
+}
+
+.rec-stream.avg:hover {
+    background-color: var(--avg-bg-color-hover);
+}
+
+.rec-stream.bad{
+    background-color: var(--bad-bg-color);
+    border-left: 5px solid var(--bad-border-color);
+}
+
+.rec-stream.bad:hover {
+    background-color: var(--bad-bg-color-hover);
+}

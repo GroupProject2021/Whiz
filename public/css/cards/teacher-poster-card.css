@@ -5,6 +5,8 @@
     transition: .2s all;
     display: flex;
     flex-direction: row;
+    -webkit-box-shadow: -2px 2px 15px -4px #5c5c5c; 
+    box-shadow: -2px 2px 15px -4px #5c5c5c;   
 }
 
 .poster:hover {

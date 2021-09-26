@@ -1,0 +1,35 @@
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.stream {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    background-color: rgb(240, 238, 238);
+    border-left: 5px solid green;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    line-height: 60px;
+    vertical-align: middle;
+    color: rgb(63, 63, 63);
+    margin-bottom: 5px;
+    transition: .2s all;
+}
+
+.stream:hover {
+    background-color: rgb(214, 206, 206);
+    transform: translateX(40px);
+}
+
+.stream .index {
+    width: 80px;
+    text-align: center;
+}
+
+.stream .name {
+    width: 100%;
+    font-size: medium;
+}

@@ -39,13 +39,29 @@
                         <?php
                             $index = 1;
 
+                            // foreach($data['streams'] as $stream) {
+                            //     echo '<a class="card-link" href="'.URLROOT.'/C_S_Stream/streamSelectionRedirect/'.$index.'">';
+                            //     echo '<div class="stream-selection-card">';
+                            //     echo '  <div class="stream-selection-card-title">';
+                            //     echo '      <p>'.$stream->stream_name.'</p>';
+                            //     echo '  </div>';
+                            //     echo '</div>';
+                            //     echo '</a>';
+                            //     $index++;
+                            // }
+
+                            
+                        ?>
+
+                        <?php
+                            $index = 1;
+
                             foreach($data['streams'] as $stream) {
-                                echo '<a class="card-link" href="'.URLROOT.'/C_S_Stream/streamSelectionRedirect/'.$index.'">';
-                                echo '<div class="stream-selection-card">';
-                                echo '  <div class="stream-selection-card-title">';
-                                echo '      <p>'.$stream->stream_name.'</p>';
-                                echo '  </div>';
-                                echo '</div>';
+                                echo '<a href="'.URLROOT.'/C_S_Stream/streamSelectionRedirect/'.$index.'" class="card-link">';
+                                echo    '<div class="stream">';
+                                echo        '<div class="index">'.$index.'</div>';
+                                echo        '<div class="name">'.$stream->stream_name.'</div>';
+                                echo    '</div>';
                                 echo '</a>';
                                 $index++;
                             }

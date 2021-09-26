@@ -3,7 +3,7 @@
         public function __construct() {
             $this->mentorDashboardModel = $this->model('Mentor_dashboard');
             $this->postModel = $this->model('Post');
-            $this->userModel = $this->model('User');
+            $this->commonModel = $this->model('Common');
         }
 
         public function index() {
@@ -166,7 +166,7 @@
 
         public function show($id) {
             $post = $this->postModel->getPostById($id);
-            $user = $this->userModel->getUserById($post->user_id);
+            $user = $this->commonModel->getUserById($post->user_id);
 
             $data = [
                 'post' => $post,

@@ -9,27 +9,27 @@
 @import url('components/buttons.css');
 @import url('components/mycards.css');
 
+/* comprehnsive component styles */
 @import url('components/imageUpload/imageUpload-styles.css');
 @import url('components/captcha/captcha-styles.css');
 @import url('components/notificationAlert/notificationAlert-styles.css');
-
-@import url('utilities/responsive_grid_layout.css');
-
+@import url('components/commentsection/comment-styles.css');
 @import url('components/posts/posts-styles.css');
 
+/* Utilities - [EXPERIMENTAL] */
+@import url('utilities/responsive_grid_layout.css');
+
+/* Lists */
 @import url('lists/gov-course-list.css');
 
-@import url('components/commentsection/comment-styles.css');
-
+/* Cards */
+@import url('cards/select-stream-card.css');
+@import url('cards/recommend-stream-cards.css');
 @import url('cards/professional-guider-card.css');
+@import url('cards/professional-guider-banner-card.css');
 @import url('cards/teacher-card.css');
+@import url('cards/teacher-poster-card.css');
 @import url('cards/jobs-card.css');
-@import url('cards/stream-related-cards.css');
-
-@import url('cards/professional-guider-banner.css');
-@import url('cards/teacher-poster.css');
-
-
 
 /* fonts */
 @font-face {
@@ -48,7 +48,6 @@
 
 body {
     margin: 0;
-    /* font-family: Arial, Arial, Helvetica, sans-serif; */
     font-family: Poppins-Regular;
     font-size: small;
     background-color: var(--main-background-color);

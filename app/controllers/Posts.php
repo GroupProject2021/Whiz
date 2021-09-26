@@ -8,7 +8,7 @@
             }
 
             $this->postModel = $this->model('Post');
-            $this->userModel = $this->model('User');
+            $this->commonModel = $this->model('Common');
 
             
         }
@@ -25,6 +25,7 @@
 
             $this->view('posts/index', $data);
         }
+
 
         public function add() {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -150,7 +151,7 @@
             $_SESSION['current_viewing_post_id'] = $id;
 
             $post = $this->postModel->getPostById($id);
-            $user = $this->userModel->getUserById($post->user_id);
+            $user = $this->commonModel->getUserById($post->user_id);
 
             $ups = $this->postModel->getInc($id)->ups;
             $downs = $this->postModel->getDown($id)->downs;
