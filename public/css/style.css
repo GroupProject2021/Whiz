@@ -31,6 +31,9 @@
 @import url('cards/teacher-poster-card.css');
 @import url('cards/jobs-card.css');
 
+/* profiles */
+@import url('profiles/professionalGuider-profile.css');
+
 /* fonts */
 @font-face {
     font-family: Poppins-Regular;

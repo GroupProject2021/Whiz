@@ -1,0 +1,103 @@
+.pg-profile{
+    width: 70%;
+}
+
+.pg-profile .header {
+
+}
+
+/* image area */
+.pg-profile .header .imagearea .wall img {
+    width: 100%;
+}
+
+.pg-profile .header .imagearea .profpic {
+    height: 80px;
+}
+
+.pg-profile .header .imagearea .profpic img {
+    width: 180px;
+    border-radius: 50%;
+    border: 5px solid white;
+    position: relative;
+    top: -90px;
+}
+
+
+/* deatails */
+.pg-profile .details {
+    padding: 0 5px 5px 5px;
+}
+
+.pg-profile .details .name {
+    font-size: large;
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+}
+
+.pg-profile .details .name img {
+    height: 20px;
+}
+
+.pg-profile .details .occupation {
+
+}
+
+.pg-profile .details .institute {
+    font-size: small;
+    font-weight: 600;
+}
+
+
+/* details -> contact details */
+.pg-profile .details .contact-detials {
+    padding: 5px;
+    background: rgb(190,190,190);
+background: linear-gradient(42deg, rgba(190,190,190,0.3) 0%, rgba(255,225,240,0.3) 38%, rgba(240,242,239,0.3) 100%, rgba(248,255,249,0.3) 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.pg-profile .details .contact-detials img {
+    height: 20px;
+    position: relative;
+    bottom: -5px;
+    padding-right: 5px;
+}
+
+.pg-profile .details .contact-detials  .title {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(44, 44, 44);
+}
+
+.pg-profile .details .contact-detials  .text {
+    padding-bottom: 5px;
+    padding-left: 25px;
+}
+
+/* details -> stats */
+.pg-profile .details .profile-stats {
+    display: flex;
+    flex-direction: row;
+    font-size: medium;
+    justify-content: center;
+    padding: 15px;
+    color: rgb(63, 63, 63);
+}
+
+.pg-profile .details .profile-stats div {
+    padding-right: 100px;
+}
+
+/* details -> about */
+.pg-profile .details .about .title {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(54, 54, 54);
+}
+
+/* profile tail */
+.pg-profile-tail {
+    width: 70%;
+}

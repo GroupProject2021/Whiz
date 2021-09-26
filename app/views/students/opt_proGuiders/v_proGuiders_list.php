@@ -33,7 +33,7 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single middle-panel-single-3cols">
 
-                        <?php for($i = 0; $i < 1; $i++): ?>
+                    <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/professionalGuiderViewMore" class="card-link">  
                         <div class="pg">
                             <div class="pg-header">
                                 <img src="<?php echo URLROOT.'/imgs/prof.jpg';?>" alt="">
@@ -54,7 +54,7 @@
                                 <a href=""><button class="btn4">View</button></a>
                             </div>
                         </div>
-                        <?php endfor; ?>
+                    </a>  
 
                         <br>
 
