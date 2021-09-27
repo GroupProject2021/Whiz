@@ -5,6 +5,11 @@ class C_S_Settings extends Controller {
         $this->settingsModel = $this->model('M_S_Settings');
     }
 
+    public function test() {
+        $data = [];
+        $this->view('students/opt_settings/v_student_profile', $data);
+    }
+
      // Settings
      public function settings() {
         $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
@@ -17,14 +22,14 @@ class C_S_Settings extends Controller {
                 $data = [
                     'name' => $studentData->name,
                     'email' => $studentData->email,
-                    'password' => $studentData->password,
+                    // 'password' => $studentData->password,
                     'gender' => $studentData->gender,
                     'date_of_birth' => $studentData->date_of_birth,
                     'address' => $studentData->address,
                     'phn_no' => $studentData->phn_no
                 ];
 
-                $this->view('students/opt_settings/default/v_def_beg_settings', $data);
+                $this->view('students/opt_settings/v_student_profile', $data);
                 break;
             // For OL qualified
             case 'OL qualified':
@@ -34,7 +39,7 @@ class C_S_Settings extends Controller {
                 $data = [
                     'name' => $studentData->name,
                     'email' => $studentData->email,
-                    'password' => $studentData->password,
+                    // 'password' => $studentData->password,
                     'gender' => $studentData->gender,
                     'date_of_birth' => $studentData->date_of_birth,
                     'address' => $studentData->address,
@@ -62,7 +67,7 @@ class C_S_Settings extends Controller {
                     'ol_sub9_grade' => $studentOLData->ol_sub9_grade
                 ];
 
-                $this->view('students/opt_settings/default/v_def_ol_settings', $data);
+                $this->view('students/opt_settings/v_student_profile', $data);
                 break;
 
             // For AL qualified
@@ -74,7 +79,7 @@ class C_S_Settings extends Controller {
                 $data = [
                     'name' => $studentData->name,
                     'email' => $studentData->email,
-                    'password' => $studentData->password,
+                    // 'password' => $studentData->password,
                     'gender' => $studentData->gender,
                     'date_of_birth' => $studentData->date_of_birth,
                     'address' => $studentData->address,
@@ -116,7 +121,7 @@ class C_S_Settings extends Controller {
                     'al_sub3_grade' => $studentALData->al_sub3_grade
                 ];
 
-                $this->view('students/opt_settings/default/v_def_al_settings', $data);
+                $this->view('students/opt_settings/v_student_profile', $data);
                 break;
 
             // For Undergraduate Graduate
@@ -129,7 +134,7 @@ class C_S_Settings extends Controller {
                 $data = [
                     'name' => $studentData->name,
                     'email' => $studentData->email,
-                    'password' => $studentData->password,
+                    // 'password' => $studentData->password,
                     'gender' => $studentData->gender,
                     'date_of_birth' => $studentData->date_of_birth,
                     'address' => $studentData->address,
@@ -170,12 +175,13 @@ class C_S_Settings extends Controller {
                     'al_sub3_name' =>  $this->settingsModel->getALSubjectName($studentALData->al_sub3_id),
                     'al_sub3_grade' => $studentALData->al_sub3_grade,
 
+                    'uni_type' => $uniData->uni_type,
                     'uni_name' => $uniData->uni_name,
                     'degree' => $uniData->degree,
                     'gpa' => $uniData->gpa
                 ];
 
-                $this->view('students/opt_settings/default/v_def_ug_settings', $data);
+                $this->view('students/opt_settings/v_student_profile', $data);
                 break;
             default:
                 break;
@@ -527,11 +533,16 @@ class C_S_Settings extends Controller {
     }
 
     public function editSettingsUG() {
+        $uni_type_list = $this->settingsModel->getUniTypes();
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             
             $data = [
+                'uni_type_list' => $uni_type_list,
+
+                'uni_type' => $_POST['uni_type'],
                 'degree' => trim($_POST['degree']),
                 'uni_name' => trim($_POST['uni_name']),
                 'gpa' => trim($_POST['gpa']),
@@ -577,6 +588,9 @@ class C_S_Settings extends Controller {
             $studentData = $this->settingsModel->getStudentUniversity($id);
 
             $data = [
+                'uni_type_list' => $uni_type_list,
+
+                'uni_type' => $studentData->uni_type,
                 'degree' => $studentData->degree,
                 'uni_name' => $studentData->uni_name,
                 'gpa' => $studentData->gpa,

@@ -51,6 +51,20 @@
     background-color: var(--btn1-bg-color-hover);
 }
 
+.btn1-small {
+    background-color: var(--btn1-bg-color);
+    color: var(--btn1-color);
+    padding: 8px 20px;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    opacity: 0.9;
+}
+
+.btn1-small:hover {
+    background-color: var(--btn1-bg-color-hover);
+}
+
 .btn1-round {
     background-color: var(--btn1-bg-color);
     color: var(--btn1-color);

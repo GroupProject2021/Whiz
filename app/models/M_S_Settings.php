@@ -179,10 +179,9 @@ class M_S_Settings {
 
     // update setting for undergraduate graduate
     public function updateStudentUGSettings($id, $data) {
-        $this->db->query('UPDATE undergraduategraduate SET degree = :degree, uni_name = :uni_name, gpa = :gpa
-                             WHERE stu_id = :id');
-        // bind values
-        
+        $this->db->query('UPDATE undergraduategraduate SET degree = :degree, uni_type = :uni_type, uni_name = :uni_name, gpa = :gpa WHERE stu_id = :id');
+        // bind values        
+        $this->db->bind(":uni_type", $data['uni_type']);
         $this->db->bind(":degree", $data['degree']);
         $this->db->bind(":uni_name", $data['uni_name']);
         $this->db->bind(":gpa", $data['gpa']);
@@ -241,6 +240,14 @@ class M_S_Settings {
         $this->db->query("SELECT * FROM alsubject WHERE al_stream_id = :stream_id");
         $this->db->bind(':stream_id', $stream_id);
 
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
+    // get uni types 
+    public function getUniTypes() {
+        $this->db->query("SELECT * FROM universitytype");
         $results = $this->db->resultSet();
 
         return $results;

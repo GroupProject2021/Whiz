@@ -32,6 +32,7 @@
 @import url('cards/jobs-card.css');
 
 /* profiles */
+@import url('profiles/student-profile.css');
 @import url('profiles/professionalGuider-profile.css');
 
 /* fonts */

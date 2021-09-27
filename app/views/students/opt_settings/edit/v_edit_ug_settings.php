@@ -43,6 +43,21 @@
                                 <div class="table-section">
                                 <table class="settings-table">
                                     <tr>
+                                        <th class="A">University Type</th>
+                                        <td class="B">
+                                            <select name="uni_type" id="uni_type">
+                                                <?php foreach($data['uni_type_list'] as $uniType):?>
+                                                    <?php if($uniType->uni_type_name == $data['uni_type']): ?>
+                                                        <option value="<?php echo $uniType->uni_type_name; ?>" selected><?php echo $uniType->uni_type_name; ?></option>
+                                                    <?php else: ?>
+                                                        <option value="<?php echo $uniType->uni_type_name; ?>"><?php echo $uniType->uni_type_name; ?></option>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </td>
+                                        <td class="C"><span class="form-invalid"><?php echo $data['uni_name_err']; ?></td>
+                                    </tr>
+                                    <tr>
                                         <th class="A">University</th>
                                         <td class="B"><p><input type="text" name="uni_name" id="uni_name" value="<?php echo $data['uni_name'];?>"></p></td>
                                         <td class="C"><span class="form-invalid"><?php echo $data['uni_name_err']; ?></td>
