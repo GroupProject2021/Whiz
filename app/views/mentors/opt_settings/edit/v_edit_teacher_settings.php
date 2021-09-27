@@ -32,7 +32,7 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
                         <div class="settings-form-edit-container">
-                        <form action="<?php echo URLROOT; ?>/C_M_Settings/editSettingsGuider" method="post">
+                        <form action="<?php echo URLROOT; ?>/C_M_Settings/editSettingsTeacher" method="post">
                             <div class="settings-header">
                                     <div class="settings-header-item"><h2>Basic details</h2></div>
                                     <div class="settings-header-item"><a href="<?php echo URLROOT; ?>/C_M_Settings/settings"><input class="cancel-button" type="button" value="Cancel"></a></div>
@@ -61,11 +61,6 @@
                                     <th class="A">Gender</th>
                                     <td class="B"><p><input type="text" name="gender" id="gender" value="<?php echo $data['gender'];?>"></p></td>
                                     <td class="C"><span class="form-invalid"><?php echo $data['gender_err']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th class="A">Institute</th>
-                                    <td class="B"><p><input type="text" name="institute" id="institute" value="<?php echo $data['institute'];?>"></p></td>
-                                    <td class="C"><span class="form-invalid"><?php echo $data['institute_err']; ?></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Address</th>

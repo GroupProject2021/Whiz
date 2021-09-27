@@ -34,7 +34,7 @@
                     <?php flash('settings_message'); ?>
                         <div class="settings-header">
                                 <div class="settings-header-item"><h2>Basic details</h2></div>
-                                <div class="settings-header-item"><a href="<?php echo URLROOT; ?>/C_S_Settings/editSettingsBeginner"><input class="edit-button" type="button" value="Edit"></a></div>
+                                <div class="settings-header-item"><a href="<?php echo URLROOT; ?>/C_M_Settings/editSettingsTeacher"><input class="edit-button" type="button" value="Edit"></a></div>
                         </div>                      
                         <br>
                         <div class="table-section">
