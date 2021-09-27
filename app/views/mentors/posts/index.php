@@ -39,17 +39,21 @@
                                     <button class="btn1">New Banner</button>
                                 </a>
                                 <br>
-                                <div class="banner">
+                                <div class="courses-container">
                                     <?php foreach($data['posts'] as $post): ?>
                                         <!-- I added this later. So now it will only show the posts that are related to the user. Remove if statement and it will show all the posts -->
                                         <?php if($post->id == $_SESSION['user_id']): ?>
-                                            <div>                                
-                                                <h1><?php echo $post->title; ?></h1>
-                                                <br>
-                                                <p>Written by index <?php echo $post->id; ?> which is <?php echo $post->name; ?></p>
-                                                on <?php echo $post->postCreated; ?>
-                                                <p><?php echo $post->body; ?></p>
-                                                <a href="<?php echo URLROOT; ?>/Mentors_dashboard/show/<?php echo $post->postId; ?>"><button class="btn9">View More...</button></a>
+                                            <div class="course">
+                                                <div class="course-preview">                                
+                                                    <h1><?php echo $post->title; ?></h1>
+                                                </div>
+                                                <!-- <br> -->
+                                                <div class="course-info">
+                                                    <p>Written by index <?php echo $post->id; ?> which is <?php echo $post->name; ?></p>
+                                                    on <?php echo $post->postCreated; ?>
+                                                    <p><?php echo $post->body; ?></p>
+                                                    <a href="<?php echo URLROOT; ?>/Mentors_dashboard/show/<?php echo $post->postId; ?>"><button class="btn9">View More...</button></a>
+                                                </div>
                                             </div>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
@@ -71,19 +75,25 @@
                                     <button class="btn1">New Poster</button>
                                 </a>
                                 <br>
-                                <?php foreach($data['posts'] as $post): ?>
-                                <!-- I added this later. So now it will only show the posts that are related to the user. Remove if statement and it will show all the posts -->
-                                    <?php if($post->id == $_SESSION['user_id']): ?>
-                                        <div>                                
-                                            <h1><?php echo $post->title; ?></h1>
-                                            <br>
-                                            <p>Written by index <?php echo $post->id; ?> which is <?php echo $post->name; ?></p>
-                                            on <?php echo $post->postCreated; ?>
-                                            <p><?php echo $post->body; ?></p>
-                                            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/show/<?php echo $post->postId; ?>"><button class="btn9">View More...</button></a>
-                                        </div>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
+                                <div class="courses-container">
+                                    <?php foreach($data['posts'] as $post): ?>
+                                        <!-- I added this later. So now it will only show the posts that are related to the user. Remove if statement and it will show all the posts -->
+                                        <?php if($post->id == $_SESSION['user_id']): ?>
+                                            <div class="course">   
+                                                <div class="course-preview">                             
+                                                    <h1><?php echo $post->title; ?></h1>
+                                                </div>
+                                                <div class="course-info">
+                                                <!-- <br> -->
+                                                    <p>Written by index <?php echo $post->id; ?> which is <?php echo $post->name; ?></p>
+                                                    on <?php echo $post->postCreated; ?>
+                                                    <p><?php echo $post->body; ?></p>
+                                                    <a href="<?php echo URLROOT; ?>/Mentors_dashboard/show/<?php echo $post->postId; ?>"><button class="btn9">View More...</button></a>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </div>
                         </div>
                     </div>
                 <?php else: ?>
@@ -95,7 +105,7 @@
                     <div class="bottom-panel">
                         <p>Whiz organization. All rights reserved.</p>
                     </div>
-                </div>
+                <!-- </div> -->
             </main>
         </div>
 <?php require APPROOT.'/views/inc/footer.php'; ?>
