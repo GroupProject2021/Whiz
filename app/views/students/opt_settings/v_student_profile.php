@@ -36,8 +36,24 @@
                     <div class="stu-profile">
                         <div class="header">
                             <div class="imagearea">
-                                <div class="wall"><img src="<?php echo URLROOT.'/imgs/wallbg.jpg'; ?>" alt=""></div>
-                                <div class="profpic"><img src="<?php echo URLROOT.'/imgs/prof.jpg'; ?>" alt=""></div>
+                            <form action="<?php echo URLROOT; ?>/C_S_Settings/editProfilePic" method="post" enctype="multipart/form-data">
+                                <div class="wall">
+                                    <img src="<?php echo URLROOT.'/imgs/wallbg.jpg'; ?>" alt="">
+                                </div>
+                                <div class="profpic">                                    
+                                    <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($_SESSION['actor_type']).'/'.$_SESSION['user_profile_image']; ?>" alt="" id="profile_image_placeholder">
+                                    <input type="file" name="profile_image" id="profile_image" onchange="displayImage(this)" style="display: none;">
+                                    <!-- profile pic edit area -->
+                                    <div class="profile-pic-edit-area">
+                                        <!-- flash message -->              
+                                        <!-- <?php flash('profile_image_upload'); ?> -->
+                                        <div class="btn1-small" onclick="toggleBrowse(); " id="edit_profpic_click">Edit Profile Picture</div>
+                                        <input type="submit" value="Save Changes" class="btn1-small" id="save_profilepic_click" style="display: none;">
+                                        <div class="btn1-small" onclick="cancelProfPicChange(); " id="canceledit_profpic_click" style="display: none;">Cancel</div>
+                                    </div>
+                                </div>
+                                
+                            </form>
                             </div>
                             <div class="details">
                                 <div class="name">
@@ -270,4 +286,68 @@
                 </div>
             </main>
         </div>
+        <script>
+            // const browseButton = document.querySelector(".profpic");
+            const editProfPicBtn = document.getElementById("edit_profpic_click");
+            const saveChanges = document.getElementById("save_profilepic_click");            
+            const cancelChanges = document.getElementById("canceledit_profpic_click");
+
+            let tempPreviousImage;
+
+            let inputPath = document.querySelector("#profile_image");
+
+            let file;
+
+            function toggleBrowse() {
+                inputPath.click();
+            }
+
+            function cancelProfPicChange() {
+                editProfPicBtn.style.display = "block";
+                saveChanges.style.display = "none";
+                cancelChanges.style.display = "none";
+
+                document.querySelector('#profile_image_placeholder').setAttribute('src', tempPreviousImage);
+                inputPath.value = null;
+            }
+
+            inputPath.addEventListener("change", function() {
+                file = this.files[0];
+
+                editProfPicBtn.style.display = "none";
+                saveChanges.style.display = "block";
+                cancelChanges.style.display = "block";
+
+                showImage();    
+            });
+            
+            function showImage() {
+                let fileType = file.type;
+
+                let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
+
+                if(validExtensions.includes(fileType)) {
+                    let fileReader = new FileReader();
+
+                    fileReader.onload = ()=>{
+                        let fileURL = fileReader.result;
+
+                        //  change the profile image and display it
+                        tempPreviousImage = document.querySelector('#profile_image_placeholder').getAttribute('src');
+
+                        document.querySelector('#profile_image_placeholder').setAttribute('src', fileURL);
+                    }
+
+                    fileReader.readAsDataURL(file);
+
+                    // set profile image validation
+                    let validate = document.querySelector(".profile-image-validation");
+                    validate.classList.add("active");
+                }
+                else {
+                    alert("This is not an Image file");
+                    dropArea.classList.remove("active");
+                }
+            }
+        </script>
 <?php require APPROOT.'/views/inc/footer.php'; ?>

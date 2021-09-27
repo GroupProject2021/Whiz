@@ -12,4 +12,14 @@
 
          return move_uploaded_file($img, $target);
     }
+
+    function updateImage($old, $img, $img_name, $location) {
+        // delete old image
+        unlink($old);
+
+        // profile picture uploading
+        $target = PUBROOT.$location.$img_name;
+
+        return move_uploaded_file($img, $target);
+   }
 ?>

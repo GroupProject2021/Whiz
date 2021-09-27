@@ -12,15 +12,21 @@
 }
 
 .stu-profile .header .imagearea .profpic {
-    height: 80px;
+    height: 100px;
 }
 
 .stu-profile .header .imagearea .profpic img {
     width: 180px;
+    height: 180px;
     border-radius: 50%;
     border: 5px solid white;
     position: relative;
     top: -90px;
+}
+
+.stu-profile .header .imagearea .profile-pic-edit-area {
+    display: flex;
+    flex-direction: row;
 }
 
 
@@ -240,4 +246,10 @@
 .division .editable {
     /* width: 100%;
     text-align: right; */
+}
+
+.stu-profile .profpic .profile-pic-edit-area {
+    position: relative;
+    top: -160px;
+    left: 200px;
 }

@@ -69,6 +69,17 @@ class M_S_Settings {
         return $row->al_sub_name;
     }
 
+    // get user details
+    public function getUserDetails($id) {
+        $this->db->query('SELECT * FROM users WHERE id = :id');
+        // bind values
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        return $row;
+    } 
+
     // useful for take a student data from students
     public function findStudentIdbyEmail($email) {
         $this->db->query('SELECT * FROM student WHERE email = :email');
@@ -80,6 +91,8 @@ class M_S_Settings {
         $id = $row->stu_id;
         return $id;
     }
+
+    
 
     // update settings for beginnner
     public function updateStudentSettings($id, $data) {
@@ -196,6 +209,21 @@ class M_S_Settings {
         }
     }
 
+    public function updateProfilePic($data) {           
+        $this->db->query('UPDATE users SET profile_image = :profile_image WHERE id = :id');
+        // bind values
+        $this->db->bind("profile_image", $data['profile_image_name']);
+        $this->db->bind("id", $_SESSION['user_id']);
+
+        // Execute
+        if($this->db->execute()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
      // get districts 
      public function getDistricts() {
         $this->db->query("SELECT * FROM district");
@@ -252,6 +280,7 @@ class M_S_Settings {
 
         return $results;
     }
+
 }
 
 ?>

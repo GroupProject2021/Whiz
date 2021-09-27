@@ -599,9 +599,87 @@ class C_S_Settings extends Controller {
                 'uni_name_err' => '',
                 'gpa_err' => ''
             ];
-        }
+        }       
 
         $this->view('students/opt_settings/edit/v_edit_ug_settings', $data);
+    }
+
+    public function editProfilePic() {
+        // Check for POST
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            // Init data
+            $data = [
+                'profile_image' => $_FILES['profile_image'],
+                'profile_image_name' => time().'_'.$_FILES['profile_image']['name'],
+
+                'profile_image_err' => ''
+            ];
+
+            // validate and upload profile image
+            $oldImage = PUBROOT.'/profileimages/'.getActorTypeForIcons($_SESSION['actor_type']).'/'.$_SESSION['user_profile_image'];
+
+            if(updateImage($oldImage, $data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/student/')) {
+                flash('profile_image_upload', 'Profile picture uploaded successfully');
+            }
+            else {
+                // upload unsuccessfull
+                $data['profile_image_err'] = 'Profile picture uploading unsuccessful';
+            }
+
+            // Make sure errors are empty
+            if(empty($data['profile_image_err'])) {
+                // Validated
+
+                // Register User
+                if($this->settingsModel->updateProfilePic($data)) {
+                    // set the verification sent email                        
+                    // sendVerificationCode($data['email']);
+
+                    // Redirect
+                    // flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
+                    $this->updateUserSessions($_SESSION['user_id']);
+                    
+                    redirect('C_S_Settings/settings');
+                }
+                else {
+                    die('Something went wrong');
+                }
+            }
+            else {
+                // Load view with errors
+                $this->view('students/opt_settings/v_student_profile', $data);
+            }
+        }
+        else {
+            // Init data
+            $data = [
+                'profile_image' => '',
+                'profile_image_name' => '',
+
+                'profile_image_err' => ''
+            ];
+
+            // Load view
+            $this->view('students/opt_settings/v_student_profile', $data);
+        }
+    }
+
+    public function updateUserSessions($id) {
+        $user = $this->settingsModel->getUserDetails($id);
+
+        // taken from the database
+        $_SESSION['user_id'] = $user->id;
+        $_SESSION['user_profile_image'] = $user->profile_image;
+        $_SESSION['user_name'] = $user->name;
+        $_SESSION['user_email'] = $user->email;
+        $_SESSION['actor_type'] = $user->actor_type;
+        $_SESSION['specialized_actor_type'] = $user->specialized_actor_type;
+        $_SESSION['status'] = $user->status;
     }
 }
 

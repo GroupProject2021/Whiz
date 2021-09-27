@@ -22,7 +22,7 @@
       <div class="user-details">
         <div class="user-profile-image">
           <?php
-            echo '<img src="'.URLROOT.'/profileimages/'.getActorTypeForIcons($_SESSION['actor_type']).'/'.$_SESSION['user_profile_image'].'?>" alt="profile_image">'
+            echo '<img src="'.URLROOT.'/profileimages/'.getActorTypeForIcons($_SESSION['actor_type']).'/'.$_SESSION['user_profile_image'].'?>" alt="profile_image">';
           ?>
         </div>
         <div class="user-profile-name">
