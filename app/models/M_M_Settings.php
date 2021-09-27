@@ -27,7 +27,7 @@ class M_M_Settings{
 
         $row = $this->db->single();
 
-        $id = $row->stu_id;
+        $id = $row->mentor_id;
         return $id;
     }
 }
