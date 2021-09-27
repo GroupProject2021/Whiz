@@ -8,7 +8,7 @@
             
             <div class="brand-icons">
                 <a href=""><img src="<?php echo URLROOT; ?>/imgs/sidebar/notification-bell.png"></a>
-                <a href="<?php echo URLROOT; ?>/C_O_U_Settings/settings"><img src="<?php echo URLROOT; ?>/imgs/sidebar/settings.png"></a>
+                <a href="<?php echo URLROOT; ?>/C_O_C_Settings/settings"><img src="<?php echo URLROOT; ?>/imgs/sidebar/settings.png"></a>
             </div>
         </div>
     </div>
@@ -19,25 +19,25 @@
             <span>University options</span>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_O_U_Courses/courses">
+            <a href="<?php echo URLROOT; ?>/C_O_C_Jobs/jobs">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/courses-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/jobs-icon.png">
                     </div>
                     <div class="sidebar-item-name">
-                        courses
+                        jobs
                     </div>
                 </button>
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_O_U_Notices/notices">
+            <a href="<?php echo URLROOT; ?>/C_O_C_Cvs/cv">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/notice-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/cv-icon.png">
                     </div>
                     <div class="sidebar-item-name">
-                        intake notices
+                        recieved cv
                     </div>
                 </button>
             </a>
