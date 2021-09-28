@@ -2,7 +2,7 @@
     --idle-bg-color: #a35656;
 }
 
-.banner {
+/* .banner {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 40%;
@@ -12,14 +12,14 @@
   
 .banner:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+} */
   
 .container {
     padding: 2px 16px;
 }
 
 .courses-container {
-	height: 100px;
+	/* height: 100px; */
 }
 
 .course {
@@ -50,7 +50,8 @@
 	background-color: #2A265F;
 	color: #fff;
 	padding: 30px;
-	max-width: 250px;
+	width: 250px;
+	max-width: 100%;
 }
 
 .course-preview a {
@@ -66,4 +67,43 @@
 	padding: 30px;
 	position: relative;
 	width: 100%;
+}
+
+.course:hover {
+    background-color: rgb(214, 206, 206);
+    transform: translateX(40px);
+}
+
+ /* enrolment list */
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    background-color: rgb(240, 238, 238);
+    border-left: 5px solid rgb(194, 108, 10);
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    line-height: 60px;
+    vertical-align: middle;
+    color: rgb(63, 63, 63);
+    margin-bottom: 5px;
+    transition: .2s all;
+}
+
+.list:hover {
+    background-color: rgb(214, 206, 206);
+    transform: translateX(40px);
+}
+
+.list .name {
+    width: 100%;
+	text-align: center;
+    font-size: medium;
 }

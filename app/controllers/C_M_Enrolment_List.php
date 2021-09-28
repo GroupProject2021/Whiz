@@ -7,10 +7,10 @@ class C_M_Enrolment_List extends Controller{
     }
 
     public function index() {
-        $list = $this->enrolmentListModel->getPosts();
+        $post = $this->enrolmentListModel->getPosts();
             
         $data = [
-            'lists' => $list
+            'posts' => $post
         ];
 
         $this->view('mentors/opt_enrolment_list/v_enrolment_list', $data);

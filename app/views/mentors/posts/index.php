@@ -33,7 +33,7 @@
                         </div>
 
                         <!-- MIDDLE PANEL -->
-                        <div class="middle-panel">
+                        <div class="middle-panel-single">
                             <?php flash('post_message'); ?>
                                 <a href="<?php echo URLROOT; ?>/Mentors_dashboard/add">
                                     <button class="btn1">New Banner</button>
@@ -45,14 +45,15 @@
                                         <?php if($post->id == $_SESSION['user_id']): ?>
                                             <div class="course">
                                                 <div class="course-preview">                                
-                                                    <h1><?php echo $post->title; ?></h1>
+                                                    <h2><?php echo $post->title; ?></h2>
+                                                    <a href="<?php echo URLROOT; ?>/Mentors_dashboard/show/<?php echo $post->postId; ?>">View More</a>
                                                 </div>
                                                 <!-- <br> -->
                                                 <div class="course-info">
-                                                    <p>Written by index <?php echo $post->id; ?> which is <?php echo $post->name; ?></p>
-                                                    on <?php echo $post->postCreated; ?>
+                                                    <!-- <p>Written by index <?php echo $post->id; ?> which is <?php echo $post->name; ?></p>
+                                                    on <?php echo $post->postCreated; ?> -->
                                                     <p><?php echo $post->body; ?></p>
-                                                    <a href="<?php echo URLROOT; ?>/Mentors_dashboard/show/<?php echo $post->postId; ?>"><button class="btn9">View More...</button></a>
+                                                    <!-- <a href="<?php echo URLROOT; ?>/Mentors_dashboard/show/<?php echo $post->postId; ?>"><button class="btn9">View More...</button></a> -->
                                                 </div>
                                             </div>
                                         <?php endif; ?>
@@ -69,7 +70,7 @@
                         </div>
 
                         <!-- MIDDLE PANEL -->
-                        <div class="middle-panel">
+                        <div class="middle-panel-single">
                             <?php flash('post_message'); ?>
                                 <a href="<?php echo URLROOT; ?>/Mentors_dashboard/add">
                                     <button class="btn1">New Poster</button>
@@ -82,13 +83,14 @@
                                             <div class="course">   
                                                 <div class="course-preview">                             
                                                     <h1><?php echo $post->title; ?></h1>
+                                                    <a href="<?php echo URLROOT; ?>/Mentors_dashboard/show/<?php echo $post->postId; ?>">View More...</a>
                                                 </div>
                                                 <div class="course-info">
                                                 <!-- <br> -->
-                                                    <p>Written by index <?php echo $post->id; ?> which is <?php echo $post->name; ?></p>
-                                                    on <?php echo $post->postCreated; ?>
+                                                    <!-- <p>Written by index <?php echo $post->id; ?> which is <?php echo $post->name; ?></p>
+                                                    on <?php echo $post->postCreated; ?> -->
                                                     <p><?php echo $post->body; ?></p>
-                                                    <a href="<?php echo URLROOT; ?>/Mentors_dashboard/show/<?php echo $post->postId; ?>"><button class="btn9">View More...</button></a>
+                                                    <!-- <a href="<?php echo URLROOT; ?>/Mentors_dashboard/show/<?php echo $post->postId; ?>"><button class="btn9">View More...</button></a> -->
                                                 </div>
                                             </div>
                                         <?php endif; ?>
@@ -102,9 +104,9 @@
             <?php endif; ?> 
 
                     <!-- BOTTOM PANEL -->
-                    <div class="bottom-panel">
+                    <!-- <div class="bottom-panel">
                         <p>Whiz organization. All rights reserved.</p>
-                    </div>
+                    </div> -->
                 <!-- </div> -->
             </main>
         </div>

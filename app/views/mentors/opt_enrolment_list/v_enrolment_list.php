@@ -28,10 +28,20 @@
                     <div class="top-panel">
                         <h1>Enrolment List</h1>
                     </div>
-
+                    <br>
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        
+                        <?php flash('post_message'); ?>
+                        <?php foreach($data['posts'] as $post): ?>
+                                <!-- I added this later. So now it will only show the posts that are related to the user. Remove if statement and it will show all the posts -->
+                            <?php if($post->id == $_SESSION['user_id']): ?>
+                                <div class="list">
+                                    <div class="name">
+                                        <?php echo $post->title; ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </div>
 
 

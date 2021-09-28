@@ -26,32 +26,34 @@
             <?php if(isset($_SESSION['user_id'])) : ?>
                 <?php if($_SESSION['specialized_actor_type'] == 'Professional Guider'): ?>
                     <!-- Professional guider -->
-                    <!-- <div class="wrapper"> -->
+                    <div class="wrapper">
                         <!-- TOP PANEL -->
                         <div class="top-panel">
                             <h1>Banners > New Banner</h1>
                         </div>
 
                         <!-- MIDDLE PANEL -->
-                        <div class="form-container">
+                        <div class="middle-panel-single">
+
+                            <a href="<?php echo URLROOT;?>/Mentors_dashboard/banner"><button class="btn8">Back</button></a>
+                            <br>
+                    
                             <form action="<?php echo URLROOT; ?>/Mentors_dashboard/add" method="post">
-                                <!-- <h1>Add posts</h1>
-                                <p>Please data</p> -->
-                                <hr  class="form-hr">
-
-                                <label for="title"><p class="form-bold">Title</p></label>
-                                <input type="text" placeholder="" name="title" id="title" value="<?php echo $data['title']; ?>">
-                                <span class="form-invalid"><?php echo $data['title_err']; ?></span><br>
-
-                                <label for="body"><p class="form-bold">Content</p></label>
-                                <textarea placeholder="" name="body" id="body" rows="4" cols="37"><?php echo $data['body']; ?></textarea>
-                                <span class="form-invalid"><?php echo $data['body_err']; ?></span><br>
-
-                                <hr  class="form-hr">
-                                <button type="submit" class="form-submit">CREATE</button>
-                                <a href="<?php echo URLROOT; ?>/Mentors_dashboard/banner">Back</a>
+                                <div class="post-creator">
+                                    <div class="post-creator-title">
+                                        <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
+                                    </div>
+                                    <hr>
+                                    <div class="post-creator-content">
+                                        <textarea name="body" id="body" cols="30" rows="10" placeholder="Content"><?php echo $data['body']; ?></textarea>
+                                    </div>
+                                    <br>
+                                    <hr>
+                                    <button type="submit" class="post-creator-submit">Post</button>
+                                </div>
                             </form>
                         </div>
+                    </div>
                     <!-- </div> -->
                 <?php elseif($_SESSION['specialized_actor_type'] == 'Teacher'): ?>
                     <!-- Teacher -->
@@ -62,23 +64,24 @@
                         </div>
 
                         <!-- MIDDLE PANEL -->
-                        <div class="form-container">
+                        <div class="middle-panel-single">
+
+                            <a href="<?php echo URLROOT;?>/Mentors_dashboard/poster"><button class="btn8">Back</button></a>
+                            <br>
+                    
                             <form action="<?php echo URLROOT; ?>/Mentors_dashboard/add" method="post">
-                                <!-- <h1>Add posts</h1>
-                                <p>Please data</p> -->
-                                <hr  class="form-hr">
-
-                                <label for="title"><p class="form-bold">Title</p></label>
-                                <input type="text" placeholder="" name="title" id="title" value="<?php echo $data['title']; ?>">
-                                <span class="form-invalid"><?php echo $data['title_err']; ?></span><br>
-
-                                <label for="body"><p class="form-bold">Content</p></label>
-                                <textarea placeholder="" name="body" id="body" rows="4" cols="37"><?php echo $data['body']; ?></textarea>
-                                <span class="form-invalid"><?php echo $data['body_err']; ?></span><br>
-
-                                <hr  class="form-hr">
-                                <button type="submit" class="form-submit">CREATE</button>
-                                <a href="<?php echo URLROOT; ?>/Mentors_dashboard/poster">Back</a>
+                                <div class="post-creator">
+                                    <div class="post-creator-title">
+                                        <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
+                                    </div>
+                                    <hr>
+                                    <div class="post-creator-content">
+                                        <textarea name="body" id="body" cols="30" rows="10" placeholder="Content"><?php echo $data['body']; ?></textarea>
+                                    </div>
+                                    <br>
+                                    <hr>
+                                    <button type="submit" class="post-creator-submit">Post</button>
+                                </div>
                             </form>
                         </div>
                     <!-- </div> -->

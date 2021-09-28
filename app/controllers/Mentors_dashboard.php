@@ -2,7 +2,6 @@
     class Mentors_dashboard extends Controller{
         public function __construct() {
             $this->mentorDashboardModel = $this->model('Mentor_dashboard');
-            $this->postModel = $this->model('Post');
             $this->commonModel = $this->model('Common');
         }
 
@@ -76,7 +75,7 @@
                 // Make sure no errors
                 if(empty($data['title_err']) && empty($data['body_err'])) {
                     // Validated
-                    if($this->postModel->addPost($data)) {
+                    if($this->mentorDashboardModel->addPost($data)) {
                         flash('post_message', 'Post added');
                         redirect('mentors_dashboard/banner');
                     }
@@ -130,7 +129,7 @@
                 // Make sure no errors
                 if(empty($data['title_err']) && empty($data['body_err'])) {
                     // Validated
-                    if($this->postModel->updatePost($data)) {
+                    if($this->mentorDashboardModel->updatePost($data)) {
                         flash('post_message', 'Post updated');
                         redirect('mentors_dashboard/banner');
                     }
@@ -145,7 +144,7 @@
             }
             else {
                 // Get existing post from model
-                $post = $this->postModel->getPostById($id);
+                $post = $this->mentorDashboardModel->getPostById($id);
 
                 // Check for owner
                 if($post->user_id != $_SESSION['user_id']) {
@@ -165,7 +164,7 @@
         }
 
         public function show($id) {
-            $post = $this->postModel->getPostById($id);
+            $post = $this->mentorDashboardModel->getPostById($id);
             $user = $this->commonModel->getUserById($post->user_id);
 
             $data = [
@@ -179,14 +178,14 @@
         public function delete($id) {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Get existing post from model
-                $post = $this->postModel->getPostById($id);
+                $post = $this->mentorDashboardModel->getPostById($id);
 
                 // Check for owner
                 if($post->user_id != $_SESSION['user_id']) {
                     redirect('mentors_dashboard/banner');
                 }
                 
-                if($this->postModel->deletePost($id)) {
+                if($this->mentorDashboardModel->deletePost($id)) {
                     flash('post_message', 'Post Removed');
                     redirect('mentors_dashboard/banner');
                 }
