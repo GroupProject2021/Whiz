@@ -294,6 +294,18 @@ class M_S_Settings {
         return $result;
     }
 
+    public function getFollowingCount($id) {
+        $this->db->query('SELECT * FROM connections WHERE from_user_id = :id');
+        // bind values
+        $this->db->bind(":id", $id);
+
+        $this->db->single();
+        
+        $result = $this->db->rowCount();
+
+        return $result;
+    }
+
     public function isAlreadyFollow($me, $id) {
         $this->db->query('SELECT * FROM connections WHERE from_user_id = :me AND to_user_id = :id');
         // bind values

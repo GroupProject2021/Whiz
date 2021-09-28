@@ -91,7 +91,7 @@
                                 <hr>
                                 <div class="profile-stats">
                                     <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers'; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
-                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings'; ?>" class="card-link"><b>Following</b> 16</a></div>
+                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings'; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
                                     <div class="rating"><a href="" class="card-link"><b>Rate</b> 4.0/5.0</a></div>
                                 </div>
                                 <hr>
@@ -408,18 +408,18 @@
                     }
                 })})
 
-                $('#followBtn').click(function(event) {
-                    event.preventDefault();
+                // $('#followBtn').click(function(event) {
+                //     event.preventDefault();
 
-                $.ajax({
-                    url: "<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id; ?>",
-                    method: "post",
-                    data: $('form').serialize(),
-                    dataType: "text",
-                    success: function(strMessage) {
-                        // $('#followers-count').text(strMessage);
-                    }
-                })})
+                // $.ajax({
+                //     url: "<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id; ?>",
+                //     method: "post",
+                //     data: $('form').serialize(),
+                //     dataType: "text",
+                //     success: function(strMessage) {
+                //         // $('#followers-count').text(strMessage);
+                //     }
+                // })})
 
                 // for followings
                 // $('#followingBtn').click(function(event) {

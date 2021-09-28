@@ -15,6 +15,7 @@ class C_S_Settings extends Controller {
         // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
         $userData = $this->settingsModel->getUserDetails($id);
         $followerCount = $this->countFollowers($id);
+        $followingCount = $this->countFollowings($id);
         $isAlreadyFollow = $this->checkFollowability($id);
 
         switch($userData->specialized_actor_type) {
@@ -24,7 +25,8 @@ class C_S_Settings extends Controller {
 
                 $data = [
                     'user' => $userData,
-                    'followerCount' => $followerCount,
+                    'followerCount' => $followerCount,                    
+                    'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
                     'name' => $studentData->name,
                     'email' => $studentData->email,
@@ -44,7 +46,8 @@ class C_S_Settings extends Controller {
 
                 $data = [
                     'user' => $userData,
-                    'followerCount' => $followerCount,
+                    'followerCount' => $followerCount,            
+                    'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
                     'name' => $studentData->name,
                     'email' => $studentData->email,
@@ -87,7 +90,8 @@ class C_S_Settings extends Controller {
 
                 $data = [
                     'user' => $userData,
-                    'followerCount' => $followerCount,
+                    'followerCount' => $followerCount,            
+                    'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
                     'name' => $studentData->name,
                     'email' => $studentData->email,
@@ -145,7 +149,8 @@ class C_S_Settings extends Controller {
 
                 $data = [
                     'user' => $userData,
-                    'followerCount' => $followerCount,
+                    'followerCount' => $followerCount,        
+                    'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
                     'name' => $studentData->name,
                     'email' => $studentData->email,
@@ -703,6 +708,12 @@ class C_S_Settings extends Controller {
 
     public function countFollowers($id) {
         $count = $this->settingsModel->getFollowerCount($id);
+
+        return $count;
+    }
+
+    public function countFollowings($id) {
+        $count = $this->settingsModel->getFollowingCount($id);
 
         return $count;
     }
