@@ -45,6 +45,7 @@ class C_S_Settings extends Controller {
                 $data = [
                     'user' => $userData,
                     'followerCount' => $followerCount,
+                    'isAlreadyFollow' => $isAlreadyFollow,
                     'name' => $studentData->name,
                     'email' => $studentData->email,
                     // 'password' => $studentData->password,
@@ -87,6 +88,7 @@ class C_S_Settings extends Controller {
                 $data = [
                     'user' => $userData,
                     'followerCount' => $followerCount,
+                    'isAlreadyFollow' => $isAlreadyFollow,
                     'name' => $studentData->name,
                     'email' => $studentData->email,
                     // 'password' => $studentData->password,
@@ -144,6 +146,7 @@ class C_S_Settings extends Controller {
                 $data = [
                     'user' => $userData,
                     'followerCount' => $followerCount,
+                    'isAlreadyFollow' => $isAlreadyFollow,
                     'name' => $studentData->name,
                     'email' => $studentData->email,
                     // 'password' => $studentData->password,

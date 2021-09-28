@@ -103,7 +103,7 @@
                                     </a>
                                     <?php endif; ?>
                                     <?php if($data['isAlreadyFollow']): ?>
-                                    <a class="msg-btn" id="following">
+                                    <a href="<?php echo URLROOT.'/profileStatsAndConnections/unfollow/'.$data['user']->id; ?>" class="msg-btn" id="following">
                                         <button class="btn7-round" id="followingBtn">Following</button>
                                     </a>
                                     <?php endif; ?>
@@ -408,19 +408,32 @@
                     }
                 })})
 
-                // for followings
-                $('#followingBtn').click(function(event) {
+                $('#followBtn').click(function(event) {
                     event.preventDefault();
 
                 $.ajax({
-                    url: "<?php echo URLROOT.'/profileStatsAndConnections/unfollow/'.$data['user']->id; ?>",
+                    url: "<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id; ?>",
                     method: "post",
                     data: $('form').serialize(),
                     dataType: "text",
                     success: function(strMessage) {
-                        $('#followers-count').text(strMessage);
+                        // $('#followers-count').text(strMessage);
                     }
                 })})
+
+                // for followings
+                // $('#followingBtn').click(function(event) {
+                //     event.preventDefault();
+
+                // $.ajax({
+                //     url: "<?php echo URLROOT.'/profileStatsAndConnections/unfollow/'.$data['user']->id; ?>",
+                //     method: "post",
+                //     data: $('form').serialize(),
+                //     dataType: "text",
+                //     success: function(strMessage) {
+                //         $('#followers-count').text(strMessage);
+                //     }
+                // })})
             })
         </script>
 <?php require APPROOT.'/views/inc/footer.php'; ?>

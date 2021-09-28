@@ -28,6 +28,7 @@
 
             if($this->profileStatAndConnectionModel->removeFollower($me)) {
                 // nothing for now
+                redirect('C_S_Settings/settings/'.$id);
                 return print_r($this->countFollowers($id));
             }
         }
