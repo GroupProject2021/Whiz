@@ -90,8 +90,8 @@
                                 </div>
                                 <hr>
                                 <div class="profile-stats">
-                                    <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers'; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
-                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings'; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
+                                    <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$data['user']->id; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
+                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$data['user']->id; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
                                     <div class="rating"><a href="" class="card-link"><b>Rate</b> 4.0/5.0</a></div>
                                 </div>
                                 <hr>

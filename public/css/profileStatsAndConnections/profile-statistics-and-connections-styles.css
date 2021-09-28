@@ -1,0 +1,101 @@
+.link-header {
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+}
+
+.link-header .title {
+    font-size: 20px;
+    color: rgb(78, 78, 78);
+    font-weight: 600;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+/* organization drop down header */
+#organization-drop-down-header {
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+    transition: .2s all;
+}
+
+#organization-drop-down-header .title {
+    font-size: 15px;
+    color: rgb(78, 78, 78);
+    font-weight: 600;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+/* mentor drop down header */
+#mentor-drop-down-header {
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+    transition: .2s all;
+}
+
+#mentor-drop-down-header .title {
+    font-size: 15px;
+    color: rgb(78, 78, 78);
+    font-weight: 600;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.default-list{
+    width: 50%;
+}
+
+/* user block */
+.user-block {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    line-height: 50px;
+    vertical-align: middle;
+    background-color: rgb(233, 233, 233);
+    transition: .2s all;
+    margin-bottom: 5px;
+    /* justify-content: center; */
+}
+
+.user-block:hover{
+    background-color: rgb(207, 207, 207);
+    cursor: pointer;
+}
+
+.user-block .pic {    
+    padding: 10px;
+}
+
+.user-block .pic img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.user-block .name {
+    padding-left: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 60px;
+    vertical-align: middle;
+}
+
+.user-block .verified {
+    padding: 20px 20px 20px 10px;
+}
+
+.user-block .verified img{
+    height: 20px;
+    width: 20px;
+}
+
+.user-block .types {
+    color: gray;
+    line-height: 60px;
+    vertical-align: middle;
+    padding-left: 10px;
+}

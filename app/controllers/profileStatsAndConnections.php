@@ -4,13 +4,19 @@
             $this->profileStatAndConnectionModel = $this->model('profileStatAndConnection');
         }
 
-        public function followers() {
-            $data = [];
+        public function followers($id) {
+            $followerList = $this->profileStatAndConnectionModel->getFollowers($id);
+
+            $data = ['followers' => $followerList];
+
             $this->view('students/profileStatsAndConnections/v_student_followers', $data);
         }
+        
+        public function followings($id) {
+            $followingList = $this->profileStatAndConnectionModel->getFollowings($id);
 
-        public function followings() {
-            $data = [];
+            $data = ['following' => $followingList];
+
             $this->view('students/profileStatsAndConnections/v_student_following', $data);
         }
 

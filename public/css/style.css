@@ -36,6 +36,9 @@
 @import url('profiles/student-profile.css');
 @import url('profiles/professionalGuider-profile.css');
 
+/* profile statistics and connecitons */
+@import url('profileStatsAndConnections/profile-statistics-and-connections-styles.css');
+
 /* fonts */
 @font-face {
     font-family: Poppins-Regular;

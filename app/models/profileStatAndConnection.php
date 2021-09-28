@@ -64,5 +64,37 @@
 
             return $result;
         }
+
+        public function getFollowers($id) {
+            // $this->db->query('SELECT * FROM connections WHERE to_user_id = :id');
+            $this->db->query("SELECT *
+                                FROM users
+                                INNER JOIN connections  
+                                ON connections.from_user_id = users.id 
+                                WHERE to_user_id = :id");
+
+            // bind values
+            $this->db->bind(":id", $id);
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        public function getFollowings($id) {
+            $this->db->query("SELECT *
+                                FROM users
+                                INNER JOIN connections  
+                                ON connections.to_user_id = users.id 
+                                WHERE from_user_id = :id");
+
+            // $this->db->query('SELECT * FROM connections WHERE from_user_id = :id');
+            // bind values
+            $this->db->bind(":id", $id);
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
     }
 ?>
