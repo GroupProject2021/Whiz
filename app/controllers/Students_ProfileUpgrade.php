@@ -4,6 +4,32 @@
             $this->studentProfileUpgrade = $this->model('Student_ProfileUpgrade');
         }
 
+        public function studentDashboardRedirect() {
+            $data = [];
+
+            switch($_SESSION['specialized_actor_type']) {
+                case 'Beginner' :
+                    $this->view('students/dashboards/v_student_beg_dashboard', $data);
+                    break;
+                
+                case 'OL qualified' :
+                    $this->view('students/dashboards/v_student_ol_dashboard', $data);
+                    break;
+                
+                case 'AL qualified' :
+                    $this->view('students/dashboards/v_student_al_dashboard', $data);
+                    break;
+
+                case 'Undergraduate Graduate' :
+                    $this->view('students/dashboards/v_student_ug_dashboard', $data);
+                    break;
+
+                default:
+                    // nothing
+                    break;
+            }
+        }
+
         public function upgradeToOlQualified() {
             $district_list = $this->studentProfileUpgrade->getDistricts();
             $ol_subject_list = $this->studentProfileUpgrade->getOLSubjects();

@@ -41,9 +41,10 @@
                                     <img src="<?php echo URLROOT.'/imgs/wallbg.jpg'; ?>" alt="">
                                 </div>
                                 <div class="profpic">                                    
-                                    <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($_SESSION['actor_type']).'/'.$_SESSION['user_profile_image']; ?>" alt="" id="profile_image_placeholder">
+                                    <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image; ?>" alt="" id="profile_image_placeholder">
                                     <input type="file" name="profile_image" id="profile_image" onchange="displayImage(this)" style="display: none;">
                                     <!-- profile pic edit area -->
+                                    <?php if($data['user']->id == $_SESSION['user_id']): ?>
                                     <div class="profile-pic-edit-area">
                                         <!-- flash message -->              
                                         <!-- <?php flash('profile_image_upload'); ?> -->
@@ -51,6 +52,7 @@
                                         <input type="submit" value="Save Changes" class="btn1-small" id="save_profilepic_click" style="display: none;">
                                         <div class="btn1-small" onclick="cancelProfPicChange(); " id="canceledit_profpic_click" style="display: none;">Cancel</div>
                                     </div>
+                                    <?php endif; ?>
                                 </div>
                                 
                             </form>
@@ -58,14 +60,14 @@
                             <div class="details">
                                 <div class="name">
                                     <?php echo $data['name'];?>
-                                    <?php if($_SESSION['status'] == 'verified'): ?>
+                                    <?php if($data['user']->status == 'verified'): ?>
                                         <img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt="">
                                     <?php endif; ?>
                                 </div>
-                                <div class="occupation"><?php echo $_SESSION['actor_type'];?> | <?php echo $_SESSION['specialized_actor_type'];?> </div>
+                                <div class="occupation"><?php echo $data['user']->actor_type; ?> | <?php echo $data['user']->specialized_actor_type;?> </div>
                                 <div class="institute">
                                     <?php
-                                        switch($_SESSION['specialized_actor_type']) {
+                                        switch($data['user']->specialized_actor_type) {
                                             case 'Beginner': 
                                                 echo '';
                                                 break;
@@ -88,18 +90,38 @@
                                 </div>
                                 <hr>
                                 <div class="profile-stats">
-                                    <div class="followers"><b>Followers</b> 100</div>
-                                    <div class="following"><b>Following</b> 16</div>
-                                    <div class="rating"><b>Rate</b> 4.0/5.0</div>
+                                    <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers'; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
+                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings'; ?>" class="card-link"><b>Following</b> 16</a></div>
+                                    <div class="rating"><a href="" class="card-link"><b>Rate</b> 4.0/5.0</a></div>
                                 </div>
                                 <hr>
+                                <?php if($data['user']->id != $_SESSION['user_id']): ?>
+                                <div class="interactable">
+                                    <?php if(!$data['isAlreadyFollow']): ?>
+                                    <a class="msg-btn card-link" id="follow">
+                                        <button class="btn1-round" id="followBtn">Follow</button>
+                                    </a>
+                                    <?php endif; ?>
+                                    <?php if($data['isAlreadyFollow']): ?>
+                                    <a class="msg-btn" id="following">
+                                        <button class="btn7-round" id="followingBtn">Following</button>
+                                    </a>
+                                    <?php endif; ?>
+                                    <a href="" class="msg-btn">
+                                        <button class="btn1-round">Message</button>
+                                    </a>
+                                </div>
+                                <hr>
+                                <?php endif; ?>
                                 <!-- beginner details -->
-                        <?php if($_SESSION['specialized_actor_type'] == 'Beginner' || $_SESSION['specialized_actor_type'] == 'OL qualified' || $_SESSION['specialized_actor_type'] == 'AL qualified' || $_SESSION['specialized_actor_type'] == 'Undergraduate Graduate'): ?>
+                        <?php if($data['user']->specialized_actor_type == 'Beginner' || $data['user']->specialized_actor_type == 'OL qualified' || $data['user']->specialized_actor_type == 'AL qualified' || $data['user']->specialized_actor_type == 'Undergraduate Graduate'): ?>
                                 <div class="division">
                                     <div class="division-name">Beginner details</div>
+                                    <?php if($data['user']->id == $_SESSION['user_id']): ?>
                                     <div class="editable">
                                         <a href="<?php echo URLROOT; ?>/C_S_Settings/editSettingsBeginner"><button class="btn1-small">Edit</button></a>
                                     </div>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="beginner-detials">
                                     <div class="Date of birth">
@@ -130,12 +152,14 @@
                                 <hr>
                         <?php endif; ?>
                                 <!-- ol qualified details -->
-                        <?php if($_SESSION['specialized_actor_type'] == 'OL qualified' || $_SESSION['specialized_actor_type'] == 'AL qualified' || $_SESSION['specialized_actor_type'] == 'Undergraduate Graduate'): ?>
+                        <?php if($data['user']->specialized_actor_type == 'OL qualified' || $data['user']->specialized_actor_type == 'AL qualified' || $data['user']->specialized_actor_type == 'Undergraduate Graduate'): ?>
                                 <div class="division">
                                     <div class="division-name">G.C.E(O/L) details</div>
+                                    <?php if($data['user']->id == $_SESSION['user_id']): ?>
                                     <div class="editable">
                                         <a href="<?php echo URLROOT; ?>/C_S_Settings/editSettingsOL"><button class="btn1-small">Edit</button></a>
                                     </div>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="ol-qualified-details">
                                     <div class="ol-school">
@@ -166,12 +190,14 @@
                                 <hr>
                         <?php endif; ?>
                                 <!-- al qualified details -->
-                        <?php if($_SESSION['specialized_actor_type'] == 'AL qualified' || $_SESSION['specialized_actor_type'] == 'Undergraduate Graduate'): ?>
+                        <?php if($data['user']->specialized_actor_type == 'AL qualified' || $data['user']->specialized_actor_type == 'Undergraduate Graduate'): ?>
                                 <div class="division">
                                     <div class="division-name">G.C.E(A/L) details</div>
+                                    <?php if($data['user']->id == $_SESSION['user_id']): ?>
                                     <div class="editable">
                                         <a href="<?php echo URLROOT; ?>/C_S_Settings/editSettingsAL"><button class="btn1-small">Edit</button></a>
                                     </div>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="al-qualified-details">
                                     <div class="al-school">
@@ -218,12 +244,14 @@
                                 <hr>
                         <?php endif; ?>
                                 <!-- undergraduate graduate details -->
-                        <?php if($_SESSION['specialized_actor_type'] == 'Undergraduate Graduate'): ?>
+                        <?php if($data['user']->specialized_actor_type == 'Undergraduate Graduate'): ?>
                                 <div class="division">
                                     <div class="division-name">Higher Education details</div>
+                                    <?php if($data['user']->id == $_SESSION['user_id']): ?>
                                     <div class="editable">
                                         <a href="<?php echo URLROOT; ?>/C_S_Settings/editSettingsUG"><button class="btn1-small">Edit</button></a>
                                     </div>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="ug-details">
                                     <div class="uni-type">
@@ -254,12 +282,7 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="interactable">
-                                    <div class="msg-btn">
-                                        <button class="btn1-round">Message</button>
-                                    </div>
-                                </div>
-                                <hr>
+                                
                             </div>
                         </div>
                         <div class="body">
@@ -349,5 +372,55 @@
                     dropArea.classList.remove("active");
                 }
             }
+
+            // follow and following features
+            let followBtn = document.getElementById('followBtn');
+            let followingBtn = document.getElementById('followingBtn');
+            let follow = document.getElementById('follow');
+            let following = document.getElementById('following');
+
+            followBtn.addEventListener("click", function() {
+                follow.style.display = "none";
+                following.style.display = "block";
+            })
+
+            followingBtn.addEventListener("click", function() {
+                following.style.display = "none";
+                follow.style.display = "block";
+            })
+
+        </script>
+
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(function() {
+                // for followers
+                $('#followBtn').click(function(event) {
+                    event.preventDefault();
+
+                $.ajax({
+                    url: "<?php echo URLROOT.'/profileStatsAndConnections/follow/'.$data['user']->id; ?>",
+                    method: "post",
+                    data: $('form').serialize(),
+                    dataType: "text",
+                    success: function(strMessage) {
+                        $('#followers-count').text(strMessage);
+                    }
+                })})
+
+                // for followings
+                $('#followingBtn').click(function(event) {
+                    event.preventDefault();
+
+                $.ajax({
+                    url: "<?php echo URLROOT.'/profileStatsAndConnections/unfollow/'.$data['user']->id; ?>",
+                    method: "post",
+                    data: $('form').serialize(),
+                    dataType: "text",
+                    success: function(strMessage) {
+                        $('#followers-count').text(strMessage);
+                    }
+                })})
+            })
         </script>
 <?php require APPROOT.'/views/inc/footer.php'; ?>

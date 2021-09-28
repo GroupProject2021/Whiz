@@ -11,15 +11,21 @@ class C_S_Settings extends Controller {
     }
 
      // Settings
-     public function settings() {
-        $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+     public function settings($id) {
+        // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+        $userData = $this->settingsModel->getUserDetails($id);
+        $followerCount = $this->countFollowers($id);
+        $isAlreadyFollow = $this->checkFollowability($id);
 
-        switch($_SESSION['specialized_actor_type']) {
+        switch($userData->specialized_actor_type) {
             // For beginner
             case 'Beginner':
                $studentData = $this->settingsModel->getStudentDetails($id);
 
                 $data = [
+                    'user' => $userData,
+                    'followerCount' => $followerCount,
+                    'isAlreadyFollow' => $isAlreadyFollow,
                     'name' => $studentData->name,
                     'email' => $studentData->email,
                     // 'password' => $studentData->password,
@@ -37,6 +43,8 @@ class C_S_Settings extends Controller {
                 $studentOLData = $this->settingsModel->getStudentOLDetails($id);
 
                 $data = [
+                    'user' => $userData,
+                    'followerCount' => $followerCount,
                     'name' => $studentData->name,
                     'email' => $studentData->email,
                     // 'password' => $studentData->password,
@@ -77,6 +85,8 @@ class C_S_Settings extends Controller {
                 $studentALData = $this->settingsModel->getStudentALDetails($id);
 
                 $data = [
+                    'user' => $userData,
+                    'followerCount' => $followerCount,
                     'name' => $studentData->name,
                     'email' => $studentData->email,
                     // 'password' => $studentData->password,
@@ -132,6 +142,8 @@ class C_S_Settings extends Controller {
                 $uniData = $this->settingsModel->getStudentUniversity($id);
 
                 $data = [
+                    'user' => $userData,
+                    'followerCount' => $followerCount,
                     'name' => $studentData->name,
                     'email' => $studentData->email,
                     // 'password' => $studentData->password,
@@ -189,6 +201,8 @@ class C_S_Settings extends Controller {
         
     }
 
+
+    // editings
     public function editSettingsBeginner() {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
@@ -669,6 +683,8 @@ class C_S_Settings extends Controller {
         }
     }
 
+
+    // updates
     public function updateUserSessions($id) {
         $user = $this->settingsModel->getUserDetails($id);
 
@@ -680,6 +696,18 @@ class C_S_Settings extends Controller {
         $_SESSION['actor_type'] = $user->actor_type;
         $_SESSION['specialized_actor_type'] = $user->specialized_actor_type;
         $_SESSION['status'] = $user->status;
+    }
+
+    public function countFollowers($id) {
+        $count = $this->settingsModel->getFollowerCount($id);
+
+        return $count;
+    }
+
+    public function checkFollowability($id) {
+        $me = $_SESSION['user_id'];
+
+        return $this->settingsModel->isAlreadyFollow($me, $id);
     }
 }
 

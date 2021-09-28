@@ -253,3 +253,13 @@
     top: -160px;
     left: 200px;
 }
+
+.interactable {
+    display: flex;
+    flex-direction: row;
+}
+
+.interactable .msg-btn {
+    width: 130px;
+    margin-left: 10px;
+}

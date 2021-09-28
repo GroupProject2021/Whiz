@@ -9,7 +9,8 @@
         <?php require APPROOT.'/views/inc/components/sideBar/studentSideBar/student_sidebar.php'?>
 
         <div class="main-content">
-            <header>                
+            <header>               
+                 <!--CURRENTLY NOT AVAILABLE !!!  -->
                 <div class="menu-toggle">
                     <button type="button" class="sidebar-handle">
                         <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
@@ -26,17 +27,14 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>OL Qualified dashboard</h1>
+                        <h1>Followings</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
-                    <div class="middle-panel">
-                        <div>content</div>
-                        
-                        <!-- NOTICES BAR -->
-                        <div>
-                            <?php require APPROOT.'/views/inc/components/noticesBar/student_noticesBar.php'?>
-                        </div>
+                    <div class="middle-panel-single">
+                    
+                    
+
 
                     </div>
 

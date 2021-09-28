@@ -281,6 +281,36 @@ class M_S_Settings {
         return $results;
     }
 
+
+    public function getFollowerCount($id) {
+        $this->db->query('SELECT * FROM connections WHERE to_user_id = :id');
+        // bind values
+        $this->db->bind(":id", $id);
+
+        $this->db->single();
+        
+        $result = $this->db->rowCount();
+
+        return $result;
+    }
+
+    public function isAlreadyFollow($me, $id) {
+        $this->db->query('SELECT * FROM connections WHERE from_user_id = :me AND to_user_id = :id');
+        // bind values
+        $this->db->bind(":me", $me);
+        $this->db->bind(":id", $id);
+
+        $this->db->single();
+        
+        $result = $this->db->rowCount();
+
+        if($result > 0) {
+            return true;
+        } 
+        else {
+            return false;
+        }
+    }
 }
 
 ?>

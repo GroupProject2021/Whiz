@@ -23,7 +23,7 @@
     --btn6-bg-color-hover: #2285a7;
     --btn6-color: #FBFBFB;
 
-    --btn7-bg-color: #FBFBFB;
+    --btn7-bg-color: #e2e2e2;
     --btn7-bg-color-hover: #d3d2d2;
     --btn7-color: #262626;
 
@@ -69,11 +69,12 @@
 .btn1-round {
     background-color: var(--btn1-bg-color);
     color: var(--btn1-color);
-    padding: 16px 50px;
-    margin: 8px 0;
+    padding: 16px 0px;
+    margin: 8px 10;
+    width: 100%;
     border: none;
     cursor: pointer;
-    width: fit-content;
+    /* width: fit-content; */
     opacity: 0.9;
     border-radius: 20px;
 }
@@ -170,6 +171,23 @@
 }
 
 .btn7:hover {
+    background-color: var(--btn7-bg-color-hover);
+}
+
+.btn7-round {
+    background-color: var(--btn7-bg-color);
+    color: var(--btn7-color);
+    padding: 16px 0px;
+    margin: 8px 10;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    /* width: fit-content; */
+    opacity: 0.9;
+    border-radius: 20px;
+}
+
+.btn7-round:hover {
     background-color: var(--btn7-bg-color-hover);
 }
 
