@@ -303,3 +303,17 @@ main {
 .custom-select:focus {
     border: 2px solid #db7e31;
 }
+
+
+
+/* responsive features */
+@media only screen and (max-width: 1124px) {
+    .main-content {
+        margin-left: 0;
+    }    
+
+    header {
+        left: 0;
+        width: 100%;
+    }
+}

@@ -3,7 +3,7 @@
 }
 
 .stu-profile .header {
-
+    width: 100%;
 }
 
 /* image area */
@@ -262,4 +262,11 @@
 .interactable .msg-btn {
     width: 130px;
     margin-left: 10px;
+}
+
+/* responsive features */
+@media only screen and (max-width: 1124px) {
+    .stu-profile {
+        width: 100%;
+    }    
 }
