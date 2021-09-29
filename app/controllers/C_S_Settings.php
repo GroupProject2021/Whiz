@@ -276,7 +276,7 @@ class C_S_Settings extends Controller {
                 $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
                 if($this->settingsModel->updateStudentSettings($id, $data)) {
                     flash('settings_message', 'Student data updated');
-                    redirect('C_S_Settings/settings');
+                    redirect('C_S_Settings/settings/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');
@@ -376,7 +376,7 @@ class C_S_Settings extends Controller {
                 $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
                 if($this->settingsModel->updateStudentOLSettings($id, $data)) {
                     flash('settings_message', 'OL data updated');
-                    redirect('C_S_Settings/settings');
+                    redirect('C_S_Settings/settings/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');
@@ -506,7 +506,7 @@ class C_S_Settings extends Controller {
                 $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
                 if($this->settingsModel->updateStudentALSettings($id, $data)) {
                     flash('settings_message', 'AL data updated');
-                    redirect('C_S_Settings/settings');
+                    redirect('C_S_Settings/settings/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');
@@ -593,7 +593,7 @@ class C_S_Settings extends Controller {
                 $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
                 if($this->settingsModel->updateStudentUGSettings($id, $data)) {
                     flash('settings_message', 'University data updated');
-                    redirect('C_S_Settings/settings');
+                    redirect('C_S_Settings/settings/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');

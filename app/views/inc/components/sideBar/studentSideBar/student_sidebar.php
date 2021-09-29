@@ -4,7 +4,7 @@
     <!-- sidebar header -->
     <div class="sidebar-brand">
         <div class="brand-flex">
-            <a href="<?php echo URLROOT; ?>"><img src="<?php echo URLROOT; ?>/imgs/sidebar/logo2.jpg" width="90px" height="40px" alt="logo"></a>
+            <a href="<?php echo URLROOT.'/index'; ?>"><img src="<?php echo URLROOT; ?>/imgs/sidebar/logo2.jpg" width="90px" height="40px" alt="logo"></a>
             
             <div class="brand-icons">
                 <a href=""><img src="<?php echo URLROOT; ?>/imgs/sidebar/notification-bell.png"></a>
