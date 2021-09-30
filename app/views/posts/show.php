@@ -96,36 +96,50 @@
                             </div>
                             <br>
 
-                            <!-- <div class="comment">
-                                <div class="comment-header">
-                                    <div class="comment-header-icon"><img src="<?php echo URLROOT;?>/imgs/prof.jpg" alt=""></div>
-                                    <div class="comment-header-actortypeicon"><img src="<?php echo URLROOT;?>/imgs/prof.jpg" alt=""></div>
-                                    <div class="comment-header-postedby">xxx</div>
-                                    <div class="comment-header-verified"><img src="<?php echo URLROOT;?>/imgs/verified.png" alt=""></div>
-                                    <div class="comment-header-postedtime">xxx</div>
-                                </div>
-                                <div class="comment-body">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint voluptas, voluptatem modi
-                                     cupiditate quam quod nam repellendus aspernatu
-                                    r possimus commodi, suscipit in tenetur praesentium quia ab facere cum doloribus? Aperiam!
-                                </div>
-                                <div class="comment-footer">
-                                    <button>
-                                        <div class="comment-footer-likebtn"><img src="<?php echo URLROOT;?>/imgs/up-icon.png" alt=""></div>
-                                        <div class="comment-footer-text">likes</div>
-                                    </button>
-                                    <button>
-                                        <div class="comment-footer-dislikebtn"><img src="<?php echo URLROOT;?>/imgs/down-icon.png" alt=""></div>
-                                        <div class="comment-footer-text">dislikes</div>
-                                    </button>
-                                    <button>
-                                        <div class="comment-footer-replybtn"><img src="<?php echo URLROOT;?>/imgs/reply-icon.png" alt=""></div>
-                                        <div class="comment-footer-text">reply</div>
-                                    </button>
-                                </div>
-                            </div> -->
-                            
                             <div id="results"></div>
+
+                            <div class="review-area">
+                                <div class="title">Reviews</div>
+                                <div class="content">
+                                    <div class="left">
+                                        <div class="rate-no">4.1</div>
+                                        <div class="rate-stars">
+                                            <div class="star1"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                            <div class="star2"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                            <div class="star3"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                            <div class="star4"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                            <div class="star5"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                        </div>
+                                        <div class="total-rate-amount">
+                                            <div class="user-icon"><img src="<?php echo URLROOT.'/imgs/user-icon.png'; ?>" alt=""></div>
+                                            <div class="user-count">10,000</div>
+                                        </div>
+                                        <div class="total text">Total</div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="rate1">
+                                            <div class="rate-side-no">5</div>
+                                            <div class="rate-bar"></div>
+                                        </div>
+                                        <div class="rate2">
+                                            <div class="rate-side-no">4</div>
+                                            <div class="rate-bar"></div>
+                                        </div>
+                                        <div class="rate3">
+                                            <div class="rate-side-no">3</div>
+                                            <div class="rate-bar"></div>
+                                        </div>
+                                        <div class="rate4">
+                                            <div class="rate-side-no">2</div>
+                                            <div class="rate-bar"></div>
+                                        </div>
+                                        <div class="rate5">
+                                            <div class="rate-side-no">1</div>
+                                            <div class="rate-bar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
 

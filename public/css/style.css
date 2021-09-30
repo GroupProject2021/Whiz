@@ -39,6 +39,9 @@
 /* profile statistics and connecitons */
 @import url('profileStatsAndConnections/profile-statistics-and-connections-styles.css');
 
+/* rating system */
+@import url('components/ratingSystem/ratingsystem.css');
+
 /* fonts */
 @font-face {
     font-family: Poppins-Regular;
