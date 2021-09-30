@@ -1,0 +1,265 @@
+.org-profile{
+    width: 70%;
+}
+
+.org-profile .header {
+
+}
+
+/* image area */
+.org-profile .header .imagearea .wall img {
+    width: 100%;
+}
+
+.org-profile .header .imagearea .profpic {
+    height: 100px;
+}
+
+.org-profile .header .imagearea .profpic img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid white;
+    position: relative;
+    top: -90px;
+}
+
+.org-profile .header .imagearea .profile-pic-edit-area {
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* details */
+.org-profile .details {
+    padding: 0 5px 5px 5px;
+}
+
+.org-profile .details .name {
+    font-size: large;
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+}
+
+.org-profile .details .name img {
+    height: 20px;
+}
+
+.org-profile .details .occupation {
+
+}
+
+.org-profile .details .institute {
+    font-size: small;
+    font-weight: 600;
+}
+
+
+/* details -> beginner details */
+.org-profile .details .beginner-detials {
+    padding: 5px;
+    background: rgb(190,190,190);
+    background: linear-gradient(42deg, rgba(190,190,190,0.3) 0%, rgba(255,251,225,0.3) 38%, rgba(240,242,239,0.3) 100%, rgba(255,255,248,0.3) 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.org-profile .details .beginner-detials img {
+    height: 20px;
+    position: relative;
+    bottom: -5px;
+    padding-right: 5px;
+}
+
+.org-profile .details .beginner-detials  .title {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(44, 44, 44);
+}
+
+.org-profile .details .beginner-detials  .text {
+    padding-bottom: 5px;
+    padding-left: 25px;
+}
+
+/* details -> ol qualified details */
+.org-profile .details .ol-qualified-details {
+    padding: 5px;
+    background: rgb(190,190,190);
+    background: linear-gradient(42deg, rgba(190,190,190,0.3) 0%, rgba(225,255,226,0.3) 38%, rgba(240,242,239,0.3) 100%, rgba(255,255,248,0.3) 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.org-profile .details .ol-qualified-details img {
+    height: 20px;
+    position: relative;
+    bottom: -5px;
+    padding-right: 5px;
+}
+
+.org-profile .details .ol-qualified-details  .title {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(44, 44, 44);
+}
+
+.org-profile .details .ol-qualified-details  .text {
+    padding-bottom: 5px;
+    padding-left: 25px;
+}
+
+.org-profile .details .ol-qualified-details .results {
+    grid-column: 1/3;
+}
+
+.org-profile .details .ol-qualified-details .results .results-table{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.org-profile .details .ol-qualified-details .results .results-table .subject {
+    padding-bottom: 5px;
+    padding-left: 25px;
+}
+
+.org-profile .details .ol-qualified-details .results .results-table .sub-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(59, 55, 55);
+}
+
+/* details -> al qualified details */
+.org-profile .details .al-qualified-details {
+    padding: 5px;
+    background: rgb(190,190,190);
+    background: linear-gradient(42deg, rgba(190,190,190,0.3) 0%, rgba(225,254,255,0.3) 38%, rgba(240,242,239,0.3) 100%, rgba(255,255,248,0.3) 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.org-profile .details .al-qualified-details img {
+    height: 20px;
+    position: relative;
+    bottom: -5px;
+    padding-right: 5px;
+}
+
+.org-profile .details .al-qualified-details  .title {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(44, 44, 44);
+}
+
+.org-profile .details .al-qualified-details  .text {
+    padding-bottom: 5px;
+    padding-left: 25px;
+}
+
+.org-profile .details .al-qualified-details .results {
+    grid-column: 1/3;
+}
+
+.org-profile .details .al-qualified-details .results .results-table{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.org-profile .details .al-qualified-details .results .results-table .subject {
+    padding-bottom: 5px;
+    padding-left: 25px;
+}
+
+.org-profile .details .al-qualified-details .results .results-table .sub-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(59, 55, 55);
+}
+
+/* details -> undergraduate graduate details */
+.org-profile .details .ug-details {
+    padding: 5px;
+    background: rgb(190,190,190);
+    background: linear-gradient(42deg, rgba(190,190,190,0.3) 0%, rgba(255,225,249,0.3) 38%, rgba(240,242,239,0.3) 100%, rgba(255,255,248,0.3) 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.org-profile .details .ug-details img {
+    height: 20px;
+    position: relative;
+    bottom: -5px;
+    padding-right: 5px;
+}
+
+.org-profile .details .ug-details  .title {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(44, 44, 44);
+}
+
+.org-profile .details .ug-details  .text {
+    padding-bottom: 5px;
+    padding-left: 25px;
+}
+
+
+/* details -> stats */
+.org-profile .details .profile-stats {
+    display: flex;
+    flex-direction: row;
+    font-size: medium;
+    justify-content: center;
+    padding: 15px;
+    color: rgb(63, 63, 63);
+}
+
+.org-profile .details .profile-stats div {
+    padding-right: 100px;
+}
+
+/* details -> about */
+.org-profile .details .about .title {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(54, 54, 54);
+}
+
+/* profile tail */
+.org-profile-tail {
+    width: 70%;
+}
+
+/* edit btn */
+.division {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0 5px 5px;
+}
+
+.division .division-name {
+    font-size: large;
+    font-weight: 500;
+    padding-right: 20px;
+}
+
+.division .editable {
+    /* width: 100%;
+    text-align: right; */
+}
+
+.org-profile .profpic .profile-pic-edit-area {
+    position: relative;
+    top: -160px;
+    left: 200px;
+}
+
+.interactable {
+    display: flex;
+    flex-direction: row;
+}
+
+.interactable .msg-btn {
+    width: 130px;
+    margin-left: 10px;
+}

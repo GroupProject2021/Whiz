@@ -8,7 +8,7 @@
     </head>
     <body>
         <!-- SIDE BAR -->
-        <?php require APPROOT.'/views/inc/components/sideBar/organizationSideBar/university_sidebar.php'?>
+        <?php require APPROOT.'/views/inc/components/sideBar/organizationSideBar/organization_sidebar.php'?>
 
         <div class="main-content">
             <header>               

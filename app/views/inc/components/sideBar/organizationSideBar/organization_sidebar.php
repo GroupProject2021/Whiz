@@ -8,13 +8,17 @@
             
             <div class="brand-icons">
                 <a href=""><img src="<?php echo URLROOT; ?>/imgs/sidebar/notification-bell.png"></a>
-                <a href="<?php echo URLROOT; ?>/C_O_U_Settings/settings"><img src="<?php echo URLROOT; ?>/imgs/sidebar/settings.png"></a>
+                <a href="<?php echo URLROOT.'/C_O_Settings/settings/'.$_SESSION['user_id']; ?>"><img src="<?php echo URLROOT; ?>/imgs/sidebar/settings.png"></a>
             </div>
         </div>
     </div>
- 
-        <!-- OPTIONS -->
+
+    <!-- sidebar main -->
+    <div class="sidebar-main">
+    <!-- OPTIONS -->
     <?php if(isset($_SESSION['user_id'])) : ?>
+        <?php if($_SESSION['specialized_actor_type'] == 'University'): ?>
+        <!-- University options -->
         <div class="menu-head">
             <span>University options</span>
         </div>
@@ -42,7 +46,42 @@
                 </button>
             </a>
         </div>
+
+        <?php elseif($_SESSION['specialized_actor_type'] == 'Company'): ?>
+        <!-- Company options -->
+        <div class="menu-head">
+            <span>Company options</span>
+        </div>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/C_O_C_Jobs/jobs">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/jobs-icon.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        jobs
+                    </div>
+                </button>
+            </a>
+        </div>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/C_O_C_Cvs/cvs">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/cv-icon.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        recieved cv
+                    </div>
+                </button>
+            </a>
+        </div>
+
+        <?php else: ?>
+            <!-- Nothing here -->
+        <?php endif;?>
     <?php endif; ?>
+    </div>
 </div>
 
 <label for="sidebar-toggle" class="body-label"></label>
