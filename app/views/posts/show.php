@@ -32,45 +32,55 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
 
-                        <a href="<?php echo URLROOT;?>/posts/index"><button class="btn8">Back</button></a>
-                        <br>
-                    
-                        <!-- I added this later. So now it will only show the posts that are related to the user. Remove if statement and it will show all the posts -->
-                            <div class="post">
-                                <div class="post-header">
-                                        <div class="post-header-icon"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image;?>" alt=""></div>
-                                        <div class="post-header-actortypeicon"><img src="<?php echo URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($data['user']->actor_type).'-'.getActorSpecializedTypeForIcons($data['user']->actor_type, $data['user']->specialized_actor_type).'-icon.png'; ?>" alt=""></div>
-                                        <div class="post-header-postedby"><?php echo $data['user']->name; ?></div>
-                                        <div class="post-header-verified"><img src="<?php echo URLROOT;?>/imgs/verified.png" alt=""></div>
-                                        <div class="post-header-postedtime"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
 
-                                        <?php if($data['post']->user_id == $_SESSION['user_id']): ?>    
-                                            <div class="post-control-buttons">                                        
+                    <a href="<?php echo URLROOT;?>/posts/index"><button class="btn8 post-back">Back</button></a>
+                                                                          
+                            <div class="post">
+                                <?php if($data['post']->image != null):?>
+                                    <div class="post-header">
+                                        <img src="<?php echo URLROOT.'/imgs/POSTS/'.$data['post']->image; ?>" alt="">
+                                    </div>  
+                                <?php endif; ?>
+                                <div class="post-details">
+                                    <div class="profpic"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image;?>" alt=""></div>
+                                    <div class="profpic-sub"><img src="<?php echo URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($data['user']->actor_type).'-'.getActorSpecializedTypeForIcons($data['user']->actor_type, $data['user']->specialized_actor_type).'-icon.png'; ?>" alt=""></div>
+                                    <div class="postedby"><?php echo $data['user']->name; ?></div>
+                                    <?php if($data['user']->status == 'verified'): ?>
+                                    <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
+                                    <?php endif; ?>
+                                    <?php if($data['post']->user_id == $_SESSION['user_id']): ?>    
+                                        <div class="post-control-buttons">                                        
                                             <a href="<?php echo URLROOT?>/posts/edit/<?php echo $data['post']->id;?>">
                                                 <button class="post-header-editbtn">Edit</button>
                                             </a>
                                             <form action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id; ?>" method="post">
                                                 <input type="submit" value="Delete" class="post-header-deletebtn">
                                             </form>
-                                            </div>
-                                        <?php endif; ?>
+                                        </div>
+                                     <?php endif; ?>
                                 </div>
+                                <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
                                 <div class="post-body">
-                                    <div class="post-body-title"><?php echo $data['post']->title; ?></div>
-                                    <div class="post-body-content">
-                                        <?php echo $data['post']->body; ?>
-                                    </div>
+                                    <div class="title"><?php echo $data['post']->title; ?></div>
+                                    <div class="postedby"><?php echo $data['post']->body; ?></div>
+                                    <!-- PROGRESS BAR CURRENTLY NOT ACTIVE - LATER ON CAN USE FOR JOB APPLICATIONS -->
+                                    <!-- <div class="progress">
+                                        <progress class="applied-bar" value="50" max="100"></progress>
+                                        <div class="text">
+                                            <div class="applied">50 applied</div>
+                                            <div class="capacity">of 100 capacity</div>
+                                        </div>
+                                    </div>                             -->
+                                    <!-- <div class="price">View more</div> -->
                                 </div>
-                                <hr>
-                                
                                 <form method="post">
                                 <div class="post-footer">
                                     <button id="like">
-                                        <div class="post-footer-likebtn"><img src="<?php echo URLROOT;?>/imgs/like.png" alt=""></div>
+                                        <div class="post-footer-likebtn"><img src="<?php echo URLROOT;?>/imgs/up-icon.png" alt=""></div>
                                         <div class="post-footer-text" id="like-count"><?php echo $data['ups']; ?></div>
                                     </button>
                                     <button id="dislike">
-                                        <div class="post-footer-dislikebtn"><img src="<?php echo URLROOT;?>/imgs/like.png" alt=""></div>
+                                        <div class="post-footer-dislikebtn"><img src="<?php echo URLROOT;?>/imgs/down-icon.png" alt=""></div>
                                         <div class="post-footer-text" id="dislike-count"><?php echo $data['downs']; ?></div>
                                     </button>
                                     <div class="post-footer-input"><input type="text" placeholder="Comment..." name="post-comment" id="post-comment" class="post-comment"></div>
@@ -119,7 +129,8 @@
 
                         </div>
 
-                        <div id="msg"></div>
+                        <!-- test msg for comment results - CHECK FOR COMMENT INSERTING ONLY -->
+                        <!-- <div id="msg"></div> -->
 
                     <!-- BOTTOM PANEL -->
                     <div class="bottom-panel">

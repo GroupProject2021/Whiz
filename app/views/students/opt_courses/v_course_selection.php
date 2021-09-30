@@ -33,7 +33,7 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
                         <div>
-                            <a href=""><button class="btn1">Private courses</button></a>
+                            <a href="<?php echo URLROOT; ?>/Posts/index"><button class="btn1">Private courses</button></a>
                             <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList"><button class="btn2">Government courses</button></a>
                         </div>
                         <div>

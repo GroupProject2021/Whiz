@@ -1,5 +1,5 @@
 .comment {
-    width: 55%;
+    width: 50%;
     height: fit-content;
     background-color: #fafafa;
     border: 1px solid #c7c7c7;
@@ -106,4 +106,10 @@
 	color: inherit;
 	border: none;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 1124px) {
+    .comment {
+        width: 100%;
+    }  
 }

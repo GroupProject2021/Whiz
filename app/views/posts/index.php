@@ -37,10 +37,10 @@
                         <br>
                     
 
-                    <?php foreach($data['posts'] as $post): ?>
+                    <?php //foreach($data['posts'] as $post): ?>
                         <!-- I added this later. So now it will only show the posts that are related to the user. Remove if statement and it will show all the posts -->
                         <?php //if($post->id == $_SESSION['user_id']): ?>
-                            <div class="post">
+                            <!-- <div class="post">
                                 <div class="post-header">
                                         <div class="post-header-icon"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt=""></div>
                                         <div class="post-header-actortypeicon"><img src="<?php echo URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($post->actor_type).'-'.getActorSpecializedTypeForIcons($post->actor_type, $post->specialized_actor_type).'-icon.png'; ?>" alt=""></div>
@@ -64,20 +64,66 @@
                                     <button>
                                         <div class="post-footer-dislikebtn"><img src="<?php echo URLROOT;?>/imgs/like.png" alt=""></div>
                                         <div class="post-footer-text"><?php echo $post->downs; ?></div>
-                                    </button>
+                                    </button> -->
                                     <!-- <div class="post-footer-input"><input type="text" placeholder="Comment..." name="post-comment" id="post-comment" class="post-comment"></div>
                                     <button>
                                         <div class="post-footer-commentbtn"><img src="<?php echo URLROOT;?>/imgs/comment.png" alt=""></div>
                                     </button> -->
-                                    <button>
+                                    <!-- <button>
                                         <div class="post-footer-sharebtn"><img src="<?php echo URLROOT;?>/imgs/share.png" alt=""></div>
                                         <div class="post-footer-text">Share</div>
                                     </button>
                                 </div>
                             </div>
-                            <br>
+                            <br> -->
                         <?php //endif; ?>
-                    <?php endforeach; ?>
+                    <?php //endforeach; ?>
+
+                    <?php foreach($data['posts'] as $post): ?>
+                    <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>" class="card-link">
+                    <div class="post">
+                        <?php if($post->image != null):?>
+                            <div class="post-header">
+                                <img src="<?php echo URLROOT.'/imgs/POSTS/'.$post->image; ?>" alt="">
+                            </div>
+                        <?php endif; ?>
+                            <div class="post-details">
+                                <div class="profpic"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt=""></div>
+                                <div class="profpic-sub"><img src="<?php echo URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($post->actor_type).'-'.getActorSpecializedTypeForIcons($post->actor_type, $post->specialized_actor_type).'-icon.png'; ?>" alt=""></div>
+                                <div class="postedby"><?php echo $post->name; ?></div>
+                                <?php if($post->status == 'verified'): ?>
+                                <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
+                                <?php endif; ?>
+                            </div>
+                            <div class="postedat"><?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
+                            <div class="post-body">
+                                <div class="title"><?php echo $post->title; ?></div>
+                                <div class="postedby"><?php echo $post->body; ?></div>
+                                <!-- PROGRESS BAR CURRENTLY NOT ACTIVE - LATER ON CAN USE FOR JOB APPLICATIONS -->
+                                <!-- <div class="progress">
+                                    <progress class="applied-bar" value="50" max="100"></progress>
+                                    <div class="text">
+                                        <div class="applied">50 applied</div>
+                                        <div class="capacity">of 100 capacity</div>
+                                    </div>
+                                </div>                             -->
+                                <!-- <div class="price">View more</div> -->
+                                <div class="stats">
+                                    <div class="ups"><img src="<?php echo URLROOT.'/imgs/up-icon.png'; ?>" alt=""></div>
+                                    <div class="ups-count" id="like-count"><?php echo $post->ups; ?></div>
+                                    <div class="downs"><img src="<?php echo URLROOT.'/imgs/down-icon.png'; ?>" alt=""></div>
+                                    <div class="downs-count"><?php echo $post->downs; ?></div>
+                                    <div class="rate">3.0</div>
+                                    <?php for($i=0; $i <5; $i++):?>
+                                    <div class="stars"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                    <?php endfor;?>
+                                    <div class="enrollment">(10,623)</div>
+                                </div>          
+                            </div>
+                        </div>
+                        </a>
+                        <br>
+                        <?php endforeach; ?>
 
                     </div>
 

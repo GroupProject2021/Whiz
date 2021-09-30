@@ -146,7 +146,7 @@
                             <div class="job-body">
                                 <div class="title">Data Analysist</div>
                                 <div class="postedby">Requesting a experinced data analysists for XYZ company Colombo 7.</div>
-                                <div class="stats">
+                                <div class="progress">
                                     <progress class="applied-bar" value="50" max="100"></progress>
                                     <div class="text">
                                         <div class="applied">50 applied</div>

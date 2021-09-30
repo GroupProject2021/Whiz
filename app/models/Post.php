@@ -21,8 +21,9 @@
         }
 
         public function addPost($data) {
-            $this->db->query('INSERT INTO posts(title, user_id, body, ups, downs, shares, views) VALUES(:title, :user_id, :body, :ups, :downs, :shares, :views)');
+            $this->db->query('INSERT INTO posts(image, title, user_id, body, ups, downs, shares, views) VALUES(:image, :title, :user_id, :body, :ups, :downs, :shares, :views)');
             // bind values
+            $this->db->bind(":image", $data['image_name']);
             $this->db->bind(":title", $data['title']);
             $this->db->bind(":user_id", $data['user_id']);
             $this->db->bind(":body", $data['body']);
@@ -41,9 +42,9 @@
         }
 
         public function updatePost($data) {
-            $this->db->query('UPDATE posts SET title = :title, body = :body WHERE id = :id');
+            $this->db->query('UPDATE posts SET image = :image, title = :title, body = :body WHERE id = :id');
             // bind values
-            
+            $this->db->bind(":image", $data['image_name']);            
             $this->db->bind(":id", $data['id']);
             $this->db->bind(":title", $data['title']);
             $this->db->bind(":body", $data['body']);

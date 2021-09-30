@@ -1,99 +1,161 @@
 .post {
-    width: 55%;
+    width: 50%;
     height: fit-content;
-    background-color: #f1efef;
-    border: 2px solid #c7c7c7;
+    background-color: rgba(252, 252, 252, 0.377);
+    transition: .2s all;
+    -webkit-box-shadow: -2px 2px 15px -4px #5c5c5c; 
+    box-shadow: -2px 2px 15px -4px #5c5c5c;   
 }
 
-/* POST INDEX */
-/* post header */
+.post:hover {
+    /* cursor: pointer;
+    transform: scale(1.01); */
+}
+
 .post-header {
-    height: 40px;
+    height: fit-content;
+}
+
+.post-header img {
+    width: 100%;
+}
+
+.post-details {
     display: flex;
     flex-direction: row;
-}
-
-.post-header-icon{
-    width: 40px;
-    text-align: center;
-    padding-left: 5px;
-    padding-right: 0px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.post-header-icon img {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-}
-
-.post-header-actortypeicon{
-    width: 15px;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 5px;
-}
-
-.post-header-actortypeicon img {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    position: relative;
-    left: -15px;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-}
-
-.post-header-postedby {
-    width: fit-content;
+    height: 40px;
     line-height: 40px;
     vertical-align: middle;
-    font-size: 15px;
+}
+
+.post-details .profpic {
+    padding: 10px;
+}
+
+.post-details .profpic img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.post-details .profpic-sub {
+    padding: 10px 10px 10px 0;
+}
+
+.post-details .profpic-sub img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+.post-details .postedby {
+    width: fit-content;
+}
+
+.post-details .verified {
+    padding: 10px 0 15px 5px;
+}
+
+.post-details .verified img {
+    height: 15px;
+}
+
+
+.post .postedat {
+    background-color: rgb(233, 233, 233);
+    text-align: right;
+    padding-right: 10px;
+}
+
+
+.post-body {    
+    /* padding: 5px; */
+}
+
+.post-body .title {
+    font-size: medium;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.post-body .postedby {
+    color: gray;
+    padding: 0px 5px 5px 5px;
+}
+
+
+.post-body .progress {
+    padding: 10px;
+}
+
+.post-body .progress .applied-bar {
+    width: 100%;
+    height: 20px;
+}
+
+.post-body .progress .text {
+    display: flex;
+    flex-direction: row;    
     font-weight: 600;
 }
 
-.post-header-verified {
-    width: fit-content;
-    padding: 10px 5px 10px 5px;
+.post-body .progress .text .applied {
+    padding-right: 5px;
 }
 
-.post-header-verified img {
-    height: 20px;
-    width: 20px;
-}
-
-.post-header-postedtime {
-    width: fit-content;
-    line-height: 40px;
-    vertical-align: middle;
+.post-body .progress .text .capacity {
     color: gray;
 }
 
-hr {
-    border: 1px solid #e0e0e0;
-    margin-top: 5px;
-    margin-bottom: 5px;
+
+.post-body .price {
+    font-size: 20px;
+    padding: 5px;
+    color: rgb(80, 80, 80);
 }
 
-/* post body */
-.post-body {
-    /* background-color: aqua; */
-    /* margin: 0px 5px 5px 5px; */
+/* stats */
+.post-body .stats {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-.post-body-title {
-    margin-top: 5px;
-    font-size: 22px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+.post-body .stats {
+    height: 40px;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.post-body .stats img {
+    height: 20px;
+}
+
+.stats .ups-count {
+    color: green;
+    padding-right: 15px;
+}
+
+.stats .downs-count {
+    color: red;
+    padding-right: 15px;
+}
+
+.stats .rate {
+    color: rgb(209, 178, 0);
+}
+
+.post-body .stats .rate {
     padding-left: 10px;
-    background-color: #e4e4e4;
 }
 
-.post-body-content {
-    font-size: 13px;
-    padding: 10px;
+
+.post-body .stats .enrollment{
+    padding-left: 10px;
 }
 
 /* post footer */
@@ -112,7 +174,7 @@ hr {
 }
 
 .post-footer input[type=text] {
-    width: 320px;
+    width: fit-content;
     height: 40px;
     margin-left: 20px;
 }
@@ -130,7 +192,7 @@ hr {
 }
 
 .post-footer-dislikebtn {
-    transform: scaleY(-1);
+    /* transform: scaleY(-1); */
 }
 
 .post-footer button {
@@ -150,10 +212,17 @@ hr {
 
 
 /* SHOW MORE POSTS */
+.post-back {
+    /* display: inline-block;
+    position: relative;
+    top: 70px;
+    left: 10px; */
+}
+
 .post-control-buttons {
     display: flex;
     flex-direction: row;
-    padding-left: 120px;
+    padding-left: 20px;
 }
 
 .post-header-editbtn {
@@ -176,19 +245,51 @@ hr {
     margin: 5px;
 }
 
+@media only screen and (max-width: 1124px) {
+    .post {
+        width: 100%;
+    }  
+}
+
+
+
 /* POST ADD */
 .post-creator {
-    width: 55%;
+    width: 50%;
     height: fit-content;
     background-color: #f5f5f5;
     border: 2px solid #c7c7c7;
-    border-radius: 10px;
+    border-radius: 5px;
+}
+.post-creator .post-creator-image img {
+    width: 100%;
+}
+
+.post-creator-title {
+    display: flex;
+    flex-direction: row;
 }
 
 .post-creator-title input[type=text] {
-    background-color: #f5f5f5;
+    background-color: #f5f3f3;
     border: none;
     font-size: 22px;
+}
+
+.post-creator .image-select {
+    height: 30px;
+    line-height: 30px;
+    margin: auto 5px auto 0;
+}
+
+.post-creator-title .image-select img {
+    width: 30px;
+    transition: .1s all;
+}
+
+.post-creator-title .image-select img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .post-creator-content textarea {
@@ -205,7 +306,7 @@ hr {
 
 /* Set a style for the submit button */
 .post-creator-submit {
-    background-color: #e0921c;
+    background-color: #246f7c;
     color: #e4e4e4;
     padding: 16px 20px;
     border: none;
@@ -213,10 +314,16 @@ hr {
     width: 100%;
     opacity: 0.9;
     font-size: 20px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .post-creator-submit:hover {
     opacity: 1;
+}
+
+@media only screen and (max-width: 1124px) {
+    .post-creator {
+        width: 100%;
+    }  
 }

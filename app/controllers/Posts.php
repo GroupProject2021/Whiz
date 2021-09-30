@@ -33,6 +33,8 @@
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 
                 $data = [
+                    'image' => $_FILES['image'],
+                    'image_name' => time().'_'.$_FILES['image']['name'],
                     'title' => trim($_POST['title']),
                     'body' => trim($_POST['body']),
                     'user_id' => $_SESSION['user_id'],
@@ -44,6 +46,22 @@
                     'shares' => 0,
                     'views' => 0
                 ];
+
+                // validate and upload profile image
+                if($data['image']['size'] > 0) {
+                    if(uploadImage($data['image']['tmp_name'], $data['image_name'], '/imgs/POSTS/')) {
+                        // flash('profile_image_upload', 'Profile picture uploaded successfully');
+                    }
+                    else {
+                        // upload unsuccessfull
+                        // $data['profile_image_err'] = 'Profile picture uploading unsuccessful';                        print_r($data['image']['size']);
+                        die('uns');
+                    }
+                }
+                else {
+                    // set image name as null - because image not exits - then default time stamp will be removed
+                    $data['image_name'] = null;
+                }
 
                 // Validate title
                 if(empty($data['title'])) {
@@ -73,6 +91,8 @@
             }
             else {
                 $data = [
+                    'image' => '',
+                    'image_name' => '',
                     'id' => '',
                     'title' => '',
                     'body' => '',
@@ -92,6 +112,8 @@
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 
                 $data = [
+                    'image' => $_FILES['image'],
+                    'image_name' => time().'_'.$_FILES['image']['name'],
                     'id' => $id,
                     'title' => trim($_POST['title']),
                     'body' => trim($_POST['body']),
@@ -99,6 +121,19 @@
                     'title_err' => '',
                     'body_err' => ''
                 ];
+
+                // validate and upload profile image
+                $post = $this->postModel->getPostById($id);
+                $oldImage = PUBROOT.'/imgs/POSTS/'.$post->image;
+
+                if(updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/POSTS/')) {
+                    // flash('profile_image_upload', 'Profile picture uploaded successfully');
+                }
+                else {
+                    // upload unsuccessfull
+                    // $data['profile_image_err'] = 'Profile picture uploading unsuccessful';
+                    die('uns');
+                }
 
                 // Validate title
                 if(empty($data['title'])) {
@@ -136,6 +171,8 @@
                 }
 
                 $data = [
+                    'image' => '',
+                    'image_name' => $post->image,
                     'id' => $id,
                     'title' => $post->title,
                     'body' => $post->body,                    
