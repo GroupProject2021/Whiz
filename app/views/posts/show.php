@@ -99,8 +99,8 @@
                             <div id="results"></div>
 
                             <div class="review-area">
-                                <div class="title">Reviews</div>
-                                <div class="content">
+                                <div class="review-title">Reviews</div>
+                                <div class="review-content">
                                     <div class="left">
                                         <div class="rate-no">4.1</div>
                                         <div class="rate-stars">
@@ -110,34 +110,78 @@
                                             <div class="star4"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
                                             <div class="star5"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
                                         </div>
+                                        <div class="total-text">Total Reviews</div>
                                         <div class="total-rate-amount">
                                             <div class="user-icon"><img src="<?php echo URLROOT.'/imgs/user-icon.png'; ?>" alt=""></div>
                                             <div class="user-count">10,000</div>
                                         </div>
-                                        <div class="total text">Total</div>
                                     </div>
                                     <div class="right">
-                                        <div class="rate1">
-                                            <div class="rate-side-no">5</div>
-                                            <div class="rate-bar"></div>
-                                        </div>
-                                        <div class="rate2">
-                                            <div class="rate-side-no">4</div>
-                                            <div class="rate-bar"></div>
-                                        </div>
-                                        <div class="rate3">
-                                            <div class="rate-side-no">3</div>
-                                            <div class="rate-bar"></div>
-                                        </div>
-                                        <div class="rate4">
-                                            <div class="rate-side-no">2</div>
-                                            <div class="rate-bar"></div>
-                                        </div>
-                                        <div class="rate5">
-                                            <div class="rate-side-no">1</div>
-                                            <div class="rate-bar"></div>
+                                        <div class="right-content">
+                                            <div class="rate-bar-area">
+                                                <div class="rate-side-no">5</div>
+                                                <div class="prg-bar">                                                    
+                                                    <div class="rate-bar1" data-done="70"></div>
+                                                </div>
+                                            </div>
+                                            <div class="rate-bar-area">
+                                                <div class="rate-side-no">4</div>
+                                                <div class="prg-bar">
+                                                    <div class="rate-bar2"></div>
+                                                </div>
+                                            </div>
+                                            <div class="rate-bar-area">
+                                                <div class="rate-side-no">3</div>
+                                                <div class="prg-bar">
+                                                    <div class="rate-bar3"></div>
+                                                </div>
+                                            </div>
+                                            <div class="rate-bar-area">
+                                                <div class="rate-side-no">2</div>
+                                                <div class="prg-bar">
+                                                    <div class="rate-bar4"></div>
+                                                </div>
+                                            </div>
+                                            <div class="rate-bar-area">
+                                                <div class="rate-side-no">1</div>
+                                                <div class="prg-bar">
+                                                    <div class="rate-bar5"></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            
+                            <div class="btn1">Review</div>
+
+                            <div class="review">
+                                <div class="review-header">
+                                    <div class="pic">
+                                        <img src="<?php echo URLROOT.'/imgs/prof.jpg'; ?>" alt="">
+                                    </div>
+                                    <div class="side">
+                                        <div class="details">                                            
+                                            <div class="name">Danushka sandakelum </div>
+                                            <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
+                                            <div class="actor-type">Student | Beginner</div>
+                                        </div>
+                                        <div class="user-rate">
+                                            <div class="rate-stars">
+                                                <div class="star1"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                                <div class="star2"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                                <div class="star3"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                                <div class="star4"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                                <div class="star5"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                            </div>
+                                            <div class="ratedat">Just now</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-body">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In accusantium, numquam fugiat rerum volup
+                                    tas, quae soluta quia harum deserunt reiciendis, dolor voluptatum laboriosam ipsam beatae officia corr
+                                    upti debitis exercitationem vel?
                                 </div>
                             </div>
 
