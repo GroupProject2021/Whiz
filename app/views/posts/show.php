@@ -96,51 +96,71 @@
                             </div>
                             <br>
 
-                            <div id="results"></div>
-
                             <div class="review-area">
-                                <div class="title">Reviews</div>
-                                <div class="content">
+                                <div class="review-title">Reviews</div>
+                                <div class="review-content">
                                     <div class="left">
-                                        <div class="rate-no">4.1</div>
+                                        <div class="rate-no"><?php echo $data['avg_rate']; ?></div>
                                         <div class="rate-stars">
-                                            <div class="star1"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
-                                            <div class="star2"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
-                                            <div class="star3"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
-                                            <div class="star4"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
-                                            <div class="star5"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                            <?php for($i = 1; $i <= round($data['avg_rate'], 0); $i++): ?>
+                                                <div class="star active"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                            <?php endfor; ?>
+                                            <?php for($i = round($data['avg_rate'], 0) + 1; $i <= 5; $i++): ?>
+                                                <div class="star"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
+                                            <?php endfor; ?>
                                         </div>
+                                        <div class="total-text">Total Reviews</div>
                                         <div class="total-rate-amount">
                                             <div class="user-icon"><img src="<?php echo URLROOT.'/imgs/user-icon.png'; ?>" alt=""></div>
-                                            <div class="user-count">10,000</div>
+                                            <div class="user-count"><?php echo $data['total_reviews']; ?></div>
                                         </div>
-                                        <div class="total text">Total</div>
                                     </div>
                                     <div class="right">
-                                        <div class="rate1">
-                                            <div class="rate-side-no">5</div>
-                                            <div class="rate-bar"></div>
-                                        </div>
-                                        <div class="rate2">
-                                            <div class="rate-side-no">4</div>
-                                            <div class="rate-bar"></div>
-                                        </div>
-                                        <div class="rate3">
-                                            <div class="rate-side-no">3</div>
-                                            <div class="rate-bar"></div>
-                                        </div>
-                                        <div class="rate4">
-                                            <div class="rate-side-no">2</div>
-                                            <div class="rate-bar"></div>
-                                        </div>
-                                        <div class="rate5">
-                                            <div class="rate-side-no">1</div>
-                                            <div class="rate-bar"></div>
+                                        <div class="right-content">
+                                            <div class="rate-bar-area">
+                                                <div class="rate-side-no">5</div>
+                                                <div class="prg-bar">                                                    
+                                                    <div class="rate-bar1" style="width: <?php echo $data['rate5']; ?>%;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="rate-bar-area">
+                                                <div class="rate-side-no">4</div>
+                                                <div class="prg-bar">
+                                                    <div class="rate-bar2" style="width: <?php echo $data['rate4']; ?>%;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="rate-bar-area">
+                                                <div class="rate-side-no">3</div>
+                                                <div class="prg-bar">
+                                                    <div class="rate-bar3" style="width: <?php echo $data['rate3']; ?>%;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="rate-bar-area">
+                                                <div class="rate-side-no">2</div>
+                                                <div class="prg-bar">
+                                                    <div class="rate-bar4" style="width: <?php echo $data['rate2']; ?>%;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="rate-bar-area">
+                                                <div class="rate-side-no">1</div>
+                                                <div class="prg-bar">
+                                                    <div class="rate-bar5" style="width: <?php echo $data['rate1']; ?>%;"></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <hr>
+                                <div class="interactable-show">
+                                    <div class="write-a-review"><a href="<?php echo URLROOT.'/Reviews/add'; ?>" class="review-link">Write a review</a></div>
+                                    <div class="see-all-reviews"><a href="<?php echo URLROOT.'/Reviews/viewAll'; ?>" class="review-link">See all reviews</a></div>
+                                </div>
                             </div>
 
+                            <br>
+
+                            <div id="results"></div>
+                            
                         </div>
 
                         <!-- test msg for comment results - CHECK FOR COMMENT INSERTING ONLY -->
@@ -224,4 +244,5 @@
                 })
             })
         </script>
+
 <?php require APPROOT.'/views/inc/footer.php'; ?>
