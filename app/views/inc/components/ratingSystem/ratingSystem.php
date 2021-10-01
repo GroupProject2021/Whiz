@@ -55,6 +55,6 @@
     <hr>
     <div class="interactable-show">
         <div class="write-a-review"><a href="<?php echo URLROOT.'/Reviews/add'; ?>" class="review-link">Write a review</a></div>
-        <div class="see-all-reviews"><a href="<?php echo URLROOT.'/Reviews/viewAll'; ?>" class="review-link">See all reviews</a></div>
+        <div class="see-all-reviews"><a href="<?php echo URLROOT.'/Reviews/viewAll/'.$_SESSION['current_viewing_post_id']; ?>" class="review-link">See all reviews</a></div>
     </div>
 </div>

@@ -6,12 +6,14 @@
             $this->db = new Database;
         }
 
-        public function getReviews() {
+        public function getReviews($id) {
             $this->db->query("SELECT *
                                 FROM review
                                 INNER JOIN users  
                                 ON review.user_id = users.id 
+                                WHERE review.post_id = :id
                                 ORDER BY review.created_at DESC");
+            $this->db->bind(':id', $id);
             $results = $this->db->resultSet();
 
             return $results;

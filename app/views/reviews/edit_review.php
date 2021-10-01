@@ -33,7 +33,7 @@
                     <div class="middle-panel-single">
 
                         <div class="interactable-rp">
-                            <div class="back"><a href="<?php echo URLROOT.'/Reviews/viewAll'; ?>" class="review-link">Back</a></div>
+                            <div class="back"><a href="<?php echo URLROOT.'/Reviews/viewAll/'.$_SESSION['current_viewing_post_id']; ?>" class="review-link">Back</a></div>
                             <div class="see-all-reviews"><a href="<?php echo URLROOT.'/Reviews/viewAll'; ?>" class="review-link">See all reviews</a></div>
                         </div>
 

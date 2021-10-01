@@ -194,13 +194,32 @@
             $downs = $this->postModel->getDown($id)->downs;
 
             $totalReviews = $this->postModel->getTotalReviewsForAPostById($id);
+
             $rateHaving1 = $this->postModel->getRateAmountsForAPostById($id, 1);
             $rateHaving2 = $this->postModel->getRateAmountsForAPostById($id, 2);
             $rateHaving3 = $this->postModel->getRateAmountsForAPostById($id, 3);
             $rateHaving4 = $this->postModel->getRateAmountsForAPostById($id, 4);
             $rateHaving5 = $this->postModel->getRateAmountsForAPostById($id, 5);
-            $avgRate = ((1*$rateHaving1) + (2*$rateHaving2) + (3*$rateHaving3) + (4*$rateHaving4) + (5*$rateHaving5)) / $totalReviews;
-            // $avgRate = round($avgRate, 1);
+
+            if($totalReviews) {
+                $rate1Precentage = ($rateHaving1/$totalReviews) * 100;
+                $rate2Precentage = ($rateHaving2/$totalReviews) * 100;
+                $rate3Precentage = ($rateHaving3/$totalReviews) * 100;
+                $rate4Precentage = ($rateHaving4/$totalReviews) * 100;
+                $rate5Precentage = ($rateHaving5/$totalReviews) * 100;
+
+                $avgRate = ((1*$rateHaving1) + (2*$rateHaving2) + (3*$rateHaving3) + (4*$rateHaving4) + (5*$rateHaving5)) / $totalReviews;
+            }
+            else {
+                $rate1Precentage = 0;
+                $rate2Precentage = 0;
+                $rate3Precentage = 0;
+                $rate4Precentage = 0;
+                $rate5Precentage = 0;
+
+                $avgRate = 0;
+            }
+            
             $avgRate = number_format((float)$avgRate, 1, '.', '');
 
             $data = [
@@ -211,11 +230,11 @@
                 'downs' => $downs,
 
                 'total_reviews' => $totalReviews,
-                'rate1' => ($rateHaving1/$totalReviews) * 100,
-                'rate2' => ($rateHaving2/$totalReviews) * 100,
-                'rate3' => ($rateHaving3/$totalReviews) * 100,
-                'rate4' => ($rateHaving4/$totalReviews) * 100,
-                'rate5' => ($rateHaving5/$totalReviews) * 100,
+                'rate1' => $rate1Precentage,
+                'rate2' => $rate2Precentage,
+                'rate3' => $rate3Precentage,
+                'rate4' => $rate4Precentage,
+                'rate5' => $rate5Precentage,
                 'avg_rate' => $avgRate
             ];
 
