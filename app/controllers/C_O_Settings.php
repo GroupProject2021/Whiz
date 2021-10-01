@@ -24,7 +24,7 @@ class C_S_Settings extends Controller {
         switch($userData->specialized_actor_type) {
             // For University
             case 'University':
-                $uniData = this->settingsModel->getUniversityDetails($org_id);
+                $uniData = $this->settingsModel->getUniversityDetails($org_id);
 
                 $data = [
                     'user' => $userData,
@@ -53,7 +53,7 @@ class C_S_Settings extends Controller {
 
             // For Company
             case 'Company':
-                $comData = this->settingsModel->getCompanyDetails($org_id);
+                $comData = $this->settingsModel->getCompanyDetails($org_id);
 
                 $data = [
                     'user' => $userData,
