@@ -1,6 +1,6 @@
 <?php
 
-class C_S_Settings extends Controller {
+class C_O_Settings extends Controller {
     public function __construct() {
         $this->settingsModel = $this->model('M_O_Setting');
     }

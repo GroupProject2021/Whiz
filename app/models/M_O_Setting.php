@@ -1,6 +1,6 @@
 <?php
 
-class M_O_Settings {
+class M_O_Setting {
     private $db;
 
     public function __construct() {
