@@ -40,7 +40,10 @@
 @import url('profileStatsAndConnections/profile-statistics-and-connections-styles.css');
 
 /* rating system */
+@import url('components/ratingSystem/review.css');
 @import url('components/ratingSystem/ratingsystem.css');
+@import url('components/ratingSystem/reviewspopup.css');
+
 
 /* fonts */
 @font-face {

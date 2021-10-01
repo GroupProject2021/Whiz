@@ -165,5 +165,29 @@
 
             return $row;
         }
+
+        // review
+        public function getTotalReviewsForAPostById($id) {
+            $this->db->query('SELECT * FROM review WHERE post_id = :id');
+            $this->db->bind(':id', $id);
+
+            $results = $this->db->single();
+
+            $results = $this->db->rowCount();
+
+            return $results;
+        }
+
+        public function getRateAmountsForAPostById($id, $requiredRate) {
+            $this->db->query('SELECT * FROM review WHERE post_id = :id AND rate = :rate');
+            $this->db->bind(':id', $id);
+            $this->db->bind(':rate', $requiredRate);
+
+            $results = $this->db->single();
+
+            $results = $this->db->rowCount();
+
+            return $results;
+        }
     }
 ?>
