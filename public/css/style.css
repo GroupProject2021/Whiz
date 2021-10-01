@@ -16,6 +16,7 @@
 @import url('components/notificationAlert/notificationAlert-styles.css');
 @import url('components/commentsection/comment-styles.css');
 @import url('components/posts/posts-styles.css');
+@import url('components/ratingSystem/ratingsystem.css');
 
 /* Utilities - [EXPERIMENTAL] */
 @import url('utilities/responsive_grid_layout.css');
@@ -39,10 +40,9 @@
 /* profile statistics and connecitons */
 @import url('profileStatsAndConnections/profile-statistics-and-connections-styles.css');
 
-/* rating system */
-@import url('components/ratingSystem/review.css');
-@import url('components/ratingSystem/ratingsystem.css');
-@import url('components/ratingSystem/reviewspopup.css');
+/* review system */
+@import url('reviews/review.css');
+@import url('reviews/reviewspopup.css');
 
 
 /* fonts */
