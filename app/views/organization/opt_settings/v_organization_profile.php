@@ -27,7 +27,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>student profile</h1>
+                        <h1> <?php echo $data['user']->specialized_actor_type.' '?> profile</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -40,7 +40,7 @@
                                 <div class="wall">
                                     <img src="<?php echo URLROOT.'/imgs/wallbg.jpg'; ?>" alt="">
                                 </div>
-                                <div class="profpic">                                    
+                                <div class="profpic">
                                     <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image; ?>" alt="" id="profile_image_placeholder">
                                     <input type="file" name="profile_image" id="profile_image" onchange="displayImage(this)" style="display: none;">
                                     <!-- profile pic edit area -->
@@ -64,25 +64,18 @@
                                         <img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt="">
                                     <?php endif; ?>
                                 </div>
-                                <div class="occupation"><?php echo $data['user']->actor_type; ?> | <?php echo $data['user']->specialized_actor_type;?> </div>
+                                <div class="occupation"><?php echo $data['user']->actor_type; ?> | <?php echo $data['type'].' '.$data['user']->specialized_actor_type;?> </div>
                                 <div class="institute">
                                     <?php
                                         switch($data['user']->specialized_actor_type) {
-                                            case 'Beginner': 
-                                                echo '';
+                                            case 'University': 
+                                                echo $data['uniname'];
                                                 break;
                                             
                                             case 'OL qualified':
-                                                echo $data['ol_school'];
+                                                echo $data['comname'];
                                                 break;
 
-                                            case 'AL qualified':
-                                                echo $data['al_school'];
-                                                break;
-
-                                            case 'Undergraduate Graduate':
-                                                echo $data['uni_name'];
-                                                break;
                                             default:
                                                 break;
                                         }
@@ -90,13 +83,12 @@
                                 </div>
                                 <hr>
                                 <div class="profile-stats">
-                                    <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers'; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
-                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings'; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
+                                    <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$data['user']->id; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
+                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$data['user']->id; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
                                     <div class="rating"><a href="" class="card-link"><b>Rate</b> 4.0/5.0</a></div>
                                 </div>
                                 <hr>
-                                
-                                <!--<?php if($data['user']->id != $_SESSION['user_id']): ?>
+                                <?php if($data['user']->id != $_SESSION['user_id']): ?>
                                 <div class="interactable">
                                     <?php if(!$data['isAlreadyFollow']): ?>
                                     <a class="msg-btn card-link" id="follow">
@@ -113,26 +105,85 @@
                                     </a>
                                 </div>
                                 <hr>
-                                <?php endif; ?> -->
+                                <?php endif; ?>
 
-                                <!-- beginner details -->
-                            <?php if($data['user']->specialized_actor_type == 'Beginner' || $data['user']->specialized_actor_type == 'OL qualified' || $data['user']->specialized_actor_type == 'AL qualified' || $data['user']->specialized_actor_type == 'Undergraduate Graduate'): ?>
+                                <!-- university details -->
+                        <?php if($data['user']->specialized_actor_type == 'University' ): ?>
                                 <div class="division">
-                                    <div class="division-name">Beginner details</div>
+                                    <div class="division-name">University details</div>
                                     <?php if($data['user']->id == $_SESSION['user_id']): ?>
                                     <div class="editable">
-                                        <a href="<?php echo URLROOT; ?>/C_S_Settings/editSettingsBeginner"><button class="btn1-small">Edit</button></a>
+                                        <a href="<?php echo URLROOT; ?>/C_O_Settings/editSettingsUniversity"><button class="btn1-small">Edit</button></a>
                                     </div>
                                     <?php endif; ?>
                                 </div>
                                 <div class="beginner-detials">
-                                    <div class="Date of birth">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/dob-icon.png'; ?>" alt="">Date of Birth</div>
-                                        <div class="text"><?php echo $data['date_of_birth'];?></div>                                        
+                                    <div class="founder">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/dob-icon.png'; ?>" alt="">Founder</div>
+                                        <div class="text"><?php echo $data['founder'];?></div>                                        
                                     </div>
-                                    <div class="Gender">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/gender-icon.png'; ?>" alt="">Gender</div>
-                                        <div class="text"><?php echo $data['gender'];?></div>
+                                    <div class="foundyear">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/gender-icon.png'; ?>" alt="">Founded Year</div>
+                                        <div class="text"><?php echo $data['founded_year'];?></div>
+                                    </div>
+                                    <div class="phnno">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/phnno-icon.png'; ?>" alt="">Phone no</div>
+                                        <div class="text"><?php echo $data['phn_no'];?></div>                                        
+                                    </div>
+                                    <div class="email">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/email-icon.png'; ?>" alt="">Email</div>
+                                        <div class="text"><?php echo $data['email'];?></div>
+                                    </div>
+                                    <div class="website">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/website-icon.png'; ?>" alt="">Website</div>
+                                        <div class="text"><?php echo $data['website'];?></div>    
+                                    </div>
+                                    <div class="address">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Address</div>
+                                        <div class="text"><?php echo $data['address'];?></div>    
+                                    </div>
+                                    <div class="approval">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">UGC Approval</div>
+                                        <div class="text"><?php echo $data['approval'];?></div>    
+                                    </div>
+                                    <div class="rank">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">World Rank</div>
+                                        <div class="text"><?php echo $data['rank'];?></div>    
+                                    </div>
+                                    <div class="amount">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Student Amount</div>
+                                        <div class="text"><?php echo $data['amount'];?></div>    
+                                    </div>
+                                    <div class="rate">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Job Rate</div>
+                                        <div class="text"><?php echo $data['rate'];?></div>    
+                                    </div>
+                                    <div class="description">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Description</div>
+                                        <div class="text"><?php echo $data['descrip'];?></div>    
+                                    </div>
+                                </div>
+                                <hr>
+                        <?php endif; ?>
+
+                        <!-- company details -->
+                        <?php if($data['user']->specialized_actor_type == 'Company' ): ?>
+                                <div class="division">
+                                    <div class="division-name">University details</div>
+                                    <?php if($data['user']->id == $_SESSION['user_id']): ?>
+                                    <div class="editable">
+                                        <a href="<?php echo URLROOT; ?>/C_O_Settings/editSettingsUniversity"><button class="btn1-small">Edit</button></a>
+                                    </div>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="beginner-detials">
+                                    <div class="founder">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/dob-icon.png'; ?>" alt="">Founder</div>
+                                        <div class="text"><?php echo $data['founder'];?></div>                                        
+                                    </div>
+                                    <div class="foundyear">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/gender-icon.png'; ?>" alt="">Founded Year</div>
+                                        <div class="text"><?php echo $data['founded_year'];?></div>
                                     </div>
                                     <div class="phnno">
                                         <div class="title"><img src="<?php echo URLROOT.'/imgs/phnno-icon.png'; ?>" alt="">Phone no</div>
@@ -150,55 +201,37 @@
                                         <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Address</div>
                                         <div class="text"><?php echo $data['address'];?></div>    
                                     </div>
-                                </div>
-                                <hr>
-                        <?php endif; ?>
-
-                        <!-- undergraduate graduate details -->
-                        <?php if($data['user']->specialized_actor_type == 'Undergraduate Graduate'): ?>
-                                <div class="division">
-                                    <div class="division-name">Higher Education details</div>
-                                    <?php if($data['user']->id == $_SESSION['user_id']): ?>
-                                    <div class="editable">
-                                        <a href="<?php echo URLROOT; ?>/C_S_Settings/editSettingsUG"><button class="btn1-small">Edit</button></a>
+                                    <div class="curemp">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Current Employees</div>
+                                        <div class="text"><?php echo $data['cur_emp'];?></div>    
                                     </div>
-                                    <?php endif; ?>
-                                </div>
-                                <div class="ug-details">
-                                    <div class="uni-type">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/uni-type-icon.png'; ?>" alt="">University Type</div>
-                                        <div class="text"><?php echo $data['uni_type'];?></div>   
+                                    <div class="size">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Company Size</div>
+                                        <div class="text"><?php echo $data['size'];?></div>   
                                     </div>
-                                    <div class="uni-name">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/uni-icon.png'; ?>" alt="">University</div>
-                                        <div class="text"><?php echo $data['uni_name'];?></div>   
+                                    <div class="registered">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Registered</div>
+                                        <div class="text"><?php echo $data['registered'];?></div>    
                                     </div>
-                                    <div class="degree-name">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/degree-icon.png'; ?>" alt="">Degree</div>
-                                        <div class="text"><?php echo $data['degree'];?></div>   
+                                    <div class="overview">
+                                        <div class="title">Overview</div>
+                                        <div class="text"><?php echo $data['overview'];?></div>
                                     </div>
-                                    <div class="gpa">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/gpa-icon.png'; ?>" alt="">GPA</div>
-                                        <div class="text"><?php echo $data['gpa'];?></div>   
+                                    <hr>
+                                    <div class="services">
+                                        <div class="title">Services</div>
+                                        <div class="text"><?php echo $data['services'];?></div>
                                     </div>
                                 </div>
                                 <hr>
                         <?php endif; ?>
-                                <div class="About">
-                                    <div class="title">About</div>
-                                    <div class="text">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                         Commodi velit, quibusdam, cum officia nesciunt, autem impedit quod culpa magnam reiciendi
-                                        s necessitatibus repellat corporis dicta recusandae facere pariatur dignissimos maxime! Laudantium.
-                                    </div>
-                                </div>
-                                <hr>
-                                
+                         
                             </div>
                         </div>
                         <div class="body">
 
                         </div>
+
                         <div class="footer">
 
                         </div>
