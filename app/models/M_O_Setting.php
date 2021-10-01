@@ -80,7 +80,7 @@ class M_O_Settings {
                             phone_no = :phn_no, website_address = :website, founder = :founder, 
                             founded_year= :founded_year WHERE org_id= :id');
             // bind values
-            $this->db->bind(":id", $org_id;
+            $this->db->bind(":id", $org_id);
             $this->db->bind(":uniname", $data['uniname']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":phn_no", $data['phn_no']);
@@ -130,7 +130,7 @@ class M_O_Settings {
                             phone_no = :phn_no, website_address = :website, founder = :founder, 
                             founded_year= :founded_year WHERE org_id= :id');
             // bind values
-            $this->db->bind(":id", $org_id;
+            $this->db->bind(":id", $org_id);
             $this->db->bind(":comname", $data['comname']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":phn_no", $data['phn_no']);
@@ -212,7 +212,7 @@ class M_O_Settings {
 
         $this->db->execute();
 
-        $org_id = this->findOrganizationIdbyEmail($_SESSION['user_email']);
+        $org_id = $this->findOrganizationIdbyEmail($_SESSION['user_email']);
 
         $this->db->query('UPDATE organization SET profile_image = :profile_image WHERE org_id = :id');
         // bind values
