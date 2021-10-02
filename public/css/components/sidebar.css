@@ -120,6 +120,9 @@
 .sidebar-user-details-container {
     display: grid;
     grid-template-rows: 1fr auto;
+    background-image: linear-gradient(to right top, #051937, #00263f, #003035, #00381d, #293b00);
+    border-top: 3px solid #005e9c57;
+    border-bottom: 3px solid #005d9b98;
 }
 
 .sidebar-user-details {

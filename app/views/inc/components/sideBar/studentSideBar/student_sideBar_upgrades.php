@@ -1,7 +1,6 @@
 <?php if(isset($_SESSION['user_id'])) : ?>
         <?php if($_SESSION['specialized_actor_type'] == 'Beginner'): ?>
         <!-- Beginner to OL qualified upgrade -->
-        <hr>
         <div class="sidebar-user-details-container">
             <div class="sidebar-user-details">
                 <div class="user-level-image">
@@ -25,7 +24,6 @@
                 </a>
             </div>
         </div>
-        <hr>
         <?php elseif($_SESSION['specialized_actor_type'] == 'OL qualified'): ?>
         <!-- OL qualified to AL qualified upgrade -->
         <hr>        

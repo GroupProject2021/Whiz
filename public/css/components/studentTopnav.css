@@ -7,6 +7,12 @@
     display: flex;
     flex-direction:row;
     height: 3rem;
+    position: fixed;
+    width: calc(100% - 280px);
+    top: 0;
+    right: 0;
+    z-index: 2;
+    box-shadow: 0 2px 4px -2px rgba(0,0,0,1);
     /* line-height: 3rem; */
     /* vertical-align: middle; */
 }
@@ -62,7 +68,8 @@
 
 .stu-topnav .rightset .profile:hover {
     cursor: pointer;
-    border-bottom: 3px solid #e7971f;
+    /* border-bottom: 3px solid #e7971f; */
+    color: #ffffff;
     background-color: rgb(44, 44, 44);
 }
 
@@ -79,12 +86,12 @@
 
 /* normalbtn */
 .normalbtn {
-  background-color: #333;
+  background-color: rgb(36, 35, 35);
   color: rgb(212, 208, 208);
   /* padding: 16px; */
   border: none;
   cursor: pointer;
-  width: 100px;
+  width: 70px;
   height: 3rem;
   transition: .2s all;
 }
@@ -103,7 +110,7 @@
 
 /* drop button */
 .dropbtn {
-    background-color: #333;
+    background-color: rgb(36, 35, 35);
     color: rgb(212, 208, 208);
     /* padding: 16px; */
     border: none;
@@ -182,4 +189,17 @@
     .dropbtn div {
       display: none;
     } */
+
+    .stu-topnav {
+        width: 100%;
+    }
+
+    .stu-topnav .rightset .profile {
+      background-color: rgb(71, 71, 71);
+      height: 100%;
+    }
+
+    .stu-topnav .rightset .profile .name {
+      display: none;
+    }
 }

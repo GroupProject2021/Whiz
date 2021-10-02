@@ -4,12 +4,7 @@
     <!-- sidebar header -->
     <div class="sidebar-brand">
         <div class="brand-flex">
-            <a href="<?php echo URLROOT.'/index'; ?>"><img src="<?php echo URLROOT; ?>/imgs/sidebar/logo2.jpg" width="90px" height="40px" alt="logo"></a>
-            
-            <div class="brand-icons">
-                <a href=""><img src="<?php echo URLROOT; ?>/imgs/sidebar/notification-bell.png"></a>
-                <a href="<?php echo URLROOT.'/C_S_Settings/settings/'.$_SESSION['user_id']; ?>"><img src="<?php echo URLROOT; ?>/imgs/sidebar/settings.png"></a>
-            </div>
+            <a href="<?php echo URLROOT.'/index'; ?>"><img src="<?php echo URLROOT; ?>/imgs/sidebar/logo2.jpg" width="100px" height="50px" alt="logo"></a>
         </div>
     </div>
 
