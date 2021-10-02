@@ -2,7 +2,7 @@
   --topnav-background-color: #333;
   --topnav-a-color: #f2f2f2;
   --topnav-a-hover-color: black;
-  --topnav-a-background-hover-color: #ddd;
+  --topnav-a-background-hover-color: rgb(77, 77, 77);
   --topnav-a-active-color: white;
   --topnav-a-active-background-color: #e7971f;
   --topnav-a-active-background-hover-color: #b37314;
@@ -32,7 +32,7 @@
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: var(--topnav-a-background-hover-color);
-  color: var(--topnav-a-hover-color);
+  /* color: var(--topnav-a-hover-color); */
 }
 
 /* Add a color to the active/current link */
@@ -43,6 +43,12 @@
 
 .topnav a.active:hover {
   background-color: var(--topnav-a-active-background-hover-color);
+}
+
+.topnav a img {
+  height: 25px;
+  position: relative;
+  top: -5px;
 }
 
 /* Centered section inside the top navigation */
@@ -66,14 +72,11 @@
   place-items: center;
   float: left;
   background-color: var(--profile-background-color);
-  /* background-color: rebeccapurple; */
-  /* padding-bottom: 0.2rem;  */
-  /* text-align: center; */
 }
 
 .user-details:hover {
   background-color: var(--topnav-a-background-hover-color);
-  color: var(--topnav-a-hover-color);
+  /* color: var(--topnav-a-hover-color); */
 }
 
 .user-profile-image {

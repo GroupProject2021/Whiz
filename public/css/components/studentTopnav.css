@@ -1,0 +1,185 @@
+.topnav-link {
+  text-decoration: none;
+    color: inherit;
+}
+
+.stu-topnav {
+    display: flex;
+    flex-direction:row;
+    height: 3rem;
+    /* line-height: 3rem; */
+    /* vertical-align: middle; */
+}
+
+.stu-topnav .toggler{
+    background-color: #e6e6e6;
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.stu-topnav .toggler img {
+  position: relative;
+  top: 8px;
+}
+
+.stu-topnav .rightset {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    background-color: #333;
+    color: rgb(212, 208, 208);
+}
+
+.stu-topnav .rightset .profile {
+    display: flex;
+    flex-direction: row;
+    line-height: 3rem;
+    vertical-align: middle;
+}
+
+/* button */
+.stu-topnav .rightset .btn {
+    width: 80px;
+    text-align: center;
+    line-height: 3rem;
+    vertical-align: middle;
+}
+
+.stu-topnav .rightset .btn:hover {
+    cursor: pointer;
+    border-bottom: 3px solid #e7971f;
+    background-color: rgb(44, 44, 44);
+}
+
+/* profile */
+.stu-topnav .rightset .profile  .pic{    
+    /* margin: auto 0 auto 0; */
+    position: relative;
+    top: 7px;
+    padding: 0 10px 0 10px;
+}
+
+.stu-topnav .rightset .profile:hover {
+    cursor: pointer;
+    border-bottom: 3px solid #e7971f;
+    background-color: rgb(44, 44, 44);
+}
+
+.stu-topnav .rightset .profile .pic img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+
+.stu-topnav .rightset .profile .name {
+    padding-right: 10px;
+}
+
+
+/* normalbtn */
+.normalbtn {
+  background-color: #333;
+  color: rgb(212, 208, 208);
+  /* padding: 16px; */
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  height: 3rem;
+  transition: .2s all;
+}
+
+.normalbtn img {
+  height: 18px;
+  width: 18px;
+  filter:invert(100%);
+}
+
+.normalbtn:hover {
+  cursor: pointer;
+  border-bottom: 3px solid #e7971f;
+  background-color: rgb(44, 44, 44);
+}
+
+/* drop button */
+.dropbtn {
+    background-color: #333;
+    color: rgb(212, 208, 208);
+    /* padding: 16px; */
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: 3rem;
+  }
+
+  .dropbtn img {
+    height: 18px;
+    width: 18px;
+    filter:invert(100%);
+  }
+
+  .dropdown:hover .dropbtn {    
+    cursor: pointer;
+    /* border-bottom: 3px solid #e7971f; */
+    background-color: rgb(44, 44, 44);
+    transition: .2s all;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: relative;
+    left: -70%;
+    background-color: #ece8e8;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 170%;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding-left: 10px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    font-size: 13px;
+    transition: .2s all;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #d6d6d6;
+    border-left: 3px solid #e7971f;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content a img {
+      height: 20px;
+      width: 20px;
+      position: relative;
+      top: 15px;
+  }
+
+  .dropdown-content a .name {
+    padding-left: 10px;
+    width: 100%;
+  }
+  
+  @media only screen and (max-width: 1124px) {
+    /* .normalbtn div {
+      display: none;
+    }
+
+    .dropbtn div {
+      display: none;
+    } */
+}
