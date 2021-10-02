@@ -34,14 +34,35 @@
         </button>
         </a>
 
-        <a href="<?php echo URLROOT.'/C_S_Settings/settings/'.$_SESSION['user_id']; ?>" class="topnav-link">
+        <?php 
+            switch($_SESSION['actor_type']) {
+                case 'Student':
+                    echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$_SESSION['user_id'].'" class="topnav-link">';
+                    break;
+
+                case 'Mentor':
+                    echo '<a href="'.URLROOT.'/C_M_Settings/settings/'.$_SESSION['user_id'].'" class="topnav-link">';
+                    break;
+                
+                case 'Organization':
+                    echo '<a href="'.URLROOT.'/C_O_Settings/settings/'.$_SESSION['user_id'].'" class="topnav-link">';
+                    break;
+
+                case 'Admin':
+                    echo '<a href="'.URLROOT.'/C_A_Settings/settings/'.$_SESSION['user_id'].'" class="topnav-link">';
+                    break;
+
+                default:
+                    break;
+            }
+        ?>
         <div class="profile">
             <div class="pic">
                 <?php
                     echo '<img src="'.URLROOT.'/profileimages/'.getActorTypeForIcons($_SESSION['actor_type']).'/'.$_SESSION['user_profile_image'].'?>" alt="profile_image">';
                 ?>
             </div>
-            <div class="name">Dhanushka</div>
+            <div class="name"><?php echo $_SESSION['user_name']; ?></div>
         </div>
         </a>
         <?php else: ?>

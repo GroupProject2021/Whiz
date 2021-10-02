@@ -9,18 +9,8 @@
         <?php require APPROOT.'/views/inc/components/mentor_sidebar.php'?>
 
         <div class="main-content">
-            <header>                
-                <div class="menu-toggle">
-                    <button type="button" class="sidebar-handle">
-                        <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
-                    </button>
-                </div>
-                
-                <!-- TOP NAVIGATION BAR -->
-                <div class="topnav">
-                    <?php require APPROOT.'/views/inc/components/topnav.php'?>
-                </div>
-            </header>
+            <!-- TOP Navigation -->
+            <?php require APPROOT.'/views/inc/components/topnav.php'?>
 
             <main>
             <?php if(isset($_SESSION['user_id'])) : ?>

@@ -5,7 +5,7 @@
           <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
     </head>
     <body>
-        <!-- TOP NAVIGATION BAR -->
+        <!-- TOP Navigation -->
         <?php require APPROOT.'/views/inc/components/topnav.php'?>
 
         <!-- REGISTRATION FORM -->

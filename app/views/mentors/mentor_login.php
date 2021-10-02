@@ -5,8 +5,9 @@
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
     </head>
     <body>
-        <!-- NAVIGATION BAR -->
-        <?php require APPROOT.'/views/inc/mentor_login_navbar.php'?>
+        <!-- TOP Navigation -->
+        <?php require APPROOT.'/views/inc/components/topnav.php'?>
+        
         <!-- LOGIN FORM -->
         
          <div class="form-container">
