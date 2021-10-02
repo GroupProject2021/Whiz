@@ -8,6 +8,16 @@ class M_M_Settings{
         $this->db = new Database;
     }
 
+    public function getUserDetails($id) {
+        $this->db->query('SELECT * FROM users WHERE id = :id');
+        // bind values
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        return $row;
+    } 
+    
     // get mentor details
     public function getMentorDetails($id) {
         $this->db->query('SELECT * FROM mentor WHERE mentor_id = :id');
@@ -72,6 +82,63 @@ class M_M_Settings{
         if($this->db->execute()) {
             return true;
         }
+        else {
+            return false;
+        }
+    }
+
+    public function updateProfilePic($data) {           
+        $this->db->query('UPDATE users SET profile_image = :profile_image WHERE id = :id');
+        // bind values
+        $this->db->bind("profile_image", $data['profile_image_name']);
+        $this->db->bind("id", $_SESSION['user_id']);
+
+        // Execute
+        if($this->db->execute()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function getFollowerCount($id) {
+        $this->db->query('SELECT * FROM connections WHERE to_user_id = :id');
+        // bind values
+        $this->db->bind(":id", $id);
+
+        $this->db->single();
+        
+        $result = $this->db->rowCount();
+
+        return $result;
+    }
+
+    public function getFollowingCount($id) {
+        $this->db->query('SELECT * FROM connections WHERE from_user_id = :id');
+        // bind values
+        $this->db->bind(":id", $id);
+
+        $this->db->single();
+        
+        $result = $this->db->rowCount();
+
+        return $result;
+    }
+
+    public function isAlreadyFollow($me, $id) {
+        $this->db->query('SELECT * FROM connections WHERE from_user_id = :me AND to_user_id = :id');
+        // bind values
+        $this->db->bind(":me", $me);
+        $this->db->bind(":id", $id);
+
+        $this->db->single();
+        
+        $result = $this->db->rowCount();
+
+        if($result > 0) {
+            return true;
+        } 
         else {
             return false;
         }
