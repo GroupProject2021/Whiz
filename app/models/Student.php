@@ -6,8 +6,8 @@
             $this->db = new Database;
         }
 
-        // Register user
-        public function register($data) {        
+        // Register as a user
+        public function registerAsAUser($data) {
             // register as a user    
             $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
@@ -19,13 +19,21 @@
             $this->db->bind(':specialized_actor_type', 'Beginner');
             $this->db->bind(':status', 'not verified');
 
-            $this->db->execute();
-            
+            // Execute
+            if($this->db->execute()) {
+                // return true;
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
 
-           
+        public function registerAsAStudent($id, $data) {
             // register as a student
-            $this->db->query('INSERT INTO student(name, address, gender, date_of_birth, email, phn_no) VALUES(:name, :address, :gender, :date_of_birth, :email, :phn_no)');
+            $this->db->query('INSERT INTO student(stu_id, name, address, gender, date_of_birth, email, phn_no) VALUES(:stu_id, :name, :address, :gender, :date_of_birth, :email, :phn_no)');
             // bind values
+            $this->db->bind(":stu_id", $id);
             $this->db->bind(":name", $data['name']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":gender", $data['gender']);
@@ -69,6 +77,16 @@
             $row = $this->db->single();
 
             return $row->stu_id;
+        }
+
+        public function getUserIdByEmail($email) {
+            $this->db->query('SELECT * FROM users WHERE email = :email');
+            // bind values
+            $this->db->bind(':email', $email);
+
+            $row = $this->db->single();
+
+            return $row->id;
         }
     }
 ?>

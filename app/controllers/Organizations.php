@@ -21,7 +21,7 @@
                 $data = [
                     'profile_image' => $_FILES['profile_image'],
                     'profile_image_name' => time().'_'.$_FILES['profile_image']['name'],
-                    'uniname' => trim($_POST['uniname']),
+                    'name' => trim($_POST['name']),
                     'address' => trim($_POST['address']),
                     'email' => trim($_POST['email']),
                     'password' => trim($_POST['password']),
@@ -65,7 +65,7 @@
                 }
 
                 // Validate name
-                if(empty($data['uniname'])) {
+                if(empty($data['name'])) {
                     $data['name_err'] = 'Please enter name';
                 }
 
@@ -175,13 +175,21 @@
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
                     // Register User
-                    if($this->organizationModel->university_register($data)) {
-                        // set the verification sent email
-                        sendVerificationCode($data['email']);
+                    if($this->organizationModel->registerAsAUser($data, 'University')) {
+                        // take the id
+                        $userId = $this->organizationModel->getUserIdByEmail($data['email']);
 
-                        // Redirect
-                        flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
-                        redirect('Commons/userEmailVerification');
+                        if($this->organizationModel->registerAsAPrivateUniversity($userId, $data)) {
+                            // set the verification sent email                        
+                            sendVerificationCode($data['email']);
+
+                            // Redirect
+                            flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
+                            redirect('Commons/userEmailVerification');
+                        }
+                        else {
+                            die('Something went wrong');
+                        }
                     }
                     else {
                         die('Something went wrong');
@@ -197,7 +205,7 @@
                 $data = [
                     'profile_image' => '',
                     'profile_image_name' => '',
-                    'uniname' => '',
+                    'name' => '',
                     'address' => '',
                     'email' => '',
                     'password' => '',
@@ -248,7 +256,7 @@
                 $data = [
                     'profile_image' => $_FILES['profile_image'],
                     'profile_image_name' => time().'_'.$_FILES['profile_image']['name'],
-                    'comname' => trim($_POST['comname']),
+                    'name' => trim($_POST['name']),
                     'address' => trim($_POST['address']),
                     'email' => trim($_POST['email']),                    
                     'password' => trim($_POST['password']),
@@ -281,7 +289,7 @@
                 ];
 
                 // validate and upload profile image
-                if(uploadImage($data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/student/')) {
+                if(uploadImage($data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/organization/')) {
                     flash('profile_image_upload', 'Profile picture uploaded successfully');
                 }
                 else {
@@ -290,7 +298,7 @@
                 }
 
                 // Validate name
-                if(empty($data['comname'])) {
+                if(empty($data['name'])) {
                     $data['comname_err'] = 'Please enter name';
                 }
 
@@ -389,13 +397,21 @@
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
                     // Register User
-                    if($this->organizationModel->company_register($data)) {
-                        // set the verification sent email
-                        sendVerificationCode($data['email']);
+                    if($this->organizationModel->registerAsAUser($data, 'Company')) {
+                        // take the id
+                        $userId = $this->organizationModel->getUserIdByEmail($data['email']);
 
-                        // Redirect
-                        flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
-                        redirect('Commons/userEmailVerification');
+                        if($this->organizationModel->registerAsACompany($userId, $data)) {
+                            // set the verification sent email                        
+                            sendVerificationCode($data['email']);
+
+                            // Redirect
+                            flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
+                            redirect('Commons/userEmailVerification');
+                        }
+                        else {
+                            die('Something went wrong');
+                        }
                     }
                     else {
                         die('Something went wrong');
@@ -411,7 +427,7 @@
                 $data = [
                     'profile_image' => '',
                     'profile_image_name' => '',
-                    'comname' => '',
+                    'name' => '',
                     'address' => '',
                     'email' => '',                    
                     'password' => '',

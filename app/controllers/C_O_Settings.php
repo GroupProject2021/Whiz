@@ -18,27 +18,27 @@ class C_O_Settings extends Controller {
         $followingCount = $this->countFollowings($id);
         $isAlreadyFollow = $this->checkFollowability($id);
 
-        $org_id = $this->settingsModel->findOrganizationIdbyEmail($userData->email);
-        $organizationData = $this->settingsModel->getOrganizationDetails($org_id);
+        // $org_id = $this->settingsModel->findOrganizationIdbyEmail($userData->email);
+        $organizationData = $this->settingsModel->getOrganizationDetails($id);
 
         switch($userData->specialized_actor_type) {
             // For University
             case 'University':
-                $uniData = $this->settingsModel->getUniversityDetails($org_id);
+                $uniData = $this->settingsModel->getUniversityDetails($id);
 
                 $data = [
                     'user' => $userData,
                     'followerCount' => $followerCount,                    
                     'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
-                    'name' => $organizationData->name,
+                    'name' => $organizationData->org_name,
                     'address' => $organizationData->address,
                     'email' => $organizationData->email,
                     //'password' => $organizationData->password,
-                    'phn_no' => $organizationData->phn_no,
+                    'phn_no' => $organizationData->phone_no,
                     'website' => $organizationData->website_address,
                     'founder' => $organizationData->founder,
-                    'found_year' => $organizationData->founded_year,
+                    'founded_year' => $organizationData->founded_year,
 
                     'approval' => $uniData->ugc_approval,
                     'rank' => $uniData->world_rank,
@@ -53,24 +53,24 @@ class C_O_Settings extends Controller {
 
             // For Company
             case 'Company':
-                $comData = $this->settingsModel->getCompanyDetails($org_id);
+                $comData = $this->settingsModel->getCompanyDetails($id);
 
                 $data = [
                     'user' => $userData,
                     'followerCount' => $followerCount,                    
                     'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
-                    'name' => $organizationData->name,
+                    'name' => $organizationData->org_name,
                     'address' => $organizationData->address,
                     'email' => $organizationData->email,
                     //'password' => $organizationData->password,
-                    'phn_no' => $organizationData->phn_no,
+                    'phn_no' => $organizationData->phone_no,
                     'website' => $organizationData->website_address,
                     'founder' => $organizationData->founder,
-                    'found_year' => $organizationData->founded_year,
+                    'founded_year' => $organizationData->founded_year,
 
-                    'cur_emp' => $comData->cur_emp,
-                    'size' => $comData->size,
+                    'cur_emp' => $comData->current_emplyee_amount,
+                    'size' => $comData->company_size,
                     'registered' => $comData->registered,
                     'overview' => $comData->overview,
                     'services' => $comData->services

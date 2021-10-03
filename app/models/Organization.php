@@ -6,28 +6,36 @@
             $this->db = new Database;
         }
 
-        // Register university
-        public function university_register($data) {        
+        // Register as a user
+        public function registerAsAUser($data, $specialize_type) {
             // register as a user    
-            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image,:uniname, :email, :password, :actor_type, :specialized_actor_type, :status)');
+            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
-            $this->db->bind(":profile_image", $data['profile_image_name']);
-            $this->db->bind(':uniname', $data['uniname']);
+            $this->db->bind("profile_image", $data['profile_image_name']);
+            $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
             $this->db->bind(':actor_type', 'Organization');
-            $this->db->bind(':specialized_actor_type', 'University');
+            $this->db->bind(':specialized_actor_type', $specialize_type);
             $this->db->bind(':status', 'not verified');
 
-            $this->db->execute();
-            
+            // Execute
+            if($this->db->execute()) {
+                // return true;
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
 
-           
+        // Register university
+        public function registerAsAPrivateUniversity($id, $data) {
             // register as an organization
-            $this->db->query('INSERT INTO organization(profile_image, org_name, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:profile_image, :uniname, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
+            $this->db->query('INSERT INTO organization(org_id, org_name, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:org_id, :uniname, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
             // bind values
-            $this->db->bind(":profile_image", $data['profile_image_name']);
-            $this->db->bind(":uniname", $data['uniname']);
+            $this->db->bind(":org_id", $id);
+            $this->db->bind(":uniname", $data['name']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":email", $data['email']);
             $this->db->bind(":password", $data['password']);
@@ -40,12 +48,12 @@
             $this->db->execute();
 
             //finf org_id
-            $uni_id = $this->findOrganizationIdbyEmail($data['email']);
+            // $uni_id = $this->findOrganizationIdbyEmail($data['email']);
 
             // register as a university
             $this->db->query('INSERT INTO privateuniversity(privateuni_id, ugc_approval, world_rank, student_amount, graduate_job_rate, description, uni_type) VALUES(:id, :approved, :rank, :amount, :rate, :descrip, :type)');
             // bind values
-            $this->db->bind(":id", $uni_id);
+            $this->db->bind(":id", $id);
             $this->db->bind(":approved", $data['approved']);
             $this->db->bind(":rank", $data['rank']);
             $this->db->bind(":amount", $data['amount']);
@@ -63,25 +71,12 @@
             }
         }
 
-        public function company_register($data) {        
-            // register as a user    
-            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image,:comname, :email, :password, :actor_type, :specialized_actor_type, :status)');
-            // bind values
-            $this->db->bind(":profile_image", $data['profile_image_name']);
-            $this->db->bind(':comname', $data['comname']);
-            $this->db->bind(':email', $data['email']);
-            $this->db->bind(':password', $data['password']);
-            $this->db->bind(':actor_type', 'Organization');
-            $this->db->bind(':specialized_actor_type', 'Company');
-            $this->db->bind(':status', 'not verified');
-
-            $this->db->execute();
-           
+        public function registerAsACompany($id, $data) {
             // register as an organization
-            $this->db->query('INSERT INTO organization(profile_image, org_name, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:profile_image, :comname, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
+            $this->db->query('INSERT INTO organization(org_id, org_name, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:org_id, :comname, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
             // bind values
-            $this->db->bind(":profile_image", $data['profile_image_name']);
-            $this->db->bind(":comname", $data['comname']);
+            $this->db->bind(":org_id", $id);
+            $this->db->bind(":comname", $data['name']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":email", $data['email']);
             $this->db->bind(":password", $data['password']);
@@ -94,12 +89,12 @@
             $this->db->execute();
 
             //finf org_id
-            $com_id = $this->findOrganizationIdbyEmail($data['email']);
+            // $com_id = $this->findOrganizationIdbyEmail($data['email']);
 
             // register as a company
             $this->db->query('INSERT INTO company(company_id, current_emplyee_amount, company_size, registered, overview, services) VALUES(:id, :cur_emp, :emp_size, :registered, :overview, :services)');
             // bind values
-            $this->db->bind(":id", $com_id);
+            $this->db->bind(":id", $id);
             $this->db->bind(":cur_emp", $data['cur_emp']);
             $this->db->bind(":emp_size", $data['emp_size']);
             $this->db->bind(":registered", $data['registered']);
@@ -141,6 +136,16 @@
             $row = $this->db->single();
 
             return $row->org_id;
+        }
+
+        public function getUserIdByEmail($email) {
+            $this->db->query('SELECT * FROM users WHERE email = :email');
+            // bind values
+            $this->db->bind(':email', $email);
+
+            $row = $this->db->single();
+
+            return $row->id;
         }
     }
 ?>

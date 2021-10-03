@@ -8,7 +8,7 @@
     </head>
     <body>
         <!-- SIDE BAR -->
-        <?php require APPROOT.'/views/inc/components/sideBar/organizationSideBar/company_sidebar.php'?>
+        <?php require APPROOT.'/views/inc/components/sideBar/organizationSideBar/organization_sidebar.php'?>
 
         <div class="main-content">
             <!-- TOP Navigation -->
@@ -20,7 +20,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>University dashboard</h1>
+                        <h1>Company dashboard</h1>
                     </div>
                     
                     

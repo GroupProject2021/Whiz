@@ -22,7 +22,7 @@
 
                 <!-- university name -->
                 <br>
-                <input type="text" placeholder=" " name="uniname" id="uniname" value="<?php echo $data['uniname']; ?>">
+                <input type="text" placeholder=" " name="name" id="name" value="<?php echo $data['name']; ?>">
                 <label>University Name</label>
                 <span class="form-invalid"><?php echo $data['uniname_err']; ?></span>
 

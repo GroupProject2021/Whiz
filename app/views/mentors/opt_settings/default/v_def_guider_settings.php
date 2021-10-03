@@ -23,7 +23,6 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                    
                     <div class="stu-profile">
                         <div class="header">
                             <div class="imagearea">
@@ -108,19 +107,19 @@
                                 </div>
                                 <div class="beginner-detials">
                                     <div class="address">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Address</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/address-icon.png'; ?>" alt="">Address</div>
                                         <div class="text"><?php echo $data['address'];?></div>    
                                     </div>
                                     <div class="email">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/email-icon.png'; ?>" alt="">Email</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/email-icon.png'; ?>" alt="">Email</div>
                                         <div class="text"><?php echo $data['email'];?></div>
                                     </div>
                                     <div class="Gender">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/gender-icon.png'; ?>" alt="">Gender</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/gender-icon.png'; ?>" alt="">Gender</div>
                                         <div class="text"><?php echo $data['gender'];?></div>
                                     </div>
                                     <div class="phnno">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/phnno-icon.png'; ?>" alt="">Phone no</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/phnno-icon.png'; ?>" alt="">Phone no</div>
                                         <div class="text"><?php echo $data['phn_no'];?></div>                                        
                                     </div>
                                     
