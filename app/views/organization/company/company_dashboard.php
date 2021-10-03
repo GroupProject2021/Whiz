@@ -8,8 +8,8 @@
     </head>
     <body>
         <!-- SIDE BAR -->
-        <?php require APPROOT.'/views/inc/components/sideBar/organizationSideBar/organization_sidebar.php'?>
-
+        <?php require APPROOT.'/views/inc/components/sideBar/sidebar.php'?>
+        
         <div class="main-content">
             <!-- TOP Navigation -->
             <header>

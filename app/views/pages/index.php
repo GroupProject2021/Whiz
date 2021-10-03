@@ -6,7 +6,7 @@
         <div class="home-grid-main">
             <br>
             <center>
-                <img src="<?php echo URLROOT; ?>/imgs/sidebar/logo.png"width="200px" height="200px" alt="logo">
+                <img src="<?php echo URLROOT; ?>/imgs/logo.png"width="200px" height="200px" alt="logo">
                 <h1>Welcome</h1>
                 <p>
                     Lorem ipsum, dolor sit amet consectetur <br>

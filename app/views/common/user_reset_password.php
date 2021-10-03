@@ -12,7 +12,7 @@
         <div class="form-container">
             <form action="<?php echo URLROOT; ?>/commons/userPasswordReset" method="post">
                 <div class="logo">
-                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/logo.png" alt="logo">
+                    <img src="<?php echo URLROOT; ?>/imgs/logo.png" alt="logo">
                 </div>
                 <center>
                     <h1>Change password</h1>

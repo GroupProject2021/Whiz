@@ -12,7 +12,7 @@
         <div class="form-container">
             <form action="<?php echo URLROOT; ?>/commons/login" method="post">
                 <div class="logo">
-                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/logo.png" alt="logo">
+                    <img src="<?php echo URLROOT; ?>/imgs/logo.png" alt="logo">
                 </div>
                 <center>
                     <h1>Sign in</h1>

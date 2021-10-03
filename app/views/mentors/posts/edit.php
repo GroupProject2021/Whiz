@@ -5,7 +5,8 @@
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
     </head>
     <body>
-        <?php require APPROOT.'/views/inc/components/mentor_sidebar.php'?>
+        <!-- SIDE BAR -->
+        <?php require APPROOT.'/views/inc/components/sideBar/sidebar.php'?>
 
         <div class="main-content">
             <!-- TOP Navigation -->

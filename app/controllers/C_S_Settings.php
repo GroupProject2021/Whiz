@@ -14,6 +14,10 @@ class C_S_Settings extends Controller {
      public function settings($id) {
         // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
         $userData = $this->settingsModel->getUserDetails($id);
+
+        // settings redirection
+        profileRedirect('Student', $userData->actor_type, $id);
+
         $followerCount = $this->countFollowers($id);
         $followingCount = $this->countFollowings($id);
         $isAlreadyFollow = $this->checkFollowability($id);

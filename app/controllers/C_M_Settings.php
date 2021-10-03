@@ -13,6 +13,10 @@ class C_M_Settings extends Controller{
     public function settings($id){
         // $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
         $userData = $this->mentorSettingsModel->getUserDetails($id);
+
+        // settings redirection
+        profileRedirect('Mentor', $userData->actor_type, $id);
+
         $followerCount = $this->countFollowers($id);
         $followingCount = $this->countFollowings($id);
         $isAlreadyFollow = $this->checkFollowability($id);

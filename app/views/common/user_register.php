@@ -11,7 +11,7 @@
         <!-- LOGIN FORM -->
         <div class="form-container">
             <div class="logo">
-                <img src="<?php echo URLROOT; ?>/imgs/sidebar/logo.png" alt="logo">
+                <img src="<?php echo URLROOT; ?>/imgs/logo.png" alt="logo">
             </div>
             <center>
                 <h1>Sign up</h1>
