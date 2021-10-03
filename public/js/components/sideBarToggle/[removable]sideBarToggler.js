@@ -1,8 +1,7 @@
 const sidebar = document.querySelector(".sidebar");
 const main_content = document.querySelector(".main-content");
 const header = document.querySelector("header");
-const sidebarHandler = document.querySelector(".toggler");
-
+const sidebarHandler = document.querySelector(".sidebar-handle");
 
 function hider() {
     sidebar.style.left= "-100%";

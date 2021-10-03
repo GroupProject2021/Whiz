@@ -4,7 +4,7 @@
         <div class="sidebar-user-details-container">
             <div class="sidebar-user-details">
                 <div class="user-level-image">
-                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
+                    <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/2.jpg" alt="prof_pic">
                 </div>
                 <div class="user-level-content">
                     <div class="user-level-name">
@@ -30,7 +30,7 @@
         <div class="sidebar-user-details-container">
             <div class="sidebar-user-details">
                 <div class="user-level-image">
-                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
+                    <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/2.jpg" alt="prof_pic">
                 </div>
                 <div class="user-level-content">
                     <div class="user-level-name">
@@ -57,7 +57,7 @@
         <div class="sidebar-user-details-container">
             <div class="sidebar-user-details">
                 <div class="user-level-image">
-                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
+                    <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/2.jpg" alt="prof_pic">
                 </div>
                 <div class="user-level-content">
                     <div class="user-level-name">
@@ -84,7 +84,7 @@
         <div class="sidebar-user-details-container">
             <div class="sidebar-user-details">
                 <div class="user-level-image">
-                    <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
+                    <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/2.jpg" alt="prof_pic">
                 </div>
                 <div class="user-level-content">
                     <div class="user-level-name">

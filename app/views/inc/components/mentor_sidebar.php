@@ -4,12 +4,7 @@
     <!-- sidebar header -->
     <div class="sidebar-brand">
         <div class="brand-flex">
-            <a href="<?php echo URLROOT; ?>"><img src="<?php echo URLROOT; ?>/imgs/sidebar/logo2.jpg" width="90px" height="40px" alt="logo"></a>
-            
-            <div class="brand-icons">
-            <!-- <a href=""><img src="<?php echo URLROOT; ?>/imgs/sidebar/notification-bell.png"></a> -->
-            <a href="<?php echo URLROOT.'/C_M_Settings/settings/'.$_SESSION['user_id']; ?>"><img src="<?php echo URLROOT; ?>/imgs/sidebar/settings.png"></a>
-            </div>
+            <a href="<?php echo URLROOT; ?>"><img src="<?php echo URLROOT; ?>/imgs/components/sidebar/logo2.jpg" width="100px" height="50px" alt="logo"></a>
         </div>
     </div>
 
@@ -66,7 +61,7 @@
             <a href="<?php echo URLROOT; ?>/Mentors_dashboard/banner">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/post-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/mentorSideBar/post-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Banners
@@ -79,7 +74,7 @@
             <a href="<?php echo URLROOT; ?>/C_M_Enrolment_List/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/recommend-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/mentorSideBar/recommend-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Enrolment List
@@ -92,7 +87,7 @@
             <a href="<?php echo URLROOT; ?>/Mentors_dashboard/complaint">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/complaint-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/mentorSideBar/complaint-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Complaints
@@ -110,7 +105,7 @@
             <a href="<?php echo URLROOT; ?>/Mentors_dashboard/poster">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/post-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/mentorSideBar/post-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Posters
@@ -121,7 +116,7 @@
             <a href="<?php echo URLROOT; ?>/C_M_Enrolment_List/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/recommend-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/mentorSideBar/recommend-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Enrolment List
@@ -132,7 +127,7 @@
             <a href="<?php echo URLROOT; ?>/Mentors_dashboard/complaint">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/complaint-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/mentorSideBar/complaint-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Complaints

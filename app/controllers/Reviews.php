@@ -41,7 +41,7 @@
                     'post_id' => '',
                     'user_id' => '',
                     'rate' => '',
-                    'review_text' => '',
+                    'review_text' => ''
                 ];
             }
 

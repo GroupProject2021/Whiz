@@ -44,16 +44,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 20px;
 }
 
 .brand-flex img {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-}
-
-.brand-icons img {
-    height: 1.6rem;
-    width: 1.6rem;
 }
 
 .sidebar-menu {

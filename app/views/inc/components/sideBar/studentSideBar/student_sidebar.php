@@ -4,7 +4,7 @@
     <!-- sidebar header -->
     <div class="sidebar-brand">
         <div class="brand-flex">
-            <a href="<?php echo URLROOT.'/index'; ?>"><img src="<?php echo URLROOT; ?>/imgs/sidebar/logo2.jpg" width="100px" height="50px" alt="logo"></a>
+            <a href="<?php echo URLROOT.'/index'; ?>"><img src="<?php echo URLROOT; ?>/imgs/components/sidebar/logo2.jpg" width="100px" height="50px" alt="logo"></a>
         </div>
     </div>
 
@@ -24,7 +24,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Stream/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/streams-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         streams
@@ -36,7 +36,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Course/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/courses-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/courses-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         courses
@@ -48,7 +48,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Job/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/jobs-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         jobs
@@ -60,7 +60,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/professional-guider-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/professional-guider-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         professional guiders
@@ -72,7 +72,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Community/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/community-icon-sidebar.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/community-icon-sidebar.png">
                     </div>
                     <div class="sidebar-item-name">
                         community
@@ -90,7 +90,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Stream/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/streams-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         streams
@@ -102,7 +102,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Course/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/courses-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/courses-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         courses
@@ -114,7 +114,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Job/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/jobs-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         jobs
@@ -126,7 +126,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/professional-guider-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/professional-guider-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         professional guiders
@@ -138,7 +138,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Community/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/community-icon-sidebar.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/community-icon-sidebar.png">
                     </div>
                     <div class="sidebar-item-name">
                         community
@@ -153,7 +153,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Course/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/courses-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/courses-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         courses
@@ -165,7 +165,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Job/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/jobs-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         jobs
@@ -177,7 +177,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/professional-guider-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/professional-guider-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         professional guiders
@@ -189,7 +189,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/teacher-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/teacher-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         teachers
@@ -201,7 +201,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Community/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/community-icon-sidebar.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/community-icon-sidebar.png">
                     </div>
                     <div class="sidebar-item-name">
                         community
@@ -219,7 +219,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Job/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/jobs-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         jobs
@@ -231,7 +231,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_CV/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/cv-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/cv-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         cv
@@ -243,7 +243,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/sidebar/professional-guider-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/professional-guider-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         professional guiders
