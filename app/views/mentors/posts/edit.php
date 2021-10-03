@@ -9,7 +9,9 @@
 
         <div class="main-content">
             <!-- TOP Navigation -->
-            <?php require APPROOT.'/views/inc/components/topnav.php'?>
+            <header>
+                <?php require APPROOT.'/views/inc/components/topnav.php'?>
+            </header>
 
             <main>
             <?php if(isset($_SESSION['user_id'])) : ?>

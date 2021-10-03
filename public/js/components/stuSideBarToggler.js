@@ -1,6 +1,6 @@
 const sidebar = document.querySelector(".sidebar");
 const main_content = document.querySelector(".main-content");
-const header = document.querySelector(".stu-topnav");
+const header = document.querySelector("header");
 const sidebarHandler = document.querySelector(".toggler");
 
 

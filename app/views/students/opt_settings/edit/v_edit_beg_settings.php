@@ -10,7 +10,9 @@
 
         <div class="main-content">
             <!-- TOP Navigation -->
-            <?php require APPROOT.'/views/inc/components/topnav.php'?>
+            <header>
+                <?php require APPROOT.'/views/inc/components/topnav.php'?>
+            </header>
 
             <main>
                 <div class="wrapper">

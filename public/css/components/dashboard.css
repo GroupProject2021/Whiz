@@ -27,8 +27,8 @@
 }
 
 header {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    /* display: grid; */
+    /* grid-template-columns: auto 1fr; */
     background: var(--header-background-color);
     position: fixed;
     left: 280px;
