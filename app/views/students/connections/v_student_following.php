@@ -18,7 +18,11 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Followers</h1>
+                        <h1>Followings</h1>
+                    </div>
+
+                    <div class="btn1">
+                        <a class="card-link" href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$_SESSION['user_id']; ?>">Followers</a>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -41,10 +45,9 @@
                     
                     <br>
                     
-                    
                     <div class="default-list">
                         <?php
-                            foreach($data['followers'] as $follower) {
+                            foreach($data['following'] as $follower) {
                                 echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$follower->id.'" class="card-link">';
                                 echo '<div class="user-block">';
                                 echo    '<div class="pic"><img src="'.URLROOT.'/profileimages/'.getActorTypeForIcons($follower->actor_type).'/'.$follower->profile_image.'" alt=""></div>';

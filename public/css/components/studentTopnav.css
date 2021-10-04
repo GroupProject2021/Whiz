@@ -7,14 +7,9 @@
     display: flex;
     flex-direction:row;
     height: 3rem;
-    /* position: fixed; */
-    /* width: calc(100% - 280px); */
     top: 0;
-    /* right: 0; */
     z-index: 2;
     box-shadow: 0 2px 4px -2px rgba(0,0,0,1);
-    /* line-height: 3rem; */
-    /* vertical-align: middle; */
 }
 
 .stu-topnav .toggler{
@@ -91,9 +86,10 @@
   /* padding: 16px; */
   border: none;
   cursor: pointer;
-  width: 70px;
+  width: 90px;
   height: 3rem;
   transition: .2s all;
+  font-size: 12px;
 }
 
 .normalbtn img {
@@ -106,6 +102,22 @@
   cursor: pointer;
   border-bottom: 3px solid #e7971f;
   background-color: rgb(44, 44, 44);
+}
+
+.normalbtn .badge {
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: red;
+  position: relative;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  width: 100px;
+  top: -25px;
+  right: -10px;
+  line-height: 0;
 }
 
 /* drop button */
@@ -130,21 +142,23 @@
     /* border-bottom: 3px solid #e7971f; */
     background-color: rgb(44, 44, 44);
     transition: .2s all;
+    border-bottom: 3px solid #e7971f;
   }
   
   .dropdown {
     position: relative;
     display: inline-block;
+    width: 100px;
   }
   
   .dropdown-content {
     display: none;
     position: relative;
-    left: -70%;
+    left: -100%;
     background-color: #ece8e8;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    width: 170%;
+    width: 200%;
   }
   
   .dropdown-content a {
@@ -180,6 +194,64 @@
     padding-left: 10px;
     width: 100%;
   }
+
+  .notification-content {
+    display: none;
+    position: relative;
+    left: -150%;
+    background-color: #fdfdfd;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 350%;
+    overflow-y: scroll;
+    max-height: 500px;
+  }
+
+  .notification-content .active {
+    display: block;
+  }
+
+  .notification-content .notification:hover {
+    cursor: pointer;
+    background-color: #e9dfdf;
+  }
+
+  .notification-content .notification {
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    transition: .2s all;
+    border-bottom: 1px solid rgb(206, 206, 206);
+  }
+
+  .notification-content .notification .left .pic img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .notification-content .notification .right {
+    height: 50px;
+    width: 100%;
+    padding-left: 10px;
+  }
+
+  .notification-content .notification .right .text {
+    height: fit-content;
+    font-size: 13px;
+  }
+
+  .notification-content .notification .right .notfied-at {
+    height: 20px;
+    line-height: 20px;
+    color: #e7971f;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  
   
   @media only screen and (max-width: 1124px) {
     /* .normalbtn div {

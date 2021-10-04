@@ -6,7 +6,7 @@
     </head>
     <body>
         <!-- SIDE BAR -->
-        <?php require APPROOT.'/views/inc/components/sideBar/sidebar.php'?>>
+        <?php require APPROOT.'/views/inc/components/sideBar/sidebar.php'?>
 
         <div class="main-content">
             <!-- TOP Navigation -->
@@ -18,7 +18,11 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Followings</h1>
+                        <h1>Followers</h1>
+                    </div>
+
+                    <div class="btn1">
+                        <a class="card-link" href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$_SESSION['user_id']; ?>">Followings</a>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -41,9 +45,10 @@
                     
                     <br>
                     
+                    
                     <div class="default-list">
                         <?php
-                            foreach($data['following'] as $follower) {
+                            foreach($data['followers'] as $follower) {
                                 echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$follower->id.'" class="card-link">';
                                 echo '<div class="user-block">';
                                 echo    '<div class="pic"><img src="'.URLROOT.'/profileimages/'.getActorTypeForIcons($follower->actor_type).'/'.$follower->profile_image.'" alt=""></div>';

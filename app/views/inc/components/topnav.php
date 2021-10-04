@@ -20,7 +20,8 @@
                 <a href="#">
                     <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/help-icon.png' ?>" alt=""></div>
                     <div class="name">Help</div>
-                </a><a href="<?php echo URLROOT; ?>/commons/logout">
+                </a>
+                <a href="<?php echo URLROOT; ?>/commons/logout">
                     <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/logout-icon.png' ?>" alt=""></div>
                     <div class="name">Log Out</div>
                 </a>
@@ -31,6 +32,62 @@
         <button class="normalbtn">
             <img src="<?php echo URLROOT.'/imgs/components/topNavBar/home-icon.png' ?>" alt="">
             <div>Home</div>
+        </button>
+        </a>
+
+        <!-- <a href="<?php echo URLROOT.'/Commons/userDashboardRedirect'; ?>" class="topnav-link">
+        <button class="normalbtn">
+            <img src="<?php echo URLROOT.'/imgs/components/topNavBar/notifications-icon.png' ?>" alt="">
+            <div>Notifications</div>
+            <span class="badge">2</span>
+        </button>
+        </a> -->
+
+        <div class="dropdown" id="notification-button">
+            <button class="dropbtn">
+                <img src="<?php echo URLROOT.'/imgs/components/topNavBar/down-btn-icon.png' ?>" alt="">
+                <div>Account</div>
+            </button>
+           
+            <!-- <div class="dropdown-content">
+                <a href="#">
+                    <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/privacy-icon.png' ?>" alt=""></div>
+                    <div class="name">Privacy</div>
+                </a>
+                <a href="#">
+                    <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/help-icon.png' ?>" alt=""></div>
+                    <div class="name">Help</div>
+                </a>
+                <a href="<?php echo URLROOT; ?>/commons/logout">
+                    <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/logout-icon.png' ?>" alt=""></div>
+                    <div class="name">Log Out</div>
+                </a>
+            </div> -->
+
+            <div class="notification-content">
+                <div class="notification">
+                    <div class="left">
+                        <div class="pic">
+                            <img src="<?php echo URLROOT.'/imgs/prof.jpg'; ?>" alt="">
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="text">
+                            <b>Dhanushka sandaleum </b>posted a new banner
+                        </div>
+                        <div class="notfied-at">
+                            Just Now
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$_SESSION['user_id']; ?>" class="topnav-link">
+        <button class="normalbtn">
+            <img src="<?php echo URLROOT.'/imgs/components/topNavBar/connections-icon.png' ?>" alt="">
+            <div>Connections</div>
         </button>
         </a>
 
@@ -85,5 +142,21 @@
         
     </div>
 </div>
+
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+<script>
+    $showNotification = false;
+
+    $('#notification-button').click(function() {
+        if($showNotification == false) {
+            $('.notification-content').css({display: "block"});
+            $showNotification = true;
+        }
+        else {
+            $('.notification-content').css({display: "none"});
+            $showNotification = false;
+        }
+    })
+</script>
 
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/sideBarToggle/sideBarToggler.js"></script>

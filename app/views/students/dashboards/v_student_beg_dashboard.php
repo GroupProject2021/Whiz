@@ -37,4 +37,8 @@
                 </div>
             </main>
         </div>
+
+        
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+
 <?php require APPROOT.'/views/inc/footer.php'; ?>
