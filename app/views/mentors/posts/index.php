@@ -27,7 +27,7 @@
                         <!-- MIDDLE PANEL -->
                         <div class="middle-panel-single">
                             <?php flash('post_message'); ?>
-                                <a href="<?php echo URLROOT; ?>/Mentors_dashboard/add">
+                                <a href="<?php echo URLROOT; ?>/Mentors_dashboard/addBanner">
                                     <button class="btn3">New Banner</button>
                                 </a>
                                 <br>
@@ -49,7 +49,7 @@
                                     <?php endforeach; ?>
                                 </div> -->
                                 <?php foreach($data['posts'] as $post): ?>
-                                    <a href="<?php echo URLROOT; ?>/Mentors_dashboard/show/<?php echo $post->postId; ?>" class="card-link">
+                                    <a href="<?php echo URLROOT; ?>/Mentors_dashboard/showBanner/<?php echo $post->postId; ?>" class="card-link">
                                     <div class="post">
                                         <?php if($post->image != null):?>
                                             <div class="post-header">
@@ -117,7 +117,7 @@
                         <!-- MIDDLE PANEL -->
                         <div class="middle-panel-single">
                             <?php flash('post_message'); ?>
-                                <a href="<?php echo URLROOT; ?>/Mentors_dashboard/add">
+                                <a href="<?php echo URLROOT; ?>/Mentors_dashboard/addPoster">
                                     <button class="btn1">New Poster</button>
                                 </a>
                                 <br>
@@ -138,7 +138,7 @@
                                     <?php endforeach; ?>
                                 </div> -->
                                 <?php foreach($data['posts'] as $post): ?>
-                                    <a href="<?php echo URLROOT; ?>/Mentors_dashboard/show/<?php echo $post->postId; ?>" class="card-link">
+                                    <a href="<?php echo URLROOT; ?>/Mentors_dashboard/showPoster/<?php echo $post->postId; ?>" class="card-link">
                                     <div class="post">
                                         <?php if($post->image != null):?>
                                             <div class="post-header">

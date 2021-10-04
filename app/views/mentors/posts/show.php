@@ -35,9 +35,9 @@
 
                                 <?php if($data['post']->user_id == $_SESSION['user_id']): ?>
                                     <hr>
-                                    <a href="<?php echo URLROOT?>/Mentors_dashboard/edit/<?php echo $data['post']->id;?>">Edit</a>
+                                    <a href="<?php echo URLROOT?>/Mentors_dashboard/editBanner/<?php echo $data['post']->id;?>">Edit</a>
 
-                                    <form action="<?php echo URLROOT; ?>/Mentors_dashboard/delete/<?php echo $data['post']->id; ?>" method="post">
+                                    <form action="<?php echo URLROOT; ?>/Mentors_dashboard/deleteBanner/<?php echo $data['post']->id; ?>" method="post">
                                         <input type="submit" value="Delete">
                                     </form>
                                 <?php endif; ?>
@@ -54,7 +54,7 @@
 
                         <!-- MIDDLE PANEL -->
                         <div class="middle-panel">
-                            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/banner">Back</a>
+                            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/poster">Back</a>
                             <br>
                             <div>
                                 <h1><?php echo $data['post']->title; ?></h1>
@@ -63,9 +63,9 @@
 
                                 <?php if($data['post']->user_id == $_SESSION['user_id']): ?>
                                     <hr>
-                                    <a href="<?php echo URLROOT?>/Mentors_dashboard/edit/<?php echo $data['post']->id;?>">Edit</a>
+                                    <a href="<?php echo URLROOT?>/Mentors_dashboard/editPoster/<?php echo $data['post']->id;?>">Edit</a>
 
-                                    <form action="<?php echo URLROOT; ?>/Mentors_dashboard/delete/<?php echo $data['post']->id; ?>" method="post">
+                                    <form action="<?php echo URLROOT; ?>/Mentors_dashboard/deletePoster/<?php echo $data['post']->id; ?>" method="post">
                                         <input type="submit" value="Delete">
                                     </form>
                                 <?php endif; ?>

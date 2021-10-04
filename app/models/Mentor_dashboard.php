@@ -13,23 +13,38 @@
         }
 
         // post functions
-
-        public function getPosters() {
+        // show banner / poster
+        public function getBanners() {
             $this->db->query("SELECT *, 
-                                posts.id AS postId,
+                                banner.id AS postId,
                                 users.id AS userId,
-                                posts.created_at as postCreated
-                                FROM posts
+                                banner.created_at as postCreated
+                                FROM banner
                                 INNER JOIN users  
-                                ON posts.user_id = users.id 
-                                ORDER BY posts.created_at DESC");
+                                ON banner.user_id = users.id 
+                                ORDER BY banner.created_at DESC");
             $results = $this->db->resultSet();
 
             return $results;
         }
 
-        public function addPost($data) {
-            $this->db->query('INSERT INTO posts(image, title, user_id, body, ups, downs, shares, views) VALUES(:image, :title, :user_id, :body, :ups, :downs, :shares, :views)');
+        public function getPosters() {
+            $this->db->query("SELECT *, 
+                                poster.id AS postId,
+                                users.id AS userId,
+                                poster.created_at as postCreated
+                                FROM poster
+                                INNER JOIN users  
+                                ON poster.user_id = users.id 
+                                ORDER BY poster.created_at DESC");
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        // add banner / poster
+        public function addBanner($data) {
+            $this->db->query('INSERT INTO banner(image, title, user_id, body, ups, downs, shares, views) VALUES(:image, :title, :user_id, :body, :ups, :downs, :shares, :views)');
             // bind values
             $this->db->bind(":image", $data['image_name']);
             $this->db->bind(":title", $data['title']);
@@ -49,8 +64,31 @@
             }
         }
 
-        public function updatePost($data) {
-            $this->db->query('UPDATE posts SET image = :image, title = :title, body = :body WHERE id = :id');
+        public function addPoster($data) {
+            $this->db->query('INSERT INTO poster(image, title, user_id, body, ups, downs, shares, views) VALUES(:image, :title, :user_id, :body, :ups, :downs, :shares, :views)');
+            // bind values
+            $this->db->bind(":image", $data['image_name']);
+            $this->db->bind(":title", $data['title']);
+            $this->db->bind(":user_id", $data['user_id']);
+            $this->db->bind(":body", $data['body']);
+            $this->db->bind(":ups", $data['ups']);
+            $this->db->bind(":downs", $data['downs']);
+            $this->db->bind(":shares", $data['shares']);
+            $this->db->bind(":views", $data['views']);
+
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        // update banner / poster
+
+        public function updateBanner($data) {
+            $this->db->query('UPDATE banner SET image = :image, title = :title, body = :body WHERE id = :id');
             // bind values
             
             $this->db->bind(":image", $data['image_name']);            
@@ -67,17 +105,27 @@
             }
         }
 
-        public function getPostById($id) {
-            $this->db->query('SELECT * FROM posts WHERE id = :id');
-            $this->db->bind(':id', $id);
+        public function updatePoster($data) {
+            $this->db->query('UPDATE poster SET image = :image, title = :title, body = :body WHERE id = :id');
+            // bind values
+            
+            $this->db->bind(":image", $data['image_name']);            
+            $this->db->bind(":id", $data['id']);
+            $this->db->bind(":title", $data['title']);
+            $this->db->bind(":body", $data['body']);
 
-            $row = $this->db->single();
-
-            return $row;
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
 
-        public function deletePost($id) {
-            $this->db->query('DELETE FROM posts WHERE id = :id');
+        // delete banner / poster
+        public function deleteBanner($id) {
+            $this->db->query('DELETE FROM banner WHERE id = :id');
             // bind values
             
             $this->db->bind(":id", $id);
@@ -90,6 +138,41 @@
                 return false;
             }
         }
+
+        public function deletePoster($id) {
+            $this->db->query('DELETE FROM poster WHERE id = :id');
+            // bind values
+            
+            $this->db->bind(":id", $id);
+
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        public function getBannerById($id) {
+            $this->db->query('SELECT * FROM banner WHERE id = :id');
+            $this->db->bind(':id', $id);
+
+            $row = $this->db->single();
+
+            return $row;
+        }
+
+        public function getPosterById($id) {
+            $this->db->query('SELECT * FROM poster WHERE id = :id');
+            $this->db->bind(':id', $id);
+
+            $row = $this->db->single();
+
+            return $row;
+        }
+
+        
 
         public function getInc($id) {
             $this->db->query('SELECT ups FROM posts WHERE id = :id');

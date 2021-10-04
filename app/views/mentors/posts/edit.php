@@ -27,7 +27,7 @@
                         <!-- EDIT FORM -->
                         <div class="form-container">
                             <a href="<?php echo URLROOT; ?>/Mentors_dashboard/banner">Back</a>
-                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/edit/<?php echo $data['id']; ?>" method="post">
+                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/editBanner/<?php echo $data['id']; ?>" method="post">
                                 
                                 <hr  class="form-hr">
 
@@ -53,8 +53,8 @@
 
                         <!-- MIDDLE PANEL -->
                         <div class="form-container">
-                            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/banner">Back</a>
-                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/edit/<?php echo $data['id']; ?>" method="post">
+                            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/poster">Back</a>
+                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/editPoster/<?php echo $data['id']; ?>" method="post">
                                 
                                 <hr  class="form-hr">
 
