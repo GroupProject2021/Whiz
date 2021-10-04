@@ -55,12 +55,35 @@
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 
                 $data = [
+                    'image' => $_FILES['image'],
+                    'image_name' => time().'_'.$_FILES['image']['name'],
                     'title' => trim($_POST['title']),
                     'body' => trim($_POST['body']),
                     'user_id' => $_SESSION['user_id'],
                     'title_err' => '',
-                    'body_err' => ''
+                    'body_err' => '',
+
+                    'ups' => 0,
+                    'downs' => 0,
+                    'shares' => 0,
+                    'views' => 0
                 ];
+
+                // validate and upload profile image
+                if($data['image']['size'] > 0) {
+                    if(uploadImage($data['image']['tmp_name'], $data['image_name'], '/imgs/POSTS/')) {
+                        // flash('profile_image_upload', 'Profile picture uploaded successfully');
+                    }
+                    else {
+                        // upload unsuccessfull
+                        // $data['profile_image_err'] = 'Profile picture uploading unsuccessful';                        print_r($data['image']['size']);
+                        die('uns');
+                    }
+                }
+                else {
+                    // set image name as null - because image not exits - then default time stamp will be removed
+                    $data['image_name'] = null;
+                }
 
                 // Validate title
                 if(empty($data['title'])) {
@@ -76,8 +99,21 @@
                 if(empty($data['title_err']) && empty($data['body_err'])) {
                     // Validated
                     if($this->mentorDashboardModel->addPost($data)) {
-                        flash('post_message', 'Post added');
-                        redirect('mentors_dashboard/banner');
+                        switch($_SESSION['specialized_actor_type']) {
+                            case 'Professional Guider' :
+                                flash('post_message', 'Banner added');
+                                redirect('mentors_dashboard/banner');
+                                break;
+                            
+                            case 'Teacher' :
+                                flash('post_message', 'Poster added');
+                                redirect('mentors_dashboard/poster');
+                                break;
+            
+                            default:
+                                // nothing
+                                break;
+                        }
                     }
                     else {
                         die('Something went wrong');
@@ -90,9 +126,15 @@
             }
             else {
                 $data = [
-                    // 'id' => '',
+                    'image' => '',
+                    'image_name' => '',
+                    'id' => '',
                     'title' => '',
                     'body' => '',
+                    'ups' => '',
+                    'downs' => '',
+                    'shares' => '',
+                    'views' => '',
 
                     'title_err' => '',
                     'body_err' => ''
@@ -108,6 +150,8 @@
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 
                 $data = [
+                    'image' => $_FILES['image'],
+                    'image_name' => time().'_'.$_FILES['image']['name'],
                     'id' => $id,
                     'title' => trim($_POST['title']),
                     'body' => trim($_POST['body']),
@@ -115,6 +159,19 @@
                     'title_err' => '',
                     'body_err' => ''
                 ];
+
+                // validate and upload profile image
+                $post = $this->mentorDashboardModel->getPostById($id);
+                $oldImage = PUBROOT.'/imgs/POSTS/'.$post->image;
+
+                if(updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/POSTS/')) {
+                    // flash('profile_image_upload', 'Profile picture uploaded successfully');
+                }
+                else {
+                    // upload unsuccessfull
+                    // $data['profile_image_err'] = 'Profile picture uploading unsuccessful';
+                    die('uns');
+                }
 
                 // Validate title
                 if(empty($data['title'])) {
@@ -130,8 +187,21 @@
                 if(empty($data['title_err']) && empty($data['body_err'])) {
                     // Validated
                     if($this->mentorDashboardModel->updatePost($data)) {
-                        flash('post_message', 'Post updated');
-                        redirect('mentors_dashboard/banner');
+                        switch($_SESSION['specialized_actor_type']) {
+                            case 'Professional Guider' :
+                                flash('post_message', 'Banner Updated');
+                                redirect('mentors_dashboard/banner');
+                                break;
+                            
+                            case 'Teacher' :
+                                flash('post_message', 'Poster Updated');
+                                redirect('mentors_dashboard/poster');
+                                break;
+            
+                            default:
+                                // nothing
+                                break;
+                        }
                     }
                     else {
                         die('Something went wrong');
@@ -152,6 +222,8 @@
                 }
 
                 $data = [
+                    'image' => '',
+                    'image_name' => $post->image,
                     'id' => $id,
                     'title' => $post->title,
                     'body' => $post->body,                    
@@ -164,12 +236,57 @@
         }
 
         public function show($id) {
+            $_SESSION['current_viewing_post_id'] = $id;
+
             $post = $this->mentorDashboardModel->getPostById($id);
             $user = $this->commonModel->getUserById($post->user_id);
 
+            $ups = $this->mentorDashboardModel->getInc($id)->ups;
+            $downs = $this->mentorDashboardModel->getDown($id)->downs;
+
+            $totalReviews = $this->mentorDashboardModel->getTotalReviewsForAPostById($id);
+
+            $rateHaving1 = $this->mentorDashboardModel->getRateAmountsForAPostById($id, 1);
+            $rateHaving2 = $this->mentorDashboardModel->getRateAmountsForAPostById($id, 2);
+            $rateHaving3 = $this->mentorDashboardModel->getRateAmountsForAPostById($id, 3);
+            $rateHaving4 = $this->mentorDashboardModel->getRateAmountsForAPostById($id, 4);
+            $rateHaving5 = $this->mentorDashboardModel->getRateAmountsForAPostById($id, 5);
+
+            if($totalReviews) {
+                $rate1Precentage = ($rateHaving1/$totalReviews) * 100;
+                $rate2Precentage = ($rateHaving2/$totalReviews) * 100;
+                $rate3Precentage = ($rateHaving3/$totalReviews) * 100;
+                $rate4Precentage = ($rateHaving4/$totalReviews) * 100;
+                $rate5Precentage = ($rateHaving5/$totalReviews) * 100;
+
+                $avgRate = ((1*$rateHaving1) + (2*$rateHaving2) + (3*$rateHaving3) + (4*$rateHaving4) + (5*$rateHaving5)) / $totalReviews;
+            }
+            else {
+                $rate1Precentage = 0;
+                $rate2Precentage = 0;
+                $rate3Precentage = 0;
+                $rate4Precentage = 0;
+                $rate5Precentage = 0;
+
+                $avgRate = 0;
+            }
+            
+            $avgRate = number_format((float)$avgRate, 1, '.', '');
+
             $data = [
                 'post' => $post,
-                'user' => $user
+                'user' => $user,
+
+                'ups' => $ups,
+                'downs' => $downs,
+
+                'total_reviews' => $totalReviews,
+                'rate1' => $rate1Precentage,
+                'rate2' => $rate2Precentage,
+                'rate3' => $rate3Precentage,
+                'rate4' => $rate4Precentage,
+                'rate5' => $rate5Precentage,
+                'avg_rate' => $avgRate
             ];
 
             $this->view('mentors/posts/show', $data);
