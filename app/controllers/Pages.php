@@ -9,9 +9,23 @@
         }
 
         public function about() {
-            $data = ['title' => 'This is about page'];
-            $this->view('pages/about', $data);
+            $this->view('pages/about');
         }
 
+        public function help() {
+            $this->view('pages/help');
+        }
+
+        public function privacy() {
+            $this->view('pages/privacy');
+        }
+
+        public function contactus() {
+            $this->view('pages/contactus');
+        }
+
+        public function services() {
+            $this->view('pages/services');
+        }
     }
 ?>

@@ -192,6 +192,16 @@
 
             $ups = $this->postModel->getInc($id)->ups;
             $downs = $this->postModel->getDown($id)->downs;
+            $userId = $_SESSION['user_id'];
+
+            if($this->postModel->isPostInterationExist($userId, $id)) {
+                $selfInteraction = $this->postModel->getPostInteration($userId, $id);
+                $selfInteraction = $selfInteraction->interaction;
+            }
+            else {
+                $selfInteraction = '';
+            }
+
 
             $totalReviews = $this->postModel->getTotalReviewsForAPostById($id);
 
@@ -228,6 +238,7 @@
 
                 'ups' => $ups,
                 'downs' => $downs,
+                'self_interaction' => $selfInteraction,
 
                 'total_reviews' => $totalReviews,
                 'rate1' => $rate1Precentage,
@@ -252,8 +263,17 @@
                 if($post->user_id != $_SESSION['user_id']) {
                     redirect('posts');
                 }
+
+                $res1 = $this->postModel->deleteComment($id);
+                $res2 = $this->postModel->deleteReview($id);
+                $res3 = $this->postModel->deleteInteraction($id);
+                $res4 = $this->postModel->deletePost($id);
+
+                // validate and upload profile image
+                $postImage = PUBROOT.'/imgs/POSTS/'.$post->image;
+                $res5 = deleteImage($postImage);
                 
-                if($this->postModel->deletePost($id)) {
+                if($res1 && $res2 && $res3 && $res4 && $res5) {
                     flash('post_message', 'Post Removed');
                     redirect('posts');
                 }
@@ -267,20 +287,69 @@
         }
 
 
+        // For likes
         public function incUp($id) {
             $ups = $this->postModel->incUp($id);
-            if($ups != false) {
+
+            $userId = $_SESSION['user_id'];
+
+            if($this->postModel->isPostInterationExist($userId, $id)) {
+                // If already an interaction exists
+                $res = $this->postModel->setPostInteraction($userId, $id, 'liked');
+            }
+            else {
+                // If no previous interaction exists
+                $res = $this->postModel->addPostInteraction($userId, $id, 'liked');
+            }
+
+            if($ups != false && $res != false) {
+                echo $ups->ups;
+            }
+        }
+
+        public function decUp($id) {
+            $ups = $this->postModel->decUp($id);
+
+            $userId = $_SESSION['user_id'];
+            $res = $this->postModel->setPostInteraction($userId, $id, 'like removed');
+
+            if($ups != false && $res != false) {
                 echo $ups->ups;
             }    
         }
 
+        // For dislikes
         public function incDown($id) {
             $downs = $this->postModel->incDown($id);
-            if($downs != false) {
+
+            $userId = $_SESSION['user_id'];
+
+            if($this->postModel->isPostInterationExist($userId, $id)) {
+                // If already an interaction exists
+                $res = $this->postModel->setPostInteraction($userId, $id, 'disliked');
+            }
+            else {
+                // If no previous interaction exists
+                $res = $this->postModel->addPostInteraction($userId, $id, 'disliked');
+            }
+
+            if($downs != false && $res != false) {
                 echo $downs->downs;
             }    
         }
 
+        public function decDown($id) {
+            $downs = $this->postModel->decDown($id);
+
+            $userId = $_SESSION['user_id'];
+            $res = $this->postModel->setPostInteraction($userId, $id, 'dislike removed');
+
+            if($downs != false && $res != false) {
+                echo $downs->downs;
+            }    
+        }
+
+        // For comments
         public function comment($id) {
             $userId = $_SESSION['user_id'];
             $postId = $id;

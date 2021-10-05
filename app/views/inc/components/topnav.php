@@ -13,13 +13,13 @@
             </button>
            
             <div class="dropdown-content">
-                <a href="#">
+                <a href="<?php echo URLROOT; ?>/Pages/privacy">
                     <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/privacy-icon.png' ?>" alt=""></div>
-                    <div class="name">Privacy</div>
+                    <div class="name">Privacy Policy</div>
                 </a>
-                <a href="#">
+                <a href="<?php echo URLROOT; ?>/Pages/help">
                     <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/help-icon.png' ?>" alt=""></div>
-                    <div class="name">Help</div>
+                    <div class="name">Help & Support</div>
                 </a>
                 <a href="<?php echo URLROOT; ?>/commons/logout">
                     <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/logout-icon.png' ?>" alt=""></div>

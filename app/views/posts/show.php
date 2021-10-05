@@ -58,20 +58,28 @@
                                 </div>
                                 <form method="post">
                                 <div class="post-footer">
-                                    <button id="like">
-                                        <div class="post-footer-likebtn"><img src="<?php echo URLROOT;?>/imgs/up-icon.png" alt=""></div>
+                                    <button id="like" >
+                                        <?php if($data['self_interaction'] == 'liked'):?>
+                                            <div class="post-footer-likebtn active" id="likeBtn"><img src="<?php echo URLROOT;?>/imgs/up-icon.png" alt=""></div>
+                                        <?php else: ?>
+                                            <div class="post-footer-likebtn" id="likeBtn"><img src="<?php echo URLROOT;?>/imgs/up-icon.png" alt=""></div>
+                                        <?php endif; ?>
                                         <div class="post-footer-text" id="like-count"><?php echo $data['ups']; ?></div>
                                     </button>
                                     <button id="dislike">
-                                        <div class="post-footer-dislikebtn"><img src="<?php echo URLROOT;?>/imgs/down-icon.png" alt=""></div>
+                                        <?php if($data['self_interaction'] == 'disliked'):?>
+                                            <div class="post-footer-dislikebtn active" id="dislikeBtn"><img src="<?php echo URLROOT;?>/imgs/down-icon.png" alt=""></div>                                            
+                                        <?php else: ?>
+                                            <div class="post-footer-dislikebtn" id="dislikeBtn"><img src="<?php echo URLROOT;?>/imgs/down-icon.png" alt=""></div>
+                                        <?php endif; ?>
                                         <div class="post-footer-text" id="dislike-count"><?php echo $data['downs']; ?></div>
                                     </button>
                                     <div class="post-footer-input"><input type="text" placeholder="Comment..." name="post-comment" id="post-comment" class="post-comment"></div>
                                     <button id="comment">
                                         <div class="post-footer-commentbtn"><img src="<?php echo URLROOT;?>/imgs/comment.png" alt=""></div>
                                     </button>
-                                    <button>
-                                        <div class="post-footer-sharebtn"><img src="<?php echo URLROOT;?>/imgs/share.png" alt=""></div>
+                                    <button id="share">
+                                        <div class="post-footer-sharebtn"><img src="<?php echo URLROOT;?>/imgs/share-icon.png" alt=""></div>
                                         <div class="post-footer-text">Share</div>
                                     </button>
                                 </div>
@@ -106,33 +114,119 @@
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
         <script>
             $(document).ready(function() {
+                // initial set of like and dislike states
+                if($('#likeBtn').hasClass('active')) {
+                    isLiked = true;
+                }
+                else {
+                    isLiked = false;
+                }
+
+                if($('#dislikeBtn').hasClass('active')) {
+                    isDisliked = true;
+                }
+                else {                    
+                    isDisliked = false;
+                }
+
                 // for likes
                 $('#like').click(function(event) {
                     event.preventDefault();
 
-                $.ajax({
-                    url: "<?php echo URLROOT;?>/posts/incUp/<?php echo $_SESSION['current_viewing_post_id']?>",
-                    method: "post",
-                    data: $('form').serialize(),
-                    dataType: "text",
-                    success: function(strMessage) {
-                        $('#like-count').text(strMessage);
+                    if(isLiked == false) {
+                        if(isDisliked == true || $('#dislikeBtn').hasClass('active')) {
+                            $('#dislikeBtn').removeClass('active');
+                            isDisliked = false;
+
+                            decDown();
+                        }
+
+                        $('#likeBtn').addClass('active');
+                        isLiked = true;
+
+                        incUp();
                     }
-                })})
+                    else {
+                        $('#likeBtn').removeClass('active');
+                        isLiked = false;
+
+                        decUp();
+                    }
+                })
 
                 // for dislikes
                 $('#dislike').click(function(event) {
                     event.preventDefault();
 
-                $.ajax({
-                    url: "<?php echo URLROOT;?>/posts/incDown/<?php echo $_SESSION['current_viewing_post_id']?>",
-                    method: "post",
-                    data: $('form').serialize(),
-                    dataType: "text",
-                    success: function(strMessage) {
-                        $('#dislike-count').text(strMessage);
+                    if(isDisliked == false) {
+                        if(isLiked == true || $('#likeBtn').hasClass('active')) {
+                            $('#likeBtn').removeClass('active');
+                            isLiked = false;
+
+                            decUp();
+                        }
+
+                        $('#dislikeBtn').addClass('active');
+                        isDisliked = true;
+
+                        incDown();
                     }
-                })})
+                    else {
+                        $('#dislikeBtn').removeClass('active');
+                        isDisliked = false;
+
+                        decDown();
+                    }
+
+                })
+
+                function incUp() {
+                    $.ajax({
+                        url: "<?php echo URLROOT;?>/posts/incUp/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        method: "post",
+                        data: $('form').serialize(),
+                        dataType: "text",
+                        success: function(strMessage) {
+                            $('#like-count').text(strMessage);
+                        }
+                    })
+                }
+
+                function decUp() {
+                    $.ajax({
+                        url: "<?php echo URLROOT;?>/posts/decUp/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        method: "post",
+                        data: $('form').serialize(),
+                        dataType: "text",
+                        success: function(strMessage) {
+                            $('#like-count').text(strMessage);
+                        }
+                    })
+                }
+
+                function incDown() {
+                    $.ajax({
+                        url: "<?php echo URLROOT;?>/posts/incDown/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        method: "post",
+                        data: $('form').serialize(),
+                        dataType: "text",
+                        success: function(strMessage) {
+                            $('#dislike-count').text(strMessage);
+                        }
+                    })
+                }
+
+                function decDown() {
+                    $.ajax({
+                        url: "<?php echo URLROOT;?>/posts/decDown/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        method: "post",
+                        data: $('form').serialize(),
+                        dataType: "text",
+                        success: function(strMessage) {
+                            $('#dislike-count').text(strMessage);
+                        }
+                    })
+                }
 
                 // for comments insert
                 $('#comment').click(function(event) {

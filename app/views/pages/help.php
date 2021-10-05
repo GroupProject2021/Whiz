@@ -6,7 +6,7 @@
         <div class="home-grid-main">
             <br>
             <center>
-                <h1>About</h1>
+                <h1>Help</h1>
                 <br>
                 <img src="<?php echo URLROOT; ?>/imgs/under-construction.png" height="200px" alt="logo">
                 <br>
