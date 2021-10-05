@@ -27,7 +27,7 @@
                         <form action="<?php echo URLROOT; ?>/C_M_Settings/editSettingsGuider" method="post">
                             <div class="settings-header">
                                     <div class="settings-header-item"><h2>Basic details</h2></div>
-                                    <div class="settings-header-item"><a href="<?php echo URLROOT; ?>/C_M_Settings/settings"><input class="cancel-button" type="button" value="Cancel"></a></div>
+                                    <div class="settings-header-item"><a href="<?php echo URLROOT.'/C_M_Settings/settings/'.$_SESSION['user_id']; ?>"><input class="cancel-button" type="button" value="Cancel"></a></div>
                                     <div class="settings-header-item"><a href=""><input class="save-button" type="submit" value="Save"></a></div>
                                     <!-- <div class="settings-header-item"><button type="submit">Save</button></div> -->
                             </div>                      
@@ -44,11 +44,11 @@
                                     <td class="B"><p><input type="text" name="email" id="email" value="<?php echo $data['email'];?>"></p></td>
                                     <td class="C"><span class="form-invalid"><?php echo $data['email_err']; ?></td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <th class="A">Password</th>
                                     <td class="B"><p><input type="text" name="password" id="password" value="<?php echo $data['password'];?>"></p></td>
                                     <td class="C"><span class="form-invalid"><?php echo $data['password_err']; ?></td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <th class="A">Gender</th>
                                     <td class="B"><p><input type="text" name="gender" id="gender" value="<?php echo $data['gender'];?>"></p></td>

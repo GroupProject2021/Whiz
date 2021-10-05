@@ -76,7 +76,7 @@ class C_M_Settings extends Controller{
             $data = [
                 'name' => trim($_POST['name']),
                 'email' => trim($_POST['email']),
-                'password' => trim($_POST['password']),
+                // 'password' => trim($_POST['password']),
                 'gender' => trim($_POST['gender']),
                 'institute' => trim($_POST['institute']),
                 'address' => trim($_POST['address']),
@@ -84,7 +84,7 @@ class C_M_Settings extends Controller{
 
                 'name_err' => '',
                 'email_err' => '',
-                'password_err' => '',
+                // 'password_err' => '',
                 'gender_err' => '',
                 'institute_err' => '',
                 'address_err' => '',
@@ -102,9 +102,9 @@ class C_M_Settings extends Controller{
             }
 
             // Validate body
-            if(empty($data['password'])) {
-                $data['password_err'] = 'Please enter password';
-            }
+            // if(empty($data['password'])) {
+            //     $data['password_err'] = 'Please enter password';
+            // }
 
             // Validate body
             if(empty($data['gender'])) {
@@ -127,7 +127,7 @@ class C_M_Settings extends Controller{
             }
 
             // Make sure no errors
-            if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['gender_err'])
+            if(empty($data['name_err']) && empty($data['email_err']) && empty($data['gender_err'])
                 && empty($data['institute_err']) && empty($data['address_err']) && empty($data['phn_no_err'])) {
                 // Validated                    
                 $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
@@ -152,7 +152,7 @@ class C_M_Settings extends Controller{
             $data = [
                 'name' => $mentorData->name,
                 'email' => $mentorData->email,
-                'password' => $mentorData->password,
+                // 'password' => $mentorData->password,
                 'gender' => $mentorData->gender,
                 'institute' => $mentorData->institute,
                 'address' => $mentorData->address,
@@ -160,7 +160,7 @@ class C_M_Settings extends Controller{
 
                 'name_err' => '',
                 'email_err' => '',
-                'password_err' => '',
+                // 'password_err' => '',
                 'gender_err' => '',
                 'institute_err' => '',
                 'address_err' => '',
@@ -179,7 +179,7 @@ class C_M_Settings extends Controller{
             $data = [
                 'name' => trim($_POST['name']),
                 'email' => trim($_POST['email']),
-                'password' => trim($_POST['password']),
+                // 'password' => trim($_POST['password']),
                 'gender' => trim($_POST['gender']),
                 // 'institute' => trim($_POST['institute']),
                 'address' => trim($_POST['address']),
@@ -187,7 +187,7 @@ class C_M_Settings extends Controller{
 
                 'name_err' => '',
                 'email_err' => '',
-                'password_err' => '',
+                // 'password_err' => '',
                 'gender_err' => '',
                 // 'institute_err' => '',
                 'address_err' => '',
@@ -205,9 +205,9 @@ class C_M_Settings extends Controller{
             }
 
             // Validate body
-            if(empty($data['password'])) {
-                $data['password_err'] = 'Please enter password';
-            }
+            // if(empty($data['password'])) {
+            //     $data['password_err'] = 'Please enter password';
+            // }
 
             // Validate body
             if(empty($data['gender'])) {
@@ -230,7 +230,7 @@ class C_M_Settings extends Controller{
             }
 
             // Make sure no errors
-            if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['gender_err'])
+            if(empty($data['name_err']) && empty($data['email_err']) && empty($data['gender_err'])
                 && empty($data['address_err']) && empty($data['phn_no_err'])) {
                 // Validated                    
                 $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
@@ -255,7 +255,7 @@ class C_M_Settings extends Controller{
             $data = [
                 'name' => $mentorData->name,
                 'email' => $mentorData->email,
-                'password' => $mentorData->password,
+                // 'password' => $mentorData->password,
                 'gender' => $mentorData->gender,
                 // 'institute' => $mentorData->institute,
                 'address' => $mentorData->address,
@@ -263,7 +263,7 @@ class C_M_Settings extends Controller{
 
                 'name_err' => '',
                 'email_err' => '',
-                'password_err' => '',
+                // 'password_err' => '',
                 'gender_err' => '',
                 // 'institute_err' => '',
                 'address_err' => '',

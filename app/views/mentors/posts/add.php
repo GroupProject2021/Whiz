@@ -30,7 +30,7 @@
                             <a href="<?php echo URLROOT;?>/Mentors_dashboard/banner"><button class="btn8">Back</button></a>
                             <br>
                     
-                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/add" method="post">
+                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/addBanner" method="post">
                                 <div class="post-creator">
                                     <div class="post-creator-title">
                                         <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
@@ -61,7 +61,7 @@
                             <a href="<?php echo URLROOT;?>/Mentors_dashboard/poster"><button class="btn8">Back</button></a>
                             <br>
                     
-                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/add" method="post">
+                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/addPoster" method="post">
                                 <div class="post-creator">
                                     <div class="post-creator-title">
                                         <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
