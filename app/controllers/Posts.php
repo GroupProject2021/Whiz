@@ -349,70 +349,7 @@
             }    
         }
 
-        // For comments
-        public function comment($id) {
-            $userId = $_SESSION['user_id'];
-            $postId = $id;
-            $commentContent = $_POST['post-comment'];
-
-
-            echo 'user: '.$userId.' post: '.$postId.' comment: '.$commentContent;
-
-            $data = [
-                'post_id' => $postId,
-                'user_id' => $userId,
-                'content' => $commentContent
-            ];
-
-            if($this->postModel->addComment($data)) {
-                echo 'success';
-            }
-            else {
-                echo 'failed';
-            }
-        }
-
         
-
-        public function showComments($id) {
-            $comments = $this->postModel->getComments($id);
-
-            // RENDER COMMENTS
-            foreach($comments as $comment) {
-                $user = $this->postModel->getUserDetails($comment->user_id);
-                $userProfileImgURL = URLROOT.'/profileimages/'.getActorTypeForIcons($user->actor_type).'/'.$user->profile_image;
-                $userActorTypeImgURL = URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($user->actor_type).'-'.getActorSpecializedTypeForIcons($user->actor_type, $user->specialized_actor_type).'-icon.png';
-                
-                echo '<div class="comment">';
-                echo '<div class="comment-header">';
-                echo    '<div class="comment-header-icon"><img src="'.$userProfileImgURL.'" alt=""></div>';
-                echo    '<div class="comment-header-actortypeicon"><img src="'.$userActorTypeImgURL.'" alt=""></div>';
-                echo    '<div class="comment-header-postedby">'.$user->name.'</div>';
-                if($user->status == "verified") {
-                    echo    '<div class="comment-header-verified"><img src="'.URLROOT.'/imgs/verified.png" alt=""></div>';
-                }
-                echo    '<div class="comment-header-postedtime">'.convertedToReadableTimeFormat($comment->created_at).'</div>';
-                echo '</div>';
-                echo '<div class="comment-body">';
-                echo    $comment->content;
-                echo '</div>';
-                echo '<div class="comment-footer">';
-                echo '<button>';
-                echo    '<div class="comment-footer-likebtn"><img src="'.URLROOT.'/imgs/up-icon.png" alt=""></div>';
-                echo    '<div class="comment-footer-text">likes</div>';
-                echo '</button>';
-                echo '<button>';
-                echo    '<div class="comment-footer-dislikebtn"><img src="'.URLROOT.'/imgs/down-icon.png" alt=""></div>';
-                echo    '<div class="comment-footer-text">dislikes</div>';
-                echo '</button>';
-                echo '<button>';
-                echo    '<div class="comment-footer-replybtn"><img src="'.URLROOT.'/imgs/reply-icon.png" alt=""></div>';
-                echo    '<div class="comment-footer-text">reply</div>';
-                echo '</button>';
-                echo '</div>';
-                echo '</div>';
-            }
-        }
 
         public function incShare() {
 

@@ -92,6 +92,20 @@
     width: 20px;
 }
 
+.comment-footer-likebtn.active {    
+    background-color: #018749;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: .2s all;
+}
+
+.comment-footer-dislikebtn.active {
+    background-color: #A52A2A;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: .2s all;
+}
+
 .comment-footer-text {
     line-height: 20px;
     vertical-align: middle;

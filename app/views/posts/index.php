@@ -28,49 +28,6 @@
                         <a href="<?php echo URLROOT; ?>/posts/add"><button class="btn3">CREATE POST</button></a>
                         <br>
                     
-
-                    <?php //foreach($data['posts'] as $post): ?>
-                        <!-- I added this later. So now it will only show the posts that are related to the user. Remove if statement and it will show all the posts -->
-                        <?php //if($post->id == $_SESSION['user_id']): ?>
-                            <!-- <div class="post">
-                                <div class="post-header">
-                                        <div class="post-header-icon"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt=""></div>
-                                        <div class="post-header-actortypeicon"><img src="<?php echo URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($post->actor_type).'-'.getActorSpecializedTypeForIcons($post->actor_type, $post->specialized_actor_type).'-icon.png'; ?>" alt=""></div>
-                                        <div class="post-header-postedby"><?php echo $post->name; ?></div>
-                                        <div class="post-header-verified"><img src="<?php echo URLROOT;?>/imgs/verified.png" alt=""></div>
-                                        <div class="post-header-postedtime"><?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
-                                </div>
-                                <div class="post-body">
-                                    <div class="post-body-title"><?php echo $post->title; ?></div>
-                                    <div class="post-body-content">
-                                        <?php echo $post->body; ?>
-                                        <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>">More...</a>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="post-footer">
-                                    <button id="like">
-                                        <div class="post-footer-likebtn"><img src="<?php echo URLROOT;?>/imgs/like.png" alt=""></div>
-                                        <div class="post-footer-text" id="like-count"><?php echo $post->ups; ?></div>
-                                    </button>
-                                    <button>
-                                        <div class="post-footer-dislikebtn"><img src="<?php echo URLROOT;?>/imgs/like.png" alt=""></div>
-                                        <div class="post-footer-text"><?php echo $post->downs; ?></div>
-                                    </button> -->
-                                    <!-- <div class="post-footer-input"><input type="text" placeholder="Comment..." name="post-comment" id="post-comment" class="post-comment"></div>
-                                    <button>
-                                        <div class="post-footer-commentbtn"><img src="<?php echo URLROOT;?>/imgs/comment.png" alt=""></div>
-                                    </button> -->
-                                    <!-- <button>
-                                        <div class="post-footer-sharebtn"><img src="<?php echo URLROOT;?>/imgs/share.png" alt=""></div>
-                                        <div class="post-footer-text">Share</div>
-                                    </button>
-                                </div>
-                            </div>
-                            <br> -->
-                        <?php //endif; ?>
-                    <?php //endforeach; ?>
-
                     <?php foreach($data['posts'] as $post): ?>
                     <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>" class="card-link">
                     <div class="post">

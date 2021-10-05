@@ -232,60 +232,8 @@
             else {
                 return false;
             }
-        }
+        }   
 
-        // comment
-        public function addComment($data) {
-            $this->db->query('INSERT INTO comments(post_id, user_id, content) VALUES(:post_id, :user_id, :content)');
-            // bind values
-            $this->db->bind(":post_id", $data['post_id']);
-            $this->db->bind(":user_id", $data['user_id']);
-            $this->db->bind(":content", $data['content']);
-
-            // Execute
-            if($this->db->execute()) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-
-        public function getComments($id) {
-            // $this->db->query('SELECT * FROM comments WHERE post_id = :post_id');
-            $this->db->query('SELECT * FROM comments WHERE post_id = :post_id ORDER BY comments.created_at DESC');
-            $this->db->bind(':post_id', $id);
-
-            $results = $this->db->resultSet();
-
-            return $results;
-        }
-
-        public function deleteComment($id) {
-            $this->db->query('DELETE FROM comments WHERE post_id = :id');
-            // bind values
-            
-            $this->db->bind(":id", $id);
-
-            // Execute
-            if($this->db->execute()) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-
-        public function getUserDetails($id) {
-            $this->db->query('SELECT * FROM users WHERE id = :id');
-            $this->db->bind(':id', $id);
-
-            $row = $this->db->single();
-
-            return $row;
-        }
-
-        
 
         // review
         public function getTotalReviewsForAPostById($id) {

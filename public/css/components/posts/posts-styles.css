@@ -207,10 +207,6 @@
     margin-left: 20px;
 }
 
-.post-footer-dislikebtn {
-    /* transform: scaleY(-1); */
-}
-
 .post-footer button {
     display: flex;
     flex-direction: row;
@@ -221,10 +217,24 @@
     border-radius: 5px
 }
 
+.post-footer-likebtn:hover {
+    background-color: #b3b3b3;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: .2s all;
+}
+
 .post-footer-likebtn.active {    
     background-color: #018749;
     border-radius: 50%;
     opacity: 0.8;
+    transition: .2s all;
+}
+
+.post-footer-dislikebtn:hover {
+    background-color: #b3b3b3;
+    border-radius: 50%;
+    opacity: 0.5;
     transition: .2s all;
 }
 

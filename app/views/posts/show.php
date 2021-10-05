@@ -112,7 +112,10 @@
 
         <!-- javascript -->
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+
+        <!-- javacript for like dislike systen -->
         <script>
+            // For post like dislike system
             $(document).ready(function() {
                 // initial set of like and dislike states
                 if($('#likeBtn').hasClass('active')) {
@@ -227,7 +230,14 @@
                         }
                     })
                 }
+            })
 
+            
+        </script>
+
+        <!-- javascript for comment system -->
+        <script>
+             $(document).ready(function() {
                 // for comments insert
                 $('#comment').click(function(event) {
                     event.preventDefault();
@@ -235,7 +245,7 @@
                     // submit only if input area is not empty
                     if(!($('.post-comment').val() == 0)) {
                         $.ajax({
-                            url: "<?php echo URLROOT;?>/posts/comment/<?php echo $_SESSION['current_viewing_post_id']?>",
+                            url: "<?php echo URLROOT;?>/Comments/comment/<?php echo $_SESSION['current_viewing_post_id']?>",
                             method: "post",
                             data: $('form').serialize(),
                             dataType: "text",
@@ -247,7 +257,7 @@
                         // COMMENT VALIDATIONS MUST BE ADDED
 
                         $.ajax({
-                            url: "<?php echo URLROOT;?>/posts/showComments/<?php echo $_SESSION['current_viewing_post_id']?>",
+                            url: "<?php echo URLROOT;?>/Comments/showComments/<?php echo $_SESSION['current_viewing_post_id']?>",
                             dataType: "html",
                             success: function(results) {
                                 $('#results').html(results);
@@ -258,13 +268,101 @@
 
                 // onload show comments
                 $.ajax({
-                    url: "<?php echo URLROOT;?>/posts/showComments/<?php echo $_SESSION['current_viewing_post_id']?>",
+                    url: "<?php echo URLROOT;?>/Comments/showComments/<?php echo $_SESSION['current_viewing_post_id']?>",
                     dataType: "html",
                     success: function(results) {
                         $('#results').html(results);
                     }
                 })
             })
+            // For comment like dislike system
+            function addCommentUp(commentId) {
+                // alert('#comment-like-count'+commentId);
+                if($('#comment_likebtn'+commentId).hasClass('active')) {
+                    $('#comment_likebtn'+commentId).removeClass('active');
+
+                    decCommentUp(commentId);
+                }
+                else {
+                    if($('#comment_dislikebtn'+commentId).hasClass('active')) {
+                        $('#comment_dislikebtn'+commentId).removeClass('active');
+
+                        decCommentDown(commentId);
+                    }
+
+                    $('#comment_likebtn'+commentId).addClass('active');
+
+                    incCommentUp(commentId);
+                }
+            }
+
+            function addCommentDown(commentId) {
+                // alert(commentId);
+                if($('#comment_dislikebtn'+commentId).hasClass('active')) {
+                    $('#comment_dislikebtn'+commentId).removeClass('active');
+
+                    decCommentDown(commentId);
+                }
+                else {
+                    if($('#comment_likebtn'+commentId).hasClass('active')) {
+                        $('#comment_likebtn'+commentId).removeClass('active');
+
+                        decCommentUp(commentId);
+                    }
+
+                    $('#comment_dislikebtn'+commentId).addClass('active');
+
+                    incCommentDown(commentId);
+                }
+            }
+
+            function incCommentUp(commentId) {
+                $.ajax({
+                        url: "<?php echo URLROOT;?>/Comments/incCommentUp/"+commentId,
+                        method: "post",
+                        data: $('form').serialize(),
+                        dataType: "text",
+                        success: function(strMessage) {
+                            $('#comment-like-count'+commentId).text(strMessage);
+                        }
+                })
+            }
+
+            function decCommentUp(commentId) {
+                $.ajax({
+                        url: "<?php echo URLROOT;?>/Comments/decCommentUp/"+commentId,
+                        method: "post",
+                        data: $('form').serialize(),
+                        dataType: "text",
+                        success: function(strMessage) {
+                            $('#comment-like-count'+commentId).text(strMessage);
+                        }
+                })
+            }
+
+            function incCommentDown(commentId) {
+                $.ajax({
+                        url: "<?php echo URLROOT;?>/Comments/incCommentDown/"+commentId,
+                        method: "post",
+                        data: $('form').serialize(),
+                        dataType: "text",
+                        success: function(strMessage) {
+                            $('#comment-dislike-count'+commentId).text(strMessage);
+                        }
+                })
+            }
+
+            function decCommentDown(commentId) {
+                $.ajax({
+                        url: "<?php echo URLROOT;?>/Comments/decCommentDown/"+commentId,
+                        method: "post",
+                        data: $('form').serialize(),
+                        dataType: "text",
+                        success: function(strMessage) {
+                            $('#comment-dislike-count'+commentId).text(strMessage);
+                        }
+                })
+            }
         </script>
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>

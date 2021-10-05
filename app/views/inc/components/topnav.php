@@ -45,26 +45,13 @@
 
         <div class="dropdown" id="notification-button">
             <button class="dropbtn">
-                <img src="<?php echo URLROOT.'/imgs/components/topNavBar/down-btn-icon.png' ?>" alt="">
-                <div>Account</div>
+                <img src="<?php echo URLROOT.'/imgs/components/topNavBar/notifications-icon.png' ?>" alt="">
+                <div>Notifications</div>
             </button>
-           
-            <!-- <div class="dropdown-content">
-                <a href="#">
-                    <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/privacy-icon.png' ?>" alt=""></div>
-                    <div class="name">Privacy</div>
-                </a>
-                <a href="#">
-                    <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/help-icon.png' ?>" alt=""></div>
-                    <div class="name">Help</div>
-                </a>
-                <a href="<?php echo URLROOT; ?>/commons/logout">
-                    <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/logout-icon.png' ?>" alt=""></div>
-                    <div class="name">Log Out</div>
-                </a>
-            </div> -->
 
+            
             <div class="notification-content">
+            <?php for($test = 0; $test < 10; $test++): ?>
                 <div class="notification">
                     <div class="left">
                         <div class="pic">
@@ -79,8 +66,8 @@
                             Just Now
                         </div>
                     </div>
-                </div>
-
+                </div>                          
+            <?php endfor; ?>
             </div>
         </div>
 
