@@ -171,10 +171,41 @@
 
             return $row;
         }
+/////////////
+        public function getIncBanner($id) {
+            $this->db->query('SELECT ups FROM banner WHERE id = :id');
+            $this->db->bind(':id', $id);
 
-        
+            $row = $this->db->single();
 
-        public function getInc($id) {
+        return $row;
+        }
+
+        // dislikes
+        public function incDownBanner($id) {
+            $this->db->query('UPDATE banner SET downs = downs + 1 WHERE id = :id');
+            // bind values            
+            $this->db->bind(":id", $id);
+
+            // Execute
+            if($this->db->execute()) {
+                return $this->getDownBanner($id);
+            }
+            else {
+                return false;
+            }
+        }
+
+        public function getDownBanner($id) {
+            $this->db->query('SELECT downs FROM banner WHERE id = :id');
+            $this->db->bind(':id', $id);
+
+            $row = $this->db->single();
+
+            return $row;
+        }
+////////////////
+        public function getIncPoster($id) {
             $this->db->query('SELECT ups FROM poster WHERE id = :id');
             $this->db->bind(':id', $id);
 
@@ -184,21 +215,21 @@
         }
 
         // dislikes
-        public function incDown($id) {
+        public function incDownPoster($id) {
             $this->db->query('UPDATE poster SET downs = downs + 1 WHERE id = :id');
             // bind values            
             $this->db->bind(":id", $id);
 
             // Execute
             if($this->db->execute()) {
-                return $this->getDown($id);
+                return $this->getDownPoster($id);
             }
             else {
                 return false;
             }
         }
 
-        public function getDown($id) {
+        public function getDownPoster($id) {
             $this->db->query('SELECT downs FROM poster WHERE id = :id');
             $this->db->bind(':id', $id);
 

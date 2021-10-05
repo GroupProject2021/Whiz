@@ -377,8 +377,8 @@
             $post = $this->mentorDashboardModel->getBannerById($id);
             $user = $this->commonModel->getUserById($post->user_id);
 
-            $ups = $this->mentorDashboardModel->getInc($id)->ups;
-            $downs = $this->mentorDashboardModel->getDown($id)->downs;
+            $ups = $this->mentorDashboardModel->getIncBanner($id)->ups;
+            $downs = $this->mentorDashboardModel->getDownBanner($id)->downs;
 
             $totalReviews = $this->mentorDashboardModel->getTotalReviewsForAPostById($id);
 
@@ -434,8 +434,8 @@
             $post = $this->mentorDashboardModel->getPosterById($id);
             $user = $this->commonModel->getUserById($post->user_id);
 
-            $ups = $this->mentorDashboardModel->getInc($id)->ups;
-            $downs = $this->mentorDashboardModel->getDown($id)->downs;
+            $ups = $this->mentorDashboardModel->getIncPoster($id)->ups;
+            $downs = $this->mentorDashboardModel->getDownPoster($id)->downs;
 
             $totalReviews = $this->mentorDashboardModel->getTotalReviewsForAPostById($id);
 

@@ -30,7 +30,7 @@
                             <a href="<?php echo URLROOT;?>/Mentors_dashboard/banner"><button class="btn8">Back</button></a>
                             <br>
                     
-                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/addBanner" method="post">
+                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/addBanner" method="post" enctype="multipart/form-data">
                                 <div class="post-creator">
                                     <div class="post-creator-image">
                                         <img src="" alt="" id="image_placeholder" style="display: none;">
@@ -67,7 +67,7 @@
                             <a href="<?php echo URLROOT;?>/Mentors_dashboard/poster"><button class="btn8">Back</button></a>
                             <br>
                     
-                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/addPoster" method="post">
+                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/addPoster" method="post" enctype="multipart/form-data">
                                 <div class="post-creator">
                                     <div class="post-creator-image">
                                         <img src="" alt="" id="image_placeholder" style="display: none;">
