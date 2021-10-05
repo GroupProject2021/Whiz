@@ -374,7 +374,7 @@
         public function showBanner($id) {
             $_SESSION['current_viewing_post_id'] = $id;
 
-            $post = $this->mentorDashboardModel->getBannererById($id);
+            $post = $this->mentorDashboardModel->getBannerById($id);
             $user = $this->commonModel->getUserById($post->user_id);
 
             $ups = $this->mentorDashboardModel->getInc($id)->ups;

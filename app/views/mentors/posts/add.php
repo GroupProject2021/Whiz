@@ -32,8 +32,14 @@
                     
                             <form action="<?php echo URLROOT; ?>/Mentors_dashboard/addBanner" method="post">
                                 <div class="post-creator">
+                                    <div class="post-creator-image">
+                                        <img src="" alt="" id="image_placeholder" style="display: none;">
+                                    </div>
                                     <div class="post-creator-title">
                                         <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
+                                        <div class="image-select"><img src="<?php echo URLROOT.'/imgs/add-image-icon.png'; ?>" alt="" id="addImageBtn" onclick="toggleBrowse()"></div>
+                                        <div class="image-select"><img src="<?php echo URLROOT.'/imgs/remove-image-icon.png'; ?>" alt="" id="removeImageBtn" onclick="removeImage()" style="display: none;"></div>
+                                        <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
                                     </div>
                                     <hr>
                                     <div class="post-creator-content">
@@ -63,8 +69,14 @@
                     
                             <form action="<?php echo URLROOT; ?>/Mentors_dashboard/addPoster" method="post">
                                 <div class="post-creator">
+                                    <div class="post-creator-image">
+                                        <img src="" alt="" id="image_placeholder" style="display: none;">
+                                    </div>
                                     <div class="post-creator-title">
                                         <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
+                                        <div class="image-select"><img src="<?php echo URLROOT.'/imgs/add-image-icon.png'; ?>" alt="" id="addImageBtn" onclick="toggleBrowse()"></div>
+                                        <div class="image-select"><img src="<?php echo URLROOT.'/imgs/remove-image-icon.png'; ?>" alt="" id="removeImageBtn" onclick="removeImage()" style="display: none;"></div>
+                                        <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
                                     </div>
                                     <hr>
                                     <div class="post-creator-content">

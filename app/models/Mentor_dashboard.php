@@ -175,7 +175,7 @@
         
 
         public function getInc($id) {
-            $this->db->query('SELECT ups FROM posts WHERE id = :id');
+            $this->db->query('SELECT ups FROM poster WHERE id = :id');
             $this->db->bind(':id', $id);
 
             $row = $this->db->single();
@@ -185,7 +185,7 @@
 
         // dislikes
         public function incDown($id) {
-            $this->db->query('UPDATE posts SET downs = downs + 1 WHERE id = :id');
+            $this->db->query('UPDATE poster SET downs = downs + 1 WHERE id = :id');
             // bind values            
             $this->db->bind(":id", $id);
 
@@ -199,7 +199,7 @@
         }
 
         public function getDown($id) {
-            $this->db->query('SELECT downs FROM posts WHERE id = :id');
+            $this->db->query('SELECT downs FROM poster WHERE id = :id');
             $this->db->bind(':id', $id);
 
             $row = $this->db->single();

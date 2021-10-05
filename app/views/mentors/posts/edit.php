@@ -18,68 +18,94 @@
             <?php if(isset($_SESSION['user_id'])) : ?>
                 <?php if($_SESSION['specialized_actor_type'] == 'Professional Guider'): ?>
                     <!-- Professional guider -->
-                    <!-- <div class="wrapper"> -->
+                    <div class="wrapper">
                         <!-- TOP PANEL -->
                         <div class="top-panel">
                             <h1>Banners > Edit Banner</h1>
                         </div>
 
-                        <!-- EDIT FORM -->
-                        <div class="form-container">
-                            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/banner">Back</a>
-                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/editBanner/<?php echo $data['id']; ?>" method="post">
-                                
-                                <hr  class="form-hr">
+                        <!-- MIDDLE PANEL -->
+                        <div class="middle-panel-single">
 
-                                <label for="title"><p class="form-bold">Title</p></label>
-                                <input type="text" placeholder="" name="title" id="title" value="<?php echo $data['title']; ?>">
-                                <span class="form-invalid"><?php echo $data['title_err']; ?></span><br>
+                            <a href="<?php echo URLROOT;?>/Mentors_dashboard/banner"><button class="btn8">Back</button></a>
+                            <br>
 
-                                <label for="body"><p class="form-bold">Content</p></label>
-                                <textarea placeholder="" name="body" id="body"><?php echo $data['body']; ?></textarea>
-                                <span class="form-invalid"><?php echo $data['body_err']; ?></span><br>
-                                <hr  class="form-hr">
-                                <button type="submit" class="form-submit">Save Changes</button>
+                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/editBanner/<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
+                                <div class="post-creator">
+                                    <div class="post-creator-image" id="post-creator-image">
+                                        <img src="<?php if($data['image_name'] != null){ echo URLROOT.'/imgs/POSTS/'.$data['image_name'];}else{ echo '';} ?>" alt="" id="image_placeholder" style="display: none;">
+                                    </div>
+                                    <div class="post-creator-title">
+                                        <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
+                                        <div class="image-select"><img src="<?php echo URLROOT.'/imgs/add-image-icon.png'; ?>" alt="" id="addImageBtn" onclick="toggleBrowse()"></div>
+                                        <div class="image-select"><img src="<?php echo URLROOT.'/imgs/remove-image-icon.png'; ?>" alt="" id="removeImageBtn" onclick="removeImage()" style="display: none;"></div>
+                                        <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
+                                    </div>
+                                    <hr>
+                                    <div class="post-creator-content">
+                                        <textarea name="body" id="body" cols="30" rows="10" placeholder="Content"><?php echo $data['body']; ?></textarea>
+                                    </div>
+                                    <button type="submit" class="post-creator-submit">Save</button>
+                                </div>
                             </form>
+
                         </div>
-                    <!-- </div> -->
+
+                        <!-- BOTTOM PANEL -->
+                        <div class="bottom-panel">
+                            <p>Whiz organization. All rights reserved.</p>
+                        </div>
+                    </div>
                 <?php elseif($_SESSION['specialized_actor_type'] == 'Teacher'): ?>
                     <!-- Teacher -->
-                    <!-- <div class="wrapper"> -->
+                    <div class="wrapper">
                         <!-- TOP PANEL -->
                         <div class="top-panel">
                             <h1>Posters > Edit Poster</h1>
                         </div>
 
                         <!-- MIDDLE PANEL -->
-                        <div class="form-container">
-                            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/poster">Back</a>
-                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/editPoster/<?php echo $data['id']; ?>" method="post">
-                                
-                                <hr  class="form-hr">
+                        <div class="middle-panel-single">
 
-                                <label for="title"><p class="form-bold">Title</p></label>
-                                <input type="text" placeholder="" name="title" id="title" value="<?php echo $data['title']; ?>">
-                                <span class="form-invalid"><?php echo $data['title_err']; ?></span><br>
+                            <a href="<?php echo URLROOT;?>/Mentors_dashboard/poster"><button class="btn8">Back</button></a>
+                            <br>
 
-                                <label for="body"><p class="form-bold">Content</p></label>
-                                <textarea placeholder="" name="body" id="body"><?php echo $data['body']; ?></textarea>
-                                <span class="form-invalid"><?php echo $data['body_err']; ?></span><br>
-                                <hr  class="form-hr">
-                                <button type="submit" class="form-submit">Save Changes</button>
+                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/editBanner/<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
+                                <div class="post-creator">
+                                    <div class="post-creator-image" id="post-creator-image">
+                                        <img src="<?php if($data['image_name'] != null){ echo URLROOT.'/imgs/POSTS/'.$data['image_name'];}else{ echo '';} ?>" alt="" id="image_placeholder" style="display: none;">
+                                    </div>
+                                    <div class="post-creator-title">
+                                        <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
+                                        <div class="image-select"><img src="<?php echo URLROOT.'/imgs/add-image-icon.png'; ?>" alt="" id="addImageBtn" onclick="toggleBrowse()"></div>
+                                        <div class="image-select"><img src="<?php echo URLROOT.'/imgs/remove-image-icon.png'; ?>" alt="" id="removeImageBtn" onclick="removeImage()" style="display: none;"></div>
+                                        <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
+                                    </div>
+                                    <hr>
+                                    <div class="post-creator-content">
+                                        <textarea name="body" id="body" cols="30" rows="10" placeholder="Content"><?php echo $data['body']; ?></textarea>
+                                    </div>
+                                    <button type="submit" class="post-creator-submit">Save</button>
+                                </div>
                             </form>
+
                         </div>
-                    <!-- </div> -->
+
+                        <!-- BOTTOM PANEL -->
+                        <div class="bottom-panel">
+                            <p>Whiz organization. All rights reserved.</p>
+                        </div>
+                    </div>
                 <?php else: ?>
                     <!-- Nothing here -->
                 <?php endif;?>
             <?php endif; ?> 
 
                     <!-- BOTTOM PANEL -->
-                    <br>
+                    <!-- <br>
                     <div class="bottom-panel">
                         <p>Whiz organization. All rights reserved.</p>
-                    </div>
+                    </div> -->
                 </div>
             </main>
         </div>
