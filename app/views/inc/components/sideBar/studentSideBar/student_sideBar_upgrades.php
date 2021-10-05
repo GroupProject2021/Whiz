@@ -26,7 +26,6 @@
         </div>
         <?php elseif($_SESSION['specialized_actor_type'] == 'OL qualified'): ?>
         <!-- OL qualified to AL qualified upgrade -->
-        <hr>        
         <div class="sidebar-user-details-container">
             <div class="sidebar-user-details">
                 <div class="user-level-image">
@@ -50,10 +49,8 @@
                 </a>
             </div>
         </div>
-        <hr>
         <?php elseif($_SESSION['specialized_actor_type'] == 'AL qualified'): ?>
         <!-- AL qualified to UndergraduateGraduate upgrade -->
-        <hr>
         <div class="sidebar-user-details-container">
             <div class="sidebar-user-details">
                 <div class="user-level-image">
@@ -77,10 +74,8 @@
                 </a>
             </div>
         </div>
-        <hr>
         <?php elseif($_SESSION['specialized_actor_type'] == 'Undergraduate Graduate'):?>
         <!-- UndergraduateGraduate profile completeness -->
-        <hr>
         <div class="sidebar-user-details-container">
             <div class="sidebar-user-details">
                 <div class="user-level-image">
@@ -99,7 +94,6 @@
                 </div>
             </div>
         </div>
-        <hr>
         <?php else:?>
             <!-- Nothing here -->
         <?php endif; ?>
