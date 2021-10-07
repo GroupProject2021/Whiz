@@ -1,0 +1,194 @@
+.showcase h2 {
+    font-size: 25px;
+    color: #262626;
+}
+
+.showcase p {
+    font-size: 15px;
+    color: #242222;
+}
+
+.showcase-btn {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    border: 0;
+    padding: 10px 20px;
+    background: #ff9924;
+    color: #ffffff;
+    font-size: 15px;
+    width: fit-content;
+    transition: .2s all;
+}
+
+.showcase-btn:hover {
+    background: #e68416;
+    border-radius: 10px;
+}
+
+.chevron-right {
+    position: relative;
+    top: 4px;
+}
+
+.showcase {
+    width: 100% -40px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+    justify-content: flex-start;
+    padding-top: 80px;
+    padding-left: 50px;
+    margin: 20px 50px 50px 50px;    
+}
+
+.showcase h2, .showcase p {
+    margin-bottom: 10px;
+}
+
+.showcase .btn {
+    margin-top: 20px;
+}
+
+/* home cards */
+.home-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    margin: 20px 50px 20px 50px; 
+}
+
+.home-cards div {
+    width: 100%;
+}
+
+.home-cards div:hover {
+    cursor: pointer;
+}
+
+.home-card-pic img{
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.home-card-title {
+    font-size: 20px;
+    color: #262626;
+    margin-bottom: 5px;
+}
+
+.home-card-seemore {
+    font-size: 15px;
+    padding-top: 10px;
+    color: #0067b8;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.home-card-seemore a {
+    text-decoration: none;
+    color: inherit;
+    transition: .2s all;
+}
+
+.home-card-seemore a:hover {
+    text-decoration: underline;
+    color: #007ad8;
+}
+
+/* sections */
+.section-title {
+    font-size: 20px;
+    color: #262626;
+    margin-top: 50px;
+    margin-left: 50px;
+    font-weight: 600;
+}
+
+
+.home-cards.organization {
+    background-color: #e5ebee;
+    padding: 20px;
+}
+
+.home-cards.mentors {
+    background-color: #ece3ec;
+    padding: 20px;
+}
+
+/* left */
+.home-cards .left {
+    text-align: left;
+    grid-column: 1/3;
+    padding-top: 100px;
+    padding-left: 50px;
+}
+
+.home-cards .left .title {
+    font-size: 25px;
+    color: #262626;
+}
+
+.home-cards .left .description {
+    font-size: 15px;
+    color: #242222;
+}
+
+.home-cards .left .left-btn {
+    margin-top: 10px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    border: 0;
+    padding: 10px 20px;
+    background: #2483ff;
+    color: #ffffff;
+    font-size: 15px;
+    width: fit-content;
+    transition: .2s all;
+}
+
+.home-cards .left .left-btn:hover {
+    background: #4876f5;
+    border-radius: 10px;
+}
+
+/* right */
+.home-cards .right {
+    text-align: right;
+    grid-column: 3/5;
+    padding-top: 100px;
+    padding-right: 50px;
+}
+
+.home-cards .right .title {
+    font-size: 25px;
+    color: #262626;
+}
+
+.home-cards .right .description {
+    font-size: 15px;
+    color: #242222;
+}
+
+.home-cards .right .right-btn {
+    margin-top: 10px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    border: 0;
+    padding: 10px 20px;
+    background: #c00096;
+    color: #ffffff;
+    font-size: 15px;
+    width: fit-content;
+    transition: .2s all;
+}
+
+.home-cards .right .right-btn:hover {
+    background: #a1017f;
+    border-radius: 10px;
+}

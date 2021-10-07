@@ -1,4 +1,7 @@
 /* If CSS didn't apply try Ctrl+F5 clear cache and then reload */
+/* pages */
+@import url('pages/index-styles.css');
+
 /* seperate component styles */
 @import url('components/topnav.css');
 @import url('components/form.css');

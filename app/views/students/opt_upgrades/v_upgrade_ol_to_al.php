@@ -165,6 +165,11 @@
                 <button type="submit" class="form-next-button">Next</button>
             </form>
         </div>
+
+        
+        <div id="results"></div>
+
+
         <div class="form-container signin">
             <p>Contact for help? <a class="form-link" href="<?php echo URLROOT; ?>/students/login">Help & Services</a></p>
         </div>
@@ -204,5 +209,28 @@
                 document.getElementById("z_score").value = z_score;
             }
         </script>
+
+        
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+        <script>
+            // $(document).ready(function() {
+            //     $('#al_school').keyup(function() {
+            //         $('#results').html('');
+            //         var searchField = $('#al_school').val();
+            //         var expression = new RegExp(searchField, "i");
+
+            //         $.ajax({
+            //             url: "<?php echo URLROOT;?>/posts/incUp/<?php echo $_SESSION['current_viewing_post_id']?>",
+            //             method: "post",
+            //             data: $('form').serialize(),
+            //             dataType: "text",
+            //             success: function(strMessage) {
+            //                 $('#like-count').text(strMessage);
+            //             }
+            //         })
+            //     })
+            // })
+        </script>
+
     </body>
 </html>
