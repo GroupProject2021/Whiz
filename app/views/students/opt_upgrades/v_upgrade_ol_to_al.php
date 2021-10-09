@@ -158,7 +158,7 @@
 
                 <hr class="form-hr">
                 <p>
-                    <input type="checkbox">
+                    <input type="checkbox" required>
                     I do here by certify above details that I have entered are true and correct. <a class="form-link" href="#">Terms & Privacy</a>
                 </p>
                 <button type="submit" class="form-skip-button">Skip</button>
@@ -175,41 +175,8 @@
         </div>
 
         
-        <script>
-            var stream = document.getElementById("stream");
-
-
-            stream.addEventListener("change", function() {
-                // alert(this.value);
-                // a.placeholder = this.value;
-
-                var selected_stream = this.value;
-
-            });
-
-            // general_test_grade_value range slider
-            function fetch_general_test_grade_value() {
-                var general_test_grade_value = document.getElementById("general_test_grade").value;
-                document.getElementById("general_test_grade_value").value = general_test_grade_value;
-            }
-
-            function fetch_general_test_grade() {
-                var general_test_grade = document.getElementById("general_test_grade_value").value;
-                document.getElementById("general_test_grade").value = general_test_grade;
-            }
-
-             // z_score_value range slider
-             function fetch_z_score_value() {
-                var z_score_value = document.getElementById("z_score").value;
-                document.getElementById("z_score_value").value = z_score_value;
-            }
-
-            function fetch_z_score() {
-                var z_score = document.getElementById("z_score_value").value;
-                document.getElementById("z_score").value = z_score;
-            }
-        </script>
-
+        <!-- javascript -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/al_UpgradeAndEdit.js"></script>
         
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
         <script>

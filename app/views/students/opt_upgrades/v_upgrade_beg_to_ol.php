@@ -236,7 +236,7 @@
 
                 <hr class="form-hr">
                 <p>
-                    <input type="checkbox">
+                    <input type="checkbox" required>
                     I do here by certify above details that I have entered are true and correct. <a class="form-link" href="#">Terms & Privacy</a>
                 </p>
                 <button type="submit" class="form-skip-button">Skip</button>

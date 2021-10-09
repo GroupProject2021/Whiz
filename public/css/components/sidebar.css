@@ -190,11 +190,17 @@
 
 .profile-upgrade-button:hover {
     background: var(--profile-upgrade-button-color-hover);
+    cursor: pointer;
 }
 
 /* sidebar items */
 .sidebar-item {
     margin-bottom: 0.2rem;
+}
+
+.sidebar-item a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .sidebar-item button {

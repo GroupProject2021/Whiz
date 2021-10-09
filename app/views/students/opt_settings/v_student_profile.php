@@ -79,6 +79,7 @@
                                         }
                                     ?>
                                 </div>
+                                <br>
                                 <hr>
                                 <div class="profile-stats">
                                     <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$data['user']->id; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>

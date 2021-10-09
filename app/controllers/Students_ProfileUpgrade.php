@@ -227,7 +227,7 @@
                         // i added later
                         $this->updateSession();
 
-                        redirect('Students_dashboard/index');
+                        redirect('Commons/studentDashboardRedirect');
                     }
                     else {
                         die('Something went wrong');
@@ -320,7 +320,7 @@
                         // i added later
                         $this->updateSession();
 
-                        redirect('Students_dashboard/index');
+                        redirect('Commons/studentDashboardRedirect');
                     }
                     else {
                         die('Something went wrong');

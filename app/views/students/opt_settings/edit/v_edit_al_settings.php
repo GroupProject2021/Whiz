@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Beginner dashboard</h1>
+                        <h1>G.C.E(A/L) details</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -26,7 +26,6 @@
                         <div class="settings-form-edit-container">
                             <form action="<?php echo URLROOT; ?>/C_S_Settings/editSettingsAL" method="post">
                                 <div class="settings-header">
-                                    <div class="settings-header-item"><h2>AL details</h2></div>
                                     <div class="settings-header-item"><a href="<?php echo URLROOT.'/C_S_Settings/settings/'.$_SESSION['user_id']; ?>"><input class="cancel-button" type="button" value="Cancel"></a></div>
                                     <div class="settings-header-item"><a href=""><input class="save-button" type="submit" value="Save"></a></div>
                                     <!-- <div class="settings-header-item"><button type="submit">Save</button></div> -->
@@ -71,12 +70,34 @@
                                     </tr>
                                     <tr>
                                         <th class="A">Z-Score</th>
-                                        <td class="B" colspan="6"><p><input type="text" name="z_score" id="z_score" value="<?php echo $data['z_score'];?>"></p></td>
+                                        <td class="B" colspan="6"><p>
+                                            <table class="form-table">
+                                                <tr>
+                                                    <td width="80%">
+                                                        <input type="range" min="0" max="4.0000" step="0.0001" class="form-slider" oninput="fetch_z_score_value()" name="z_score" id="z_score" value="<?php echo $data['z_score']; ?>">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="<?php echo $data['z_score'];?>" oninput="fetch_z_score()" name="z_score_value" id="z_score_value">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </p></td>
                                         <td class="C"><span class="form-invalid"><?php echo $data['z_score_err']; ?></td>
                                     </tr>
                                     <tr>
                                         <th class="A">General test grade</th>
-                                        <td class="B" colspan="6"><p><input type="text" name="general_test_grade" id="general_test_grade" value="<?php echo $data['general_test_grade'];?>"></p></td>
+                                        <td class="B" colspan="6"><p>
+                                            <table class="form-table">
+                                                <tr>
+                                                    <td width="80%">
+                                                        <input type="range" min="0" max="100" step="1" class="form-slider" oninput="fetch_general_test_grade_value()" name="general_test_grade" id="general_test_grade" value="<?php echo $data['general_test_grade']; ?>">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="<?php echo $data['general_test_grade']; ?>" oninput="fetch_general_test_grade()" name="general_test_grade_value" id="general_test_grade_value">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </p></td>
                                         <td class="C"><span class="form-invalid"><?php echo $data['general_test_grade_err']; ?></td>
                                     </tr>
                                     <tr>
@@ -193,4 +214,7 @@
                 </div>
             </main>
         </div>
+        
+        <!-- javascript -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/al_UpgradeAndEdit.js"></script>
 <?php require APPROOT.'/views/inc/footer.php'; ?>
