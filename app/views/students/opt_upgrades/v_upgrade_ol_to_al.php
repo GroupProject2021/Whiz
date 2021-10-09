@@ -155,6 +155,13 @@
                     </tr>
                 </table>
                 <span class="form-invalid"><?php echo $data['al_results_err']; ?></span><br>
+                <input type="text" name="subjects_validity" id="subjects_validity" value="<?php $data['subjects_validity']; ?>" style="width: fit-content; display: none;">
+                <div class="form-validation">
+                                    <div class="subjects-validation">
+                                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                                        Your subject selection are valid
+                                    </div>
+                                </div>
 
                 <hr class="form-hr">
                 <p>
@@ -180,23 +187,56 @@
         
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
         <script>
-            // $(document).ready(function() {
-            //     $('#al_school').keyup(function() {
-            //         $('#results').html('');
-            //         var searchField = $('#al_school').val();
-            //         var expression = new RegExp(searchField, "i");
+            // stream change
+            $('#stream').on("change", function() {
+                var streamId = $('#stream').val();
 
-            //         $.ajax({
-            //             url: "<?php echo URLROOT;?>/posts/incUp/<?php echo $_SESSION['current_viewing_post_id']?>",
-            //             method: "post",
-            //             data: $('form').serialize(),
-            //             dataType: "text",
-            //             success: function(strMessage) {
-            //                 $('#like-count').text(strMessage);
-            //             }
-            //         })
-            //     })
-            // })
+                $.ajax({
+                    url: "<?php echo URLROOT;?>/C_S_Settings/changeStream/"+streamId,
+                    method: "post"
+                }).done (function(res) {
+                    // console.log(res); // for testing only
+                    subjects = JSON.parse(res);
+                    
+                    // selection options resetting
+                    isSetSelected = false;
+                    $('#subject1').children().remove();
+                    subjects.forEach(function(subject) {
+                        if(isSetSelected) {
+                            $('#subject1').append('<option value="'+subject.al_sub_id+'" selected>'+subject.al_sub_name+'</option>');
+                            isSetSelected = true;
+                        }
+                        else {
+                            $('#subject1').append('<option value="'+subject.al_sub_id+'">'+subject.al_sub_name+'</option>');
+                        }
+                    })
+
+                    isSetSelected = false;
+                    $('#subject2').children().remove();
+                    subjects.forEach(function(subject) {
+                        if(isSetSelected) {
+                            $('#subject2').append('<option value="'+subject.al_sub_id+'" selected>'+subject.al_sub_name+'</option>');
+                        }
+                        else {
+                            $('#subject2').append('<option value="'+subject.al_sub_id+'">'+subject.al_sub_name+'</option>')
+                        }
+                    })
+
+                    isSetSelected = false;
+                    $('#subject3').children().remove();
+                    subjects.forEach(function(subject) {
+                        if(isSetSelected) {
+                            $('#subject3').append('<option value="'+subject.al_sub_id+'" selected>'+subject.al_sub_name+'</option>');
+                        }
+                        else {
+                            $('#subject3').append('<option value="'+subject.al_sub_id+'">'+subject.al_sub_name+'</option>')
+                        }
+                    })
+
+                    // called form al_UpgradeAndEdit JS file
+                    initialUniqueSubjectsSetting();
+                })
+            })
         </script>
 
     </body>

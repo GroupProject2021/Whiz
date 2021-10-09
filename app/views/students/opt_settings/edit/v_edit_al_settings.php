@@ -225,7 +225,7 @@
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/al_UpgradeAndEdit.js"></script>
 
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
-        <script>console.log('sfsdf');
+        <script>
             // stream change
             $('#stream').on("change", function() {
                 var streamId = $('#stream').val();

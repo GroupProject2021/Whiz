@@ -174,6 +174,7 @@
                     'radio_subject_2' => trim($_POST['radio_subject_2']),
                     'al_sub3_id' => $_POST['subject3'],
                     'radio_subject_3' => trim($_POST['radio_subject_3']),
+                    'subjects_validity' => $_POST['subjects_validity'],
 
                     'al_school_err' => '',
                     'stream_err' => '',
@@ -217,6 +218,11 @@
                 if(empty($data['radio_subject_1']) || empty($data['radio_subject_2']) || empty($data['radio_subject_3'])) {
                     $data['al_results_err'] = 'Please check whether you have selected all the al result check boxes';
                 }
+                else {
+                    if($data['subjects_validity'] == 'not valid') {
+                        $data['al_results_err'] = "Please select different subjects";
+                    }
+                }
 
                 // Make sure all errors are empty
                 if(empty($data['al_school_err']) && empty($data['stream_err']) && empty($data['z_score_err'])
@@ -257,6 +263,7 @@
                     'radio_subject_2' => '',
                     'al_sub3_id' => '',
                     'radio_subject_3' => '',
+                    'subjects_validity' => '',
 
                     'al_school_err' => '',
                     'stream_err' => '',

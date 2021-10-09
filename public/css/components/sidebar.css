@@ -34,6 +34,7 @@
     background: var(--color-main);
     color: var(--color-main-background);
     transition: left 0.5s ease;
+    z-index: 5;
 }
 
 .sidebar-brand {
