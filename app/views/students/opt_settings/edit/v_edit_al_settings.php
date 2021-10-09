@@ -119,7 +119,7 @@
                                         <th class="A">
                                             <select name="subject1" id="subject1">
                                                 <?php foreach($data['al_subject_list'] as $subjects):?>
-                                                    <?php if($subjects->al_stream_id == 1):?>
+                                                    <?php if($subjects->al_stream_id == $data['stream']):?>
                                                         <?php if($subjects->al_sub_id == $data['al_sub1_id']): ?>
                                                             <option value="<?php echo $subjects->al_sub_id; ?>" selected><?php echo $subjects->al_sub_name; ?></option>
                                                         <?php else: ?>
@@ -146,7 +146,7 @@
                                         <th class="A">
                                         <select name="subject2" id="subject2">
                                                 <?php foreach($data['al_subject_list'] as $subjects):?>
-                                                    <?php if($subjects->al_stream_id == 1):?>
+                                                    <?php if($subjects->al_stream_id == $data['stream']):?>
                                                         <?php if($subjects->al_sub_id == $data['al_sub2_id']): ?>
                                                             <option value="<?php echo $subjects->al_sub_id; ?>" selected><?php echo $subjects->al_sub_name; ?></option>
                                                         <?php else: ?>
@@ -173,7 +173,7 @@
                                         <th class="A">
                                         <select name="subject3" id="subject3">
                                                 <?php foreach($data['al_subject_list'] as $subjects):?>
-                                                    <?php if($subjects->al_stream_id == 1):?>
+                                                    <?php if($subjects->al_stream_id == $data['stream']):?>
                                                         <?php if($subjects->al_sub_id == $data['al_sub3_id']): ?>
                                                             <option value="<?php echo $subjects->al_sub_id; ?>" selected><?php echo $subjects->al_sub_name; ?></option>
                                                         <?php else: ?>
@@ -195,12 +195,19 @@
                                                 }
                                             }
                                         ?>
-                                    </tr>
-                                    <tr>
-                                        <!-- for error -->
-                                        <span class="form-invalid"><?php echo $data['al_results_err']; ?></span><br>
-                                    </tr>
-                                </table> 
+                                    </tr>                                    
+                                </table>
+
+                                <!-- for error -->
+                                <span class="form-invalid"><?php echo $data['al_results_err']; ?></span><br>
+                                <input type="text" name="subjects_validity" id="subjects_validity" value="<?php $data['subjects_validity']; ?>" style="width: fit-content; display: none;">
+                                <div class="form-validation">
+                                    <div class="subjects-validation">
+                                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                                        Your subject selection are valid
+                                    </div>
+                                </div>
+
                                 </div>
                             </form>
                         </div>
@@ -214,7 +221,60 @@
                 </div>
             </main>
         </div>
-        
         <!-- javascript -->
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/al_UpgradeAndEdit.js"></script>
+
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+        <script>console.log('sfsdf');
+            // stream change
+            $('#stream').on("change", function() {
+                var streamId = $('#stream').val();
+
+                $.ajax({
+                    url: "<?php echo URLROOT;?>/C_S_Settings/changeStream/"+streamId,
+                    method: "post"
+                }).done (function(res) {
+                    // console.log(res); // for testing only
+                    subjects = JSON.parse(res);
+                    
+                    // selection options resetting
+                    isSetSelected = false;
+                    $('#subject1').children().remove();
+                    subjects.forEach(function(subject) {
+                        if(isSetSelected) {
+                            $('#subject1').append('<option value="'+subject.al_sub_id+'" selected>'+subject.al_sub_name+'</option>');
+                            isSetSelected = true;
+                        }
+                        else {
+                            $('#subject1').append('<option value="'+subject.al_sub_id+'">'+subject.al_sub_name+'</option>');
+                        }
+                    })
+
+                    isSetSelected = false;
+                    $('#subject2').children().remove();
+                    subjects.forEach(function(subject) {
+                        if(isSetSelected) {
+                            $('#subject2').append('<option value="'+subject.al_sub_id+'" selected>'+subject.al_sub_name+'</option>');
+                        }
+                        else {
+                            $('#subject2').append('<option value="'+subject.al_sub_id+'">'+subject.al_sub_name+'</option>')
+                        }
+                    })
+
+                    isSetSelected = false;
+                    $('#subject3').children().remove();
+                    subjects.forEach(function(subject) {
+                        if(isSetSelected) {
+                            $('#subject3').append('<option value="'+subject.al_sub_id+'" selected>'+subject.al_sub_name+'</option>');
+                        }
+                        else {
+                            $('#subject3').append('<option value="'+subject.al_sub_id+'">'+subject.al_sub_name+'</option>')
+                        }
+                    })
+
+                    // called form al_UpgradeAndEdit JS file
+                    initialUniqueSubjectsSetting();
+                })
+            })
+        </script>
 <?php require APPROOT.'/views/inc/footer.php'; ?>

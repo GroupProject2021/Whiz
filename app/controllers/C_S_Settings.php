@@ -213,6 +213,13 @@ class C_S_Settings extends Controller {
         
     }
 
+    // change stream
+    public function changeStream($streamId) {
+        $res = $this->settingsModel->getALSubjectsById($streamId);
+
+        echo json_encode($res);
+    }
+
 
     // editings
     public function editSettingsBeginner() {
@@ -440,6 +447,7 @@ class C_S_Settings extends Controller {
                 'radio_subject_2' => $_POST['radio_subject_2'],
                 'al_sub3_id' => $_POST['subject3'],
                 'radio_subject_3' => $_POST['radio_subject_3'],
+                'subjects_validity' => $_POST['subjects_validity'],
 
                 'al_school_err' => '',
                 'stream_err' => '',
@@ -482,6 +490,11 @@ class C_S_Settings extends Controller {
 
             if(empty($data['radio_subject_1']) || empty($data['radio_subject_2']) || empty($data['radio_subject_3'])) {
                 $data['al_results_err'] = 'Please check whether you have selected all the al result check boxes';
+            }
+            else {
+                if($data['subjects_validity'] == 'not valid') {
+                    $data['al_results_err'] = "Please select different subjects";
+                }
             }
 
             // Make sure all errors are empty
@@ -526,6 +539,7 @@ class C_S_Settings extends Controller {
                 'radio_subject_2' => $studentData->al_sub2_grade,
                 'al_sub3_id' => $studentData->al_sub3_id,
                 'radio_subject_3' => $studentData->al_sub3_grade,
+                'subjects_validity' => 'valid',
 
                 'al_school_err' => '',
                 'stream_err' => '',
@@ -533,7 +547,7 @@ class C_S_Settings extends Controller {
                 'al_district_err' => '',
                 'general_test_grade_err' => '',
                 'radio_general_english_err' => '',
-                'al_results_err' => ''
+                'al_results_err' => '',
             ];
         }
 
