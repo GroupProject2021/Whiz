@@ -316,7 +316,7 @@
                 }
 
                 // Check for user/email
-                if($this->userModel->findUserByEmail($data['email'])) {
+                if($this->commonModel->findUserByEmail($data['email'])) {
                     // User found
                 }
                 else {

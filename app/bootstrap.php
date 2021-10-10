@@ -6,8 +6,7 @@
     require_once 'helpers/URL_Helper.php';
     require_once 'helpers/Session_Helper.php';
     require_once 'helpers/ImageUpload_Helper.php';
-    require_once 'helpers/EmailVerification_Helper.php';
-    require_once 'helpers/ForgotPassword_Helper.php';
+    require_once 'helpers/Email_Helper.php';
     require_once 'helpers/TimeConvert_Helper.php';
     require_once 'helpers/Redirect_Helper.php';
 
