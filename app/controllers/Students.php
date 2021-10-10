@@ -76,8 +76,6 @@
                     }
                 }
 
-                echo $data['password'];
-
                 // Validata password
                 if(empty($data['password'])) {
                     $data['password_err'] = 'Please enter password';

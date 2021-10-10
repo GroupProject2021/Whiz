@@ -197,7 +197,7 @@
                     $this->mentorDashboardRedirect();
                     break;
                 case "Admin": 
-                    redirect('admins_dashboard/index');
+                    redirect('C_A_Admin_Dashboard/index');
                     break;
                 default:
                     // nothing

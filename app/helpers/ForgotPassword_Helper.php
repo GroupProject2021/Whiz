@@ -124,7 +124,7 @@
                     </body>
                 </html>';
             
-        $header = "From:segroupproject2021@gmail.com";
+        $header = "From:whizweblk@gmail.com";
         $header .= "MIME-Version: 1.0\r\n";
         $header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
