@@ -58,15 +58,27 @@
                                 </div>                             -->
                                 <!-- <div class="price">View more</div> -->
                                 <div class="stats">
-                                    <div class="ups"><img src="<?php echo URLROOT.'/imgs/up-icon.png'; ?>" alt=""></div>
+                                    <div class="ups"><img src="<?php echo URLROOT.'/imgs/components/posts/up-icon.png'; ?>" alt=""></div>
                                     <div class="ups-count" id="like-count"><?php echo $post->ups; ?></div>
-                                    <div class="downs"><img src="<?php echo URLROOT.'/imgs/down-icon.png'; ?>" alt=""></div>
+                                    <div class="downs"><img src="<?php echo URLROOT.'/imgs/components/posts/down-icon.png'; ?>" alt=""></div>
                                     <div class="downs-count"><?php echo $post->downs; ?></div>
-                                    <div class="rate">3.0</div>
-                                    <?php for($i=0; $i <5; $i++):?>
-                                    <div class="stars"><img src="<?php echo URLROOT.'/imgs/star-icon.png'; ?>" alt=""></div>
-                                    <?php endfor;?>
-                                    <div class="enrollment">(10,623)</div>
+                                    <div class="comments"><img src="<?php echo URLROOT.'/imgs/components/posts/comment-icon.png'; ?>" alt=""></div>
+                                    <div class="comments-count"><?php echo $post->comment_count; ?></div>
+                                    <div class="rate"><?php echo countRate($post->review_count, $post->rate1, $post->rate2, $post->rate3, $post->rate4, $post->rate5); ?></div>
+                                    <?php 
+                                    $rate = countRate($post->review_count, $post->rate1, $post->rate2, $post->rate3, $post->rate4, $post->rate5);
+
+                                    for($i=0; $i <ceil($rate); $i++) {
+                                        echo '<div class="stars active"><img src="'.URLROOT.'/imgs/components/posts/star-icon.png"></div>';
+                                    }
+
+                                    for($i=0; $i <5 - ceil($rate); $i++) {
+                                        echo '<div class="stars"><img src="'.URLROOT.'/imgs/components/posts/star-icon.png"></div>';
+                                    }
+                                    
+                                    ?>
+                                    
+                                    <div class="enrollment">REVIEWS (<?php echo $post->review_count; ?>)</div>
                                 </div>          
                             </div>
                         </div>

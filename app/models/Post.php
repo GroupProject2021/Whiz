@@ -7,13 +7,30 @@
         }
 
         public function getPosts() {
-            $this->db->query("SELECT *, 
-                                posts.id AS postId,
-                                users.id AS userId,
-                                posts.created_at as postCreated
-                                FROM posts
-                                INNER JOIN users  
-                                ON posts.user_id = users.id 
+            // OLD QUERY
+            // $this->db->query("SELECT *, 
+            //                     posts.id AS postId,
+            //                     users.id AS userId,
+            //                     posts.created_at as postCreated
+            //                     FROM posts
+            //                     INNER JOIN users  
+            //                     ON posts.user_id = users.id 
+            //                     ORDER BY posts.created_at DESC");
+
+            $this->db->query("SELECT * FROM v_complete_posts;");
+            
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        public function getPostsReviewsAndRates() {
+            $this->db->query("SELECT COUNT(review.review_id) AS review_count,
+                                IFNULL(sum(review.rate), 0) AS rate_count
+                                FROM posts LEFT JOIN review
+                                ON posts.id = review.post_id
+                                GROUP BY posts.id
                                 ORDER BY posts.created_at DESC");
             $results = $this->db->resultSet();
 

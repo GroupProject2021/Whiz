@@ -135,6 +135,20 @@
     height: 20px;
 }
 
+.post-body .stats .stars {
+    position: relative;
+    top: -2px;
+    filter: grayscale(100%);
+}
+
+.post-body .stats .stars.active {
+    filter: grayscale(0%);
+}
+
+.post-body .stats .stars img {
+    height: 17px;
+}
+
 .stats .ups-count {
     color: green;
     padding-right: 15px;
@@ -143,6 +157,12 @@
 .stats .downs-count {
     color: red;
     padding-right: 15px;
+}
+
+.stats .comments-count {
+    color: #333;
+    padding-left: 5px;
+    padding-right: 10px;
 }
 
 .stats .rate {
@@ -156,6 +176,8 @@
 
 .post-body .stats .enrollment{
     padding-left: 10px;
+    color: #333;
+    font-size: 12px;
 }
 
 /* post footer */

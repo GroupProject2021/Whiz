@@ -60,26 +60,26 @@
                                 <div class="post-footer">
                                     <button id="like" >
                                         <?php if($data['self_interaction'] == 'liked'):?>
-                                            <div class="post-footer-likebtn active" id="likeBtn"><img src="<?php echo URLROOT;?>/imgs/up-icon.png" alt=""></div>
+                                            <div class="post-footer-likebtn active" id="likeBtn"><img src="<?php echo URLROOT;?>/imgs/components/posts/up-icon.png" alt=""></div>
                                         <?php else: ?>
-                                            <div class="post-footer-likebtn" id="likeBtn"><img src="<?php echo URLROOT;?>/imgs/up-icon.png" alt=""></div>
+                                            <div class="post-footer-likebtn" id="likeBtn"><img src="<?php echo URLROOT;?>/imgs/components/posts/up-icon.png" alt=""></div>
                                         <?php endif; ?>
                                         <div class="post-footer-text" id="like-count"><?php echo $data['ups']; ?></div>
                                     </button>
                                     <button id="dislike">
                                         <?php if($data['self_interaction'] == 'disliked'):?>
-                                            <div class="post-footer-dislikebtn active" id="dislikeBtn"><img src="<?php echo URLROOT;?>/imgs/down-icon.png" alt=""></div>                                            
+                                            <div class="post-footer-dislikebtn active" id="dislikeBtn"><img src="<?php echo URLROOT;?>/imgs/components/posts/down-icon.png" alt=""></div>                                            
                                         <?php else: ?>
-                                            <div class="post-footer-dislikebtn" id="dislikeBtn"><img src="<?php echo URLROOT;?>/imgs/down-icon.png" alt=""></div>
+                                            <div class="post-footer-dislikebtn" id="dislikeBtn"><img src="<?php echo URLROOT;?>/imgs/components/posts/down-icon.png" alt=""></div>
                                         <?php endif; ?>
                                         <div class="post-footer-text" id="dislike-count"><?php echo $data['downs']; ?></div>
                                     </button>
                                     <div class="post-footer-input"><input type="text" placeholder="Comment..." name="post-comment" id="post-comment" class="post-comment"></div>
                                     <button id="comment">
-                                        <div class="post-footer-commentbtn"><img src="<?php echo URLROOT;?>/imgs/comment.png" alt=""></div>
+                                        <div class="post-footer-commentbtn"><img src="<?php echo URLROOT;?>/imgs/components/posts/comment-icon.png" alt=""></div>
                                     </button>
                                     <button id="share">
-                                        <div class="post-footer-sharebtn"><img src="<?php echo URLROOT;?>/imgs/share-icon.png" alt=""></div>
+                                        <div class="post-footer-sharebtn"><img src="<?php echo URLROOT;?>/imgs/components/posts/share-icon.png" alt=""></div>
                                         <div class="post-footer-text">Share</div>
                                     </button>
                                 </div>
@@ -262,7 +262,9 @@
                             success: function(results) {
                                 $('#results').html(results);
                             }
-                        })                        
+                        })        
+
+                        $('.post-comment').val('');             
                     }
                 })
 

@@ -18,9 +18,11 @@
         public function index() {
             // Get posts
             $posts = $this->postModel->getPosts();
+            $postsReviewssAndRates = $this->postModel->getPostsReviewsAndRates();
 
             $data = [
-                'posts' => $posts
+                'posts' => $posts,
+                'reviews_rates' => $postsReviewssAndRates
             ];
 
             $this->view('posts/index', $data);

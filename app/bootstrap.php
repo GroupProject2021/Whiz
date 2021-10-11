@@ -9,6 +9,7 @@
     require_once 'helpers/Email_Helper.php';
     require_once 'helpers/TimeConvert_Helper.php';
     require_once 'helpers/Redirect_Helper.php';
+    require_once 'helpers/RateCount_Helper.php';
 
     // Auto load libraries (Automatic loading)
     spl_autoload_register(function($className) {

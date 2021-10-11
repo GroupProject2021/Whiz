@@ -131,24 +131,24 @@
                 echo '<div class="comment-footer">';
                 echo '<button>';
                 if($selfInteraction == "liked") {
-                echo    '<div class="comment-footer-likebtn active" id="comment_likebtn'.$comment->comment_id.'" onclick="addCommentUp('.$comment->comment_id.')"><img src="'.URLROOT.'/imgs/up-icon.png" alt=""></div>';
+                echo    '<div class="comment-footer-likebtn active" id="comment_likebtn'.$comment->comment_id.'" onclick="addCommentUp('.$comment->comment_id.')"><img src="'.URLROOT.'/imgs/components/posts/up-icon.png" alt=""></div>';
                 }
                 else{                
-                echo    '<div class="comment-footer-likebtn" id="comment_likebtn'.$comment->comment_id.'" onclick="addCommentUp('.$comment->comment_id.')"><img src="'.URLROOT.'/imgs/up-icon.png" alt=""></div>';
+                echo    '<div class="comment-footer-likebtn" id="comment_likebtn'.$comment->comment_id.'" onclick="addCommentUp('.$comment->comment_id.')"><img src="'.URLROOT.'/imgs/components/posts/up-icon.png" alt=""></div>';
                 }
                 echo    '<div class="comment-footer-text" id="comment-like-count'.$comment->comment_id.'">'.$comment->ups.'</div>';
                 echo '</button>';
                 echo '<button>';
                 if($selfInteraction == "disliked") {
-                echo    '<div class="comment-footer-dislikebtn active" id="comment_dislikebtn'.$comment->comment_id.'" onclick="addCommentDown('.$comment->comment_id.')"><img src="'.URLROOT.'/imgs/down-icon.png" alt=""></div>';
+                echo    '<div class="comment-footer-dislikebtn active" id="comment_dislikebtn'.$comment->comment_id.'" onclick="addCommentDown('.$comment->comment_id.')"><img src="'.URLROOT.'/imgs/components/posts/down-icon.png" alt=""></div>';
                 }
                 else{
-                echo    '<div class="comment-footer-dislikebtn" id="comment_dislikebtn'.$comment->comment_id.'" onclick="addCommentDown('.$comment->comment_id.')"><img src="'.URLROOT.'/imgs/down-icon.png" alt=""></div>';
+                echo    '<div class="comment-footer-dislikebtn" id="comment_dislikebtn'.$comment->comment_id.'" onclick="addCommentDown('.$comment->comment_id.')"><img src="'.URLROOT.'/imgs/components/posts/down-icon.png" alt=""></div>';
                 }
                 echo    '<div class="comment-footer-text" id="comment-dislike-count'.$comment->comment_id.'">'.$comment->downs.'</div>';
                 echo '</button>';
                 echo '<button>';
-                echo    '<div class="comment-footer-replybtn"><img src="'.URLROOT.'/imgs/reply-icon.png" alt=""></div>';
+                echo    '<div class="comment-footer-replybtn"><img src="'.URLROOT.'/imgs/components/posts/reply-icon.png" alt=""></div>';
                 echo    '<div class="comment-footer-text">reply</div>';
                 echo '</button>';
                 echo '</div>';
