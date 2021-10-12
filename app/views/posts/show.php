@@ -34,9 +34,9 @@
                                     </div>  
                                 <?php endif; ?>
                                 <div class="post-details">
-                                    <div class="profpic"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image;?>" alt=""></div>
+                                    <div class="profpic"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id;?>"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image;?>" alt=""></a></div>
                                     <div class="profpic-sub"><img src="<?php echo URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($data['user']->actor_type).'-'.getActorSpecializedTypeForIcons($data['user']->actor_type, $data['user']->specialized_actor_type).'-icon.png'; ?>" alt=""></div>
-                                    <div class="postedby"><?php echo $data['user']->name; ?></div>
+                                    <div class="postedby"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id;?>"><?php echo $data['user']->name; ?></a></div>
                                     <?php if($data['user']->status == 'verified'): ?>
                                     <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
                                     <?php endif; ?>
@@ -50,8 +50,8 @@
                                             </form>
                                         </div>
                                      <?php endif; ?>
-                                </div>
                                 <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
+                                </div>
                                 <div class="post-body">
                                     <div class="title"><?php echo $data['post']->title; ?></div>
                                     <div class="postedby"><?php echo $data['post']->body; ?></div>
