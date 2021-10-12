@@ -36,28 +36,29 @@
                         <div>
                         <table class="gov-course-table">
                             <tr>
-                                <!-- <th></th> -->
-                                <th>Post</th>
+                                <th>    </th>
+                                <th>Student Name</th>
                                 <!-- <th colspan="2">Offered university</th> -->
-                                <th colspan="2">Enrolled Student<br>Count</th>
+                                <th colspan="2">Enrolled at</th>
                                 <!-- <th>Intake</th> -->
                                 <th></th>
                             </tr>
                             <tr><td colspan="3"><hr></td></tr>
-                            <?php foreach($data['posts'] as $post): ?>
-                                <?php if($post->id == $_SESSION['user_id']): ?>
-                            <tr>
+                            
+                            <?php for($test = 0; $test < 10; $test++): ?>
+                                <tr>
                                 <!-- <td class="gov-course-index"><?php echo $post->id; ?></td> -->
-                                <td class="gov-course-name"><?php echo $post->title; ?></td>
-                                <!-- <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/imgs/prof.jpg'?>" alt=""></td> -->
+                                <!-- <td class="gov-course-name"><?php echo $post->title; ?></td> -->
+                                <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/imgs/enrol.jpg'?>" alt=""></td>
                                 <!-- <td class="gov-course-uniname">UCSC</td> -->
                                 <!-- <td class="gov-course-duration">4 Years</td> -->
-                                <td class="gov-course-intake">200</td>
-                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_M_Enrolment_List/enrolStudentList/'.$post->id;?>"><button class="btn3">View more</button></a></td>
+                                    <td class="gov-course-name">Pabasara </td>
+                                    <!-- <td class="gov-course-intake">200</td> -->
+                                    <td class="gov-course-intake">2021-10-02 09.52.03</td>
                                 </tr>
                                 <tr><td colspan="4"><hr></td></tr>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
+                            <?php endfor; ?>
+                            
                         </table>
                         <hr>
                     </div>

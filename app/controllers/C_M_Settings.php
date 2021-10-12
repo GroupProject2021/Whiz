@@ -234,7 +234,7 @@ class C_M_Settings extends Controller{
                 && empty($data['address_err']) && empty($data['phn_no_err'])) {
                 // Validated                    
                 $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
-                if($this->mentorSettingsModel->updateTeachetSettings($id, $data)) {
+                if($this->mentorSettingsModel->updateTeacherSettings($id, $data)) {
                     flash('settings_message', 'Profile data updated');
                     redirect('C_M_Settings/settings'.$_SESSION['user_id']);
                 }

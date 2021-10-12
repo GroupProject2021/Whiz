@@ -28,6 +28,12 @@ class C_M_Enrolment_List extends Controller{
 
         $this->view('mentors/opt_enrolment_list/v_enrolment_list', $data);
     }
+
+    public function enrolStudentList() {
+        $data = [];
+
+        $this->view('mentors/opt_enrolment_list/v_enrol_student_list', $data);
+    }
 }
 
 

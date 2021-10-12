@@ -70,7 +70,7 @@
                             <a href="<?php echo URLROOT;?>/Mentors_dashboard/poster"><button class="btn8">Back</button></a>
                             <br>
 
-                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/editBanner/<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/editPoster/<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
                                 <div class="post-creator">
                                     <div class="post-creator-image" id="post-creator-image">
                                         <img src="<?php if($data['image_name'] != null){ echo URLROOT.'/imgs/POSTS/'.$data['image_name'];}else{ echo '';} ?>" alt="" id="image_placeholder" style="display: none;">

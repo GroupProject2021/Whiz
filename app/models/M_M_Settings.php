@@ -64,7 +64,7 @@ class M_M_Settings{
         }
     }
 
-    public function updateTeachetSettings($id, $data) {
+    public function updateTeacherSettings($id, $data) {
         $this->db->query('UPDATE mentor SET name = :name, address = :address, gender = :gender,
                             email = :email, phn_no = :phn_no
                              WHERE mentor_id = :id');
