@@ -59,28 +59,13 @@
                             </div>
                             <div class="details">
                                 <div class="name">
-                                    <?php echo $data['name'];?>
+                                    <?php echo $data['user']->name;?>
                                     <?php if($data['user']->status == 'verified'): ?>
                                         <img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt="">
                                     <?php endif; ?>
                                 </div>
                                 <div class="occupation"><?php echo $data['user']->actor_type; ?> | <?php echo $data['type'].' '.$data['user']->specialized_actor_type;?> </div>
-                                <div class="institute">
-                                    <?php
-                                        switch($data['user']->specialized_actor_type) {
-                                            case 'University': 
-                                                echo $data['uniname'];
-                                                break;
-                                            
-                                            case 'OL qualified':
-                                                echo $data['comname'];
-                                                break;
-
-                                            default:
-                                                break;
-                                        }
-                                    ?>
-                                </div>
+                                
                                 <hr>
                                 <div class="profile-stats">
                                     <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$data['user']->id; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
@@ -119,11 +104,11 @@
                                 </div>
                                 <div class="beginner-detials">
                                     <div class="founder">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/dob-icon.png'; ?>" alt="">Founder</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/founder-icon.png'; ?>" alt="">Founder</div>
                                         <div class="text"><?php echo $data['founder'];?></div>                                        
                                     </div>
                                     <div class="foundyear">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/gender-icon.png'; ?>" alt="">Founded Year</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/dob-icon.png'; ?>" alt="">Founded Year</div>
                                         <div class="text"><?php echo $data['founded_year'];?></div>
                                     </div>
                                     <div class="phnno">
@@ -143,23 +128,23 @@
                                         <div class="text"><?php echo $data['address'];?></div>    
                                     </div>
                                     <div class="approval">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">UGC Approval</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/approve-icon.png'; ?>" alt="">UGC Approval</div>
                                         <div class="text"><?php echo $data['approval'];?></div>    
                                     </div>
                                     <div class="rank">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">World Rank</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/rank-icon.png'; ?>" alt="">World Rank</div>
                                         <div class="text"><?php echo $data['rank'];?></div>    
                                     </div>
                                     <div class="amount">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Student Amount</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/amount-icon.png'; ?>" alt="">Student Amount</div>
                                         <div class="text"><?php echo $data['amount'];?></div>    
                                     </div>
                                     <div class="rate">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Job Rate</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/rate-icon.png'; ?>" alt="">Job Rate</div>
                                         <div class="text"><?php echo $data['rate'];?></div>    
                                     </div>
                                     <div class="description">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Description</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/descrip-icon.png'; ?>" alt="">Description</div>
                                         <div class="text"><?php echo $data['descrip'];?></div>    
                                     </div>
                                 </div>
@@ -178,11 +163,11 @@
                                 </div>
                                 <div class="beginner-detials">
                                     <div class="founder">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/dob-icon.png'; ?>" alt="">Founder</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/founder-icon.png'; ?>" alt="">Founder</div>
                                         <div class="text"><?php echo $data['founder'];?></div>                                        
                                     </div>
                                     <div class="foundyear">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/gender-icon.png'; ?>" alt="">Founded Year</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/dob-icon.png'; ?>" alt="">Founded Year</div>
                                         <div class="text"><?php echo $data['founded_year'];?></div>
                                     </div>
                                     <div class="phnno">
@@ -202,15 +187,15 @@
                                         <div class="text"><?php echo $data['address'];?></div>    
                                     </div>
                                     <div class="curemp">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Current Employees</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/emp-icon.png'; ?>" alt="">Current Employees</div>
                                         <div class="text"><?php echo $data['cur_emp'];?></div>    
                                     </div>
                                     <div class="size">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Company Size</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/companysize-icon.png'; ?>" alt="">Company Size</div>
                                         <div class="text"><?php echo $data['size'];?></div>   
                                     </div>
                                     <div class="registered">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Registered</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/approve-icon.png'; ?>" alt="">Registered</div>
                                         <div class="text"><?php echo $data['registered'];?></div>    
                                     </div>
                                     <div class="overview">
