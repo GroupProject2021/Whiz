@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
     </head>
     <body>
-        <!-- TOP NAVIGATION BAR -->
+        <!-- TOP Navigation -->
         <?php require APPROOT.'/views/inc/components/topnav.php'?>
 
         <!-- REGISTRATION FORM -->
@@ -155,54 +155,89 @@
                     </tr>
                 </table>
                 <span class="form-invalid"><?php echo $data['al_results_err']; ?></span><br>
+                <input type="text" name="subjects_validity" id="subjects_validity" value="<?php $data['subjects_validity']; ?>" style="width: fit-content; display: none;">
+                <div class="form-validation">
+                                    <div class="subjects-validation">
+                                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                                        Your subject selection are valid
+                                    </div>
+                                </div>
 
                 <hr class="form-hr">
                 <p>
-                    <input type="checkbox">
+                    <input type="checkbox" required>
                     I do here by certify above details that I have entered are true and correct. <a class="form-link" href="#">Terms & Privacy</a>
                 </p>
                 <button type="submit" class="form-skip-button">Skip</button>
                 <button type="submit" class="form-next-button">Next</button>
             </form>
         </div>
+
+        
+        <div id="results"></div>
+
+
         <div class="form-container signin">
             <p>Contact for help? <a class="form-link" href="<?php echo URLROOT; ?>/students/login">Help & Services</a></p>
         </div>
 
         
+        <!-- javascript -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/al_UpgradeAndEdit.js"></script>
+        
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
         <script>
-            var stream = document.getElementById("stream");
+            // stream change
+            $('#stream').on("change", function() {
+                var streamId = $('#stream').val();
 
+                $.ajax({
+                    url: "<?php echo URLROOT;?>/C_S_Settings/changeStream/"+streamId,
+                    method: "post"
+                }).done (function(res) {
+                    // console.log(res); // for testing only
+                    subjects = JSON.parse(res);
+                    
+                    // selection options resetting
+                    isSetSelected = false;
+                    $('#subject1').children().remove();
+                    subjects.forEach(function(subject) {
+                        if(isSetSelected) {
+                            $('#subject1').append('<option value="'+subject.al_sub_id+'" selected>'+subject.al_sub_name+'</option>');
+                            isSetSelected = true;
+                        }
+                        else {
+                            $('#subject1').append('<option value="'+subject.al_sub_id+'">'+subject.al_sub_name+'</option>');
+                        }
+                    })
 
-            stream.addEventListener("change", function() {
-                // alert(this.value);
-                // a.placeholder = this.value;
+                    isSetSelected = false;
+                    $('#subject2').children().remove();
+                    subjects.forEach(function(subject) {
+                        if(isSetSelected) {
+                            $('#subject2').append('<option value="'+subject.al_sub_id+'" selected>'+subject.al_sub_name+'</option>');
+                        }
+                        else {
+                            $('#subject2').append('<option value="'+subject.al_sub_id+'">'+subject.al_sub_name+'</option>')
+                        }
+                    })
 
-                var selected_stream = this.value;
+                    isSetSelected = false;
+                    $('#subject3').children().remove();
+                    subjects.forEach(function(subject) {
+                        if(isSetSelected) {
+                            $('#subject3').append('<option value="'+subject.al_sub_id+'" selected>'+subject.al_sub_name+'</option>');
+                        }
+                        else {
+                            $('#subject3').append('<option value="'+subject.al_sub_id+'">'+subject.al_sub_name+'</option>')
+                        }
+                    })
 
-            });
-
-            // general_test_grade_value range slider
-            function fetch_general_test_grade_value() {
-                var general_test_grade_value = document.getElementById("general_test_grade").value;
-                document.getElementById("general_test_grade_value").value = general_test_grade_value;
-            }
-
-            function fetch_general_test_grade() {
-                var general_test_grade = document.getElementById("general_test_grade_value").value;
-                document.getElementById("general_test_grade").value = general_test_grade;
-            }
-
-             // z_score_value range slider
-             function fetch_z_score_value() {
-                var z_score_value = document.getElementById("z_score").value;
-                document.getElementById("z_score_value").value = z_score_value;
-            }
-
-            function fetch_z_score() {
-                var z_score = document.getElementById("z_score_value").value;
-                document.getElementById("z_score").value = z_score;
-            }
+                    // called form al_UpgradeAndEdit JS file
+                    initialUniqueSubjectsSetting();
+                })
+            })
         </script>
+
     </body>
 </html>

@@ -20,12 +20,25 @@
     width: 100%;
 }
 
+.post-link {
+    text-decoration: none;
+    color: inherit;
+    transition: .2s all;
+}
+
+.post-link:hover {
+    text-decoration: underline;
+    color: black;
+}
+
 .post-details {
     display: flex;
     flex-direction: row;
     height: 40px;
     line-height: 40px;
     vertical-align: middle;
+    border-top: 1px solid rgb(219, 219, 219);
+    border-bottom: 1px solid rgb(219, 219, 219);
 }
 
 .post-details .profpic {
@@ -65,9 +78,10 @@
 
 
 .post .postedat {
-    background-color: rgb(233, 233, 233);
-    text-align: right;
-    padding-right: 10px;
+    /* background-color: rgb(233, 233, 233); */
+    /* text-align: right;
+    padding-right: 10px; */
+    padding-left: 15px;
 }
 
 
@@ -78,12 +92,12 @@
 .post-body .title {
     font-size: medium;
     font-weight: 600;
-    padding: 5px;
+    padding: 10px 5px 5px 5px;
 }
 
 .post-body .postedby {
     color: gray;
-    padding: 0px 5px 5px 5px;
+    padding: 0px 5px 10px 5px;
 }
 
 
@@ -122,6 +136,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    border-top: 1px solid rgb(219, 219, 219);
 }
 
 .post-body .stats {
@@ -135,6 +150,20 @@
     height: 20px;
 }
 
+.post-body .stats .stars {
+    position: relative;
+    top: -2px;
+    filter: grayscale(100%);
+}
+
+.post-body .stats .stars.active {
+    filter: grayscale(0%);
+}
+
+.post-body .stats .stars img {
+    height: 17px;
+}
+
 .stats .ups-count {
     color: green;
     padding-right: 15px;
@@ -143,6 +172,12 @@
 .stats .downs-count {
     color: red;
     padding-right: 15px;
+}
+
+.stats .comments-count {
+    color: #333;
+    padding-left: 5px;
+    padding-right: 10px;
 }
 
 .stats .rate {
@@ -156,6 +191,8 @@
 
 .post-body .stats .enrollment{
     padding-left: 10px;
+    color: #333;
+    font-size: 12px;
 }
 
 /* post footer */
@@ -173,10 +210,21 @@
     width: 20px;
 }
 
-.post-footer input[type=text] {
-    width: fit-content;
-    height: 40px;
+.post-footer-input {
     margin-left: 20px;
+}
+
+.post-footer input[type=text] {
+    width: 100%;
+    height: 40px;
+}
+
+.post-footer-commentbtn {
+    /* background-color: #b1b1b1; */
+}
+
+#comment {    
+    /* margin-left: 10px; */
 }
 
 .post-footer-text {
@@ -184,6 +232,7 @@
     vertical-align: middle;
     font-size: 15px;
     margin-right: 5px;
+    padding-left: 5px;
 }
 
 .post-footer-sharebtn {
@@ -191,8 +240,8 @@
     text-align: right;
 }
 
-.post-footer-dislikebtn {
-    /* transform: scaleY(-1); */
+#share {    
+    margin-left: 20px;
 }
 
 .post-footer button {
@@ -205,8 +254,32 @@
     border-radius: 5px
 }
 
-.post-footer-likebtn.liked {
-    background-color: #1266F1;
+.post-footer-likebtn:hover {
+    background-color: #b3b3b3;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: .2s all;
+}
+
+.post-footer-likebtn.active {    
+    background-color: #018749;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: .2s all;
+}
+
+.post-footer-dislikebtn:hover {
+    background-color: #b3b3b3;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: .2s all;
+}
+
+.post-footer-dislikebtn.active {
+    background-color: #A52A2A;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: .2s all;
 }
 
 
@@ -321,6 +394,7 @@
 .post-creator-submit:hover {
     opacity: 1;
 }
+
 
 @media only screen and (max-width: 1124px) {
     .post-creator {

@@ -6,27 +6,19 @@
     </head>
     <body>
         <!-- SIDE BAR -->
-        <?php require APPROOT.'/views/inc/components/sideBar/studentSideBar/student_sidebar.php'?>
+        <?php require APPROOT.'/views/inc/components/sideBar/sidebar.php'?>
 
         <div class="main-content">
-            <header>                
-                <div class="menu-toggle">
-                    <button type="button" class="sidebar-handle">
-                        <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
-                    </button>
-                </div>
-                
-                <!-- TOP NAVIGATION BAR -->
-                <div class="topnav">
-                    <?php require APPROOT.'/views/inc/components/topnav.php'?>
-                </div>
+            <!-- TOP Navigation -->
+            <header>
+                <?php require APPROOT.'/views/inc/components/topnav.php'?>
             </header>
 
             <main>
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Beginner dashboard</h1>
+                        <h1>G.C.E(A/L) details</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -34,7 +26,6 @@
                         <div class="settings-form-edit-container">
                             <form action="<?php echo URLROOT; ?>/C_S_Settings/editSettingsAL" method="post">
                                 <div class="settings-header">
-                                    <div class="settings-header-item"><h2>AL details</h2></div>
                                     <div class="settings-header-item"><a href="<?php echo URLROOT.'/C_S_Settings/settings/'.$_SESSION['user_id']; ?>"><input class="cancel-button" type="button" value="Cancel"></a></div>
                                     <div class="settings-header-item"><a href=""><input class="save-button" type="submit" value="Save"></a></div>
                                     <!-- <div class="settings-header-item"><button type="submit">Save</button></div> -->
@@ -79,12 +70,34 @@
                                     </tr>
                                     <tr>
                                         <th class="A">Z-Score</th>
-                                        <td class="B" colspan="6"><p><input type="text" name="z_score" id="z_score" value="<?php echo $data['z_score'];?>"></p></td>
+                                        <td class="B" colspan="6"><p>
+                                            <table class="form-table">
+                                                <tr>
+                                                    <td width="80%">
+                                                        <input type="range" min="0" max="4.0000" step="0.0001" class="form-slider" oninput="fetch_z_score_value()" name="z_score" id="z_score" value="<?php echo $data['z_score']; ?>">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="<?php echo $data['z_score'];?>" oninput="fetch_z_score()" name="z_score_value" id="z_score_value">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </p></td>
                                         <td class="C"><span class="form-invalid"><?php echo $data['z_score_err']; ?></td>
                                     </tr>
                                     <tr>
                                         <th class="A">General test grade</th>
-                                        <td class="B" colspan="6"><p><input type="text" name="general_test_grade" id="general_test_grade" value="<?php echo $data['general_test_grade'];?>"></p></td>
+                                        <td class="B" colspan="6"><p>
+                                            <table class="form-table">
+                                                <tr>
+                                                    <td width="80%">
+                                                        <input type="range" min="0" max="100" step="1" class="form-slider" oninput="fetch_general_test_grade_value()" name="general_test_grade" id="general_test_grade" value="<?php echo $data['general_test_grade']; ?>">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="<?php echo $data['general_test_grade']; ?>" oninput="fetch_general_test_grade()" name="general_test_grade_value" id="general_test_grade_value">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </p></td>
                                         <td class="C"><span class="form-invalid"><?php echo $data['general_test_grade_err']; ?></td>
                                     </tr>
                                     <tr>
@@ -106,7 +119,7 @@
                                         <th class="A">
                                             <select name="subject1" id="subject1">
                                                 <?php foreach($data['al_subject_list'] as $subjects):?>
-                                                    <?php if($subjects->al_stream_id == 1):?>
+                                                    <?php if($subjects->al_stream_id == $data['stream']):?>
                                                         <?php if($subjects->al_sub_id == $data['al_sub1_id']): ?>
                                                             <option value="<?php echo $subjects->al_sub_id; ?>" selected><?php echo $subjects->al_sub_name; ?></option>
                                                         <?php else: ?>
@@ -133,7 +146,7 @@
                                         <th class="A">
                                         <select name="subject2" id="subject2">
                                                 <?php foreach($data['al_subject_list'] as $subjects):?>
-                                                    <?php if($subjects->al_stream_id == 1):?>
+                                                    <?php if($subjects->al_stream_id == $data['stream']):?>
                                                         <?php if($subjects->al_sub_id == $data['al_sub2_id']): ?>
                                                             <option value="<?php echo $subjects->al_sub_id; ?>" selected><?php echo $subjects->al_sub_name; ?></option>
                                                         <?php else: ?>
@@ -160,7 +173,7 @@
                                         <th class="A">
                                         <select name="subject3" id="subject3">
                                                 <?php foreach($data['al_subject_list'] as $subjects):?>
-                                                    <?php if($subjects->al_stream_id == 1):?>
+                                                    <?php if($subjects->al_stream_id == $data['stream']):?>
                                                         <?php if($subjects->al_sub_id == $data['al_sub3_id']): ?>
                                                             <option value="<?php echo $subjects->al_sub_id; ?>" selected><?php echo $subjects->al_sub_name; ?></option>
                                                         <?php else: ?>
@@ -182,12 +195,19 @@
                                                 }
                                             }
                                         ?>
-                                    </tr>
-                                    <tr>
-                                        <!-- for error -->
-                                        <span class="form-invalid"><?php echo $data['al_results_err']; ?></span><br>
-                                    </tr>
-                                </table> 
+                                    </tr>                                    
+                                </table>
+
+                                <!-- for error -->
+                                <span class="form-invalid"><?php echo $data['al_results_err']; ?></span><br>
+                                <input type="text" name="subjects_validity" id="subjects_validity" value="<?php $data['subjects_validity']; ?>" style="width: fit-content; display: none;">
+                                <div class="form-validation">
+                                    <div class="subjects-validation">
+                                        <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                                        Your subject selection are valid
+                                    </div>
+                                </div>
+
                                 </div>
                             </form>
                         </div>
@@ -201,4 +221,60 @@
                 </div>
             </main>
         </div>
+        <!-- javascript -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/al_UpgradeAndEdit.js"></script>
+
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+        <script>
+            // stream change
+            $('#stream').on("change", function() {
+                var streamId = $('#stream').val();
+
+                $.ajax({
+                    url: "<?php echo URLROOT;?>/C_S_Settings/changeStream/"+streamId,
+                    method: "post"
+                }).done (function(res) {
+                    // console.log(res); // for testing only
+                    subjects = JSON.parse(res);
+                    
+                    // selection options resetting
+                    isSetSelected = false;
+                    $('#subject1').children().remove();
+                    subjects.forEach(function(subject) {
+                        if(isSetSelected) {
+                            $('#subject1').append('<option value="'+subject.al_sub_id+'" selected>'+subject.al_sub_name+'</option>');
+                            isSetSelected = true;
+                        }
+                        else {
+                            $('#subject1').append('<option value="'+subject.al_sub_id+'">'+subject.al_sub_name+'</option>');
+                        }
+                    })
+
+                    isSetSelected = false;
+                    $('#subject2').children().remove();
+                    subjects.forEach(function(subject) {
+                        if(isSetSelected) {
+                            $('#subject2').append('<option value="'+subject.al_sub_id+'" selected>'+subject.al_sub_name+'</option>');
+                        }
+                        else {
+                            $('#subject2').append('<option value="'+subject.al_sub_id+'">'+subject.al_sub_name+'</option>')
+                        }
+                    })
+
+                    isSetSelected = false;
+                    $('#subject3').children().remove();
+                    subjects.forEach(function(subject) {
+                        if(isSetSelected) {
+                            $('#subject3').append('<option value="'+subject.al_sub_id+'" selected>'+subject.al_sub_name+'</option>');
+                        }
+                        else {
+                            $('#subject3').append('<option value="'+subject.al_sub_id+'">'+subject.al_sub_name+'</option>')
+                        }
+                    })
+
+                    // called form al_UpgradeAndEdit JS file
+                    initialUniqueSubjectsSetting();
+                })
+            })
+        </script>
 <?php require APPROOT.'/views/inc/footer.php'; ?>

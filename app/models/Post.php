@@ -7,13 +7,30 @@
         }
 
         public function getPosts() {
-            $this->db->query("SELECT *, 
-                                posts.id AS postId,
-                                users.id AS userId,
-                                posts.created_at as postCreated
-                                FROM posts
-                                INNER JOIN users  
-                                ON posts.user_id = users.id 
+            // OLD QUERY
+            // $this->db->query("SELECT *, 
+            //                     posts.id AS postId,
+            //                     users.id AS userId,
+            //                     posts.created_at as postCreated
+            //                     FROM posts
+            //                     INNER JOIN users  
+            //                     ON posts.user_id = users.id 
+            //                     ORDER BY posts.created_at DESC");
+
+            $this->db->query("SELECT * FROM v_complete_posts;");
+            
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        public function getPostsReviewsAndRates() {
+            $this->db->query("SELECT COUNT(review.review_id) AS review_count,
+                                IFNULL(sum(review.rate), 0) AS rate_count
+                                FROM posts LEFT JOIN review
+                                ON posts.id = review.post_id
+                                GROUP BY posts.id
                                 ORDER BY posts.created_at DESC");
             $results = $this->db->resultSet();
 
@@ -97,6 +114,20 @@
             }
         }
 
+        public function decUp($id) {
+            $this->db->query('UPDATE posts SET ups = ups - 1 WHERE id = :id');
+            // bind values            
+            $this->db->bind(":id", $id);
+
+            // Execute
+            if($this->db->execute()) {
+                return $this->getInc($id);
+            }
+            else {
+                return false;
+            }
+        }
+
         public function getInc($id) {
             $this->db->query('SELECT ups FROM posts WHERE id = :id');
             $this->db->bind(':id', $id);
@@ -121,6 +152,20 @@
             }
         }
 
+        public function decDown($id) {
+            $this->db->query('UPDATE posts SET downs = downs - 1 WHERE id = :id');
+            // bind values            
+            $this->db->bind(":id", $id);
+
+            // Execute
+            if($this->db->execute()) {
+                return $this->getDown($id);
+            }
+            else {
+                return false;
+            }
+        }
+
         public function getDown($id) {
             $this->db->query('SELECT downs FROM posts WHERE id = :id');
             $this->db->bind(':id', $id);
@@ -130,13 +175,14 @@
             return $row;
         }
 
-        // comment
-        public function addComment($data) {
-            $this->db->query('INSERT INTO comments(post_id, user_id, content) VALUES(:post_id, :user_id, :content)');
+
+        // like dislike interactions
+        public function addPostInteraction($userId, $postId, $interation) {
+            $this->db->query('INSERT INTO postinteractions(user_id, post_id, interaction) VALUES(:user_id, :post_id, :interaction)');
             // bind values
-            $this->db->bind(":post_id", $data['post_id']);
-            $this->db->bind(":user_id", $data['user_id']);
-            $this->db->bind(":content", $data['content']);
+            $this->db->bind(":user_id", $userId);
+            $this->db->bind(":post_id", $postId);
+            $this->db->bind(":interaction", $interation);
 
             // Execute
             if($this->db->execute()) {
@@ -147,24 +193,64 @@
             }
         }
 
-        public function getComments($id) {
-            // $this->db->query('SELECT * FROM comments WHERE post_id = :post_id');
-            $this->db->query('SELECT * FROM comments WHERE post_id = :post_id ORDER BY comments.created_at DESC');
-            $this->db->bind(':post_id', $id);
+        public function setPostInteraction($userId, $postId, $interation) {
+            $this->db->query('UPDATE postinteractions SET interaction = :interaction WHERE user_id = :user_id AND post_id = :post_id');
+            // bind values
+            $this->db->bind(":user_id", $userId);
+            $this->db->bind(":post_id", $postId);
+            $this->db->bind(":interaction", $interation);
 
-            $results = $this->db->resultSet();
-
-            return $results;
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
 
-        public function getUserDetails($id) {
-            $this->db->query('SELECT * FROM users WHERE id = :id');
-            $this->db->bind(':id', $id);
+        public function getPostInteration($userId, $postId) {
+            $this->db->query('SELECT * FROM postinteractions WHERE user_id = :user_id AND post_id = :post_id');
+            $this->db->bind(":user_id", $userId);
+            $this->db->bind(":post_id", $postId);
 
             $row = $this->db->single();
 
             return $row;
         }
+
+        public function isPostInterationExist($userId, $postId) {
+            $this->db->query('SELECT * FROM postinteractions WHERE user_id = :user_id AND post_id = :post_id');
+            $this->db->bind(":user_id", $userId);
+            $this->db->bind(":post_id", $postId);
+
+            $results = $this->db->single();
+
+            $results = $this->db->rowCount();
+
+            if($results > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        public function deleteInteraction($id) {
+            $this->db->query('DELETE FROM postinteractions WHERE post_id = :id');
+            // bind values
+            
+            $this->db->bind(":id", $id);
+
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }   
+
 
         // review
         public function getTotalReviewsForAPostById($id) {
@@ -188,6 +274,21 @@
             $results = $this->db->rowCount();
 
             return $results;
+        }
+
+        public function deleteReview($id) {
+            $this->db->query('DELETE FROM review WHERE post_id = :id');
+            // bind values
+            
+            $this->db->bind(":id", $id);
+
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
     }
 ?>

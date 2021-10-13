@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
     </head>
     <body>
-        <!-- TOP NAVIGATION BAR -->
+        <!-- TOP Navigation -->
         <?php require APPROOT.'/views/inc/components/topnav.php'?>
 
         <!-- REGISTRATION FORM -->
@@ -22,7 +22,7 @@
 
                 <!-- company name -->
                 <br>
-                <input type="text" placeholder=" " name="comname" id="comname" value="<?php echo $data['comname']; ?>">
+                <input type="text" placeholder=" " name="name" id="name" value="<?php echo $data['name']; ?>">
                 <label>Company Name</label>
                 <span class="form-invalid"><?php echo $data['comname_err']; ?></span>
 

@@ -6,27 +6,19 @@
     </head>
     <body>
         <!-- SIDE BAR -->
-        <?php require APPROOT.'/views/inc/components/sideBar/studentSideBar/student_sidebar.php'?>
+        <?php require APPROOT.'/views/inc/components/sideBar/sidebar.php'?>
 
         <div class="main-content">
-            <header>                
-                <div class="menu-toggle">
-                    <button type="button" class="sidebar-handle">
-                        <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
-                    </button>
-                </div>
-                
-                <!-- TOP NAVIGATION BAR -->
-                <div class="topnav">
-                    <?php require APPROOT.'/views/inc/components/topnav.php'?>
-                </div>
+            <!-- TOP Navigation -->
+            <header>
+                <?php require APPROOT.'/views/inc/components/topnav.php'?>
             </header>
 
             <main>
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Beginner dashboard</h1>
+                        <h1>Higher Education details</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -34,7 +26,6 @@
                         <div class="settings-form-edit-container">
                             <form action="<?php echo URLROOT; ?>/C_S_Settings/editSettingsUG" method="post">
                                 <div class="settings-header">
-                                        <div class="settings-header-item"><h2>University details</h2></div>
                                         <div class="settings-header-item"><a href="<?php echo URLROOT.'/C_S_Settings/settings/'.$_SESSION['user_id']; ?>"><input class="cancel-button" type="button" value="Cancel"></a></div>
                                         <div class="settings-header-item"><a href=""><input class="save-button" type="submit" value="Save"></a></div>
                                         <!-- <div class="settings-header-item"><button type="submit">Save</button></div> -->
@@ -69,7 +60,20 @@
                                     </tr>
                                     <tr>
                                         <th class="A">GPA</th>
-                                        <td class="B"><p><input type="text" name="gpa" id="gpa" value="<?php echo $data['gpa'];?>"></p></td>
+                                        <td class="B"><p>
+                                            <table width="100%">
+                                                </tr>
+                                                <tr>                        
+                                                    <td width="75%">
+                                                        <input type="range" min="0" max="4.0000" step="0.0001" oninput="fetch_gpa_value()" class="form-slider" placeholder="Enter GPA" name="gpa" id="gpa" value="<?php echo $data['gpa']; ?>">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="<?php echo $data['gpa'];?>" oninput="fetch_gpa()" name="gpa_value" id="gpa_value">
+                                                        <!-- <span id="gpa_value"></span> -->
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </p></td>
                                         <td class="C"><span class="form-invalid"><?php echo $data['gpa_err']; ?></td>
                                     </tr>
                                 </table> 
@@ -86,4 +90,8 @@
                 </div>
             </main>
         </div>
+                
+        <!-- javascript -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/ug_UpgradeAndEdit.js"></script>
+        
 <?php require APPROOT.'/views/inc/footer.php'; ?>

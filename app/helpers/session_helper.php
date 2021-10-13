@@ -103,7 +103,7 @@
       }
       else if($actorType == 'Admin') {
         // nothing to be returned
-        return '';
+        return 'admin';
       }
     }
 ?>

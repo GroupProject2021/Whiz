@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
     </head>
     <body>
-        <!-- TOP NAVIGATION BAR -->
+        <!-- TOP Navigation -->
         <?php require APPROOT.'/views/inc/components/topnav.php'?>
 
         <!-- REGISTRATION FORM -->
@@ -236,7 +236,7 @@
 
                 <hr class="form-hr">
                 <p>
-                    <input type="checkbox">
+                    <input type="checkbox" required>
                     I do here by certify above details that I have entered are true and correct. <a class="form-link" href="#">Terms & Privacy</a>
                 </p>
                 <button type="submit" class="form-skip-button">Skip</button>

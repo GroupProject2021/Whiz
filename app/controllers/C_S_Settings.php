@@ -14,6 +14,10 @@ class C_S_Settings extends Controller {
      public function settings($id) {
         // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
         $userData = $this->settingsModel->getUserDetails($id);
+
+        // settings redirection
+        profileRedirect('Student', $userData->actor_type, $id);
+
         $followerCount = $this->countFollowers($id);
         $followingCount = $this->countFollowings($id);
         $isAlreadyFollow = $this->checkFollowability($id);
@@ -209,6 +213,13 @@ class C_S_Settings extends Controller {
         
     }
 
+    // change stream
+    public function changeStream($streamId) {
+        $res = $this->settingsModel->getALSubjectsById($streamId);
+
+        echo json_encode($res);
+    }
+
 
     // editings
     public function editSettingsBeginner() {
@@ -218,59 +229,45 @@ class C_S_Settings extends Controller {
             
             $data = [
                 'name' => trim($_POST['name']),
-                'email' => trim($_POST['email']),
-                'password' => trim($_POST['password']),
                 'gender' => trim($_POST['gender']),
                 'date_of_birth' => trim($_POST['date_of_birth']),
                 'address' => trim($_POST['address']),
                 'phn_no' => trim($_POST['phn_no']),
 
                 'name_err' => '',
-                'email_err' => '',
-                'password_err' => '',
                 'gender_err' => '',
                 'date_of_birth_err' => '',
                 'address_err' => '',
                 'phn_no_err' => '',
             ];
 
-            // Validate title
+            // Validate name
             if(empty($data['name'])) {
                 $data['name_err'] = 'Please enter name';
             }
 
-            // Validate body
-            if(empty($data['email'])) {
-                $data['email_err'] = 'Please enter email';
-            }
-
-            // Validate body
-            if(empty($data['password'])) {
-                $data['password_err'] = 'Please enter password';
-            }
-
-            // Validate body
+            // Validate gender
             if(empty($data['gender'])) {
                 $data['gender_err'] = 'Please enter gender';
             }
 
-            // Validate body
+            // Validate date of birth
             if(empty($data['date_of_birth'])) {
                 $data['date_of_birth_err'] = 'Please enter date of birth';
             }
 
-            // Validate body
+            // Validate address
             if(empty($data['address'])) {
                 $data['address_err'] = 'Please enter address';
             }
 
-            // Validate body
+            // Validate phone number
             if(empty($data['phn_no'])) {
                 $data['phn_no_err'] = 'Please enter phone number';
             }
 
             // Make sure no errors
-            if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['gender_err'])
+            if(empty($data['name_err']) && empty($data['gender_err'])
                 && empty($data['date_of_birth_err']) && empty($data['address_err']) && empty($data['phn_no_err'])) {
                 // Validated                    
                 $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
@@ -294,16 +291,12 @@ class C_S_Settings extends Controller {
 
             $data = [
                 'name' => $studentData->name,
-                'email' => $studentData->email,
-                'password' => $studentData->password,
                 'gender' => $studentData->gender,
                 'date_of_birth' => $studentData->date_of_birth,
                 'address' => $studentData->address,
                 'phn_no' => $studentData->phn_no,
 
                 'name_err' => '',
-                'email_err' => '',
-                'password_err' => '',
                 'gender_err' => '',
                 'date_of_birth_err' => '',
                 'address_err' => '',
@@ -454,6 +447,7 @@ class C_S_Settings extends Controller {
                 'radio_subject_2' => $_POST['radio_subject_2'],
                 'al_sub3_id' => $_POST['subject3'],
                 'radio_subject_3' => $_POST['radio_subject_3'],
+                'subjects_validity' => $_POST['subjects_validity'],
 
                 'al_school_err' => '',
                 'stream_err' => '',
@@ -496,6 +490,11 @@ class C_S_Settings extends Controller {
 
             if(empty($data['radio_subject_1']) || empty($data['radio_subject_2']) || empty($data['radio_subject_3'])) {
                 $data['al_results_err'] = 'Please check whether you have selected all the al result check boxes';
+            }
+            else {
+                if($data['subjects_validity'] == 'not valid') {
+                    $data['al_results_err'] = "Please select different subjects";
+                }
             }
 
             // Make sure all errors are empty
@@ -540,6 +539,7 @@ class C_S_Settings extends Controller {
                 'radio_subject_2' => $studentData->al_sub2_grade,
                 'al_sub3_id' => $studentData->al_sub3_id,
                 'radio_subject_3' => $studentData->al_sub3_grade,
+                'subjects_validity' => 'valid',
 
                 'al_school_err' => '',
                 'stream_err' => '',
@@ -547,7 +547,7 @@ class C_S_Settings extends Controller {
                 'al_district_err' => '',
                 'general_test_grade_err' => '',
                 'radio_general_english_err' => '',
-                'al_results_err' => ''
+                'al_results_err' => '',
             ];
         }
 

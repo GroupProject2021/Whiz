@@ -6,27 +6,19 @@
     </head>
     <body>
         <!-- SIDE BAR -->
-        <?php require APPROOT.'/views/inc/components/sideBar/studentSideBar/student_sidebar.php'?>
+        <?php require APPROOT.'/views/inc/components/sideBar/sidebar.php'?>
 
         <div class="main-content">
-            <header>                
-                <div class="menu-toggle">
-                    <button type="button" class="sidebar-handle">
-                        <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
-                    </button>
-                </div>
-                
-                <!-- TOP NAVIGATION BAR -->
-                <div class="topnav">
-                    <?php require APPROOT.'/views/inc/components/topnav.php'?>
-                </div>
+            <!-- TOP Navigation -->
+            <header>
+                <?php require APPROOT.'/views/inc/components/topnav.php'?>
             </header>
 
             <main>
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Beginner dashboard</h1>
+                        <h1>Beginner details</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -34,7 +26,6 @@
                         <div class="settings-form-edit-container">
                         <form action="<?php echo URLROOT.'/C_S_Settings/editSettingsBeginner/'.$_SESSION['user_id']; ?>" method="post">
                             <div class="settings-header">
-                                    <div class="settings-header-item"><h2>Basic details</h2></div>
                                     <div class="settings-header-item"><a href="<?php echo URLROOT.'/C_S_Settings/settings/'.$_SESSION['user_id']; ?>"><input class="cancel-button" type="button" value="Cancel"></a></div>
                                     <div class="settings-header-item"><a href=""><input class="save-button" type="submit" value="Save"></a></div>
                                     <!-- <div class="settings-header-item"><button type="submit">Save</button></div> -->
@@ -48,23 +39,36 @@
                                     <td class="C"><span class="form-invalid"><?php echo $data['name_err']; ?></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">Email</th>
-                                    <td class="B"><p><input type="text" name="email" id="email" value="<?php echo $data['email'];?>"></p></td>
-                                    <td class="C"><span class="form-invalid"><?php echo $data['email_err']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th class="A">Password</th>
-                                    <td class="B"><p><input type="text" name="password" id="password" value="<?php echo $data['password'];?>"></p></td>
-                                    <td class="C"><span class="form-invalid"><?php echo $data['password_err']; ?></td>
-                                </tr>
-                                <tr>
                                     <th class="A">Gender</th>
-                                    <td class="B"><p><input type="text" name="gender" id="gender" value="<?php echo $data['gender'];?>"></p></td>
+                                    <td class="B"><p>
+                                        <select name="gender" id="gender" class="form-select">
+                                            <?php if($data['gender'] == "Male"): ?>
+                                                <option value="Male" selected>Male</option>
+                                            <?php else: ?>
+                                                <option value="Male">Male</option>
+                                            <?php endif; ?>
+                                            <?php if($data['gender'] == "Female"): ?>
+                                                <option value="Female" selected>Female</option>
+                                            <?php else: ?>
+                                                <option value="Female">Female</option>
+                                            <?php endif; ?>
+                                            <?php if($data['gender'] == "Other"): ?>
+                                                <option value="Other" selected>Other</option>
+                                            <?php else: ?>
+                                                <option value="Other">Other</option>
+                                            <?php endif; ?>
+                                            <?php if($data['gender'] == "Not perfer to say"): ?>
+                                                <option value="Not perfer to say" selected>Not perfer to say</option>
+                                            <?php else: ?>
+                                                <option value="Not perfer to say">Not perfer to say</option>
+                                            <?php endif; ?>
+                                        </select>
+                                    </p></td>
                                     <td class="C"><span class="form-invalid"><?php echo $data['gender_err']; ?></td>
                                 </tr>
                                 <tr>
                                     <th class="A">Date of birth</th>
-                                    <td class="B"><p><input type="text" name="date_of_birth" id="date_of_birth" value="<?php echo $data['date_of_birth'];?>"></p></td>
+                                    <td class="B"><p><input type="date" name="date_of_birth" id="date_of_birth" class="form-date-select" value="<?php echo $data['date_of_birth'];?>"></p></td>
                                     <td class="C"><span class="form-invalid"><?php echo $data['date_of_birth_err']; ?></td>
                                 </tr>
                                 <tr>
@@ -74,7 +78,7 @@
                                 </tr>
                                 <tr>
                                     <th class="A">Phone number</th>
-                                    <td class="B"><p><input type="text" name="phn_no" id="phn_no" value="<?php echo $data['phn_no'];?>"></p></td>
+                                    <td class="B"><p><input type="text" name="phn_no" id="phn_no" value="<?php echo $data['phn_no'];?>" maxlength = "10"></p></td>
                                     <td class="C"><span class="form-invalid"><?php echo $data['phn_no_err']; ?></td>
                                 </tr>
                             </table>

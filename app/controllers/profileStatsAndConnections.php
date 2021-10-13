@@ -9,7 +9,7 @@
 
             $data = ['followers' => $followerList];
 
-            $this->view('students/profileStatsAndConnections/v_student_followers', $data);
+            $this->view('students/connections/v_student_followers', $data);
         }
         
         public function followings($id) {
@@ -17,7 +17,7 @@
 
             $data = ['following' => $followingList];
 
-            $this->view('students/profileStatsAndConnections/v_student_following', $data);
+            $this->view('students/connections/v_student_following', $data);
         }
 
         // to follow a user - real time updates using AJAX

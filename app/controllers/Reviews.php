@@ -4,8 +4,8 @@
             $this->reviewModel = $this->model('Review');
         }
 
-        public function viewAll() {
-            $reviews = $this->reviewModel->getReviews();
+        public function viewAll($post_id) {
+            $reviews = $this->reviewModel->getReviews($post_id);
 
             $data = ['reviews' => $reviews];
 
@@ -30,7 +30,7 @@
 
                 // Validated
                 if($this->reviewModel->addReview($data)) {
-                    redirect('Reviews/viewAll');
+                    redirect('Reviews/viewAll/'.$_SESSION['current_viewing_post_id']);
                 }
                 else {
                     die('Something went wrong');
@@ -41,7 +41,7 @@
                     'post_id' => '',
                     'user_id' => '',
                     'rate' => '',
-                    'review_text' => '',
+                    'review_text' => ''
                 ];
             }
 
@@ -69,7 +69,7 @@
 
                 // Validated
                 if($this->reviewModel->updateReview($data)) {
-                    redirect('Reviews/viewAll');
+                    redirect('Reviews/viewAll/'.$_SESSION['current_viewing_post_id']);
                 }
                 else {
                     die('Something went wrong');
@@ -94,12 +94,12 @@
 
             // Check for owner
             if($review->user_id != $_SESSION['user_id']) {
-                redirect('Reviews/viewAll');
+                redirect('Reviews/viewAll/'.$_SESSION['current_viewing_post_id']);
             }
                 
             if($this->reviewModel->deleteReview($id)) {
                 // flash('post_message', 'Post Removed');
-                redirect('Reviews/viewAll');
+                redirect('Reviews/viewAll/'.$_SESSION['current_viewing_post_id']);
             }
             else {
                 die('Something went wrong');

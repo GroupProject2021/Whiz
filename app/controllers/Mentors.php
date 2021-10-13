@@ -147,15 +147,21 @@
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
                     // Register User
-                    if($this->mentorModel->registerasprofguider($data)) {
-                        // // Redirect
-                        // flash('register_success', 'You are registered can log in');
-                        // redirect('commons/login');
-                        sendVerificationCode($data['email']);
+                    if($this->mentorModel->registerAsAUser($data, 'Professional Guider')) {
+                        // take the id
+                        $userId = $this->mentorModel->getUserIdByEmail($data['email']);
 
-                        // Redirect
-                        flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
-                        redirect('Commons/userEmailVerification');
+                        if($this->mentorModel->registerAsAProfGuider($userId, $data)) {
+                            // set the verification sent email                        
+                            sendVerificationCode($data['email']);
+
+                            // Redirect
+                            flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
+                            redirect('Commons/userEmailVerification');
+                        }
+                        else {
+                            die('Something went wrong');
+                        }
                     }
                     else {
                         die('Something went wrong');
@@ -319,15 +325,21 @@
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
                     // Register User
-                    if($this->mentorModel->registerasteacher($data)) {
-                        // // Redirect
-                        // flash('register_success', 'You are registered can log in');
-                        // redirect('commons/login');
-                        sendVerificationCode($data['email']);
+                    if($this->mentorModel->registerAsAUser($data, 'Teacher')) {
+                        // take the id
+                        $userId = $this->mentorModel->getUserIdByEmail($data['email']);
 
-                        // Redirect
-                        flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
-                        redirect('Commons/userEmailVerification');
+                        if($this->mentorModel->registerAsATeacher($userId, $data)) {
+                            // set the verification sent email                        
+                            sendVerificationCode($data['email']);
+
+                            // Redirect
+                            flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
+                            redirect('Commons/userEmailVerification');
+                        }
+                        else {
+                            die('Something went wrong');
+                        }
                     }
                     else {
                         die('Something went wrong');

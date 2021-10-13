@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
     </head>
     <body>
-        <!-- TOP NAVIGATION BAR -->
+        <!-- TOP Navigation -->
         <?php require APPROOT.'/views/inc/components/topnav.php'?>
 
         <!-- REGISTRATION FORM -->
@@ -52,7 +52,7 @@
 
                 <hr class="form-hr">
                 <p>
-                    <input type="checkbox">
+                    <input type="checkbox" required>
                     I do here by certify above details that I have entered are true and correct. <a class="form-link" href="#">Terms & Privacy</a>
                 </p>
                 <button type="submit" class="form-skip-button">Skip</button>
@@ -63,17 +63,7 @@
             <p>Contact for help? <a class="form-link" href="<?php echo URLROOT; ?>/students/login">Help & Services</a></p>
         </div>
 
-        <script>
-            // gpa_value range slider
-            function fetch_gpa_value() {
-                var gpa_value = document.getElementById("gpa").value;
-                document.getElementById("gpa_value").value = gpa_value;
-            }
-
-            function fetch_gpa() {
-                var gpa = document.getElementById("gpa_value").value;
-                document.getElementById("gpa").value = gpa;
-            }
-        </script>
+        <!-- javascript -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/ug_UpgradeAndEdit.js"></script>
     </body>
 </html>

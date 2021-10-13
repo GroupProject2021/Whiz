@@ -18,9 +18,11 @@
         public function index() {
             // Get posts
             $posts = $this->postModel->getPosts();
+            $postsReviewssAndRates = $this->postModel->getPostsReviewsAndRates();
 
             $data = [
-                'posts' => $posts
+                'posts' => $posts,
+                'reviews_rates' => $postsReviewssAndRates
             ];
 
             $this->view('posts/index', $data);
@@ -192,15 +194,44 @@
 
             $ups = $this->postModel->getInc($id)->ups;
             $downs = $this->postModel->getDown($id)->downs;
+            $userId = $_SESSION['user_id'];
+
+            if($this->postModel->isPostInterationExist($userId, $id)) {
+                $selfInteraction = $this->postModel->getPostInteration($userId, $id);
+                $selfInteraction = $selfInteraction->interaction;
+            }
+            else {
+                $selfInteraction = '';
+            }
+
 
             $totalReviews = $this->postModel->getTotalReviewsForAPostById($id);
+
             $rateHaving1 = $this->postModel->getRateAmountsForAPostById($id, 1);
             $rateHaving2 = $this->postModel->getRateAmountsForAPostById($id, 2);
             $rateHaving3 = $this->postModel->getRateAmountsForAPostById($id, 3);
             $rateHaving4 = $this->postModel->getRateAmountsForAPostById($id, 4);
             $rateHaving5 = $this->postModel->getRateAmountsForAPostById($id, 5);
-            $avgRate = ((1*$rateHaving1) + (2*$rateHaving2) + (3*$rateHaving3) + (4*$rateHaving4) + (5*$rateHaving5)) / $totalReviews;
-            // $avgRate = round($avgRate, 1);
+
+            if($totalReviews) {
+                $rate1Precentage = ($rateHaving1/$totalReviews) * 100;
+                $rate2Precentage = ($rateHaving2/$totalReviews) * 100;
+                $rate3Precentage = ($rateHaving3/$totalReviews) * 100;
+                $rate4Precentage = ($rateHaving4/$totalReviews) * 100;
+                $rate5Precentage = ($rateHaving5/$totalReviews) * 100;
+
+                $avgRate = ((1*$rateHaving1) + (2*$rateHaving2) + (3*$rateHaving3) + (4*$rateHaving4) + (5*$rateHaving5)) / $totalReviews;
+            }
+            else {
+                $rate1Precentage = 0;
+                $rate2Precentage = 0;
+                $rate3Precentage = 0;
+                $rate4Precentage = 0;
+                $rate5Precentage = 0;
+
+                $avgRate = 0;
+            }
+            
             $avgRate = number_format((float)$avgRate, 1, '.', '');
 
             $data = [
@@ -209,13 +240,14 @@
 
                 'ups' => $ups,
                 'downs' => $downs,
+                'self_interaction' => $selfInteraction,
 
                 'total_reviews' => $totalReviews,
-                'rate1' => ($rateHaving1/$totalReviews) * 100,
-                'rate2' => ($rateHaving2/$totalReviews) * 100,
-                'rate3' => ($rateHaving3/$totalReviews) * 100,
-                'rate4' => ($rateHaving4/$totalReviews) * 100,
-                'rate5' => ($rateHaving5/$totalReviews) * 100,
+                'rate1' => $rate1Precentage,
+                'rate2' => $rate2Precentage,
+                'rate3' => $rate3Precentage,
+                'rate4' => $rate4Precentage,
+                'rate5' => $rate5Precentage,
                 'avg_rate' => $avgRate
             ];
 
@@ -233,8 +265,17 @@
                 if($post->user_id != $_SESSION['user_id']) {
                     redirect('posts');
                 }
+
+                $res1 = $this->postModel->deleteComment($id);
+                $res2 = $this->postModel->deleteReview($id);
+                $res3 = $this->postModel->deleteInteraction($id);
+                $res4 = $this->postModel->deletePost($id);
+
+                // validate and upload profile image
+                $postImage = PUBROOT.'/imgs/POSTS/'.$post->image;
+                $res5 = deleteImage($postImage);
                 
-                if($this->postModel->deletePost($id)) {
+                if($res1 && $res2 && $res3 && $res4 && $res5) {
                     flash('post_message', 'Post Removed');
                     redirect('posts');
                 }
@@ -248,83 +289,69 @@
         }
 
 
+        // For likes
         public function incUp($id) {
             $ups = $this->postModel->incUp($id);
-            if($ups != false) {
+
+            $userId = $_SESSION['user_id'];
+
+            if($this->postModel->isPostInterationExist($userId, $id)) {
+                // If already an interaction exists
+                $res = $this->postModel->setPostInteraction($userId, $id, 'liked');
+            }
+            else {
+                // If no previous interaction exists
+                $res = $this->postModel->addPostInteraction($userId, $id, 'liked');
+            }
+
+            if($ups != false && $res != false) {
+                echo $ups->ups;
+            }
+        }
+
+        public function decUp($id) {
+            $ups = $this->postModel->decUp($id);
+
+            $userId = $_SESSION['user_id'];
+            $res = $this->postModel->setPostInteraction($userId, $id, 'like removed');
+
+            if($ups != false && $res != false) {
                 echo $ups->ups;
             }    
         }
 
+        // For dislikes
         public function incDown($id) {
             $downs = $this->postModel->incDown($id);
-            if($downs != false) {
+
+            $userId = $_SESSION['user_id'];
+
+            if($this->postModel->isPostInterationExist($userId, $id)) {
+                // If already an interaction exists
+                $res = $this->postModel->setPostInteraction($userId, $id, 'disliked');
+            }
+            else {
+                // If no previous interaction exists
+                $res = $this->postModel->addPostInteraction($userId, $id, 'disliked');
+            }
+
+            if($downs != false && $res != false) {
                 echo $downs->downs;
             }    
         }
 
-        public function comment($id) {
+        public function decDown($id) {
+            $downs = $this->postModel->decDown($id);
+
             $userId = $_SESSION['user_id'];
-            $postId = $id;
-            $commentContent = $_POST['post-comment'];
+            $res = $this->postModel->setPostInteraction($userId, $id, 'dislike removed');
 
-
-            echo 'user: '.$userId.' post: '.$postId.' comment: '.$commentContent;
-
-            $data = [
-                'post_id' => $postId,
-                'user_id' => $userId,
-                'content' => $commentContent
-            ];
-
-            if($this->postModel->addComment($data)) {
-                echo 'success';
-            }
-            else {
-                echo 'failed';
-            }
+            if($downs != false && $res != false) {
+                echo $downs->downs;
+            }    
         }
 
         
-
-        public function showComments($id) {
-            $comments = $this->postModel->getComments($id);
-
-            // RENDER COMMENTS
-            foreach($comments as $comment) {
-                $user = $this->postModel->getUserDetails($comment->user_id);
-                $userProfileImgURL = URLROOT.'/profileimages/'.getActorTypeForIcons($user->actor_type).'/'.$user->profile_image;
-                $userActorTypeImgURL = URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($user->actor_type).'-'.getActorSpecializedTypeForIcons($user->actor_type, $user->specialized_actor_type).'-icon.png';
-                
-                echo '<div class="comment">';
-                echo '<div class="comment-header">';
-                echo    '<div class="comment-header-icon"><img src="'.$userProfileImgURL.'" alt=""></div>';
-                echo    '<div class="comment-header-actortypeicon"><img src="'.$userActorTypeImgURL.'" alt=""></div>';
-                echo    '<div class="comment-header-postedby">'.$user->name.'</div>';
-                if($user->status == "verified") {
-                    echo    '<div class="comment-header-verified"><img src="'.URLROOT.'/imgs/verified.png" alt=""></div>';
-                }
-                echo    '<div class="comment-header-postedtime">'.convertedToReadableTimeFormat($comment->created_at).'</div>';
-                echo '</div>';
-                echo '<div class="comment-body">';
-                echo    $comment->content;
-                echo '</div>';
-                echo '<div class="comment-footer">';
-                echo '<button>';
-                echo    '<div class="comment-footer-likebtn"><img src="'.URLROOT.'/imgs/up-icon.png" alt=""></div>';
-                echo    '<div class="comment-footer-text">likes</div>';
-                echo '</button>';
-                echo '<button>';
-                echo    '<div class="comment-footer-dislikebtn"><img src="'.URLROOT.'/imgs/down-icon.png" alt=""></div>';
-                echo    '<div class="comment-footer-text">dislikes</div>';
-                echo '</button>';
-                echo '<button>';
-                echo    '<div class="comment-footer-replybtn"><img src="'.URLROOT.'/imgs/reply-icon.png" alt=""></div>';
-                echo    '<div class="comment-footer-text">reply</div>';
-                echo '</button>';
-                echo '</div>';
-                echo '</div>';
-            }
-        }
 
         public function incShare() {
 

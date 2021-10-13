@@ -5,91 +5,172 @@
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
     </head>
     <body>
-        <?php require APPROOT.'/views/inc/components/mentor_sidebar.php'?>
+        <!-- SIDE BAR -->
+        <?php require APPROOT.'/views/inc/components/sideBar/sidebar.php'?>
 
         <div class="main-content">
-            <header>                
-                <div class="menu-toggle">
-                    <button type="button" class="sidebar-handle">
-                        <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
-                    </button>
-                </div>
-                
-                <!-- TOP NAVIGATION BAR -->
-                <div class="topnav">
-                    <?php require APPROOT.'/views/inc/components/topnav.php'?>
-                </div>
+            <!-- TOP Navigation -->
+            <header>
+                <?php require APPROOT.'/views/inc/components/topnav.php'?>
             </header>
 
             <main>
             <?php if(isset($_SESSION['user_id'])) : ?>
                 <?php if($_SESSION['specialized_actor_type'] == 'Professional Guider'): ?>
                     <!-- Professional guider -->
-                    <!-- <div class="wrapper"> -->
+                    <div class="wrapper">
                         <!-- TOP PANEL -->
                         <div class="top-panel">
                             <h1>Banners > Edit Banner</h1>
                         </div>
 
-                        <!-- EDIT FORM -->
-                        <div class="form-container">
-                            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/banner">Back</a>
-                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/edit/<?php echo $data['id']; ?>" method="post">
-                                
-                                <hr  class="form-hr">
+                        <!-- MIDDLE PANEL -->
+                        <div class="middle-panel-single">
 
-                                <label for="title"><p class="form-bold">Title</p></label>
-                                <input type="text" placeholder="" name="title" id="title" value="<?php echo $data['title']; ?>">
-                                <span class="form-invalid"><?php echo $data['title_err']; ?></span><br>
+                            <a href="<?php echo URLROOT;?>/Mentors_dashboard/banner"><button class="btn8">Back</button></a>
+                            <br>
 
-                                <label for="body"><p class="form-bold">Content</p></label>
-                                <textarea placeholder="" name="body" id="body"><?php echo $data['body']; ?></textarea>
-                                <span class="form-invalid"><?php echo $data['body_err']; ?></span><br>
-                                <hr  class="form-hr">
-                                <button type="submit" class="form-submit">Save Changes</button>
+                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/editBanner/<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
+                                <div class="post-creator">
+                                    <div class="post-creator-image" id="post-creator-image">
+                                        <img src="<?php if($data['image_name'] != null){ echo URLROOT.'/imgs/POSTS/'.$data['image_name'];}else{ echo '';} ?>" alt="" id="image_placeholder" style="display: none;">
+                                    </div>
+                                    <div class="post-creator-title">
+                                        <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
+                                        <div class="image-select"><img src="<?php echo URLROOT.'/imgs/add-image-icon.png'; ?>" alt="" id="addImageBtn" onclick="toggleBrowse()"></div>
+                                        <div class="image-select"><img src="<?php echo URLROOT.'/imgs/remove-image-icon.png'; ?>" alt="" id="removeImageBtn" onclick="removeImage()" style="display: none;"></div>
+                                        <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
+                                    </div>
+                                    <hr>
+                                    <div class="post-creator-content">
+                                        <textarea name="body" id="body" cols="30" rows="10" placeholder="Content"><?php echo $data['body']; ?></textarea>
+                                    </div>
+                                    <button type="submit" class="post-creator-submit">Save</button>
+                                </div>
                             </form>
+
                         </div>
-                    <!-- </div> -->
+
+                        <!-- BOTTOM PANEL -->
+                        <div class="bottom-panel">
+                            <p>Whiz organization. All rights reserved.</p>
+                        </div>
+                    </div>
                 <?php elseif($_SESSION['specialized_actor_type'] == 'Teacher'): ?>
                     <!-- Teacher -->
-                    <!-- <div class="wrapper"> -->
+                    <div class="wrapper">
                         <!-- TOP PANEL -->
                         <div class="top-panel">
                             <h1>Posters > Edit Poster</h1>
                         </div>
 
                         <!-- MIDDLE PANEL -->
-                        <div class="form-container">
-                            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/banner">Back</a>
-                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/edit/<?php echo $data['id']; ?>" method="post">
-                                
-                                <hr  class="form-hr">
+                        <div class="middle-panel-single">
 
-                                <label for="title"><p class="form-bold">Title</p></label>
-                                <input type="text" placeholder="" name="title" id="title" value="<?php echo $data['title']; ?>">
-                                <span class="form-invalid"><?php echo $data['title_err']; ?></span><br>
+                            <a href="<?php echo URLROOT;?>/Mentors_dashboard/poster"><button class="btn8">Back</button></a>
+                            <br>
 
-                                <label for="body"><p class="form-bold">Content</p></label>
-                                <textarea placeholder="" name="body" id="body"><?php echo $data['body']; ?></textarea>
-                                <span class="form-invalid"><?php echo $data['body_err']; ?></span><br>
-                                <hr  class="form-hr">
-                                <button type="submit" class="form-submit">Save Changes</button>
+                            <form action="<?php echo URLROOT; ?>/Mentors_dashboard/editPoster/<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
+                                <div class="post-creator">
+                                    <div class="post-creator-image" id="post-creator-image">
+                                        <img src="<?php if($data['image_name'] != null){ echo URLROOT.'/imgs/POSTS/'.$data['image_name'];}else{ echo '';} ?>" alt="" id="image_placeholder" style="display: none;">
+                                    </div>
+                                    <div class="post-creator-title">
+                                        <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
+                                        <div class="image-select"><img src="<?php echo URLROOT.'/imgs/add-image-icon.png'; ?>" alt="" id="addImageBtn" onclick="toggleBrowse()"></div>
+                                        <div class="image-select"><img src="<?php echo URLROOT.'/imgs/remove-image-icon.png'; ?>" alt="" id="removeImageBtn" onclick="removeImage()" style="display: none;"></div>
+                                        <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
+                                    </div>
+                                    <hr>
+                                    <div class="post-creator-content">
+                                        <textarea name="body" id="body" cols="30" rows="10" placeholder="Content"><?php echo $data['body']; ?></textarea>
+                                    </div>
+                                    <button type="submit" class="post-creator-submit">Save</button>
+                                </div>
                             </form>
+
                         </div>
-                    <!-- </div> -->
+
+                        <!-- BOTTOM PANEL -->
+                        <div class="bottom-panel">
+                            <p>Whiz organization. All rights reserved.</p>
+                        </div>
+                    </div>
                 <?php else: ?>
                     <!-- Nothing here -->
                 <?php endif;?>
             <?php endif; ?> 
 
                     <!-- BOTTOM PANEL -->
-                    <br>
+                    <!-- <br>
                     <div class="bottom-panel">
                         <p>Whiz organization. All rights reserved.</p>
-                    </div>
+                    </div> -->
                 </div>
             </main>
         </div>
+        <script>
+            const addImageBtn = document.getElementById("addImageBtn");
+            const removeImageBtn = document.getElementById("removeImageBtn");
+            const imageplaceholder = document.getElementById("image_placeholder");
+
+            let inputPath = document.querySelector("#image");
+
+            let file;
+
+            // if image exists
+            if(imageplaceholder.getAttribute('src') != ''){
+                addImageBtn.style.display = "none";
+                removeImageBtn.style.display = "block";
+                imageplaceholder.style.display = "block";
+            }
+
+            function toggleBrowse() {
+                inputPath.click();
+            }
+
+            function removeImage() {
+                addImageBtn.style.display = "block";
+                removeImageBtn.style.display = "none";
+                imageplaceholder.style.display = "none";
+
+                imageplaceholder.setAttribute('src', '');
+
+                inputPath.value = null;
+            }
+
+            inputPath.addEventListener("change", function() {
+                file = this.files[0];
+
+                addImageBtn.style.display = "none";
+                removeImageBtn.style.display = "block";
+                imageplaceholder.style.display = "block";
+
+                showImage();    
+            });
+            
+            function showImage() {
+                let fileType = file.type;
+
+                let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
+
+                if(validExtensions.includes(fileType)) {
+                    let fileReader = new FileReader();
+
+                    fileReader.onload = ()=>{
+                        let fileURL = fileReader.result;
+
+                        imageplaceholder.setAttribute('src', fileURL);
+                    }
+
+                    fileReader.readAsDataURL(file);
+
+                }
+                else {
+                    alert("This is not an Image file");
+                }
+            }
+        </script>
 <?php require APPROOT.'/views/inc/footer.php'; ?>
 
     </body>

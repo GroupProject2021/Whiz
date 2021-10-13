@@ -197,7 +197,7 @@
                     $this->mentorDashboardRedirect();
                     break;
                 case "Admin": 
-                    redirect('admins_dashboard/index');
+                    redirect('C_A_Admin_Dashboard/index');
                     break;
                 default:
                     // nothing
@@ -237,11 +237,11 @@
 
             switch($_SESSION['specialized_actor_type']) {
                 case 'University' :
-                    redirect('University_dashboards/index');
+                    redirect('C_O_University_Dashboard/index');
                     break;
                 
                 case 'Company' :
-                    redirect('Company_dashboards/index');
+                    redirect('C_O_Company_Dashboard/index');
                     break;
 
                 default:
@@ -316,7 +316,7 @@
                 }
 
                 // Check for user/email
-                if($this->userModel->findUserByEmail($data['email'])) {
+                if($this->commonModel->findUserByEmail($data['email'])) {
                     // User found
                 }
                 else {

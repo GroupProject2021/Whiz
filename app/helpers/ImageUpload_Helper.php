@@ -22,4 +22,14 @@
 
         return move_uploaded_file($img, $target);
    }
+
+   function deleteImage($img) {
+        // delete old image
+        if(unlink($img)) {
+            return true;
+        }
+        else{
+            return false;
+        }        
+   }
 ?>

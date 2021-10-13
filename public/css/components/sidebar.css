@@ -34,6 +34,7 @@
     background: var(--color-main);
     color: var(--color-main-background);
     transition: left 0.5s ease;
+    z-index: 5;
 }
 
 .sidebar-brand {
@@ -44,16 +45,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 20px;
 }
 
 .brand-flex img {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-}
-
-.brand-icons img {
-    height: 1.6rem;
-    width: 1.6rem;
 }
 
 .sidebar-menu {
@@ -120,6 +117,9 @@
 .sidebar-user-details-container {
     display: grid;
     grid-template-rows: 1fr auto;
+    background-image: linear-gradient(to right top, #051937, #00263f, #003035, #00381d, #293b00);
+    border-top: 3px solid #005e9c57;
+    border-bottom: 3px solid #005d9b98;
 }
 
 .sidebar-user-details {
@@ -191,11 +191,17 @@
 
 .profile-upgrade-button:hover {
     background: var(--profile-upgrade-button-color-hover);
+    cursor: pointer;
 }
 
 /* sidebar items */
 .sidebar-item {
     margin-bottom: 0.2rem;
+}
+
+.sidebar-item a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .sidebar-item button {

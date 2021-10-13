@@ -1,4 +1,7 @@
-/* If CSS didn't apply try Ctrl+F5 clear cache and then reload */
+/* If CSS didn't apply try Ctrl+F5 clear cache and then reload the browser again*/
+/* pages */
+@import url('pages/index-styles.css');
+
 /* seperate component styles */
 @import url('components/topnav.css');
 @import url('components/form.css');
@@ -14,7 +17,7 @@
 @import url('components/imageUpload/imageUpload-styles.css');
 @import url('components/captcha/captcha-styles.css');
 @import url('components/notificationAlert/notificationAlert-styles.css');
-@import url('components/commentsection/comment-styles.css');
+@import url('components/commentSystem/comment-styles.css');
 @import url('components/posts/posts-styles.css');
 @import url('components/ratingSystem/ratingsystem.css');
 

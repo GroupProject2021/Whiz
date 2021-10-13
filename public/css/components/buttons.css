@@ -45,10 +45,12 @@
     cursor: pointer;
     width: fit-content;
     opacity: 0.9;
+    transition: .2s all;
 }
 
 .btn1:hover {
     background-color: var(--btn1-bg-color-hover);
+    border-radius: 5px;
 }
 
 .btn1-small {
@@ -60,10 +62,12 @@
     cursor: pointer;
     width: fit-content;
     opacity: 0.9;
+    transition: .2s all;
 }
 
 .btn1-small:hover {
     background-color: var(--btn1-bg-color-hover);
+    border-radius: 5px;
 }
 
 .btn1-round {

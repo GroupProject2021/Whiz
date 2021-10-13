@@ -6,24 +6,34 @@
             $this->db = new Database;
         }
 
-        // Register professional guider
-        public function registerasprofguider($data) {
-            $this->db->query('INSERT INTO users(profile_image,name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
+        // Register as a user
+        public function registerAsAUser($data, $specialize_type) {
+            // register as a user    
+            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
             $this->db->bind(':actor_type', 'Mentor');
-            $this->db->bind(':specialized_actor_type', 'Professional Guider');
+            $this->db->bind(':specialized_actor_type', $specialize_type);
             $this->db->bind(':status', 'not verified');
 
-            $this->db->execute();
+            // Execute
+            if($this->db->execute()) {
+                // return true;
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
 
-/// HERE
-            $this->db->query('INSERT INTO mentor(profile_image,name, email, phn_no, address, gender, institute, mentor_type, password) VALUES(:profile_image, :name, :email, :phn_no, :address, :gender, :institute, :mentor_type, :password)');
+        // Register professional guider
+        public function registerAsAProfGuider($id, $data) {
+            $this->db->query('INSERT INTO mentor(mentor_id, name, email, phn_no, address, gender, institute, mentor_type, password) VALUES(:mentor_id, :name, :email, :phn_no, :address, :gender, :institute, :mentor_type, :password)');
             // bind values
-            $this->db->bind("profile_image", $data['profile_image_name']);
+            $this->db->bind(":mentor_id", $id);
             $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(":phn_no", $data['phn_no']);
@@ -43,22 +53,10 @@
         }
 
         // Register teacher
-        public function registerasteacher($data) {
-            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
+        public function registerAsATeacher($id, $data) {
+            $this->db->query('INSERT INTO mentor(mentor_id, name, email, phn_no, address, gender, mentor_type, password) VALUES(:mentor_id, :name, :email, :phn_no, :address, :gender, :mentor_type, :password)');
             // bind values
-            $this->db->bind("profile_image", $data['profile_image_name']);
-            $this->db->bind(':name', $data['name']);
-            $this->db->bind(':email', $data['email']);
-            $this->db->bind(':password', $data['password']);
-            $this->db->bind(':actor_type', 'Mentor');
-            $this->db->bind(':specialized_actor_type', 'Teacher');
-            $this->db->bind(':status', 'not verified');
-
-            $this->db->execute();
-
-            $this->db->query('INSERT INTO mentor(profile_image, name, email, phn_no, address, gender, mentor_type, password) VALUES(:profile_image, :name, :email, :phn_no, :address, :gender, :mentor_type, :password)');
-            // bind values
-            $this->db->bind("profile_image", $data['profile_image_name']);
+            $this->db->bind(":mentor_id", $id);
             $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(":phn_no", $data['phn_no']);
@@ -138,6 +136,14 @@
         //     return $id;
         // }
 
-        
+        public function getUserIdByEmail($email) {
+            $this->db->query('SELECT * FROM users WHERE email = :email');
+            // bind values
+            $this->db->bind(':email', $email);
+
+            $row = $this->db->single();
+
+            return $row->id;
+        }
     }
 ?>

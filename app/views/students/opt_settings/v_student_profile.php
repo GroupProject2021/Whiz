@@ -6,21 +6,12 @@
     </head>
     <body>
         <!-- SIDE BAR -->
-        <?php require APPROOT.'/views/inc/components/sideBar/studentSideBar/student_sidebar.php'?>
+        <?php require APPROOT.'/views/inc/components/sideBar/sidebar.php'?>
 
         <div class="main-content">
-            <header>               
-                 <!--CURRENTLY NOT AVAILABLE !!!  -->
-                <div class="menu-toggle">
-                    <button type="button" class="sidebar-handle">
-                        <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
-                    </button>
-                </div>
-                
-                <!-- TOP NAVIGATION BAR -->
-                <div class="topnav">
-                    <?php require APPROOT.'/views/inc/components/topnav.php'?>
-                </div>
+            <!-- TOP Navigation -->
+            <header>
+                <?php require APPROOT.'/views/inc/components/topnav.php'?>
             </header>
 
             <main>
@@ -88,6 +79,7 @@
                                         }
                                     ?>
                                 </div>
+                                <br>
                                 <hr>
                                 <div class="profile-stats">
                                     <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$data['user']->id; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
@@ -125,27 +117,27 @@
                                 </div>
                                 <div class="beginner-detials">
                                     <div class="Date of birth">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/dob-icon.png'; ?>" alt="">Date of Birth</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/dob-icon.png'; ?>" alt="">Date of Birth</div>
                                         <div class="text"><?php echo $data['date_of_birth'];?></div>                                        
                                     </div>
                                     <div class="Gender">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/gender-icon.png'; ?>" alt="">Gender</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/gender-icon.png'; ?>" alt="">Gender</div>
                                         <div class="text"><?php echo $data['gender'];?></div>
                                     </div>
                                     <div class="phnno">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/phnno-icon.png'; ?>" alt="">Phone no</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/phnno-icon.png'; ?>" alt="">Phone no</div>
                                         <div class="text"><?php echo $data['phn_no'];?></div>                                        
                                     </div>
                                     <div class="email">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/email-icon.png'; ?>" alt="">Email</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/email-icon.png'; ?>" alt="">Email</div>
                                         <div class="text"><?php echo $data['email'];?></div>
                                     </div>
                                     <div class="website">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/website-icon.png'; ?>" alt="">Website</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/website-icon.png'; ?>" alt="">Website</div>
                                         <div class="text">www.xyz.com</div>    
                                     </div>
                                     <div class="address">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/address-icon.png'; ?>" alt="">Address</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/address-icon.png'; ?>" alt="">Address</div>
                                         <div class="text"><?php echo $data['address'];?></div>    
                                     </div>
                                 </div>
@@ -163,15 +155,15 @@
                                 </div>
                                 <div class="ol-qualified-details">
                                     <div class="ol-school">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/ol-school-icon.png'; ?>" alt="">School attended for G.C.E(O/L)</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/ol-school-icon.png'; ?>" alt="">School attended for G.C.E(O/L)</div>
                                         <div class="text"><?php echo $data['ol_school'];?></div>   
                                     </div>
                                     <div class="ol-district">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/ol-district-icon.png'; ?>" alt="">District</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/ol-district-icon.png'; ?>" alt="">District</div>
                                         <div class="text"><?php echo $data['ol_district'];?></div>   
                                     </div>
                                     <div class="results">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/ol-results-icon.png'; ?>" alt="">Results G.C.E.(O/L)</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/ol-results-icon.png'; ?>" alt="">Results G.C.E.(O/L)</div>
                                         <div class="results-table">
                                             <?php 
                                                 for($sub = 1; $sub <= 9; $sub++) {
@@ -201,23 +193,23 @@
                                 </div>
                                 <div class="al-qualified-details">
                                     <div class="al-school">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/al-school-icon.png'; ?>" alt="">School attended for G.C.E(A/L)</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/al-school-icon.png'; ?>" alt="">School attended for G.C.E(A/L)</div>
                                         <div class="text"><?php echo $data['al_school'];?></div>   
                                     </div>
                                     <div class="al-district">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/al-district-icon.png'; ?>" alt="">District</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/al-district-icon.png'; ?>" alt="">District</div>
                                         <div class="text"><?php echo $data['al_district'];?></div>   
                                     </div>
                                     <div class="al-stream">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/stream-icon.png'; ?>" alt="">Stream</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/stream-icon.png'; ?>" alt="">Stream</div>
                                         <div class="text"><?php echo $data['stream_name'];?></div>   
                                     </div>
                                     <div class="z-score">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/z-score-icon.png'; ?>" alt="">Z-Score</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/z-score-icon.png'; ?>" alt="">Z-Score</div>
                                         <div class="text"><?php echo $data['z_score'];?></div>   
                                     </div>
                                     <div class="results">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/al-results-icon.png'; ?>" alt="">Results G.C.E.(A/L)</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/al-results-icon.png'; ?>" alt="">Results G.C.E.(A/L)</div>
                                         <div class="results-table">
                                             <div class="subject">
                                                 <div class="sub-name">General Test</div>
@@ -255,19 +247,19 @@
                                 </div>
                                 <div class="ug-details">
                                     <div class="uni-type">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/uni-type-icon.png'; ?>" alt="">University Type</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/uni-type-icon.png'; ?>" alt="">University Type</div>
                                         <div class="text"><?php echo $data['uni_type'];?></div>   
                                     </div>
                                     <div class="uni-name">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/uni-icon.png'; ?>" alt="">University</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/uni-icon.png'; ?>" alt="">University</div>
                                         <div class="text"><?php echo $data['uni_name'];?></div>   
                                     </div>
                                     <div class="degree-name">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/degree-icon.png'; ?>" alt="">Degree</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/degree-icon.png'; ?>" alt="">Degree</div>
                                         <div class="text"><?php echo $data['degree'];?></div>   
                                     </div>
                                     <div class="gpa">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/gpa-icon.png'; ?>" alt="">GPA</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/student/gpa-icon.png'; ?>" alt="">GPA</div>
                                         <div class="text"><?php echo $data['gpa'];?></div>   
                                     </div>
                                 </div>

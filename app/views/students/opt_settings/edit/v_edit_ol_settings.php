@@ -6,27 +6,19 @@
     </head>
     <body>
         <!-- SIDE BAR -->
-        <?php require APPROOT.'/views/inc/components/sideBar/studentSideBar/student_sidebar.php'?>
+        <?php require APPROOT.'/views/inc/components/sideBar/sidebar.php'?>
 
         <div class="main-content">
-            <header>                
-                <div class="menu-toggle">
-                    <button type="button" class="sidebar-handle">
-                        <img src="<?php echo URLROOT; ?>/imgs/dashboard/sidebar-icon.png">
-                    </button>
-                </div>
-                
-                <!-- TOP NAVIGATION BAR -->
-                <div class="topnav">
-                    <?php require APPROOT.'/views/inc/components/topnav.php'?>
-                </div>
+            <!-- TOP Navigation -->
+            <header>
+                <?php require APPROOT.'/views/inc/components/topnav.php'?>
             </header>
 
             <main>
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Beginner dashboard</h1>
+                        <h1>G.C.E(O/L) details</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -34,7 +26,6 @@
                         <div class="settings-form-edit-container">
                             <form action="<?php echo URLROOT; ?>/C_S_Settings/editSettingsOL/" method="post">
                                 <div class="settings-header">
-                                        <div class="settings-header-item"><h2>OL details</h2></div>
                                         <div class="settings-header-item"><a href="<?php echo URLROOT.'/C_S_Settings/settings/'.$_SESSION['user_id']; ?>"><input class="cancel-button" type="button" value="Cancel"></a></div>
                                         <div class="settings-header-item"><a href=""><input class="save-button" type="submit" value="Save"></a></div>
                                         <!-- <div class="settings-header-item"><button type="submit">Save</button></div> -->

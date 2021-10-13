@@ -82,7 +82,7 @@
     border-radius: 5px;
     font-size: 15px;
     outline: none;
-    display: block;
+    /* display: block; */
     transition: .2s all;
     padding: 5px;
 }

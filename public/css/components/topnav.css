@@ -1,111 +1,277 @@
-:root {
-  --topnav-background-color: #333;
-  --topnav-a-color: #f2f2f2;
-  --topnav-a-hover-color: black;
-  --topnav-a-background-hover-color: #ddd;
-  --topnav-a-active-color: white;
-  --topnav-a-active-background-color: #e7971f;
-  --topnav-a-active-background-hover-color: #b37314;
-  --profile-background-color: rgb(77, 77, 77);
-  --user-profile-image-border-color: #888888;
-  --user-profile-name-color: #ddd;
-}
-
-/* Add a black background color to the top navigation */
-.topnav {
-  position: relative;
-  background-color: var(--topnav-background-color);
-  overflow: hidden;
-}
-
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: var(--topnav-a-color);
-  text-align: center;
-  padding: 15px 16px;
+.topnav-link {
   text-decoration: none;
-  font-size: 13px;
-  /* height: 100%; */
+    color: inherit;
 }
 
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: var(--topnav-a-background-hover-color);
-  color: var(--topnav-a-hover-color);
+.stu-topnav {
+    display: flex;
+    flex-direction:row;
+    height: 3rem;
+    top: 0;
+    z-index: 2;
+    box-shadow: 0 2px 4px -2px rgba(0,0,0,1);
 }
 
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: var(--topnav-a-active-background-color);
-  color:var(--topnav-a-active-color);
+.stu-topnav .toggler{
+    background-color: #e6e6e6;
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
 }
 
-.topnav a.active:hover {
-  background-color: var(--topnav-a-active-background-hover-color);
+.stu-topnav .toggler img {
+  position: relative;
+  top: 8px;
 }
 
-/* Centered section inside the top navigation */
-.topnav-centered a {
-  float: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.stu-topnav .rightset {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    background-color: #333;
+    color: rgb(212, 208, 208);
 }
 
-/* Right-aligned section inside the top navigation */
-.topnav-right {
-  float: right;
+.stu-topnav .rightset .profile {
+    display: flex;
+    flex-direction: row;
+    line-height: 3rem;
+    vertical-align: middle;
 }
 
-/* user profile details */
-.user-details {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  place-items: center;
-  float: left;
-  background-color: var(--profile-background-color);
-  /* background-color: rebeccapurple; */
-  /* padding-bottom: 0.2rem;  */
-  /* text-align: center; */
+/* button */
+.stu-topnav .rightset .btn {
+    width: 80px;
+    text-align: center;
+    line-height: 3rem;
+    vertical-align: middle;
 }
 
-.user-details:hover {
-  background-color: var(--topnav-a-background-hover-color);
-  color: var(--topnav-a-hover-color);
+.stu-topnav .rightset .btn:hover {
+    cursor: pointer;
+    border-bottom: 3px solid #e7971f;
+    background-color: rgb(44, 44, 44);
 }
 
-.user-profile-image {
-  padding-left: 0.3rem;
+/* profile */
+.stu-topnav .rightset .profile  .pic{    
+    /* margin: auto 0 auto 0; */
+    position: relative;
+    top: 7px;
+    padding: 0 10px 0 10px;
 }
 
-.user-profile-image img{
-  width:40px;
-  height: 40px;
+.stu-topnav .rightset .profile:hover {
+    cursor: pointer;
+    /* border-bottom: 3px solid #e7971f; */
+    color: #ffffff;
+    background-color: rgb(44, 44, 44);
+}
+
+.stu-topnav .rightset .profile .pic img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+
+.stu-topnav .rightset .profile .name {
+    padding-right: 10px;
+}
+
+
+/* normalbtn */
+.normalbtn {
+  background-color: rgb(36, 35, 35);
+  color: rgb(212, 208, 208);
+  /* padding: 16px; */
+  border: none;
+  cursor: pointer;
+  width: 90px;
+  height: 3rem;
+  transition: .2s all;
+  font-size: 12px;
+}
+
+.normalbtn img {
+  height: 18px;
+  width: 18px;
+  filter:invert(100%);
+}
+
+.normalbtn:hover {
+  cursor: pointer;
+  border-bottom: 3px solid #e7971f;
+  background-color: rgb(44, 44, 44);
+}
+
+.normalbtn .badge {
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: red;
+  position: relative;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
   border-radius: 50%;
-  border: 2px solid var(--user-profile-image-border-color);
+  color: #fff;
+  width: 100px;
+  top: -25px;
+  right: -10px;
+  line-height: 0;
 }
 
-.user-profile-name {
-  padding-right: 1rem;
-  font-size: 0.5rem;
-  color: var(--user-profile-name-color);
-}
+/* drop button */
+.dropbtn {
+    background-color: rgb(36, 35, 35);
+    color: rgb(212, 208, 208);
+    /* padding: 16px; */
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: 3rem;
+  }
 
-/* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
-@media screen and (max-width: 600px) {
-  .topnav a, .topnav-right {
-    float: none;
+  .dropbtn img {
+    height: 18px;
+    width: 18px;
+    filter:invert(100%);
+  }
+
+  .dropdown:hover .dropbtn {    
+    cursor: pointer;
+    /* border-bottom: 3px solid #e7971f; */
+    background-color: rgb(44, 44, 44);
+    transition: .2s all;
+    border-bottom: 3px solid #e7971f;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: relative;
+    left: -100%;
+    background-color: #ece8e8;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 200%;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding-left: 10px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    font-size: 13px;
+    transition: .2s all;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #d6d6d6;
+    border-left: 3px solid #e7971f;
+  }
+  
+  .dropdown:hover .dropdown-content {
     display: block;
   }
 
-  .topnav-centered a {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
+  .dropdown-content a img {
+      height: 20px;
+      width: 20px;
+      position: relative;
+      top: 15px;
   }
 
+  .dropdown-content a .name {
+    padding-left: 10px;
+    width: 100%;
+  }
+
+  .notification-content {
+    display: none;
+    position: relative;
+    left: -150%;
+    background-color: #fdfdfd;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 350%;
+    overflow-y: scroll;
+    max-height: 500px;
+  }
+
+  .notification-content .active {
+    display: block;
+  }
+
+  .notification-content .notification:hover {
+    cursor: pointer;
+    background-color: #e9dfdf;
+  }
+
+  .notification-content .notification {
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    transition: .2s all;
+    border-bottom: 1px solid rgb(206, 206, 206);
+  }
+
+  .notification-content .notification .left .pic img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .notification-content .notification .right {
+    height: 50px;
+    width: 100%;
+    padding-left: 10px;
+  }
+
+  .notification-content .notification .right .text {
+    height: fit-content;
+    font-size: 13px;
+  }
+
+  .notification-content .notification .right .notfied-at {
+    height: 20px;
+    line-height: 20px;
+    color: #e7971f;
+    font-weight: 600;
+    font-size: 12px;
+  }
   
+  
+  @media only screen and (max-width: 1124px) {
+    /* .normalbtn div {
+      display: none;
+    }
+
+    .dropbtn div {
+      display: none;
+    } */
+
+    .stu-topnav {
+        width: 100%;
+    }
+
+    .stu-topnav .rightset .profile {
+      background-color: rgb(71, 71, 71);
+      height: 100%;
+    }
+
+    .stu-topnav .rightset .profile .name {
+      display: none;
+    }
 }
