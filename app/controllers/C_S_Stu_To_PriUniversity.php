@@ -1,5 +1,5 @@
 <?php
-    class C_S_Stu_To_ProfessionalGuider extends Controller {
+    class C_S_Stu_To_PriUniversity extends Controller {
         public function __construct() {
             if(!isLoggedIn()){
                 redirect('users/login');
@@ -19,7 +19,7 @@
                 'reviews_rates' => $postsReviewssAndRates
             ];
 
-            $this->view('students/opt_proGuiders/v_proGuiders_banner_list', $data);
+            $this->view('students/opt_courses/v_pri_courses_list', $data);
         }
 
         public function show($id) {
@@ -87,7 +87,7 @@
                 'avg_rate' => $avgRate
             ];
 
-            $this->view('students/opt_proGuiders/v_proGuiders_banner_viewMore', $data);
+            $this->view('students/opt_courses/v_pri_courses_viewMore', $data);
 
             
         }

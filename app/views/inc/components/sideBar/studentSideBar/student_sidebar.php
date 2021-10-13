@@ -21,6 +21,18 @@
             <span>Beginner options</span>
         </div>
         <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/index">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/teacher-icon.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                       [remove later] teachers
+                    </div>
+                </button>
+            </a>
+        </div>
+        <div class="sidebar-item">
             <a href="<?php echo URLROOT; ?>/C_S_Stream/index">
                 <button>
                     <div class="sidebar-item-icon">
@@ -45,7 +57,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Job/index">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
@@ -111,7 +123,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Job/index">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
@@ -162,7 +174,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Job/index">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
@@ -216,7 +228,7 @@
             <span>Underdraduate / graduate options</span>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Job/index">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">

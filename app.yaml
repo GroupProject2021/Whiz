@@ -1,0 +1,28 @@
+runtime: php73 # Replace with php74 to use PHP 7.4
+
+runtime_config:
+  document_root:
+
+handlers:
+# Serve a directory as a static resource.
+- url: /stylesheets
+  static_dir: stylesheets
+
+
+# Serve images as static resources.
+- url: /(.+\.(gif|png|jpg|css|js|map|PNG))$
+  static_files: \1
+  upload: .+\.(gif|png|jpg|css|js|map|PNG)$
+
+# Serve your app through a front controller at index.php or public/index.php.
+- url: .*
+  script: auto
+  
+entrypoint:
+    serve bootstrap.php
+    
+env_variables:
+  CLOUDSQL_USER: root
+  CLOUDSQL_DB: whiz_db
+  CLOUDSQL_PASSWORD: nard2021
+  CLOUDSQL_DSN: /cloudsql/whiz-328815:us-central1:whiz

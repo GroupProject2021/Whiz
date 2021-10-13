@@ -1,5 +1,5 @@
 <?php
-    class Posts extends Controller {
+    class Posts_C_M_Banners extends Controller {
         public function __construct() {
             if(!isLoggedIn()){
                 redirect('users/login');
@@ -19,7 +19,7 @@
                 'reviews_rates' => $postsReviewssAndRates
             ];
 
-            $this->view('posts/index', $data);
+            $this->view('students/opt_proGuiders/v_proGuiders_banner_list', $data);
         }
 
 
@@ -245,7 +245,7 @@
                 'avg_rate' => $avgRate
             ];
 
-            $this->view('posts/show', $data);
+            $this->view('students/opt_proGuiders/v_proGuiders_banner_viewMore', $data);
 
             
         }

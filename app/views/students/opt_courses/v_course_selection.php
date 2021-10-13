@@ -24,7 +24,7 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
                         <div>
-                            <a href="<?php echo URLROOT; ?>/Posts/index"><button class="btn1">Private courses</button></a>
+                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/index"><button class="btn1">Private courses</button></a>
                             <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList"><button class="btn2">Government courses</button></a>
                         </div>
                         <div>

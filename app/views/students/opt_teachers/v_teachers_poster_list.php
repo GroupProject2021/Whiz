@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Private courses</h1>
+                        <h1>Teachers</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -27,7 +27,7 @@
                     <?php foreach($data['posts'] as $post): ?>
                     <div class="post">
                         <?php if($post->image != null):?>
-                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/show/<?php echo $post->postId; ?>" class="card-link">
+                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/show/<?php echo $post->postId; ?>" class="card-link">
                                 <div class="post-header">
                                     <img src="<?php echo URLROOT.'/imgs/POSTS/'.$post->image; ?>" alt="">
                                 </div>
@@ -42,7 +42,7 @@
                                 <?php endif; ?>
                                 <div class="postedat"><?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
                             </div>
-                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/show/<?php echo $post->postId; ?>" class="card-link">
+                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/show/<?php echo $post->postId; ?>" class="card-link">
                                 <div class="post-body">
                                     <div class="title"><?php echo $post->title; ?></div>
                                     <div class="postedby"><?php echo $post->body; ?></div>

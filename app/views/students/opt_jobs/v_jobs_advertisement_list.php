@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Private courses</h1>
+                        <h1>Jobs</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -27,7 +27,7 @@
                     <?php foreach($data['posts'] as $post): ?>
                     <div class="post">
                         <?php if($post->image != null):?>
-                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/show/<?php echo $post->postId; ?>" class="card-link">
+                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/show/<?php echo $post->postId; ?>" class="card-link">
                                 <div class="post-header">
                                     <img src="<?php echo URLROOT.'/imgs/POSTS/'.$post->image; ?>" alt="">
                                 </div>
@@ -42,19 +42,19 @@
                                 <?php endif; ?>
                                 <div class="postedat"><?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
                             </div>
-                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/show/<?php echo $post->postId; ?>" class="card-link">
+                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/show/<?php echo $post->postId; ?>" class="card-link">
                                 <div class="post-body">
                                     <div class="title"><?php echo $post->title; ?></div>
                                     <div class="postedby"><?php echo $post->body; ?></div>
                                     <!-- PROGRESS BAR CURRENTLY NOT ACTIVE - LATER ON CAN USE FOR JOB APPLICATIONS -->
-                                    <!-- <div class="progress">
+                                    <div class="progress">
                                         <progress class="applied-bar" value="50" max="100"></progress>
                                         <div class="text">
                                             <div class="applied">50 applied</div>
                                             <div class="capacity">of 100 capacity</div>
                                         </div>
-                                    </div>                             -->
-                                    <!-- <div class="price">View more</div> -->
+                                    </div>                            
+                                    <div class="price">View more</div>
                                     <div class="stats">
                                         <div class="ups"><img src="<?php echo URLROOT.'/imgs/components/posts/up-icon.png'; ?>" alt=""></div>
                                         <div class="ups-count" id="like-count"><?php echo $post->ups; ?></div>
