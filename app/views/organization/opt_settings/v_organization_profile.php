@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="occupation"><?php echo $data['user']->actor_type; ?> | <?php echo $data['type'].' '.$data['user']->specialized_actor_type;?> </div>
                                 <div class="institute">
-                                    <?php echo $data['name']; ?>
+                                    <?php echo $data['uniname']; ?>
                                 </div>
                                 <hr>
                                 <div class="profile-stats">
@@ -138,7 +138,7 @@
                                     </div>
                                     <div class="description">
                                         <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/organization/description-icon.png'; ?>" alt="">Description</div>
-                                        <div class="text"><?php echo $data['description'];?></div>    
+                                        <div class="text"><?php echo $data['descrip'];?></div>    
                                     </div>
                                 </div>
                                 <hr>
@@ -147,7 +147,7 @@
                         <!-- company details -->
                         <?php if($data['user']->specialized_actor_type == 'Company' ): ?>
                                 <div class="division">
-                                    <div class="division-name">University details</div>
+                                    <div class="division-name">Company details</div>
                                     <?php if($data['user']->id == $_SESSION['user_id']): ?>
                                     <div class="editable">
                                         <a href="<?php echo URLROOT; ?>/C_O_Settings/editSettingsUniversity"><button class="btn1-small">Edit</button></a>
