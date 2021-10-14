@@ -25,18 +25,6 @@
             return $results;
         }
 
-        public function getPostsReviewsAndRates() {
-            $this->db->query("SELECT COUNT(review.review_id) AS review_count,
-                                IFNULL(sum(review.rate), 0) AS rate_count
-                                FROM posts LEFT JOIN review
-                                ON posts.id = review.post_id
-                                GROUP BY posts.id
-                                ORDER BY posts.created_at DESC");
-            $results = $this->db->resultSet();
-
-            return $results;
-        }
-
         public function addPost($data) {
             $this->db->query('INSERT INTO posts(image, title, user_id, body, ups, downs, shares, views) VALUES(:image, :title, :user_id, :body, :ups, :downs, :shares, :views)');
             // bind values
@@ -92,6 +80,22 @@
 
             // Execute
             if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        public function isPostExist($postId) {
+            $this->db->query('SELECT * FROM posts WHERE id = :post_id');
+            $this->db->bind(":post_id", $postId);
+
+            $results = $this->db->single();
+
+            $results = $this->db->rowCount();
+
+            if($results > 0) {
                 return true;
             }
             else {
@@ -250,45 +254,5 @@
                 return false;
             }
         }   
-
-
-        // review
-        public function getTotalReviewsForAPostById($id) {
-            $this->db->query('SELECT * FROM review WHERE post_id = :id');
-            $this->db->bind(':id', $id);
-
-            $results = $this->db->single();
-
-            $results = $this->db->rowCount();
-
-            return $results;
-        }
-
-        public function getRateAmountsForAPostById($id, $requiredRate) {
-            $this->db->query('SELECT * FROM review WHERE post_id = :id AND rate = :rate');
-            $this->db->bind(':id', $id);
-            $this->db->bind(':rate', $requiredRate);
-
-            $results = $this->db->single();
-
-            $results = $this->db->rowCount();
-
-            return $results;
-        }
-
-        public function deleteReview($id) {
-            $this->db->query('DELETE FROM review WHERE post_id = :id');
-            // bind values
-            
-            $this->db->bind(":id", $id);
-
-            // Execute
-            if($this->db->execute()) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
     }
 ?>

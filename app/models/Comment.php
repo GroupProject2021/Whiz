@@ -51,6 +51,23 @@
             }
         }
 
+         // Find user by email
+         public function isCommentExist($id) {
+            $this->db->query('SELECT * FROM comments WHERE post_id = :id'); // this is a prepared statement
+            // bind value
+            $this->db->bind(":id", $id);
+
+            $row = $this->db->single();
+
+            // Check row - return true if email exists. Because then rowCount is not 0
+            if($this->db->rowCount() > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
         public function getUserDetails($id) {
             $this->db->query('SELECT * FROM users WHERE id = :id');
             $this->db->bind(':id', $id);

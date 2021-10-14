@@ -18,6 +18,18 @@
             <span>University options</span>
         </div>
         <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/index">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/courses-icon.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        course posts
+                    </div>
+                </button>
+            </a>
+        </div>
+        <div class="sidebar-item">
             <a href="<?php echo URLROOT; ?>/C_O_U_Courses/courses">
                 <button>
                     <div class="sidebar-item-icon">
@@ -46,6 +58,18 @@
         <!-- Company options -->
         <div class="menu-head">
             <span>Company options</span>
+        </div>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/index">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/courses-icon.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        course posts
+                    </div>
+                </button>
+            </a>
         </div>
         <div class="sidebar-item">
             <a href="<?php echo URLROOT; ?>/C_O_C_Jobs/jobs">

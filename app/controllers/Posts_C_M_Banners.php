@@ -6,20 +6,23 @@
             }
 
             $this->postModel = $this->model('Post');
+            $this->commentModel = $this->model('Comment');            
+            $this->reviewModel = $this->model('Review');
+
             $this->commonModel = $this->model('Common');            
         }        
 
         public function index() {
             // Get posts
             $posts = $this->postModel->getPosts();
-            $postsReviewssAndRates = $this->postModel->getPostsReviewsAndRates();
+            $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
 
             $data = [
                 'posts' => $posts,
                 'reviews_rates' => $postsReviewssAndRates
             ];
 
-            $this->view('students/opt_proGuiders/v_proGuiders_banner_list', $data);
+            $this->view('posts/index', $data);
         }
 
 
@@ -128,7 +131,8 @@
                 else {
                     // upload unsuccessfull
                     // $data['profile_image_err'] = 'Profile picture uploading unsuccessful';
-                    die('uns');
+                    // die('uns');
+                    $data['image_name'] = NULL;
                 }
 
                 // Validate title
@@ -181,6 +185,12 @@
         }
 
         public function show($id) {
+            // if post not exist
+            if(!($this->postModel->isPostExist($id))) {
+                $this->index();
+                return;
+            }
+
             $_SESSION['current_viewing_post_id'] = $id;
 
             $post = $this->postModel->getPostById($id);
@@ -199,13 +209,13 @@
             }
 
 
-            $totalReviews = $this->postModel->getTotalReviewsForAPostById($id);
+            $totalReviews = $this->reviewModel->getTotalReviewsForAPostById($id);
 
-            $rateHaving1 = $this->postModel->getRateAmountsForAPostById($id, 1);
-            $rateHaving2 = $this->postModel->getRateAmountsForAPostById($id, 2);
-            $rateHaving3 = $this->postModel->getRateAmountsForAPostById($id, 3);
-            $rateHaving4 = $this->postModel->getRateAmountsForAPostById($id, 4);
-            $rateHaving5 = $this->postModel->getRateAmountsForAPostById($id, 5);
+            $rateHaving1 = $this->reviewModel->getRateAmountsForAPostById($id, 1);
+            $rateHaving2 = $this->reviewModel->getRateAmountsForAPostById($id, 2);
+            $rateHaving3 = $this->reviewModel->getRateAmountsForAPostById($id, 3);
+            $rateHaving4 = $this->reviewModel->getRateAmountsForAPostById($id, 4);
+            $rateHaving5 = $this->reviewModel->getRateAmountsForAPostById($id, 5);
 
             if($totalReviews) {
                 $rate1Precentage = ($rateHaving1/$totalReviews) * 100;
@@ -245,7 +255,7 @@
                 'avg_rate' => $avgRate
             ];
 
-            $this->view('students/opt_proGuiders/v_proGuiders_banner_viewMore', $data);
+            $this->view('posts/show', $data);
 
             
         }
@@ -260,8 +270,8 @@
                     redirect('posts');
                 }
 
-                $res1 = $this->postModel->deleteComment($id);
-                $res2 = $this->postModel->deleteReview($id);
+                $res1 = $this->commentModel->deleteComment($id);
+                $res2 = $this->reviewModel->deleteReview($id);
                 $res3 = $this->postModel->deleteInteraction($id);
                 $res4 = $this->postModel->deletePost($id);
 

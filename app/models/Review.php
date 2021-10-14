@@ -6,6 +6,18 @@
             $this->db = new Database;
         }
 
+        public function getPostsReviewsAndRates() {
+            $this->db->query("SELECT COUNT(review.review_id) AS review_count,
+                                IFNULL(sum(review.rate), 0) AS rate_count
+                                FROM posts LEFT JOIN review
+                                ON posts.id = review.post_id
+                                GROUP BY posts.id
+                                ORDER BY posts.created_at DESC");
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
         public function getReviews($id) {
             $this->db->query("SELECT *
                                 FROM review
@@ -74,6 +86,29 @@
             else {
                 return false;
             }
+        }
+
+        public function getTotalReviewsForAPostById($id) {
+            $this->db->query('SELECT * FROM review WHERE post_id = :id');
+            $this->db->bind(':id', $id);
+
+            $results = $this->db->single();
+
+            $results = $this->db->rowCount();
+
+            return $results;
+        }
+
+        public function getRateAmountsForAPostById($id, $requiredRate) {
+            $this->db->query('SELECT * FROM review WHERE post_id = :id AND rate = :rate');
+            $this->db->bind(':id', $id);
+            $this->db->bind(':rate', $requiredRate);
+
+            $results = $this->db->single();
+
+            $results = $this->db->rowCount();
+
+            return $results;
         }
     }
 ?>
