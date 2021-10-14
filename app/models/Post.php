@@ -26,7 +26,7 @@
         }
 
         public function addPost($data) {
-            $this->db->query('INSERT INTO posts(image, title, user_id, body, ups, downs, shares, views) VALUES(:image, :title, :user_id, :body, :ups, :downs, :shares, :views)');
+            $this->db->query('INSERT INTO posts(image, title, user_id, body, ups, downs, shares, views, type, applied, capacity) VALUES(:image, :title, :user_id, :body, :ups, :downs, :shares, :views, :type, :applied, :capacity)');
             // bind values
             $this->db->bind(":image", $data['image_name']);
             $this->db->bind(":title", $data['title']);
@@ -36,6 +36,25 @@
             $this->db->bind(":downs", $data['downs']);
             $this->db->bind(":shares", $data['shares']);
             $this->db->bind(":views", $data['views']);
+            $this->db->bind(":type", $data['type']);
+            $this->db->bind(":applied", $data['applied']);
+            $this->db->bind(":capacity", $data['capacity']);
+
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        public function addAdvertisement($data) {
+            $this->db->query('INSERT INTO advertisements(ad_id, ad_applied, ad_capacity) VALUES(:id, :applied, :capacity)');
+            // bind values
+            $this->db->bind(":id", $data['image_name']);
+            $this->db->bind(":applied", $data['title']);
+            $this->db->bind(":capacity", $data['user_id']);
 
             // Execute
             if($this->db->execute()) {

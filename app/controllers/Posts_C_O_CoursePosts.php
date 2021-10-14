@@ -32,13 +32,16 @@
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 
                 $data = [
+                    'type' => 'coursepost',
                     'image' => $_FILES['image'],
                     'image_name' => time().'_'.$_FILES['image']['name'],
                     'title' => trim($_POST['title']),
                     'body' => trim($_POST['body']),
+                    'applied' => 0,
+                    'capacity' => 0,
                     'user_id' => $_SESSION['user_id'],
-                    'title_err' => '',
-                    'body_err' => '',
+                    'title_err' => 0,
+                    'body_err' => 0,
                     
                     'ups' => 0,
                     'downs' => 0,
@@ -90,11 +93,14 @@
             }
             else {
                 $data = [
+                    'type' => '',
                     'image' => '',
                     'image_name' => '',
                     'id' => '',
                     'title' => '',
                     'body' => '',
+                    'applied' => '',
+                    'capacity' => '',
                     'ups' => '',
                     'downs' => '',
                     'shares' => '',

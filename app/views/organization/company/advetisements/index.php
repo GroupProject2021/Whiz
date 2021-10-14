@@ -29,6 +29,7 @@
                         <br>
                     
                     <?php foreach($data['posts'] as $post): ?>
+                    <?php if($post->type == "advertisement"): ?>
                     <div class="post">
                         <?php if($post->image != null):?>
                             <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/show/<?php echo $post->postId; ?>" class="card-link">
@@ -86,6 +87,7 @@
                             </a>
                         </div>
                         <br>
+                        <?php endif; ?>
                         <?php endforeach; ?>
 
                     </div>

@@ -25,6 +25,7 @@
                     <div class="middle-panel-single">
                     
                     <?php foreach($data['posts'] as $post): ?>
+                    <?php if($post->type == "poster"): ?>
                     <div class="post">
                         <?php if($post->image != null):?>
                             <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/show/<?php echo $post->postId; ?>" class="card-link">
@@ -82,6 +83,7 @@
                             </a>
                         </div>
                         <br>
+                        <?php endif; ?>
                         <?php endforeach; ?>
 
                     </div>

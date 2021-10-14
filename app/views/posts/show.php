@@ -40,6 +40,8 @@
                                     <?php if($data['user']->status == 'verified'): ?>
                                     <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
                                     <?php endif; ?>
+                                    <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
+                                    <!-- edit delete options -->
                                     <?php if($data['post']->user_id == $_SESSION['user_id']): ?>    
                                         <div class="post-control-buttons">                                        
                                             <a href="<?php echo URLROOT?>/posts/edit/<?php echo $data['post']->id;?>">
@@ -50,7 +52,6 @@
                                             </form>
                                         </div>
                                      <?php endif; ?>
-                                <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
                                 </div>
                                 <div class="post-body">
                                     <div class="title"><?php echo $data['post']->title; ?></div>
