@@ -84,7 +84,7 @@
         </div>
 
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/complaint">
+            <a href="<?php echo URLROOT; ?>/C_M_Complaints/complaint">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/mentorSideBar/complaint-icon.png">

@@ -47,13 +47,8 @@
                             
                             <?php for($test = 0; $test < 10; $test++): ?>
                                 <tr>
-                                <!-- <td class="gov-course-index"><?php echo $post->id; ?></td> -->
-                                <!-- <td class="gov-course-name"><?php echo $post->title; ?></td> -->
-                                <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/imgs/enrol.jpg'?>" alt=""></td>
-                                <!-- <td class="gov-course-uniname">UCSC</td> -->
-                                <!-- <td class="gov-course-duration">4 Years</td> -->
+                                    <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/imgs/enrol.jpg'?>" alt=""></td>
                                     <td class="gov-course-name">Pabasara </td>
-                                    <!-- <td class="gov-course-intake">200</td> -->
                                     <td class="gov-course-intake">2021-10-02 09.52.03</td>
                                 </tr>
                                 <tr><td colspan="4"><hr></td></tr>
