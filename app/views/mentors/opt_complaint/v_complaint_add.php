@@ -57,7 +57,7 @@
                 </div>
             </main>
         </div>
-        <script>
+        <!-- <script>
             const addImageBtn = document.getElementById("addImageBtn");
             const removeImageBtn = document.getElementById("removeImageBtn");
             const imageplaceholder = document.getElementById("image_placeholder");
@@ -112,4 +112,4 @@
                 }
             }
         </script>
-<?php require APPROOT.'/views/inc/footer.php'; ?>
+<?php require APPROOT.'/views/inc/footer.php'; ?> -->
