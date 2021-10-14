@@ -4,7 +4,7 @@ class C_M_Enrolment_List extends Controller{
 
     public function __construct() {
         $this->enrolmentListModel = $this->model('M_M_Enrolment_List');
-        $this->mentorDashboardModel = $this->model('Mentor_dashboard');
+        $this->mentorDashboardModel = $this->model('Post');
     }
 
     public function index() {

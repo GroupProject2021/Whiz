@@ -53,7 +53,7 @@
                                 <!-- <td class="gov-course-uniname">UCSC</td> -->
                                 <!-- <td class="gov-course-duration">4 Years</td> -->
                                 <td class="gov-course-intake">200</td>
-                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_M_Enrolment_List/enrolStudentList/'.$post->id;?>"><button class="btn3">View more</button></a></td>
+                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_M_Enrolment_List/enrolStudentList/'.$post->postId;?>"><button class="btn3">View more</button></a></td>
                                 </tr>
                                 <tr><td colspan="4"><hr></td></tr>
                                 <?php endif; ?>
