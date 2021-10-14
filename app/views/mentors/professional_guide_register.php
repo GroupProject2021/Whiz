@@ -61,9 +61,9 @@
                 <p class="form-bold">Gender</p>
                 <select name="gender" id="gender" class="form-select">
                     <option value="Male">Male</option>
-                    <option value="Male">Female</option>
-                    <option value="Male">Other</option>
-                    <option value="Male">Not perfer to say</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                    <option value="Not perfer to say">Not perfer to say</option>
                 </select>
                 <!-- <input type="text" placeholder="Enter gender" name="gender" id="gender" value="<?php echo $data['gender']; ?>"> -->
                 <span class="form-invalid"><?php echo $data['gender_err']; ?></span><br>

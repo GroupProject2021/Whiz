@@ -30,13 +30,13 @@
                         <form action="<?php echo URLROOT; ?>/Posts_C_M_Posters/edit/<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
                             <div class="post-creator">
                                 <div class="post-creator-image" id="post-creator-image">
-                                    <img src="<?php if($data['image_name'] != null){ echo URLROOT.'/imgs/POSTS/'.$data['image_name'];}else{ echo '';} ?>" alt="" id="image_placeholder" style="display: none;">
+                                    <img src="<?php if($data['image_name'] != null){ echo URLROOT.'/imgs/posts/posters/'.$data['image_name'];}else{ echo '';} ?>" alt="" id="image_placeholder" style="display: none;">
                                 </div>
                                 <div class="post-creator-title">
                                     <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
                                     <div class="image-select"><img src="<?php echo URLROOT.'/imgs/components/posts/add-image-icon.png'; ?>" alt="" id="addImageBtn" onclick="toggleBrowse()"></div>
                                     <div class="image-select"><img src="<?php echo URLROOT.'/imgs/components/posts/remove-image-icon.png'; ?>" alt="" id="removeImageBtn" onclick="removeImage()" style="display: none;"></div>
-                                    <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
+                                    <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: block;" value="<?php if($data['image_name'] != null){ echo URLROOT.'/imgs/posts/posters/'.$data['image_name'];}else{ echo '';} ?>">
                                 </div>
                                 <hr>
                                 <div class="post-creator-content">

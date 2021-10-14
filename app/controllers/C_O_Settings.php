@@ -537,7 +537,7 @@ class C_O_Settings extends Controller {
                     // flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
                     $this->updateUserSessions($_SESSION['user_id']);
                     
-                    redirect('C_S_Settings/settings');
+                    redirect('C_S_Settings/settings/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');
