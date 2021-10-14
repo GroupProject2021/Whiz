@@ -45,7 +45,7 @@
                             </tr>
                             <tr><td colspan="3"><hr></td></tr>
                             <?php foreach($data['posts'] as $post): ?>
-                                <?php if($post->id == $_SESSION['user_id']): ?>
+                                <?php if($post->userId == $_SESSION['user_id']): ?>
                             <tr>
                                 <!-- <td class="gov-course-index"><?php echo $post->id; ?></td> -->
                                 <td class="gov-course-name"><?php echo $post->title; ?></td>

@@ -10,11 +10,11 @@ class C_M_Enrolment_List extends Controller{
     public function index() {
         switch($_SESSION['specialized_actor_type']) {
             case 'Professional Guider' :
-                $post = $this->mentorDashboardModel->getBanners();
+                $post = $this->mentorDashboardModel->getPosts();
                 break;
             
             case 'Teacher' :
-                $post = $this->mentorDashboardModel->getPosters();
+                $post = $this->mentorDashboardModel->getPosts();
                 break;
 
             default:
