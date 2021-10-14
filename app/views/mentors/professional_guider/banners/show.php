@@ -25,7 +25,7 @@
                     <div class="middle-panel-single">
 
 
-                    <a href="<?php echo URLROOT;?>/Posts_C_O_Advertisement/index"><button class="btn8 post-back">Back</button></a>
+                    <a href="<?php echo URLROOT;?>/Posts_C_M_Banners/index"><button class="btn8 post-back">Back</button></a>
                                                                           
                             <div class="post">
                                 <?php if($data['post']->image != null):?>
@@ -44,10 +44,10 @@
                                     <!-- edit delete options -->
                                     <?php if($data['post']->user_id == $_SESSION['user_id']): ?>    
                                         <div class="post-control-buttons">                                        
-                                            <a href="<?php echo URLROOT?>/Posts_C_O_Advertisement/edit/<?php echo $data['post']->id;?>">
+                                            <a href="<?php echo URLROOT?>/Posts_C_M_Banners/edit/<?php echo $data['post']->id;?>">
                                                 <button class="post-header-editbtn">Edit</button>
                                             </a>
-                                            <form action="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/delete/<?php echo $data['post']->id; ?>" method="post">
+                                            <form action="<?php echo URLROOT; ?>/Posts_C_M_Banners/delete/<?php echo $data['post']->id; ?>" method="post">
                                                 <input type="submit" value="Delete" class="post-header-deletebtn">
                                             </form>
                                         </div>
@@ -186,7 +186,7 @@
 
                 function incUp() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/Posts_C_O_Advertisement/incUp/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/Posts_C_M_Banners/incUp/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",
@@ -198,7 +198,7 @@
 
                 function decUp() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/Posts_C_O_Advertisement/decUp/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/Posts_C_M_Banners/decUp/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",
@@ -210,7 +210,7 @@
 
                 function incDown() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/Posts_C_O_Advertisement/incDown/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/Posts_C_M_Banners/incDown/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",
@@ -222,7 +222,7 @@
 
                 function decDown() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/Posts_C_O_Advertisement/decDown/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/Posts_C_M_Banners/decDown/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",

@@ -58,7 +58,7 @@
             <span>Professional Guider options</span>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/banner">
+            <a href="<?php echo URLROOT; ?>/Posts_C_M_Banners/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/mentorSideBar/post-icon.png">
@@ -102,7 +102,7 @@
             <span>Teacher options</span>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/poster">
+            <a href="<?php echo URLROOT; ?>/Posts_C_M_Posters/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/mentorSideBar/post-icon.png">
