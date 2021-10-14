@@ -31,6 +31,7 @@
                             <div class="post-creator">
                                 <div class="post-creator-image" id="post-creator-image">
                                     <img src="<?php if($data['image_name'] != null){ echo URLROOT.'/imgs/POSTS/'.$data['image_name'];}else{ echo '';} ?>" alt="" id="image_placeholder" style="display: none;">
+                                    <input type="text" name="isImageRemoved" id="isImageRemoved" style="display: none;">
                                 </div>
                                 <div class="post-creator-title">
                                     <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
@@ -59,6 +60,7 @@
             const addImageBtn = document.getElementById("addImageBtn");
             const removeImageBtn = document.getElementById("removeImageBtn");
             const imageplaceholder = document.getElementById("image_placeholder");
+            const isImageRemoved = document.getElementById("isImageRemoved");
 
             let inputPath = document.querySelector("#image");
 
@@ -79,6 +81,7 @@
                 addImageBtn.style.display = "block";
                 removeImageBtn.style.display = "none";
                 imageplaceholder.style.display = "none";
+                isImageRemoved.value = "removed";
 
                 imageplaceholder.setAttribute('src', '');
 
@@ -91,6 +94,7 @@
                 addImageBtn.style.display = "none";
                 removeImageBtn.style.display = "block";
                 imageplaceholder.style.display = "block";
+                isImageRemoved.value = "";
 
                 showImage();    
             });

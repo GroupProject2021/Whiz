@@ -124,21 +124,28 @@
                     'body' => trim($_POST['body']),
                     'user_id' => $_SESSION['user_id'],
                     'title_err' => '',
-                    'body_err' => ''
+                    'body_err' => '',
+                    'isImageRemoved' => $_POST['isImageRemoved']
                 ];
 
-                // validate and upload profile image
+                // validate and upload profile image                
                 $post = $this->postModel->getPostById($id);
                 $oldImage = PUBROOT.'/imgs/posts/posters/'.$post->image;
 
-                if(updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/posts/posters/')) {
-                    // flash('profile_image_upload', 'Profile picture uploaded successfully');
+                // photo intentionally removed
+                if($data['isImageRemoved'] == 'removed') {
+                    updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/posts/posters/');
+                    $data['image_name'] = NULL;
                 }
                 else {
-                    // upload unsuccessfull
-                    // $data['profile_image_err'] = 'Profile picture uploading unsuccessful';
-                    // die('uns');
-                    $data['image_name'] = NULL;
+                    if($_FILES['image']['name'] == '') {
+                        // not removed so keep the old
+                        $data['image_name'] = $post->image;
+                    }
+                    else {
+                        // updated for a new photo
+                        updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/posts/posters/');
+                    }
                 }
 
                 // Validate title

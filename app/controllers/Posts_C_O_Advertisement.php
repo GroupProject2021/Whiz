@@ -131,14 +131,20 @@
                 $post = $this->postModel->getPostById($id);
                 $oldImage = PUBROOT.'/imgs/POSTS/'.$post->image;
 
-                if(updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/posts/advertisements/')) {
-                    // flash('profile_image_upload', 'Profile picture uploaded successfully');
+                // photo intentionally removed
+                if($data['isImageRemoved'] == 'removed') {
+                    updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/posts/advertisements/');
+                    $data['image_name'] = NULL;
                 }
                 else {
-                    // upload unsuccessfull
-                    // $data['profile_image_err'] = 'Profile picture uploading unsuccessful';
-                    // die('uns');
-                    $data['image_name'] = NULL;
+                    if($_FILES['image']['name'] == '') {
+                        // not removed so keep the old
+                        $data['image_name'] = $post->image;
+                    }
+                    else {
+                        // updated for a new photo
+                        updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/posts/advertisements/');
+                    }
                 }
 
                 // Validate title

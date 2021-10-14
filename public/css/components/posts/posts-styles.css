@@ -227,6 +227,17 @@
     /* margin-left: 10px; */
 }
 
+.post-footer-commentbtn {
+    margin-left: 5px;
+}
+
+.post-footer-commentbtn:hover {
+    background-color: #b3b3b3;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: .2s all;
+}
+
 .post-footer-text {
     line-height: 40px;
     vertical-align: middle;
