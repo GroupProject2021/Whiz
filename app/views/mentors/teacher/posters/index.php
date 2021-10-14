@@ -34,7 +34,7 @@
                         <?php if($post->image != null):?>
                             <a href="<?php echo URLROOT; ?>/Posts_C_M_Posters/show/<?php echo $post->postId; ?>" class="card-link">
                                 <div class="post-header">
-                                    <img src="<?php echo URLROOT.'/imgs/POSTS/'.$post->image; ?>" alt="">
+                                    <img src="<?php echo URLROOT.'/imgs/posts/posters/'.$post->image; ?>" alt="">
                                 </div>
                             </a>
                         <?php endif; ?>

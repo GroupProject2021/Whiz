@@ -18,19 +18,19 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Teacher poster</h1>
+                        <h1>Posts</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
 
 
-                    <a href="<?php echo URLROOT;?>/C_S_Stu_To_Teacher/index"><button class="btn8 post-back">Back</button></a>
+                    <a href="<?php echo URLROOT;?>/Posts_C_O_Advertisement/index"><button class="btn8 post-back">Back</button></a>
                                                                           
                             <div class="post">
                                 <?php if($data['post']->image != null):?>
                                     <div class="post-header">
-                                        <img src="<?php echo URLROOT.'/imgs/posts/posters/'.$data['post']->image; ?>" alt="">
+                                        <img src="<?php echo URLROOT.'/imgs/posts/advertisements/'.$data['post']->image; ?>" alt="">
                                     </div>  
                                 <?php endif; ?>
                                 <div class="post-details">
@@ -40,17 +40,18 @@
                                     <?php if($data['user']->status == 'verified'): ?>
                                     <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
                                     <?php endif; ?>
+                                    <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
+                                    <!-- edit delete options -->
                                     <?php if($data['post']->user_id == $_SESSION['user_id']): ?>    
                                         <div class="post-control-buttons">                                        
-                                            <a href="<?php echo URLROOT?>/posts/edit/<?php echo $data['post']->id;?>">
+                                            <a href="<?php echo URLROOT?>/Posts_C_O_Advertisement/edit/<?php echo $data['post']->id;?>">
                                                 <button class="post-header-editbtn">Edit</button>
                                             </a>
-                                            <form action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id; ?>" method="post">
+                                            <form action="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/delete/<?php echo $data['post']->id; ?>" method="post">
                                                 <input type="submit" value="Delete" class="post-header-deletebtn">
                                             </form>
                                         </div>
                                      <?php endif; ?>
-                                <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
                                 </div>
                                 <div class="post-body">
                                     <div class="title"><?php echo $data['post']->title; ?></div>
@@ -185,7 +186,7 @@
 
                 function incUp() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/Posts_C_M_Posters/incUp/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/Posts_C_O_Advertisement/incUp/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",
@@ -197,7 +198,7 @@
 
                 function decUp() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/Posts_C_M_Posters/decUp/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/Posts_C_O_Advertisement/decUp/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",
@@ -209,7 +210,7 @@
 
                 function incDown() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/Posts_C_M_Posters/incDown/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/Posts_C_O_Advertisement/incDown/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",
@@ -221,7 +222,7 @@
 
                 function decDown() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/Posts_C_M_Posters/decDown/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/Posts_C_O_Advertisement/decDown/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",

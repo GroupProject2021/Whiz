@@ -22,7 +22,7 @@
                 'reviews_rates' => $postsReviewssAndRates
             ];
 
-            $this->view('posts/index', $data);
+            $this->view('mentors/teacher/posters/index', $data);
         }
 
 
@@ -51,7 +51,7 @@
 
                 // validate and upload profile image
                 if($data['image']['size'] > 0) {
-                    if(uploadImage($data['image']['tmp_name'], $data['image_name'], '/imgs/POSTS/')) {
+                    if(uploadImage($data['image']['tmp_name'], $data['image_name'], '/imgs/posts/posters/')) {
                         // flash('profile_image_upload', 'Profile picture uploaded successfully');
                     }
                     else {
@@ -80,7 +80,7 @@
                     // Validated
                     if($this->postModel->addPost($data)) {
                         flash('post_message', 'Post added');
-                        redirect('posts');
+                        redirect('Posts_C_M_Posters');
                     }
                     else {
                         die('Something went wrong');
@@ -88,7 +88,7 @@
                 }
                 else {
                     // Load view with errors
-                    $this->view('posts/add', $data);
+                    $this->view('mentors/teacher/posters/add', $data);
                 }
             }
             else {
@@ -108,7 +108,7 @@
                 ];
             }
 
-            $this->view('posts/add', $data);
+            $this->view('mentors/teacher/posters/add', $data);
         }
 
         public function edit($id) {
@@ -129,9 +129,9 @@
 
                 // validate and upload profile image
                 $post = $this->postModel->getPostById($id);
-                $oldImage = PUBROOT.'/imgs/POSTS/'.$post->image;
+                $oldImage = PUBROOT.'/imgs/posts/posters/'.$post->image;
 
-                if(updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/POSTS/')) {
+                if(updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/posts/posters/')) {
                     // flash('profile_image_upload', 'Profile picture uploaded successfully');
                 }
                 else {
@@ -156,7 +156,7 @@
                     // Validated
                     if($this->postModel->updatePost($data)) {
                         flash('post_message', 'Post updated');
-                        redirect('posts');
+                        redirect('Posts_C_M_Posters');
                     }
                     else {
                         die('Something went wrong');
@@ -164,7 +164,7 @@
                 }
                 else {
                     // Load view with errors
-                    $this->view('posts/edit', $data);
+                    $this->view('mentors/teacher/posters/edit', $data);
                 }
             }
             else {
@@ -173,7 +173,7 @@
 
                 // Check for owner
                 if($post->user_id != $_SESSION['user_id']) {
-                    redirect('posts');
+                    redirect('Posts_C_M_Posters');
                 }
 
                 $data = [
@@ -187,7 +187,7 @@
                 ];
             }
 
-            $this->view('posts/edit', $data);
+            $this->view('mentors/teacher/posters/edit', $data);
         }
 
         public function show($id) {
@@ -261,7 +261,7 @@
                 'avg_rate' => $avgRate
             ];
 
-            $this->view('posts/show', $data);
+            $this->view('mentors/teacher/posters/show', $data);
 
             
         }
@@ -273,7 +273,7 @@
 
                 // Check for owner
                 if($post->user_id != $_SESSION['user_id']) {
-                    redirect('posts');
+                    redirect('Posts_C_M_Posters');
                 }
 
                 $res1 = $this->commentModel->deleteComment($id);
@@ -282,19 +282,19 @@
                 $res4 = $this->postModel->deletePost($id);
 
                 // validate and upload profile image
-                $postImage = PUBROOT.'/imgs/POSTS/'.$post->image;
+                $postImage = PUBROOT.'/imgs/posts/posters/'.$post->image;
                 $res5 = deleteImage($postImage);
                 
                 if($res1 && $res2 && $res3 && $res4 && $res5) {
                     flash('post_message', 'Post Removed');
-                    redirect('posts');
+                    redirect('Posts_C_M_Posters');
                 }
                 else {
                     die('Something went wrong');
                 }
             }
             else {
-                redirect('posts');
+                redirect('Posts_C_M_Posters');
             }
         }
 

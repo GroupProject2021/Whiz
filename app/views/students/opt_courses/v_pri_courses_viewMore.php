@@ -30,7 +30,7 @@
                             <div class="post">
                                 <?php if($data['post']->image != null):?>
                                     <div class="post-header">
-                                        <img src="<?php echo URLROOT.'/imgs/POSTS/'.$data['post']->image; ?>" alt="">
+                                        <img src="<?php echo URLROOT.'/imgs/posts/courseposts/'.$data['post']->image; ?>" alt="">
                                     </div>  
                                 <?php endif; ?>
                                 <div class="post-details">
@@ -185,7 +185,7 @@
 
                 function incUp() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/posts/incUp/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/Posts_C_O_CoursePosts/incUp/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",
@@ -197,7 +197,7 @@
 
                 function decUp() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/posts/decUp/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/Posts_C_O_CoursePosts/decUp/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",
@@ -209,7 +209,7 @@
 
                 function incDown() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/posts/incDown/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/Posts_C_O_CoursePosts/incDown/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",
@@ -221,7 +221,7 @@
 
                 function decDown() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/posts/decDown/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/Posts_C_O_CoursePosts/decDown/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",

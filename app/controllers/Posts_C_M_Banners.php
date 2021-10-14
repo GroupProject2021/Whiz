@@ -51,7 +51,7 @@
 
                 // validate and upload profile image
                 if($data['image']['size'] > 0) {
-                    if(uploadImage($data['image']['tmp_name'], $data['image_name'], '/imgs/POSTS/')) {
+                    if(uploadImage($data['image']['tmp_name'], $data['image_name'], '/imgs/posts/banners/')) {
                         // flash('profile_image_upload', 'Profile picture uploaded successfully');
                     }
                     else {
@@ -129,9 +129,9 @@
 
                 // validate and upload profile image
                 $post = $this->postModel->getPostById($id);
-                $oldImage = PUBROOT.'/imgs/POSTS/'.$post->image;
+                $oldImage = PUBROOT.'/imgs/posts/banners/'.$post->image;
 
-                if(updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/POSTS/')) {
+                if(updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/posts/banners/')) {
                     // flash('profile_image_upload', 'Profile picture uploaded successfully');
                 }
                 else {
@@ -282,7 +282,7 @@
                 $res4 = $this->postModel->deletePost($id);
 
                 // validate and upload profile image
-                $postImage = PUBROOT.'/imgs/POSTS/'.$post->image;
+                $postImage = PUBROOT.'/imgs/posts/banners/'.$post->image;
                 $res5 = deleteImage($postImage);
                 
                 if($res1 && $res2 && $res3 && $res4 && $res5) {

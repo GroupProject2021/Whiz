@@ -30,7 +30,7 @@
                             <div class="post">
                                 <?php if($data['post']->image != null):?>
                                     <div class="post-header">
-                                        <img src="<?php echo URLROOT.'/imgs/POSTS/'.$data['post']->image; ?>" alt="">
+                                        <img src="<?php echo URLROOT.'/imgs/posts/banners/'.$data['post']->image; ?>" alt="">
                                     </div>  
                                 <?php endif; ?>
                                 <div class="post-details">

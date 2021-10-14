@@ -18,19 +18,23 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Private courses</h1>
+                        <h1>Posts</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
+                        <?php flash('post_message'); ?>
+
+                        <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/add"><button class="btn3">CREATE POST</button></a>
+                        <br>
                     
                     <?php foreach($data['posts'] as $post): ?>
-                    <?php if($post->type == "coursepost"): ?>
+                    <?php if($post->type == "advertisement"): ?>
                     <div class="post">
                         <?php if($post->image != null):?>
-                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/show/<?php echo $post->postId; ?>" class="card-link">
+                            <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/show/<?php echo $post->postId; ?>" class="card-link">
                                 <div class="post-header">
-                                    <img src="<?php echo URLROOT.'/imgs/posts/courseposts/'.$post->image; ?>" alt="">
+                                    <img src="<?php echo URLROOT.'/imgs/posts/advertisements/'.$post->image; ?>" alt="">
                                 </div>
                             </a>
                         <?php endif; ?>
@@ -43,7 +47,7 @@
                                 <?php endif; ?>
                                 <div class="postedat"><?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
                             </div>
-                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/show/<?php echo $post->postId; ?>" class="card-link">
+                            <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/show/<?php echo $post->postId; ?>" class="card-link">
                                 <div class="post-body">
                                     <div class="title"><?php echo $post->title; ?></div>
                                     <div class="postedby"><?php echo $post->body; ?></div>

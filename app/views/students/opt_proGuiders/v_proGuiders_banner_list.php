@@ -30,7 +30,7 @@
                         <?php if($post->image != null):?>
                             <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/show/<?php echo $post->postId; ?>" class="card-link">
                                 <div class="post-header">
-                                    <img src="<?php echo URLROOT.'/imgs/POSTS/'.$post->image; ?>" alt="">
+                                    <img src="<?php echo URLROOT.'/imgs/posts/banners/'.$post->image; ?>" alt="">
                                 </div>
                             </a>
                         <?php endif; ?>

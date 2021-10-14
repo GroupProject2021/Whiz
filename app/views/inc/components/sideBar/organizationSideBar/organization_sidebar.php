@@ -63,10 +63,10 @@
             <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/courses-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/jobs-icon.png">
                     </div>
                     <div class="sidebar-item-name">
-                        course posts
+                    advertisements
                     </div>
                 </button>
             </a>
