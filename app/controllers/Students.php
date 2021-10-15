@@ -16,7 +16,8 @@
                 $data = [
                     'profile_image' => $_FILES['profile_image'],
                     'profile_image_name' => time().'_'.$_FILES['profile_image']['name'],
-                    'name' => trim($_POST['name']),
+                    'first_name' => trim($_POST['first_name']),
+                    'last_name' => trim($_POST['last_name']),
                     'address' => trim($_POST['address']),
                     'gender' => trim($_POST['gender']),
                     'date_of_birth' => trim($_POST['date_of_birth']),
@@ -46,7 +47,7 @@
                 }
 
                 // Validate name
-                if(empty($data['name'])) {
+                if(empty($data['first_name']) || empty($data['last_name'])) {
                     $data['name_err'] = 'Please enter name';
                 }
 
@@ -153,7 +154,8 @@
                 $data = [
                     'profile_image' => '',
                     'profile_image_name' => '',
-                    'name' => '',
+                    'first_name' => '',
+                    'last_name' => '',
                     'address' => '',
                     'gender' => '',
                     'date_of_birth' => '',

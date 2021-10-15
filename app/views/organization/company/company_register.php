@@ -132,17 +132,17 @@
                 <label>Founded Year</label>
                 <span class="form-invalid"><?php echo $data['founded_year_err']; ?></span>
 
-                <!-- no. of current employees -->
-                <br>
-                <input type="text" placeholder=" " name="cur_emp" id="cur_emp" value="<?php echo $data['cur_emp']; ?>">
-                <label>No. of Current Employees</label>
-                <span class="form-invalid"><?php echo $data['cur_emp_err']; ?></span>
-
                 <!-- company size -->
                 <br>
                 <input type="text" placeholder=" " name="emp_size" id="emp_size" value="<?php echo $data['emp_size']; ?>">
                 <label>Comapny Size</label>
-                <span class="form-invalid"><?php echo $data['emp_size_err']; ?></span><br>
+                <span class="form-invalid"><?php echo $data['emp_size_err']; ?></span>
+
+                <!-- no. of current employees -->
+                <br>
+                <input type="text" placeholder=" " name="cur_emp" id="cur_emp" value="<?php echo $data['cur_emp']; ?>">
+                <label>No. of Current Employees</label>
+                <span class="form-invalid"><?php echo $data['cur_emp_err']; ?></span><br>
 
                 <!-- registered company? -->
                 <p class="form-bold">Registered Company?</p><br>

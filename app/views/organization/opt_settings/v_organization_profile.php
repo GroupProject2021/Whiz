@@ -50,15 +50,12 @@
                             </div>
                             <div class="details">
                                 <div class="name">
-                                    <?php echo $data['user']->name;?>
+                                    <?php echo $data['user']->first_name;?>
                                     <?php if($data['user']->status == 'verified'): ?>
                                         <img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt="">
                                     <?php endif; ?>
                                 </div>
-                                <div class="occupation"><?php echo $data['user']->actor_type; ?> | <?php echo $data['type'].' '.$data['user']->specialized_actor_type;?> </div>
-                                <div class="institute">
-                                    <?php echo $data['uniname']; ?>
-                                </div>
+                                <div class="occupation"><?php echo $data['user']->actor_type; ?> | <?php echo $data['user']->specialized_actor_type;?> </div>
                                 <hr>
                                 <div class="profile-stats">
                                     <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$data['user']->id; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
@@ -150,7 +147,7 @@
                                     <div class="division-name">Company details</div>
                                     <?php if($data['user']->id == $_SESSION['user_id']): ?>
                                     <div class="editable">
-                                        <a href="<?php echo URLROOT; ?>/C_O_Settings/editSettingsUniversity"><button class="btn1-small">Edit</button></a>
+                                        <a href="<?php echo URLROOT; ?>/C_O_Settings/editSettingsCompany"><button class="btn1-small">Edit</button></a>
                                     </div>
                                     <?php endif; ?>
                                 </div>

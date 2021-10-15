@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>G.C.E(A/L) details</h1>
+                        <h1>G.C.E(A/L) details > Edit</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

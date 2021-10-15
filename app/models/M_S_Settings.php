@@ -9,7 +9,7 @@ class M_S_Settings {
 
     // get student details
     public function getStudentDetails($id) {
-        $this->db->query('SELECT * FROM student WHERE stu_id = :id');
+        $this->db->query('SELECT * FROM student INNER JOIN users ON users.id = student.stu_id WHERE stu_id = :id');
         // bind values
         $this->db->bind(':id', $id);
 
@@ -96,20 +96,29 @@ class M_S_Settings {
 
     // update settings for beginnner
     public function updateStudentSettings($id, $data) {
-        $this->db->query('UPDATE student SET name = :name, address = :address, gender = :gender,
+        $this->db->query('UPDATE users SET first_name = :first_name, last_name = :last_name
+                             WHERE id = :id');
+        // bind values                
+        $this->db->bind(":first_name", $data['first_name']);
+        $this->db->bind(":last_name", $data['last_name']);
+        $this->db->bind(":id", $id);
+
+        $res1 = $this->db->execute();
+
+        $this->db->query('UPDATE student SET address = :address, gender = :gender,
                             date_of_birth = :date_of_birth, phn_no = :phn_no
                              WHERE stu_id = :id');
         // bind values
-        
-        $this->db->bind(":name", $data['name']);
         $this->db->bind(":address", $data['address']);
         $this->db->bind(":gender", $data['gender']);
         $this->db->bind(":date_of_birth", $data['date_of_birth']);
         $this->db->bind(":phn_no", $data['phn_no']);
         $this->db->bind(":id", $id);
 
+        $res2 = $this->db->execute();
+
         // Execute
-        if($this->db->execute()) {
+        if($res1 && $res2) {
             return true;
         }
         else {

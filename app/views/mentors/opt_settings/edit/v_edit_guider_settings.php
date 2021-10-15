@@ -35,8 +35,13 @@
                             <div class="table-section">
                             <table class="settings-table">
                                 <tr>
-                                    <th class="A">Name</th>
-                                    <td class="B"><p><input type="text" name="name" id="name" value="<?php echo $data['name'];?>"></p></td>
+                                    <th class="A">First name</th>
+                                    <td class="B"><p><input type="text" name="first_name" id="first_name" value="<?php echo $data['first_name'];?>"></p></td>
+                                    <td class="C"><span class="form-invalid"><?php echo $data['name_err']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th class="A">Last name</th>
+                                    <td class="B"><p><input type="text" name="last_name" id="last_name" value="<?php echo $data['last_name'];?>"></p></td>
                                     <td class="C"><span class="form-invalid"><?php echo $data['name_err']; ?></td>
                                 </tr>
                                 <tr>

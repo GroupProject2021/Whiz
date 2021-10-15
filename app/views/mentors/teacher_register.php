@@ -22,8 +22,21 @@
 
                 <!-- name -->
                 <br>
-                <input type="text" placeholder=" " name="name" id="name" value="<?php echo $data['name']; ?>">
-                <label>Name</label>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder=" " name="first_name" id="first_name" value="<?php echo $data['first_name']; ?>">
+                            <label>First name</label>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <input type="text" placeholder=" " name="last_name" id="last_name" value="<?php echo $data['last_name']; ?>">
+                            <label>Last name</label>
+                        </td>
+                    </tr>
+                </table>
                 <span class="form-invalid"><?php echo $data['name_err']; ?></span><br>
                 
                 <!-- email -->

@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Higher Education details</h1>
+                        <h1>Higher Education details > Edit</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

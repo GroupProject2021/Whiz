@@ -35,7 +35,6 @@ class C_O_Settings extends Controller {
                     'followerCount' => $followerCount,                    
                     'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
-                    'uniname' => $organizationData->org_name,
                     'address' => $organizationData->address,
                     'email' => $organizationData->email,
                     //'password' => $organizationData->password,
@@ -64,7 +63,6 @@ class C_O_Settings extends Controller {
                     'followerCount' => $followerCount,                    
                     'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
-                    'comname' => $organizationData->name,
                     'address' => $organizationData->address,
                     'email' => $organizationData->email,
                     //'password' => $organizationData->password,
@@ -138,47 +136,6 @@ class C_O_Settings extends Controller {
                 $data['address_err'] = 'Please enter address';
             }
 
-            /*// Validate email
-            if(empty($data['email'])) {
-                $data['email_err'] = 'Please enter email';
-            }
-            else if (!str_contains($data['email'],'@')){
-                $data['email_err'] = 'Enter valid email'; 
-            }
-            // Check email
-            else if($this->commonModel->findUserByEmail($data['email'])) {
-                $data['email_err'] = 'Email is already taken'; 
-            }
-
-            // Validata password
-            if(empty($data['password'])) {
-                $data['password_err'] = 'Please enter password';
-            }
-            else if(strlen($data['password']) < 8) {
-                $data['password_err'] = 'Password must be having at least 8 characters';
-            }
-            else {
-                if(!preg_match('@[0-9]@', $data['password'])) {
-                    $data['password_err'] = 'Please must be having at least one number';
-                }
-
-                if(!preg_match('@[A-Z]@', $data['password'])) {
-                    $data['password_err'] = 'Password must be having at least one uppercase letter';
-                }
-                
-                if(!preg_match('@[^\w]@', $data['password'])) {
-                    $data['password_err'] = 'Password must be having at least 1 special character';
-                }
-            }
-
-            // Validata confirm password
-            if(empty($data['confirm_password'])) {
-                $data['confirm_password_err'] = 'Please confirm password';
-            }
-            else if($data['password'] != $data['confirm_password']) {
-                $data['confirm_password_err'] = 'Passwords do not match';
-            }*/
-
             // Validate phone number
             if(empty($data['phn_no'])) {
                 $data['phn_no_err'] = 'Please enter phone number';
@@ -226,7 +183,7 @@ class C_O_Settings extends Controller {
 
             // Validate type
             if(empty($data['type'])) {
-                $data['type_err'] = 'Please select company type';
+                $data['type_err'] = 'Please select university type';
             }
 
             // Make sure errors are empty
@@ -238,7 +195,8 @@ class C_O_Settings extends Controller {
                 if($this->settingsModel->updateUniversitySettings($_SESSION['user_id'], $data)) {
                     flash('settings_message', 'University data updated');
                     $this->updateUserSessions($_SESSION['user_id']);
-                    redirect('C_O_Settings/settings');
+
+                    redirect('C_O_Settings/settings/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');
@@ -246,7 +204,7 @@ class C_O_Settings extends Controller {
             }
             else {
                 // Load view with errors
-                $this->view('organization/opt_settings/v_edit_org_settings', $data);
+                $this->view('organization/opt_settings/edit/v_edit_university_settings', $data);
             }
         }
         else {
@@ -256,7 +214,7 @@ class C_O_Settings extends Controller {
             $uniData = $this->settingsModel->getUniversityDetails($id);
 
             $data = [
-                'uniname' => $orgData->org_name,
+                'uniname' => $orgData->first_name,
                 'address' => $orgData->address,
                 //'email' => trim($_POST['email']),
                 //'password' => trim($_POST['password']),
@@ -291,7 +249,7 @@ class C_O_Settings extends Controller {
             ];
         }
 
-        $this->view('organization/opt_settings/v_edit_org_settings', $data);
+        $this->view('organization/opt_settings/edit/v_edit_university_settings', $data);
     }
 
     public function editSettingsCompany() {
@@ -341,47 +299,6 @@ class C_O_Settings extends Controller {
             if(empty($data['address'])) {
                 $data['address_err'] = 'Please enter address';
             }
-
-            /*// Validate email
-            if(empty($data['email'])) {
-                $data['email_err'] = 'Please enter email';
-            }
-            else if (!str_contains($data['email'],'@')){
-                $data['email_err'] = 'Enter valid email'; 
-            }
-            // Check email
-            else if($this->commonModel->findUserByEmail($data['email'])) {
-                $data['email_err'] = 'Email is already taken'; 
-            }
-
-            // Validata password
-            if(empty($data['password'])) {
-                $data['password_err'] = 'Please enter password';
-            }
-            else if(strlen($data['password']) < 8) {
-                $data['password_err'] = 'Password must be having at least 8 characters';
-            }
-            else {
-                if(!preg_match('@[0-9]@', $data['password'])) {
-                    $data['password_err'] = 'Please must be having at least one number';
-                }
-
-                if(!preg_match('@[A-Z]@', $data['password'])) {
-                    $data['password_err'] = 'Password must be having at least one uppercase letter';
-                }
-                
-                if(!preg_match('@[^\w]@', $data['password'])) {
-                    $data['password_err'] = 'Password must be having at least 1 special character';
-                }
-            }
-
-            // Validata confirm password
-            if(empty($data['confirm_password'])) {
-                $data['confirm_password_err'] = 'Please confirm password';
-            }
-            else if($data['password'] != $data['confirm_password']) {
-                $data['confirm_password_err'] = 'Passwords do not match';
-            }*/
 
             // Validate phone number
             if(empty($data['phn_no'])) {
@@ -443,7 +360,8 @@ class C_O_Settings extends Controller {
                 if($this->settingsModel->updateCompanySettings($_SESSION['user_id'], $data)) {
                     flash('settings_message', 'Company data updated');
                     $this->updateUserSessions($_SESSION['user_id']);
-                    redirect('C_O_Settings/settings');
+
+                    redirect('C_O_Settings/settings/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');
@@ -451,7 +369,7 @@ class C_O_Settings extends Controller {
             }
             else {
                 // Load view with errors
-                $this->view('organization/opt_settings/v_edit_org_settings', $data);
+                $this->view('organization/opt_settings/edit/v_edit_company_settings', $data);
             }
         }
         else {
@@ -461,7 +379,7 @@ class C_O_Settings extends Controller {
             $comData = $this->settingsModel->getCompanyDetails($id);
 
             $data = [
-                'comname' => $orgData->org_name,
+                'comname' => $orgData->first_name,
                 'address' => $orgData->address,
                 //'email' => trim($_POST['email']),
                 //'password' => trim($_POST['password']),
@@ -494,7 +412,7 @@ class C_O_Settings extends Controller {
             ];
         }
 
-        $this->view('organization/opt_settings/v_edit_org_settings', $data);
+        $this->view('organization/opt_settings/edit/v_edit_company_settings', $data);
     }
 
     public function editProfilePic() {
@@ -570,7 +488,7 @@ class C_O_Settings extends Controller {
         // taken from the database
         $_SESSION['user_id'] = $user->id;
         $_SESSION['user_profile_image'] = $user->profile_image;
-        $_SESSION['user_name'] = $user->name;
+        $_SESSION['user_name'] = $user->first_name;
         $_SESSION['user_email'] = $user->email;
         $_SESSION['actor_type'] = $user->actor_type;
         $_SESSION['specialized_actor_type'] = $user->specialized_actor_type;

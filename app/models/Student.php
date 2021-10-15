@@ -9,10 +9,11 @@
         // Register as a user
         public function registerAsAUser($data) {
             // register as a user    
-            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
+            $this->db->query('INSERT INTO users(profile_image, first_name, last_name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :first_name, :last_name, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
-            $this->db->bind(':name', $data['name']);
+            $this->db->bind(':first_name', $data['first_name']);
+            $this->db->bind(':last_name', $data['last_name']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
             $this->db->bind(':actor_type', 'Student');
@@ -31,10 +32,9 @@
 
         public function registerAsAStudent($id, $data) {
             // register as a student
-            $this->db->query('INSERT INTO student(stu_id, name, address, gender, date_of_birth, email, phn_no) VALUES(:stu_id, :name, :address, :gender, :date_of_birth, :email, :phn_no)');
+            $this->db->query('INSERT INTO student(stu_id, address, gender, date_of_birth, email, phn_no) VALUES(:stu_id, :address, :gender, :date_of_birth, :email, :phn_no)');
             // bind values
             $this->db->bind(":stu_id", $id);
-            $this->db->bind(":name", $data['name']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":gender", $data['gender']);
             $this->db->bind(":date_of_birth", $data['date_of_birth']);

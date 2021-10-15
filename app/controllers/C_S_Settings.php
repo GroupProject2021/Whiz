@@ -32,7 +32,8 @@ class C_S_Settings extends Controller {
                     'followerCount' => $followerCount,                    
                     'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
-                    'name' => $studentData->name,
+                    'first_name' => $studentData->first_name,
+                    'last_name' => $studentData->last_name,
                     'email' => $studentData->email,
                     // 'password' => $studentData->password,
                     'gender' => $studentData->gender,
@@ -53,7 +54,8 @@ class C_S_Settings extends Controller {
                     'followerCount' => $followerCount,            
                     'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
-                    'name' => $studentData->name,
+                    'first_name' => $studentData->first_name,
+                    'last_name' => $studentData->last_name,
                     'email' => $studentData->email,
                     // 'password' => $studentData->password,
                     'gender' => $studentData->gender,
@@ -97,7 +99,8 @@ class C_S_Settings extends Controller {
                     'followerCount' => $followerCount,            
                     'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
-                    'name' => $studentData->name,
+                    'first_name' => $studentData->first_name,
+                    'last_name' => $studentData->last_name,
                     'email' => $studentData->email,
                     // 'password' => $studentData->password,
                     'gender' => $studentData->gender,
@@ -156,7 +159,8 @@ class C_S_Settings extends Controller {
                     'followerCount' => $followerCount,        
                     'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
-                    'name' => $studentData->name,
+                    'first_name' => $studentData->first_name,
+                    'last_name' => $studentData->last_name,
                     'email' => $studentData->email,
                     // 'password' => $studentData->password,
                     'gender' => $studentData->gender,
@@ -228,7 +232,8 @@ class C_S_Settings extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             
             $data = [
-                'name' => trim($_POST['name']),
+                'first_name' => trim($_POST['first_name']),
+                'last_name' => trim($_POST['last_name']),
                 'gender' => trim($_POST['gender']),
                 'date_of_birth' => trim($_POST['date_of_birth']),
                 'address' => trim($_POST['address']),
@@ -242,7 +247,7 @@ class C_S_Settings extends Controller {
             ];
 
             // Validate name
-            if(empty($data['name'])) {
+            if(empty($data['first_name']) || empty($data['last_name'])) {
                 $data['name_err'] = 'Please enter name';
             }
 
@@ -273,6 +278,8 @@ class C_S_Settings extends Controller {
                 $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
                 if($this->settingsModel->updateStudentSettings($id, $data)) {
                     flash('settings_message', 'Student data updated');
+                    $this->updateUserSessions($_SESSION['user_id']);
+                    
                     redirect('C_S_Settings/settings/'.$_SESSION['user_id']);
                 }
                 else {
@@ -290,7 +297,8 @@ class C_S_Settings extends Controller {
             $studentData = $this->settingsModel->getStudentDetails($id);
 
             $data = [
-                'name' => $studentData->name,
+                'first_name' => $studentData->first_name,                
+                'last_name' => $studentData->last_name,
                 'gender' => $studentData->gender,
                 'date_of_birth' => $studentData->date_of_birth,
                 'address' => $studentData->address,
@@ -699,7 +707,7 @@ class C_S_Settings extends Controller {
         // taken from the database
         $_SESSION['user_id'] = $user->id;
         $_SESSION['user_profile_image'] = $user->profile_image;
-        $_SESSION['user_name'] = $user->name;
+        $_SESSION['user_name'] = $user->first_name;
         $_SESSION['user_email'] = $user->email;
         $_SESSION['actor_type'] = $user->actor_type;
         $_SESSION['specialized_actor_type'] = $user->specialized_actor_type;

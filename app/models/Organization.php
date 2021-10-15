@@ -9,10 +9,10 @@
         // Register as a user
         public function registerAsAUser($data, $specialize_type) {
             // register as a user    
-            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
+            $this->db->query('INSERT INTO users(profile_image, first_name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :first_name, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
-            $this->db->bind(':name', $data['name']);
+            $this->db->bind(':first_name', $data['name']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
             $this->db->bind(':actor_type', 'Organization');
@@ -32,10 +32,9 @@
         // Register university
         public function registerAsAPrivateUniversity($id, $data) {
             // register as an organization
-            $this->db->query('INSERT INTO organization(org_id, org_name, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:org_id, :uniname, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
+            $this->db->query('INSERT INTO organization(org_id, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:org_id, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
             // bind values
             $this->db->bind(":org_id", $id);
-            $this->db->bind(":uniname", $data['name']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":email", $data['email']);
             $this->db->bind(":password", $data['password']);
@@ -73,10 +72,9 @@
 
         public function registerAsACompany($id, $data) {
             // register as an organization
-            $this->db->query('INSERT INTO organization(org_id, org_name, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:org_id, :comname, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
+            $this->db->query('INSERT INTO organization(org_id, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:org_id, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
             // bind values
             $this->db->bind(":org_id", $id);
-            $this->db->bind(":comname", $data['name']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":email", $data['email']);
             $this->db->bind(":password", $data['password']);
@@ -110,23 +108,6 @@
                 return false;
             }
         }
-
-        /*// Find user by email
-        public function findUserByEmail($email) {
-            $this->db->query('SELECT * FROM users WHERE email = :email'); // this is a prepared statement
-            // bind value
-            $this->db->bind(":email", $email);
-
-            $row = $this->db->single();
-
-            // Check row - return true if email exists. Because then rowCount is not 0
-            if($this->db->rowCount() > 0) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }*/
 
         public function findOrganizationIdbyEmail($email) {
             $this->db->query('SELECT * FROM organization WHERE email = :email');

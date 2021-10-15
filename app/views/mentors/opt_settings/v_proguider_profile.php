@@ -7,7 +7,7 @@
     <body>
         <!-- SIDE BAR -->
         <?php require APPROOT.'/views/inc/components/sideBar/sidebar.php'?>
-        
+
         <div class="main-content">
             <!-- TOP Navigation -->
             <header>
@@ -23,7 +23,6 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                    
                     <div class="stu-profile">
                         <div class="header">
                             <div class="imagearea">
@@ -50,7 +49,7 @@
                             </div>
                             <div class="details">
                                 <div class="name">
-                                    <?php echo $data['name'];?>
+                                    <?php echo $data['first_name'].' '.$data['last_name'];?>
                                     <?php if($data['user']->status == 'verified'): ?>
                                         <img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt="">
                                     <?php endif; ?>
@@ -97,12 +96,12 @@
                                 <hr>
                                 <?php endif; ?>
                                 <!-- beginner details -->
-                        <?php if($data['user']->specialized_actor_type == 'Teacher'): ?>
+                        <?php if($data['user']->specialized_actor_type == 'Professional Guider'): ?>
                                 <div class="division">
                                     <div class="division-name">Basic Details</div>
                                     <?php if($data['user']->id == $_SESSION['user_id']): ?>
                                     <div class="editable">
-                                        <a href="<?php echo URLROOT; ?>/C_M_Settings/editSettingsTeacher"><button class="btn1-small">Edit</button></a>
+                                        <a href="<?php echo URLROOT; ?>/C_M_Settings/editSettingsGuider"><button class="btn1-small">Edit</button></a>
                                     </div>
                                     <?php endif; ?>
                                 </div>
@@ -115,10 +114,6 @@
                                         <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/email-icon.png'; ?>" alt="">Email</div>
                                         <div class="text"><?php echo $data['email'];?></div>
                                     </div>
-                                    <!-- <div class="Date of birth">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/dob-icon.png'; ?>" alt="">Date of Birth</div>
-                                        <div class="text"><?php echo $data['date_of_birth'];?></div>                                        
-                                    </div> -->
                                     <div class="Gender">
                                         <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/gender-icon.png'; ?>" alt="">Gender</div>
                                         <div class="text"><?php echo $data['gender'];?></div>
@@ -129,7 +124,7 @@
                                     </div>
                                     
                                     <!-- <div class="website">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/website-icon.png'; ?>" alt="">Website</div>
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/website-icon.png'; ?>" alt="">Website</div>
                                         <div class="text">www.xyz.com</div>    
                                     </div> -->
                                     

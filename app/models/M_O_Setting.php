@@ -9,7 +9,7 @@ class M_O_Setting {
 
     // get organization details
     public function getOrganizationDetails($id) {
-        $this->db->query('SELECT * FROM organization WHERE org_id = :id');
+        $this->db->query('SELECT * FROM organization INNER JOIN users ON organization.org_id = users.id WHERE org_id = :id');
         // bind values
         $this->db->bind(':id', $id);
 
@@ -65,7 +65,7 @@ class M_O_Setting {
 
     // update settings for university
     public function updateUniversitySettings($id, $data) {
-        $this->db->query('UPDATE users SET name = :uniname WHERE id = :id');
+        $this->db->query('UPDATE users SET first_name = :uniname WHERE id = :id');
             // bind values
             $this->db->bind(':id', $id);
             $this->db->bind(':uniname', $data['uniname']);
@@ -76,12 +76,11 @@ class M_O_Setting {
             $org_id = $this->findOrganizationIdbyEmail($_SESSION['user_email']);
 
             // register as an organization
-            $this->db->query('UPDATE organization SET org_name = :uniname, address = :address, 
+            $this->db->query('UPDATE organization SET address = :address, 
                             phone_no = :phn_no, website_address = :website, founder = :founder, 
                             founded_year= :founded_year WHERE org_id= :id');
             // bind values
             $this->db->bind(":id", $org_id);
-            $this->db->bind(":uniname", $data['uniname']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":phn_no", $data['phn_no']);
             $this->db->bind(":website", $data['website']);
@@ -115,7 +114,7 @@ class M_O_Setting {
 
     // update setting for company
     public function updateCompanySettings($id, $data) {
-        $this->db->query('UPDATE users SET name = :comname WHERE id = :id');
+        $this->db->query('UPDATE users SET first_name = :comname WHERE id = :id');
             // bind values
             $this->db->bind(':id', $id);
             $this->db->bind(':comname', $data['comname']);
@@ -126,12 +125,11 @@ class M_O_Setting {
             $org_id = $this->findOrganizationIdbyEmail($_SESSION['user_email']);
 
             // register as an organization
-            $this->db->query('UPDATE organization SET org_name = :comname, address = :address, 
+            $this->db->query('UPDATE organization SET address = :address, 
                             phone_no = :phn_no, website_address = :website, founder = :founder, 
                             founded_year= :founded_year WHERE org_id= :id');
             // bind values
             $this->db->bind(":id", $org_id);
-            $this->db->bind(":comname", $data['comname']);
             $this->db->bind(":address", $data['address']);
             $this->db->bind(":phn_no", $data['phn_no']);
             $this->db->bind(":website", $data['website']);
@@ -142,7 +140,7 @@ class M_O_Setting {
 
             // register as a company
             $this->db->query('UPDATE company SET current_emplyee_amount = :cur_emp, company_size = :emp_size, 
-                            registered = :registered, overview = :overview, services = :services, 
+                            registered = :registered, overview = :overview, services = :services
                             WHERE company_id = :id');
             // bind values
             $this->db->bind(":id", $org_id);

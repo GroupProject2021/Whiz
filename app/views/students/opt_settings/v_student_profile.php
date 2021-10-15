@@ -50,7 +50,7 @@
                             </div>
                             <div class="details">
                                 <div class="name">
-                                    <?php echo $data['name'];?>
+                                    <?php echo $data['first_name'].' '.$data['last_name'];?>
                                     <?php if($data['user']->status == 'verified'): ?>
                                         <img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt="">
                                     <?php endif; ?>

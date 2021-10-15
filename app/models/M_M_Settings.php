@@ -20,7 +20,7 @@ class M_M_Settings{
     
     // get mentor details
     public function getMentorDetails($id) {
-        $this->db->query('SELECT * FROM mentor WHERE mentor_id = :id');
+        $this->db->query('SELECT * FROM mentor INNER JOIN users ON mentor.mentor_id = users.id WHERE mentor_id = :id');
         // bind values
         $this->db->bind(':id', $id);
 
@@ -42,12 +42,19 @@ class M_M_Settings{
     }
 
     public function updateGuiderSettings($id, $data) {
-        $this->db->query('UPDATE mentor SET name = :name, address = :address, gender = :gender,
+        $this->db->query('UPDATE users SET first_name = :first_name, last_name = :last_name
+                             WHERE id = :id');
+        // bind values                
+        $this->db->bind(":first_name", $data['first_name']);
+        $this->db->bind(":last_name", $data['last_name']);
+        $this->db->bind(":id", $id);
+
+        $res1 = $this->db->execute();
+
+        $this->db->query('UPDATE mentor SET address = :address, gender = :gender,
                             institute = :institute, email = :email, phn_no = :phn_no
                              WHERE mentor_id = :id');
         // bind values
-        
-        $this->db->bind(":name", $data['name']);
         $this->db->bind(":email", $data['email']);
         $this->db->bind(":phn_no", $data['phn_no']);
         $this->db->bind(":address", $data['address']);
@@ -55,8 +62,10 @@ class M_M_Settings{
         $this->db->bind(":institute", $data['institute']);
         $this->db->bind(":id", $id);
 
+        $res2 = $this->db->execute();
+
         // Execute
-        if($this->db->execute()) {
+        if($res1 && $res2) {
             return true;
         }
         else {
@@ -65,12 +74,19 @@ class M_M_Settings{
     }
 
     public function updateTeacherSettings($id, $data) {
-        $this->db->query('UPDATE mentor SET name = :name, address = :address, gender = :gender,
+        $this->db->query('UPDATE users SET first_name = :first_name, last_name = :last_name
+                             WHERE id = :id');
+        // bind values                
+        $this->db->bind(":first_name", $data['first_name']);
+        $this->db->bind(":last_name", $data['last_name']);
+        $this->db->bind(":id", $id);
+
+        $res1 = $this->db->execute();
+
+        $this->db->query('UPDATE mentor SET address = :address, gender = :gender,
                             email = :email, phn_no = :phn_no
                              WHERE mentor_id = :id');
         // bind values
-        
-        $this->db->bind(":name", $data['name']);
         $this->db->bind(":email", $data['email']);
         $this->db->bind(":phn_no", $data['phn_no']);
         $this->db->bind(":address", $data['address']);
@@ -78,8 +94,10 @@ class M_M_Settings{
         // $this->db->bind(":institute", 'NULL');
         $this->db->bind(":id", $id);
 
+        $res2 = $this->db->execute();
+
         // Execute
-        if($this->db->execute()) {
+        if($res1 && $res2) {
             return true;
         }
         else {

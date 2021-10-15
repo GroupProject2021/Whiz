@@ -9,10 +9,11 @@
         // Register as a user
         public function registerAsAUser($data, $specialize_type) {
             // register as a user    
-            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
+            $this->db->query('INSERT INTO users(profile_image, first_name, last_name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :first_name, :last_name, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
-            $this->db->bind(':name', $data['name']);
+            $this->db->bind(':first_name', $data['first_name']);
+            $this->db->bind(':last_name', $data['last_name']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
             $this->db->bind(':actor_type', 'Mentor');
@@ -31,10 +32,9 @@
 
         // Register professional guider
         public function registerAsAProfGuider($id, $data) {
-            $this->db->query('INSERT INTO mentor(mentor_id, name, email, phn_no, address, gender, institute, mentor_type, password) VALUES(:mentor_id, :name, :email, :phn_no, :address, :gender, :institute, :mentor_type, :password)');
+            $this->db->query('INSERT INTO mentor(mentor_id, email, phn_no, address, gender, institute, mentor_type, password) VALUES(:mentor_id, :email, :phn_no, :address, :gender, :institute, :mentor_type, :password)');
             // bind values
             $this->db->bind(":mentor_id", $id);
-            $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(":phn_no", $data['phn_no']);
             $this->db->bind(":address", $data['address']);
@@ -54,10 +54,9 @@
 
         // Register teacher
         public function registerAsATeacher($id, $data) {
-            $this->db->query('INSERT INTO mentor(mentor_id, name, email, phn_no, address, gender, mentor_type, password) VALUES(:mentor_id, :name, :email, :phn_no, :address, :gender, :mentor_type, :password)');
+            $this->db->query('INSERT INTO mentor(mentor_id, email, phn_no, address, gender, mentor_type, password) VALUES(:mentor_id, :email, :phn_no, :address, :gender, :mentor_type, :password)');
             // bind values
             $this->db->bind(":mentor_id", $id);
-            $this->db->bind(':name', $data['name']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(":phn_no", $data['phn_no']);
             $this->db->bind(":address", $data['address']);
@@ -78,25 +77,7 @@
                 return false;
             }
         }
-
-        // Login user
-        public function login($email, $password) {
-            $this->db->query('SELECT * FROM users WHERE email = :email');
-            // bind values
-            $this->db->bind(':email', $email);
-
-            $row = $this->db->single();
-
-            $hashed_password = $row->password;
-            if(password_verify($password, $hashed_password)) {
-                return $row;
-            }
-            else {
-                return false;
-            }
-        }
-
-
+        
         // Find user by email
         public function findUserByEmail($email) {
             // $this->db->query('SELECT * FROM student WHERE email = :email'); // this is a prepared statement
@@ -124,17 +105,6 @@
 
             return $row->stu_id;
         }
-
-        // public function findMentorIdbyId($mentor_id){
-        //     $this->db->query('SELECT * FROM mentor WHERE mentor_id = :mentor_id');
-
-        //     $this->db->bind(':mentor_id', $mentor_id);
-
-        //     $row = $this->db->single();
-
-        //     $id = $row->mentor_id;
-        //     return $id;
-        // }
 
         public function getUserIdByEmail($email) {
             $this->db->query('SELECT * FROM users WHERE email = :email');

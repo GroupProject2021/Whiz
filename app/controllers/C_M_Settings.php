@@ -5,10 +5,6 @@ class C_M_Settings extends Controller{
         $this->mentorSettingsModel = $this->model('M_M_Settings');
     }
 
-    public function test() {
-        $data = [];
-        $this->view('mentors/opt_settings/default/v_def_guider_settings', $data);
-    }
 
     public function settings($id){
         // $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
@@ -32,7 +28,8 @@ class C_M_Settings extends Controller{
                     'followerCount' => $followerCount,                    
                     'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
-                    'name' => $mentorData->name,
+                    'first_name' => $mentorData->first_name,
+                    'last_name' => $mentorData->last_name,
                     'email' => $mentorData->email,
                     // 'password' => $mentorData->password,
                     'gender' => $mentorData->gender,
@@ -41,7 +38,7 @@ class C_M_Settings extends Controller{
                     'phn_no' => $mentorData->phn_no
                 ];
 
-                $this->view('mentors/opt_settings/default/v_def_guider_settings', $data);
+                $this->view('mentors/opt_settings/v_proguider_profile', $data);
                 break;
             // For Teacher
             case 'Teacher':
@@ -52,7 +49,8 @@ class C_M_Settings extends Controller{
                     'followerCount' => $followerCount,                    
                     'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
-                    'name' => $mentorData->name,
+                    'first_name' => $mentorData->first_name,
+                    'last_name' => $mentorData->last_name,
                     'email' => $mentorData->email,
                     // 'password' => $mentorData->password,
                     'gender' => $mentorData->gender,
@@ -61,7 +59,7 @@ class C_M_Settings extends Controller{
                     'phn_no' => $mentorData->phn_no
                 ];
  
-                $this->view('mentors/opt_settings/default/v_def_teacher_settings', $data);
+                $this->view('mentors/opt_settings/v_teacher_profile', $data);
                 break;            
             default:
                 break;
@@ -74,7 +72,8 @@ class C_M_Settings extends Controller{
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             
             $data = [
-                'name' => trim($_POST['name']),
+                'first_name' => trim($_POST['first_name']),                
+                'last_name' => trim($_POST['last_name']),
                 'email' => trim($_POST['email']),
                 // 'password' => trim($_POST['password']),
                 'gender' => trim($_POST['gender']),
@@ -92,7 +91,7 @@ class C_M_Settings extends Controller{
             ];
 
             // Validate title
-            if(empty($data['name'])) {
+            if(empty($data['first_name']) || empty($data['last_name'])) {
                 $data['name_err'] = 'Please enter name';
             }
 
@@ -133,6 +132,8 @@ class C_M_Settings extends Controller{
                 $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
                 if($this->mentorSettingsModel->updateGuiderSettings($id, $data)) {
                     flash('settings_message', 'Profile data updated');
+                    $this->updateUserSessions($_SESSION['user_id']);
+                    
                     redirect('C_M_Settings/settings/'.$_SESSION['user_id']);
                 }
                 else {
@@ -150,7 +151,8 @@ class C_M_Settings extends Controller{
             $mentorData = $this->mentorSettingsModel->getMentorDetails($id);
 
             $data = [
-                'name' => $mentorData->name,
+                'first_name' => $mentorData->first_name,
+                'last_name' => $mentorData->last_name,
                 'email' => $mentorData->email,
                 // 'password' => $mentorData->password,
                 'gender' => $mentorData->gender,
@@ -177,7 +179,8 @@ class C_M_Settings extends Controller{
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             
             $data = [
-                'name' => trim($_POST['name']),
+                'first_name' => trim($_POST['first_name']),
+                'last_name' => trim($_POST['last_name']),
                 'email' => trim($_POST['email']),
                 // 'password' => trim($_POST['password']),
                 'gender' => trim($_POST['gender']),
@@ -195,7 +198,7 @@ class C_M_Settings extends Controller{
             ];
 
             // Validate title
-            if(empty($data['name'])) {
+            if(empty($data['first_name']) || empty($data['last_name'])) {
                 $data['name_err'] = 'Please enter name';
             }
 
@@ -236,7 +239,9 @@ class C_M_Settings extends Controller{
                 $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
                 if($this->mentorSettingsModel->updateTeacherSettings($id, $data)) {
                     flash('settings_message', 'Profile data updated');
-                    redirect('C_M_Settings/settings'.$_SESSION['user_id']);
+                    $this->updateUserSessions($_SESSION['user_id']);
+                    
+                    redirect('C_M_Settings/settings/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');
@@ -253,7 +258,8 @@ class C_M_Settings extends Controller{
             $mentorData = $this->mentorSettingsModel->getMentorDetails($id);
 
             $data = [
-                'name' => $mentorData->name,
+                'first_name' => $mentorData->first_name,
+                'last_name' => $mentorData->last_name,
                 'email' => $mentorData->email,
                 // 'password' => $mentorData->password,
                 'gender' => $mentorData->gender,
@@ -347,7 +353,7 @@ class C_M_Settings extends Controller{
         // taken from the database
         $_SESSION['user_id'] = $user->id;
         $_SESSION['user_profile_image'] = $user->profile_image;
-        $_SESSION['user_name'] = $user->name;
+        $_SESSION['user_name'] = $user->first_name;
         $_SESSION['user_email'] = $user->email;
         $_SESSION['actor_type'] = $user->actor_type;
         $_SESSION['specialized_actor_type'] = $user->specialized_actor_type;
