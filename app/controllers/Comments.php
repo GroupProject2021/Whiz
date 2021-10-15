@@ -119,7 +119,7 @@
                 echo '<div class="comment-header">';
                 echo    '<div class="comment-header-icon"><img src="'.$userProfileImgURL.'" alt=""></div>';
                 echo    '<div class="comment-header-actortypeicon"><img src="'.$userActorTypeImgURL.'" alt=""></div>';
-                echo    '<div class="comment-header-postedby">'.$user->name.'</div>';
+                echo    '<div class="comment-header-postedby">'.$user->first_name.' '.$user->last_name.'</div>';
                 if($user->status == "verified") {
                     echo    '<div class="comment-header-verified"><img src="'.URLROOT.'/imgs/verified.png" alt=""></div>';
                 }
