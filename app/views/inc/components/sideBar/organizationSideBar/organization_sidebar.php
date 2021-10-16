@@ -30,7 +30,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_O_U_Courses/courses">
+            <a href="<?php echo URLROOT; ?>/C_O_U_Courses/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/courses-icon.png">
@@ -42,7 +42,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_O_U_Notices/notices">
+            <a href="<?php echo URLROOT; ?>/C_O_U_Notices/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/notice-icon.png">
@@ -72,7 +72,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_O_C_Jobs/jobs">
+            <a href="<?php echo URLROOT; ?>/C_O_C_Jobs/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/jobs-icon.png">
@@ -84,7 +84,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_O_C_Cvs/cvs">
+            <a href="<?php echo URLROOT; ?>/C_O_C_Cvs/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/cv-icon.png">

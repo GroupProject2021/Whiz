@@ -78,9 +78,9 @@
                 if(empty($data['email'])) {
                     $data['email_err'] = 'Please enter email';
                 }
-                else if (!str_contains($data['email'],'@')){
-                    $data['email_err'] = 'Enter valid email'; 
-                }
+                // else if (!str_contains($data['email'],'@')){
+                //     $data['email_err'] = 'Enter valid email'; 
+                // }
                 // Check email
                 else if($this->commonModel->findUserByEmail($data['email'])) {
                     $data['email_err'] = 'Email is already taken'; 
@@ -311,9 +311,9 @@
                 if(empty($data['email'])) {
                     $data['email_err'] = 'Please enter email';
                 }
-                else if (!str_contains($data['email'],'@')){
-                    $data['email_err'] = 'Enter valid email'; 
-                }
+                // else if (!str_contains($data['email'],'@')){
+                //     $data['email_err'] = 'Enter valid email'; 
+                // }
                 // Check email
                 else if($this->commonModel->findUserByEmail($data['email'])) {
                     $data['email_err'] = 'Email is already taken'; 
