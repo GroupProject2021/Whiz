@@ -142,8 +142,18 @@
                 <span class="form-invalid"><?php echo $data['phn_no_err']; ?></span><br>
 
                 <hr class="form-hr">
-
-                <p>By creating an account you agree to our <a class="form-link" href="#">Terms & Privacy</a></p>
+                <!-- agree table -->
+                <table class="agree-table">
+                    <tr>
+                        <td>
+                            <input type="checkbox" required>
+                        </td>
+                        <td>
+                            creating an account you agree to our <a class="form-link" href="#">Terms & Privacy</a>
+                        </td>
+                    </tr>
+                </table>
+                
                 <button type="submit" class="form-submit">Register</button>
             </form>
         </div>

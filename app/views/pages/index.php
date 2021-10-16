@@ -3,6 +3,7 @@
         <div class="home-grid-header">
             <?php require APPROOT.'/views/inc/components/topnav.php'?>
         </div>
+        <br><br>
         <div class="home-grid-main">
             <div class="showcase" style='background: url("<?php echo URLROOT.'/imgs/pages/index/main-img.jpg'; ?>") no-repeat center center/cover;'>
                 <img src="<?php echo URLROOT; ?>/imgs/logo.png"width="130px" height="130px" alt="logo">

@@ -84,7 +84,7 @@
 
         public function getExistingFollowersUserList($type, $id) {
             $this->db->query("SELECT * FROM users INNER JOIN connections
-            ON connections.to_user_id = users.id 
+            ON connections.from_user_id = users.id 
             WHERE (actor_type  LIKE '".$type."%' OR specialized_actor_type LIKE '".$type."%') AND to_user_id = :id");
 
             // bind values        

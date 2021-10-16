@@ -27,7 +27,7 @@
 
             $data = ['followers' => $followerList];
 
-            $this->view('students/connections/v_student_followers', $data);
+            $this->view('connections/v_student_followers', $data);
         }
 
         // all user list
@@ -52,7 +52,7 @@
 
             $data = ['following' => $followingList];
 
-            $this->view('students/connections/v_student_following', $data);
+            $this->view('connections/v_student_following', $data);
         }
 
         // all user list

@@ -7,7 +7,8 @@
 }
 
 .home-grid-header {
-    background-color: red;
+    position: fixed;
+    width: 100%;
 }
 
 .home-grid-main {
