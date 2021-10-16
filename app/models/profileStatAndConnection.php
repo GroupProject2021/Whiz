@@ -65,6 +65,7 @@
             return $result;
         }
 
+        // for followers
         public function getFollowers($id) {
             // $this->db->query('SELECT * FROM connections WHERE to_user_id = :id');
             $this->db->query("SELECT *
@@ -81,6 +82,20 @@
             return $results;
         }
 
+        public function getExistingFollowersUserList($type, $id) {
+            $this->db->query("SELECT * FROM users INNER JOIN connections
+            ON connections.to_user_id = users.id 
+            WHERE (actor_type  LIKE '".$type."%' OR specialized_actor_type LIKE '".$type."%') AND to_user_id = :id");
+
+            // bind values        
+            $this->db->bind(":id", $id);
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        // for followings
         public function getFollowings($id) {
             $this->db->query("SELECT *
                                 FROM users
@@ -96,5 +111,32 @@
 
             return $results;
         }
+
+        public function getExistingFollowingUserList($type, $id) {
+            $this->db->query("SELECT * FROM users INNER JOIN connections
+            ON connections.to_user_id = users.id 
+            WHERE actor_type  LIKE '".$type."%' OR specialized_actor_type LIKE '".$type."%' AND from_user_id = :id");
+
+            // bind values        
+            $this->db->bind(":id", $id);
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        // to get Search bar user list
+        public function getUsersByName($name) {
+            $this->db->query("SELECT * FROM users WHERE first_name LIKE '".$name."%' 
+            OR last_name LIKE '".$name."%' 
+            OR actor_type LIKE '".$name."%'
+            OR specialized_actor_type LIKE '".$name."%'");
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        
     }
 ?>

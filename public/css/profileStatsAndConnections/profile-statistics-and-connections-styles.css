@@ -99,3 +99,56 @@
     vertical-align: middle;
     padding-left: 10px;
 }
+
+/* search bar */
+.search-user {
+    height: 10px;
+}
+
+#show-userlist {
+    /* position: absolute; */
+    z-index: 5;
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.2);
+    overflow-y: scroll;
+    max-height: 200px;
+}
+
+.show-userlist-item {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    line-height: 60px;
+    vertical-align: middle;
+    background-color: rgb(250, 250, 250);
+}
+
+.show-userlist-item:hover {
+    background-color: rgb(226, 226, 226);
+}
+
+.item-pic {
+    padding: 10px;
+}
+
+.item-pic img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.item-name {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.item-type {
+    color: gray;
+}
+
+/* responsive features */
+@media only screen and (max-width: 1124px) {    
+    .default-list{
+        width: 100%;
+    }
+}
