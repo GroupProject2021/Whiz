@@ -363,10 +363,37 @@
 
             $_SESSION['user_id'] = $user->id;
             $_SESSION['user_email'] = $user->email;
-            $_SESSION['user_name'] = $user->name;
+            $_SESSION['user_name'] = $user->first_name;
             // added later
             $_SESSION['actor_type'] = $user->actor_type;
             $_SESSION['specialized_actor_type'] = $user->specialized_actor_type;
+        }
+
+        // get school list
+        public function schoolList($search) {
+            $schools = $this->studentProfileUpgrade->getSchoolList($search);
+
+            foreach($schools as $school) {
+                echo '<div class="show-list-item">'.$school->name.'</div>';
+            }
+        }
+
+        // get university list
+        public function universityList($search) {
+            $unis = $this->studentProfileUpgrade->getUniversityList($search);
+
+            foreach($unis as $uni) {
+                echo '<div class="show-list-item-1">'.$uni->uni_name.'</div>';
+            }
+        }
+
+        // get degree list
+        public function degreeList($search) {
+            $degrees = $this->studentProfileUpgrade->getDegreeList($search);
+
+            foreach($degrees as $degree) {
+                echo '<div class="show-list-item-2">'.$degree->gov_course_name.'</div>';
+            }
         }
     }
 ?>

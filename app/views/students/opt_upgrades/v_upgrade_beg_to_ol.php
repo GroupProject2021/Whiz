@@ -21,6 +21,12 @@
                 <label>OL School</label>
                 <span class="form-invalid"><?php echo $data['ol_school_err']; ?></span><br>
 
+                <!-- school search list -->
+                <div class="list-group" class="show-list" id="show-list">
+                    <!-- sample element -->
+                    <!-- <div class="show-list-item">HRCC</div> -->
+                </div>
+
                 <!-- district -->
                 <p class="form-bold">District</p>
                 <select name="ol_district" id="ol_district" class="form-select">
@@ -250,5 +256,34 @@
 
          <!-- java script form validation -->
          <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/form.js"></script>
+        
+        <!-- jquery -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#ol_school").keyup(function() {
+                    var searchText = $(this).val();
+                    
+                    if(searchText != '') {
+                        $.ajax({
+                            url: "<?php echo URLROOT;?>/Students_ProfileUpgrade/schoolList/"+searchText,
+                            method: 'post',
+                            success: function(response) {
+                                $("#show-list").html(response);
+                            }
+                        });
+                    }
+                    else {
+                        $("#show-list").html('');
+                    }
+                });
+
+                $(document).on("click", ".show-list-item", function() {
+                    $("#ol_school").val($(this).text());
+                    $("#show-list").html('');
+                })
+            });
+        </script>
+
     </body>
 </html>

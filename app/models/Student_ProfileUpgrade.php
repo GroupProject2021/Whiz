@@ -193,5 +193,37 @@
             return $results;
         }
 
+        // get scool list
+        public function getSchoolList($search) {
+            $this->db->query("SELECT * FROM school WHERE name LIKE '".$search."%'");
+            // bind values
+            // $this->db->bind(':search', $search);
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        // get university list
+        public function getUniversityList($search) {
+            $this->db->query("SELECT * FROM govermentuniversity WHERE uni_name LIKE '".$search."%'");
+            // bind values
+            // $this->db->bind(':search', $search);
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        // get university list
+        public function getDegreeList($search) {
+            $this->db->query("SELECT * FROM governmentcourse WHERE gov_course_name LIKE '".$search."%'");
+            // bind values
+            // $this->db->bind(':search', $search);
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
     }
 ?>

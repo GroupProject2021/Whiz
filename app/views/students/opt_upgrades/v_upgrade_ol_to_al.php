@@ -21,6 +21,12 @@
                 <label>AL School</label>
                 <span class="form-invalid"><?php echo $data['al_school_err']; ?></span><br>
 
+                <!-- school search list -->
+                <div class="list-group" class="show-list" id="show-list">
+                    <!-- sample element -->
+                    <!-- <div class="show-list-item">HRCC</div> -->
+                </div>
+
                 <!-- stream -->
                 <p class="form-bold">Stream</p>
                 <select name="stream" id="stream" class="form-select">
@@ -237,6 +243,33 @@
                     initialUniqueSubjectsSetting();
                 })
             })
+        </script>
+
+        <!-- jquery -->
+        <script>
+            $(document).ready(function() {
+                $("#al_school").keyup(function() {
+                    var searchText = $(this).val();
+                    
+                    if(searchText != '') {
+                        $.ajax({
+                            url: "<?php echo URLROOT;?>/Students_ProfileUpgrade/schoolList/"+searchText,
+                            method: 'post',
+                            success: function(response) {
+                                $("#show-list").html(response);
+                            }
+                        });
+                    }
+                    else {
+                        $("#show-list").html('');
+                    }
+                });
+
+                $(document).on("click", ".show-list-item", function() {
+                    $("#al_school").val($(this).text());
+                    $("#show-list").html('');
+                })
+            });
         </script>
 
     </body>
