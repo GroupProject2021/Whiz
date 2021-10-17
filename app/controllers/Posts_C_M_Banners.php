@@ -12,6 +12,7 @@
             $this->commonModel = $this->model('Common');            
         }        
 
+        // Load banners
         public function index() {
             // Get posts
             $posts = $this->postModel->getPosts();
@@ -25,7 +26,7 @@
             $this->view('mentors/professional_guider/banners/index', $data);
         }
 
-
+        // Add banner
         public function add() {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanetize the POST array
@@ -55,8 +56,7 @@
                         // flash('profile_image_upload', 'Profile picture uploaded successfully');
                     }
                     else {
-                        // upload unsuccessfull
-                        // $data['profile_image_err'] = 'Profile picture uploading unsuccessful';                        print_r($data['image']['size']);
+                        // upload unsuccessfull                        
                         die('uns');
                     }
                 }
@@ -111,6 +111,7 @@
             $this->view('mentors/professional_guider/banners/add', $data);
         }
 
+        // Edit banner
         public function edit($id) {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanetize the POST array
@@ -196,6 +197,7 @@
             $this->view('mentors/professional_guider/banners/edit', $data);
         }
 
+        // View banner
         public function show($id) {
             // if post not exist
             if(!($this->postModel->isPostExist($id))) {
@@ -272,6 +274,7 @@
             
         }
 
+        // Delte banner
         public function delete($id) {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Get existing post from model

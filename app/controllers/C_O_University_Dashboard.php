@@ -5,6 +5,7 @@ class C_O_University_Dashboard extends Controller {
         $this->universityDashboardModel = $this->model('M_O_University_Dashboard');
     }
 
+    // Index
     public function index() {
         $data = ['title' => 'Welcome to Universiversity dashboard'];
         

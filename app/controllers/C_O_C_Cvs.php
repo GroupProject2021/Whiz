@@ -1,12 +1,11 @@
 <?php
 
 class C_O_C_Cvs extends Controller{
-
     public function __construct() {
-        $this->cvModel = $this->model('M_O_C_Cv');
-        
+        $this->cvModel = $this->model('M_O_C_Cv');        
     }
 
+    // Index
     public function index() {
 
         $post = $this->cvModel->getPosts();
@@ -17,8 +16,6 @@ class C_O_C_Cvs extends Controller{
 
         $this->view('organization/company/cv/index', $data);
     }
-
-
 }
 
 

@@ -4,6 +4,7 @@
             $this->mentorModel = $this->model('Mentor');
         }
 
+        // Register
         public function register(){
             $data = [];
 
@@ -11,6 +12,7 @@
         }
 
 
+        // Professional guider registration
         public function registerasprofguider() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -30,9 +32,6 @@
                     'address' => trim($_POST['address']),
                     'gender' => trim($_POST['gender']),
                     'institute' => trim($_POST['institute']),
-                    // 'subject1' => trim($_POST['subject1']),
-                    // 'subject2' => trim($_POST['subject2']),
-                    // 'subject3' => trim($_POST['subject3']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
 
@@ -43,9 +42,6 @@
                     'address_err' => '',
                     'gender_err' => '',
                     'institute_err' => '',
-                    // 'subject1_err' => '',
-                    // 'subject2_err' => '',
-                    // 'subject3_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => ''
                 ];
@@ -93,21 +89,6 @@
                 if(empty($data['institute'])) {
                     $data['institute_err'] = 'Please enter mentor type';
                 }
-
-                // Validate sub 1
-                // if(empty($data['subject1'])) {
-                //     $data['subject1_err'] = 'Please enter mentor type';
-                // }
-
-                // // Validate sub 2
-                // if(empty($data['subject2'])) {
-                //     $data['subject2_err'] = 'Please enter mentor type';
-                // }
-
-                // // Validate sub 3
-                // if(empty($data['subject3'])) {
-                //     $data['subject3_err'] = 'Please enter mentor type';
-                // }
 
                 // Validata password
                 if(empty($data['password'])) {
@@ -184,9 +165,6 @@
                     'address' => '',
                     'gender' => '',
                     'institute' => '',
-                    // 'subject1_err' => '',
-                    // 'subject2_err' => '',
-                    // 'subject3_err' => '',
                     'password' => '',
                     'confirm_password' => '',
 
@@ -197,9 +175,6 @@
                     'address_err' => '',
                     'gender_err' => '',
                     'institute_err' => '',
-                    // 'subject1_err' => '',
-                    // 'subject2_err' => '',
-                    // 'subject3_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => ''
                 ];
@@ -209,6 +184,7 @@
             }
         }
         
+        // Teacher registration
         public function registerasteacher() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -227,9 +203,6 @@
                     'phn_no' => trim($_POST['phn_no']),
                     'address' => trim($_POST['address']),
                     'gender' => trim($_POST['gender']),
-                    // 'subject1' => trim($_POST['subject1']),
-                    // 'subject2' => trim($_POST['subject2']),
-                    // 'subject3' => trim($_POST['subject3']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
 
@@ -239,9 +212,6 @@
                     'phn_no_err' => '',
                     'address_err' => '',
                     'gender_err' => '',
-                    // 'subject1_err' => '',
-                    // 'subject2_err' => '',
-                    // 'subject3_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => ''
                 ];
@@ -284,11 +254,6 @@
                 if(empty($data['gender'])) {
                     $data['gender_err'] = 'Please enter gender';
                 }
-
-                // Validate subjects
-                // if(empty($data['subjects'])) {
-                //     $data['subjects_err'] = 'Please enter mentor type';
-                // }
 
                 // Validata password
                 if(empty($data['password'])) {
@@ -364,9 +329,6 @@
                     'phn_no' => '',
                     'address' => '',
                     'gender' => '',
-                    // 'subject1' => '',
-                    // 'subject2' => '',
-                    // 'subject3' => '',
                     'password' => '',
                     'confirm_password' => '',
 
@@ -376,9 +338,6 @@
                     'phn_no_err' => '',
                     'address_err' => '',
                     'gender_err' => '',
-                    // 'subject1_err' => '',
-                    // 'subject2_err' => '',
-                    // 'subject3_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => ''
                 ];

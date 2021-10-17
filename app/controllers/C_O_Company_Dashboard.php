@@ -5,6 +5,7 @@ class C_O_Company_Dashboard extends Controller {
         $this->companyDashboardModel = $this->model('M_O_Company_Dashboard');
     }
 
+    // Index
     public function index() {
         $data = ['title' => 'Welcome to Company dashboard'];
         

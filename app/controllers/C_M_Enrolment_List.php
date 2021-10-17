@@ -7,6 +7,7 @@ class C_M_Enrolment_List extends Controller{
         $this->mentorDashboardModel = $this->model('Post');
     }
 
+    // Index
     public function index() {
         switch($_SESSION['specialized_actor_type']) {
             case 'Professional Guider' :
@@ -29,6 +30,7 @@ class C_M_Enrolment_List extends Controller{
         $this->view('mentors/opt_enrolment_list/v_enrolment_list', $data);
     }
 
+    // Enroll list
     public function enrolStudentList() {
         $data = [];
 

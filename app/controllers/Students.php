@@ -4,6 +4,7 @@
             $this->studentModel = $this->model('Student');
         }
 
+        // Student registration
         public function register() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {

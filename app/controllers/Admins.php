@@ -4,11 +4,11 @@
             $this->adminModel = $this->model('Admin');
         }
 
+        // Admin registration
         public function register() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Process form
-
                 // Sanitize POST data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -93,7 +93,7 @@
                     $data['phn_no_err'] = 'Please enter phone number';
                 }
 
-                // Validate phone number
+                // Validate user role
                 if(empty($data['user_role'])) {
                     $data['user_role_err'] = 'Please enter user role';
                 }
@@ -106,8 +106,6 @@
                     
                     // Hash password - Using strog one way hashing algorithm
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-
-                    // $this->sendVerificationEmail($data['email'], 'Whiz', 'segroupproject2021@gmail.com', 'hi');
 
                     // Register User
                     if($this->adminModel->registerAsAUser($data)) {
@@ -163,6 +161,7 @@
             }
         }
 
+        // Admin request email
         public function adminRequestEmail() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -226,6 +225,7 @@
             $this->view('admin/admin_request', $data);
         }
 
+        // Admin request verificaiton
         public function adminRequestVerification() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -242,12 +242,11 @@
                     'otp_err' => ''
                 ];
 
-                // Validate email
+                // Validate otp
                 if(empty($data['otp'])) {
                     $data['otp_err'] = 'Please enter verification code';
                 }
 
-                // Validate password
                 if($data['otp'] != $_SESSION['admin_verification_code']) {
                     $data['otp_err'] = 'Your verification is not matched. Please try again';
                 }
@@ -299,6 +298,7 @@
             $this->view('admin/admin_request_verification', $data);
         }
 
+        // Resend admin verification code
         public function adminResendVerificationCode() {
             $email = $_SESSION['admin_verification_sent_email'];
 

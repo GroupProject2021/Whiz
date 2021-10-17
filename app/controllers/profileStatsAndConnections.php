@@ -4,7 +4,7 @@
             $this->profileStatAndConnectionModel = $this->model('profileStatAndConnection');
         }
 
-        // search user
+        // Search user
         public function searchUserByName($name) {
             $userList = $this->profileStatAndConnectionModel->getUsersByName($name);
 
@@ -20,8 +20,8 @@
         }
   
 
-
-        // initial followers list
+        // Followers
+        // Initial followers list
         public function followers($id) {
             $followerList = $this->profileStatAndConnectionModel->getFollowers($id);
 
@@ -30,14 +30,14 @@
             $this->view('connections/v_student_followers', $data);
         }
 
-        // all user list
+        // All user list
         public function existingAllFollowerUserList() {
             $userList = $this->profileStatAndConnectionModel->getFollowers($_SESSION['user_id']);
 
             $this->generateUserList($userList);
         }
 
-        // all user list with respect to actor type or specialized actor type
+        // All user list with respect to actor type or specialized actor type
         public function existingFollowerUserList($type) {
             $userList = $this->profileStatAndConnectionModel->getExistingFollowersUserList($type, $_SESSION['user_id']);
 
@@ -45,8 +45,8 @@
         }
 
 
-        
-        // initial following list
+        // Followings
+        // Initial following list
         public function followings($id) {
             $followingList = $this->profileStatAndConnectionModel->getFollowings($id);
 
@@ -55,14 +55,14 @@
             $this->view('connections/v_student_following', $data);
         }
 
-        // all user list
+        // All user list
         public function existingAllFollowingUserList() {
             $userList = $this->profileStatAndConnectionModel->getFollowings($_SESSION['user_id']);
 
             $this->generateUserList($userList);
         }
 
-        // all user list with respect to actor type or specialized actor type
+        // All user list with respect to actor type or specialized actor type
         public function existingFollowingUserList($type) {
             $userList = $this->profileStatAndConnectionModel->getExistingFollowingUserList($type, $_SESSION['user_id']);
 
@@ -70,7 +70,7 @@
         }
 
         
-
+        // Generate user list
         public function generateUserList($userList) {
             foreach($userList as $user) {
                 echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$user->id.'" class="card-link">';
@@ -87,7 +87,7 @@
         }
 
 
-        // to follow a user - real time updates using AJAX
+        // To follow a user - real time updates using AJAX
         public function follow($id) {
             $me = $_SESSION['user_id'];
 
@@ -97,7 +97,7 @@
             }
         }
 
-        // to unfollow a user - real time updates using AJAX
+        // To unfollow a user - real time updates using AJAX
         public function unfollow($id) {            
             $me = $_SESSION['user_id'];
 
@@ -108,7 +108,7 @@
             }
         }
 
-        // to update in real time using AJAX
+        // To update in real time using AJAX
         public function countFollowers($id) {
             $count = $this->profileStatAndConnectionModel->getFollowerCount($id);
 

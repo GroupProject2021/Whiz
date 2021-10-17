@@ -5,6 +5,7 @@ class C_S_Notification extends Controller {
         $this->notificationModel = $this->model('M_S_Notification');
     }
 
+    // Index
     public function index() {
         $this->view('students/opt_notifications/v_notifications');
     }

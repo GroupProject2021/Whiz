@@ -208,15 +208,6 @@ class M_O_Setting {
         $this->db->bind("profile_image", $data['profile_image_name']);
         $this->db->bind("id", $_SESSION['user_id']);
 
-        $this->db->execute();
-
-        $org_id = $this->findOrganizationIdbyEmail($_SESSION['user_email']);
-
-        $this->db->query('UPDATE organization SET profile_image = :profile_image WHERE org_id = :id');
-        // bind values
-        $this->db->bind("profile_image", $data['profile_image_name']);
-        $this->db->bind("id", $org_id);
-
         // Execute
         if($this->db->execute()) {
             return true;

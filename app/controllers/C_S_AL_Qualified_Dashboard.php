@@ -5,6 +5,7 @@ class C_S_AL_Qualified_Dashboard extends Controller {
         $this->alQualifiedDashboardModel = $this->model('M_S_AL_Qualified_Dashboard');
     }
 
+    // Index
     public function index() {
         $data = ['title' => 'Welcome to Students aL qualified dashboard'];
         

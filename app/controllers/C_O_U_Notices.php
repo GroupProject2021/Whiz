@@ -1,14 +1,12 @@
 <?php
 
 class C_O_U_Notices extends Controller{
-
     public function __construct() {
-        $this->noticeModel = $this->model('M_O_U_Notice');
-        
+        $this->noticeModel = $this->model('M_O_U_Notice');        
     }
 
+    // Index
     public function index() {
-
         $post = $this->noticeModel->getPosts();
             
         $data = [
@@ -17,10 +15,6 @@ class C_O_U_Notices extends Controller{
 
         $this->view('organization/university/notices/index', $data);
     }
-
-
 }
-
-
 
 ?>

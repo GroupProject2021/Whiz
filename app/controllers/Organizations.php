@@ -5,10 +5,12 @@
             $this->commonModel = $this->model('Common');
         }
 
+        // Register
         public function register() {
             $this->view('organization/organization_register', '');
         }
 
+        // University registration
         public function university_register() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -78,9 +80,6 @@
                 if(empty($data['email'])) {
                     $data['email_err'] = 'Please enter email';
                 }
-                // else if (!str_contains($data['email'],'@')){
-                //     $data['email_err'] = 'Enter valid email'; 
-                // }
                 // Check email
                 else if($this->commonModel->findUserByEmail($data['email'])) {
                     $data['email_err'] = 'Email is already taken'; 
@@ -244,6 +243,7 @@
             }
         }
 
+        // Company registration
         public function company_register() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -311,9 +311,6 @@
                 if(empty($data['email'])) {
                     $data['email_err'] = 'Please enter email';
                 }
-                // else if (!str_contains($data['email'],'@')){
-                //     $data['email_err'] = 'Enter valid email'; 
-                // }
                 // Check email
                 else if($this->commonModel->findUserByEmail($data['email'])) {
                     $data['email_err'] = 'Email is already taken'; 

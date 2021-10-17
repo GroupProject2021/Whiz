@@ -1,14 +1,12 @@
 <?php
 
 class C_O_C_Jobs extends Controller{
-
     public function __construct() {
-        $this->jobModel = $this->model('M_O_C_Job');
-        
+        $this->jobModel = $this->model('M_O_C_Job');        
     }
 
+    // Index
     public function index() {
-
         $post = $this->jobModel->getPosts();
             
         $data = [
@@ -17,8 +15,6 @@ class C_O_C_Jobs extends Controller{
 
         $this->view('organization/company/jobs/index', $data);
     }
-
-
 }
 
 

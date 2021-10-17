@@ -5,6 +5,7 @@ class C_S_Community extends Controller {
         $this->communityModel = $this->model('M_S_Community');
     }
 
+    // Index
     public function index() {
         $this->view('students/opt_community/v_comment_section');
     }

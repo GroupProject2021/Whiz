@@ -5,6 +5,7 @@
             $this->complaintModel = $this->model('M_M_Complaints');
         }
 
+        // Complaint
         public function complaint() {
             // Get posts
             $posts = $this->complaintModel->getComplaints();
@@ -16,6 +17,7 @@
             $this->view('mentors/opt_complaint/v_complaint_index', $data);
         }
 
+        // Add complaint
         public function add() {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanetize the POST array
@@ -72,6 +74,7 @@
             $this->view('mentors/opt_complaint/v_complaint_add', $data);
         }
 
+        // Edit complaint
         public function edit($id) {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanetize the POST array
@@ -138,6 +141,7 @@
             $this->view('mentors/opt_complaint/v_complaint_edit', $data);
         }
 
+        // Delete complaint
         public function delete($id) {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Get existing post from model

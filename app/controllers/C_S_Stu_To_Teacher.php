@@ -12,6 +12,7 @@
             $this->commonModel = $this->model('Common');            
         }        
 
+        // Index
         public function index() {
             // Get posts
             $posts = $this->postModel->getPosts();
@@ -25,6 +26,8 @@
             $this->view('students/opt_teachers/v_teachers_poster_list', $data);
         }
 
+
+        // View poster
         public function show($id) {
             // if post not exist
             if(!($this->postModel->isPostExist($id))) {
@@ -101,7 +104,6 @@
             
         }
 
-
         // For likes
         public function incUp($id) {
             $ups = $this->postModel->incUp($id);
@@ -163,7 +165,6 @@
                 echo $downs->downs;
             }    
         }
-
         
 
         public function incShare() {

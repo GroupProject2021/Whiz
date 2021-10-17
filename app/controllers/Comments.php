@@ -8,7 +8,7 @@
             $this->commentModel = $this->model('Comment');           
         }
 
-        // For comments
+        // Add comments
         public function comment($id) {
             $userId = $_SESSION['user_id'];
             $postId = $id;
@@ -96,6 +96,7 @@
         }
         
 
+        // Load comments
         public function showComments($id) {
             $comments = $this->commentModel->getComments($id);
 

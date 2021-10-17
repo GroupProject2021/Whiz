@@ -5,11 +5,6 @@ class C_O_Settings extends Controller {
         $this->settingsModel = $this->model('M_O_Setting');
     }
 
-    public function test() {
-        $data = [];
-        $this->view('organization/opt_settings/v_organization_profile', $data);
-    }
-
      // Settings
      public function settings($id) {
         // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
@@ -37,7 +32,6 @@ class C_O_Settings extends Controller {
                     'isAlreadyFollow' => $isAlreadyFollow,
                     'address' => $organizationData->address,
                     'email' => $organizationData->email,
-                    //'password' => $organizationData->password,
                     'phn_no' => $organizationData->phone_no,
                     'website' => $organizationData->website_address,
                     'founder' => $organizationData->founder,
@@ -65,7 +59,6 @@ class C_O_Settings extends Controller {
                     'isAlreadyFollow' => $isAlreadyFollow,
                     'address' => $organizationData->address,
                     'email' => $organizationData->email,
-                    //'password' => $organizationData->password,
                     'phn_no' => $organizationData->phone_no,
                     'website' => $organizationData->website_address,
                     'founder' => $organizationData->founder,
@@ -85,7 +78,7 @@ class C_O_Settings extends Controller {
     }
 
 
-    // editings
+    // Edit university settings
     public function editSettingsUniversity() {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
@@ -94,9 +87,6 @@ class C_O_Settings extends Controller {
             $data = [
                 'uniname' => trim($_POST['uniname']),
                 'address' => trim($_POST['address']),
-                //'email' => trim($_POST['email']),
-                //'password' => trim($_POST['password']),
-                //'confirm_password' => trim($_POST['confirm_password']),
                 'phn_no' => trim($_POST['phn_no']),
                 'website' => trim($_POST['website']),
                 'founder' => trim($_POST['founder']),
@@ -111,9 +101,6 @@ class C_O_Settings extends Controller {
 
                 'uniname_err' => '',
                 'address_err' => '',
-                //'email_err' => '',
-                //'password_err' => '',
-                //'confirm_password_err' => '',
                 'phn_no_err' => '',
                 'website_err' => '',
                 'founder_err' => '',
@@ -191,7 +178,6 @@ class C_O_Settings extends Controller {
             && empty($data['founded_year_err']) && empty($data['founder_err']) && empty($data['approved_err']) && empty($data['rank_err']) 
             && empty($data['amount_err']) && empty($data['rate_err']) && empty($data['descrip_err']) && empty($data['type_err']) ) {
                 // Validated           
-                //$id = $this->settingsModel->findOrganizationIdbyEmail($_SESSION['user_email']);
                 if($this->settingsModel->updateUniversitySettings($_SESSION['user_id'], $data)) {
                     flash('settings_message', 'University data updated');
                     $this->updateUserSessions($_SESSION['user_id']);
@@ -216,9 +202,6 @@ class C_O_Settings extends Controller {
             $data = [
                 'uniname' => $orgData->first_name,
                 'address' => $orgData->address,
-                //'email' => trim($_POST['email']),
-                //'password' => trim($_POST['password']),
-                //'confirm_password' => trim($_POST['confirm_password']),
                 'phn_no' => $orgData->phone_no,
                 'website' => $orgData->website_address,
                 'founder' => $orgData->founder,
@@ -233,9 +216,6 @@ class C_O_Settings extends Controller {
 
                 'uniname_err' => '',
                 'address_err' => '',
-                //'email_err' => '',
-                //'password_err' => '',
-                //'confirm_password_err' => '',
                 'phn_no_err' => '',
                 'website_err' => '',
                 'founder_err' => '',
@@ -252,6 +232,7 @@ class C_O_Settings extends Controller {
         $this->view('organization/opt_settings/edit/v_edit_university_settings', $data);
     }
 
+    // Edit company settings
     public function editSettingsCompany() {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
@@ -260,9 +241,6 @@ class C_O_Settings extends Controller {
             $data = [
                 'comname' => trim($_POST['comname']),
                 'address' => trim($_POST['address']),
-                //'email' => trim($_POST['email']),
-                //'password' => trim($_POST['password']),
-                //'confirm_password' => trim($_POST['confirm_password']),
                 'phn_no' => trim($_POST['phn_no']),
                 'website' => trim($_POST['website']),
                 'founder' => trim($_POST['founder']),
@@ -276,9 +254,6 @@ class C_O_Settings extends Controller {
 
                 'comname_err' => '',
                 'address_err' => '',
-                //'email_err' => '',
-                //'password_err' => '',
-                //'confirm_password_err' => '',
                 'phn_no_err' => '',
                 'website_err' => '',
                 'founder_err' => '',
@@ -356,7 +331,6 @@ class C_O_Settings extends Controller {
             && empty($data['founded_year_err']) && empty($data['founder_err']) && empty($data['cur_emp_err']) && empty($data['emp_size_err']) 
             && empty($data['registered_err']) && empty($data['overview_err']) && empty($data['services_err']) ) {
                 // Validated           
-                //$id = $this->settingsModel->findOrganizationIdbyEmail($_SESSION['user_email']);
                 if($this->settingsModel->updateCompanySettings($_SESSION['user_id'], $data)) {
                     flash('settings_message', 'Company data updated');
                     $this->updateUserSessions($_SESSION['user_id']);
@@ -381,9 +355,6 @@ class C_O_Settings extends Controller {
             $data = [
                 'comname' => $orgData->first_name,
                 'address' => $orgData->address,
-                //'email' => trim($_POST['email']),
-                //'password' => trim($_POST['password']),
-                //'confirm_password' => trim($_POST['confirm_password']),
                 'phn_no' => $orgData->phone_no,
                 'website' => $orgData->website_address,
                 'founder' => $orgData->founder,
@@ -397,9 +368,6 @@ class C_O_Settings extends Controller {
 
                 'comname_err' => '',
                 'address_err' => '',
-                //'email_err' => '',
-                //'password_err' => '',
-                //'confirm_password_err' => '',
                 'phn_no_err' => '',
                 'website_err' => '',
                 'founder_err' => '',
@@ -415,11 +383,11 @@ class C_O_Settings extends Controller {
         $this->view('organization/opt_settings/edit/v_edit_company_settings', $data);
     }
 
+    // Edit profile picture
     public function editProfilePic() {
         // Check for POST
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
-
             // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -434,7 +402,7 @@ class C_O_Settings extends Controller {
             // validate and upload profile image
             $oldImage = PUBROOT.'/profileimages/'.getActorTypeForIcons($_SESSION['actor_type']).'/'.$_SESSION['user_profile_image'];
 
-            if(updateImage($oldImage, $data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/student/')) {
+            if(updateImage($oldImage, $data['profile_image']['tmp_name'], $data['profile_image_name'], '/profileimages/organization/')) {
                 flash('profile_image_upload', 'Profile picture uploaded successfully');
             }
             else {
@@ -448,11 +416,6 @@ class C_O_Settings extends Controller {
 
                 // Register User
                 if($this->settingsModel->updateProfilePic($data)) {
-                    // set the verification sent email                        
-                    // sendVerificationCode($data['email']);
-
-                    // Redirect
-                    // flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
                     $this->updateUserSessions($_SESSION['user_id']);
                     
                     redirect('C_S_Settings/settings/'.$_SESSION['user_id']);
@@ -495,6 +458,8 @@ class C_O_Settings extends Controller {
         $_SESSION['status'] = $user->status;
     }
 
+
+    // Followers & Followings
     public function countFollowers($id) {
         $count = $this->settingsModel->getFollowerCount($id);
 

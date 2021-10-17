@@ -5,6 +5,7 @@ class C_S_Stream extends Controller {
         $this->streamModel = $this->model('M_S_Stream');
     }
 
+    // Index
     public function index() {
         $this->streamSelection();
     }
@@ -34,10 +35,8 @@ class C_S_Stream extends Controller {
     }
 
 
-
-
     // For OL qualified
-    // option 1 - stream recommendation
+    // Option 1 - stream recommendation
     public function streamRecommendation() {
         $streams = $this->streamModel->getStreams();
         $id = $this->streamModel->findStudentIdbyEmail($_SESSION['user_email']);
@@ -58,7 +57,7 @@ class C_S_Stream extends Controller {
         }
     }
 
-    // whiz stream recommendation algorithm
+    // Whiz stream recommendation algorithm
     public function whizStreamRecommenadationAlgorithm($studentOLData) {
         // ORDER MATTERS - changing the order of keys may effect the output
         $rankArray = [
@@ -112,7 +111,7 @@ class C_S_Stream extends Controller {
         return $rankArray;
     }
 
-    // replace array key names
+    // Replace array key names
     public function replaceArrayKeyName($array) {
         $replacedArray = [];
         $index = 1;
@@ -125,6 +124,7 @@ class C_S_Stream extends Controller {
         return $replacedArray;
     }
 
+    // Get rank
     public function getRank($grade) {
         switch($grade) {
             case 'A': 

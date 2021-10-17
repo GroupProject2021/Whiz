@@ -22,12 +22,11 @@
                     'otp_err' => ''
                 ];
 
-                // Validate email
+                // Validate otp
                 if(empty($data['otp'])) {
                     $data['otp_err'] = 'Please enter verification code';
                 }
 
-                // Validate password
                 if($data['otp'] != $_SESSION['verification_code']) {
                     $data['otp_err'] = 'Your verification is not matched. Please try again';
                 }
@@ -63,6 +62,7 @@
             $this->view('common/user_email_verification', $data);
         }
 
+        // Resend verification code
         public function resendVerificationCode() {
             $email = $_SESSION['verification_sent_email'];
 
@@ -78,6 +78,7 @@
             }
         }
 
+        // Register redirection
         public function registerRedirect() {
             $data = [];
 
@@ -85,7 +86,7 @@
         }
 
 
-        // user log in
+        // User login
         public function login() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -165,6 +166,7 @@
             $this->view('common/user_login', $data);
         }
 
+        // User session instantiation
         public function createUserSession($user) {
             // taken from the database
             $_SESSION['user_id'] = $user->id;
@@ -181,7 +183,7 @@
         }
 
 
-        // dashboard redirections
+        // Dashboard redirections
         public function userDashboardRedirect() {
             switch($_SESSION['actor_type']) {
                 case "Student": 
@@ -205,7 +207,7 @@
             }
         }
 
-
+        // Student dashboard redirection
         public function studentDashboardRedirect() {
             $data = ['title' => 'Welcome to Students beginner dashboard'];
 
@@ -232,6 +234,7 @@
             }
         }
 
+        // Organization dashboard redirection
         public function organizationDashboardRedirect() {
             $data = ['title' => 'Welcome to Organization dashboard'];
 
@@ -251,6 +254,7 @@
 
         }
 
+        // Mentor dashboard redirection
         public function mentorDashboardRedirect() {
             $data = ['title' => 'Welcome to Mentor dashboard'];
 
@@ -283,7 +287,7 @@
             redirect('commons/login');
         }
 
-
+        // Check user login or not
         public function isLoggedIn() {
             if(isset($_SESSION['user_id'])) {
                 return true;
@@ -294,7 +298,7 @@
         }    
 
 
-        // user forgot password
+        // User forgot password
         public function forgetPassword() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -355,6 +359,7 @@
             $this->view('common/user_forgot_password', $data);
         }
 
+        // User password reset
         public function userPasswordReset() {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -405,15 +410,6 @@
 
                 // Make sure errors are empty
                 if(empty($data['password_err']) && empty($data['confirm_password_err'])) {
-                    // if(sendPasswordReset($data['email'])) {
-                    //     // resend success
-                    //     flash('send_password_reset_successfull', 'We have sent password reset email. Please check your inbox.');
-                    // }
-                    // else {
-                    //     // resend failed
-                    //     flash('send_password_reset_failed', 'Password reset email sending failed! Check your internet connection or please try again waiting few minutes.', 'form-flash-warning');
-                    // }
-
                     // Hash password - Using strog one way hashing algorithm
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 

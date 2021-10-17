@@ -12,6 +12,7 @@
             $this->commonModel = $this->model('Common');            
         }        
 
+        // Index
         public function index() {
             // Get posts
             $posts = $this->postModel->getPosts();
@@ -25,6 +26,8 @@
             $this->view('students/opt_jobs/v_jobs_advertisement_list', $data);
         }
 
+        
+        // View job advertisement
         public function show($id) {
             // if post not exist
             if(!($this->postModel->isPostExist($id))) {
@@ -96,11 +99,8 @@
                 'avg_rate' => $avgRate
             ];
 
-            $this->view('students/opt_jobs/v_jobs_advertisement_viewMore', $data);
-
-            
+            $this->view('students/opt_jobs/v_jobs_advertisement_viewMore', $data);            
         }
-
 
         // For likes
         public function incUp($id) {
@@ -163,7 +163,6 @@
                 echo $downs->downs;
             }    
         }
-
         
 
         public function incShare() {

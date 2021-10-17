@@ -5,6 +5,7 @@ class C_A_Admin_Dashboard extends Controller {
         $this->adminDashboardModel = $this->model('M_A_Admin_Dashboard');
     }
 
+    // Index
     public function index() {
         $data = ['title' => 'Welcome to Students beginner dashboard'];
         

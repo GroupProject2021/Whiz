@@ -12,6 +12,7 @@
             $this->commonModel = $this->model('Common');            
         }        
 
+        // Load course posts
         public function index() {
             // Get posts
             $posts = $this->postModel->getPosts();
@@ -25,7 +26,7 @@
             $this->view('organization/university/coursePosts/index', $data);
         }
 
-
+        // Add course posts
         public function add() {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanetize the POST array
@@ -56,7 +57,6 @@
                     }
                     else {
                         // upload unsuccessfull
-                        // $data['profile_image_err'] = 'Profile picture uploading unsuccessful';                        print_r($data['image']['size']);
                         die('uns');
                     }
                 }
@@ -111,6 +111,7 @@
             $this->view('organization/university/coursePosts/add', $data);
         }
 
+        // Edit course posts
         public function edit($id) {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanetize the POST array
@@ -196,6 +197,7 @@
             $this->view('organization/university/coursePosts/edit', $data);
         }
 
+        // Show course posts
         public function show($id) {
             // if post not exist
             if(!($this->postModel->isPostExist($id))) {
@@ -272,6 +274,7 @@
             
         }
 
+        // Delete course posts
         public function delete($id) {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Get existing post from model

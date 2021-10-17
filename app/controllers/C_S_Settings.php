@@ -5,13 +5,8 @@ class C_S_Settings extends Controller {
         $this->settingsModel = $this->model('M_S_Settings');
     }
 
-    public function test() {
-        $data = [];
-        $this->view('students/opt_settings/v_student_profile', $data);
-    }
-
-     // Settings
-     public function settings($id) {
+    // Settings
+    public function settings($id) {
         // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
         $userData = $this->settingsModel->getUserDetails($id);
 
@@ -35,7 +30,6 @@ class C_S_Settings extends Controller {
                     'first_name' => $studentData->first_name,
                     'last_name' => $studentData->last_name,
                     'email' => $studentData->email,
-                    // 'password' => $studentData->password,
                     'gender' => $studentData->gender,
                     'date_of_birth' => $studentData->date_of_birth,
                     'address' => $studentData->address,
@@ -57,7 +51,6 @@ class C_S_Settings extends Controller {
                     'first_name' => $studentData->first_name,
                     'last_name' => $studentData->last_name,
                     'email' => $studentData->email,
-                    // 'password' => $studentData->password,
                     'gender' => $studentData->gender,
                     'date_of_birth' => $studentData->date_of_birth,
                     'address' => $studentData->address,
@@ -102,7 +95,6 @@ class C_S_Settings extends Controller {
                     'first_name' => $studentData->first_name,
                     'last_name' => $studentData->last_name,
                     'email' => $studentData->email,
-                    // 'password' => $studentData->password,
                     'gender' => $studentData->gender,
                     'date_of_birth' => $studentData->date_of_birth,
                     'address' => $studentData->address,
@@ -162,7 +154,6 @@ class C_S_Settings extends Controller {
                     'first_name' => $studentData->first_name,
                     'last_name' => $studentData->last_name,
                     'email' => $studentData->email,
-                    // 'password' => $studentData->password,
                     'gender' => $studentData->gender,
                     'date_of_birth' => $studentData->date_of_birth,
                     'address' => $studentData->address,
@@ -225,7 +216,7 @@ class C_S_Settings extends Controller {
     }
 
 
-    // editings
+    // Edit beginner settings
     public function editSettingsBeginner() {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
@@ -315,6 +306,7 @@ class C_S_Settings extends Controller {
         $this->view('students/opt_settings/edit/v_edit_beg_settings', $data);
     }
 
+    // Edit OL Qualified settings
     public function editSettingsOL() {
         $district_list = $this->settingsModel->getDistricts();
         $ol_subject_list = $this->settingsModel->getOLSubjects();
@@ -428,6 +420,7 @@ class C_S_Settings extends Controller {
         $this->view('students/opt_settings/edit/v_edit_ol_settings', $data);
     }
 
+    // Edit AL Qualified settings
     public function editSettingsAL() {
         $district_list = $this->settingsModel->getDistricts();
         $stream_list = $this->settingsModel->getStreams();
@@ -562,6 +555,7 @@ class C_S_Settings extends Controller {
         $this->view('students/opt_settings/edit/v_edit_al_settings', $data);
     }
 
+    // Edit Undergraduate/Graduate settings
     public function editSettingsUG() {
         $uni_type_list = $this->settingsModel->getUniTypes();
 
@@ -634,11 +628,11 @@ class C_S_Settings extends Controller {
         $this->view('students/opt_settings/edit/v_edit_ug_settings', $data);
     }
 
+    // Edit profile picture
     public function editProfilePic() {
         // Check for POST
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
-
             // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -667,11 +661,6 @@ class C_S_Settings extends Controller {
 
                 // Register User
                 if($this->settingsModel->updateProfilePic($data)) {
-                    // set the verification sent email                        
-                    // sendVerificationCode($data['email']);
-
-                    // Redirect
-                    // flash('register_success', '<center>You are registered! <br> We sent a verification code to your email <br>'.$data['email'].'</center>');
                     $this->updateUserSessions($_SESSION['user_id']);
                     
                     redirect('C_S_Settings/settings/'.$_SESSION['user_id']);
@@ -714,6 +703,8 @@ class C_S_Settings extends Controller {
         $_SESSION['status'] = $user->status;
     }
 
+
+    // Followers & Followings
     public function countFollowers($id) {
         $count = $this->settingsModel->getFollowerCount($id);
 

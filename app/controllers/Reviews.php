@@ -4,6 +4,7 @@
             $this->reviewModel = $this->model('Review');
         }
 
+        // Load reviews
         public function viewAll($post_id) {
             $reviews = $this->reviewModel->getReviews($post_id);
 
@@ -12,6 +13,7 @@
             $this->view('reviews/view_all_reviews', $data);
         }
 
+        // Add reviews
         public function add() {
             $postId = $_SESSION['current_viewing_post_id'];
             $userId = $_SESSION['user_id'];
@@ -48,6 +50,7 @@
             $this->view('reviews/add_review', $data);
         }
 
+        // Edit reviews
         public function edit($id) {
             $postId = $_SESSION['current_viewing_post_id'];
             $userId = $_SESSION['user_id'];
@@ -88,6 +91,7 @@
             $this->view('reviews/edit_review', $data);
         }
 
+        // Delete reviews
         public function delete($id) {
             // Get existing post from model
             $review = $this->reviewModel->getReviewById($id);

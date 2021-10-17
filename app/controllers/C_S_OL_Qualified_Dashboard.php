@@ -5,6 +5,7 @@ class C_S_OL_Qualified_Dashboard extends Controller {
         $this->olQualifiedDashboardModel = $this->model('M_S_OL_Qualified_Dashboard');
     }
 
+    // Index
     public function index() {
         $data = ['title' => 'Welcome to Students OL qualified dashboard'];
         

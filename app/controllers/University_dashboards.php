@@ -5,6 +5,7 @@ class University_dashboards extends Controller {
         $this->universityDashboardModel = $this->model('University_dashboard');
     }
 
+    // Index
     public function index() {
         $data = ['title' => 'Welcome to Universiversity dashboard'];
         

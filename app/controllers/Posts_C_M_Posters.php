@@ -12,6 +12,7 @@
             $this->commonModel = $this->model('Common');            
         }        
 
+        // Load posters
         public function index() {
             // Get posts
             $posts = $this->postModel->getPosts();
@@ -25,7 +26,7 @@
             $this->view('mentors/teacher/posters/index', $data);
         }
 
-
+        // Add posters
         public function add() {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanetize the POST array
@@ -56,7 +57,6 @@
                     }
                     else {
                         // upload unsuccessfull
-                        // $data['profile_image_err'] = 'Profile picture uploading unsuccessful';                        print_r($data['image']['size']);
                         die('uns');
                     }
                 }
@@ -111,6 +111,7 @@
             $this->view('mentors/teacher/posters/add', $data);
         }
 
+        // Edit posters
         public function edit($id) {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanetize the POST array
@@ -197,6 +198,7 @@
             $this->view('mentors/teacher/posters/edit', $data);
         }
 
+        // View posters
         public function show($id) {
             // if post not exist
             if(!($this->postModel->isPostExist($id))) {
@@ -273,6 +275,7 @@
             
         }
 
+        // Delte posters
         public function delete($id) {
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Get existing post from model

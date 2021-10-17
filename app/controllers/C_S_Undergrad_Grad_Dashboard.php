@@ -5,6 +5,7 @@ class C_S_Undergrad_Grad_Dashboard extends Controller {
         $this->beginnerDashboardModel = $this->model('M_S_Beginner_Dashboard');
     }
 
+    // Index
     public function index() {
         $data = ['title' => 'Welcome to Students undergraduate graduate dashboard'];
         

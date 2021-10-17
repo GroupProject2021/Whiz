@@ -1,14 +1,12 @@
 <?php
 
 class C_O_U_Courses extends Controller{
-
     public function __construct() {
-        $this->courseModel = $this->model('M_O_U_Course');
-        
+        $this->courseModel = $this->model('M_O_U_Course');        
     }
 
+    // Index
     public function index() {
-
         $post = $this->courseModel->getPosts();
             
         $data = [
@@ -17,10 +15,5 @@ class C_O_U_Courses extends Controller{
 
         $this->view('organization/university/course/index', $data);
     }
-
-
 }
-
-
-
 ?>
