@@ -36,6 +36,7 @@
             }
 
             $_SESSION['current_viewing_post_id'] = $id;
+            $_SESSION['currect_viewing_post_type'] = "Poster";
 
             $post = $this->postModel->getPostById($id);
             $user = $this->commonModel->getUserById($post->user_id);

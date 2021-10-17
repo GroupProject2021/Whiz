@@ -1,5 +1,5 @@
 <?php
-    class C_S_Stu_To_PriUniversity extends Controller {
+    class C_S_Stu_To_Company extends Controller {
         public function __construct() {
             if(!isLoggedIn()){
                 redirect('users/login');
@@ -23,11 +23,11 @@
                 'reviews_rates' => $postsReviewssAndRates
             ];
 
-            $this->view('students/opt_courses/v_pri_courses_list', $data);
+            $this->view('students/opt_jobs/v_jobs_advertisement_list', $data);
         }
 
         
-        // View course post
+        // View job advertisement
         public function show($id) {
             // if post not exist
             if(!($this->postModel->isPostExist($id))) {
@@ -36,6 +36,7 @@
             }
 
             $_SESSION['current_viewing_post_id'] = $id;
+            $_SESSION['currect_viewing_post_type'] = "Advertisement";
 
             $post = $this->postModel->getPostById($id);
             $user = $this->commonModel->getUserById($post->user_id);
@@ -99,9 +100,7 @@
                 'avg_rate' => $avgRate
             ];
 
-            $this->view('students/opt_courses/v_pri_courses_viewMore', $data);
-
-            
+            $this->view('students/opt_jobs/v_jobs_advertisement_viewMore', $data);            
         }
 
         // For likes

@@ -21,7 +21,7 @@
             <span>Beginner options</span>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/index">
+            <a href="<?php echo URLROOT; ?>/Posts_C_M_Posters/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/teacher-icon.png">
@@ -57,7 +57,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
+            <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
@@ -69,7 +69,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
+            <a href="<?php echo URLROOT; ?>/Posts_C_M_Banners/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/professional-guider-icon.png">
@@ -123,7 +123,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
+            <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
@@ -135,7 +135,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
+            <a href="<?php echo URLROOT; ?>/Posts_C_M_Banners/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/professional-guider-icon.png">
@@ -174,7 +174,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
+            <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
@@ -186,7 +186,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
+            <a href="<?php echo URLROOT; ?>/Posts_C_M_Banners/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/professional-guider-icon.png">
@@ -198,7 +198,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/index">
+            <a href="<?php echo URLROOT; ?>/Posts_C_M_Posters/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/teacher-icon.png">
@@ -228,7 +228,7 @@
             <span>Underdraduate / graduate options</span>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
+            <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
@@ -252,7 +252,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
+            <a href="<?php echo URLROOT; ?>/Posts_C_M_Banners/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/professional-guider-icon.png">
