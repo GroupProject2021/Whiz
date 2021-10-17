@@ -123,10 +123,10 @@
 }
 
 .sidebar-user-details {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 2fr; */
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .user-level-image img{
@@ -216,6 +216,7 @@
 
 .sidebar-item button:hover {
     background: var(--sidebar-item-color-hover);
+    cursor: pointer;
 }
 
 .sidebar-item-icon {

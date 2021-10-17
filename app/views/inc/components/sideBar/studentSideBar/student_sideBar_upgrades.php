@@ -3,9 +3,6 @@
         <!-- Beginner to OL qualified upgrade -->
         <div class="sidebar-user-details-container">
             <div class="sidebar-user-details">
-                <div class="user-level-image">
-                    <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/2.jpg" alt="prof_pic">
-                </div>
                 <div class="user-level-content">
                     <div class="user-level-name">
                         <p>Beginner</p>
@@ -28,9 +25,6 @@
         <!-- OL qualified to AL qualified upgrade -->
         <div class="sidebar-user-details-container">
             <div class="sidebar-user-details">
-                <div class="user-level-image">
-                    <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/2.jpg" alt="prof_pic">
-                </div>
                 <div class="user-level-content">
                     <div class="user-level-name">
                         <p>OL Qualified</p>
@@ -53,9 +47,6 @@
         <!-- AL qualified to UndergraduateGraduate upgrade -->
         <div class="sidebar-user-details-container">
             <div class="sidebar-user-details">
-                <div class="user-level-image">
-                    <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/2.jpg" alt="prof_pic">
-                </div>
                 <div class="user-level-content">
                     <div class="user-level-name">
                         <p>AL Qualified</p>
@@ -78,9 +69,6 @@
         <!-- UndergraduateGraduate profile completeness -->
         <div class="sidebar-user-details-container">
             <div class="sidebar-user-details">
-                <div class="user-level-image">
-                    <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/2.jpg" alt="prof_pic">
-                </div>
                 <div class="user-level-content">
                     <div class="user-level-name">
                         <p>Undergrad / Grad</p>

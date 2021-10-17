@@ -12,23 +12,6 @@
     <div class="sidebar-main">
     <?php if(isset($_SESSION['user_id'])) : ?>
         <?php if($_SESSION['specialized_actor_type'] == 'Professional Guider'): ?>
-        <!-- Professional Guider to Teacher upgrade -->
-        <hr>
-        <div class="sidebar-user-details">
-            <!-- <div class="user-level-image">
-                <img src="<?php echo URLROOT; ?>/imgs/sidebar/2.jpg" alt="prof_pic">
-            </div> -->
-            <div class="user-level-image">
-                <img src="<?php echo URLROOT; ?>/profileimages/mentor/<?php echo $_SESSION['user_profile_image']; ?>" alt="prof_pic" >
-            </div>
-            <div class="user-level-content">
-                <div class="user-level-name">
-                    <!-- <p>Professional Guider</p> -->
-                    <p><?php echo $_SESSION['user_name']; ?></p>
-                </div>
-            </div>
-        </div>
-        <hr>
 
         <?php elseif($_SESSION['specialized_actor_type'] == 'Teacher'): ?>
 

@@ -39,6 +39,18 @@
                                         <td class="C"><span class="form-invalid"><?php echo $data['ol_school_err']; ?></td>
                                     </tr>
                                     <tr>
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <!-- school search list -->
+                                            <div class="list-group" class="show-list" id="show-list">
+                                                <!-- sample element -->
+                                                <!-- <div class="show-list-item">HRCC</div> -->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <th class="A">OL District</th>
                                         <td class="B" colspan="6">
                                             <select name="ol_district" id="ol_district">
@@ -313,4 +325,32 @@
                 </div>
             </main>
         </div>
+
+        <!-- jquery -->
+        <script>
+            $(document).ready(function() {
+                $("#ol_school").keyup(function() {
+                    var searchText = $(this).val();
+                    
+                    if(searchText != '') {
+                        $.ajax({
+                            url: "<?php echo URLROOT;?>/Students_ProfileUpgrade/schoolList/"+searchText,
+                            method: 'post',
+                            success: function(response) {
+                                $("#show-list").html(response);
+                            }
+                        });
+                    }
+                    else {
+                        $("#show-list").html('');
+                    }
+                });
+
+                $(document).on("click", ".show-list-item", function() {
+                    $("#ol_school").val($(this).text());
+                    $("#show-list").html('');
+                })
+            });
+        </script>
+
 <?php require APPROOT.'/views/inc/footer.php'; ?>

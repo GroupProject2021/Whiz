@@ -1,8 +1,20 @@
 <div class="stu-topnav">
-    <?php if(isset($_SESSION['user_id'])) : ?> 
-    <div class="toggler">
-        <img src="<?php echo URLROOT.'/imgs/components/topNavBar/sidebar-icon.png' ?>" alt="">
-    </div>
+    <?php if(isset($_SESSION['user_id'])) : ?>
+        <!-- Side menu toggler -->
+        <div class="toggler">
+            <img src="<?php echo URLROOT.'/imgs/components/topNavBar/sidebar-icon.png' ?>" alt="">
+        </div>
+
+    <?php else: ?>
+
+            <!-- Whiz home -->
+            <a href="<?php echo URLROOT; ?>/index" class="topnav-link">
+                <button class="normalbtn">
+                    <img src="<?php echo URLROOT.'/imgs/components/topNavBar/home-icon.png' ?>" alt="">
+                    <div>Home</div>
+                </button>
+            </a>
+
     <?php endif; ?>
     <div class="rightset">        
         <?php if(isset($_SESSION['user_id'])) : ?> 

@@ -46,7 +46,7 @@
                     'district_list' => $district_list,
                     'ol_subject_list' => $ol_subject_list,
 
-                    'ol_school' => trim($_POST['ol_school']),
+                    'ol_school' => $_POST['ol_school'],
                     'ol_district' => trim($_POST['ol_district']),
                     'ol_sub1_id' => $_POST['religion'],
                     'radio_religion' => $_POST['radio_religion'],
@@ -162,7 +162,7 @@
                     'stream_list' => $stream_list,
                     'al_subject_list' => $al_subject_list,                    
 
-                    'al_school' => trim($_POST['al_school']),
+                    'al_school' => $_POST['al_school'],
                     'stream' => trim($_POST['stream']),
                     'z_score' => trim($_POST['z_score']),
                     'al_district' => trim($_POST['al_district']),
@@ -290,8 +290,8 @@
                 // Init data
                 $data = [
                     'uni_type' => trim($_POST['uni_type']), 
-                    'uni_name' => trim($_POST['uni_name']),
-                    'degree' => trim($_POST['degree']),
+                    'uni_name' => $_POST['uni_name'],
+                    'degree' => $_POST['degree'],
                     'gpa' => trim($_POST['gpa']),
 
                     'uni_type_err' => '',

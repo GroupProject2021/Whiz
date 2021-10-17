@@ -54,9 +54,33 @@
                                         <td class="C"><span class="form-invalid"><?php echo $data['uni_name_err']; ?></td>
                                     </tr>
                                     <tr>
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <!-- university search list -->
+                                            <div class="list-group" class="show-list" id="show-list-1">
+                                                <!-- sample element -->
+                                                <!-- <div class="show-list-item">HRCC</div> -->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <th class="A">Degree</th>
                                         <td class="B"><p><input type="text" name="degree" id="degree" value="<?php echo $data['degree'];?>"></p></td>
                                         <td class="C"><span class="form-invalid"><?php echo $data['degree_err']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <!-- degree search list -->
+                                            <div class="list-group" class="show-list" id="show-list-2">
+                                                <!-- sample element -->
+                                                <!-- <div class="show-list-item">HRCC</div> -->
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th class="A">GPA</th>
@@ -93,5 +117,70 @@
                 
         <!-- javascript -->
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/ug_UpgradeAndEdit.js"></script>
+
+        <!-- jquery -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(function() {
+                // uni type select
+                $(document).on("click", "#uni_type", function() {
+                    $("#uni_name").val('');
+                    $("#show-list-1").html('');
+                    $("#degree").val('');
+                    $("#show-list-2").html('');
+                });
+
+
+                // uni name search            
+                $("#uni_name").keyup(function() {
+                    var searchText = $(this).val();
+                    
+                    if($("#uni_type").children("option:selected").val() == "Government") {
+                        if(searchText != '') {
+                            $.ajax({
+                                url: "<?php echo URLROOT;?>/Students_ProfileUpgrade/universityList/"+searchText,
+                                method: 'post',
+                                success: function(response) {
+                                    $("#show-list-1").html(response);
+                                }
+                            });
+                        }
+                        else {
+                            $("#show-list-1").html('');
+                        }
+                    }
+                });
+
+                $(document).on("click", ".show-list-item-1", function() {
+                    $("#uni_name").val($(this).text());
+                    $("#show-list-1").html('');
+                });
+
+                // degree search
+                $("#degree").keyup(function() {
+                    var searchText = $(this).val();
+                    
+                    if($("#uni_type").children("option:selected").val() == "Government") {
+                        if(searchText != '') {
+                            $.ajax({
+                                url: "<?php echo URLROOT;?>/Students_ProfileUpgrade/degreeList/"+searchText,
+                                method: 'post',
+                                success: function(response) {
+                                    $("#show-list-2").html(response);
+                                }
+                            });
+                        }
+                        else {
+                            $("#show-list-2").html('');
+                        }
+                    }
+                });
+
+                $(document).on("click", ".show-list-item-2", function() {
+                    $("#degree").val($(this).text());
+                    $("#show-list-2").html('');
+                })
+            });
+        </script>
         
 <?php require APPROOT.'/views/inc/footer.php'; ?>
