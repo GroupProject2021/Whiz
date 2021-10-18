@@ -76,7 +76,7 @@
         }
 
         public function isAdminExist($email) {
-            $this->db->query('SELECT * FROM users WHERE email = :email AND actor_type = "Admin" AND specialized_actor_type = "Admin"'); // this is a prepared statement
+            $this->db->query('SELECT * FROM Users WHERE email = :email AND actor_type = "Admin" AND specialized_actor_type = "Admin"'); // this is a prepared statement
             // bind value
             $this->db->bind(":email", $email);
 

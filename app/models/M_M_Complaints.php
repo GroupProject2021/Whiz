@@ -18,11 +18,11 @@
         public function getComplaints() {
             $this->db->query("SELECT *, 
                                 Complaints.id AS postId,
-                                users.id AS userId,
+                                Users.id AS userId,
                                 Complaints.created_at as postCreated
                                 FROM Complaints
-                                INNER JOIN users  
-                                ON Complaints.user_id = users.id 
+                                INNER JOIN Users  
+                                ON Complaints.user_id = Users.id 
                                 ORDER BY Complaints.created_at DESC");
             $results = $this->db->resultSet();
 
