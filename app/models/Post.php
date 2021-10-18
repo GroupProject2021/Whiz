@@ -26,7 +26,7 @@
         }
 
         public function addPost($data) {
-            $this->db->query('INSERT INTO posts(image, title, user_id, body, ups, downs, shares, views, type, applied, capacity) VALUES(:image, :title, :user_id, :body, :ups, :downs, :shares, :views, :type, :applied, :capacity)');
+            $this->db->query('INSERT INTO Posts(image, title, user_id, body, ups, downs, shares, views, type, applied, capacity) VALUES(:image, :title, :user_id, :body, :ups, :downs, :shares, :views, :type, :applied, :capacity)');
             // bind values
             $this->db->bind(":image", $data['image_name']);
             $this->db->bind(":title", $data['title']);
@@ -50,7 +50,7 @@
         }
 
         public function addAdvertisement($data) {
-            $this->db->query('INSERT INTO advertisements(ad_id, ad_applied, ad_capacity) VALUES(:id, :applied, :capacity)');
+            $this->db->query('INSERT INTO Advertisements(ad_id, ad_applied, ad_capacity) VALUES(:id, :applied, :capacity)');
             // bind values
             $this->db->bind(":id", $data['image_name']);
             $this->db->bind(":applied", $data['title']);
@@ -66,7 +66,7 @@
         }
 
         public function updatePost($data) {
-            $this->db->query('UPDATE posts SET image = :image, title = :title, body = :body WHERE id = :id');
+            $this->db->query('UPDATE Posts SET image = :image, title = :title, body = :body WHERE id = :id');
             // bind values
             $this->db->bind(":image", $data['image_name']);            
             $this->db->bind(":id", $data['id']);
@@ -83,7 +83,7 @@
         }
 
         public function getPostById($id) {
-            $this->db->query('SELECT * FROM posts WHERE id = :id');
+            $this->db->query('SELECT * FROM Posts WHERE id = :id');
             $this->db->bind(':id', $id);
 
             $row = $this->db->single();
@@ -92,7 +92,7 @@
         }
 
         public function deletePost($id) {
-            $this->db->query('DELETE FROM posts WHERE id = :id');
+            $this->db->query('DELETE FROM Posts WHERE id = :id');
             // bind values
             
             $this->db->bind(":id", $id);
@@ -107,7 +107,7 @@
         }
 
         public function isPostExist($postId) {
-            $this->db->query('SELECT * FROM posts WHERE id = :post_id');
+            $this->db->query('SELECT * FROM Posts WHERE id = :post_id');
             $this->db->bind(":post_id", $postId);
 
             $results = $this->db->single();
@@ -124,7 +124,7 @@
 
         // likes
         public function incUp($id) {
-            $this->db->query('UPDATE posts SET ups = ups + 1 WHERE id = :id');
+            $this->db->query('UPDATE Posts SET ups = ups + 1 WHERE id = :id');
             // bind values            
             $this->db->bind(":id", $id);
 
@@ -138,7 +138,7 @@
         }
 
         public function decUp($id) {
-            $this->db->query('UPDATE posts SET ups = ups - 1 WHERE id = :id');
+            $this->db->query('UPDATE Posts SET ups = ups - 1 WHERE id = :id');
             // bind values            
             $this->db->bind(":id", $id);
 
@@ -152,7 +152,7 @@
         }
 
         public function getInc($id) {
-            $this->db->query('SELECT ups FROM posts WHERE id = :id');
+            $this->db->query('SELECT ups FROM Posts WHERE id = :id');
             $this->db->bind(':id', $id);
 
             $row = $this->db->single();
@@ -162,7 +162,7 @@
 
         // dislikes
         public function incDown($id) {
-            $this->db->query('UPDATE posts SET downs = downs + 1 WHERE id = :id');
+            $this->db->query('UPDATE Posts SET downs = downs + 1 WHERE id = :id');
             // bind values            
             $this->db->bind(":id", $id);
 
@@ -176,7 +176,7 @@
         }
 
         public function decDown($id) {
-            $this->db->query('UPDATE posts SET downs = downs - 1 WHERE id = :id');
+            $this->db->query('UPDATE Posts SET downs = downs - 1 WHERE id = :id');
             // bind values            
             $this->db->bind(":id", $id);
 
@@ -190,7 +190,7 @@
         }
 
         public function getDown($id) {
-            $this->db->query('SELECT downs FROM posts WHERE id = :id');
+            $this->db->query('SELECT downs FROM Posts WHERE id = :id');
             $this->db->bind(':id', $id);
 
             $row = $this->db->single();
@@ -201,7 +201,7 @@
 
         // like dislike interactions
         public function addPostInteraction($userId, $postId, $interation) {
-            $this->db->query('INSERT INTO postinteractions(user_id, post_id, interaction) VALUES(:user_id, :post_id, :interaction)');
+            $this->db->query('INSERT INTO PostInteractions(user_id, post_id, interaction) VALUES(:user_id, :post_id, :interaction)');
             // bind values
             $this->db->bind(":user_id", $userId);
             $this->db->bind(":post_id", $postId);
@@ -217,7 +217,7 @@
         }
 
         public function setPostInteraction($userId, $postId, $interation) {
-            $this->db->query('UPDATE postinteractions SET interaction = :interaction WHERE user_id = :user_id AND post_id = :post_id');
+            $this->db->query('UPDATE PostInteractions SET interaction = :interaction WHERE user_id = :user_id AND post_id = :post_id');
             // bind values
             $this->db->bind(":user_id", $userId);
             $this->db->bind(":post_id", $postId);
@@ -233,7 +233,7 @@
         }
 
         public function getPostInteration($userId, $postId) {
-            $this->db->query('SELECT * FROM postinteractions WHERE user_id = :user_id AND post_id = :post_id');
+            $this->db->query('SELECT * FROM PostInteractions WHERE user_id = :user_id AND post_id = :post_id');
             $this->db->bind(":user_id", $userId);
             $this->db->bind(":post_id", $postId);
 
@@ -243,7 +243,7 @@
         }
 
         public function isPostInterationExist($userId, $postId) {
-            $this->db->query('SELECT * FROM postinteractions WHERE user_id = :user_id AND post_id = :post_id');
+            $this->db->query('SELECT * FROM PostInteractions WHERE user_id = :user_id AND post_id = :post_id');
             $this->db->bind(":user_id", $userId);
             $this->db->bind(":post_id", $postId);
 
@@ -260,7 +260,7 @@
         }
 
         public function deleteInteraction($id) {
-            $this->db->query('DELETE FROM postinteractions WHERE post_id = :id');
+            $this->db->query('DELETE FROM PostInteractions WHERE post_id = :id');
             // bind values
             
             $this->db->bind(":id", $id);

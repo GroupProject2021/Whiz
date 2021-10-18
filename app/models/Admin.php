@@ -9,7 +9,7 @@
         // Register as a user
         public function registerAsAUser($data) {
             // register as a user    
-            $this->db->query('INSERT INTO users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
+            $this->db->query('INSERT INTO Users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':name', $data['name']);
@@ -31,7 +31,7 @@
 
         public function registerAsAnAdmin($id, $data) {
             // register as a student
-            $this->db->query('INSERT INTO admin(admin_id, email, phone_number, user_role) VALUES(:admin_id, :email, :phn_no, :user_role)');
+            $this->db->query('INSERT INTO Admin(admin_id, email, phone_number, user_role) VALUES(:admin_id, :email, :phn_no, :user_role)');
             // bind values
             $this->db->bind(":admin_id", $id);
             $this->db->bind(":email", $data['email']);
@@ -50,7 +50,7 @@
         // Find user by email
         public function findUserByEmail($email) {
             // $this->db->query('SELECT * FROM student WHERE email = :email'); // this is a prepared statement
-            $this->db->query('SELECT * FROM users WHERE email = :email'); // this is a prepared statement
+            $this->db->query('SELECT * FROM Users WHERE email = :email'); // this is a prepared statement
             // bind value
             $this->db->bind(":email", $email);
 
@@ -66,7 +66,7 @@
         }
 
         public function getUserIdByEmail($email) {
-            $this->db->query('SELECT * FROM users WHERE email = :email');
+            $this->db->query('SELECT * FROM Users WHERE email = :email');
             // bind values
             $this->db->bind(':email', $email);
 
@@ -93,7 +93,7 @@
 
         // set verify admin
         public function setVerifiedAdmin($email) {
-            $this->db->query('UPDATE users SET status = "verified" WHERE email = :email AND actor_type = "Admin" AND specialized_actor_type = "Admin"');
+            $this->db->query('UPDATE Users SET status = "verified" WHERE email = :email AND actor_type = "Admin" AND specialized_actor_type = "Admin"');
             // bind values
             $this->db->bind(':email', $email);
 

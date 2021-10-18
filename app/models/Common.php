@@ -8,7 +8,7 @@
 
          // Login user
          public function login($email, $password) {
-            $this->db->query('SELECT * FROM users WHERE email = :email');
+            $this->db->query('SELECT * FROM Users WHERE email = :email');
             // bind values
             $this->db->bind(':email', $email);
 
@@ -26,7 +26,7 @@
 
         // Find user by email
         public function findUserByEmail($email) {
-            $this->db->query('SELECT * FROM users WHERE email = :email'); // this is a prepared statement
+            $this->db->query('SELECT * FROM Users WHERE email = :email'); // this is a prepared statement
             // bind value
             $this->db->bind(":email", $email);
 
@@ -43,7 +43,7 @@
 
         // Get user by id
         public function getUserById($id) {
-            $this->db->query('SELECT * FROM users WHERE id = :id'); // this is a prepared statement
+            $this->db->query('SELECT * FROM Users WHERE id = :id'); // this is a prepared statement
             // bind value
             $this->db->bind(":id", $id);
 
@@ -54,7 +54,7 @@
 
         // set verify user
         public function setVerifiedUser($email) {
-            $this->db->query('UPDATE users SET status = "verified" WHERE email = :email');
+            $this->db->query('UPDATE Users SET status = "verified" WHERE email = :email');
             // bind values
             $this->db->bind(':email', $email);
 
@@ -69,7 +69,7 @@
 
         // reset old password to new
         public function resetPassword($email, $password) {
-            $this->db->query('UPDATE users SET password = :password WHERE email = :email');
+            $this->db->query('UPDATE Users SET password = :password WHERE email = :email');
             // bind values
             $this->db->bind(':password', $password);
             $this->db->bind(':email', $email);

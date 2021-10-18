@@ -9,7 +9,7 @@
 
         // comment
         public function addComment($data) {
-            $this->db->query('INSERT INTO comments(post_id, user_id, content, ups, downs) VALUES(:post_id, :user_id, :content, :ups, :downs)');
+            $this->db->query('INSERT INTO Comments(post_id, user_id, content, ups, downs) VALUES(:post_id, :user_id, :content, :ups, :downs)');
             // bind values
             $this->db->bind(":post_id", $data['post_id']);
             $this->db->bind(":user_id", $data['user_id']);
@@ -28,7 +28,7 @@
 
         public function getComments($id) {
             // $this->db->query('SELECT * FROM comments WHERE post_id = :post_id');
-            $this->db->query('SELECT * FROM comments WHERE post_id = :post_id ORDER BY comments.created_at DESC');
+            $this->db->query('SELECT * FROM Comments WHERE post_id = :post_id ORDER BY comments.created_at DESC');
             $this->db->bind(':post_id', $id);
 
             $results = $this->db->resultSet();
@@ -37,7 +37,7 @@
         }
 
         public function deleteComment($id) {
-            $this->db->query('DELETE FROM comments WHERE post_id = :id');
+            $this->db->query('DELETE FROM Comments WHERE post_id = :id');
             // bind values
             
             $this->db->bind(":id", $id);
@@ -53,7 +53,7 @@
 
          // Find user by email
          public function isCommentExist($id) {
-            $this->db->query('SELECT * FROM comments WHERE post_id = :id'); // this is a prepared statement
+            $this->db->query('SELECT * FROM Comments WHERE post_id = :id'); // this is a prepared statement
             // bind value
             $this->db->bind(":id", $id);
 
@@ -69,7 +69,7 @@
         }
 
         public function getUserDetails($id) {
-            $this->db->query('SELECT * FROM users WHERE id = :id');
+            $this->db->query('SELECT * FROM Users WHERE id = :id');
             $this->db->bind(':id', $id);
 
             $row = $this->db->single();
@@ -80,7 +80,7 @@
 
         // comment like 
         public function incCommentUp($id) {
-            $this->db->query('UPDATE comments SET ups = ups + 1 WHERE comment_id = :id');
+            $this->db->query('UPDATE Comments SET ups = ups + 1 WHERE comment_id = :id');
             // bind values            
             $this->db->bind(":id", $id);
 
@@ -94,7 +94,7 @@
         }
 
         public function decCommentUp($id) {
-            $this->db->query('UPDATE comments SET ups = ups - 1 WHERE comment_id = :id');
+            $this->db->query('UPDATE Comments SET ups = ups - 1 WHERE comment_id = :id');
             // bind values            
             $this->db->bind(":id", $id);
 
@@ -108,7 +108,7 @@
         }
 
         public function getCommentInc($id) {
-            $this->db->query('SELECT ups FROM comments WHERE comment_id = :id');
+            $this->db->query('SELECT ups FROM Comments WHERE comment_id = :id');
             $this->db->bind(':id', $id);
 
             $row = $this->db->single();
@@ -119,7 +119,7 @@
 
         // comment dilikes
         public function incCommentDown($id) {
-            $this->db->query('UPDATE comments SET downs = downs + 1 WHERE comment_id = :id');
+            $this->db->query('UPDATE Comments SET downs = downs + 1 WHERE comment_id = :id');
             // bind values            
             $this->db->bind(":id", $id);
 
@@ -133,7 +133,7 @@
         }
 
         public function decCommentDown($id) {
-            $this->db->query('UPDATE comments SET downs = downs - 1 WHERE comment_id = :id');
+            $this->db->query('UPDATE Comments SET downs = downs - 1 WHERE comment_id = :id');
             // bind values            
             $this->db->bind(":id", $id);
 
@@ -147,7 +147,7 @@
         }
 
         public function getCommentDown($id) {
-            $this->db->query('SELECT downs FROM comments WHERE comment_id = :id');
+            $this->db->query('SELECT downs FROM Comments WHERE comment_id = :id');
             $this->db->bind(':id', $id);
 
             $row = $this->db->single();
@@ -158,7 +158,7 @@
 
         // comment like dislike interactions
         public function addCommentInteraction($userId, $commentId, $interation) {
-            $this->db->query('INSERT INTO commentinteractions(user_id, comment_id, comment_interaction) VALUES(:user_id, :comment_id, :interaction)');
+            $this->db->query('INSERT INTO CommentInteractions(user_id, comment_id, comment_interaction) VALUES(:user_id, :comment_id, :interaction)');
             // bind values
             $this->db->bind(":user_id", $userId);
             $this->db->bind(":comment_id", $commentId);
@@ -174,7 +174,7 @@
         }
 
         public function setCommentInteraction($userId, $commentId, $interation) {
-            $this->db->query('UPDATE commentinteractions SET comment_interaction = :interaction WHERE user_id = :user_id AND comment_id = :comment_id');
+            $this->db->query('UPDATE CommentInteractions SET comment_interaction = :interaction WHERE user_id = :user_id AND comment_id = :comment_id');
             // bind values
             $this->db->bind(":user_id", $userId);
             $this->db->bind(":comment_id", $commentId);
@@ -190,7 +190,7 @@
         }
 
         public function getCommentInteration($userId, $commentId) {
-            $this->db->query('SELECT * FROM commentinteractions WHERE user_id = :user_id AND comment_id = :comment_id');
+            $this->db->query('SELECT * FROM CommentInteractions WHERE user_id = :user_id AND comment_id = :comment_id');
             $this->db->bind(":user_id", $userId);
             $this->db->bind(":comment_id", $commentId);
 
@@ -200,7 +200,7 @@
         }
 
         public function isCommentInterationExist($userId, $commentId) {
-            $this->db->query('SELECT * FROM commentinteractions WHERE user_id = :user_id AND comment_id = :comment_id');
+            $this->db->query('SELECT * FROM CommentInteractions WHERE user_id = :user_id AND comment_id = :comment_id');
             $this->db->bind(":user_id", $userId);
             $this->db->bind(":comment_id", $commentId);
 
@@ -217,7 +217,7 @@
         }
 
         public function deleteCommentInteraction($id) {
-            $this->db->query('DELETE FROM commentinteractions WHERE comment_id = :id');
+            $this->db->query('DELETE FROM CommentInteractions WHERE comment_id = :id');
             // bind values
             
             $this->db->bind(":id", $id);

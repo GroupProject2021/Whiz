@@ -8,7 +8,7 @@ class M_S_Course {
     }
 
     public function getGovCourseList() {
-        $this->db->query('SELECT * FROM governmentcourse');
+        $this->db->query('SELECT * FROM GovernmentCourse');
         // $this->db->bind(':gov_course_id', $id);
 
         $results = $this->db->resultSet();

@@ -12,7 +12,7 @@
         }
 
         public function getadminDetails($id) {
-            $this->db->query('SELECT * FROM admin WHERE admins_id = :id');
+            $this->db->query('SELECT * FROM Admin WHERE admins_id = :id');
             // bind values
             $this->db->bind(':id', $id);
 
@@ -23,7 +23,7 @@
 
         // useful for take a admin data from admins
         public function findAdminIdbyEmail($email) {
-            $this->db->query('SELECT * FROM admin WHERE email = :email');
+            $this->db->query('SELECT * FROM Admin WHERE email = :email');
             // bind values
             $this->db->bind(':email', $email);
 
@@ -35,7 +35,7 @@
 
         // update settings for admin
         public function updateAdminSettings($id, $data) {
-            $this->db->query('UPDATE admin SET email = :email, password = :password 
+            $this->db->query('UPDATE Admin SET email = :email, password = :password 
             WHERE admin_id = :id');
             // bind values
             

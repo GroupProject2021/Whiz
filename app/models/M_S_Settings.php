@@ -9,7 +9,7 @@ class M_S_Settings {
 
     // get student details
     public function getStudentDetails($id) {
-        $this->db->query('SELECT * FROM student INNER JOIN users ON users.id = student.stu_id WHERE stu_id = :id');
+        $this->db->query('SELECT * FROM Student INNER JOIN Users ON Users.id = Student.stu_id WHERE stu_id = :id');
         // bind values
         $this->db->bind(':id', $id);
 
@@ -19,7 +19,7 @@ class M_S_Settings {
     }
 
     public function getStudentOLDetails($id) {
-        $this->db->query('SELECT * FROM olqualifiedstudent WHERE stu_id = :id');
+        $this->db->query('SELECT * FROM OLQualifiedStudent WHERE stu_id = :id');
         // bind values
         $this->db->bind(':id', $id);
 
@@ -29,7 +29,7 @@ class M_S_Settings {
     }
 
     public function getStudentALDetails($id) {
-        $this->db->query('SELECT * FROM alqualifiedstudent WHERE stu_id = :id');
+        $this->db->query('SELECT * FROM ALQualifiedStudent WHERE stu_id = :id');
         // bind values
         $this->db->bind(':id', $id);
 
@@ -39,7 +39,7 @@ class M_S_Settings {
     }
 
     public function getStudentUniversity($id) {
-        $this->db->query('SELECT * FROM undergraduategraduate WHERE stu_id = :id');
+        $this->db->query('SELECT * FROM UndergraduateGraduate WHERE stu_id = :id');
         // bind values
         $this->db->bind(':id', $id);
 
@@ -50,7 +50,7 @@ class M_S_Settings {
 
     // get subject details
     public function getOLSubjectName($id) {
-        $this->db->query('SELECT * FROM olsubject WHERE ol_sub_id = :id');
+        $this->db->query('SELECT * FROM OLSubject WHERE ol_sub_id = :id');
         // bind values
         $this->db->bind(':id', $id);
 
@@ -60,7 +60,7 @@ class M_S_Settings {
     }
 
     public function getALSubjectName($id) {
-        $this->db->query('SELECT * FROM alsubject WHERE al_sub_id = :id');
+        $this->db->query('SELECT * FROM ALSubject WHERE al_sub_id = :id');
         // bind values
         $this->db->bind(':id', $id);
 
@@ -71,7 +71,7 @@ class M_S_Settings {
 
     // get user details
     public function getUserDetails($id) {
-        $this->db->query('SELECT * FROM users WHERE id = :id');
+        $this->db->query('SELECT * FROM Users WHERE id = :id');
         // bind values
         $this->db->bind(':id', $id);
 
@@ -82,7 +82,7 @@ class M_S_Settings {
 
     // useful for take a student data from students
     public function findStudentIdbyEmail($email) {
-        $this->db->query('SELECT * FROM student WHERE email = :email');
+        $this->db->query('SELECT * FROM Student WHERE email = :email');
         // bind values
         $this->db->bind(':email', $email);
 
@@ -96,7 +96,7 @@ class M_S_Settings {
 
     // update settings for beginnner
     public function updateStudentSettings($id, $data) {
-        $this->db->query('UPDATE users SET first_name = :first_name, last_name = :last_name
+        $this->db->query('UPDATE Users SET first_name = :first_name, last_name = :last_name
                              WHERE id = :id');
         // bind values                
         $this->db->bind(":first_name", $data['first_name']);
@@ -105,7 +105,7 @@ class M_S_Settings {
 
         $res1 = $this->db->execute();
 
-        $this->db->query('UPDATE student SET address = :address, gender = :gender,
+        $this->db->query('UPDATE Student SET address = :address, gender = :gender,
                             date_of_birth = :date_of_birth, phn_no = :phn_no
                              WHERE stu_id = :id');
         // bind values
@@ -128,7 +128,7 @@ class M_S_Settings {
 
     // update setting for ol qualified
     public function updateStudentOLSettings($id, $data) {
-        $this->db->query('UPDATE olqualifiedstudent SET ol_school = :ol_school, ol_district = :ol_district, ol_sub1_id = :ol_sub1_id, ol_sub1_grade = :ol_sub1_grade,
+        $this->db->query('UPDATE OLQualifiedStudent SET ol_school = :ol_school, ol_district = :ol_district, ol_sub1_id = :ol_sub1_id, ol_sub1_grade = :ol_sub1_grade,
                             ol_sub2_id = :ol_sub2_id, ol_sub2_grade = :ol_sub2_grade, ol_sub3_id = :ol_sub3_id, ol_sub3_grade = :ol_sub3_grade,
                             ol_sub4_id = :ol_sub4_id, ol_sub4_grade = :ol_sub4_grade, ol_sub5_id = :ol_sub5_id, ol_sub5_grade = :ol_sub5_grade,
                             ol_sub6_id = :ol_sub6_id, ol_sub6_grade = :ol_sub6_grade, ol_sub7_id = :ol_sub7_id, ol_sub7_grade = :ol_sub7_grade, 
@@ -169,7 +169,7 @@ class M_S_Settings {
 
     // update setting for al qualified
     public function updateStudentALSettings($id, $data) {
-        $this->db->query('UPDATE alqualifiedstudent SET al_school = :al_school, stream = :stream, z_score = :z_score,
+        $this->db->query('UPDATE ALQualifiedStudent SET al_school = :al_school, stream = :stream, z_score = :z_score,
                             al_district = :al_district, al_general_test_grade = :al_general_test_grade, al_general_english_grade = :al_general_english_grade, 
                             al_sub1_id = :al_sub1_id, al_sub1_grade = :al_sub1_grade, al_sub2_id = :al_sub2_id, al_sub2_grade = :al_sub2_grade,
                             al_sub3_id = :al_sub3_id, al_sub3_grade = :al_sub3_grade
@@ -200,7 +200,7 @@ class M_S_Settings {
 
     // update setting for undergraduate graduate
     public function updateStudentUGSettings($id, $data) {
-        $this->db->query('UPDATE undergraduategraduate SET degree = :degree, uni_type = :uni_type, uni_name = :uni_name, gpa = :gpa WHERE stu_id = :id');
+        $this->db->query('UPDATE UndergraduateGraduate SET degree = :degree, uni_type = :uni_type, uni_name = :uni_name, gpa = :gpa WHERE stu_id = :id');
         // bind values        
         $this->db->bind(":uni_type", $data['uni_type']);
         $this->db->bind(":degree", $data['degree']);
@@ -218,7 +218,7 @@ class M_S_Settings {
     }
 
     public function updateProfilePic($data) {           
-        $this->db->query('UPDATE users SET profile_image = :profile_image WHERE id = :id');
+        $this->db->query('UPDATE Users SET profile_image = :profile_image WHERE id = :id');
         // bind values
         $this->db->bind("profile_image", $data['profile_image_name']);
         $this->db->bind("id", $_SESSION['user_id']);
@@ -234,7 +234,7 @@ class M_S_Settings {
 
      // get districts 
      public function getDistricts() {
-        $this->db->query("SELECT * FROM district");
+        $this->db->query("SELECT * FROM District");
         $results = $this->db->resultSet();
 
         return $results;
@@ -242,7 +242,7 @@ class M_S_Settings {
 
     // get ol subjects 
     public function getOLSubjects() {
-        $this->db->query("SELECT * FROM olsubject");
+        $this->db->query("SELECT * FROM OLSubject");
         $results = $this->db->resultSet();
 
         return $results;
@@ -250,14 +250,14 @@ class M_S_Settings {
 
     // get streams 
     public function getStreams() {
-        $this->db->query("SELECT * FROM stream");
+        $this->db->query("SELECT * FROM Stream");
         $results = $this->db->resultSet();
 
         return $results;
     }
 
     public function getStreamNameById($id) {
-        $this->db->query("SELECT * FROM stream WHERE stream_id = :id");
+        $this->db->query("SELECT * FROM Stream WHERE stream_id = :id");
         $this->db->bind(':id', $id);
         $results = $this->db->single();
 
@@ -266,14 +266,14 @@ class M_S_Settings {
 
     // get al subjects 
     public function getALSubjects() {
-        $this->db->query("SELECT * FROM alsubject");
+        $this->db->query("SELECT * FROM ALSubject");
         $results = $this->db->resultSet();
 
         return $results;
     }
 
     public function getALSubjectsById($stream_id) {
-        $this->db->query("SELECT * FROM alsubject WHERE al_stream_id = :stream_id");
+        $this->db->query("SELECT * FROM ALSubject WHERE al_stream_id = :stream_id");
         $this->db->bind(':stream_id', $stream_id);
 
         $results = $this->db->resultSet();
@@ -283,7 +283,7 @@ class M_S_Settings {
 
     // get uni types 
     public function getUniTypes() {
-        $this->db->query("SELECT * FROM universitytype");
+        $this->db->query("SELECT * FROM UniversityType");
         $results = $this->db->resultSet();
 
         return $results;
@@ -291,7 +291,7 @@ class M_S_Settings {
 
 
     public function getFollowerCount($id) {
-        $this->db->query('SELECT * FROM connections WHERE to_user_id = :id');
+        $this->db->query('SELECT * FROM Connections WHERE to_user_id = :id');
         // bind values
         $this->db->bind(":id", $id);
 
@@ -303,7 +303,7 @@ class M_S_Settings {
     }
 
     public function getFollowingCount($id) {
-        $this->db->query('SELECT * FROM connections WHERE from_user_id = :id');
+        $this->db->query('SELECT * FROM Connections WHERE from_user_id = :id');
         // bind values
         $this->db->bind(":id", $id);
 
@@ -315,7 +315,7 @@ class M_S_Settings {
     }
 
     public function isAlreadyFollow($me, $id) {
-        $this->db->query('SELECT * FROM connections WHERE from_user_id = :me AND to_user_id = :id');
+        $this->db->query('SELECT * FROM Connections WHERE from_user_id = :me AND to_user_id = :id');
         // bind values
         $this->db->bind(":me", $me);
         $this->db->bind(":id", $id);

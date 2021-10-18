@@ -9,7 +9,7 @@
         // Register as a user
         public function registerAsAUser($data, $specialize_type) {
             // register as a user    
-            $this->db->query('INSERT INTO users(profile_image, first_name, last_name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :first_name, :last_name, :email, :password, :actor_type, :specialized_actor_type, :status)');
+            $this->db->query('INSERT INTO Users(profile_image, first_name, last_name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :first_name, :last_name, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':first_name', $data['first_name']);
@@ -32,7 +32,7 @@
 
         // Register professional guider
         public function registerAsAProfGuider($id, $data) {
-            $this->db->query('INSERT INTO mentor(mentor_id, email, phn_no, address, gender, institute, mentor_type, password) VALUES(:mentor_id, :email, :phn_no, :address, :gender, :institute, :mentor_type, :password)');
+            $this->db->query('INSERT INTO Mentor(mentor_id, email, phn_no, address, gender, institute, mentor_type, password) VALUES(:mentor_id, :email, :phn_no, :address, :gender, :institute, :mentor_type, :password)');
             // bind values
             $this->db->bind(":mentor_id", $id);
             $this->db->bind(':email', $data['email']);
@@ -54,7 +54,7 @@
 
         // Register teacher
         public function registerAsATeacher($id, $data) {
-            $this->db->query('INSERT INTO mentor(mentor_id, email, phn_no, address, gender, mentor_type, password) VALUES(:mentor_id, :email, :phn_no, :address, :gender, :mentor_type, :password)');
+            $this->db->query('INSERT INTO Mentor(mentor_id, email, phn_no, address, gender, mentor_type, password) VALUES(:mentor_id, :email, :phn_no, :address, :gender, :mentor_type, :password)');
             // bind values
             $this->db->bind(":mentor_id", $id);
             $this->db->bind(':email', $data['email']);
@@ -81,7 +81,7 @@
         // Find user by email
         public function findUserByEmail($email) {
             // $this->db->query('SELECT * FROM student WHERE email = :email'); // this is a prepared statement
-            $this->db->query('SELECT * FROM users WHERE email = :email'); // this is a prepared statement
+            $this->db->query('SELECT * FROM Users WHERE email = :email'); // this is a prepared statement
             // bind value
             $this->db->bind(":email", $email);
                 $row = $this->db->single();
@@ -97,7 +97,7 @@
 
         // useful for initialized the beginner details using students
         public function findMentorIdbyEmail($email) {
-            $this->db->query('SELECT * FROM mentor WHERE email = :email');
+            $this->db->query('SELECT * FROM Mentor WHERE email = :email');
             // bind values
             $this->db->bind(':email', $email);
 
@@ -107,7 +107,7 @@
         }
 
         public function getUserIdByEmail($email) {
-            $this->db->query('SELECT * FROM users WHERE email = :email');
+            $this->db->query('SELECT * FROM Users WHERE email = :email');
             // bind values
             $this->db->bind(':email', $email);
 

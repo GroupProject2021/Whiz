@@ -9,7 +9,7 @@
         // Register as a user
         public function registerAsAUser($data, $specialize_type) {
             // register as a user    
-            $this->db->query('INSERT INTO users(profile_image, first_name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :first_name, :email, :password, :actor_type, :specialized_actor_type, :status)');
+            $this->db->query('INSERT INTO Users(profile_image, first_name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :first_name, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':first_name', $data['name']);
@@ -32,7 +32,7 @@
         // Register university
         public function registerAsAPrivateUniversity($id, $data) {
             // register as an organization
-            $this->db->query('INSERT INTO organization(org_id, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:org_id, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
+            $this->db->query('INSERT INTO Organization(org_id, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:org_id, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
             // bind values
             $this->db->bind(":org_id", $id);
             $this->db->bind(":address", $data['address']);
@@ -50,7 +50,7 @@
             // $uni_id = $this->findOrganizationIdbyEmail($data['email']);
 
             // register as a university
-            $this->db->query('INSERT INTO privateuniversity(privateuni_id, ugc_approval, world_rank, student_amount, graduate_job_rate, description, uni_type) VALUES(:id, :approved, :rank, :amount, :rate, :descrip, :type)');
+            $this->db->query('INSERT INTO PrivateUniversity(privateuni_id, ugc_approval, world_rank, student_amount, graduate_job_rate, description, uni_type) VALUES(:id, :approved, :rank, :amount, :rate, :descrip, :type)');
             // bind values
             $this->db->bind(":id", $id);
             $this->db->bind(":approved", $data['approved']);
@@ -72,7 +72,7 @@
 
         public function registerAsACompany($id, $data) {
             // register as an organization
-            $this->db->query('INSERT INTO organization(org_id, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:org_id, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
+            $this->db->query('INSERT INTO Organization(org_id, address, email, password, phone_no, website_address, founder, founded_year,org_type) VALUES(:org_id, :address, :email, :password, :phn_no, :website, :founder, :founded_year, :type)');
             // bind values
             $this->db->bind(":org_id", $id);
             $this->db->bind(":address", $data['address']);
@@ -90,7 +90,7 @@
             // $com_id = $this->findOrganizationIdbyEmail($data['email']);
 
             // register as a company
-            $this->db->query('INSERT INTO company(company_id, current_emplyee_amount, company_size, registered, overview, services) VALUES(:id, :cur_emp, :emp_size, :registered, :overview, :services)');
+            $this->db->query('INSERT INTO Company(company_id, current_emplyee_amount, company_size, registered, overview, services) VALUES(:id, :cur_emp, :emp_size, :registered, :overview, :services)');
             // bind values
             $this->db->bind(":id", $id);
             $this->db->bind(":cur_emp", $data['cur_emp']);
@@ -110,7 +110,7 @@
         }
 
         public function findOrganizationIdbyEmail($email) {
-            $this->db->query('SELECT * FROM organization WHERE email = :email');
+            $this->db->query('SELECT * FROM Organization WHERE email = :email');
             // bind values
             $this->db->bind(':email', $email);
 
@@ -120,7 +120,7 @@
         }
 
         public function getUserIdByEmail($email) {
-            $this->db->query('SELECT * FROM users WHERE email = :email');
+            $this->db->query('SELECT * FROM Users WHERE email = :email');
             // bind values
             $this->db->bind(':email', $email);
 

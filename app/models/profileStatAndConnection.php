@@ -24,7 +24,7 @@
         */ 
 
         public function addFollower($from_id, $to_id) {
-            $this->db->query('INSERT INTO connections(from_user_id, to_user_id) VALUES(:from_user_id, :to_user_id)');
+            $this->db->query('INSERT INTO Connections(from_user_id, to_user_id) VALUES(:from_user_id, :to_user_id)');
             // bind values
             $this->db->bind(":from_user_id", $from_id);
             $this->db->bind(":to_user_id", $to_id);
@@ -39,7 +39,7 @@
         }
 
         public function removeFollower($me, $id) {
-            $this->db->query('DELETE FROM  connections WHERE from_user_id = :me AND to_user_id = :id');
+            $this->db->query('DELETE FROM  Connections WHERE from_user_id = :me AND to_user_id = :id');
             // bind values
             $this->db->bind(":me", $me);
             $this->db->bind(":id", $id);
@@ -54,7 +54,7 @@
         }
 
         public function getFollowerCount($id) {
-            $this->db->query('SELECT * FROM connections WHERE to_user_id = :id');
+            $this->db->query('SELECT * FROM Connections WHERE to_user_id = :id');
             // bind values
             $this->db->bind(":id", $id);
 
@@ -69,9 +69,9 @@
         public function getFollowers($id) {
             // $this->db->query('SELECT * FROM connections WHERE to_user_id = :id');
             $this->db->query("SELECT *
-                                FROM users
-                                INNER JOIN connections  
-                                ON connections.from_user_id = users.id 
+                                FROM Users
+                                INNER JOIN Connections  
+                                ON Connections.from_user_id = Users.id 
                                 WHERE to_user_id = :id");
 
             // bind values
@@ -83,8 +83,8 @@
         }
 
         public function getExistingFollowersUserList($type, $id) {
-            $this->db->query("SELECT * FROM users INNER JOIN connections
-            ON connections.from_user_id = users.id 
+            $this->db->query("SELECT * FROM Users INNER JOIN Connections
+            ON Connections.from_user_id = Users.id 
             WHERE (actor_type  LIKE '".$type."%' OR specialized_actor_type LIKE '".$type."%') AND to_user_id = :id");
 
             // bind values        
@@ -98,9 +98,9 @@
         // for followings
         public function getFollowings($id) {
             $this->db->query("SELECT *
-                                FROM users
-                                INNER JOIN connections  
-                                ON connections.to_user_id = users.id 
+                                FROM Users
+                                INNER JOIN Connections  
+                                ON Connections.to_user_id = Users.id 
                                 WHERE from_user_id = :id");
 
             // $this->db->query('SELECT * FROM connections WHERE from_user_id = :id');
@@ -113,8 +113,8 @@
         }
 
         public function getExistingFollowingUserList($type, $id) {
-            $this->db->query("SELECT * FROM users INNER JOIN connections
-            ON connections.to_user_id = users.id 
+            $this->db->query("SELECT * FROM Users INNER JOIN Connections
+            ON Connections.to_user_id = Users.id 
             WHERE actor_type  LIKE '".$type."%' OR specialized_actor_type LIKE '".$type."%' AND from_user_id = :id");
 
             // bind values        
@@ -127,7 +127,7 @@
 
         // to get Search bar user list
         public function getUsersByName($name) {
-            $this->db->query("SELECT * FROM users WHERE first_name LIKE '".$name."%' 
+            $this->db->query("SELECT * FROM Users WHERE first_name LIKE '".$name."%' 
             OR last_name LIKE '".$name."%' 
             OR actor_type LIKE '".$name."%'
             OR specialized_actor_type LIKE '".$name."%'");

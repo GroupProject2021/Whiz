@@ -7,7 +7,7 @@
         }
 
         public function getComplaintById($id) {
-            $this->db->query('SELECT * FROM complaints WHERE id = :id');
+            $this->db->query('SELECT * FROM Complaints WHERE id = :id');
             $this->db->bind(':id', $id);
 
             $row = $this->db->single();
@@ -17,20 +17,20 @@
 
         public function getComplaints() {
             $this->db->query("SELECT *, 
-                                complaints.id AS postId,
+                                Complaints.id AS postId,
                                 users.id AS userId,
-                                complaints.created_at as postCreated
-                                FROM complaints
+                                Complaints.created_at as postCreated
+                                FROM Complaints
                                 INNER JOIN users  
-                                ON complaints.user_id = users.id 
-                                ORDER BY complaints.created_at DESC");
+                                ON Complaints.user_id = users.id 
+                                ORDER BY Complaints.created_at DESC");
             $results = $this->db->resultSet();
 
             return $results;
         }
 
         public function add($data) {
-            $this->db->query('INSERT INTO complaints(user_id, title, content) VALUES(:user_id, :title, :content)');
+            $this->db->query('INSERT INTO Complaints(user_id, title, content) VALUES(:user_id, :title, :content)');
             // bind values
             // $this->db->bind(":image", $data['image_name']);
             $this->db->bind(":user_id", $data['user_id']);
@@ -47,7 +47,7 @@
         }
 
         public function update($data) {
-            $this->db->query('UPDATE complaints SET title = :title, content = :content WHERE id = :id');
+            $this->db->query('UPDATE Complaints SET title = :title, content = :content WHERE id = :id');
             // bind values
             
             // $this->db->bind(":image", $data['image_name']);            
@@ -65,7 +65,7 @@
         }
 
         public function delete($id) {
-            $this->db->query('DELETE FROM complaints WHERE id = :id');
+            $this->db->query('DELETE FROM Complaints WHERE id = :id');
             // bind values
             
             $this->db->bind(":id", $id);

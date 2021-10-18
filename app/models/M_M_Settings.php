@@ -9,7 +9,7 @@ class M_M_Settings{
     }
 
     public function getUserDetails($id) {
-        $this->db->query('SELECT * FROM users WHERE id = :id');
+        $this->db->query('SELECT * FROM Users WHERE id = :id');
         // bind values
         $this->db->bind(':id', $id);
 
@@ -20,7 +20,7 @@ class M_M_Settings{
     
     // get mentor details
     public function getMentorDetails($id) {
-        $this->db->query('SELECT * FROM mentor INNER JOIN users ON mentor.mentor_id = users.id WHERE mentor_id = :id');
+        $this->db->query('SELECT * FROM Mentor INNER JOIN Users ON Mentor.mentor_id = Users.id WHERE mentor_id = :id');
         // bind values
         $this->db->bind(':id', $id);
 
@@ -31,7 +31,7 @@ class M_M_Settings{
 
     // useful for take a mentor data from mentors
     public function findMentorIdbyEmail($email) {
-        $this->db->query('SELECT * FROM mentor WHERE email = :email');
+        $this->db->query('SELECT * FROM Mentor WHERE email = :email');
         // bind values
         $this->db->bind(':email', $email);
 
@@ -42,7 +42,7 @@ class M_M_Settings{
     }
 
     public function updateGuiderSettings($id, $data) {
-        $this->db->query('UPDATE users SET first_name = :first_name, last_name = :last_name
+        $this->db->query('UPDATE Users SET first_name = :first_name, last_name = :last_name
                              WHERE id = :id');
         // bind values                
         $this->db->bind(":first_name", $data['first_name']);
@@ -51,7 +51,7 @@ class M_M_Settings{
 
         $res1 = $this->db->execute();
 
-        $this->db->query('UPDATE mentor SET address = :address, gender = :gender,
+        $this->db->query('UPDATE Mentor SET address = :address, gender = :gender,
                             institute = :institute, email = :email, phn_no = :phn_no
                              WHERE mentor_id = :id');
         // bind values
@@ -74,7 +74,7 @@ class M_M_Settings{
     }
 
     public function updateTeacherSettings($id, $data) {
-        $this->db->query('UPDATE users SET first_name = :first_name, last_name = :last_name
+        $this->db->query('UPDATE Users SET first_name = :first_name, last_name = :last_name
                              WHERE id = :id');
         // bind values                
         $this->db->bind(":first_name", $data['first_name']);
@@ -83,7 +83,7 @@ class M_M_Settings{
 
         $res1 = $this->db->execute();
 
-        $this->db->query('UPDATE mentor SET address = :address, gender = :gender,
+        $this->db->query('UPDATE Mentor SET address = :address, gender = :gender,
                             email = :email, phn_no = :phn_no
                              WHERE mentor_id = :id');
         // bind values
@@ -106,7 +106,7 @@ class M_M_Settings{
     }
 
     public function updateProfilePic($data) {           
-        $this->db->query('UPDATE users SET profile_image = :profile_image WHERE id = :id');
+        $this->db->query('UPDATE Users SET profile_image = :profile_image WHERE id = :id');
         // bind values
         $this->db->bind("profile_image", $data['profile_image_name']);
         $this->db->bind("id", $_SESSION['user_id']);
@@ -121,7 +121,7 @@ class M_M_Settings{
     }
 
     public function getFollowerCount($id) {
-        $this->db->query('SELECT * FROM connections WHERE to_user_id = :id');
+        $this->db->query('SELECT * FROM Connections WHERE to_user_id = :id');
         // bind values
         $this->db->bind(":id", $id);
 
@@ -133,7 +133,7 @@ class M_M_Settings{
     }
 
     public function getFollowingCount($id) {
-        $this->db->query('SELECT * FROM connections WHERE from_user_id = :id');
+        $this->db->query('SELECT * FROM Connections WHERE from_user_id = :id');
         // bind values
         $this->db->bind(":id", $id);
 
@@ -145,7 +145,7 @@ class M_M_Settings{
     }
 
     public function isAlreadyFollow($me, $id) {
-        $this->db->query('SELECT * FROM connections WHERE from_user_id = :me AND to_user_id = :id');
+        $this->db->query('SELECT * FROM Connections WHERE from_user_id = :me AND to_user_id = :id');
         // bind values
         $this->db->bind(":me", $me);
         $this->db->bind(":id", $id);

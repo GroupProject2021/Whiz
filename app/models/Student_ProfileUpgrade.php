@@ -6,7 +6,7 @@
 
         public function registerOLqualified($stuId, $data) {
             // update user status
-            $this->db->query('UPDATE users SET specialized_actor_type = :specialized_actor_type WHERE id = :stuid');
+            $this->db->query('UPDATE Users SET specialized_actor_type = :specialized_actor_type WHERE id = :stuid');
             // bind values
             $this->db->bind(':specialized_actor_type', 'OL qualified');
             $this->db->bind(':stuid', $stuId);
@@ -16,7 +16,7 @@
             // take stu id
             $id = $this->findStudentIdbyEmail($_SESSION['user_email']);
             // register as a ol qualified student
-            $this->db->query('INSERT INTO olqualifiedStudent(stu_id, ol_school, ol_district, ol_sub1_id, ol_sub1_grade, ol_sub2_id, ol_sub2_grade,
+            $this->db->query('INSERT INTO OLQualifiedStudent(stu_id, ol_school, ol_district, ol_sub1_id, ol_sub1_grade, ol_sub2_id, ol_sub2_grade,
                                  ol_sub3_id, ol_sub3_grade, ol_sub4_id, ol_sub4_grade, ol_sub5_id, ol_sub5_grade, ol_sub6_id, ol_sub6_grade,
                                  ol_sub7_id, ol_sub7_grade, ol_sub8_id, ol_sub8_grade, ol_sub9_id, ol_sub9_grade)
                                  VALUES (:stu_id, :ol_school, :ol_district, :ol_sub1_id, :ol_sub1_grade, :ol_sub2_id, :ol_sub2_grade,
@@ -56,7 +56,7 @@
 
         public function registerALqualified($stuId, $data) {
             // update user status
-            $this->db->query('UPDATE users SET specialized_actor_type = :specialized_actor_type WHERE id = :stuid');
+            $this->db->query('UPDATE Users SET specialized_actor_type = :specialized_actor_type WHERE id = :stuid');
             // bind values
             $this->db->bind(':specialized_actor_type', 'AL qualified');
             $this->db->bind(':stuid', $stuId);
@@ -81,7 +81,7 @@
             // take stu id
             $id = $this->findStudentIdbyEmail($_SESSION['user_email']);
             // register as a al qualified student
-            $this->db->query('INSERT INTO alqualifiedStudent(stu_id, al_school, stream, z_score, al_district, al_general_test_grade, al_general_english_grade,
+            $this->db->query('INSERT INTO ALQualifiedStudent(stu_id, al_school, stream, z_score, al_district, al_general_test_grade, al_general_english_grade,
                                 al_sub1_id, al_sub1_grade, al_sub2_id, al_sub2_grade, al_sub3_id, al_sub3_grade)
                                 VALUES(:stu_id, :al_school, :stream, :z_score, :al_district, :al_general_test_grade, :al_general_english_grade,
                                 :al_sub1_id, :al_sub1_grade, :al_sub2_id, :al_sub2_grade, :al_sub3_id, :al_sub3_grade)');
@@ -111,7 +111,7 @@
 
         public function registerUndergraduateGraduate($stuId, $data) {
             // update user status
-            $this->db->query('UPDATE users SET specialized_actor_type = :specialized_actor_type WHERE id = :stuid');
+            $this->db->query('UPDATE Users SET specialized_actor_type = :specialized_actor_type WHERE id = :stuid');
             // bind values
             $this->db->bind(':specialized_actor_type', 'Undergraduate Graduate');
             $this->db->bind(':stuid', $stuId);
@@ -122,7 +122,7 @@
             // take stu id
             $id = $this->findStudentIdbyEmail($_SESSION['user_email']);
             // register as a undergraduate graduate
-            $this->db->query('INSERT INTO undergraduategraduate(stu_id, degree, uni_type, uni_name, gpa) VALUES(:stu_id, :degree, :uni_type, :uni_name, :gpa)');
+            $this->db->query('INSERT INTO UndergraduateGraduate(stu_id, degree, uni_type, uni_name, gpa) VALUES(:stu_id, :degree, :uni_type, :uni_name, :gpa)');
             //bind values
             $this->db->bind(':stu_id', $id);
             $this->db->bind(':degree', $data['degree']);
@@ -141,7 +141,7 @@
 
         // useful for take a student data from students
         public function findStudentIdbyEmail($email) {
-            $this->db->query('SELECT * FROM student WHERE email = :email');
+            $this->db->query('SELECT * FROM Student WHERE email = :email');
             // bind values
             $this->db->bind(':email', $email);
 
@@ -153,7 +153,7 @@
 
         // to get the updated results of the student - i added this later
         public function getUpdatedSession($id) {
-            $this->db->query('SELECT * FROM users WHERE id = :id');
+            $this->db->query('SELECT * FROM Users WHERE id = :id');
             // bind values
             $this->db->bind(':id', $id);
 
@@ -163,7 +163,7 @@
 
         // get districts 
         public function getDistricts() {
-            $this->db->query("SELECT * FROM district");
+            $this->db->query("SELECT * FROM District");
             $results = $this->db->resultSet();
 
             return $results;
@@ -171,7 +171,7 @@
 
         // get ol subjects 
         public function getOLSubjects() {
-            $this->db->query("SELECT * FROM olsubject");
+            $this->db->query("SELECT * FROM OLSubject");
             $results = $this->db->resultSet();
 
             return $results;
@@ -179,7 +179,7 @@
 
         // get streams 
         public function getStreams() {
-            $this->db->query("SELECT * FROM stream");
+            $this->db->query("SELECT * FROM Stream");
             $results = $this->db->resultSet();
 
             return $results;
@@ -187,7 +187,7 @@
 
         // get al subjects 
         public function getALSubjects() {
-            $this->db->query("SELECT * FROM alsubject");
+            $this->db->query("SELECT * FROM ALSubject");
             $results = $this->db->resultSet();
 
             return $results;
@@ -195,7 +195,7 @@
 
         // get scool list
         public function getSchoolList($search) {
-            $this->db->query("SELECT * FROM school WHERE name LIKE '".$search."%'");
+            $this->db->query("SELECT * FROM School WHERE name LIKE '".$search."%'");
             // bind values
             // $this->db->bind(':search', $search);
 
@@ -206,7 +206,7 @@
 
         // get university list
         public function getUniversityList($search) {
-            $this->db->query("SELECT * FROM govermentuniversity WHERE uni_name LIKE '".$search."%'");
+            $this->db->query("SELECT * FROM GovermentUniversity WHERE uni_name LIKE '".$search."%'");
             // bind values
             // $this->db->bind(':search', $search);
 
@@ -217,7 +217,7 @@
 
         // get university list
         public function getDegreeList($search) {
-            $this->db->query("SELECT * FROM governmentcourse WHERE gov_course_name LIKE '".$search."%'");
+            $this->db->query("SELECT * FROM GovernmentCourse WHERE gov_course_name LIKE '".$search."%'");
             // bind values
             // $this->db->bind(':search', $search);
 
