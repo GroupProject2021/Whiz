@@ -84,10 +84,10 @@
             <section class="home-cards organization">
                 <div class="left">
                     <div class="title">
-                        XXX
+                        Join with us to enlarge your business.
                     </div>
                     <div class="description">
-                        lll
+                        <!-- lll -->
                     </div>
                     <a href="" class="left-btn">
                         GET STARTED
@@ -157,10 +157,10 @@
                 </div>
                 <div class="right">
                     <div class="title">
-                        XXX
+                        Guide our students to achieve their goals.
                     </div>
                     <div class="description">
-                        lll
+                        <!-- lll -->
                     </div>
                     <a href="" class="right-btn">
                         GET STARTED
