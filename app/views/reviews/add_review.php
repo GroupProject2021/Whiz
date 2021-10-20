@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Stream seleciton</h1>
+                        <h1>Review > Add</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
