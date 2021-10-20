@@ -22,8 +22,47 @@
                     </div>
 
                     <!-- MIDDLE PANEL -->
-                    <div class="middle-panel-single">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et est praesentium, accusamus dicta quaerat hic laborum ullam obcaecati quod doloremque fugiat necessitatibus eum, fuga autem consectetur id repellendus, repudiandae eveniet?
+                    <div class="middle-panel">
+                        <div class="middle-left-panel">                            
+                            
+                        
+                        </div>
+                        <div class="middle-right-panel">
+                            <div class="notices">
+                                <h2>Notices</h2>
+                                <hr>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut est aliquid fugit porro hic iusto aliquam? Sit cumque, voluptates pariatur perspiciatis blanditiis tempora laborum fugiat maiores error odio quidem fuga!
+                                <hr>
+
+                                <!-- <div class="notice-card">
+                                    <div class="notice-card-title">
+                                        <b>Notice 1</b>
+                                    </div>
+                                    <div class="notice-card-content">
+                                        <div class="notice-card-content-image">
+                                            <img src="<?php echo URLROOT; ?>/imgs/icon.png" alt="img">
+                                        </div>
+                                        <div class="notice-card-content-description">
+                                            Lorem ipsum dolor sarum accusantium veritatis?
+                                        </div>
+                                        <div>
+                                            <input class="notice-card-content-button" type="button" value="view">
+                                        </div>
+                                    </div>                                    
+                                </div> -->
+
+                                
+                                
+                                
+                            </div>
+                            <div class="updates">
+                                <h2>Updates</h2>
+                                <hr>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum sapiente harum minima a adipisci facere, totam, autem id atque accusamus, inventore laboriosam! Dignissimos illo dolores maiores nam, quo quis eaque.
+                                <br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae maiores culpa rerum quae ducimus, atque eveniet animi esse reiciendis est sunt facilis tempore quo pariatur, laudantium impedit at nihil veritatis.
+                            </div>
+                        </div>
                     </div>
 
                     <!-- BOTTOM PANEL -->
