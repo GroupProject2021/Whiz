@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>private university list</h1>
+                        <h1>private universities</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Posts</h1>
+                        <h1>Poster > Edit</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

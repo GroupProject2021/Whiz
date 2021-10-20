@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Profesional guider banner</h1>
+                        <h1>Profesional guider > View</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

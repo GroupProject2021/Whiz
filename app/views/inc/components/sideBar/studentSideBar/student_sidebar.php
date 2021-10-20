@@ -57,7 +57,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/index">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
@@ -123,7 +123,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/index">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
@@ -174,7 +174,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/index">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
@@ -228,7 +228,7 @@
             <span>Underdraduate / graduate options</span>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/index">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">

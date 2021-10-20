@@ -10,7 +10,7 @@
             </div>
             <div class="side">
                 <div class="details">                                            
-                    <div class="name"><?php echo $review->name; ?></div>
+                    <div class="name"><?php echo $review->first_name.' '.$review->last_name; ?></div>
                     <?php if($review->status == 'verified'): ?>
                         <div class="verified"><img src="<?php echo URLROOT.'/imgs/components/reviewSystem/verified.png'; ?>" alt=""></div>
                         <?php endif; ?>

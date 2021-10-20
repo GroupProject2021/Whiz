@@ -21,6 +21,8 @@
 @import url('components/posts/posts-styles.css');
 @import url('components/posts/banner-styles.css');
 @import url('components/posts/poster-styles.css');
+@import url('components/posts/advertisement-styles.css');
+@import url('components/posts/coursepost-styles.css');
 
 /* Utilities - [EXPERIMENTAL] */
 @import url('utilities/responsive_grid_layout.css');

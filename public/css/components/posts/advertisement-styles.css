@@ -1,28 +1,28 @@
-.poster {
+.advertisement {
     width: 300px;
     border: 1px solid rgb(219, 219, 219);
     transition: .1s all;
 }
 
-.poster:hover {
+.advertisement:hover {
     cursor: pointer;
     transform: scale(1.005);
     box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
-.poster .pic img {
+.advertisement .pic img {
     width: 300px;
     height: 200px;
 }
 
-.poster .teacher-pic {
+.advertisement .user-pic {
     position: relative;
     height: 0;
     top: -50px;
     left: 5px;
 }
 
-.poster .teacher-pic img {
+.advertisement .user-pic img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -30,25 +30,32 @@
     box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 1);
 }
 
-.poster .poster-body .title {
+.advertisement .advertisement-body .title {
     font-size: 16px;
     font-weight: 600;
     padding: 5px;
 }
 
-.poster .poster-body .postedby {
+.advertisement .advertisement-body .postedby {
     padding-left: 5px;
     color: rgb(78, 78, 78);
 }
 
-.poster .poster-body .price {
+.advertisement .advertisement-body .postedat {
+    padding: 3px 5px 3px 5px;
+    font-size: 12px;
+    color: rgb(46, 38, 38);
+    background-color: rgb(235, 235, 235);
+}
+
+.advertisement .advertisement-body .price {
     font-size: 16px;
     font-weight: 600;
     padding: 5px 0 10px 5px;
     color: rgb(78, 78, 78);
 }
 
-.poster .poster-stats {
+.advertisement .advertisement-stats {
     display: flex;
     flex-direction: row;
     font-size: 12px;
@@ -56,59 +63,59 @@
     line-height: 20px;
     vertical-align: middle;
     border-top: 1px solid rgb(219, 219, 219);
-    background-color: rgb(235, 235, 235);
     padding-top: 5px;
+    background-color: rgb(235, 235, 235);
 }
 
-.poster .poster-stats img {
+.advertisement .advertisement-stats img {
     position: relative;
     top: 2px;
 }
 
-.poster .poster-stats .ups img {
+.advertisement .advertisement-stats .ups img {
     width: 15px;
     margin: 0 auto;
 }
 
-.poster .poster-stats .ups-count {
+.advertisement .advertisement-stats .ups-count {
     padding: 0 5px 0 2px;    
     color: green;
 }
 
-.poster .poster-stats .downs img {
+.advertisement .advertisement-stats .downs img {
     width: 15px;
 }
 
-.poster .poster-stats .downs-count {
+.advertisement .advertisement-stats .downs-count {
     padding: 0 5px 0 2px;    
     color: red;
 }
 
-.poster .poster-stats .comments img {
+.advertisement .advertisement-stats .comments img {
     width: 15px;
 }
 
-.poster .poster-stats .comments-count {
+.advertisement .advertisement-stats .comments-count {
     padding: 0 5px 0 2px;    
     color: black;
 }
 
-.poster .poster-stats .rate {    
+.advertisement .advertisement-stats .rate {    
     color: rgb(209, 178, 0);
     padding: 0 3px 0 3px;
 }
 
-.poster .poster-stats .rate-star img {
+.advertisement .advertisement-stats .rate-star img {
     width: 15px;
     filter: grayscale(100%);
 }
 
-.poster .poster-stats .rate-star.active img {
+.advertisement .advertisement-stats .rate-star.active img {
     width: 15px;
     filter: grayscale(0%);
 }
 
-.poster .poster-stats .reviews {
+.advertisement .advertisement-stats .reviews {
     color: #333;
     padding-left: 5px;
 }
