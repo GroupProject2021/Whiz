@@ -1,0 +1,114 @@
+.poster {
+    width: 300px;
+    border: 1px solid rgb(219, 219, 219);
+    transition: .1s all;
+}
+
+.poster:hover {
+    cursor: pointer;
+    transform: scale(1.005);
+    box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.poster .pic img {
+    width: 300px;
+    height: 200px;
+}
+
+.poster .teacher-pic {
+    position: relative;
+    height: 0;
+    top: -65px;
+    left: 5px;
+}
+
+.poster .teacher-pic img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 1);
+}
+
+.poster .poster-body .title {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.poster .poster-body .postedby {
+    padding-left: 5px;
+    color: rgb(78, 78, 78);
+}
+
+.poster .poster-body .price {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px 0 10px 5px;
+    color: rgb(78, 78, 78);
+}
+
+.poster .poster-stats {
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    vertical-align: middle;
+    border-top: 1px solid rgb(219, 219, 219);
+    border-bottom: 1px solid rgb(219, 219, 219);
+    padding-top: 5px;
+}
+
+.poster .poster-stats img {
+    position: relative;
+    top: 2px;
+}
+
+.poster .poster-stats .ups img {
+    width: 15px;
+    margin: 0 auto;
+}
+
+.poster .poster-stats .ups-count {
+    padding: 0 5px 0 2px;    
+    color: green;
+}
+
+.poster .poster-stats .downs img {
+    width: 15px;
+}
+
+.poster .poster-stats .downs-count {
+    padding: 0 5px 0 2px;    
+    color: red;
+}
+
+.poster .poster-stats .comments img {
+    width: 15px;
+}
+
+.poster .poster-stats .comments-count {
+    padding: 0 5px 0 2px;    
+    color: black;
+}
+
+.poster .poster-stats .rate {    
+    color: rgb(209, 178, 0);
+    padding: 0 3px 0 3px;
+}
+
+.poster .poster-stats .rate-star img {
+    width: 15px;
+    filter: grayscale(100%);
+}
+
+.poster .poster-stats .rate-star.active img {
+    width: 15px;
+    filter: grayscale(0%);
+}
+
+.poster .poster-stats .reviews {
+    color: #333;
+    padding-left: 5px;
+}

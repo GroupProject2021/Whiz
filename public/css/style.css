@@ -9,7 +9,6 @@
 @import url('components/noticesbar.css');
 @import url('components/dashboard.css');
 @import url('components/bottomnav.css');
-@import url('components/cards.css');
 @import url('components/buttons.css');
 @import url('components/mycards.css');
 
@@ -18,8 +17,10 @@
 @import url('components/captcha/captcha-styles.css');
 @import url('components/notificationAlert/notificationAlert-styles.css');
 @import url('components/commentSystem/comment-styles.css');
-@import url('components/posts/posts-styles.css');
 @import url('components/ratingSystem/ratingsystem.css');
+@import url('components/posts/posts-styles.css');
+@import url('components/posts/banner-styles.css');
+@import url('components/posts/poster-styles.css');
 
 /* Utilities - [EXPERIMENTAL] */
 @import url('utilities/responsive_grid_layout.css');
@@ -30,11 +31,6 @@
 /* Cards */
 @import url('cards/select-stream-card.css');
 @import url('cards/recommend-stream-cards.css');
-@import url('cards/professional-guider-card.css');
-@import url('cards/professional-guider-banner-card.css');
-@import url('cards/teacher-card.css');
-@import url('cards/teacher-poster-card.css');
-/* @import url('cards/jobs-card.css'); */
 
 /* profiles */
 @import url('profiles/student-profile.css');
