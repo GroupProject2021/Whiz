@@ -80,6 +80,9 @@
                 if(empty($data['email'])) {
                     $data['email_err'] = 'Please enter email';
                 }
+                else if(!str_contains($data['email'], '@')) {
+                    $data['email_err'] = 'Please enter valid email';
+                }
                 // Check email
                 else if($this->commonModel->findUserByEmail($data['email'])) {
                     $data['email_err'] = 'Email is already taken'; 
@@ -118,6 +121,9 @@
                 if(empty($data['phn_no'])) {
                     $data['phn_no_err'] = 'Please enter phone number';
                 }
+                else if(strlen($data['phn_no']) != 10 || is_numeric($data['phn_no']) == false) {
+                    $data['phn_no_err'] = 'Please enter valid phone number';
+                }
 
                 // Validate website
                 if(empty($data['website'])) {
@@ -132,6 +138,9 @@
                 // Validate founded_year
                 if(empty($data['founded_year'])) {
                     $data['founded_year_err'] = 'Please enter founded year';
+                }
+                else if(is_numeric($data['founded_year']) == false) {
+                    $data['founded year_err'] = 'Please enter valid founded year';
                 }
 
                 // Validate approved
@@ -152,6 +161,9 @@
                 // Validate rate
                 if(empty($data['rate'])) {
                     $data['rate_err'] = 'Please enter rate';
+                }
+                else if(is_numeric($data['rate']) == false) {
+                    $data['rate_err'] = 'Please enter valid rate';
                 }
 
                 // Validate description
@@ -311,6 +323,9 @@
                 if(empty($data['email'])) {
                     $data['email_err'] = 'Please enter email';
                 }
+                else if(!str_contains($data['email'], '@')) {
+                    $data['email_err'] = 'Please enter valid email';
+                }
                 // Check email
                 else if($this->commonModel->findUserByEmail($data['email'])) {
                     $data['email_err'] = 'Email is already taken'; 
@@ -338,6 +353,9 @@
                 if(empty($data['phn_no'])) {
                     $data['phn_no_err'] = 'Please enter phone number';
                 }
+                else if(strlen($data['phn_no']) != 10 || is_numeric($data['phn_no']) == false) {
+                    $data['phn_no_err'] = 'Please enter valid phone number';
+                }
 
                 // Validate website
                 if(empty($data['website'])) {
@@ -353,6 +371,9 @@
                 if(empty($data['founded_year'])) {
                     $data['founded_year_err'] = 'Please enter founded year';
                 }
+                else if(is_numeric($data['founded_year']) == false) {
+                    $data['founded year_err'] = 'Please enter valid founded year';
+                }
 
                 // Validate registered
                 if(empty($data['registered'])) {
@@ -363,15 +384,19 @@
                 if(empty($data['cur_emp'])) {
                     $data['cur_emp_err'] = 'Please enter no. of employees';
                 }
+                else if(is_numeric($data['cur_emp']) == false) {
+                    $data['cur_emp_err'] = 'Please enter valid amount';
+                }
 
                 // Validate emp amount
                 if(empty($data['emp_size'])) {
                     $data['emp_size_err'] = 'Please enter employees amount';
                 }
-                else {
-                    if($data['emp_size'] < $data['cur_emp']) {
-                        $data['emp_size_err'] = 'Please enter valid employees amount less than current employees';
-                    }
+                else if(is_numeric($data['emp_size']) == false) {
+                    $data['emp_size_err'] = 'Please enter valid amount';
+                }
+                else if($data['emp_size'] < $data['cur_emp']) {
+                    $data['emp_size_err'] = 'Please enter valid employees amount less than current employees';
                 }
 
                 // Validate overview

@@ -103,7 +103,7 @@
 
 
                 <!-- phone number -->
-                <input type="text" placeholder=" " name="phn_no" id="phn_no" value="<?php echo $data['phn_no']; ?>">
+                <input type="text" placeholder="                             eg: 0111234567" name="phn_no" id="phn_no" value="<?php echo $data['phn_no']; ?>">
                 <label>Phone number</label>
                 <div class="bottom-content">
                     <div class="form-validation">
