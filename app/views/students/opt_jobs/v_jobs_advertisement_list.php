@@ -24,6 +24,8 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
 
+                    <div class="card-flex-box">
+
                     <!-- ADVERTISEMENT -->
                     <?php foreach($data['posts'] as $post): ?>
                     <?php if($post->type == "advertisement"): ?>
@@ -41,14 +43,14 @@
                                 <div class="postedat">Posted At: <?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
                                 <div class="title"><?php echo $post->title; ?></div>
                                 <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
-                               <div class="poles">
-                                   <div class="pole-prg-bar">
-                                        <progress max="100" value="<?php echo ($post->applied / $post->capacity) * 100; ?>" id="prgBar"></progress>
-                                        <div class="percentage" id="percentage"><?php echo ($post->applied / $post->capacity) * 100; ?>%</div>
+                                <div class="poles">
+                                    <div class="pole-prg-bar">
+                                        <progress max="100" value="<?php if($post->capacity != 0){ echo ($post->applied / $post->capacity) * 100;} else {echo 0;} ?>" id="prgBar"></progress>
+                                        <div class="percentage" id="percentage"><?php if($post->capacity != 0){ echo ($post->applied / $post->capacity) *100;} else { echo 0;} ?>%</div>
                                    </div>
                                    <div class="text">
                                        <div class="applied" id="applied"><?php echo $post->applied; ?> Applied</div>
-                                       <div class="capacity"> of 100 Capacity</div>
+                                       <div class="capacity"> of <?php echo $post->capacity; ?> Capacity</div>
                                    </div>
                                </div>
                                <div class="price">Rs.1000</div>
@@ -77,8 +79,14 @@
                             </div>          
                         </div>
                         </a>
+                        <br>
+                        <br>
                     <?php endif; ?>
                     <?php endforeach; ?>
+
+                    
+
+                    </div>
 
                     </div>
 

@@ -35,3 +35,12 @@
     color: #333;
     font-weight: 600;
 }
+
+/* advertisement grid layout */
+.card-flex-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 40px;
+}

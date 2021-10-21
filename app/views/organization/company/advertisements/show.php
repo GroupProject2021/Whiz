@@ -58,9 +58,9 @@
                                     <div class="postedby"><?php echo $data['post']->body; ?></div>
                                 </div>
                                 <div class="poles">
-                                   <div class="pole-prg-bar">
-                                        <progress max="100" value="<?php echo ($data['post']->applied / $data['post']->capacity) * 100; ?>" id="prgBar"></progress>
-                                        <div class="percentage" id="percentage"><?php echo ($data['post']->applied / $data['post']->capacity) * 100; ?>%</div>
+                                    <div class="pole-prg-bar">
+                                        <progress max="100" value="<?php if($data['post']->capacity != 0){ echo ($data['post']->applied / $data['post']->capacity) * 100;} else {echo 0;} ?>" id="prgBar"></progress>
+                                        <div class="percentage" id="percentage"><?php if($data['post']->capacity != 0){ echo ($data['post']->applied / $data['post']->capacity) *100;} else { echo 0;} ?>%</div>
                                    </div>
                                    <div class="text">
                                        <div class="applied" id="applied"><?php echo $data['post']->applied; ?> Applied</div>

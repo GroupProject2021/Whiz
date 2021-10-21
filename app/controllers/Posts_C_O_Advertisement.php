@@ -16,11 +16,9 @@
         public function index() {
             // Get posts
             $posts = $this->postModel->getPosts();
-            $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
 
             $data = [
-                'posts' => $posts,
-                'reviews_rates' => $postsReviewssAndRates
+                'posts' => $posts
             ];
 
             $this->view('organization/company/advertisements/index', $data);
@@ -39,7 +37,7 @@
                     'title' => trim($_POST['title']),
                     'body' => trim($_POST['body']),
                     'applied' => 0,
-                    'capacity' => 0,
+                    'capacity' => $_POST['capacity'],
                     'user_id' => $_SESSION['user_id'],
                     'title_err' => '',
                     'body_err' => '',
@@ -123,6 +121,7 @@
                     'id' => $id,
                     'title' => trim($_POST['title']),
                     'body' => trim($_POST['body']),
+                    'capacity' => $_POST['capacity'],
                     'user_id' => $_SESSION['user_id'],
                     'title_err' => '',
                     'body_err' => ''
@@ -188,7 +187,8 @@
                     'image_name' => $post->image,
                     'id' => $id,
                     'title' => $post->title,
-                    'body' => $post->body,                    
+                    'body' => $post->body,
+                    'capacity' => $post->capacity,
                     'title_err' => '',
                     'body_err' => ''
                 ];
@@ -222,15 +222,6 @@
             }
             else {
                 $selfInteraction = '';
-            }
-
-            // for job apply existence
-            if($this->postModel->isPostInterationExist($userId, $id)) {
-                $selfJobApplyInteraction = $this->postModel->getJobApply($userId, $id);
-                $selfJobApplyInteraction = $selfJobApplyInteraction->interaction;
-            }
-            else {
-                $selfJobApplyInteraction = '';
             }
 
 
@@ -270,7 +261,6 @@
                 'ups' => $ups,
                 'downs' => $downs,
                 'self_interaction' => $selfInteraction,
-                'self_job_apply_interaction' => $selfJobApplyInteraction,
 
                 'total_reviews' => $totalReviews,
                 'rate1' => $rate1Precentage,
@@ -382,6 +372,7 @@
             }    
         }
 
+        // For job applyings
         public function incApply($id) {
             $applies = $this->postModel->incApply($id);
 

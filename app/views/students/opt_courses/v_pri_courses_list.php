@@ -24,6 +24,8 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
 
+                    <div class="card-flex-box">
+
                     <!-- COURSE POST -->
                    <?php foreach($data['posts'] as $post): ?>
                     <?php if($post->type == "coursepost"): ?>
@@ -69,6 +71,8 @@
                         </a>
                     <?php endif; ?>
                     <?php endforeach; ?>
+
+                    </div>
 
                     </div>
 

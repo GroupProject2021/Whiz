@@ -27,11 +27,13 @@
 
                         <a href="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/add"><button class="btn3">CREATE POST</button></a>
                         <br>
+
+                    <div class="card-flex-box">
                     
                     <!-- COURSE POST -->
                    <?php foreach($data['posts'] as $post): ?>
                     <?php if($post->type == "coursepost"): ?>
-                        <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/show/<?php echo $post->postId; ?>" class="card-link">
+                        <a href="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/show/<?php echo $post->postId; ?>" class="card-link">
                         <div class="coursepost">
                             <?php if($post->image != null):?>
                             <div class="pic">
@@ -71,8 +73,12 @@
                             </div>          
                         </div>
                         </a>
+                        <br>
+                        <br>
                     <?php endif; ?>
                     <?php endforeach; ?>
+
+                    </div>
 
                     </div>
 

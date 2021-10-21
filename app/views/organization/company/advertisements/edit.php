@@ -43,6 +43,12 @@
                                 <div class="post-creator-content">
                                     <textarea name="body" id="body" cols="30" rows="10" placeholder="Content"><?php echo $data['body']; ?></textarea>
                                 </div>
+                                <br>
+                                <hr>
+                                <div class="interaction-detail">
+                                    Maximum apply capacity <input type="number" name="capacity" id="capacity" value = "<?php echo $data['capacity']; ?>" placeholder="capacity" min=0>
+                                </div>
+                                <hr>
                                 <button type="submit" class="post-creator-submit">Save</button>
                             </div>
                         </form>

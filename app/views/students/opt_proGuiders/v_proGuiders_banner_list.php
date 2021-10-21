@@ -23,6 +23,8 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
+
+                    <div class="card-flex-box">
                     
                     <!-- BANNER -->
                     <?php foreach($data['posts'] as $post): ?>
@@ -68,6 +70,8 @@
                         </a>
                     <?php endif; ?>
                     <?php endforeach; ?>
+
+                    </div>
 
                     </div>
 

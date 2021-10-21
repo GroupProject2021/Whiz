@@ -28,6 +28,8 @@
                         <a href="<?php echo URLROOT; ?>/Posts_C_M_Banners/add"><button class="btn3">CREATE BANNER</button></a>
                         <br>
 
+                    <div class="card-flex-box">
+
                     <!-- BANNER -->
                     <?php foreach($data['posts'] as $post): ?>
                     <?php if($post->type == "banner"): ?>
@@ -38,7 +40,7 @@
                                 <img src="<?php echo URLROOT.'/imgs/posts/banners/'.$post->image; ?>" alt="">
                             </div>
                             <?php endif; ?>
-                            <div class="teacher-pic">
+                            <div class="user-pic">
                                 <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
                             </div>
                             <div class="banner-body">
@@ -70,8 +72,12 @@
                             </div>          
                         </div>
                         </a>
+                        <br>
+                        <br>
                     <?php endif; ?>
                     <?php endforeach; ?>
+
+                    </div>
                     
                     </div>
 

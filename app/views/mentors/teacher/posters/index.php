@@ -28,6 +28,8 @@
                         <a href="<?php echo URLROOT; ?>/Posts_C_M_Posters/add"><button class="btn3">CREATE POSTER</button></a>
                         <br>
 
+                    <div class="card-flex-box">
+
                     <!-- POSTER -->
                     <?php foreach($data['posts'] as $post): ?>
                     <?php if($post->type == "poster"): ?>
@@ -70,8 +72,12 @@
                             </div>          
                         </div>
                         </a>
+                        <br>
+                        <br>
                     <?php endif; ?>
                     <?php endforeach; ?>
+
+                    </div>
 
                     </div>
 
