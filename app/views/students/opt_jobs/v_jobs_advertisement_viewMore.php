@@ -429,7 +429,7 @@
 
             function incApply() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/Posts_C_O_Advertisement/incApply/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/C_S_Stu_To_Company/incApply/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",
@@ -441,7 +441,7 @@
 
                 function decApply() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/Posts_C_O_Advertisement/decApply/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/C_S_Stu_To_Company/decApply/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",

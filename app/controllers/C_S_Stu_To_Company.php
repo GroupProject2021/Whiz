@@ -175,6 +175,38 @@
                 echo $downs->downs;
             }    
         }
+
+        
+        // For job applyings
+        public function incApply($id) {
+            $applies = $this->postModel->incApply($id);
+
+            $userId = $_SESSION['user_id'];
+
+            if($this->postModel->isJobApplyExist($userId, $id)) {
+                // If already an interaction exists
+                $res = $this->postModel->setJobApply($userId, $id, 'applied');
+            }
+            else {
+                // If no previous interaction exists
+                $res = $this->postModel->addJobApply($userId, $id, 'applied');
+            }
+
+            if($applies != false && $res != false) {
+                echo $applies->applied;
+            }    
+        }
+
+        public function decApply($id) {
+            $applies = $this->postModel->decApply($id);
+
+            $userId = $_SESSION['user_id'];
+            $res = $this->postModel->setJobApply($userId, $id, 'apply removed');
+
+            if($applies != false && $res != false) {
+                echo $applies->applied;
+            }    
+        }
         
 
         public function incShare() {

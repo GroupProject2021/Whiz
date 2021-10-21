@@ -39,7 +39,7 @@
                     'title' => trim($_POST['title']),
                     'body' => trim($_POST['body']),
                     'applied' => 0,
-                    'capacity' => 0,
+                    'capacity' => $_POST['capacity'],
                     'user_id' => $_SESSION['user_id'],
                     'title_err' => '',
                     'body_err' => '',
@@ -123,6 +123,7 @@
                     'id' => $id,
                     'title' => trim($_POST['title']),
                     'body' => trim($_POST['body']),
+                    'capacity' => $_POST['capacity'],
                     'user_id' => $_SESSION['user_id'],
                     'title_err' => '',
                     'body_err' => '',
@@ -189,7 +190,8 @@
                     'image_name' => $post->image,
                     'id' => $id,
                     'title' => $post->title,
-                    'body' => $post->body,                    
+                    'body' => $post->body,     
+                    'capacity' => $post->capacity,               
                     'title_err' => '',
                     'body_err' => ''
                 ];

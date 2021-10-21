@@ -45,12 +45,22 @@
             $downs = $this->postModel->getDown($id)->downs;
             $userId = $_SESSION['user_id'];
 
+            // for like dislike existence
             if($this->postModel->isPostInterationExist($userId, $id)) {
                 $selfInteraction = $this->postModel->getPostInteration($userId, $id);
                 $selfInteraction = $selfInteraction->interaction;
             }
             else {
                 $selfInteraction = '';
+            }
+
+            // for pro guider enroll existence
+            if($this->postModel->isPostInterationExist($userId, $id)) {
+                $selfJobApplyInteraction = $this->postModel->getJobApply($userId, $id);
+                $selfJobApplyInteraction = $selfJobApplyInteraction->interaction;
+            }
+            else {
+                $selfJobApplyInteraction = '';
             }
 
 
@@ -90,6 +100,7 @@
                 'ups' => $ups,
                 'downs' => $downs,
                 'self_interaction' => $selfInteraction,
+                'self_job_apply_interaction' => $selfJobApplyInteraction,
 
                 'total_reviews' => $totalReviews,
                 'rate1' => $rate1Precentage,
@@ -164,6 +175,37 @@
 
             if($downs != false && $res != false) {
                 echo $downs->downs;
+            }    
+        }
+
+        // For pro guider enrollement
+        public function incApply($id) {
+            $applies = $this->postModel->incApply($id);
+
+            $userId = $_SESSION['user_id'];
+
+            if($this->postModel->isJobApplyExist($userId, $id)) {
+                // If already an interaction exists
+                $res = $this->postModel->setJobApply($userId, $id, 'applied');
+            }
+            else {
+                // If no previous interaction exists
+                $res = $this->postModel->addJobApply($userId, $id, 'applied');
+            }
+
+            if($applies != false && $res != false) {
+                echo $applies->applied;
+            }    
+        }
+
+        public function decApply($id) {
+            $applies = $this->postModel->decApply($id);
+
+            $userId = $_SESSION['user_id'];
+            $res = $this->postModel->setJobApply($userId, $id, 'apply removed');
+
+            if($applies != false && $res != false) {
+                echo $applies->applied;
             }    
         }
         

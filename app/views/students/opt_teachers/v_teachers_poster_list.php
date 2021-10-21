@@ -35,13 +35,23 @@
                             <div class="pic">
                                 <img src="<?php echo URLROOT.'/imgs/posts/posters/'.$post->image; ?>" alt="">
                             </div>
-                            <div class="teacher-pic">
+                            <div class="user-pic">
                                 <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
                             </div>
                             <?php endif; ?>
                             <div class="poster-body">
                                 <div class="title"><?php echo $post->title; ?></div>
                                 <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
+                                <div class="poles">
+                                    <div class="pole-prg-bar">
+                                        <progress max="100" value="<?php if($post->capacity != 0){ echo ($post->applied / $post->capacity) * 100;} else {echo 0;} ?>" id="prgBar"></progress>
+                                        <div class="percentage" id="percentage"><?php if($post->capacity != 0){ echo ($post->applied / $post->capacity) *100;} else { echo 0;} ?>%</div>
+                                   </div>
+                                   <div class="text">
+                                       <div class="applied" id="applied"><?php echo $post->applied; ?> Applied</div>
+                                       <div class="capacity"> of <?php echo $post->capacity; ?> Capacity</div>
+                                   </div>
+                               </div>
                                 <div class="price">Rs.1000</div>
                             </div>
                             <div class="poster-stats">

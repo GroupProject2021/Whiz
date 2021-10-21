@@ -48,6 +48,90 @@
     color: rgb(78, 78, 78);
 }
 
+
+.banner .poles {
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,0.1) 0%, rgba(253,29,29,0.1) 50%, rgba(252,176,69,0.2) 100%);
+    padding: 5px 0 5px 0;    
+    border: 1px solid rgb(219, 219, 219);
+}
+
+.banner .poles .pole-prg-bar {
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.banner .poles .pole-prg-bar progress {
+    width: 100%;
+    height: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.banner .poles .pole-prg-bar progress::-webkit-progress-value {
+    -webkit-appearance: none;    
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 98%);
+    border-radius: 3px;
+}
+
+.banner .poles .pole-prg-bar progress[value]::-webkit-progress-bar {
+    background-color: rgb(233, 195, 225);
+    border-radius: 3px;
+}
+
+.banner .poles .pole-prg-bar .percentage {
+    line-height: 20px;
+    vertical-align: middle;
+    width: 30px;
+    text-align: center;
+    font-size: 10px;
+    color: rgb(83, 74, 74);
+}
+
+.banner .poles .text {
+    padding: 0 5px 5px 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.banner .poles .text .applied {
+    padding-right: 5px;
+    font-weight: 600;
+}
+
+.banner .poles .text .capacity {
+    color: gray;
+    font-weight: 600;
+}
+
+
+.banner .poles .interation {
+    padding: 2px 10px 5px 10px;
+}
+
+.banner .poles .interation button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    font-weight: 600;
+    color: #f3f3f3;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 98%);
+    transition: .2s all;
+}
+
+.banner .poles .interation.applied button {
+    background: rgb(196, 196, 196);
+    background-color: rgb(196, 196, 196);
+}
+
+.banner .poles .interation button:hover {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 .banner .banner-stats {
     display: flex;
     flex-direction: row;
