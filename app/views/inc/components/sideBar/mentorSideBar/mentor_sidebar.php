@@ -13,6 +13,17 @@
     <?php if(isset($_SESSION['user_id'])) : ?>
         <?php if($_SESSION['specialized_actor_type'] == 'Professional Guider'): ?>
 
+            <div class="sidebar-user-details">
+                <div class="user-level-image">
+                    <img src="<?php echo URLROOT; ?>/profileimages/mentor/<?php echo $_SESSION['user_profile_image']; ?>" alt="prof_pic" >
+                </div>
+                <div class="user-level-content">
+                    <div class="user-level-name">
+                    <!-- <p>Teacher</p> -->
+                        <p><?php echo $_SESSION['user_name']; ?></p>
+                    </div>
+                </div>
+            </div>
         <?php elseif($_SESSION['specialized_actor_type'] == 'Teacher'): ?>
 
         <hr>

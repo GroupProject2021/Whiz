@@ -28,7 +28,7 @@
                         <div class="middle-panel-single">
                             <?php flash('post_message'); ?>
                             <!-- <br> -->
-                                <a href="<?php echo URLROOT; ?>/C_M_Complaints/add"><button class="btn1">New Complaint</button> </a>
+                                <!-- <a href="<?php echo URLROOT; ?>/C_M_Complaints/add"><button class="btn1">New Complaint</button> </a> -->
                                 <br>
 
                                 <div>
@@ -51,12 +51,6 @@
                                                 <td class="gov-course-name" ><?php echo $post->title; ?></td>
                                                 <td class="gov-course-name" colspan="2"><?php echo $post->content; ?></td>
                                                 <td class="gov-course-name"><?php echo $post->created_at; ?></td>
-                                                <!-- <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/imgs/prof.jpg'?>" alt=""></td> -->
-                                                <!-- <td class="gov-course-uniname">UCSC</td> -->
-                                                <!-- <td class="gov-course-duration">4 Years</td> -->
-                                                <!-- <td class="gov-course-intake">200</td> -->
-                                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_M_Complaints/edit/'.$post->postId;?>"><button class="btn5">Edit</button></a></td>
-                                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_M_Complaints/delete/'.$post->postId;?>"><button class="btn4">Delete</button></a></td>
                                             </tr>
                                             <tr><td colspan="4"><hr></td></tr>
                                         <?php endif; ?>
@@ -79,7 +73,7 @@
                         <div class="middle-panel-single">
                             <?php flash('post_message'); ?>
                             <!-- <br> -->
-                                <a href="<?php echo URLROOT; ?>/C_M_Complaints/add"><button class="btn1">New Complaint</button> </a>
+                                <!-- <a href="<?php echo URLROOT; ?>/C_M_Complaints/add"><button class="btn1">New Complaint</button> </a> -->
                                 <br>
 
                                 <div>
@@ -102,12 +96,6 @@
                                                 <td class="gov-course-name" ><?php echo $post->title; ?></td>
                                                 <td class="gov-course-name" colspan="2"><?php echo $post->content; ?></td>
                                                 <td class="gov-course-name"><?php echo $post->created_at; ?></td>
-                                                <!-- <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/imgs/prof.jpg'?>" alt=""></td> -->
-                                                <!-- <td class="gov-course-uniname">UCSC</td> -->
-                                                <!-- <td class="gov-course-duration">4 Years</td> -->
-                                                <!-- <td class="gov-course-intake">200</td> -->
-                                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_M_Complaints/edit/'.$post->postId;?>"><button class="btn5">Edit</button></a></td>
-                                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_M_Complaints/delete/'.$post->postId;?>"><button class="btn4">Delete</button></a></td>
                                             </tr>
                                             <tr><td colspan="4"><hr></td></tr>
                                         <?php endif; ?>
