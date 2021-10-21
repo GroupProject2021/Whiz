@@ -49,7 +49,7 @@
                                 <div class="poles">
                                     <div class="pole-prg-bar">
                                         <progress max="100" value="<?php if($post->capacity != 0){ echo ($post->applied / $post->capacity) * 100;} else {echo 0;} ?>" id="prgBar"></progress>
-                                        <div class="percentage" id="percentage"><?php if($post->capacity != 0){ echo ($post->applied / $post->capacity) *100;} else { echo 0;} ?>%</div>
+                                        <div class="percentage" id="percentage"><?php if($post->capacity != 0){ echo number_format(($post->applied / $post->capacity) *100, 1, '.', '');} else { echo 0;} ?>%</div>
                                    </div>
                                    <div class="text">
                                        <div class="applied" id="applied"><?php echo $post->applied; ?> Applied</div>

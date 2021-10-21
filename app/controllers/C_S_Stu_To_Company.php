@@ -9,7 +9,9 @@
             $this->commentModel = $this->model('Comment');            
             $this->reviewModel = $this->model('Review');
 
-            $this->commonModel = $this->model('Common');            
+            $this->commonModel = $this->model('Common');       
+            
+            $this->stuToCompanyModel = $this->model('M_S_Stu_To_Company');
         }        
 
         // Index
@@ -179,17 +181,17 @@
         
         // For job applyings
         public function incApply($id) {
-            $applies = $this->postModel->incApply($id);
+            $applies = $this->stuToCompanyModel->incApply($id);
 
             $userId = $_SESSION['user_id'];
 
-            if($this->postModel->isJobApplyExist($userId, $id)) {
+            if($this->stuToCompanyModel->isJobApplyExist($userId, $id)) {
                 // If already an interaction exists
-                $res = $this->postModel->setJobApply($userId, $id, 'applied');
+                $res = $this->stuToCompanyModel->setJobApply($userId, $id, 'applied');
             }
             else {
                 // If no previous interaction exists
-                $res = $this->postModel->addJobApply($userId, $id, 'applied');
+                $res = $this->stuToCompanyModel->addJobApply($userId, $id, 'applied');
             }
 
             if($applies != false && $res != false) {
@@ -198,10 +200,10 @@
         }
 
         public function decApply($id) {
-            $applies = $this->postModel->decApply($id);
+            $applies = $this->stuToCompanyModel->decApply($id);
 
             $userId = $_SESSION['user_id'];
-            $res = $this->postModel->setJobApply($userId, $id, 'apply removed');
+            $res = $this->stuToCompanyModel->setJobApply($userId, $id, 'apply removed');
 
             if($applies != false && $res != false) {
                 echo $applies->applied;

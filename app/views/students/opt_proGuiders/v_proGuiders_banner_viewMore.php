@@ -59,7 +59,7 @@
                                 <div class="poles">
                                    <div class="pole-prg-bar">
                                         <progress max="100" value="<?php if($data['post']->capacity != 0){ echo ($data['post']->applied / $data['post']->capacity) * 100;} else {echo 0;} ?>" id="prgBar"></progress>
-                                        <div class="percentage" id="percentage"><?php if($data['post']->capacity != 0){ echo ($data['post']->applied / $data['post']->capacity) *100;} else { echo 0;} ?>%</div>
+                                        <div class="percentage" id="percentage"><?php if($data['post']->capacity != 0){ echo number_format(($data['post']->applied / $data['post']->capacity) *100, 1, '.', '');} else { echo 0;} ?>%</div>
                                    </div>
                                    <div class="text">
                                        <div class="applied" id="applied"><?php echo $data['post']->applied; ?> Applied</div>
@@ -70,7 +70,7 @@
                                    <?php else: ?>
                                         <div class="interation"> 
                                    <?php endif; ?>
-                                       <button id="applyBtn">APPLY</button>
+                                       <button id="applyBtn">ENROLL</button>
                                    </div>
                                </div>
                                 <form method="post">
@@ -387,14 +387,14 @@
         <!-- javascript pro guider enrollement system -->
         <script>
             $(document).ready(function() { 
-                var prgBarVal = $("#prgBar").val();
+                var prgBarVal = $("#prgBar").val().toFixed(2);
                 $("#percentage").text(prgBarVal + "%");
             })
 
             $("#applyBtn").click(function(event) {
                 event.preventDefault();
 
-                var prgBarVal = $("#prgBar").val();
+                var prgBarVal = $("#prgBar").val().toFixed(2);
                 var inc_dec_Amount = <?php echo 100 / $data['post']->capacity; ?>;
 
                 if($(".interation").hasClass("applied")) {
@@ -429,7 +429,7 @@
 
             function incApply() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/C_S_Stu_To_ProfessionalGuider/incApply/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/C_S_Stu_To_ProfessionalGuider/incEnroll/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",
@@ -441,7 +441,7 @@
 
                 function decApply() {
                     $.ajax({
-                        url: "<?php echo URLROOT;?>/C_S_Stu_To_ProfessionalGuider/decApply/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        url: "<?php echo URLROOT;?>/C_S_Stu_To_ProfessionalGuider/decEnroll/<?php echo $_SESSION['current_viewing_post_id']?>",
                         method: "post",
                         data: $('form').serialize(),
                         dataType: "text",

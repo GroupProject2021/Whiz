@@ -9,7 +9,9 @@
             $this->commentModel = $this->model('Comment');            
             $this->reviewModel = $this->model('Review');
 
-            $this->commonModel = $this->model('Common');            
+            $this->commonModel = $this->model('Common');        
+            
+            $this->stuToProfessionalGuiderModel = $this->model('M_S_Stu_To_ProfessionalGuider');
         }        
 
         // Index
@@ -179,18 +181,18 @@
         }
 
         // For pro guider enrollement
-        public function incApply($id) {
-            $applies = $this->postModel->incApply($id);
+        public function incEnroll($id) {
+            $applies = $this->stuToProfessionalGuiderModel->incEnroll($id);
 
             $userId = $_SESSION['user_id'];
 
-            if($this->postModel->isJobApplyExist($userId, $id)) {
+            if($this->stuToProfessionalGuiderModel->isProGuiderEnrollExist($userId, $id)) {
                 // If already an interaction exists
-                $res = $this->postModel->setJobApply($userId, $id, 'applied');
+                $res = $this->stuToProfessionalGuiderModel->setProGuiderEnroll($userId, $id, 'applied');
             }
             else {
                 // If no previous interaction exists
-                $res = $this->postModel->addJobApply($userId, $id, 'applied');
+                $res = $this->stuToProfessionalGuiderModel->addProGuiderEnroll($userId, $id, 'applied');
             }
 
             if($applies != false && $res != false) {
@@ -198,11 +200,11 @@
             }    
         }
 
-        public function decApply($id) {
-            $applies = $this->postModel->decApply($id);
+        public function decEnroll($id) {
+            $applies = $this->stuToProfessionalGuiderModel->decEnroll($id);
 
             $userId = $_SESSION['user_id'];
-            $res = $this->postModel->setJobApply($userId, $id, 'apply removed');
+            $res = $this->stuToProfessionalGuiderModel->setProGuiderEnroll($userId, $id, 'apply removed');
 
             if($applies != false && $res != false) {
                 echo $applies->applied;

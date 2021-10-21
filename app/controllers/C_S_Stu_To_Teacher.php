@@ -9,7 +9,9 @@
             $this->commentModel = $this->model('Comment');            
             $this->reviewModel = $this->model('Review');
 
-            $this->commonModel = $this->model('Common');            
+            $this->commonModel = $this->model('Common');  
+
+            $this->stuToTeacherModel = $this->model('M_S_Stu_To_Teacher');          
         }        
 
         // Index
@@ -179,18 +181,18 @@
         }
 
         // For teacher enrollment
-        public function incApply($id) {
-            $applies = $this->postModel->incApply($id);
+        public function incEnroll($id) {
+            $applies = $this->stuToTeacherModel->incEnroll($id);
 
             $userId = $_SESSION['user_id'];
 
-            if($this->postModel->isJobApplyExist($userId, $id)) {
+            if($this->stuToTeacherModel->isTeacherEnrollExist($userId, $id)) {
                 // If already an interaction exists
-                $res = $this->postModel->setJobApply($userId, $id, 'applied');
+                $res = $this->stuToTeacherModel->setTeacherEnroll($userId, $id, 'applied');
             }
             else {
                 // If no previous interaction exists
-                $res = $this->postModel->addJobApply($userId, $id, 'applied');
+                $res = $this->stuToTeacherModel->addTeacherEnroll($userId, $id, 'applied');
             }
 
             if($applies != false && $res != false) {
@@ -198,11 +200,11 @@
             }    
         }
 
-        public function decApply($id) {
-            $applies = $this->postModel->decApply($id);
+        public function decEnroll($id) {
+            $applies = $this->stuToTeacherModel->decEnroll($id);
 
             $userId = $_SESSION['user_id'];
-            $res = $this->postModel->setJobApply($userId, $id, 'apply removed');
+            $res = $this->stuToTeacherModel->setTeacherEnroll($userId, $id, 'apply removed');
 
             if($applies != false && $res != false) {
                 echo $applies->applied;
