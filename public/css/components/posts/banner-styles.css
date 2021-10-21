@@ -15,6 +15,21 @@
     height: 200px;
 }
 
+.banner .user-pic {
+    position: relative;
+    height: 0;
+    top: -50px;
+    left: 5px;
+}
+
+.banner .user-pic img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 1);
+}
+
 .banner .banner-body .title {
     font-size: 16px;
     font-weight: 600;

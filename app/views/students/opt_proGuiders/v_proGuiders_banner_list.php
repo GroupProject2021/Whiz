@@ -34,6 +34,9 @@
                                 <img src="<?php echo URLROOT.'/imgs/posts/banners/'.$post->image; ?>" alt="">
                             </div>
                             <?php endif; ?>
+                            <div class="user-pic">
+                                <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
+                            </div>
                             <div class="banner-body">
                                 <div class="title"><?php echo $post->title; ?></div>
                                 <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>

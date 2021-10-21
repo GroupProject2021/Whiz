@@ -56,6 +56,23 @@
                                     <div class="title"><?php echo $data['post']->title; ?></div>
                                     <div class="postedby"><?php echo $data['post']->body; ?></div>
                                 </div>
+                                <div class="poles">
+                                   <div class="pole-prg-bar">
+                                        <progress max="100" value="<?php echo ($data['post']->applied / $data['post']->capacity) * 100; ?>" id="prgBar"></progress>
+                                        <div class="percentage" id="percentage"><?php echo ($data['post']->applied / $data['post']->capacity) * 100; ?>%</div>
+                                   </div>
+                                   <div class="text">
+                                       <div class="applied" id="applied"><?php echo $data['post']->applied; ?> Applied</div>
+                                       <div class="capacity"> of <?php echo $data['post']->capacity; ?> Capacity</div>
+                                   </div>
+                                   <?php if($data['self_job_apply_interaction'] == 'applied'):?>
+                                        <div class="interation applied">                                    
+                                   <?php else: ?>
+                                        <div class="interation"> 
+                                   <?php endif; ?>
+                                       <button id="applyBtn">APPLY</button>
+                                   </div>
+                               </div>
                                 <form method="post">
                                 <div class="post-footer">
                                     <button id="like" >
@@ -113,7 +130,7 @@
         <!-- javascript -->
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
 
-        <!-- javacript for like dislike systen -->
+        <!-- javacript for like dislike system -->
         <script>
             // For post like dislike system
             $(document).ready(function() {
@@ -365,6 +382,74 @@
                         }
                 })
             }
+        </script>
+
+        <!-- javascript job apply system -->
+        <script>
+            $(document).ready(function() { 
+                var prgBarVal = $("#prgBar").val();
+                $("#percentage").text(prgBarVal + "%");
+            })
+
+            $("#applyBtn").click(function(event) {
+                event.preventDefault();
+
+                var prgBarVal = $("#prgBar").val();
+                var inc_dec_Amount = <?php echo 100 / $data['post']->capacity; ?>;
+
+                if($(".interation").hasClass("applied")) {
+                    if(prgBarVal > 0) {
+                        // increment
+                        $("#prgBar").val(prgBarVal - inc_dec_Amount);
+
+                        // set prg text
+                        $("#percentage").text(prgBarVal - inc_dec_Amount + "%");
+
+                        // set button
+                        $(".interation").removeClass("applied");
+
+                        decApply();
+                    }
+                }
+                else {
+                    if(prgBarVal < 100) {
+                        // increment
+                        $("#prgBar").val(prgBarVal + inc_dec_Amount);
+
+                        // set prg text
+                        $("#percentage").text(prgBarVal + inc_dec_Amount + "%");
+
+                        // set button
+                        $(".interation").addClass("applied");
+
+                        incApply();
+                    }
+                }
+            })
+
+            function incApply() {
+                    $.ajax({
+                        url: "<?php echo URLROOT;?>/Posts_C_O_Advertisement/incApply/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        method: "post",
+                        data: $('form').serialize(),
+                        dataType: "text",
+                        success: function(strMessage) {
+                            $('#applied').text(strMessage + " Applied");
+                        }
+                    })
+                }
+
+                function decApply() {
+                    $.ajax({
+                        url: "<?php echo URLROOT;?>/Posts_C_O_Advertisement/decApply/<?php echo $_SESSION['current_viewing_post_id']?>",
+                        method: "post",
+                        data: $('form').serialize(),
+                        dataType: "text",
+                        success: function(strMessage) {
+                            $('#applied').text(strMessage + " Applied");
+                        }
+                    })
+                }
         </script>
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>

@@ -41,6 +41,16 @@
                                 <div class="postedat">Posted At: <?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
                                 <div class="title"><?php echo $post->title; ?></div>
                                 <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
+                               <div class="poles">
+                                   <div class="pole-prg-bar">
+                                        <progress max="100" value="<?php echo ($post->applied / $post->capacity) * 100; ?>" id="prgBar"></progress>
+                                        <div class="percentage" id="percentage"><?php echo ($post->applied / $post->capacity) * 100; ?>%</div>
+                                   </div>
+                                   <div class="text">
+                                       <div class="applied" id="applied"><?php echo $post->applied; ?> Applied</div>
+                                       <div class="capacity"> of 100 Capacity</div>
+                                   </div>
+                               </div>
                                <div class="price">Rs.1000</div>
                             </div>
                             <div class="advertisement-stats">

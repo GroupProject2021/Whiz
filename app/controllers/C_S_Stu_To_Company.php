@@ -45,12 +45,22 @@
             $downs = $this->postModel->getDown($id)->downs;
             $userId = $_SESSION['user_id'];
 
+            // for like dislike existence
             if($this->postModel->isPostInterationExist($userId, $id)) {
                 $selfInteraction = $this->postModel->getPostInteration($userId, $id);
                 $selfInteraction = $selfInteraction->interaction;
             }
             else {
                 $selfInteraction = '';
+            }
+
+            // for job apply existence
+            if($this->postModel->isPostInterationExist($userId, $id)) {
+                $selfJobApplyInteraction = $this->postModel->getJobApply($userId, $id);
+                $selfJobApplyInteraction = $selfJobApplyInteraction->interaction;
+            }
+            else {
+                $selfJobApplyInteraction = '';
             }
 
 
@@ -90,6 +100,7 @@
                 'ups' => $ups,
                 'downs' => $downs,
                 'self_interaction' => $selfInteraction,
+                'self_job_apply_interaction' => $selfJobApplyInteraction,
 
                 'total_reviews' => $totalReviews,
                 'rate1' => $rate1Precentage,

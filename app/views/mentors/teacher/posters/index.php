@@ -37,7 +37,7 @@
                             <div class="pic">
                                 <img src="<?php echo URLROOT.'/imgs/posts/posters/'.$post->image; ?>" alt="">
                             </div>
-                            <div class="teacher-pic">
+                            <div class="user-pic">
                                 <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
                             </div>
                             <?php endif; ?>
