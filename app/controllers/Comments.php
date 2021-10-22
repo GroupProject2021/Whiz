@@ -94,6 +94,16 @@
                 echo $downs->downs;
             }    
         }
+
+        public function deleteComment($id) {
+            if($this->commentModel->deleteComment($id)) {
+                // flash('post_message', 'Post Removed');
+                // redirect('Reviews/viewAll/'.$_SESSION['current_viewing_post_id']);
+            }
+            else {
+                die('Something went wrong');
+            }
+        }
         
 
         // Load comments
@@ -123,8 +133,10 @@
                 echo    '<div class="comment-header-postedby">'.$user->first_name.' '.$user->last_name.'</div>';
                 if($user->status == "verified") {
                     echo    '<div class="comment-header-verified"><img src="'.URLROOT.'/imgs/verified.png" alt=""></div>';
-                }
+                }                
                 echo    '<div class="comment-header-postedtime">'.convertedToReadableTimeFormat($comment->created_at).'</div>';
+                echo     '<div class="comment-edit"><img src="'.URLROOT.'/imgs/components/commentSystem/edit-icon.png" alt="" onclick="deleteComment('.$comment->comment_id.')"></div>';
+                echo     '<div class="comment-delete"><img src="'.URLROOT.'/imgs/components/commentSystem/remove-icon.png" alt="" onclick="deleteComment('.$comment->comment_id.')"></div>';
                 echo '</div>';
                 echo '<div class="comment-body">';
                 echo    $comment->content;

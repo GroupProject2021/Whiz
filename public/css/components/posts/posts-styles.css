@@ -441,9 +441,22 @@
 
 .post .poles .pole-prg-bar progress::-webkit-progress-value {
     -webkit-appearance: none;    
-    background: rgb(131,58,180);
-    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 98%);
     border-radius: 3px;
+}
+
+/* advertisement */
+.post .poles .pole-prg-bar.bar1 progress::-webkit-progress-value {    
+    background-color: rgb(150, 0, 150);
+}
+
+/* banner */
+.post .poles .pole-prg-bar.bar2 progress::-webkit-progress-value {    
+    background-color: rgb(243, 147, 3);
+}
+
+/* poster */
+.post .poles .pole-prg-bar.bar3 progress::-webkit-progress-value {    
+    background-color: rgb(0, 163, 136);
 }
 
 .post .poles .pole-prg-bar progress[value]::-webkit-progress-bar {

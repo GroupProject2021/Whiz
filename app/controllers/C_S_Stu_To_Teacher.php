@@ -57,12 +57,12 @@
             }
 
             // for teacher enroll existence
-            if($this->postModel->isPostInterationExist($userId, $id)) {
-                $selfJobApplyInteraction = $this->postModel->getJobApply($userId, $id);
-                $selfJobApplyInteraction = $selfJobApplyInteraction->interaction;
+            if($this->stuToTeacherModel->isTeacherEnrollExist($userId, $id)) {
+                $selfEnrollApplyInteraction = $this->stuToTeacherModel->getTeacherEnroll($userId, $id);
+                $selfEnrollApplyInteraction = $selfEnrollApplyInteraction->interaction;
             }
             else {
-                $selfJobApplyInteraction = '';
+                $selfEnrollApplyInteraction = '';
             }
 
 
@@ -102,7 +102,7 @@
                 'ups' => $ups,
                 'downs' => $downs,
                 'self_interaction' => $selfInteraction,
-                'self_job_apply_interaction' => $selfJobApplyInteraction,
+                'self_enroll_apply_interaction' => $selfEnrollApplyInteraction,
 
                 'total_reviews' => $totalReviews,
                 'rate1' => $rate1Precentage,
