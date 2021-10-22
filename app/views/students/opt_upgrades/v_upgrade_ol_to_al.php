@@ -186,11 +186,7 @@
         <div class="form-container signin">
             <p>Contact for help? <a class="form-link" href="<?php echo URLROOT; ?>/students/login">Help & Services</a></p>
         </div>
-
-        
-        <!-- javascript -->
-        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/al_UpgradeAndEdit.js"></script>
-        
+               
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
         
         <!-- common settings js -->
