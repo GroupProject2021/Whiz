@@ -25,19 +25,14 @@ class M_M_Enrolment_List{
         return $row;
     }
 
-    public function getStudentListById($id) {
+    public function getStudentListById($post_id) {
         
-        $this->db->query("SELECT *
-                                FROM ProfGuiderEnrollments
-                                INNER JOIN Users  
-                                ON ProfGuiderEnrollments.user_id = Users.id 
-                                WHERE ProfGuiderEnrollments.post_id = :id
-                                ORDER BY ProfGuiderEnrollments.created_at DESC");
-        $this->db->bind(':id', $id);
+        $this->db->query('SELECT * FROM v_enrol_student_list WHERE post_id = :post_id ;');
+        $this->db->bind(':post_id', $post_id);
 
-        $results = $this->db->resultSet();
+        $row = $this->db->single();
 
-        return $results;
+        return $row;
     }
 }
 

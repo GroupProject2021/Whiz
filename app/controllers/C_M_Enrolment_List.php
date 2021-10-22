@@ -32,10 +32,16 @@ class C_M_Enrolment_List extends Controller{
     }
 
     // Enroll list
-    public function enrolStudentList() {
+    public function enrolStudentList($post_id) {
+
+        // $post = $this->mentorDashboardModel->getPostById($id);
+        // $userId = $_SESSION['user_id'];
+        $studentList = $this->enrolmentListModel->getStudentListById($post_id);
 
         $data = [
-        
+            
+            // 'post' => $post,
+            'list' => $studentList
         ];
 
         $this->view('mentors/opt_enrolment_list/v_enrol_student_list', $data);

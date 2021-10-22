@@ -23,16 +23,10 @@
                     <br>
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <?php flash('post_message'); ?>
-                        <!-- <?php foreach($data['posts'] as $post): ?>
-                            <?php if($post->id == $_SESSION['user_id']): ?>
-                                <div class="list">
-                                    <div class="name">
-                                        <?php echo $post->title; ?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?> -->
+                    <a href="<?php echo URLROOT;?>/C_M_Enrolment_List/index"><button class="btn8 post-back">Back</button></a>
+                    
+                    <?php flash('post_message'); ?>
+                       
                         <div>
                         <table class="gov-course-table">
                             <tr>
@@ -45,15 +39,16 @@
                             </tr>
                             <tr><td colspan="3"><hr></td></tr>
                             
-                            <?php for($test = 0; $test < 10; $test++): ?>
+                            <?php foreach($data['list'] as $studentList): ?>
+                                
                                 <tr>
-                                    <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/imgs/enrol.jpg'?>" alt=""></td>
-                                    <td class="gov-course-name">Pabasara </td>
+                                    <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/profileimages/student/'.$data['list']->profile_image; ?>" alt=""></td>
+                                    <td class="gov-course-name"><?php echo $data['list']->first_name.' '.$data['list']->last_name; ?></td>
                                     <td class="gov-course-intake">2021-10-02 09.52.03</td>
                                 </tr>
                                 <tr><td colspan="4"><hr></td></tr>
-                            <?php endfor; ?>
-                            
+                                
+                            <?php endforeach; ?>
                         </table>
                         <hr>
                     </div>
