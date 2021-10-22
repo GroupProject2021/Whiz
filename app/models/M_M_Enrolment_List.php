@@ -36,11 +36,23 @@ class M_M_Enrolment_List{
     }
 
     // new
-    public function getEnrollmentsForAPost($post_id) {
+    public function getEnrollmentsForAPostG($post_id) {
         $this->db->query("SELECT * FROM
         ProfGuiderEnrollments INNER JOIN Users 
         ON ProfGuiderEnrollments.user_id = Users.id
         WHERE ProfGuiderEnrollments.post_id = :post_id;");
+        $this->db->bind(':post_id', $post_id);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
+    public function getEnrollmentsForAPostT($post_id) {
+        $this->db->query("SELECT * FROM
+        TeacherEnrollments INNER JOIN Users 
+        ON TeacherEnrollments.user_id = Users.id
+        WHERE TeacherEnrollments.post_id = :post_id;");
         $this->db->bind(':post_id', $post_id);
 
         $results = $this->db->resultSet();

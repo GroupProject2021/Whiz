@@ -32,18 +32,20 @@
                             <tr>
                                 <th>    </th>
                                 <th>Student Name</th>
+                                <th>Student Type</th>
                                 <!-- <th colspan="2">Offered university</th> -->
                                 <th colspan="2">Enrolled at</th>
                                 <!-- <th>Intake</th> -->
                                 <th></th>
                             </tr>
-                            <tr><td colspan="3"><hr></td></tr>
+                            <tr><td colspan="4"><hr></td></tr>
                             
                             <?php foreach($data['enrollments'] as $studentList): ?>
                                 
                                 <tr>
-                                    <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/profileimages/student/'.$data['list']->profile_image; ?>" alt=""></td>
-                                    <td class="gov-course-name"><?php echo $data['list']->first_name.' '.$data['list']->last_name; ?></td>
+                                    <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/profileimages/student/'.$studentList->profile_image; ?>" alt=""></td>
+                                    <td class="gov-course-name"><?php echo $studentList->first_name.' '.$studentList->last_name; ?></td>
+                                    <td class="gov-course-name"><?php echo $studentList->specialized_actor_type; ?></td>
                                     <td class="gov-course-intake">2021-10-02 09.52.03</td>
                                 </tr>
                                 <tr><td colspan="4"><hr></td></tr>

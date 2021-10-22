@@ -118,7 +118,7 @@
                 </button>
             </a>
 
-            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/complaint">
+            <!-- <a href="<?php echo URLROOT; ?>/Mentors_dashboard/complaint">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/mentorSideBar/complaint-icon.png">
@@ -127,7 +127,7 @@
                         Complaints
                     </div>
                 </button>
-            </a>
+            </a> -->
         </div>
         <?php else: ?>
             <!-- Nothing here -->

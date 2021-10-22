@@ -34,11 +34,21 @@ class C_M_Enrolment_List extends Controller{
     // Enroll list
     public function enrolStudentList($post_id) {
 
-        // $post = $this->mentorDashboardModel->getPostById($id);
-        // $userId = $_SESSION['user_id'];
         $studentList = $this->enrolmentListModel->getStudentListById($post_id);
 
-        $enrollments = $this->enrolmentListModel->getEnrollmentsForAPost($post_id);
+        switch($_SESSION['specialized_actor_type']) {
+            case 'Professional Guider' :
+                $enrollments = $this->enrolmentListModel->getEnrollmentsForAPostG($post_id);
+                break;
+            
+            case 'Teacher' :
+                $enrollments = $this->enrolmentListModel->getEnrollmentsForAPostT($post_id);
+                break;
+
+            default:
+                // nothing
+                break;
+        }
 
         $data = [
             
