@@ -77,7 +77,7 @@
             </a>
         </div>
 
-        <div class="sidebar-item">
+        <!-- <div class="sidebar-item">
             <a href="<?php echo URLROOT; ?>/C_M_Complaints/complaint">
                 <button>
                     <div class="sidebar-item-icon">
@@ -88,7 +88,7 @@
                     </div>
                 </button>
             </a>
-        </div>
+        </div> -->
         
         <?php elseif($_SESSION['specialized_actor_type'] == 'Teacher'): ?>
         <!-- Teacher options -->

@@ -38,10 +38,13 @@ class C_M_Enrolment_List extends Controller{
         // $userId = $_SESSION['user_id'];
         $studentList = $this->enrolmentListModel->getStudentListById($post_id);
 
+        $enrollments = $this->enrolmentListModel->getEnrollmentsForAPost($post_id);
+
         $data = [
             
             // 'post' => $post,
-            'list' => $studentList
+            'list' => $studentList,
+            'enrollments' => $enrollments
         ];
 
         $this->view('mentors/opt_enrolment_list/v_enrol_student_list', $data);

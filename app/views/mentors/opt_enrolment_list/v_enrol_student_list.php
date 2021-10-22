@@ -39,7 +39,7 @@
                             </tr>
                             <tr><td colspan="3"><hr></td></tr>
                             
-                            <?php foreach($data['list'] as $studentList): ?>
+                            <?php foreach($data['enrollments'] as $studentList): ?>
                                 
                                 <tr>
                                     <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/profileimages/student/'.$data['list']->profile_image; ?>" alt=""></td>
