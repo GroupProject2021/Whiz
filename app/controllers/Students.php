@@ -48,8 +48,8 @@
                 }
 
                 // Validate name
-                if(empty($data['first_name']) || empty($data['last_name'])) {
-                    $data['name_err'] = 'Please enter name';
+                if(empty($data['first_name']) || empty($data['last_name']) || !preg_match("/^([a-zA-Z' ]+)$/",$data['first_name']) || !preg_match("/^([a-zA-Z' ]+)$/", $data['last_name'])) {
+                    $data['name_err'] = 'Please enter a valid name';
                 }
 
                 // Validate address
@@ -110,8 +110,8 @@
                 }
 
                 // Validate phone number
-                if(empty($data['phn_no'])) {
-                    $data['phn_no_err'] = 'Please enter phone number';
+                if(empty($data['phn_no']) || is_numeric($data['phn_no']) == false) {
+                    $data['phn_no_err'] = 'Please enter a valid phone number';
                 }
 
                 // Make sure errors are empty

@@ -31,6 +31,30 @@ _class("toggle-password")[0].addEventListener("click", function() {
 });
 
 
+// First name valdation
+_id("first_name").addEventListener("keyup", function() {
+    let name = _id("first_name").value;
+    let pattern = /[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+    if(!(name.match(pattern)) && name.length >= 3) {
+        _class("first_name-validation")[0].classList.add("active");
+    }
+    else {
+        _class("first_name-validation")[0].classList.remove("active");
+    }
+});
+
+_id("last_name").addEventListener("keyup", function() {
+    let name = _id("last_name").value;
+    let pattern = /[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+    if(!(name.match(pattern)) && name.length >= 3) {
+        _class("last_name-validation")[0].classList.add("active");
+    }
+    else {
+        _class("last_name-validation")[0].classList.remove("active");
+    }
+});
 
 // Email validation
 _id("email").addEventListener("keyup", function() {
