@@ -170,7 +170,7 @@
                             <input type="checkbox" required>
                         </td>
                         <td>
-                            creating an account you agree to our <a class="form-link" href="#">Terms & Privacy</a>
+                            creating an account you agree to our <a class="form-link" href="<?php echo URLROOT.'/Pages/privacy'?>">Terms & Privacy</a>
                         </td>
                     </tr>
                 </table>

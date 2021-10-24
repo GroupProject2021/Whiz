@@ -66,7 +66,7 @@
                             </select>
                             <br>
                             
-                            <button type="submit" class="btn1" >OK</button>
+                            <a href="<?php echo URLROOT?>/C_S_Course/filteredGovCourseList"><div class="btn2">Continue</div></a>
                         </form>
                     </div>
 
@@ -78,4 +78,11 @@
                 </div>
             </main>
         </div>
+
+        <!-- jquery -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+
+        <!-- javascript -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/opt_streams/stream_selection.js"></script>
+
 <?php require APPROOT.'/views/inc/footer.php'; ?>

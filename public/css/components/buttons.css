@@ -7,6 +7,10 @@
     --btn2-bg-color-hover: #9d30e0;
     --btn2-color: #FBFBFB;
 
+    --btn2-dis-bg-color: #a5a5a5;
+    --btn2-dis-bg-color-hover: #7e7e7e;
+    --btn2-dis-color: #3d3d3d;
+
     --btn3-bg-color: #00B74A;
     --btn3-bg-color-hover: #028135;
     --btn3-color: #FBFBFB;
@@ -99,7 +103,22 @@
 }
 
 .btn2:hover {
-    background-color: var(--btn2-bg-color-hover);
+    background-color: var(--btn2-dis-bg-color-hover);
+}
+
+.btn2.disabled {
+    background-color: var(--btn2-dis-bg-color);
+    color: var(--btn2-color);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    opacity: 0.9;
+}
+
+.btn2.disabled:hover {
+    background-color: var(--btn2-dis-bg-color-hover);
 }
 
 .btn3 {

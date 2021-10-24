@@ -28,7 +28,7 @@
                     <a href="<?php echo URLROOT;?>/C_S_Stu_To_PriUniversity/index"><button class="btn8 post-back">Back</button></a>
                                                                           
                             <div class="post">
-                                <?php if($data['post']->image != null):?>
+                            <?php if($data['post']->image != null):?>
                                     <div class="post-header">
                                         <img src="<?php echo URLROOT.'/imgs/posts/courseposts/'.$data['post']->image; ?>" alt="">
                                     </div>  
@@ -40,17 +40,7 @@
                                     <?php if($data['user']->status == 'verified'): ?>
                                     <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
                                     <?php endif; ?>
-                                    <?php if($data['post']->user_id == $_SESSION['user_id']): ?>    
-                                        <div class="post-control-buttons">                                        
-                                            <a href="<?php echo URLROOT?>/posts/edit/<?php echo $data['post']->id;?>">
-                                                <button class="post-header-editbtn">Edit</button>
-                                            </a>
-                                            <form action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id; ?>" method="post">
-                                                <input type="submit" value="Delete" class="post-header-deletebtn">
-                                            </form>
-                                        </div>
-                                     <?php endif; ?>
-                                <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
+                                    <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
                                 </div>
                                 <div class="post-body">
                                     <div class="title"><?php echo $data['post']->title; ?></div>

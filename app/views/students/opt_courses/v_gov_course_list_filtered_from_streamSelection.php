@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Comment section</h1>
+                        <h1>Admissible government university courses</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -27,12 +27,13 @@
                             <div class="img">
                                 <img src="<?php echo URLROOT; ?>/imgs/under-construction.png" height="200px" alt="logo">
                             </div>
-                            <div class="title">Comment section</div>
+                            <div class="title">Admissible government university courses</div>
                             <div class="text">
                             THIS PAGE IS CURRENTLY UNDER CONSTRUCTION !
                             </div>
                         </div>
                     </div>
+
 
                     <!-- BOTTOM PANEL -->
                     <div class="bottom-panel">

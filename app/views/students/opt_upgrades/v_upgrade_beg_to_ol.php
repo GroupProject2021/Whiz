@@ -243,14 +243,14 @@
                 <hr class="form-hr">
                 <p>
                     <input type="checkbox" required>
-                    I do here by certify above details that I have entered are true and correct. <a class="form-link" href="#">Terms & Privacy</a>
+                    I do here by certify above details that I have entered are true and correct. <a class="form-link" href="<?php echo URLROOT.'/Pages/privacy'?>">Terms & Privacy</a>
                 </p>
                 <button type="submit" class="form-skip-button">Skip</button>
                 <button type="submit" class="form-next-button">Next</button>
             </form>
         </div>
         <div class="form-container signin">
-            <p>Contact for help? <a class="#n">Help & Services</a></p>
+            <p>Contact for help? <a class="form-link" href="<?php echo URLROOT.'/Pages/services'?>">Help & Services</a></p>
         </div>
         </form>
 
