@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Course posts</h1>
+                        <h1>Courses</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

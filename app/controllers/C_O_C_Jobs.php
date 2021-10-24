@@ -1,6 +1,6 @@
 <?php
 
-class C_O_C_Jobs extends Controller{
+/*class C_O_C_Jobs extends Controller{
     public function __construct() {
         $this->jobModel = $this->model('M_O_C_Job');        
     }
@@ -19,4 +19,4 @@ class C_O_C_Jobs extends Controller{
 
 
 
-?>
+?>*/

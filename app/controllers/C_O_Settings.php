@@ -146,7 +146,7 @@ class C_O_Settings extends Controller {
                 $data['founded_year_err'] = 'Please enter founded year';
             }
             else if(is_numeric($data['founded_year']) == false) {
-                $data['founded year_err'] = 'Please enter valid founded year';
+                $data['founded_year_err'] = 'Please enter valid year';
             }
 
             // Validate approved
@@ -168,7 +168,7 @@ class C_O_Settings extends Controller {
             if(empty($data['rate'])) {
                 $data['rate_err'] = 'Please enter rate';
             }
-            else if(is_numeric($data['rate']) == false) {
+            else if(is_numeric($data['rate']) == false || $data['rate'] > 100) {
                 $data['rate_err'] = 'Please enter valid rate';
             }
 
@@ -307,7 +307,7 @@ class C_O_Settings extends Controller {
                 $data['founded_year_err'] = 'Please enter founded year';
             }
             else if(is_numeric($data['founded_year']) == false) {
-                $data['founded year_err'] = 'Please enter valid founded year';
+                $data['founded_year_err'] = 'Please enter valid year';
             }
 
             // Validate registered

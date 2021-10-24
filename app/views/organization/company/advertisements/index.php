@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Advertisements</h1>
+                        <h1>Job Advertisements</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

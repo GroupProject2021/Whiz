@@ -24,23 +24,12 @@
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/courses-icon.png">
                     </div>
                     <div class="sidebar-item-name">
-                        course posts
-                    </div>
-                </button>
-            </a>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_O_U_Courses/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/courses-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
                         courses
                     </div>
                 </button>
             </a>
         </div>
+        
         <div class="sidebar-item">
             <a href="<?php echo URLROOT; ?>/C_O_U_Notices/index">
                 <button>
@@ -66,23 +55,12 @@
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/jobs-icon.png">
                     </div>
                     <div class="sidebar-item-name">
-                    advertisements
+                    job advertisements
                     </div>
                 </button>
             </a>
         </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_O_C_Jobs/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/jobs-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        jobs
-                    </div>
-                </button>
-            </a>
-        </div>
+        
         <div class="sidebar-item">
             <a href="<?php echo URLROOT; ?>/C_O_C_Cvs/index">
                 <button>
