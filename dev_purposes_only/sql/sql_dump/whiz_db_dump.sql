@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2021 at 12:05 PM
+-- Generation Time: Oct 24, 2021 at 06:36 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -228,6 +228,19 @@ CREATE TABLE `commentinteractions` (
   `comment_interaction` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `commentinteractions`
+--
+
+INSERT INTO `commentinteractions` (`comment_interaction_id`, `user_id`, `comment_id`, `comment_interaction`) VALUES
+(1, 4, 1, 'liked'),
+(2, 5, 2, 'liked'),
+(3, 2, 4, 'liked'),
+(4, 3, 4, 'liked'),
+(5, 3, 6, 'liked'),
+(6, 4, 4, 'liked'),
+(7, 4, 7, 'disliked');
+
 -- --------------------------------------------------------
 
 --
@@ -243,6 +256,19 @@ CREATE TABLE `comments` (
   `downs` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`comment_id`, `post_id`, `user_id`, `content`, `ups`, `downs`, `created_at`) VALUES
+(1, 2, 4, 'Sir can you do sessions for java as well?', 1, 0, '2021-10-24 19:06:19'),
+(2, 1, 5, 'Do companies participate in this session?', 1, 0, '2021-10-24 19:07:13'),
+(3, 2, 4, 'Sir can we have record permissions for your sessions or recorded video of session?', 0, 0, '2021-10-24 19:10:12'),
+(4, 4, 2, 'What kind of jobs can get from this course?', 3, 0, '2021-10-24 19:31:08'),
+(6, 4, 3, 'What is the duration of this course?', 1, 0, '2021-10-24 19:32:45'),
+(7, 4, 4, 'Will be java covered by this course?', 0, 1, '2021-10-24 19:33:34'),
+(8, 3, 5, 'Do you expect previous experience for this job?', 0, 0, '2021-10-24 19:36:21');
 
 -- --------------------------------------------------------
 
@@ -277,6 +303,26 @@ CREATE TABLE `connections` (
   `from_user_id` int(11) DEFAULT NULL,
   `to_user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `connections`
+--
+
+INSERT INTO `connections` (`connection_id`, `from_user_id`, `to_user_id`) VALUES
+(1, 2, 6),
+(2, 2, 7),
+(3, 2, 8),
+(4, 3, 6),
+(5, 3, 7),
+(6, 3, 8),
+(7, 4, 6),
+(8, 4, 7),
+(9, 4, 8),
+(10, 4, 9),
+(11, 5, 7),
+(12, 5, 8),
+(13, 8, 4),
+(14, 9, 4);
 
 -- --------------------------------------------------------
 
@@ -559,6 +605,14 @@ CREATE TABLE `jobapplicants` (
   `applied_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `jobapplicants`
+--
+
+INSERT INTO `jobapplicants` (`job_apply_id`, `user_id`, `post_id`, `interaction`, `applied_date`) VALUES
+(1, 4, 3, 'apply removed', '0000-00-00'),
+(2, 5, 3, 'apply removed', '0000-00-00');
+
 -- --------------------------------------------------------
 
 --
@@ -743,6 +797,17 @@ CREATE TABLE `postinteractions` (
   `interaction` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `postinteractions`
+--
+
+INSERT INTO `postinteractions` (`interaction_id`, `user_id`, `post_id`, `interaction`) VALUES
+(1, 4, 2, 'liked'),
+(2, 5, 1, 'liked'),
+(3, 3, 1, 'liked'),
+(4, 2, 4, 'liked'),
+(5, 4, 4, 'liked');
+
 -- --------------------------------------------------------
 
 --
@@ -764,6 +829,16 @@ CREATE TABLE `posts` (
   `views` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `user_id`, `type`, `image`, `title`, `body`, `applied`, `capacity`, `ups`, `downs`, `shares`, `views`, `created_at`) VALUES
+(1, 8, 'banner', '1635070084_d9c61564-8d38-45de-9b99-68f47f4d7f8d.jpg', 'Career Counselling', 'For school, College students and Graduates. Enroll with us today', 2, 50, 2, 0, 0, 0, '2021-10-24 15:38:04'),
+(2, 9, 'poster', '1635070173_80eb2485-e32e-42a6-b684-f9de305b8d8f.jpg', 'Learn Python from the beginning', 'Classes will be held on Sunday and Wednesday 11.00 a.m to 2.00 p.m via zoom.', 1, 100, 1, 0, 0, 0, '2021-10-24 15:39:33'),
+(3, 7, 'advertisement', '1635070272_7fe802d5-0d9f-4c8b-8f4c-dfd427a81bfa.jpg', 'We are hiring now !!!', 'Send your CV and latest photograph to us', 0, 10, 0, 0, 0, 0, '2021-10-24 15:41:12'),
+(4, 6, 'coursepost', '1635070328_9c865896-9f9f-43cb-9a46-846d0577c75f.jpg', 'SLIIT - September Intake', 'Admissions are now open for 2021 September intake. Apply Now', 0, 0, 2, 0, 0, 0, '2021-10-24 15:42:08');
 
 -- --------------------------------------------------------
 
@@ -829,6 +904,14 @@ CREATE TABLE `profguiderenrollments` (
   `applied_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `profguiderenrollments`
+--
+
+INSERT INTO `profguiderenrollments` (`enroll_id`, `user_id`, `post_id`, `interaction`, `applied_date`) VALUES
+(1, 4, 1, 'applied', '0000-00-00'),
+(2, 5, 1, 'applied', '0000-00-00');
+
 -- --------------------------------------------------------
 
 --
@@ -843,6 +926,18 @@ CREATE TABLE `review` (
   `review` text DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`review_id`, `post_id`, `user_id`, `rate`, `review`, `created_at`) VALUES
+(1, 1, 3, 5, 'Everything on this session was goldmine.', '2021-10-24 19:08:21'),
+(2, 1, 2, 4, 'This session proved to be an overall great knowledge booster.', '2021-10-24 19:09:17'),
+(3, 2, 4, 4, 'If you can cover all application cases it would be easy.', '2021-10-24 19:10:39'),
+(4, 2, 4, 5, 'If you can cover all application cases it would be easy.', '2021-10-24 19:11:04'),
+(5, 4, 3, 3, 'Good course. High demand in IT job field for this course.', '2021-10-24 19:32:25'),
+(7, 4, 4, 4, 'Good course and fair course fee from respectable university.', '2021-10-24 19:34:29');
 
 -- --------------------------------------------------------
 
@@ -1306,6 +1401,13 @@ CREATE TABLE `teacherenrollments` (
   `applied_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `teacherenrollments`
+--
+
+INSERT INTO `teacherenrollments` (`enroll_id`, `user_id`, `post_id`, `interaction`, `applied_date`) VALUES
+(1, 4, 2, 'applied', '0000-00-00');
+
 -- --------------------------------------------------------
 
 --
@@ -1423,6 +1525,21 @@ CREATE TABLE `v_complete_posts` (
 ,`rate4` bigint(21)
 ,`rate5` bigint(21)
 ,`review_count` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_enrol_student_list`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_enrol_student_list` (
+`post_id` int(11)
+,`user_id` int(11)
+,`first_name` varchar(255)
+,`last_name` varchar(255)
+,`profile_image` varchar(255)
+,`actor_type` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -1579,6 +1696,15 @@ CREATE TABLE `zscoretable` (
 DROP TABLE IF EXISTS `v_complete_posts`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_complete_posts`  AS SELECT `v_posts_with_users`.`postId` AS `postId`, `v_posts_with_users`.`userId` AS `userId`, `v_posts_with_users`.`type` AS `type`, `v_posts_with_users`.`image` AS `image`, `v_posts_with_users`.`actor_type` AS `actor_type`, `v_posts_with_users`.`specialized_actor_type` AS `specialized_actor_type`, `v_posts_with_users`.`profile_image` AS `profile_image`, `v_posts_with_users`.`first_name` AS `first_name`, `v_posts_with_users`.`last_name` AS `last_name`, `v_posts_with_users`.`status` AS `status`, `v_posts_with_users`.`postCreated` AS `postCreated`, `v_posts_with_users`.`title` AS `title`, `v_posts_with_users`.`body` AS `body`, `v_posts_with_users`.`applied` AS `applied`, `v_posts_with_users`.`capacity` AS `capacity`, `v_posts_with_users`.`ups` AS `ups`, `v_posts_with_users`.`downs` AS `downs`, `v_posts_with_comments`.`comment_count` AS `comment_count`, ifnull(`v_posts_with_rates`.`rate1`,0) AS `rate1`, ifnull(`v_posts_with_rates`.`rate2`,0) AS `rate2`, ifnull(`v_posts_with_rates`.`rate3`,0) AS `rate3`, ifnull(`v_posts_with_rates`.`rate4`,0) AS `rate4`, ifnull(`v_posts_with_rates`.`rate5`,0) AS `rate5`, `v_posts_with_reviews`.`review_count` AS `review_count` FROM (((`v_posts_with_users` join `v_posts_with_rates` on(`v_posts_with_users`.`postId` = `v_posts_with_rates`.`postId`)) join `v_posts_with_reviews` on(`v_posts_with_users`.`postId` = `v_posts_with_reviews`.`postId`)) join `v_posts_with_comments` on(`v_posts_with_reviews`.`postId` = `v_posts_with_comments`.`postId`)) ORDER BY `v_posts_with_users`.`postCreated` DESC ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_enrol_student_list`
+--
+DROP TABLE IF EXISTS `v_enrol_student_list`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_enrol_student_list`  AS SELECT `profguiderenrollments`.`post_id` AS `post_id`, `profguiderenrollments`.`user_id` AS `user_id`, `users`.`first_name` AS `first_name`, `users`.`last_name` AS `last_name`, `users`.`profile_image` AS `profile_image`, `users`.`actor_type` AS `actor_type` FROM (`profguiderenrollments` join `users` on(`profguiderenrollments`.`user_id` = `users`.`id`)) ;
 
 -- --------------------------------------------------------
 
@@ -2014,19 +2140,19 @@ ALTER TABLE `alsubject`
 -- AUTO_INCREMENT for table `commentinteractions`
 --
 ALTER TABLE `commentinteractions`
-  MODIFY `comment_interaction_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_interaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `connections`
 --
 ALTER TABLE `connections`
-  MODIFY `connection_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `connection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -2068,7 +2194,7 @@ ALTER TABLE `intakenotices`
 -- AUTO_INCREMENT for table `jobapplicants`
 --
 ALTER TABLE `jobapplicants`
-  MODIFY `job_apply_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `job_apply_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -2092,13 +2218,13 @@ ALTER TABLE `olsubject`
 -- AUTO_INCREMENT for table `postinteractions`
 --
 ALTER TABLE `postinteractions`
-  MODIFY `interaction_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `interaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `profguide`
@@ -2110,13 +2236,13 @@ ALTER TABLE `profguide`
 -- AUTO_INCREMENT for table `profguiderenrollments`
 --
 ALTER TABLE `profguiderenrollments`
-  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `school`
@@ -2140,7 +2266,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `teacherenrollments`
 --
 ALTER TABLE `teacherenrollments`
-  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `universitytype`

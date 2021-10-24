@@ -310,7 +310,7 @@
                 }
 
                 // Validate name
-                if(empty($data['name'])  || !preg_match("/^([a-zA-Z' ]+)$/",$data['name'])) {
+                if(empty($data['name'])) {
                     $data['comname_err'] = 'Please enter name';
                 }
 

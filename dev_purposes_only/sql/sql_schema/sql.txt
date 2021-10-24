@@ -1387,3 +1387,16 @@ CREATE VIEW v_complete_posts AS
 	ON v_posts_with_reviews.postId = v_posts_with_comments.postId
 	ORDER BY v_posts_with_users.postCreated DESC;
 	
+CREATE VIEW v_enrol_student_list AS
+	SELECT
+	profguiderenrollments.post_id AS post_id,
+	profguiderenrollments.user_id AS user_id,
+	Users.first_name AS first_name,
+	Users.last_name AS last_name,
+	Users.profile_image AS profile_image,
+	Users.actor_type AS actor_type
+	FROM profguiderenrollments
+	INNER JOIN Users  
+	ON profguiderenrollments.user_id = Users.id;
+
+	
