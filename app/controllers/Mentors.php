@@ -230,8 +230,8 @@
                 }
 
                 // Validate email
-                if(empty($data['email'])) {
-                    $data['email_err'] = 'Please enter email';
+                if(empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                    $data['email_err'] = 'Please enter a valid email';
                 }
                 else {
                     // Check email
