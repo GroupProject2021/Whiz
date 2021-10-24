@@ -55,7 +55,7 @@
                 }
 
                 // Validate name
-                if(empty($data['first_name']) || empty($data['last_name'])) {
+                if(empty($data['first_name']) || empty($data['last_name']) || !preg_match("/^([a-zA-Z' ]+)$/",$data['first_name']) || !preg_match("/^([a-zA-Z' ]+)$/", $data['last_name'])) {
                     $data['name_err'] = 'Please enter name';
                 }
 
@@ -225,13 +225,13 @@
                 }
 
                 // Validate name
-                if(empty($data['first_name']) || empty($data['last_name'])) {
+                if(empty($data['first_name']) || empty($data['last_name']) || !preg_match("/^([a-zA-Z' ]+)$/",$data['first_name']) || !preg_match("/^([a-zA-Z' ]+)$/", $data['last_name'])) {
                     $data['name_err'] = 'Please enter name';
                 }
 
                 // Validate email
-                if(empty($data['email'])) {
-                    $data['email_err'] = 'Please enter email';
+                if(empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                    $data['email_err'] = 'Please enter a valid email';
                 }
                 else {
                     // Check email

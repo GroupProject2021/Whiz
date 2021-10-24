@@ -59,7 +59,11 @@
                             }
                         ?>
 
-                        <a href="<?php echo URLROOT?>/C_S_Stream/streamRecommendation"><button class="btn2">Recommend stream</button></a>
+                        <?php if($_SESSION['specialized_actor_type'] == 'OL qualified'): ?>
+                            <a href="<?php echo URLROOT?>/C_S_Stream/streamRecommendation"><button class="btn2">Recommend stream</button></a>
+                        <?php else: ?>
+                            <a href="" onclick="alert('Upgrade to OL Qualified to unlock this feature')"><button class="btn2 disabled">Recommend stream</button></a>
+                        <?php endif; ?>
                     </div>
 
 

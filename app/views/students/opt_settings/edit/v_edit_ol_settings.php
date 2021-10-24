@@ -326,31 +326,15 @@
             </main>
         </div>
 
-        <!-- jquery -->
-        <script>
-            $(document).ready(function() {
-                $("#ol_school").keyup(function() {
-                    var searchText = $(this).val();
-                    
-                    if(searchText != '') {
-                        $.ajax({
-                            url: "<?php echo URLROOT;?>/Students_ProfileUpgrade/schoolList/"+searchText,
-                            method: 'post',
-                            success: function(response) {
-                                $("#show-list").html(response);
-                            }
-                        });
-                    }
-                    else {
-                        $("#show-list").html('');
-                    }
-                });
+        <!-- javascript -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
 
-                $(document).on("click", ".show-list-item", function() {
-                    $("#ol_school").val($(this).text());
-                    $("#show-list").html('');
-                })
-            });
+        <!-- common settings js -->
+        <script type="text/JavaScript">
+            var URLROOT = '<?php echo URLROOT; ?>';
         </script>
+
+        <!-- ol edit js -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/opt_settings/edit/olEdit.js"></script>
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>

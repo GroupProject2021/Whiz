@@ -9,7 +9,7 @@
         // Register as a user
         public function registerAsAUser($data) {
             // register as a user    
-            $this->db->query('INSERT INTO Users(profile_image, name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
+            $this->db->query('INSERT INTO Users(profile_image, first_name, email, password, actor_type, specialized_actor_type, status) VALUES(:profile_image, :name, :email, :password, :actor_type, :specialized_actor_type, :status)');
             // bind values
             $this->db->bind("profile_image", $data['profile_image_name']);
             $this->db->bind(':name', $data['name']);

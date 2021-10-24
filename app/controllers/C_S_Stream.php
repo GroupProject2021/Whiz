@@ -37,19 +37,19 @@ class C_S_Stream extends Controller {
 
     // For OL qualified
     // Option 1 - stream recommendation
-    public function streamRecommendation() {
-        $streams = $this->streamModel->getStreams();
-        $id = $this->streamModel->findStudentIdbyEmail($_SESSION['user_email']);
-        $studentOLData = $this->streamModel->getStudentOLDetails($id);
-
-        $recommendedStreamList = $this->whizStreamRecommenadationAlgorithm($studentOLData);
-
-        $data = [
-            'streams' => $streams,
-            'recommended_streams' => $recommendedStreamList
-        ];            
-
+    public function streamRecommendation() {  
         if($_SESSION['specialized_actor_type'] == 'OL qualified') {
+            $streams = $this->streamModel->getStreams();
+            $id = $this->streamModel->findStudentIdbyEmail($_SESSION['user_email']);
+            $studentOLData = $this->streamModel->getStudentOLDetails($id);
+
+            $recommendedStreamList = $this->whizStreamRecommenadationAlgorithm($studentOLData);
+
+            $data = [
+                'streams' => $streams,
+                'recommended_streams' => $recommendedStreamList
+            ];           
+
             $this->view('students/opt_streams/v_stream_recommendation', $data);
         }
         else {

@@ -1,0 +1,1389 @@
+CREATE TABLE GovernmentCourse (
+  gov_course_id INT NOT NULL,
+  gov_course_name VARCHAR(255) NOT NULL,
+  PRIMARY KEY(gov_course_id)  
+);
+
+INSERT INTO GovernmentCourse VALUES (001, 'Medicine');
+INSERT INTO GovernmentCourse VALUES (002, 'Dental Surgery');
+INSERT INTO GovernmentCourse VALUES (003, 'Veterinary Science');
+INSERT INTO GovernmentCourse VALUES (004, 'Agriculture');
+INSERT INTO GovernmentCourse VALUES (005, 'Food Science & Nutrition');
+INSERT INTO GovernmentCourse VALUES (006, 'Biological Science');
+INSERT INTO GovernmentCourse VALUES (007, 'Applied Sciences(Biological Science)');
+INSERT INTO GovernmentCourse VALUES (008, 'Engineering');
+INSERT INTO GovernmentCourse VALUES (009, 'Engineering(EM)');
+INSERT INTO GovernmentCourse VALUES (010, 'Engineering(TM)');
+INSERT INTO GovernmentCourse VALUES (011, 'Quantity Surveying');
+INSERT INTO GovernmentCourse VALUES (012, 'Computer Science');
+INSERT INTO GovernmentCourse VALUES (013, 'Physical Science');
+INSERT INTO GovernmentCourse VALUES (014, 'Surveying Science');
+INSERT INTO GovernmentCourse VALUES (015, 'Applied Sciences(Physical Science)');
+INSERT INTO GovernmentCourse VALUES (016, 'Management');
+INSERT INTO GovernmentCourse VALUES (017, 'Estate Management & Valuation');
+INSERT INTO GovernmentCourse VALUES (018, 'Commerce');
+INSERT INTO GovernmentCourse VALUES (019, 'Arts');
+INSERT INTO GovernmentCourse VALUES (020, 'Arts(SP) - Mass Media');
+INSERT INTO GovernmentCourse VALUES (041, 'Arts(SP) - Performing Arts');
+INSERT INTO GovernmentCourse VALUES (021, 'Arts(SAB)');
+INSERT INTO GovernmentCourse VALUES (022, 'Management Studies(TV)');
+INSERT INTO GovernmentCourse VALUES (023, 'Architecture');
+INSERT INTO GovernmentCourse VALUES (024, 'Design');
+INSERT INTO GovernmentCourse VALUES (025, 'Law');
+INSERT INTO GovernmentCourse VALUES (026, 'Information Technology(IT)');
+INSERT INTO GovernmentCourse VALUES (027, 'Management and Information Technology(MIT)');
+INSERT INTO GovernmentCourse VALUES (028, 'Management(Public) Special');
+INSERT INTO GovernmentCourse VALUES (029, 'Communication Studies');
+INSERT INTO GovernmentCourse VALUES (030, 'Town & Country Planning');
+INSERT INTO GovernmentCourse VALUES (031, 'Peace and Conflict Resolution');
+INSERT INTO GovernmentCourse VALUES (032, 'Ayurvedic Medicine and Surgery');
+INSERT INTO GovernmentCourse VALUES (033, 'Unani Medicine and Surgery');
+INSERT INTO GovernmentCourse VALUES (034, 'Fashion Design & Product Development');
+INSERT INTO GovernmentCourse VALUES (035, 'Food Science & Technology');
+INSERT INTO GovernmentCourse VALUES (036, 'Siddha Medicine & Surgery');
+INSERT INTO GovernmentCourse VALUES (037, 'Nursing');
+INSERT INTO GovernmentCourse VALUES (038, 'Information and Communication Technology(ICT)');
+INSERT INTO GovernmentCourse VALUES (039, 'Agricultural Technology & Management');
+INSERT INTO GovernmentCourse VALUES (050, 'Health Promotion');
+INSERT INTO GovernmentCourse VALUES (051, 'Pharmacy');
+INSERT INTO GovernmentCourse VALUES (052, 'Medical Laboratory Sciences');
+INSERT INTO GovernmentCourse VALUES (053, 'Radiography');
+INSERT INTO GovernmentCourse VALUES (054, 'Physiotherapy');
+INSERT INTO GovernmentCourse VALUES (055, 'Environmental Conversation & Management');
+INSERT INTO GovernmentCourse VALUES (056, 'Facilities Management');
+INSERT INTO GovernmentCourse VALUES (057, 'Transport & Logistics Management');
+INSERT INTO GovernmentCourse VALUES (058, 'Molecular Biology & Biochemistry');
+INSERT INTO GovernmentCourse VALUES (059, 'Industrial Statistics & Mathematical Finance');
+INSERT INTO GovernmentCourse VALUES (060, 'Statistics & Operations Research');
+INSERT INTO GovernmentCourse VALUES (061, 'Computation & Management');
+INSERT INTO GovernmentCourse VALUES (062, 'Fisheries & Marine Sciences');
+INSERT INTO GovernmentCourse VALUES (063, 'Islamic Studies');
+INSERT INTO GovernmentCourse VALUES (064, 'Science and Technology');
+INSERT INTO GovernmentCourse VALUES (065, 'Computer Science & Technology');
+INSERT INTO GovernmentCourse VALUES (066, 'Entrepreneuship & Management');
+INSERT INTO GovernmentCourse VALUES (067, 'Animal Science');
+INSERT INTO GovernmentCourse VALUES (068, 'Music');
+INSERT INTO GovernmentCourse VALUES (069, 'Dance');
+INSERT INTO GovernmentCourse VALUES (070, 'Art & Design');
+INSERT INTO GovernmentCourse VALUES (071, 'Drama & Theatre');
+INSERT INTO GovernmentCourse VALUES (072, 'Visual & Technological Arts');
+INSERT INTO GovernmentCourse VALUES (073, 'Export Agriculture');
+INSERT INTO GovernmentCourse VALUES (074, 'Tea Technology & Value Addition');
+INSERT INTO GovernmentCourse VALUES (075, 'Industrial Information Technology');
+INSERT INTO GovernmentCourse VALUES (076, 'Mineral Resources and Technology');
+INSERT INTO GovernmentCourse VALUES (077, 'Business Information Systems(Special)(BIS)');
+INSERT INTO GovernmentCourse VALUES (079, 'Management and Information Technology(SEUSL)');
+INSERT INTO GovernmentCourse VALUES (080, 'Computing & Information Systems');
+INSERT INTO GovernmentCourse VALUES (081, 'Physical Education');
+INSERT INTO GovernmentCourse VALUES (082, 'Sports Science & Management');
+INSERT INTO GovernmentCourse VALUES (083, 'Speech ad Hearing Sciences');
+INSERT INTO GovernmentCourse VALUES (084, 'Arabic Language)');
+INSERT INTO GovernmentCourse VALUES (085, 'Visual Arts');
+INSERT INTO GovernmentCourse VALUES (086, 'Animal Science & Fisheries');
+INSERT INTO GovernmentCourse VALUES (087, 'Food Production & Technology Management');
+INSERT INTO GovernmentCourse VALUES (088, 'Aquatic Resources Technology');
+INSERT INTO GovernmentCourse VALUES (089, 'Palm and Latex Technology & Value Addition');
+INSERT INTO GovernmentCourse VALUES (090, 'Hospitiality, Tourism and Events Management');
+INSERT INTO GovernmentCourse VALUES (091, 'Information Technology & Management');
+INSERT INTO GovernmentCourse VALUES (092, 'Tourism & Hospitality Management');
+INSERT INTO GovernmentCourse VALUES (093, 'Agricultural Resource Management & Technology');
+INSERT INTO GovernmentCourse VALUES (094, 'Agribusiness Management');
+INSERT INTO GovernmentCourse VALUES (095, 'Green Technology');
+INSERT INTO GovernmentCourse VALUES (096, 'Information Systems');
+INSERT INTO GovernmentCourse VALUES (097, 'Landscape Architecture');
+INSERT INTO GovernmentCourse VALUES (098, 'Translation Studies');
+INSERT INTO GovernmentCourse VALUES (099, 'Software Engineering');
+INSERT INTO GovernmentCourse VALUES (100, 'Film & Television Studies');
+INSERT INTO GovernmentCourse VALUES (101, 'Project Management');
+INSERT INTO GovernmentCourse VALUES (102, 'Engineering Technology(ET)');
+INSERT INTO GovernmentCourse VALUES (103, 'Biosystems Technology(BST)');
+INSERT INTO GovernmentCourse VALUES (104, 'Information Communication Technology');
+INSERT INTO GovernmentCourse VALUES (105, 'Teaching English as a Second Language(TESL)');
+INSERT INTO GovernmentCourse VALUES (106, 'Marine and Freshwater Sciences');
+INSERT INTO GovernmentCourse VALUES (107, 'Food Business Management');
+INSERT INTO GovernmentCourse VALUES (108, 'Physical Science - ICT');
+INSERT INTO GovernmentCourse VALUES (109, 'Business Science');
+INSERT INTO GovernmentCourse VALUES (110, 'Financial Engineering');
+INSERT INTO GovernmentCourse VALUES (111, 'Geographical Information Science');
+INSERT INTO GovernmentCourse VALUES (112, 'Social Work');
+INSERT INTO GovernmentCourse VALUES (113, 'Financial Mathematics and Industrial Statistics');
+INSERT INTO GovernmentCourse VALUES (114, 'Human Resource Development');
+
+CREATE TABLE GovermentUniversity (
+  gov_uni_id INT NOT NULL AUTO_INCREMENT,
+  uni_name VARCHAR(255) NOT NULL,
+  description VARCHAR(255), 
+  world_rank INT, 
+  student_amount INT,
+  graduate_job_rate INT,
+  uni_type VARCHAR(255),
+  PRIMARY KEY(gov_uni_id)
+); 
+
+CREATE TABLE GovernmentCourseOfferedByGovermentUniversity (
+  id  INT NOT NULL AUTO_INCREMENT,
+  gov_course_id INT NOT NULL,
+  gov_uni_id INT NOT NULL,
+  purposed_intake INT NOT NULL,
+  duration INT,
+  description VARCHAR(255),
+  PRIMARY KEY(id),
+  FOREIGN KEY(gov_course_id)	REFERENCES GovernmentCourse(gov_course_id),
+  FOREIGN KEY(gov_uni_id)	REFERENCES GovermentUniversity(gov_uni_id)
+);
+
+
+
+CREATE TABLE UniCodes (
+  uni_code CHAR(4),
+  gov_uni_id INT NOT NULL,
+  gov_course_id INT NOT NULL,
+  PRIMARY KEY(uni_code),
+  FOREIGN KEY(gov_uni_id)	REFERENCES GovermentUniversity(gov_uni_id),
+  FOREIGN KEY(gov_course_id)	REFERENCES GovernmentCourse(gov_course_id)
+);
+
+-- data records for government courses
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Colombo', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Peradeniya', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Sri Jayawardenepura', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Kelaniya', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Moratuwa', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Jaffna', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Ruhuna', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('South Eastern University of Sri Lanka ', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Rajarata University of Sri Lanka ', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Sabaragamuwa University of Sri Lanka', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Wayamba University of Sri Lanka', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Uva Wellassa University of Sri Lanka', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of the Visual & Performing Arts', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Sripalee Campus, University of Colombo', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Trincomalee Campus, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Vavuniya Campus, University of Jaffna', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Institute of Indigenous Medicine, University of Colombo', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Gampaha Wickramaarachchi Ayurveda Institute, University of Colombo', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Colombo School of Computing', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Swami Vipulananda Institure of Aesthetic Studies, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Ramanathan Academy of Fine Arts, University of Jaffna', NULL, NULL, NULL, NULL, NULL);
+
+-- FOR TESTING
+CREATE TABLE Users (
+	id INT NOT NULL AUTO_INCREMENT,
+	profile_image VARCHAR(255),
+	first_name VARCHAR(255) NOT NULL,
+	last_name VARCHAR(255),
+	email VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	actor_type VARCHAR(255) NOT NULL,
+	specialized_actor_type VARCHAR(255) NOT NULL,
+	status	VARCHAR(15),
+	PRIMARY KEY(id)
+);
+
+
+CREATE TABLE Posts (
+	id INT NOT NULL AUTO_INCREMENT,
+	user_id INT NOT NULL,
+	type VARCHAR(20),
+	image VARCHAR(255),
+	title VARCHAR(255) NOT NULL,
+	body TEXT,
+	applied INT,
+	capacity INT,
+	ups	INT,
+	downs 	INT,
+	shares	INT,
+	views	INT,
+	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(id)
+);
+
+-- STUDENT RELATED
+-- Main student related tables
+
+CREATE TABLE Student (
+	stu_id INT NOT NULL,
+	address VARCHAR(255) NOT NULL,
+	gender VARCHAR(255) NOT NULL,
+	date_of_birth VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL,
+	phn_no  VARCHAR(255) NOT NULL,
+	PRIMARY KEY(stu_id)
+);
+
+CREATE TABLE BeginnerStudent (
+	stu_id INT NOT NULL,
+	school  VARCHAR(255) NOT NULL,
+	PRIMARY KEY(stu_id),
+	FOREIGN KEY(stu_id)	REFERENCES Student(stu_id)
+);
+
+CREATE TABLE OLSubject (
+	ol_sub_id INT NOT NULL AUTO_INCREMENT,
+	ol_sub_name VARCHAR(255) NOT NULL,
+	ol_category VARCHAR(255) NOT NULL,
+	ol_type	 VARCHAR(255) NOT NULL,
+	PRIMARY KEY(ol_sub_id)
+);
+
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Buddhism', 'Main', 'Religion');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Saivaneri (Hinduism / Shaivism)', 'Main', 'Religion');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('(Roman)Catholicim(RC)', 'Main', 'Religion');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Christianity(Non RC)', 'Main', 'Religion');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Islam', 'Main', 'Religion');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Sinhala Language and Literature', 'Main', 'Primary Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Tamil Language and Literature', 'Main', 'Primary Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('English', 'Main', 'Secondary Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('History', 'Main', 'History');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Science', 'Main', 'Science');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Mathematics', 'Main', 'Mathematics');
+
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Business & Accounting Studies', 'Basket 1', 'Commerce');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Geography', 'Basket 1', 'Geography');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Civic Education', 'Basket 1', 'Education');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Entrepreneurship Studies', 'Basket 1', 'Entrepreneurship');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Second Language(Sinhala)', 'Basket 1', 'Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Second Language(Tamil)', 'Basket 1', 'Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Pali', 'Basket 1', 'Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Sanskrit', 'Basket 1', 'Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('French', 'Basket 1', 'Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('German', 'Basket 1', 'Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Hindi', 'Basket 1', 'Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Japanese', 'Basket 1', 'Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Arabic', 'Basket 1', 'Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Korean', 'Basket 1', 'Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Chinese', 'Basket 1', 'Language');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Russian', 'Basket 1', 'Language');
+
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Oriental Music', 'Basket 2', 'Music');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Western Music', 'Basket 2', 'Music');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Carnatic Music', 'Basket 2', 'Music');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Oriental Dancing', 'Basket 2', 'Dance');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Bharatha Dancing', 'Basket 2', 'Dance');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Art', 'Basket 2', 'Art');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Appreciation of English Literary Texts', 'Basket 2', 'Literary Texts');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Appreciation of Sinhala Literary Texts', 'Basket 2', 'Literary Texts');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Appreciation of Tamil Literary Texts', 'Basket 2', 'Literary Texts');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Appreciation of Arabic Literary Texts', 'Basket 2', 'Literary Texts');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Drama and Theatre', 'Basket 2', 'Drama');
+
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Information & Communication Technology', 'Basket 3', 'IT');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Agriculture & Food Technology', 'Basket 3', 'Agriculture');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Aquatic Vio-resources Technology', 'Basket 3', 'Aquatics');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Art & Crafts', 'Basket 3', 'Art');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Home Economics', 'Basket 3', 'Economics');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Health & Physical Education', 'Basket 3', 'Health');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Communication & Media Studies', 'Basket 3', 'Technology(Communicaiton)');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Design & Construction Technology', 'Basket 3', 'Technology(Communicaiton)');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Design & Mechanical Technology', 'Basket 3', 'Technology(Communicaiton)');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Design, Electrical & Electronic Technology', 'Basket 3', 'Technology(Communicaiton)');
+INSERT INTO OLSubject(ol_sub_name, ol_category, ol_type) VALUES('Electronic Writing & Shorthand', 'Basket 3', 'Technology(Communicaiton)');
+
+
+CREATE TABLE OLQualifiedStudent (
+	stu_id INT NOT NULL,
+	ol_school  VARCHAR(255) NOT NULL,
+	ol_district  VARCHAR(100) NOT NULL,
+	ol_sub1_id INT NOT NULL,
+	ol_sub1_grade CHAR NOT NULL,
+	ol_sub2_id INT NOT NULL,
+	ol_sub2_grade CHAR NOT NULL,
+	ol_sub3_id INT NOT NULL,
+	ol_sub3_grade CHAR NOT NULL,
+	ol_sub4_id INT NOT NULL,
+	ol_sub4_grade CHAR NOT NULL,
+	ol_sub5_id INT NOT NULL,
+	ol_sub5_grade CHAR NOT NULL,
+	ol_sub6_id INT NOT NULL,
+	ol_sub6_grade CHAR NOT NULL,
+	ol_sub7_id INT NOT NULL,
+	ol_sub7_grade CHAR NOT NULL,
+	ol_sub8_id INT NOT NULL,
+	ol_sub8_grade CHAR NOT NULL,
+	ol_sub9_id INT NOT NULL,
+	ol_sub9_grade CHAR NOT NULL,
+	PRIMARY KEY(stu_id),
+	FOREIGN KEY(stu_id)	REFERENCES Student(stu_id),
+	FOREIGN KEY(ol_sub1_id)	REFERENCES OLSubject(ol_sub_id),
+	FOREIGN KEY(ol_sub2_id)	REFERENCES OLSubject(ol_sub_id),
+	FOREIGN KEY(ol_sub3_id)	REFERENCES OLSubject(ol_sub_id),
+	FOREIGN KEY(ol_sub4_id)	REFERENCES OLSubject(ol_sub_id),
+	FOREIGN KEY(ol_sub5_id)	REFERENCES OLSubject(ol_sub_id),
+	FOREIGN KEY(ol_sub6_id)	REFERENCES OLSubject(ol_sub_id),
+	FOREIGN KEY(ol_sub7_id)	REFERENCES OLSubject(ol_sub_id),
+	FOREIGN KEY(ol_sub8_id)	REFERENCES OLSubject(ol_sub_id),
+	FOREIGN KEY(ol_sub9_id)	REFERENCES OLSubject(ol_sub_id)
+);
+
+CREATE TABLE Stream (
+	stream_id INT NOT NULL AUTO_INCREMENT,
+	stream_name VARCHAR(255) NOT NULL,
+	PRIMARY KEY(stream_id)
+);
+
+INSERT INTO Stream(stream_name) VALUES('Arts');
+INSERT INTO Stream(stream_name) VALUES('Commerce');
+INSERT INTO Stream(stream_name) VALUES('Bio Science');
+INSERT INTO Stream(stream_name) VALUES('Physical Science(Maths)');
+INSERT INTO Stream(stream_name) VALUES('Technology');
+INSERT INTO Stream(stream_name) VALUES('Other');
+
+
+CREATE TABLE ALSubject (
+	al_sub_id INT NOT NULL AUTO_INCREMENT,
+	al_sub_name VARCHAR(255) NOT NULL,
+	al_stream_id INT NOT NULL,
+	PRIMARY KEY(al_sub_id),
+	FOREIGN KEY(al_stream_id)	REFERENCES Stream(stream_id)
+);
+
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Arabic', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Art', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Bharatha Natayam', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Buddhism', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Buddhist Civilization', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Chinese', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Christian Civilization', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Christianity', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Communication and Media Studies', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Dance', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Economics', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('English', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('French', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Geography', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('German', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Greek and Roman Civilization', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Hindi Language', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Hindu Civilization', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Hinduism', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('History', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Home Economics', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Islam', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Islamic Civilization', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Japan Language', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Logic and Scientific Method', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Oriental Music', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Pali Language', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Political Science', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Russia', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Sanskrit', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Sinhala', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Tamil', 1);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Western Music', 1);
+
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Accounting', 2);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Business', 2);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Statistics Business', 2);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Studies Economics', 2);
+
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Agriculture', 3);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Bio System Technology', 3);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Biology', 3);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Chemistry', 3);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Physics', 3);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Science for Technology', 3);
+
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Chemistry', 4);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Combine Mathematics', 4);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Higher Mathematics', 4);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Physics', 4);
+
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Agro Technology', 5);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Engineering Technology', 5);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('General Information Technology', 5);
+INSERT INTO ALSubject(al_sub_name, al_stream_id) VALUES('Information & Communication Technology', 5);
+
+CREATE TABLE GovernmentCourseMinimumEligibilityReqUsingALSubjects (
+  min_req_id INT NOT NULL AUTO_INCREMENT,
+  gov_course_id INT NOT NULL,
+  al_sub1_id INT NOT NULL,
+  minimum_al_sub1_grade CHAR NOT NULL,
+  al_sub2_id INT NOT NULL,
+  minimum_al_sub2_grade CHAR NOT NULL,
+  al_sub3_id INT NOT NULL,
+  minimum_al_sub3_grade CHAR NOT NULL,
+  PRIMARY KEY(min_req_id),
+  FOREIGN KEY(al_sub1_id)	REFERENCES ALSubject(al_sub_id),
+  FOREIGN KEY(al_sub2_id)	REFERENCES ALSubject(al_sub_id),
+  FOREIGN KEY(al_sub3_id)	REFERENCES ALSubject(al_sub_id)
+);
+
+
+CREATE TABLE ALQualifiedStudent (
+	stu_id INT NOT NULL,
+	al_school  VARCHAR(255) NOT NULL,
+	stream  VARCHAR(20) NOT NULL,
+	z_score DECIMAL(5, 4),
+	al_district  VARCHAR(100) NOT NULL,
+	al_general_test_grade INT NOT NULL,
+	al_general_english_grade CHAR NOT NULL,
+	al_sub1_id INT NOT NULL,
+	al_sub1_grade CHAR NOT NULL,
+	al_sub2_id INT NOT NULL,
+	al_sub2_grade CHAR NOT NULL,
+	al_sub3_id INT NOT NULL,
+	al_sub3_grade CHAR NOT NULL,
+	PRIMARY KEY(stu_id),
+	FOREIGN KEY(stu_id)	REFERENCES Student(stu_id),
+	FOREIGN KEY(al_sub1_id)	REFERENCES ALSubject(al_sub_id),
+	FOREIGN KEY(al_sub2_id)	REFERENCES ALSubject(al_sub_id),
+	FOREIGN KEY(al_sub3_id)	REFERENCES ALSubject(al_sub_id)
+);
+
+CREATE TABLE UndergraduateGraduate (
+	stu_id INT NOT NULL,
+	degree  VARCHAR(255) NOT NULL,
+	uni_type VARCHAR(255) NOT NULL,
+	uni_name  VARCHAR(255) NOT NULL,
+	gpa DECIMAL(5, 4),
+	PRIMARY KEY(stu_id),
+	FOREIGN KEY(stu_id)	REFERENCES Student(stu_id)
+);
+
+
+
+
+
+
+
+
+
+CREATE TABLE ALAdmissibleStreamSubject (
+	stream_sbj_id INT NOT NULL,
+	sub1_id INT NOT NULL,
+	sub2_id INT NOT NULL,
+	sub3_id INT NOT NULL,
+	stream_id INT NOT NULL,
+	PRIMARY KEY(stream_sbj_id),
+	FOREIGN KEY(sub1_id)	REFERENCES ALSubject(al_sub_id),
+	FOREIGN KEY(sub2_id)	REFERENCES ALSubject(al_sub_id),
+	FOREIGN KEY(sub3_id)	REFERENCES ALSubject(al_sub_id),
+	FOREIGN KEY(stream_id)	REFERENCES Stream(stream_id)
+);
+
+-- Main relationships inside student
+CREATE TABLE SteamSelectedByALQualifiedStudent (
+	stu_id  INT NOT NULL,
+	stream_id  INT NOT NULL,
+	PRIMARY KEY(stu_id, stream_id),
+	FOREIGN KEY(stu_id)	REFERENCES ALQualifiedStudent(stu_id),
+	FOREIGN KEY(stream_id)	REFERENCES Stream(stream_id)
+);
+
+CREATE TABLE ALAdmissibleStreamSubjectSelected (
+	stu_id INT NOT NULL,
+	stream_sbj_id INT NOT NULL,
+	ol_sub1_id INT NOT NULL,
+	ol_sub2_id INT NOT NULL,
+	ol_sub3_id INT NOT NULL,
+	ol_sub1_grade CHAR NOT NULL,
+	ol_sub2_grade CHAR NOT NULL,
+	ol_sub3_grade CHAR NOT NULL,
+	PRIMARY KEY(stu_id, stream_sbj_id),
+	FOREIGN KEY(stu_id)	REFERENCES ALQualifiedStudent(stu_id),
+	FOREIGN KEY(stream_sbj_id)	REFERENCES ALAdmissibleStreamSubject(stream_sbj_id),
+	FOREIGN KEY(ol_sub1_id)	REFERENCES OLSubject(ol_sub_id),
+	FOREIGN KEY(ol_sub2_id)	REFERENCES OLSubject(ol_sub_id),
+	FOREIGN KEY(ol_sub3_id)	REFERENCES OLSubject(ol_sub_id)
+);
+
+
+
+
+
+-- ORGANIZATION RELATED 
+CREATE TABLE Organization (
+  org_id int(11) NOT NULL,
+  address varchar(255) NOT NULL,
+  email varchar(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  phone_no char(10) NOT NULL,
+  website_address VARCHAR(255) NOT NULL,
+  founder varchar(255) not null,
+  founded_year int not null,
+  org_type varchar(50) NOT NULL,
+  PRIMARY KEY (org_id)
+); 
+
+
+CREATE TABLE Company (
+  company_id int(11) NOT NULL,
+  current_emplyee_amount int not null,
+  company_size int not null,
+  registered  varchar(3) not null,
+  overview varchar(255) not null,
+  services varchar(255) not null,
+  PRIMARY KEY (company_id),
+  FOREIGN KEY (company_id) REFERENCES Organization  (org_id)
+);
+
+
+CREATE TABLE PrivateUniversity (
+  privateuni_id int(11) NOT NULL,
+  ugc_approval varchar(3) NOT NULL,
+  world_rank int not null,
+  student_amount int not null,
+  graduate_job_rate int not null,
+  description varchar(255) not null,
+  uni_type varchar(20) not null,
+  PRIMARY KEY (privateuni_id),
+  FOREIGN KEY (privateuni_id) REFERENCES Organization  (org_id)
+); 
+
+-- replaced as advertisements
+CREATE TABLE Jobs (
+  job_id int(11) NOT NULL AUTO_INCREMENT,
+  job_title varchar(100) NOT NULL,
+  content varchar(255) NOT NULL,
+  company_id int(11) NOT NULL,
+  PRIMARY KEY (job_id),
+  FOREIGN KEY (company_id) REFERENCES Company  (company_id)
+); 
+ 
+CREATE TABLE Courses (
+  course_id int(11) NOT NULL AUTO_INCREMENT,
+  course_name varchar(255) NOT NULL,
+  course_content varchar(500) NOT NULL,
+  provide_degree varchar(100) NOT NULL,
+  course_type varchar(20) NOT NULL,
+  PRIMARY KEY (course_id)
+);
+
+-- replaced as coursepost
+CREATE TABLE PrivateCourses (
+  privatecourse_id int(11) NOT NULL,
+  course_fee varchar(50) NULL,
+  private_uni_Id int(11) NOT NULL,
+  PRIMARY KEY (privatecourse_id),
+  FOREIGN KEY (privatecourse_id) REFERENCES Courses  (course_id),
+  FOREIGN KEY (private_uni_Id) REFERENCES PrivateUniversity  (privateuni_id)
+);   
+
+
+CREATE TABLE ApplicableCourcesForJobs (
+  course_id int(11) NOT NULL,
+  job_id int(11) NOT NULL,
+  PRIMARY KEY (course_id,job_id),
+  FOREIGN KEY (course_id) REFERENCES Courses (course_id),
+  FOREIGN KEY (job_id) REFERENCES Jobs (job_id)
+); 
+ 
+CREATE TABLE ApplicableStreamsForCourses (
+  st_sub_id int(11) NOT NULL,
+  course_id int(11) NOT NULL,
+  PRIMARY KEY (st_sub_id,course_id),
+  FOREIGN KEY (course_id) REFERENCES Courses (course_id),
+  FOREIGN KEY (st_sub_id) REFERENCES ALAdmissibleStreamSubject(stream_sbj_id )
+); 
+ 
+ 
+ 
+CREATE TABLE JobApplicants (
+  job_apply_id INT AUTO_INCREMENT,
+  user_id INT NOT NULL,  
+  post_id INT NOT NULL,
+  interaction VARCHAR(100),
+  applied_date date not null,
+  PRIMARY KEY (job_apply_id),
+  FOREIGN KEY (user_id) REFERENCES Users  (id),
+  FOREIGN KEY (post_id) REFERENCES Posts  (id) ON DELETE CASCADE
+); 
+
+
+CREATE TABLE IntakeNotices (
+  notice_id int(11) NOT NULL AUTO_INCREMENT,
+  content varchar(255) NOT NULL,
+  paid_date date NOT NULL,
+  uni_id int(11) NOT NULL,
+  PRIMARY KEY (notice_id),
+  FOREIGN KEY (uni_id) REFERENCES PrivateUniversity (privateuni_id)
+); 
+
+
+
+
+-- MENTOR RELATED
+CREATE TABLE Mentor (
+    mentor_id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    phn_no Int(10) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    gender VARCHAR(255) NOT NULL,
+    mentor_type VARCHAR(20) NOT NULL,
+    institute VARCHAR(255),
+    password VARCHAR(255) NOT NULL,
+    PRIMARY KEY(mentor_id)
+);
+ 
+CREATE TABLE Teacher (
+    teacher_id INT NOT NULL AUTO_INCREMENT,
+    mentor_id INT NOT NULL,
+    school VARCHAR(255) NOT NULL,
+    subjects VARCHAR(255) NOT NULL,
+    PRIMARY KEY(teacher_id),
+    FOREIGN KEY (mentor_id) REFERENCES Mentor(mentor_id)
+);
+ 
+CREATE TABLE Profguide (
+    guider_id INT NOT NULL AUTO_INCREMENT,
+    mentor_id INT NOT NULL,
+    institute VARCHAR(255) NOT NULL,
+    subject1 VARCHAR(255) NOT NULL,
+    subject2 VARCHAR(255),
+    subject3 VARCHAR(255),
+    PRIMARY KEY(guider_id),
+    FOREIGN KEY (mentor_id) REFERENCES Mentor(mentor_id)
+);
+ 
+CREATE TABLE TeacherEnrollments (
+  enroll_id INT AUTO_INCREMENT,
+  user_id INT NOT NULL,  
+  post_id INT NOT NULL,
+  interaction VARCHAR(100),
+  applied_date date not null,
+  PRIMARY KEY (enroll_id),
+  FOREIGN KEY (user_id) REFERENCES Users  (id),
+  FOREIGN KEY (post_id) REFERENCES Posts  (id) ON DELETE CASCADE
+); 
+
+CREATE TABLE ProfGuiderEnrollments (
+  enroll_id INT AUTO_INCREMENT,
+  user_id INT NOT NULL,  
+  post_id INT NOT NULL,
+  interaction VARCHAR(100),
+  applied_date date not null,
+  PRIMARY KEY (enroll_id),
+  FOREIGN KEY (user_id) REFERENCES Users  (id),
+  FOREIGN KEY (post_id) REFERENCES Posts  (id) ON DELETE CASCADE
+); 
+
+-- ADMIN RELATED
+CREATE TABLE Admin (
+	admin_id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    phone_number INT NOT NULL,
+    user_role VARCHAR(255) NOT NULL,	
+    PRIMARY KEY (admin_id)
+);
+
+CREATE TABLE District (
+    district_id INT NOT NULL AUTO_INCREMENT,
+    district_name VARCHAR(255) NOT NULL,
+    PRIMARY KEY ( district_id)
+);
+
+INSERT INTO District(district_name) VALUES('Colombo');
+INSERT INTO District(district_name) VALUES('Gampaha');
+INSERT INTO District(district_name) VALUES('Kalutara');
+INSERT INTO District(district_name) VALUES('Kandy');
+INSERT INTO District(district_name) VALUES('Matale');
+INSERT INTO District(district_name) VALUES('Nuwara Eliya');
+INSERT INTO District(district_name) VALUES('Galle');
+INSERT INTO District(district_name) VALUES('Matara');
+INSERT INTO District(district_name) VALUES('Hambanthota');
+INSERT INTO District(district_name) VALUES('Jaffna');
+INSERT INTO District(district_name) VALUES('Mannar');
+INSERT INTO District(district_name) VALUES('Vauniya');
+INSERT INTO District(district_name) VALUES('Mulathivu');
+INSERT INTO District(district_name) VALUES('Kilinochchi');
+INSERT INTO District(district_name) VALUES('Batticaloa');
+INSERT INTO District(district_name) VALUES('Ampara');
+INSERT INTO District(district_name) VALUES('Trincomalee');
+INSERT INTO District(district_name) VALUES('Kurunegala');
+INSERT INTO District(district_name) VALUES('Puttalam');
+INSERT INTO District(district_name) VALUES('Anuradhapura');
+INSERT INTO District(district_name) VALUES('Polonnaruwa');
+INSERT INTO District(district_name) VALUES('Badulla');
+INSERT INTO District(district_name) VALUES('Monaragala');
+INSERT INTO District(district_name) VALUES('Rathnapura');
+INSERT INTO District(district_name) VALUES('Kegalle');
+INSERT INTO District(district_name) VALUES('Other');
+
+CREATE TABLE AdminOffersGovernmentCourse(
+	admin_id INT NOT NULL,
+	gov_course_id INT NOT NULL,
+	PRIMARY KEY (admin_id,gov_course_id),
+	FOREIGN KEY (admin_id) REFERENCES Admin (admin_id),
+	FOREIGN KEY (gov_course_id) REFERENCES GovernmentCourse (gov_course_id)
+);
+
+CREATE TABLE ZScoreTable (
+	z_id INT NOT NULL AUTO_INCREMENT,
+	z_score DECIMAL (5,4),
+	district_id INT NOT NULL,
+	gov_course_id INT NOT NULL,
+	PRIMARY KEY (z_id),
+	FOREIGN KEY (district_id) REFERENCES District (district_id),
+	FOREIGN KEY (gov_course_id) REFERENCES GovernmentCourse (gov_course_id)
+);
+
+-- newly added tables (must be added to er as well)
+CREATE TABLE Comments (
+	comment_id INT AUTO_INCREMENT,
+	post_id INT,
+	user_id INT,
+	content TEXT NOT NULL,
+	ups INT,
+	downs INT,
+	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (comment_id),
+	FOREIGN KEY (post_id) REFERENCES Posts(id) ON DELETE CASCADE,
+	FOREIGN KEY (user_id) REFERENCES Users (id)
+);
+
+
+
+CREATE TABLE UniversityType (
+	uni_type_id INT AUTO_INCREMENT,
+	uni_type_name VARCHAR(255) NOT NULL,
+	PRIMARY KEY(uni_type_id)
+);
+
+INSERT INTO UniversityType(uni_type_name) VALUES ('Government');
+INSERT INTO UniversityType(uni_type_name) VALUES ('Semi-Goverment');
+INSERT INTO UniversityType(uni_type_name) VALUES ('Private');
+
+
+CREATE TABLE Connections (
+	connection_id INT AUTO_INCREMENT,
+	from_user_id INT,
+	to_user_id INT,
+	PRIMARY KEY(connection_id),
+	FOREIGN KEY (from_user_id) REFERENCES Users(id),
+	FOREIGN KEY (to_user_id) REFERENCES Users(id)
+);
+
+CREATE TABLE Review (
+	review_id INT AUTO_INCREMENT,
+	post_id INT,
+	user_id INT,
+	rate INT,
+	review TEXT,
+	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(review_id),
+	FOREIGN KEY(post_id) REFERENCES Posts(id) ON DELETE CASCADE,
+	FOREIGN KEY(user_id) REFERENCES Users(id)	
+);
+
+CREATE TABLE PostInteractions (
+	interaction_id INT AUTO_INCREMENT,
+	user_id INT,
+	post_id INT,
+	interaction VARCHAR(10),
+	PRIMARY KEY(interaction_id),
+	FOREIGN KEY(user_id) REFERENCES Users(id),
+	FOREIGN KEY(post_id) REFERENCES Posts(id) ON DELETE CASCADE
+);
+
+CREATE TABLE CommentInteractions (
+	comment_interaction_id INT AUTO_INCREMENT,
+	user_id INT,
+	comment_id INT,
+	comment_interaction VARCHAR(10),
+	PRIMARY KEY(comment_interaction_id),
+	FOREIGN KEY(user_id) REFERENCES Users(id),
+	FOREIGN KEY(comment_id) REFERENCES Comments(comment_id) ON DELETE CASCADE
+);
+
+CREATE TABLE School (
+	school_id INT AUTO_INCREMENT,
+	name VARCHAR(255),
+	type VARCHAR(50),
+	district_id INT,
+	PRIMARY KEY(school_id),
+	FOREIGN KEY(district_id) REFERENCES District(district_id)
+);
+
+-- REFERENCE https://en-academic.com/dic.nsf/enwiki/2241263
+-- National schools
+-- Colombo
+INSERT INTO School(name, type, district_id) VALUES ("Ananda Balika Vidayalaya, Colombo 10", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Ananda College", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Ananda Sastralaya, Kotte", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Asoka Vidyalaya, Colombo 10", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Anula Vidyalaya", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Colombo Hindu College", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Defence Services School, Colombo", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Devi Balika Vidyalaya", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Dharmapala Vidyalaya, Pannipitiya", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("D.S.Senanayake College", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Gothami Balika Vidyalaya, Colombo 10", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Hameed Al Hussainie College", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Isipathana College", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Lindsay Collage", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Mahanama College", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Mahamaya Balika Vidyalaya, Nugegoda", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Muslim Ladies College", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Nalanda College", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Presbyterian Girls' National School, Dehiwala", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("President's College (Sri Lanka)", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Prince of Wales' Maha Vidayalaya, Moratuwa", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Princess of Wales' Maha Vidayalaya, Moratuwa", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Royal College Colombo", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Sirimavo Balika Vidyalaya", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("St. Lucia's College (Maha Vidyalaya), Kotahena, Colombo - 13", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("St. Pauls Girls' School, Milagiriya", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Thurstan College", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Veluwana Vidyalaya, Colombo 09", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Visakha Vidyalaya", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Vivekananda College", 'National', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Yasodara Balika Vidyalaya", 'National', 1);
+
+-- Kandy
+INSERT INTO School(name, type, district_id) VALUES ("Beravats College Ampitiya -Kandy", 'National', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Dharmaraja College", 'National', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Girls' High School", 'National', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Kingswood College", 'National', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Mahamaya Girls' College, Kandy", 'National', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Nugawela Boys' College, Kandy", 'National', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Pushpadana Girls' College", 'National', 4);
+INSERT INTO School(name, type, district_id) VALUES ("St/Sylvester's College", 'National', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Vidyartha College, Kandy", 'National', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Zahira Muslim Mahavidyalayas, Gampola", 'National', 4);
+
+-- Galle
+INSERT INTO School(name, type, district_id) VALUES ("Ananda Central College", 'National', 7);
+INSERT INTO School(name, type, district_id) VALUES ("Anurudda kumara maha vidyalaya", 'National', 7);
+INSERT INTO School(name, type, district_id) VALUES ("Dharmasoka College", 'National', 7);
+INSERT INTO School(name, type, district_id) VALUES ("Good Shepherd Convent", 'National', 7);
+INSERT INTO School(name, type, district_id) VALUES ("Mahinda College", 'National', 7);
+INSERT INTO School(name, type, district_id) VALUES ("Richmond College", 'National', 7);
+INSERT INTO School(name, type, district_id) VALUES ("Sacred Heart Convent", 'National', 7);
+INSERT INTO School(name, type, district_id) VALUES ("Sangamitta Balika Vidyalaya", 'National', 7);
+INSERT INTO School(name, type, district_id) VALUES ("Southlands College", 'National', 7);
+INSERT INTO School(name, type, district_id) VALUES ("Sri Kalyanatissa Vidyalaya,Batapola", 'National', 7);
+INSERT INTO School(name, type, district_id) VALUES ("St.Aloysius College", 'National', 7);
+INSERT INTO School(name, type, district_id) VALUES ("Vidyaloka College", 'National', 7);
+INSERT INTO School(name, type, district_id) VALUES ("G/Zahira college", 'National', 7);
+
+-- Jaffna
+INSERT INTO School(name, type, district_id) VALUES ("Hindu College, Chavakachcheri", 'National', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Jaffna Central College", 'National', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Jaffna Hindu College", 'National', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Kokuvil Hindu College", 'National', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Tellippalai Union College", 'National', 10);
+INSERT INTO School(name, type, district_id) VALUES ("J/Thuraiyappa Vithiyalayam, Columbuthurai, Jaffna", 'National', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Vembady Girls High School", 'National', 10);
+
+-- Kurunegala
+
+INSERT INTO School(name, type, district_id) VALUES ("Holy Family Convent", 'National', 18);
+INSERT INTO School(name, type, district_id) VALUES ("Maliyadeva Balika Vidyalaya", 'National', 18);
+INSERT INTO School(name, type, district_id) VALUES ("Maliyadeva College", 'National', 18);
+INSERT INTO School(name, type, district_id) VALUES ("St. Anne's College", 'National', 18);
+
+-- Matale
+
+INSERT INTO School(name, type, district_id) VALUES ("Ajmeer Madhya Maha Vidyalaya", 'National', 5);
+INSERT INTO School(name, type, district_id) VALUES ("Amina Maha Vidyalaya", 'National', 5);
+INSERT INTO School(name, type, district_id) VALUES ("Christ Church College, Matale", 'National', 5);
+INSERT INTO School(name, type, district_id) VALUES ("Matale Hindu College", 'National', 5);
+INSERT INTO School(name, type, district_id) VALUES ("Sri Naga National College", 'National', 5);
+INSERT INTO School(name, type, district_id) VALUES ("Sri Sangamitta Balika Madhya Vidyalaya, Matale", 'National', 5);
+INSERT INTO School(name, type, district_id) VALUES ("St Thomas' College, Matale", 'National', 5);
+INSERT INTO School(name, type, district_id) VALUES ("Vijaya College, Matale", 'National', 5);
+INSERT INTO School(name, type, district_id) VALUES ("Zahira College, Matale", 'National', 5);
+
+-- Matara
+
+INSERT INTO School(name, type, district_id) VALUES ("Narandeniya Central College, Kamburupitiya", 'National', 8);
+INSERT INTO School(name, type, district_id) VALUES ("Rahula College", 'National', 8);
+INSERT INTO School(name, type, district_id) VALUES ("St Chearch College", 'National', 8);
+INSERT INTO School(name, type, district_id) VALUES ("St Sevatious College", 'National', 8);
+INSERT INTO School(name, type, district_id) VALUES ("St Thomas' College, Matara", 'National', 8);
+INSERT INTO School(name, type, district_id) VALUES ("Sujatha Vidyalaya, Matara", 'National', 8);
+INSERT INTO School(name, type, district_id) VALUES ("Thihagoda M.M.V", 'National', 8);
+
+-- Anuradhapura
+INSERT INTO School(name, type, district_id) VALUES ("Anuradhapura Central College", 'National', 20);
+INSERT INTO School(name, type, district_id) VALUES ("Swarnapali Balika Maha Vidyalaya", 'National', 20);
+
+-- Polonnaruwa
+INSERT INTO School(name, type, district_id) VALUES ("Ananda Balika Vidyala", 'National', 21);
+INSERT INTO School(name, type, district_id) VALUES ("Aralaganvila Vilayaya Central College", 'National', 21);
+INSERT INTO School(name, type, district_id) VALUES ("Madirigiriya Central College", 'National', 21);
+INSERT INTO School(name, type, district_id) VALUES ("Minnariya Central college", 'National', 21);
+INSERT INTO School(name, type, district_id) VALUES ("Polonnaruwa Royal Central College", 'National', 21);
+
+-- Kalutara
+INSERT INTO School(name, type, district_id) VALUES ("Kalutara Balika National School Kalutara", 'National', 3);
+INSERT INTO School(name, type, district_id) VALUES ("Kalutara Vidyalaya, Kalutara", 'National', 3);
+INSERT INTO School(name, type, district_id) VALUES ("Kalutara muslim maha vidyalaya kalutara", 'National', 3);
+INSERT INTO School(name, type, district_id) VALUES ("Miriswatta Maha Vidyalaya,Dodangoda", 'National', 3);
+INSERT INTO School(name, type, district_id) VALUES ("K/Sri Devananda Vidyalaya kalutara", 'National', 3);
+INSERT INTO School(name, type, district_id) VALUES ("Tissa Vidyalaya, Kalutara", 'National', 3);
+
+-- Gampaha
+INSERT INTO School(name, type, district_id) VALUES ("Bandaranayaka College", 'National', 2);
+INSERT INTO School(name, type, district_id) VALUES ("Nalanda Boy's School, Minuwangoda", 'National', 2);
+INSERT INTO School(name, type, district_id) VALUES ("Sri Dharmaloka College", 'National', 2);
+
+-- Kegalle
+INSERT INTO School(name, type, district_id) VALUES ("Dudley Senanayake Central College - Tholangamuwa", 'National', 25);
+INSERT INTO School(name, type, district_id) VALUES ("Kegalu Balika Maha Vidyalaya", 'National', 25);
+INSERT INTO School(name, type, district_id) VALUES ("Kegalu Vidyalaya", 'National', 25);
+INSERT INTO School(name, type, district_id) VALUES ("St Joseph's Convent", 'National', 25);
+INSERT INTO School(name, type, district_id) VALUES ("St Mary's College", 'National', 25);
+INSERT INTO School(name, type, district_id) VALUES ("Zahira College, Mawanella", 'National', 25);
+
+-- Puttalam
+INSERT INTO School(name, type, district_id) VALUES ("Ananda National School, Chilaw", 'National', 19);
+INSERT INTO School(name, type, district_id) VALUES ("Anamaduwa National College, Anamaduwa", 'National', 19);
+INSERT INTO School(name, type, district_id) VALUES ("Andre College, Puttalam", 'National', 19);
+INSERT INTO School(name, type, district_id) VALUES ("Al/Aqza National School, Kalpitiya", 'National', 19);
+INSERT INTO School(name, type, district_id) VALUES ("Dankotuwa Balika, Dankotuwa", 'National', 19);
+INSERT INTO School(name, type, district_id) VALUES ("Dhammissara National College, Nattandiya", 'National', 19);
+INSERT INTO School(name, type, district_id) VALUES ("Holy Family Girls School, Wennappuwa", 'National', 19);
+INSERT INTO School(name, type, district_id) VALUES ("Joseph Vaz College, Wennappuwa", 'National', 19);
+INSERT INTO School(name, type, district_id) VALUES ("Senanayake National College,Madampe", 'National', 19);
+INSERT INTO School(name, type, district_id) VALUES ("Zahira National School, Puttalam", 'National', 19);
+
+-- Badulla
+INSERT INTO School(name, type, district_id) VALUES ("Ambadandegama Maha Vidyalaya, Bandarawela", 'National', 22);
+INSERT INTO School(name, type, district_id) VALUES ("Badulla Central College, Badulla", 'National', 22);
+INSERT INTO School(name, type, district_id) VALUES ("Badulla Dharmadutha College, Badulla", 'National', 22);
+INSERT INTO School(name, type, district_id) VALUES ("Bandarawela Central college", 'National', 22);
+INSERT INTO School(name, type, district_id) VALUES ("Dharmapala Maha Vidyalaya, Bandarawela", 'National', 22);
+INSERT INTO School(name, type, district_id) VALUES ("Halpe National School, Halpe", 'National', 22);
+INSERT INTO School(name, type, district_id) VALUES ("Kahagolla National School, Diyatalawa, Bandarawela", 'National', 22);
+INSERT INTO School(name, type, district_id) VALUES ("B/Kuda Kusum Balika Maha Vidyalaya, Bandarawela", 'National', 22);
+INSERT INTO School(name, type, district_id) VALUES ("Naulla Central College, Demodara", 'National', 22);
+INSERT INTO School(name, type, district_id) VALUES ("Sri Janananda National School, Kadurugamuwa", 'National', 22);
+INSERT INTO School(name, type, district_id) VALUES ("St. Joseph's College, Bandarawela", 'National', 22);
+INSERT INTO School(name, type, district_id) VALUES ("Vishaka Balika Vidyalaya, Bandarawela", 'National', 22);
+
+-- Provincial Schools
+-- Colombo
+INSERT INTO School(name, type, district_id) VALUES ("Ananda Balika Vidyalaya, Kotte", 'Provincial', 1);
+INSERT INTO School(name, type, district_id) VALUES ("C.W.W. Kannangara Vidyalaya", 'Provincial', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Good Shepherd Convent, Colombo-13", 'Provincial', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Gothami Balika Vidyalaya", 'Provincial', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Janadhipathi Balika Vidyalaya, Nawala", 'Provincial', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Lumbini Vidyalaya", 'Provincial', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Sri Rahula Balika Vidyalaya, Malabe", 'Provincial', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Meegoda Dharmaraja Vidyalaya, Meegoda", 'Provincial', 1);
+INSERT INTO School(name, type, district_id) VALUES ("St. Johns College, Nugegoda", 'Provincial', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Yashodara Balika Vidyalaya", 'Provincial', 1);
+
+-- Kandy
+INSERT INTO School(name, type, district_id) VALUES ("Gohagoda Maha Vidyalaya", 'Provincial', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Halloluwa Navodya Maha Vidyalaya", 'Provincial', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Nugawela Boys' College", 'Provincial', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Pushpadana Balika Vidyalaya", 'Provincial', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Ranabima Royal College", 'Provincial', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Sarasavi Uyana Maha Vidyalaya,kandy", 'Provincial', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Vidyartha College", 'Provincial', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Viharamaha Devi Balika Vidyalaya", 'Provincial', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Wariyapola Sri Sumangala College", 'Provincial', 4);
+
+-- Galle
+INSERT INTO School(name, type, district_id) VALUES ("G/Ananda Central Collage", 'Provincial', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Batapola Central Collage", 'Provincial', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Karandeniya Central Collage", 'Provincial', 4);
+INSERT INTO School(name, type, district_id) VALUES ("G/P.De.S.Kularathna Maha Vidyalaya", 'Provincial', 4);
+INSERT INTO School(name, type, district_id) VALUES ("G/Thunduwa Muslim Maha Vidyala", 'Provincial', 4);
+
+-- Jaffna
+INSERT INTO School(name, type, district_id) VALUES ("Jaffna Hindu Ladies College", 'Provincial', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Jaffna Hindu Primary (JHP)", 'Provincial', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Mahajana College, Tellippalai", 'Provincial', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Manipay Hindu College", 'Provincial', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Manipay Hindu Ladies College", 'Provincial', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Manipay Memorial English school", 'Provincial', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Sri Somaskanda College, Puttur", 'Provincial', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Skandavarodaya College", 'Provincial', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Uduvil Girls High School", 'Provincial', 10);
+
+-- Kurunegala
+INSERT INTO School(name, type, district_id) VALUES ("Ambanpola Central College, Ambanpola", 'Provincial', 18);
+INSERT INTO School(name, type, district_id) VALUES ("Ambanpola Kanista Vidyalaya, Ambanpola", 'Provincial', 18);
+INSERT INTO School(name, type, district_id) VALUES ("Central College Kuliyapitiya", 'Provincial', 18);
+INSERT INTO School(name, type, district_id) VALUES ("Sir John Kotalawala Vidyalaya", 'Provincial', 18);
+INSERT INTO School(name, type, district_id) VALUES ("Maliyadeva Model School", 'Provincial', 18);
+INSERT INTO School(name, type, district_id) VALUES ("Wayamba Royal Central College College", 'Provincial', 18);
+
+-- Matale
+INSERT INTO School(name, type, district_id) VALUES ("Government Science College, Matale", 'Provincial', 5);
+INSERT INTO School(name, type, district_id) VALUES ("Sangamiththa Balika Maha vidyalaya", 'Provincial', 5);
+
+-- Badulla
+INSERT INTO School(name, type, district_id) VALUES ("Al-Adhan Muslim Mahavidyalaya", 'Provincial', 22);
+INSERT INTO School(name, type, district_id) VALUES ("Sujatha Vidyalaya", 'Provincial', 22);
+INSERT INTO School(name, type, district_id) VALUES ("Uva College", 'Provincial', 22);
+INSERT INTO School(name, type, district_id) VALUES ("Viharamahadevi Girls school", 'Provincial', 22);
+INSERT INTO School(name, type, district_id) VALUES ("Vishaka Vidyalaya", 'Provincial', 22);
+
+-- Polonnaruwa
+INSERT INTO School(name, type, district_id) VALUES ("Bandarawela Dharmapala Maha Vidyalaya", 'Provincial', 21);
+INSERT INTO School(name, type, district_id) VALUES ("Hingurakdamana Maha vidyalaya", 'Provincial', 21);
+INSERT INTO School(name, type, district_id) VALUES ("Lankapura Maha vidyalaya", 'Provincial', 21);
+INSERT INTO School(name, type, district_id) VALUES ("Vigitha Maha vidyalaya", 'Provincial', 21);
+INSERT INTO School(name, type, district_id) VALUES ("Thopawawa Maha vidyalaya", 'Provincial', 21);
+INSERT INTO School(name, type, district_id) VALUES ("Sewamuktha Maha vidyalaya", 'Provincial', 21);
+
+-- Ratnapura
+INSERT INTO School(name, type, district_id) VALUES ("Ferguson high School,Ratnapura", 'Provincial', 24);
+INSERT INTO School(name, type, district_id) VALUES ("Mihindu Vidyalaya, Ratnapura", 'Provincial', 24);
+INSERT INTO School(name, type, district_id) VALUES ("Nawanagara Vidyalaya, Ratnapura", 'Provincial', 24);
+INSERT INTO School(name, type, district_id) VALUES ("Sumana Balika Vidyalaya, Ratnapura", 'Provincial', 24);
+INSERT INTO School(name, type, district_id) VALUES ("Sivali Central College, Ratnapura", 'Provincial', 24);
+
+-- Trincomalee
+INSERT INTO School(name, type, district_id) VALUES ("Kinniya Central College", 'Provincial', 17);
+INSERT INTO School(name, type, district_id) VALUES ("Orr's Hill Vivekananda College", 'Provincial', 17);
+INSERT INTO School(name, type, district_id) VALUES ("Ramakrishna Mission Sri Koneswara Hindu College", 'Provincial', 17);
+INSERT INTO School(name, type, district_id) VALUES ("St Mary's College, Trincomalee", 'Provincial', 17);
+INSERT INTO School(name, type, district_id) VALUES ("Trincomalee Hindu College", 'Provincial', 17);
+
+-- Other cities
+INSERT INTO School(name, type, district_id) VALUES ("Agamathi Balika Vidyalaya, Panadura", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Arafa National College, Weligama", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Annor Muslim Balika National College, Weligama", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Al-hilal Maha Vidyalaya, Sainthamaruthu", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Al Yaseen Vidyalaya, Bandarawela", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("As-Safa Muslim School, Madurapura, Denipitiya", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Atapattukanda K.V, Deiyandara", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Bandaranaike Vidyalaya, Gampaha", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Darmapala Maha Vidyalaya, Bandarawela", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Darmashoka Maha Vidyalaya, Bandarawela", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("De Mazenod College, Kandana", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Debaraweva Madhya Maha Vidyalaya, Tissamaharamaya", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Deiyandara M.M.V,Deiyandara", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Dhammissara national College, Nattandiya", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Bd/Haputale Tamil Central College, Haputale", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Joseph Vaz College, Wennapuwa", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Kegalle Balika Vidyalaya, Kegalle", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Ketiyape M.V, Deiyandara", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Kilinochchi Madya Maha Vidyalayam, Kilinochchi", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("B/ Kuda Kusum Balika Maha Vidyalaya, Bandarawela", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Kudakusum Maha Vidyalaya, Bandarawela", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Mahumoos Ladies College, Kalmunai", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Mawala Vidyalaya, Wadduwa", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Mallavi Central College, Mallavi", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Malharu Sams School, Sainthamaruthu", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("MR/Kongala M.M.V, Hakmana", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("MR/Gagodagama jayawardana M.V, Hakmana", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("MR/Buddhajayanthi K.V, Hakmana", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Nalanda Girl's School, Minuwangoda", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Narandeniya M.M.V, kamburupitiya", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Piliyandala Central College, Piliyandala", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Panadura Royal College, Panadura", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Rathanawali Balika Vidyalaya, Gampaha", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Seevali Navodya Maha Vidyalaya, Bandarawela", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Sitthartha College, Weligama", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Sripali Maha Vidyalaya, Horana", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Sir Rasik Fareed Maha Vidyalaya, Bandarawela", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Sri Sangamitta Balika Vidyalaya, Matale", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("St. Anne's M.M.V, Vankalai, Mannar", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("St. Josophs College, Bandarawela", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("St. Mary's Maha vidayalaya, Bandarawela", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("St. Pauls Balika Maha Vidyalaya,Kelaniya", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Sumagale Balika National College, Weligama", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("warnapali Balika Vidyalaya, Anuradhapura", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Taxila Central College, Horana", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Telijjawila Central College, Matara", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Thihagoda M.M.V,Thihagoda", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Tumpane Central College", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Vishaka Maha Vidyalaya, Bandarawela", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Vayavilan Central College, Vayavilan", 'Provincial', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Zahira College, Kalmunai", 'Provincial', 26);
+
+-- Private schools
+-- Colombo
+INSERT INTO School(name, type, district_id) VALUES ("Alexcendra Collage, Maradana", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Bishop's College", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Buddhist Ladies College", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Carey College, Borella", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Good Shepherd Convent", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Highlands College, Nugegoda", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Holy Family Convent, Colombo 4", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Holy Family Convent, Dehiwela", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Ladies College, Colombo", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Karlshrue College", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Methodist College, Colombo", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Musaeus College", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Our Lady of Victories Convent, Moratuwa", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("St. Benedict's College, Coombo", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("St Bridget's Convent, Colombo", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("St. Joseph's College", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("St. Paul's Girls School, Milagiriya", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("St. Peter's College", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("St. Sebastian's College, Moratuwa", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("St. Thomas College, Mount Lavinia", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("S. Thomas' Preparatory School,Kollupitiya", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Sujatha Vidyalaya - Nugegoda", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("The School For The Blind", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Wesley College", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Zahira College, Colombo", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Ave Maria Convent, Negombo", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Maris Stella College, Negombo", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Newstead College, Negombo", 'Private', 1);
+INSERT INTO School(name, type, district_id) VALUES ("St. Mary's College, Negombo", 'Private', 1);
+
+-- Kandy
+INSERT INTO School(name, type, district_id) VALUES ("Hillwood College", 'Private', 4);
+INSERT INTO School(name, type, district_id) VALUES ("St Anthony's Balika Vidyalaya", 'Private', 4);
+INSERT INTO School(name, type, district_id) VALUES ("St Anthony's College, Katugastota", 'Private', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Trinity College", 'Private', 4);
+
+-- Galle
+INSERT INTO School(name, type, district_id) VALUES ("Rippon Girls' College", 'Private', 7);
+
+-- Jaffna
+INSERT INTO School(name, type, district_id) VALUES ("Chundikuli Girls High School", 'Private', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Hartley College", 'Private', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Jaffna College", 'Private', 10);
+INSERT INTO School(name, type, district_id) VALUES ("Jaffna Convent", 'Private', 10);
+INSERT INTO School(name, type, district_id) VALUES ("St. John's College, Jaffna", 'Private', 10);
+INSERT INTO School(name, type, district_id) VALUES ("St. Patrick's College", 'Private', 10);
+
+-- Kurunegala
+INSERT INTO School(name, type, district_id) VALUES ("Maliyadeva College", 'Private', 18);
+INSERT INTO School(name, type, district_id) VALUES ("Holy Family Convent", 'Private', 18);
+INSERT INTO School(name, type, district_id) VALUES ("St. Anne's College", 'Private', 18);
+
+-- Matale
+INSERT INTO School(name, type, district_id) VALUES ("St Thomas' Girls School, Matale", 'Private', 5);
+
+-- Matara
+INSERT INTO School(name, type, district_id) VALUES ("St. Mary's Convent, Matara", 'Private', 8);
+INSERT INTO School(name, type, district_id) VALUES ("St. Servatius'College, Matara", 'Private', 8);
+INSERT INTO School(name, type, district_id) VALUES ("St. Thomas Girl's School, Matara", 'Private', 8);
+
+-- Badulla
+INSERT INTO School(name, type, district_id) VALUES ("St. Thomas' College, Bandarawela", 'Private', 22);
+INSERT INTO School(name, type, district_id) VALUES ("St. Thomas' College, Guruthalawa", 'Private', 22);
+
+-- Ratnapura
+INSERT INTO School(name, type, district_id) VALUES ("Child Jesus's Convent, Ratnapura", 'Private', 24);
+INSERT INTO School(name, type, district_id) VALUES ("Ferguson High School, Ratnapura", 'Private', 24);
+INSERT INTO School(name, type, district_id) VALUES ("St. Aloysius College, Ratnapura", 'Private', 24);
+INSERT INTO School(name, type, district_id) VALUES ("St. Luke's College, Ratnapura", 'Private', 24);
+
+-- Other cities
+INSERT INTO School(name, type, district_id) VALUES ("Holy Cross College, Gampaha", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Holy Cross College, Kalutara", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Mn.Vellankulam G.T.M.S, Mannar", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("St. Michael's College, Batticaloa", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("St. John's College, Panadura", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("St. Joseph's College, Trincomalee", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("St. John Bosco's College, Hatton", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("St. Thomas College, Guruthalawa", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("St. Thomas's College, Matale", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("St. Xavier Boy's National School, Mannar", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Ceylinco Sussex College Network, Colombo", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Ceylinco Sussex College Kandy Branch, Kandy", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Ceylinco Sussex College Galle Branch, Galle", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Ceylinco Sussex College Ratnapura Branch, Ratnapura", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Minhal Boys' School, Kotahena", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Vajira College, Colombo", 'Private', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Vidura College, Colombo", 'Private', 26);
+
+-- International Schools
+-- Colombo
+INSERT INTO School(name, type, district_id) VALUES ("Aba Beel International College", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("American International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Alethea International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Amal International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Asian International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Belvoir College International", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Buddhist Ladies College International", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("The British School in Colombo", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("College Of World Education", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Colombo International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Colombo South International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Crescent Schools International", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Elizabeth Moir School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Gateway College, Colombo", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Highlands College", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Ikra International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Ilma International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("J.M.C. International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Lakeland Inter-American School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Leighton Park International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Lyceum International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("The Overseas School of Colombo", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Oxford College International", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Rotary International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Royal Institute", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Stafford International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Willesden College International", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Wycherley International School", 'International', 1);
+INSERT INTO School(name, type, district_id) VALUES ("Winway International School", 'International', 1);
+
+-- Kandy
+INSERT INTO School(name, type, district_id) VALUES ("Ecole Internationale", 'International', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Gateway College, Kandy (formally Kandy International School)", 'International', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Netherfield International School", 'International', 4);
+INSERT INTO School(name, type, district_id) VALUES ("Vision International School", 'International', 4);
+
+-- International Schools in other cities
+INSERT INTO School(name, type, district_id) VALUES ("Cambridge International, Matale", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Eureka International school, Kiribathgoda", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Gateway College, Negombo", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Leeds International School, Panadura", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Lyceum International School, Gampaha", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Lyceum International School, Kandana", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Lyceum International School, Panadura", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Lyceum International School, Ratnapura", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Lyceum International School, Wattala", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Negombo International School, Negombo", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Negombo South International School, Negombo", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Noor International School, Kalutara", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Royal International, Matale", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("OKI International School, Wattala", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Sri Bodhiraja International College, Embilipitiya", 'International', 26);
+INSERT INTO School(name, type, district_id) VALUES ("Ward International School, Gampaha", 'International', 26);
+
+-- views
+-- for ratings
+CREATE VIEW v_posts_rate1 AS
+	SELECT
+	Review.post_id AS postId,
+	COUNT(Review.review_id) AS rate1
+	FROM Review
+	WHERE Review.rate = 1
+	GROUP BY Review.post_id;
+	
+CREATE VIEW v_posts_rate2 AS
+	SELECT
+	Review.post_id AS postId,
+	COUNT(Review.review_id) AS rate2
+	FROM Review
+	WHERE Review.rate = 2
+	GROUP BY Review.post_id;
+	
+CREATE VIEW v_posts_rate3 AS
+	SELECT
+	Review.post_id AS postId,
+	COUNT(Review.review_id) AS rate3
+	FROM Review
+	WHERE Review.rate = 3
+	GROUP BY Review.post_id;
+	
+CREATE VIEW v_posts_rate4 AS
+	SELECT
+	Review.post_id AS postId,
+	COUNT(Review.review_id) AS rate4
+	FROM Review
+	WHERE Review.rate = 4
+	GROUP BY Review.post_id;
+	
+CREATE VIEW v_posts_rate5 AS
+	SELECT
+	Review.post_id AS postId,
+	COUNT(Review.review_id) AS rate5
+	FROM Review
+	WHERE Review.rate = 5
+	GROUP BY Review.post_id;
+	
+CREATE VIEW v_posts_rates AS
+	SELECT
+	Posts.id AS postId,
+	v_posts_rate1.rate1 AS rate1,
+	v_posts_rate2.rate2 AS rate2,
+	v_posts_rate3.rate3 AS rate3,
+	v_posts_rate4.rate4 AS rate4,
+	v_posts_rate5.rate5 AS rate5
+	FROM Posts
+	LEFT JOIN v_posts_rate1
+	ON Posts.id = v_posts_rate1.postId
+	LEFT JOIN v_posts_rate2
+	ON Posts.id = v_posts_rate2.postId
+	LEFT JOIN v_posts_rate3
+	ON Posts.id = v_posts_rate3.postId
+	LEFT JOIN v_posts_rate4
+	ON Posts.id = v_posts_rate4.postId
+	LEFT JOIN v_posts_rate5
+	ON Posts.id = v_posts_rate5.postId;
+	
+-- for detailed posts
+CREATE VIEW v_posts_with_users AS
+	SELECT
+	Posts.image AS image,
+	Posts.type AS type,
+	Users.first_name AS first_name,
+	Users.last_name AS last_name,
+	Users.profile_image AS profile_image,
+	Users.actor_type AS actor_type,
+	Users.specialized_actor_type AS specialized_actor_type,
+	Users.status AS status,
+	Posts.id AS postId,
+	Users.id AS userId,
+	Posts.created_at as postCreated,
+	Posts.title AS title,
+	Posts.body AS body,
+	Posts.applied AS applied,
+	Posts.capacity AS capacity,
+	Posts.ups AS ups,
+	Posts.downs AS downs
+	FROM Posts
+	INNER JOIN Users  
+	ON Posts.user_id = Users.id;
+	
+CREATE VIEW v_posts_with_rates AS
+	SELECT 
+	Posts.id AS postId,
+	v_posts_rates.rate1 AS rate1,
+	v_posts_rates.rate2 AS rate2,
+	v_posts_rates.rate3 AS rate3,
+	v_posts_rates.rate4 AS rate4,
+	v_posts_rates.rate5 AS rate5
+	FROM Posts
+	LEFT JOIN v_posts_rates
+	ON Posts.id = v_posts_rates.postId;
+	
+CREATE VIEW v_posts_with_reviews AS
+	SELECT 
+	Posts.id AS postId,
+	COUNT(Review.review_id) AS review_count
+	FROM Posts
+	LEFT JOIN Review
+	ON Posts.id = Review.post_id
+	GROUP BY Posts.id;
+	
+CREATE VIEW v_posts_with_comments AS
+	SELECT
+	Posts.id AS postId,
+	COUNT(Comments.comment_id) AS comment_count
+	FROM Posts
+	LEFT JOIN Comments
+	ON Posts.id = Comments.post_id
+	GROUP BY Posts.id;
+	
+CREATE VIEW v_complete_posts AS
+	SELECT
+	v_posts_with_users.postId AS postId,
+	v_posts_with_users.userId AS userId,
+	v_posts_with_users.type AS type,
+	v_posts_with_users.image AS image,
+	v_posts_with_users.actor_type AS actor_type,
+	v_posts_with_users.specialized_actor_type AS specialized_actor_type,
+	v_posts_with_users.profile_image AS profile_image,
+	v_posts_with_users.first_name AS first_name,
+	v_posts_with_users.last_name AS last_name,
+	v_posts_with_users.status AS status,
+	v_posts_with_users.postCreated as postCreated,
+	v_posts_with_users.title AS title,
+	v_posts_with_users.body AS body,
+	v_posts_with_users.applied AS applied,
+	v_posts_with_users.capacity AS capacity,
+	v_posts_with_users.ups AS ups,
+	v_posts_with_users.downs AS downs,
+	v_posts_with_comments.comment_count AS comment_count,
+	IFNULL(v_posts_with_rates.rate1, 0) AS rate1,
+	IFNULL(v_posts_with_rates.rate2, 0) AS rate2,
+	IFNULL(v_posts_with_rates.rate3, 0) AS rate3,
+	IFNULL(v_posts_with_rates.rate4, 0) AS rate4,
+	IFNULL(v_posts_with_rates.rate5, 0) AS rate5,
+	v_posts_with_reviews.review_count AS review_count
+	FROM v_posts_with_users
+	INNER JOIN v_posts_with_rates
+	ON v_posts_with_users.postId = v_posts_with_rates.postId
+	INNER JOIN v_posts_with_reviews
+	ON v_posts_with_users.postId = v_posts_with_reviews.postId
+	INNER JOIN v_posts_with_comments
+	ON v_posts_with_reviews.postId = v_posts_with_comments.postId
+	ORDER BY v_posts_with_users.postCreated DESC;
+	

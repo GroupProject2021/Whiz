@@ -57,8 +57,8 @@
             }
 
             // for pro guider enroll existence
-            if($this->postModel->isPostInterationExist($userId, $id)) {
-                $selfJobApplyInteraction = $this->postModel->getJobApply($userId, $id);
+            if($this->stuToProfessionalGuiderModel->isProGuiderEnrollExist($userId, $id)) {
+                $selfJobApplyInteraction = $this->stuToProfessionalGuiderModel->getProGuiderEnroll($userId, $id);
                 $selfJobApplyInteraction = $selfJobApplyInteraction->interaction;
             }
             else {

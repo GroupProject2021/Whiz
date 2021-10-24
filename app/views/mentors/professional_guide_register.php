@@ -37,6 +37,18 @@
                         </td>
                     </tr>
                 </table>
+                <div class="bottom-content">
+                    <div class="form-validation">
+                        <div class="first_name-validation">
+                            <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                            Your first name is valid
+                        </div>
+                        <div class="last_name-validation">
+                            <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                            Your last name is valid
+                        </div>
+                    </div>
+                </div>
                 <span class="form-invalid"><?php echo $data['name_err']; ?></span><br>
                 
                 <!-- email -->
@@ -160,7 +172,7 @@
                             <input type="checkbox" required>
                         </td>
                         <td>
-                            creating an account you agree to our <a class="form-link" href="#">Terms & Privacy</a>
+                            creating an account you agree to our <a class="form-link" href="<?php echo URLROOT.'/Pages/privacy'?>">Terms & Privacy</a>
                         </td>
                     </tr>
                 </table>

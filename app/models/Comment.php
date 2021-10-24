@@ -37,7 +37,7 @@
         }
 
         public function deleteComment($id) {
-            $this->db->query('DELETE FROM Comments WHERE post_id = :id');
+            $this->db->query('DELETE FROM Comments WHERE comment_id = :id');
             // bind values
             
             $this->db->bind(":id", $id);

@@ -23,9 +23,13 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <div>
-                            <div class="gov-viewmore-body">
-                                <div class=""></div>
+                        <div class="under-construction">
+                            <div class="img">
+                                <img src="<?php echo URLROOT; ?>/imgs/under-construction.png" height="200px" alt="logo">
+                            </div>
+                            <div class="title">Government course view more</div>
+                            <div class="text">
+                            THIS PAGE IS CURRENTLY UNDER CONSTRUCTION !
                             </div>
                         </div>
                     </div>

@@ -57,8 +57,8 @@
             }
 
             // for job apply existence
-            if($this->postModel->isPostInterationExist($userId, $id)) {
-                $selfJobApplyInteraction = $this->postModel->getJobApply($userId, $id);
+            if($this->stuToCompanyModel->isJobApplyExist($userId, $id)) {
+                $selfJobApplyInteraction = $this->stuToCompanyModel->getJobApply($userId, $id);
                 $selfJobApplyInteraction = $selfJobApplyInteraction->interaction;
             }
             else {

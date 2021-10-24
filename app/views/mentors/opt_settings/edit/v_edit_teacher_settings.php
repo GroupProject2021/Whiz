@@ -45,16 +45,6 @@
                                     <td class="C"><span class="form-invalid"><?php echo $data['name_err']; ?></td>
                                 </tr>
                                 <tr>
-                                    <th class="A">Email</th>
-                                    <td class="B"><p><input type="text" name="email" id="email" value="<?php echo $data['email'];?>"></p></td>
-                                    <td class="C"><span class="form-invalid"><?php echo $data['email_err']; ?></td>
-                                </tr>
-                                <!-- <tr>
-                                    <th class="A">Password</th>
-                                    <td class="B"><p><input type="text" name="password" id="password" value="<?php echo $data['password'];?>"></p></td>
-                                    <td class="C"><span class="form-invalid"><?php echo $data['password_err']; ?></td>
-                                </tr> -->
-                                <tr>
                                     <th class="A">Gender</th>
                                     <td class="B"><p><input type="text" name="gender" id="gender" value="<?php echo $data['gender'];?>"></p></td>
                                     <td class="C"><span class="form-invalid"><?php echo $data['gender_err']; ?></td>

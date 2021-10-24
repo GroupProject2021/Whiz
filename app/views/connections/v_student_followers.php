@@ -88,93 +88,19 @@
                 </div>
             </main>
         </div>
-        <script>
-            let organizationDropHeader = document.getElementById('organization-drop-down-header');
-            let mentorDropHeader = document.getElementById('mentor-drop-down-header');
-
-            function showAll() {
-                organizationDropHeader.style.display = "none";
-                mentorDropHeader.style.display = "none";
-                
-                $(".default-list").html('');
-                getAllFollowerUserList();
-            }
-
-            function showStudentsOnly() {
-                organizationDropHeader.style.display = "none";
-                mentorDropHeader.style.display = "none";
-
-                $(".default-list").html('');
-                getFollowerUserList('Student');
-            }
-
-            function showOrganizationDropHeader() {
-                organizationDropHeader.style.display = "flex";
-                mentorDropHeader.style.display = "none";
-
-                $(".default-list").html('');
-                getFollowerUserList('Organization');
-            }
-
-            function showMentorDropHeader() {
-                organizationDropHeader.style.display = "none";
-                mentorDropHeader.style.display = "flex";
-
-                $(".default-list").html('');
-                getFollowerUserList('Mentor');
-            }
-
-            function showSpecializedActorTypeList(type) {
-                $(".default-list").html('');
-                getFollowerUserList(type);
-            }
-
-            function getFollowerUserList(searchText) {
-                $.ajax({
-                    url: "<?php echo URLROOT;?>/profileStatsAndConnections/existingFollowerUserList/"+searchText,
-                    method: 'post',
-                    success: function(response) {
-                        $(".default-list").html(response);
-                    }
-                });
-            }
-
-            function getAllFollowerUserList() {
-                $.ajax({
-                    url: "<?php echo URLROOT;?>/profileStatsAndConnections/existingAllFollowerUserList",
-                    method: 'post',
-                    success: function(response) {
-                        $(".default-list").html(response);
-                    }
-                });
-            }
-        </script>
 
         <!-- searchig jquery -->
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
-        <script>
-            $(document).ready(function() {
-                $("#search-user").keyup(function() {
-                    var searchText = $(this).val();
-                    
-                    if(searchText != '') {
-                        $.ajax({
-                            url: "<?php echo URLROOT;?>/profileStatsAndConnections/searchUserByName/"+searchText,
-                            method: 'post',
-                            success: function(response) {
-                                $("#show-userlist").html(response);
-                            }
-                        });
-                    }
-                    else {
-                        $("#show-userlist").html('');
-                    }
-                });
-
-                $(document).on("click", ".show-userlist-item", function() {
-                    $("#search-user").val('');
-                    $("#show-userlist").html('');
-                })
-            });
+        
+        <!-- common settings js -->
+        <script type="text/JavaScript">
+            var URLROOT = '<?php echo URLROOT; ?>';
         </script>
+
+        <!-- connections js -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/connectionsRelated/connections.js"></script>
+
+        <!-- user search bar js -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/connectionsRelated/userSearchBar.js"></script>
+
 <?php require APPROOT.'/views/inc/footer.php'; ?>

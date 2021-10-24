@@ -372,7 +372,6 @@
                 echo $downs->downs;
             }    
         }
-
         
 
         public function incShare() {

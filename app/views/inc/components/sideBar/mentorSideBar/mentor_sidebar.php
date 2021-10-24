@@ -13,6 +13,17 @@
     <?php if(isset($_SESSION['user_id'])) : ?>
         <?php if($_SESSION['specialized_actor_type'] == 'Professional Guider'): ?>
 
+            <div class="sidebar-user-details">
+                <div class="user-level-image">
+                    <img src="<?php echo URLROOT; ?>/profileimages/mentor/<?php echo $_SESSION['user_profile_image']; ?>" alt="prof_pic" >
+                </div>
+                <div class="user-level-content">
+                    <div class="user-level-name">
+                    <!-- <p>Teacher</p> -->
+                        <p><?php echo $_SESSION['user_name']; ?></p>
+                    </div>
+                </div>
+            </div>
         <?php elseif($_SESSION['specialized_actor_type'] == 'Teacher'): ?>
 
         <hr>
@@ -66,7 +77,7 @@
             </a>
         </div>
 
-        <div class="sidebar-item">
+        <!-- <div class="sidebar-item">
             <a href="<?php echo URLROOT; ?>/C_M_Complaints/complaint">
                 <button>
                     <div class="sidebar-item-icon">
@@ -77,7 +88,7 @@
                     </div>
                 </button>
             </a>
-        </div>
+        </div> -->
         
         <?php elseif($_SESSION['specialized_actor_type'] == 'Teacher'): ?>
         <!-- Teacher options -->
@@ -107,7 +118,7 @@
                 </button>
             </a>
 
-            <a href="<?php echo URLROOT; ?>/Mentors_dashboard/complaint">
+            <!-- <a href="<?php echo URLROOT; ?>/Mentors_dashboard/complaint">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/mentorSideBar/complaint-icon.png">
@@ -116,7 +127,7 @@
                         Complaints
                     </div>
                 </button>
-            </a>
+            </a> -->
         </div>
         <?php else: ?>
             <!-- Nothing here -->

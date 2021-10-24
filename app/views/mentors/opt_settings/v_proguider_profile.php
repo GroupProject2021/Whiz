@@ -167,131 +167,19 @@
                 </div>
             </main>
         </div>
-        <script>
-            // const browseButton = document.querySelector(".profpic");
-            const editProfPicBtn = document.getElementById("edit_profpic_click");
-            const saveChanges = document.getElementById("save_profilepic_click");            
-            const cancelChanges = document.getElementById("canceledit_profpic_click");
-
-            let tempPreviousImage;
-
-            let inputPath = document.querySelector("#profile_image");
-
-            let file;
-
-            function toggleBrowse() {
-                inputPath.click();
-            }
-
-            function cancelProfPicChange() {
-                editProfPicBtn.style.display = "block";
-                saveChanges.style.display = "none";
-                cancelChanges.style.display = "none";
-
-                document.querySelector('#profile_image_placeholder').setAttribute('src', tempPreviousImage);
-                inputPath.value = null;
-            }
-
-            inputPath.addEventListener("change", function() {
-                file = this.files[0];
-
-                editProfPicBtn.style.display = "none";
-                saveChanges.style.display = "block";
-                cancelChanges.style.display = "block";
-
-                showImage();    
-            });
-            
-            function showImage() {
-                let fileType = file.type;
-
-                let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
-
-                if(validExtensions.includes(fileType)) {
-                    let fileReader = new FileReader();
-
-                    fileReader.onload = ()=>{
-                        let fileURL = fileReader.result;
-
-                        //  change the profile image and display it
-                        tempPreviousImage = document.querySelector('#profile_image_placeholder').getAttribute('src');
-
-                        document.querySelector('#profile_image_placeholder').setAttribute('src', fileURL);
-                    }
-
-                    fileReader.readAsDataURL(file);
-
-                    // set profile image validation
-                    let validate = document.querySelector(".profile-image-validation");
-                    validate.classList.add("active");
-                }
-                else {
-                    alert("This is not an Image file");
-                    dropArea.classList.remove("active");
-                }
-            }
-
-            // follow and following features
-            let followBtn = document.getElementById('followBtn');
-            let followingBtn = document.getElementById('followingBtn');
-            let follow = document.getElementById('follow');
-            let following = document.getElementById('following');
-
-            followBtn.addEventListener("click", function() {
-                follow.style.display = "none";
-                following.style.display = "block";
-            })
-
-            followingBtn.addEventListener("click", function() {
-                following.style.display = "none";
-                follow.style.display = "block";
-            })
-
-        </script>
-
+        <!-- jquery -->        
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
-        <script>
-            $(document).ready(function() {
-                // for followers
-                $('#followBtn').click(function(event) {
-                    event.preventDefault();
 
-                $.ajax({
-                    url: "<?php echo URLROOT.'/profileStatsAndConnections/follow/'.$data['user']->id; ?>",
-                    method: "post",
-                    data: $('form').serialize(),
-                    dataType: "text",
-                    success: function(strMessage) {
-                        $('#followers-count').text(strMessage);
-                    }
-                })})
+        <!-- javascript profile image change -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/profilesRelated/profileImageChange.js"></script>
 
-                // $('#followBtn').click(function(event) {
-                //     event.preventDefault();
-
-                // $.ajax({
-                //     url: "<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id; ?>",
-                //     method: "post",
-                //     data: $('form').serialize(),
-                //     dataType: "text",
-                //     success: function(strMessage) {
-                //         // $('#followers-count').text(strMessage);
-                //     }
-                // })})
-
-                // for followings
-                // $('#followingBtn').click(function(event) {
-                //     event.preventDefault();
-
-                // $.ajax({
-                //     url: "<?php echo URLROOT.'/profileStatsAndConnections/unfollow/'.$data['user']->id; ?>",
-                //     method: "post",
-                //     data: $('form').serialize(),
-                //     dataType: "text",
-                //     success: function(strMessage) {
-                //         $('#followers-count').text(strMessage);
-                //     }
-                // })})
-            })
+        <!-- common settings js -->
+        <script type="text/JavaScript">
+            var URLROOT = '<?php echo URLROOT; ?>';
+            var USER_ID = '<?php echo $data['user']->id; ?>';
         </script>
+
+        <!-- javascript profile follow related  -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/profilesRelated/profileStatsAndConnections.js"></script>
+        
 <?php require APPROOT.'/views/inc/footer.php'; ?>

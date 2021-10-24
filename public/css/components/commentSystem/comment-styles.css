@@ -60,6 +60,26 @@
     width: 20px;
 }
 
+.comment-edit {
+    padding: 0 5px 0 15px;
+}
+
+.comment-edit img {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.comment-delete {
+    padding: 0 5px 0 0;
+}
+
+.comment-delete img {
+    height: 23px;
+    width: 23px;
+    cursor: pointer;
+}
+
 .comment-header-postedtime {
     padding-left: 10px;
     width: fit-content;
