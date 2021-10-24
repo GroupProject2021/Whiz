@@ -99,11 +99,11 @@
                 $data = [
                     'email' => trim($_POST['email']),
                     'password' => trim($_POST['password']),
-                    'captcha_value' => trim($_POST['captcha_value']),
+                    // 'captcha_value' => trim($_POST['captcha_value']),
 
                     'email_err' => '',
                     'password_err' => '',
-                    'captcha_value_err' => ''
+                    // 'captcha_value_err' => ''
                 ];
 
                 // Validate email
@@ -124,12 +124,13 @@
                     $data['password_err'] = 'Please enter password';
                 }
 
-                if($data['captcha_value'] != "true") {
-                    $data['captcha_value_err'] = 'Captcha not matched, Please try again';
-                }
+                // if($data['captcha_value'] != "true") {
+                //     $data['captcha_value_err'] = 'Captcha not matched, Please try again';
+                // }
 
                 // Make sure errors are empty
-                if(empty($data['email_err']) && empty($data['password_err']) && empty($data['captcha_value_err'])) {
+                // if(empty($data['email_err']) && empty($data['password_err']) && empty($data['captcha_value_err'])) {
+                if(empty($data['email_err']) && empty($data['password_err'])) {
                     // Validated
                     // Check and set logged in user
                     $loggedInUser = $this->commonModel->login($data['email'], $data['password']);
