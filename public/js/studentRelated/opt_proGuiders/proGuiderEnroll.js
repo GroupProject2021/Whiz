@@ -1,6 +1,5 @@
 $(document).ready(function() { 
     var prgBarVal = $("#prgBar").val();
-    $("#percentage").text(prgBarVal + "%");
 })
 
 $("#applyBtn").click(function(event) {
@@ -14,9 +13,6 @@ $("#applyBtn").click(function(event) {
             // increment
             $("#prgBar").val(prgBarVal - inc_dec_Amount);
 
-            // set prg text
-            $("#percentage").text(prgBarVal - inc_dec_Amount + "%");
-
             // set button
             $(".interation").removeClass("applied");
 
@@ -27,9 +23,6 @@ $("#applyBtn").click(function(event) {
         if(prgBarVal < 100) {
             // increment
             $("#prgBar").val(prgBarVal + inc_dec_Amount);
-
-            // set prg text
-            $("#percentage").text(prgBarVal + inc_dec_Amount + "%");
 
             // set button
             $(".interation").addClass("applied");

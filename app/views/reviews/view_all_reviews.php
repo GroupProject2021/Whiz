@@ -27,33 +27,33 @@
                         <!-- BACK BUTTON -->
                         <?php if($_SESSION['currect_viewing_post_type'] == 'Banner'):?>
                             <?php if($_SESSION['actor_type'] == 'Student'):?>
-                                <div class="btn1"><a href="<?php echo URLROOT.'/Posts_C_M_Banners/show/'.$_SESSION['current_viewing_post_id'];?>" class="card-link">Back</a></div>
-                            <?php elseif($_SESSION['actor_type'] == 'Mentor'): ?>
                                 <div class="btn1"><a href="<?php echo URLROOT.'/C_S_Stu_To_ProfessionalGuider/show/'.$_SESSION['current_viewing_post_id'];?>" class="card-link">Back</a></div>
+                            <?php elseif($_SESSION['actor_type'] == 'Mentor'): ?>
+                                <div class="btn1"><a href="<?php echo URLROOT.'/Posts_C_M_Banners/show/'.$_SESSION['current_viewing_post_id'];?>" class="card-link">Back</a></div>
                             <?php else: ?>
                                 <!-- nothing -->
                             <?php endif; ?>
                         <?php elseif($_SESSION['currect_viewing_post_type'] == 'Poster'):?>
                             <?php if($_SESSION['actor_type'] == 'Student'):?>
-                                <div class="btn1"><a href="<?php echo URLROOT.'/Posts_C_M_Posters/show/'.$_SESSION['current_viewing_post_id'];?>" class="card-link">Back</a></div>
-                            <?php elseif($_SESSION['actor_type'] == 'Mentor'): ?>
                                 <div class="btn1"><a href="<?php echo URLROOT.'/C_S_Stu_To_Teacher/show/'.$_SESSION['current_viewing_post_id'];?>" class="card-link">Back</a></div>
+                            <?php elseif($_SESSION['actor_type'] == 'Mentor'): ?>
+                                <div class="btn1"><a href="<?php echo URLROOT.'/Posts_C_M_Posters/show/'.$_SESSION['current_viewing_post_id'];?>" class="card-link">Back</a></div>
                             <?php else: ?>
                                  <!-- nothing -->
                             <?php endif; ?>
                         <?php elseif($_SESSION['currect_viewing_post_type'] == 'Advertisement'):?>
                             <?php if($_SESSION['actor_type'] == 'Student'):?>
-                                <div class="btn1"><a href="<?php echo URLROOT.'/Posts_C_O_Advertisement/show/'.$_SESSION['current_viewing_post_id'];?>" class="card-link">Back</a></div>
-                            <?php elseif($_SESSION['actor_type'] == 'Organization'): ?>
                                 <div class="btn1"><a href="<?php echo URLROOT.'/C_S_Stu_To_Company/show/'.$_SESSION['current_viewing_post_id'];?>" class="card-link">Back</a></div>
+                            <?php elseif($_SESSION['actor_type'] == 'Organization'): ?>
+                                <div class="btn1"><a href="<?php echo URLROOT.'/Posts_C_O_Advertisement/show/'.$_SESSION['current_viewing_post_id'];?>" class="card-link">Back</a></div>
                             <?php else: ?>
                                  <!-- nothing -->
                             <?php endif; ?>
                         <?php elseif($_SESSION['currect_viewing_post_type'] == 'Course Post'):?>
                             <?php if($_SESSION['actor_type'] == 'Student'):?>
-                                <div class="btn1"><a href="<?php echo URLROOT.'/Posts_C_O_CoursePosts/show/'.$_SESSION['current_viewing_post_id'];?>" class="card-link">Back</a></div>
-                            <?php elseif($_SESSION['actor_type'] == 'Organization'): ?>
                                 <div class="btn1"><a href="<?php echo URLROOT.'/C_S_Stu_To_PriUniversity/show/'.$_SESSION['current_viewing_post_id'];?>" class="card-link">Back</a></div>
+                            <?php elseif($_SESSION['actor_type'] == 'Organization'): ?>
+                                <div class="btn1"><a href="<?php echo URLROOT.'/Posts_C_O_CoursePosts/show/'.$_SESSION['current_viewing_post_id'];?>" class="card-link">Back</a></div>
                             <?php else: ?>
                                  <!-- nothing -->
                             <?php endif; ?>
