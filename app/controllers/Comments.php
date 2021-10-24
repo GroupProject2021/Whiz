@@ -135,8 +135,10 @@
                     echo    '<div class="comment-header-verified"><img src="'.URLROOT.'/imgs/verified.png" alt=""></div>';
                 }                
                 echo    '<div class="comment-header-postedtime">'.convertedToReadableTimeFormat($comment->created_at).'</div>';
-                echo     '<div class="comment-edit"><img src="'.URLROOT.'/imgs/components/commentSystem/edit-icon.png" alt="" onclick="deleteComment('.$comment->comment_id.')"></div>';
-                echo     '<div class="comment-delete"><img src="'.URLROOT.'/imgs/components/commentSystem/remove-icon.png" alt="" onclick="deleteComment('.$comment->comment_id.')"></div>';
+                if($comment->user_id == $_SESSION["user_id"]) {
+                    // echo     '<div class="comment-edit"><img src="'.URLROOT.'/imgs/components/commentSystem/edit-icon.png" alt="" onclick="deleteComment('.$comment->comment_id.')"></div>';
+                    echo     '<div class="comment-delete"><img src="'.URLROOT.'/imgs/components/commentSystem/remove-icon.png" alt="" onclick="deleteComment('.$comment->comment_id.')"></div>';    
+                }
                 echo '</div>';
                 echo '<div class="comment-body">';
                 echo    $comment->content;
