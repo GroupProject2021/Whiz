@@ -87,6 +87,15 @@ main {
     grid-column: 1/3;
 }
 
+.top-panel a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.top-panel a:hover {
+    text-decoration: underline;
+}
+
 .top-panel h1 {
     display: block;
     text-transform: uppercase;

@@ -18,15 +18,29 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Government Courses</h1>
+                        <h1>
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/index">courses</a>
+                            >
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList">Government</a>
+                        </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
                         <div>
-                            <a href=""><button class="btn1">Private courses</button></a>
-                            <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList"><button class="btn2">Government courses</button></a>
+                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/index"><button class="btn1">Private courses</button></a>
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList"><button class="btn3">Government courses</button></a>
                         </div>
+                        <br>
+                        <div>
+                            
+                            <?php if($_SESSION['specialized_actor_type'] == 'AL qualified'): ?>
+                                <a href="<?php echo URLROOT; ?>/C_S_Course/getRecommendedGovCourseList"><button class="btn2">Recommend Government courses</button></a>
+                            <?php else: ?>
+                                <a href="" onclick="alert('Upgrade to AL Qualified to unlock this feature')"><button class="btn2 disabled">Recommend Government courses</button></a>
+                            <?php endif; ?>                        
+                        </div>
+                        <br>
                         <div>
                                 <table class="gov-course-table">
                                     <tr>

@@ -38,6 +38,17 @@ class C_S_Course extends Controller {
 
         $this->view('students/opt_courses/v_gov_course_list_filtered_from_streamSelection', $data);
     }
+
+     // Government course recommendation
+     public function getRecommendedGovCourseList() {
+        $govCourses = $this->courseModel->getGovCourseList();
+
+        $data = [
+            'courses' => $govCourses
+        ];
+
+        $this->view('students/opt_courses/v_gov_course_recommendation', $data);
+    }
 }
 
 ?>

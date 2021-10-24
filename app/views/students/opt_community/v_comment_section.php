@@ -18,7 +18,9 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Comment section</h1>
+                        <h1>
+                            <a href="<?php echo URLROOT; ?>/C_S_Community/index">Community</a>
+                        </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Followings</h1>
+                        <h1>connections > Followings</h1>
                     </div>
 
                     <div class="btn1">

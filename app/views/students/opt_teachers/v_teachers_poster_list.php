@@ -18,7 +18,9 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Teachers</h1>
+                        <h1>
+                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/index">Teachers</a>
+                        </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

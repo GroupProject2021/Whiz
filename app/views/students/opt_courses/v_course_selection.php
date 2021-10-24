@@ -18,7 +18,9 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>course selection</h1>
+                        <h1>
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/index">courses</a>
+                        </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -26,9 +28,6 @@
                         <div>
                             <a href="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/index"><button class="btn1">Private courses</button></a>
                             <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList"><button class="btn2">Government courses</button></a>
-                        </div>
-                        <div>
-                                
                         </div>
                     </div>
 

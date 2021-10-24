@@ -18,7 +18,9 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>student profile</h1>
+                        <h1>
+                            student profile
+                        </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

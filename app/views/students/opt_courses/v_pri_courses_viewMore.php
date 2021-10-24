@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Private univerity course post</h1>
+                        <h1>Courses > Private > View</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

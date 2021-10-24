@@ -103,7 +103,7 @@
 }
 
 .btn2:hover {
-    background-color: var(--btn2-dis-bg-color-hover);
+    background-color: var(--btn2-bg-color-hover);
 }
 
 .btn2.disabled {

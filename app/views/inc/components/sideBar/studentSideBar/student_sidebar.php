@@ -234,7 +234,7 @@
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/cv-icon.png">
                     </div>
                     <div class="sidebar-item-name">
-                        cv
+                        my cv
                     </div>
                 </button>
             </a>

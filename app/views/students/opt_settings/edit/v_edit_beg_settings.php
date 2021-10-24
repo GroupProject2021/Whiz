@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Beginner details > Edit</h1>
+                        <h1>student profile > Beginner details Edit</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

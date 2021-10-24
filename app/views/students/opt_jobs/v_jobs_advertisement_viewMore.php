@@ -18,7 +18,11 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Jobs > View</h1>
+                        <h1>
+                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">Jobs</a>
+                            >
+                            View
+                        </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -64,13 +68,17 @@
                                        <div class="applied" id="applied"><?php echo $data['post']->applied; ?> Applied</div>
                                        <div class="capacity"> of <?php echo $data['post']->capacity; ?> Capacity</div>
                                    </div>
-                                   <?php if($data['self_job_apply_interaction'] == 'applied'):?>
-                                        <div class="interation applied">                                    
-                                   <?php else: ?>
-                                        <div class="interation"> 
-                                   <?php endif; ?>
-                                       <button id="applyBtn">APPLY</button>
-                                   </div>
+                                   <?php if($_SESSION['specialized_actor_type'] == "Undergraduate Graduate"): ?>
+                                        <?php if($data['self_job_apply_interaction'] == 'applied'):?>
+                                                <div class="interation applied">                                    
+                                        <?php else: ?>
+                                                <div class="interation"> 
+                                        <?php endif; ?>
+                                            <button id="applyBtn">APPLY</button>
+                                        </div>
+                                    <?php else: ?>
+                                        <!-- nothing -->
+                                    <?php endif; ?>
                                </div>
                                 <form method="post">
                                 <div class="post-footer">
@@ -104,9 +112,9 @@
                             <br>
 
                             <!-- REVIEW RATING SYSTEM -->
-                            <div class="ratingSystem">
-                                <?php require APPROOT.'/views/inc/components/ratingSystem/ratingSystem.php'?>
-                            </div>
+                            <!-- <div class="ratingSystem"> -->
+                                <!-- <?php //require APPROOT.'/views/inc/components/ratingSystem/ratingSystem.php'?> -->
+                            <!-- </div> -->
 
                             <br>
 

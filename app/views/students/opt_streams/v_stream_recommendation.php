@@ -18,7 +18,11 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Stream recommendaiton</h1>
+                        <h1>
+                            <a href="<?php echo URLROOT; ?>/C_S_Stream/index">Streams</a>
+                            >
+                            <a href="<?php echo URLROOT?>/C_S_Stream/streamRecommendation">recommendation</a>
+                        </h1>
                         <?php
                             // FOR TESTING ONLY
                             // $x = $data['recommended_streams'];

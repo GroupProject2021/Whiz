@@ -18,7 +18,11 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Stream selection</h1>
+                        <h1>
+                            <a href="<?php echo URLROOT; ?>/C_S_Stream/index">Streams</a>
+                            >
+                            <?php echo $data['stream_name']; ?>
+                        </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

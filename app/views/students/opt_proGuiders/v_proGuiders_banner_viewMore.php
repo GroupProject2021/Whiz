@@ -18,7 +18,11 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Profesional guider > View</h1>
+                        <h1>
+                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">Professional guiders</a>
+                            >
+                            View
+                        </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

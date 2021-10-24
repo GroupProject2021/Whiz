@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>G.C.E(O/L) details > Edit</h1>
+                        <h1>student profile > G.C.E(O/L) details Edit</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

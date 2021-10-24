@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>government course view more</h1>
+                        <h1>Courses > Government > View</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

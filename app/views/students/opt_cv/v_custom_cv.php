@@ -18,12 +18,24 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>custom cv</h1>
+                        <h1>
+                            <a href="<?php echo URLROOT; ?>/C_S_CV/index">my cv</a>
+                            >
+                            upload custom
+                        </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et est praesentium, accusamus dicta quaerat hic laborum ullam obcaecati quod doloremque fugiat necessitatibus eum, fuga autem consectetur id repellendus, repudiandae eveniet?
+                        <div class="under-construction">
+                            <div class="img">
+                                <img src="<?php echo URLROOT; ?>/imgs/under-construction.png" height="200px" alt="logo">
+                            </div>
+                            <div class="title">Upload custom CV</div>
+                            <div class="text">
+                            THIS PAGE IS CURRENTLY UNDER CONSTRUCTION !
+                            </div>
+                        </div>
                     </div>
 
                     <!-- BOTTOM PANEL -->
