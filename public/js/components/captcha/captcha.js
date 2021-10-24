@@ -44,6 +44,7 @@ function showCaptchaMatchedMsg() {
 }
 
 function hideCaptchaSection() {
+    inputField.type = "hidden";
     captchaWrapper.classList.add("hide");
 }
 
