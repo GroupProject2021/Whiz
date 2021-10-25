@@ -11,6 +11,7 @@ $("#applyBtn").click(function(event) {
     if($(".interation").hasClass("applied")) {
         if(prgBarVal > 0) {
             // increment
+            console.log(prgBarVal - inc_dec_Amount);
             $("#prgBar").val(prgBarVal - inc_dec_Amount);
 
             // set button
@@ -22,7 +23,8 @@ $("#applyBtn").click(function(event) {
     else {
         if(prgBarVal < 100) {
             // increment
-            $("#prgBar").val(prgBarVal + inc_dec_Amount);
+            console.log('app ' + prgBarVal + inc_dec_Amount);
+            // $("#prgBar").val(prgBarVal + inc_dec_Amount);
 
             // set button
             $(".interation").addClass("applied");
@@ -40,6 +42,7 @@ function incApply() {
             dataType: "text",
             success: function(strMessage) {
                 $('#applied').text(strMessage + " Applied");
+                location.reload();
             }
         })
     }

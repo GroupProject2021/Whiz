@@ -68,7 +68,7 @@
                                        <div class="applied" id="applied"><?php echo $data['post']->applied; ?> Applied</div>
                                        <div class="capacity"> of <?php echo $data['post']->capacity; ?> Capacity</div>
                                    </div>
-                                   <?php if($data['self_job_apply_interaction'] == 'applied'):?>
+                                   <?php if($data['self_enroll_apply_interaction'] == 'applied'):?>
                                         <div class="interation applied">                                    
                                    <?php else: ?>
                                         <div class="interation"> 
@@ -137,7 +137,7 @@
         <script type="text/JavaScript">
             var URLROOT = '<?php echo URLROOT; ?>';            
             var CURRENT_POST= '<?php echo $_SESSION["current_viewing_post_id"]?>';
-            var INC_DEC_AMOUNT = '<?php echo 100 / $data['post']->capacity; ?>';
+            var INC_DEC_AMOUNT = '<?php echo 100 / $data["post"]->capacity; ?>';
         </script>
         
         <!-- javacript for like dislike systen -->    

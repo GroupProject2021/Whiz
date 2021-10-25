@@ -58,11 +58,11 @@
 
             // for pro guider enroll existence
             if($this->stuToProfessionalGuiderModel->isProGuiderEnrollExist($userId, $id)) {
-                $selfJobApplyInteraction = $this->stuToProfessionalGuiderModel->getProGuiderEnroll($userId, $id);
-                $selfJobApplyInteraction = $selfJobApplyInteraction->interaction;
+                $selfEnrollApplyInteraction = $this->stuToProfessionalGuiderModel->getProGuiderEnroll($userId, $id);
+                $selfEnrollApplyInteraction = $selfEnrollApplyInteraction->interaction;
             }
             else {
-                $selfJobApplyInteraction = '';
+                $selfEnrollApplyInteraction = '';
             }
 
 
@@ -102,7 +102,7 @@
                 'ups' => $ups,
                 'downs' => $downs,
                 'self_interaction' => $selfInteraction,
-                'self_job_apply_interaction' => $selfJobApplyInteraction,
+                'self_enroll_apply_interaction' => $selfEnrollApplyInteraction,
 
                 'total_reviews' => $totalReviews,
                 'rate1' => $rate1Precentage,
