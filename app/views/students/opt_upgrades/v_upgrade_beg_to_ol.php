@@ -245,7 +245,6 @@
                     <input type="checkbox" required>
                     I do here by certify above details that I have entered are true and correct. <a class="form-link" href="<?php echo URLROOT.'/Pages/privacy'?>">Terms & Privacy</a>
                 </p>
-                <button type="submit" class="form-skip-button">Skip</button>
                 <button type="submit" class="form-next-button">Next</button>
             </form>
         </div>
