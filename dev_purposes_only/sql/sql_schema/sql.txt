@@ -132,6 +132,21 @@ CREATE TABLE GovernmentCourseOfferedByGovermentUniversity (
   FOREIGN KEY(gov_uni_id)	REFERENCES GovermentUniversity(gov_uni_id)
 );
 
+-- View
+CREATE VIEW gov_course_and_university AS
+	SELECT
+	GovernmentCourseOfferedByGovermentUniversity.id AS id,
+	GovernmentCourse.gov_course_name AS gov_course_name,
+	GovermentUniversity.uni_name AS uni_name,
+	GovernmentCourseOfferedByGovermentUniversity.purposed_intake,
+	GovernmentCourseOfferedByGovermentUniversity.duration,
+	GovernmentCourseOfferedByGovermentUniversity.description
+	FROM
+	GovernmentCourseOfferedByGovermentUniversity
+	INNER JOIN GovernmentCourse
+	ON GovernmentCourseOfferedByGovermentUniversity.gov_course_id = GovernmentCourse.gov_course_id
+	INNER JOIN GovermentUniversity
+	ON GovernmentCourseOfferedByGovermentUniversity.gov_uni_id = GovermentUniversity.gov_uni_id;
 
 
 CREATE TABLE UniCodes (
@@ -166,6 +181,15 @@ INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amoun
 INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Colombo School of Computing', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Swami Vipulananda Institure of Aesthetic Studies, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Ramanathan Academy of Fine Arts, University of Jaffna', NULL, NULL, NULL, NULL, NULL);
+
+CREATE TABLE GovermentUniversityRankings (
+  gov_uni_id INT NOT NULL,
+  year INT NOT NULL,
+  edition VARCHAR(255) NOT NULL,
+  world_ranking INT,
+  PRIMARY KEY(gov_uni_id, year, edition)
+); 
+
 
 -- FOR TESTING
 CREATE TABLE Users (

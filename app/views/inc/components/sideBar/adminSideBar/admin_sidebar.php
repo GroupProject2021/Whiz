@@ -15,238 +15,43 @@
 
         <!-- OPTIONS -->
     <?php if(isset($_SESSION['user_id'])) : ?>
-        <?php if($_SESSION['specialized_actor_type'] == 'Beginner'): ?>
+        <?php if($_SESSION['specialized_actor_type'] == 'Admin'): ?>
         <!-- Beginner options -->
         <div class="menu-head">
-            <span>Beginner options</span>
+            <span>Government University options</span>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stream/index">
+            <a href="<?php echo URLROOT; ?>/C_A_Government_University/universities">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
                     </div>
                     <div class="sidebar-item-name">
-                        streams
+                        Universities
                     </div>
                 </button>
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Course/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/courses-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        courses
-                    </div>
-                </button>
-            </a>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Job/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        jobs
-                    </div>
-                </button>
-            </a>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/professional-guider-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        professional guiders
-                    </div>
-                </button>
-            </a>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Community/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/community-icon-sidebar.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        community
-                    </div>
-                </button>
-            </a>
-        </div>
-        
-        <?php elseif($_SESSION['specialized_actor_type'] == 'OL qualified'): ?>
-        <!-- OL qualified options -->
-        <div class="menu-head">
-            <span>OL Qualified options</span>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stream/index">
+            <a href="<?php echo URLROOT; ?>/C_A_Government_University/courses">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
                     </div>
                     <div class="sidebar-item-name">
-                        streams
+                        Courses
                     </div>
                 </button>
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Course/index">
+            <a href="<?php echo URLROOT; ?>/C_A_Government_University/courseAndUniversities">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/courses-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
                     </div>
                     <div class="sidebar-item-name">
-                        courses
-                    </div>
-                </button>
-            </a>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Job/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        jobs
-                    </div>
-                </button>
-            </a>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/professional-guider-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        professional guiders
-                    </div>
-                </button>
-            </a>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Community/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/community-icon-sidebar.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        community
-                    </div>
-                </button>
-            </a>
-        </div>
-
-        <?php elseif($_SESSION['specialized_actor_type'] == 'AL qualified'): ?>
-        <!-- AL qualified options -->
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Course/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/courses-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        courses
-                    </div>
-                </button>
-            </a>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Job/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        jobs
-                    </div>
-                </button>
-            </a>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/professional-guider-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        professional guiders
-                    </div>
-                </button>
-            </a>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/teacher-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        teachers
-                    </div>
-                </button>
-            </a>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Community/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/community-icon-sidebar.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        community
-                    </div>
-                </button>
-            </a>
-        </div>
-
-        <?php elseif($_SESSION['specialized_actor_type'] == 'Undergraduate Graduate'): ?>
-        <!-- Undergrad Grad options -->
-        <div class="menu-head">
-            <span>Underdraduate / graduate options</span>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Job/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/jobs-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        jobs
-                    </div>
-                </button>
-            </a>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_CV/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/cv-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        cv
-                    </div>
-                </button>
-            </a>
-        </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/professional-guider-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        professional guiders
+                        Course + University
                     </div>
                 </button>
             </a>
