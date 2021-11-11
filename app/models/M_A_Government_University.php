@@ -21,7 +21,7 @@
         }
 
         public function getCourseAndUniversities() {
-            $this->db->query("SELECT * FROM gov_course_and_university");
+            $this->db->query("SELECT * FROM v_gov_course_and_university");
             $results = $this->db->resultSet();
     
             return $results;
@@ -36,10 +36,11 @@
         }
 
         public function addCourseUniversity($data) {
-            $this->db->query('INSERT INTO GovernmentCourseOfferedByGovermentUniversity(gov_course_id, gov_uni_id, purposed_intake, duration, description) VALUES(:gov_course_id, :gov_uni_id, :purposed_intake, :duration, :description)');
+            $this->db->query('INSERT INTO GovernmentCourseOfferedByGovermentUniversity(gov_course_id, gov_uni_id, purposed_intake, duration, description, unicode) VALUES(:gov_course_id, :gov_uni_id, :purposed_intake, :duration, :description, :unicode)');
             // bind values
             $this->db->bind(":gov_course_id", $data['course']);
-            $this->db->bind(":gov_uni_id", $data['university']);
+            $this->db->bind(":gov_uni_id", $data['university']);            
+            $this->db->bind(":unicode", $data['unicode']);
             $this->db->bind(":purposed_intake", $data['purposed_intake']);
             $this->db->bind(":duration", $data['duration']);
             $this->db->bind(":description", $data['description']);
@@ -54,11 +55,12 @@
         }
 
         public function editCourseUniversity($data) {
-            $this->db->query('UPDATE GovernmentCourseOfferedByGovermentUniversity SET gov_course_id = :gov_course_id, gov_uni_id = :gov_uni_id, purposed_intake = :purposed_intake, duration = :duration, description = :description WHERE id = :id');
+            $this->db->query('UPDATE GovernmentCourseOfferedByGovermentUniversity SET gov_course_id = :gov_course_id, gov_uni_id = :gov_uni_id, purposed_intake = :purposed_intake, duration = :duration, description = :description, unicode = :unicode WHERE id = :id');
             // bind values
             $this->db->bind(":id", $data['id']);
             $this->db->bind(":gov_course_id", $data['course']);
             $this->db->bind(":gov_uni_id", $data['university']);
+            $this->db->bind(":unicode", $data['unicode']);
             $this->db->bind(":purposed_intake", $data['purposed_intake']);
             $this->db->bind(":duration", $data['duration']);
             $this->db->bind(":description", $data['description']);

@@ -48,7 +48,13 @@
                                             <?php endforeach; ?>
                                         </select>
                                     </td>
-                                </tr>       
+                                </tr>     
+                                <tr>
+                                    <td>Uni Code</td>
+                                    <td>
+                                        <input type="text" name="unicode" id="unicode" value="<?php echo $data['unicode']; ?>">
+                                    </td>
+                                </tr>        
                                 <tr>
                                     <td>Purposed intake</td>
                                     <td>
@@ -74,6 +80,7 @@
                                 </tr>        
                             </table>                            
                         </form>
+                        <span class="form-invalid"><?php echo $data['unicode_err']; ?></span><br>
                         <span class="form-invalid"><?php echo $data['purposed_intake_err']; ?></span><br>
                         <span class="form-invalid"><?php echo $data['duration_err']; ?></span><br>
                         <span class="form-invalid"><?php echo $data['description_err']; ?></span><br>

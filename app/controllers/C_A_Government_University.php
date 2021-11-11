@@ -45,19 +45,27 @@ class C_A_Government_University extends Controller {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             
-            $data = [
-                'course' => $_POST['courses'],
-                'university' => $_POST['universities'],
+            $data = [                
                 'courses_list' => $courses_list,
                 'universities_list' => $university_list,
+
+                'course' => $_POST['courses'],
+                'university' => $_POST['universities'],
+                'unicode' => $_POST['unicode'],
                 'purposed_intake' => $_POST['purposed_intake'],
                 'duration' => $_POST['duration'],
                 'description' => $_POST['description'],
 
+                'unicode_err' => '',
                 'purposed_intake_err' => '',
                 'duration_err' => '',
                 'description_err' => ''
             ];
+
+            // Validate gender
+            if(empty($data['unicode'])) {
+                $data['unicode_err'] = 'Please enter unicode';
+            }
 
             // Validate gender
             if(empty($data['purposed_intake'])) {
@@ -75,7 +83,7 @@ class C_A_Government_University extends Controller {
             }
 
             // Make sure no errors
-            if(empty($data['purposed_intake_err']) && empty($data['duration_err']) && empty($data['description_err'])) {
+            if(empty($data['unicode_err']) && empty($data['purposed_intake_err']) && empty($data['duration_err']) && empty($data['description_err'])) {
                 // Validated                    
                 if($this->govUniModel->addCourseUniversity($data)) {
                     flash('gov_uni_message', 'New record added');
@@ -92,15 +100,18 @@ class C_A_Government_University extends Controller {
             }
         }
         else {         
-            $data = [
-                'course' => '',
-                'university' => '',
+            $data = [                
                 'courses_list' => $courses_list,
                 'universities_list' => $university_list,
+
+                'course' => '',
+                'university' => '',
+                'unicode' => '',
                 'purposed_intake' => '',
                 'duration' => '',
                 'description' => '',
 
+                'unicode_err' => '',
                 'purposed_intake_err' => '',
                 'duration_err' => '',
                 'description_err' => ''
@@ -119,20 +130,28 @@ class C_A_Government_University extends Controller {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             
-            $data = [
+            $data = [                
+                'courses_list' => $courses_list,
+                'universities_list' => $university_list,
+
                 'id' => $id,
                 'course' => $_POST['courses'],
                 'university' => $_POST['universities'],
-                'courses_list' => $courses_list,
-                'universities_list' => $university_list,
+                'unicode' => $_POST['unicode'],
                 'purposed_intake' => $_POST['purposed_intake'],
                 'duration' => $_POST['duration'],
                 'description' => $_POST['description'],
 
+                'unicode_err' => '',
                 'purposed_intake_err' => '',
                 'duration_err' => '',
                 'description_err' => ''
             ];
+
+            // Validate gender
+            if(empty($data['unicode'])) {
+                $data['purposed_intake_err'] = 'Please enter unicode';
+            }
 
             // Validate gender
             if(empty($data['purposed_intake'])) {
@@ -150,7 +169,7 @@ class C_A_Government_University extends Controller {
             }
 
             // Make sure no errors
-            if(empty($data['purposed_intake_err']) && empty($data['duration_err']) && empty($data['description_err'])) {
+            if(empty($data['unicode_err']) && empty($data['purposed_intake_err']) && empty($data['duration_err']) && empty($data['description_err'])) {
                 // Validated                    
                 if($this->govUniModel->editCourseUniversity($data)) {
                     flash('gov_uni_message', 'Existing record updated');
@@ -170,15 +189,18 @@ class C_A_Government_University extends Controller {
             $courseUniData = $this->govUniModel->getCourseAndUniversityById($id); 
 
             $data = [
+                'courses_list' => $courses_list,
+                'universities_list' => $university_list,
+
                 'id' => $id,
                 'course' => $courseUniData->gov_course_id,
                 'university' => $courseUniData->gov_uni_id,
-                'courses_list' => $courses_list,
-                'universities_list' => $university_list,
+                'unicode' => $courseUniData->unicode,
                 'purposed_intake' => $courseUniData->purposed_intake,
                 'duration' => $courseUniData->duration,
                 'description' => $courseUniData->description,
 
+                'unicode_err' => '',
                 'purposed_intake_err' => '',
                 'duration_err' => '',
                 'description_err' => ''
