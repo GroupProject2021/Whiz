@@ -134,7 +134,6 @@ CREATE TABLE GovermentUniversity (
   world_rank INT, 
   student_amount INT,
   graduate_job_rate INT,
-  uni_type VARCHAR(255),
   PRIMARY KEY(gov_uni_id)
 ); 
 
@@ -427,28 +426,28 @@ CREATE TABLE UniCodes (
 );
 
 -- data records for government courses
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Colombo', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Peradeniya', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Sri Jayawardenepura', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Kelaniya', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Moratuwa', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Jaffna', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Ruhuna', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('South Eastern University of Sri Lanka ', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Rajarata University of Sri Lanka ', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Sabaragamuwa University of Sri Lanka', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Wayamba University of Sri Lanka', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Uva Wellassa University of Sri Lanka', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of the Visual & Performing Arts', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Sripalee Campus, University of Colombo', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Trincomalee Campus, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Vavuniya Campus, University of Jaffna', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Institute of Indigenous Medicine, University of Colombo', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Gampaha Wickramaarachchi Ayurveda Institute, University of Colombo', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('University of Colombo School of Computing', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Swami Vipulananda Institure of Aesthetic Studies, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate, uni_type) VALUES ('Ramanathan Academy of Fine Arts, University of Jaffna', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Colombo', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Peradeniya', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Sri Jayawardenepura', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Kelaniya', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Moratuwa', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Jaffna', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Ruhuna', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Eastern University, Sri Lanka', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('South Eastern University of Sri Lanka ', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Rajarata University of Sri Lanka ', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Sabaragamuwa University of Sri Lanka', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Wayamba University of Sri Lanka', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Uva Wellassa University of Sri Lanka', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of the Visual & Performing Arts', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Sripalee Campus, University of Colombo', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Trincomalee Campus, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Vavuniya Campus, University of Jaffna', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Institute of Indigenous Medicine, University of Colombo', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Gampaha Wickramaarachchi Ayurveda Institute, University of Colombo', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Colombo School of Computing', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Swami Vipulananda Institure of Aesthetic Studies, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL);
+INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Ramanathan Academy of Fine Arts, University of Jaffna', NULL, NULL, NULL, NULL);
 
 CREATE TABLE GovermentUniversityRankings (
   gov_uni_id INT NOT NULL,
@@ -1002,14 +1001,30 @@ CREATE TABLE AdminOffersGovernmentCourse(
 );
 
 CREATE TABLE ZScoreTable (
-	z_id INT NOT NULL AUTO_INCREMENT,
-	z_score DECIMAL (5,4),
+	z_id INT NOT NULL AUTO_INCREMENT,	
 	district_id INT NOT NULL,
-	gov_course_id INT NOT NULL,
+	unicode VARCHAR(100) NOT NULL,
+	syllabus VARCHAR(100),
+	year INT,
+	z_score DECIMAL (5,4),
 	PRIMARY KEY (z_id),
-	FOREIGN KEY (district_id) REFERENCES District (district_id),
-	FOREIGN KEY (gov_course_id) REFERENCES GovernmentCourse (gov_course_id)
+	FOREIGN KEY (district_id) REFERENCES District (district_id)
 );
+
+CREATE VIEW v_zscore_table AS
+	SELECT
+	District.district_name AS district_name,
+	v_gov_course_and_university.gov_course_name AS gov_course_name,
+	v_gov_course_and_university.uni_name AS uni_name,
+	v_gov_course_and_university.unicode AS unicode,
+	ZScoreTable.syllabus AS syllabus,
+	ZScoreTable.year AS year,
+	ZScoreTable.z_score AS z_score
+	FROM ZScoreTable
+	INNER JOIN District ON
+	ZScoreTable.district_id = District.district_id
+	INNER JOIN v_gov_course_and_university ON
+	ZScoreTable.unicode = v_gov_course_and_university.unicode;
 
 -- newly added tables (must be added to er as well)
 CREATE TABLE Comments (

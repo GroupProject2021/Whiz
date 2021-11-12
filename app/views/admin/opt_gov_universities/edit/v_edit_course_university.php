@@ -28,7 +28,7 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
                         <form action="<?php echo URLROOT.'/C_A_Government_University/editCourseUniversity/'.$data['id']; ?>" method="post">
-                            <table border="1">
+                            <table>
                                 <tr>
                                     <td>Course</td>
                                     <td>
@@ -81,7 +81,7 @@
                                 </tr>                    
                                 <tr>
                                     <td colspan="2">
-                                        <button type="submit" class="form-next-button">Add</button>
+                                        <button type="submit" class="form-next-button">Update</button>
                                     </td>
                                 </tr>        
                             </table>                            

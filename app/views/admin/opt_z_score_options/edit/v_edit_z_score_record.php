@@ -20,27 +20,18 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Government Courses</h1>
+                        <h1>Edit Z-Score record</h1>
                     </div>
                     
                     
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <a href="<?php echo URLROOT.'/C_A_Government_University/addCourse'; ?>" class="btn1-small form-link">Add course</a>
-                        
-                        <br>
-
-                        <table>
-                        <?php foreach($data['courses_list'] as $course): ?>
-                            <tr>
-                                <td><?php echo $course->gov_course_id; ?></td>
-                                <td><?php echo $course->gov_course_name; ?></td>
-                                <td><a href="<?php echo URLROOT.'/C_A_Government_University/editCourse/'.$course->gov_course_id; ?>">Edit</a></td>
-                                <td><a href="<?php //echo URLROOT.'/C_A_Government_University/deleteCourse/'.$course->gov_course_id; ?>">Delete</a></td>
-                            </tr>
-                        <?php endforeach; ?>
-                        </table>
+                        <form action="<?php echo URLROOT; ?>/C_A_Government_University/addCourseUniversity" method="post">
+                            <table>
+                                
+                            </table>                            
+                        </form>
                     </div>
 
                     <!-- BOTTOM PANEL -->

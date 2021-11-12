@@ -16,7 +16,7 @@
         <!-- OPTIONS -->
     <?php if(isset($_SESSION['user_id'])) : ?>
         <?php if($_SESSION['specialized_actor_type'] == 'Admin'): ?>
-        <!-- Beginner options -->
+        <!-- Government university options -->
         <div class="menu-head">
             <span>Government University options</span>
         </div>
@@ -52,6 +52,35 @@
                     </div>
                     <div class="sidebar-item-name">
                         Course + University
+                    </div>
+                </button>
+            </a>
+        </div>
+
+        <!-- Z-Score options -->
+        <div class="menu-head">
+            <span>Z-Score options</span>
+        </div>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/C_A_ZScore_Options/viewZScoreTable">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        Z-Score table
+                    </div>
+                </button>
+            </a>
+        </div>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/C_A_ZScore_Options/addZScoreEntry">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        Add z-score entry
                     </div>
                 </button>
             </a>

@@ -27,7 +27,29 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        
+                        <form action="<?php echo URLROOT; ?>/C_A_Government_University/addCourse" method="post">
+                            <table>   
+                                <tr>
+                                    <td>Course id</td>
+                                    <td>
+                                        <input type="text" name="course_id" id="course_id" value="<?php echo $data['course_id']; ?>">
+                                    </td>
+                                </tr>     
+                                <tr>
+                                    <td>Course name</td>
+                                    <td>
+                                        <input type="text" name="course_name" id="course_name" value="<?php echo $data['course_name']; ?>">
+                                    </td>
+                                </tr>                        
+                                <tr>
+                                    <td colspan="2">
+                                        <button type="submit" class="form-next-button">Add</button>
+                                    </td>
+                                </tr>        
+                            </table>                            
+                        </form>
+                        <span class="form-invalid"><?php echo $data['course_id_err']; ?></span><br>
+                        <span class="form-invalid"><?php echo $data['course_name_err']; ?></span><br>
                     </div>
 
                     <!-- BOTTOM PANEL -->

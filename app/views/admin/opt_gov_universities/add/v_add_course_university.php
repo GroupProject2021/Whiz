@@ -28,7 +28,7 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
                         <form action="<?php echo URLROOT; ?>/C_A_Government_University/addCourseUniversity" method="post">
-                            <table border="1">
+                            <table>
                                 <tr>
                                     <td>Course</td>
                                     <td>

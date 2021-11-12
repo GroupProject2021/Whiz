@@ -27,15 +27,21 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <table border="1">
+                        <a href="<?php echo URLROOT.'/C_A_Government_University/addUniversity'; ?>" class="btn1-small form-link">Add university</a>
+                        
+                        <br>
+
+                        <table>
                         <?php foreach($data['university_list'] as $university): ?>
                             <tr>
+                                <td><?php echo $university->gov_uni_id; ?></td>
                                 <td><?php echo $university->uni_name; ?></td>
                                 <td><?php echo $university->world_rank; ?></td>
                                 <td><?php echo $university->description; ?></td>
                                 <td><?php echo $university->student_amount; ?></td>
                                 <td><?php echo $university->graduate_job_rate; ?></td>
-                                <td><?php echo $university->uni_type; ?></td>
+                                <td><a href="<?php echo URLROOT.'/C_A_Government_University/editUniversity/'.$university->gov_uni_id; ?>">Edit</a></td>
+                                <td><a href="<?php //echo URLROOT.'/C_A_Government_University/deleteUniversity/'.$university->gov_uni_id; ?>">Delete</a></td>
                             </tr>
                         <?php endforeach; ?>
                         </table>
