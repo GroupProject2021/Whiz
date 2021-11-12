@@ -1023,7 +1023,7 @@ CREATE VIEW v_zscore_table AS
 	FROM ZScoreTable
 	INNER JOIN District ON
 	ZScoreTable.district_id = District.district_id
-	INNER JOIN v_gov_course_and_university ON
+	LEFT JOIN v_gov_course_and_university ON
 	ZScoreTable.unicode = v_gov_course_and_university.unicode;
 
 -- newly added tables (must be added to er as well)

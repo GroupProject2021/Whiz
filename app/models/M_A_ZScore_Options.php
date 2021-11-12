@@ -15,7 +15,7 @@ class M_A_ZScore_Options {
     }
 
     public function getZScoreTableHeader() {
-        $this->db->query('SELECT gov_course_name, uni_name, unicode FROM	v_zscore_table GROUP BY unicode;');
+        $this->db->query('SELECT gov_course_name, uni_name, unicode FROM v_zscore_table GROUP BY unicode;');
         $results = $this->db->resultSet();
 
         return $results;

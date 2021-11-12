@@ -33,7 +33,7 @@
                                     <td></td>
                                     <?php
                                         foreach($data['zscore_table_header'] as $z_record_header) {
-                                            echo '<th  style="transform: rotate(-90deg); width:100px; height: 100px;">'.$z_record_header->gov_course_name;
+                                            echo '<th>'.$z_record_header->gov_course_name;
                                             echo '<br>';
                                             echo '('.$z_record_header->uni_name.')';
                                             echo '</th>';
