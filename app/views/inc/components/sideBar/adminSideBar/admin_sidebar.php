@@ -73,18 +73,6 @@
                 </button>
             </a>
         </div>
-        <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_A_ZScore_Options/addZScoreEntry">
-                <button>
-                    <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
-                    </div>
-                    <div class="sidebar-item-name">
-                        Add z-score entry
-                    </div>
-                </button>
-            </a>
-        </div>
         <?php else: ?>
             <!-- Nothing here -->
         <?php endif;?>
