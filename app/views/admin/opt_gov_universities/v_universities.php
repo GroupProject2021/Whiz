@@ -41,7 +41,7 @@
                                 <td><?php echo $university->student_amount; ?></td>
                                 <td><?php echo $university->graduate_job_rate; ?></td>
                                 <td><a href="<?php echo URLROOT.'/C_A_Government_University/editUniversity/'.$university->gov_uni_id; ?>">Edit</a></td>
-                                <td><a href="<?php //echo URLROOT.'/C_A_Government_University/deleteUniversity/'.$university->gov_uni_id; ?>">Delete</a></td>
+                                <!-- <td><a href="<?php //echo URLROOT.'/C_A_Government_University/deleteUniversity/'.$university->gov_uni_id; ?>">Delete</a></td> -->
                             </tr>
                         <?php endforeach; ?>
                         </table>

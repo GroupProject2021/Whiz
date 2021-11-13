@@ -37,7 +37,7 @@
                                 <td><?php echo $course->gov_course_id; ?></td>
                                 <td><?php echo $course->gov_course_name; ?></td>
                                 <td><a href="<?php echo URLROOT.'/C_A_Government_University/editCourse/'.$course->gov_course_id; ?>">Edit</a></td>
-                                <td><a href="<?php //echo URLROOT.'/C_A_Government_University/deleteCourse/'.$course->gov_course_id; ?>">Delete</a></td>
+                                <!-- <td><a href="<?php //echo URLROOT.'/C_A_Government_University/deleteCourse/'.$course->gov_course_id; ?>">Delete</a></td> -->
                             </tr>
                         <?php endforeach; ?>
                         </table>
