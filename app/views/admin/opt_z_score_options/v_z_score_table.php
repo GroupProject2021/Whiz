@@ -32,11 +32,14 @@
                                 <tr style="height: 100px;">
                                     <td></td>
                                     <?php
-                                        foreach($data['zscore_table_header'] as $z_record_header) {
-                                            echo '<th>'.$z_record_header->gov_course_name;
-                                            echo '<br>';
-                                            echo '('.$z_record_header->uni_name.')';
-                                            echo '</th>';
+                                         foreach($data['zscore_table'] as $z_record) {
+                                            if($z_record->district_name == "Colombo") {
+                                                echo '<th>';
+                                                echo $z_record->unicode.' - '.$z_record->gov_course_name;
+                                                echo '<br>';
+                                                echo '('.$z_record->uni_name.')';
+                                                echo '</th>';
+                                            }
                                         }
                                     ?>
                                 </tr>
