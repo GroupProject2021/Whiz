@@ -134,6 +134,8 @@ CREATE TABLE GovermentUniversity (
   world_rank INT, 
   student_amount INT,
   graduate_job_rate INT,
+  logo  VARCHAR(255),
+  bg_img  VARCHAR(255),
   PRIMARY KEY(gov_uni_id)
 ); 
 
@@ -426,28 +428,29 @@ CREATE TABLE UniCodes (
 );
 
 -- data records for government courses
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Colombo', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Peradeniya', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Sri Jayawardenepura', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Kelaniya', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Moratuwa', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Jaffna', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Ruhuna', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Eastern University, Sri Lanka', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('South Eastern University of Sri Lanka ', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Rajarata University of Sri Lanka ', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Sabaragamuwa University of Sri Lanka', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Wayamba University of Sri Lanka', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Uva Wellassa University of Sri Lanka', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of the Visual & Performing Arts', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Sripalee Campus, University of Colombo', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Trincomalee Campus, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Vavuniya Campus, University of Jaffna', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Institute of Indigenous Medicine, University of Colombo', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Gampaha Wickramaarachchi Ayurveda Institute, University of Colombo', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('University of Colombo School of Computing', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Swami Vipulananda Institure of Aesthetic Studies, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL);
-INSERT INTO GovermentUniversity(uni_name, description, world_rank, student_amount, graduate_job_rate) VALUES ('Ramanathan Academy of Fine Arts, University of Jaffna', NULL, NULL, NULL, NULL);
+INSERT INTO `GovermentUniversity` (`gov_uni_id`, `uni_name`, `description`, `world_rank`, `student_amount`, `graduate_job_rate`, `logo`, `bg_img`) VALUES
+(1, 'University of Colombo', NULL, NULL, NULL, NULL, 'university_of_colombo_logo.png', 'university_of_colombo_bg.jpg'),
+(2, 'University of Peradeniya', NULL, NULL, NULL, NULL, 'university_of_peradeniya_logo.png', 'university_of_peradeniya_bg.jpg'),
+(3, 'University of Sri Jayawardenepura', NULL, NULL, NULL, NULL, 'university_of_sri_jayaawardhanapura_logo.png', 'university_of_sri_jayaawardhanapura_bg.jpg'),
+(4, 'University of Kelaniya', NULL, NULL, NULL, NULL, 'university_of_kelaniya_logo.png', 'university_of_kelaniya_bg.jpg'),
+(5, 'University of Moratuwa', NULL, NULL, NULL, NULL, 'university_of_moratuwa_logo.png', 'university_of_moratuwa_bg.jpg'),
+(6, 'University of Jaffna', NULL, NULL, NULL, NULL, 'university_of_jaffna_logo.png', 'university_of_jaffna_bg.png'),
+(7, 'University of Ruhuna', NULL, NULL, NULL, NULL, 'university_of_ruhuna_logo.png', 'university_of_ruhuna_bg.jpg'),
+(8, 'Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'esatern_university_logo.png', 'esatern_university_bg.jpg'),
+(9, 'South Eastern University of Sri Lanka ', NULL, NULL, NULL, NULL, 'south_esatern_university_logo.png', 'south_esatern_university_bg.jpg'),
+(10, 'Rajarata University of Sri Lanka ', NULL, NULL, NULL, NULL, 'rajarata_university_logo.png', 'rajarata_university_bg.jpg'),
+(11, 'Sabaragamuwa University of Sri Lanka', NULL, NULL, NULL, NULL, 'sabaragamuwa_university_logo.png', 'sabaragamuwa_university_bg.jpg'),
+(12, 'Wayamba University of Sri Lanka', NULL, NULL, NULL, NULL, 'wayamba_university_logo.png', 'wayamba_university_logo.jpg'),
+(13, 'Uva Wellassa University of Sri Lanka', NULL, NULL, NULL, NULL, 'uva_wellassa_university_logo.png', 'uva_wellassa_university_bg.jpg'),
+(14, 'University of the Visual & Performing Arts', NULL, NULL, NULL, NULL, 'university_of_the_visual_&_performing_arts.png', 'university_of_the_visual_&_performing_arts_bg.jpg'),
+(15, 'Sripalee Campus, University of Colombo', NULL, NULL, NULL, NULL, 'sri_palee_campus_logo.png', 'sri_palee_campus_bg.jpg'),
+(16, 'Trincomalee Campus, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'trincomalee_campus_logo.png', 'trincomalee_campus_bg.jpg'),
+(17, 'Vavuniya Campus, University of Jaffna', NULL, NULL, NULL, NULL, 'vavuniya_campus_logo.png', 'vavuniya_campus_logo.jpg'),
+(18, 'Institute of Indigenous Medicine, University of Colombo', NULL, NULL, NULL, NULL, 'institute_of_indigenous_medicine_logo.png', 'institute_of_ndigenous_medicine_bg.jpg'),
+(19, 'Gampaha Wickramaarachchi Ayurveda Institute, University of Colombo', NULL, NULL, NULL, NULL, 'gampaha_wickramarachchi_university_of_indigenous_medicine_logo.png', 'gampaha_wickramarachchi_university_of_indigenous_medicine_bg.jpg'),
+(20, 'University of Colombo School of Computing', NULL, NULL, NULL, NULL, 'university_of_colombo_school_of_computing_logo.png', 'university_of_colombo_school_of_computing_bg.jpg'),
+(21, 'Swami Vipulananda Institure of Aesthetic Studies, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'swami_vipulananda_institure_of_aesthetic_studies_logo.png', 'swami_vipulananda_institure_of_aesthetic_studies_bg.jpg'),
+(22, 'Ramanathan Academy of Fine Arts, University of Jaffna', NULL, NULL, NULL, NULL, 'ramanathan_academy_of_fine_arts_logo.png', 'ramanathan_academy_of_fine_arts_bg.jpg');
 
 CREATE TABLE GovermentUniversityRankings (
   gov_uni_id INT NOT NULL,

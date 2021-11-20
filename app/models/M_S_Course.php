@@ -15,6 +15,15 @@ class M_S_Course {
 
         return $results;
     }
+
+    public function getGovUniversityList() {
+        $this->db->query('SELECT * FROM GovermentUniversity');
+        // $this->db->bind(':gov_course_id', $id);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
 }
 
 ?>

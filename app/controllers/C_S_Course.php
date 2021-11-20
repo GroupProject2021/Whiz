@@ -21,6 +21,16 @@ class C_S_Course extends Controller {
         $this->view('students/opt_courses/v_gov_course_list', $data);
     }
 
+    public function govUniversityList() {
+        $govUniversities = $this->courseModel->getGovUniversityList();
+
+        $data = [
+            'universities' => $govUniversities
+        ];
+
+        $this->view('students/opt_courses/v_gov_university_list', $data);
+    }
+
     // Government course view more
     public function govCourseViewMore($id) {
         $data = [];

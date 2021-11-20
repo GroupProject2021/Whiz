@@ -22,6 +22,8 @@
                             <a href="<?php echo URLROOT; ?>/C_S_Course/index">courses</a>
                             >
                             <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList">Government</a>
+                            >
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/govUniversityList">University List</a>
                         </h1>
                     </div>
 
@@ -33,27 +35,20 @@
                         </div>
                         <br>
                         <div>
-                            
-                            <?php if($_SESSION['specialized_actor_type'] == 'AL qualified'): ?>
-                                <a href="<?php echo URLROOT; ?>/C_S_Course/getRecommendedGovCourseList"><button class="btn2">Recommend Government courses</button></a>
-                            <?php else: ?>
-                                <a href="" onclick="alert('Upgrade to AL Qualified to unlock this feature')"><button class="btn2 disabled">Recommend Government courses</button></a>
-                            <?php endif; ?>                        
-                        </div>
-                        <br>
-                        <div>
                                 <table class="gov-course-table">
                                     <tr>
                                         <th>No.</th>
-                                        <th>Government course name</th>
+                                        <th>Logo</th>
+                                        <th>Government University name</th>
                                         <th></th>
                                     </tr>
                                     <tr><td colspan="7"><hr></td></tr>
-                                    <?php foreach($data['courses'] as $govCourse): ?>
+                                    <?php foreach($data['universities'] as $govUniversity): ?>
                                     <tr>
-                                        <td class="gov-course-index"><?php echo $govCourse->gov_course_id; ?></td>
-                                        <td class="gov-course-name"><?php echo $govCourse->gov_course_name; ?></td>
-                                        <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_S_Course/govCourseViewMore/'.$govCourse->gov_course_id;?>"><button class="btn3">View more</button></a></td>
+                                        <td class="gov-course-index"><?php echo $govUniversity->gov_uni_id; ?></td>
+                                        <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/profileimages/admin/governmentUniversity/logo/'.$govUniversity->logo?>" alt=""></td>
+                                        <td class="gov-course-name"><?php echo $govUniversity->uni_name; ?></td> 
+                                        <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_A_Government_University_Settings/settings/'.$govUniversity->gov_uni_id;?>"><button class="btn3">View more</button></a></td>
                                     </tr>
                                     <tr><td colspan="7"><hr></td></tr>
                                     <?php endforeach; ?>
