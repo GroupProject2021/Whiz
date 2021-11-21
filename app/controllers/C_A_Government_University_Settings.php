@@ -13,6 +13,7 @@ class C_A_Government_University_Settings extends Controller {
         //$isAlreadyFollow = $this->checkFollowability($id);
 
         $uniData = $this->govUniModel->getGovUniversityDetails($id);
+        $courseOfferingData = $this->govUniModel->getCourseOfferings($uniData->uni_name);
 
         $data = [
             //'followerCount' => $followerCount,                    
@@ -24,7 +25,8 @@ class C_A_Government_University_Settings extends Controller {
             'student_amount' => $uniData->student_amount,
             'graduate_job_rate' => $uniData->graduate_job_rate,
             'logo' => $uniData->logo,
-            'bg_img' => $uniData->bg_img
+            'bg_img' => $uniData->bg_img,
+            'course_offerings' => $courseOfferingData
         ];
 
         $this->view('admin/governmentUniversity/opt_settings/v_gov_university_profile', $data);        

@@ -18,13 +18,21 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Government University profile</h1>
+                        <h1>
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/index">courses</a>
+                            >
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList">Government</a>
+                            >
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/govUniversityList">University List</a>
+                            >
+                            view
+                        </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
                                             
-                    <div class="org-profile">
+                    <div class="uni-profile">
                         <div class="header">
                             <div class="imagearea">
                             <form action="<?php echo URLROOT; ?>/C_O_Settings/editProfilePic" method="post" enctype="multipart/form-data">
@@ -84,6 +92,117 @@
                                         <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/admin/governmentUniversity/description-icon.png'; ?>" alt="">Description</div>
                                         <div class="text"><?php echo $data['description'];?></div>
                                     </div>
+                                </div>
+                                <hr>
+                                <!-- art stream -->
+                                <div class="division">
+                                    <div class="division-name">Art stream related </div>
+                                </div>
+                                <div class="beginner-detials-single">
+                                    <?php foreach($data['course_offerings'] as $courseOffering): ?>
+                                        <?php if($courseOffering->stream_id == 1): ?>
+                                        <div class="courseoffering">
+                                            <div class="title"><?php echo $courseOffering->unicode; ?></div>
+                                            <div class="text"><?php echo $courseOffering->gov_course_name; ?></div>                                        
+                                        </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </div>
+                                <br>
+
+                                <!-- commerce stream -->
+                                <div class="division">
+                                    <div class="division-name">Commerce stream related </div>
+                                </div>
+                                <div class="beginner-detials-single">
+                                    <?php foreach($data['course_offerings'] as $courseOffering): ?>
+                                        <?php if($courseOffering->stream_id == 2): ?>
+                                        <div class="courseoffering">
+                                            <div class="title"><?php echo $courseOffering->unicode; ?></div>
+                                            <div class="text"><?php echo $courseOffering->gov_course_name; ?></div>                                        
+                                        </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </div>
+                                <br>
+
+                                <!-- Biological Science stream -->
+                                <div class="division">
+                                    <div class="division-name">Biological Science stream related </div>
+                                </div>
+                                <div class="beginner-detials-single">
+                                    <?php foreach($data['course_offerings'] as $courseOffering): ?>
+                                        <?php if($courseOffering->stream_id == 3): ?>
+                                        <div class="courseoffering">
+                                            <div class="title"><?php echo $courseOffering->unicode; ?></div>
+                                            <div class="text"><?php echo $courseOffering->gov_course_name; ?></div>                                        
+                                        </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </div>
+                                <br>
+
+                                <!-- Physical Science (Maths) stream -->
+                                <div class="division">
+                                    <div class="division-name">Physical Science (Maths) stream related </div>
+                                </div>
+                                <div class="beginner-detials-single">
+                                    <?php foreach($data['course_offerings'] as $courseOffering): ?>
+                                        <?php if($courseOffering->stream_id == 4): ?>
+                                        <div class="courseoffering">
+                                            <div class="title"><?php echo $courseOffering->unicode; ?></div>
+                                            <div class="text"><?php echo $courseOffering->gov_course_name; ?></div>                                        
+                                        </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </div>
+                                <br>
+
+                                <!-- Engineering Technology stream -->
+                                <div class="division">
+                                    <div class="division-name">Engineering Technology stream related </div>
+                                </div>
+                                <div class="beginner-detials-single">
+                                    <?php foreach($data['course_offerings'] as $courseOffering): ?>
+                                        <?php if($courseOffering->stream_id == 5): ?>
+                                        <div class="courseoffering">
+                                            <div class="title"><?php echo $courseOffering->unicode; ?></div>
+                                            <div class="text"><?php echo $courseOffering->gov_course_name; ?></div>                                        
+                                        </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </div>
+                                <br>
+
+                                <!-- Biosystems Technology(BST) stream -->
+                                <div class="division">
+                                    <div class="division-name">Biosystems Technology(BST) stream related </div>
+                                </div>
+                                <div class="beginner-detials-single">
+                                    <?php foreach($data['course_offerings'] as $courseOffering): ?>
+                                        <?php if($courseOffering->stream_id == 6): ?>
+                                        <div class="courseoffering">
+                                            <div class="title"><?php echo $courseOffering->unicode; ?></div>
+                                            <div class="text"><?php echo $courseOffering->gov_course_name; ?></div>                                        
+                                        </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </div>
+                                <br>
+
+                                <!-- Other stream -->
+                                <div class="division">
+                                    <div class="division-name">Other stream related </div>
+                                </div>
+                                <div class="beginner-detials-single">
+                                    <?php foreach($data['course_offerings'] as $courseOffering): ?>
+                                        <?php if($courseOffering->stream_id == 7): ?>
+                                        <div class="courseoffering">
+                                            <div class="title"><?php echo $courseOffering->unicode; ?></div>
+                                            <div class="text"><?php echo $courseOffering->gov_course_name; ?></div>                                        
+                                        </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
                                 </div>
                                 <hr>
                          

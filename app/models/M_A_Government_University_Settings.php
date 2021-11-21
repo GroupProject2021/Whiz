@@ -17,6 +17,15 @@ class M_A_Government_University_Settings {
 
         return $row;
     }
+
+    public function getCourseOfferings($uniName) {
+        $this->db->query('SELECT * FROM v_gov_course_and_university WHERE uni_name = :uni_name');
+        $this->db->bind(':uni_name', $uniName);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
     
     // get user details
     public function getUserDetails($id) {

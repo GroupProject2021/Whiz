@@ -38,6 +38,7 @@
 @import url('profiles/student-profile.css');
 @import url('profiles/professionalGuider-profile.css');
 @import url('profiles/organization-profile.css');
+@import url('profiles/govUniversity-profile.css');
 
 /* profile statistics and connecitons */
 @import url('profileStatsAndConnections/profile-statistics-and-connections-styles.css');

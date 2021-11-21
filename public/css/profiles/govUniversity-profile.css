@@ -1,0 +1,181 @@
+.uni-profile{
+    width: 70%;
+}
+
+.uni-profile .header {
+
+}
+
+/* image area */
+.uni-profile .header .imagearea .wall img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.uni-profile .header .imagearea .profpic {
+    height: 100px;
+}
+
+.uni-profile .header .imagearea .profpic img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid white;
+    position: relative;
+    top: -90px;
+    background-color: white;
+    color: white;
+}
+
+.uni-profile .header .imagearea .profile-pic-edit-area {
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* details */
+.uni-profile .details {
+    padding: 0 5px 5px 5px;
+}
+
+.uni-profile .details .name {
+    font-size: large;
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+}
+
+.uni-profile .details .name img {
+    height: 20px;
+}
+
+.uni-profile .details .occupation {
+
+}
+
+.uni-profile .details .institute {
+    font-size: small;
+    font-weight: 600;
+}
+
+
+/* details -> beginner details */
+.uni-profile .details .beginner-detials {
+    padding: 5px;
+    background: rgb(190,190,190);
+    background: linear-gradient(42deg, rgba(190,190,190,0.3) 0%, rgba(255,251,225,0.3) 38%, rgba(240,242,239,0.3) 100%, rgba(255,255,248,0.3) 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.uni-profile .details .beginner-detials img {
+    height: 20px;
+    position: relative;
+    bottom: -5px;
+    padding-right: 5px;
+}
+
+.uni-profile .details .beginner-detials  .title {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(44, 44, 44);
+}
+
+.uni-profile .details .beginner-detials  .text {
+    padding-bottom: 5px;
+    padding-left: 25px;
+}
+
+/* single */
+.uni-profile .details .beginner-detials-single {
+    padding: 5px;
+    background: rgb(190,190,190);
+    background: linear-gradient(42deg, rgba(190,190,190,0.3) 0%, rgba(255,251,225,0.3) 38%, rgba(240,242,239,0.3) 100%, rgba(255,255,248,0.3) 100%);
+}
+
+.uni-profile .details .beginner-detials-single img {
+    height: 20px;
+    position: relative;
+    bottom: -5px;
+    padding-right: 5px;
+}
+
+.uni-profile .details .beginner-detials-single  .title {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(44, 44, 44);
+}
+
+.uni-profile .details .beginner-detials-single  .text {
+    padding-bottom: 5px;
+    padding-left: 25px;
+}
+
+.uni-profile .details .beginner-detials-single .courseoffering {
+    display: flex;
+    flex-direction: row;
+}
+
+.uni-profile .details .beginner-detials-single .courseoffering .title {
+    width: 30px;
+}
+
+/* details -> stats */
+.uni-profile .details .profile-stats {
+    display: flex;
+    flex-direction: row;
+    font-size: medium;
+    justify-content: center;
+    padding: 15px;
+    color: rgb(63, 63, 63);
+}
+
+.uni-profile .details .profile-stats div {
+    padding-right: 100px;
+}
+
+/* details -> about */
+.uni-profile .details .about .title {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(54, 54, 54);
+}
+
+/* profile tail */
+.uni-profile-tail {
+    width: 70%;
+}
+
+/* edit btn */
+.division {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0 5px 5px;
+}
+
+.division .division-name {
+    font-size: large;
+    font-weight: 500;
+    padding-right: 20px;
+}
+
+.division .editable {
+    /* width: 100%;
+    text-align: right; */
+}
+
+.uni-profile .profpic .profile-pic-edit-area {
+    position: relative;
+    top: -160px;
+    left: 200px;
+}
+
+.interactable {
+    display: flex;
+    flex-direction: row;
+}
+
+.interactable .msg-btn {
+    width: 130px;
+    margin-left: 10px;
+}

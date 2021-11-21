@@ -1,131 +1,146 @@
+CREATE TABLE Stream (
+	stream_id INT NOT NULL AUTO_INCREMENT,
+	stream_name VARCHAR(255) NOT NULL,
+	PRIMARY KEY(stream_id)
+);
+
+INSERT INTO Stream(stream_name) VALUES('Arts');
+INSERT INTO Stream(stream_name) VALUES('Commerce');
+INSERT INTO Stream(stream_name) VALUES('Biological Science');
+INSERT INTO Stream(stream_name) VALUES('Physical Science (Maths)');
+INSERT INTO Stream(stream_name) VALUES('Engineering Technology');
+INSERT INTO Stream(stream_name) VALUES('Biosystems Technology(BST)');
+INSERT INTO Stream(stream_name) VALUES('Other');
+
 CREATE TABLE GovernmentCourse (
   gov_course_id INT NOT NULL,
   gov_course_name VARCHAR(255) NOT NULL,
-  PRIMARY KEY(gov_course_id)  
+  stream_id INT,
+  PRIMARY KEY(gov_course_id),
+  FOREIGN KEY(stream_id)	REFERENCES Stream(stream_id)
 );
 
-INSERT INTO GovernmentCourse VALUES (001, 'Medicine');
-INSERT INTO GovernmentCourse VALUES (002, 'Dental Surgery');
-INSERT INTO GovernmentCourse VALUES (003, 'Veterinary Science');
-INSERT INTO GovernmentCourse VALUES (004, 'Agriculture');
-INSERT INTO GovernmentCourse VALUES (005, 'Food Science & Nutrition');
-INSERT INTO GovernmentCourse VALUES (006, 'Biological Science');
-INSERT INTO GovernmentCourse VALUES (007, 'Applied Sciences(Biological Science)');
-INSERT INTO GovernmentCourse VALUES (008, 'Engineering');
-INSERT INTO GovernmentCourse VALUES (009, 'Engineering(EM)');
-INSERT INTO GovernmentCourse VALUES (010, 'Engineering(TM)');
-INSERT INTO GovernmentCourse VALUES (011, 'Quantity Surveying');
-INSERT INTO GovernmentCourse VALUES (012, 'Computer Science');
-INSERT INTO GovernmentCourse VALUES (013, 'Physical Science');
-INSERT INTO GovernmentCourse VALUES (014, 'Surveying Science');
-INSERT INTO GovernmentCourse VALUES (015, 'Applied Sciences(Physical Science)');
-INSERT INTO GovernmentCourse VALUES (016, 'Management');
-INSERT INTO GovernmentCourse VALUES (017, 'Estate Management & Valuation');
-INSERT INTO GovernmentCourse VALUES (018, 'Commerce');
-INSERT INTO GovernmentCourse VALUES (019, 'Arts');
-INSERT INTO GovernmentCourse VALUES (020, 'Arts(SP) - Mass Media');
-INSERT INTO GovernmentCourse VALUES (041, 'Arts(SP) - Performing Arts');
-INSERT INTO GovernmentCourse VALUES (021, 'Arts(SAB)');
-INSERT INTO GovernmentCourse VALUES (022, 'Management Studies(TV)');
-INSERT INTO GovernmentCourse VALUES (023, 'Architecture');
-INSERT INTO GovernmentCourse VALUES (024, 'Design');
-INSERT INTO GovernmentCourse VALUES (025, 'Law');
-INSERT INTO GovernmentCourse VALUES (026, 'Information Technology(IT)');
-INSERT INTO GovernmentCourse VALUES (027, 'Management and Information Technology(MIT)');
-INSERT INTO GovernmentCourse VALUES (028, 'Management(Public) Special');
-INSERT INTO GovernmentCourse VALUES (029, 'Communication Studies');
-INSERT INTO GovernmentCourse VALUES (030, 'Town & Country Planning');
-INSERT INTO GovernmentCourse VALUES (031, 'Peace and Conflict Resolution');
-INSERT INTO GovernmentCourse VALUES (032, 'Ayurvedic Medicine and Surgery');
-INSERT INTO GovernmentCourse VALUES (033, 'Unani Medicine and Surgery');
-INSERT INTO GovernmentCourse VALUES (034, 'Fashion Design & Product Development');
-INSERT INTO GovernmentCourse VALUES (035, 'Food Science & Technology');
-INSERT INTO GovernmentCourse VALUES (036, 'Siddha Medicine & Surgery');
-INSERT INTO GovernmentCourse VALUES (037, 'Nursing');
-INSERT INTO GovernmentCourse VALUES (038, 'Information and Communication Technology(ICT)');
-INSERT INTO GovernmentCourse VALUES (039, 'Agricultural Technology & Management');
-INSERT INTO GovernmentCourse VALUES (050, 'Health Promotion');
-INSERT INTO GovernmentCourse VALUES (051, 'Pharmacy');
-INSERT INTO GovernmentCourse VALUES (052, 'Medical Laboratory Sciences');
-INSERT INTO GovernmentCourse VALUES (053, 'Radiography');
-INSERT INTO GovernmentCourse VALUES (054, 'Physiotherapy');
-INSERT INTO GovernmentCourse VALUES (055, 'Environmental Conversation & Management');
-INSERT INTO GovernmentCourse VALUES (056, 'Facilities Management');
-INSERT INTO GovernmentCourse VALUES (057, 'Transport & Logistics Management');
-INSERT INTO GovernmentCourse VALUES (058, 'Molecular Biology & Biochemistry');
-INSERT INTO GovernmentCourse VALUES (059, 'Industrial Statistics & Mathematical Finance');
-INSERT INTO GovernmentCourse VALUES (060, 'Statistics & Operations Research');
-INSERT INTO GovernmentCourse VALUES (061, 'Computation & Management');
-INSERT INTO GovernmentCourse VALUES (062, 'Fisheries & Marine Sciences');
-INSERT INTO GovernmentCourse VALUES (063, 'Islamic Studies');
-INSERT INTO GovernmentCourse VALUES (064, 'Science and Technology');
-INSERT INTO GovernmentCourse VALUES (065, 'Computer Science & Technology');
-INSERT INTO GovernmentCourse VALUES (066, 'Entrepreneuship & Management');
-INSERT INTO GovernmentCourse VALUES (067, 'Animal Science');
-INSERT INTO GovernmentCourse VALUES (068, 'Music');
-INSERT INTO GovernmentCourse VALUES (069, 'Dance');
-INSERT INTO GovernmentCourse VALUES (070, 'Art & Design');
-INSERT INTO GovernmentCourse VALUES (071, 'Drama & Theatre');
-INSERT INTO GovernmentCourse VALUES (072, 'Visual & Technological Arts');
-INSERT INTO GovernmentCourse VALUES (073, 'Export Agriculture');
-INSERT INTO GovernmentCourse VALUES (074, 'Tea Technology & Value Addition');
-INSERT INTO GovernmentCourse VALUES (075, 'Industrial Information Technology');
-INSERT INTO GovernmentCourse VALUES (076, 'Mineral Resources and Technology');
-INSERT INTO GovernmentCourse VALUES (077, 'Business Information Systems(Special)(BIS)');
-INSERT INTO GovernmentCourse VALUES (079, 'Management and Information Technology(SEUSL)');
-INSERT INTO GovernmentCourse VALUES (080, 'Computing & Information Systems');
-INSERT INTO GovernmentCourse VALUES (081, 'Physical Education');
-INSERT INTO GovernmentCourse VALUES (082, 'Sports Science & Management');
-INSERT INTO GovernmentCourse VALUES (083, 'Speech ad Hearing Sciences');
-INSERT INTO GovernmentCourse VALUES (084, 'Arabic Language)');
-INSERT INTO GovernmentCourse VALUES (085, 'Visual Arts');
-INSERT INTO GovernmentCourse VALUES (086, 'Animal Science & Fisheries');
-INSERT INTO GovernmentCourse VALUES (087, 'Food Production & Technology Management');
-INSERT INTO GovernmentCourse VALUES (088, 'Aquatic Resources Technology');
-INSERT INTO GovernmentCourse VALUES (089, 'Palm and Latex Technology & Value Addition');
-INSERT INTO GovernmentCourse VALUES (090, 'Hospitiality, Tourism and Events Management');
-INSERT INTO GovernmentCourse VALUES (091, 'Information Technology & Management');
-INSERT INTO GovernmentCourse VALUES (092, 'Tourism & Hospitality Management');
-INSERT INTO GovernmentCourse VALUES (093, 'Agricultural Resource Management & Technology');
-INSERT INTO GovernmentCourse VALUES (094, 'Agribusiness Management');
-INSERT INTO GovernmentCourse VALUES (095, 'Green Technology');
-INSERT INTO GovernmentCourse VALUES (096, 'Information Systems');
-INSERT INTO GovernmentCourse VALUES (097, 'Landscape Architecture');
-INSERT INTO GovernmentCourse VALUES (098, 'Translation Studies');
-INSERT INTO GovernmentCourse VALUES (099, 'Software Engineering');
-INSERT INTO GovernmentCourse VALUES (100, 'Film & Television Studies');
-INSERT INTO GovernmentCourse VALUES (101, 'Project Management');
-INSERT INTO GovernmentCourse VALUES (102, 'Engineering Technology(ET)');
-INSERT INTO GovernmentCourse VALUES (103, 'Biosystems Technology(BST)');
-INSERT INTO GovernmentCourse VALUES (104, 'Information Communication Technology');
-INSERT INTO GovernmentCourse VALUES (105, 'Teaching English as a Second Language(TESL)');
-INSERT INTO GovernmentCourse VALUES (106, 'Marine and Freshwater Sciences');
-INSERT INTO GovernmentCourse VALUES (107, 'Food Business Management');
-INSERT INTO GovernmentCourse VALUES (108, 'Physical Science - ICT');
-INSERT INTO GovernmentCourse VALUES (109, 'Business Science');
-INSERT INTO GovernmentCourse VALUES (110, 'Financial Engineering');
-INSERT INTO GovernmentCourse VALUES (111, 'Geographical Information Science');
-INSERT INTO GovernmentCourse VALUES (112, 'Social Work');
-INSERT INTO GovernmentCourse VALUES (113, 'Financial Mathematics and Industrial Statistics');
-INSERT INTO GovernmentCourse VALUES (114, 'Human Resource Development');
---newly added
-INSERT INTO GovernmentCourse VALUES (115, 'Arts - Information Technology');
-INSERT INTO GovernmentCourse VALUES (116, 'Accounting Information Systems');
-INSERT INTO GovernmentCourse VALUES (117, 'Ocuupational Therapy');
-INSERT INTO GovernmentCourse VALUES (118, 'Optometry');
-INSERT INTO GovernmentCourse VALUES (119, 'Applied Chemistry');
-INSERT INTO GovernmentCourse VALUES (120, 'Indigenous Medicinal Resources');
-INSERT INTO GovernmentCourse VALUES (121, 'Aquatic Bioresources');
-INSERT INTO GovernmentCourse VALUES (122, 'Urban Bioresources');
-INSERT INTO GovernmentCourse VALUES (123, 'Computing & Information Systems');
-INSERT INTO GovernmentCourse VALUES (124, 'Artificial Intelligence');
-INSERT INTO GovernmentCourse VALUES (125, 'Electronics and Computer Science');
-INSERT INTO GovernmentCourse VALUES (126, 'Health Information and Communication Technology');
-INSERT INTO GovernmentCourse VALUES (127, 'Health Tourism and Hospitality Management');
-INSERT INTO GovernmentCourse VALUES (128, 'Biomedical Technology');
-INSERT INTO GovernmentCourse VALUES (129, 'Indigenous Pharmaceutical Technology');
-INSERT INTO GovernmentCourse VALUES (130, 'Yoga and Parapsychology');
-INSERT INTO GovernmentCourse VALUES (131, 'Social studeis in Indigenous Knowledge');
+INSERT INTO GovernmentCourse VALUES (001, 'Medicine', 3);
+INSERT INTO GovernmentCourse VALUES (002, 'Dental Surgery', 3);
+INSERT INTO GovernmentCourse VALUES (003, 'Veterinary Science', 3);
+INSERT INTO GovernmentCourse VALUES (004, 'Agriculture', 3);
+INSERT INTO GovernmentCourse VALUES (005, 'Food Science & Nutrition', 3);
+INSERT INTO GovernmentCourse VALUES (006, 'Biological Science', 3);
+INSERT INTO GovernmentCourse VALUES (007, 'Applied Sciences(Biological Science)', 3);
+INSERT INTO GovernmentCourse VALUES (008, 'Engineering', 4);
+INSERT INTO GovernmentCourse VALUES (009, 'Engineering(EM)', 4);
+INSERT INTO GovernmentCourse VALUES (010, 'Engineering(TM)', 4);
+INSERT INTO GovernmentCourse VALUES (011, 'Quantity Surveying', 7);
+INSERT INTO GovernmentCourse VALUES (012, 'Computer Science', 4);
+INSERT INTO GovernmentCourse VALUES (013, 'Physical Science', 4);
+INSERT INTO GovernmentCourse VALUES (014, 'Surveying Science', 7);
+INSERT INTO GovernmentCourse VALUES (015, 'Applied Sciences(Physical Science)', 4);
+INSERT INTO GovernmentCourse VALUES (016, 'Management', 2);
+INSERT INTO GovernmentCourse VALUES (017, 'Estate Management & Valuation', 2);
+INSERT INTO GovernmentCourse VALUES (018, 'Commerce', 2);
+INSERT INTO GovernmentCourse VALUES (019, 'Arts', 1);
+INSERT INTO GovernmentCourse VALUES (020, 'Arts(SP) - Mass Media', 1);
+INSERT INTO GovernmentCourse VALUES (041, 'Arts(SP) - Performing Arts', 1);
+INSERT INTO GovernmentCourse VALUES (021, 'Arts(SAB)', 1);
+INSERT INTO GovernmentCourse VALUES (022, 'Management Studies(TV)', 2);
+INSERT INTO GovernmentCourse VALUES (023, 'Architecture', 7);
+INSERT INTO GovernmentCourse VALUES (024, 'Design', 7);
+INSERT INTO GovernmentCourse VALUES (025, 'Law', 7);
+INSERT INTO GovernmentCourse VALUES (026, 'Information Technology(IT)', 7);
+INSERT INTO GovernmentCourse VALUES (027, 'Management and Information Technology(MIT)', 7);
+INSERT INTO GovernmentCourse VALUES (028, 'Management(Public) Special', 2);
+INSERT INTO GovernmentCourse VALUES (029, 'Communication Studies', 1);
+INSERT INTO GovernmentCourse VALUES (030, 'Town & Country Planning', 7);
+INSERT INTO GovernmentCourse VALUES (031, 'Peace and Conflict Resolution', 1);
+INSERT INTO GovernmentCourse VALUES (032, 'Ayurvedic Medicine and Surgery', 3);
+INSERT INTO GovernmentCourse VALUES (033, 'Unani Medicine and Surgery', 3);
+INSERT INTO GovernmentCourse VALUES (034, 'Fashion Design & Product Development', 7);
+INSERT INTO GovernmentCourse VALUES (035, 'Food Science & Technology', 3);
+INSERT INTO GovernmentCourse VALUES (036, 'Siddha Medicine & Surgery', 3);
+INSERT INTO GovernmentCourse VALUES (037, 'Nursing', 3);
+INSERT INTO GovernmentCourse VALUES (038, 'Information and Communication Technology(ICT)', 7);
+INSERT INTO GovernmentCourse VALUES (039, 'Agricultural Technology & Management', 3);
+INSERT INTO GovernmentCourse VALUES (050, 'Health Promotion', 3);
+INSERT INTO GovernmentCourse VALUES (051, 'Pharmacy', 3);
+INSERT INTO GovernmentCourse VALUES (052, 'Medical Laboratory Sciences', 3);
+INSERT INTO GovernmentCourse VALUES (053, 'Radiography', 3);
+INSERT INTO GovernmentCourse VALUES (054, 'Physiotherapy', 3);
+INSERT INTO GovernmentCourse VALUES (055, 'Environmental Conversation & Management', 3);
+INSERT INTO GovernmentCourse VALUES (056, 'Facilities Management', 7);
+INSERT INTO GovernmentCourse VALUES (057, 'Transport & Logistics Management', 4);
+INSERT INTO GovernmentCourse VALUES (058, 'Molecular Biology & Biochemistry', 3);
+INSERT INTO GovernmentCourse VALUES (059, 'Industrial Statistics & Mathematical Finance', 4);
+INSERT INTO GovernmentCourse VALUES (060, 'Statistics & Operations Research', 4);
+INSERT INTO GovernmentCourse VALUES (061, 'Computation & Management', 2);
+INSERT INTO GovernmentCourse VALUES (062, 'Fisheries & Marine Sciences', 3);
+INSERT INTO GovernmentCourse VALUES (063, 'Islamic Studies', 1);
+INSERT INTO GovernmentCourse VALUES (064, 'Science and Technology', 7);
+INSERT INTO GovernmentCourse VALUES (065, 'Computer Science & Technology', 7);
+INSERT INTO GovernmentCourse VALUES (066, 'Entrepreneuship & Management', 7);
+INSERT INTO GovernmentCourse VALUES (067, 'Animal Science', 3);
+INSERT INTO GovernmentCourse VALUES (068, 'Music', 1);
+INSERT INTO GovernmentCourse VALUES (069, 'Dance', 1);
+INSERT INTO GovernmentCourse VALUES (070, 'Art & Design', 1);
+INSERT INTO GovernmentCourse VALUES (071, 'Drama & Theatre', 1);
+INSERT INTO GovernmentCourse VALUES (072, 'Visual & Technological Arts', 1);
+INSERT INTO GovernmentCourse VALUES (073, 'Export Agriculture', 3);
+INSERT INTO GovernmentCourse VALUES (074, 'Tea Technology & Value Addition', 7);
+INSERT INTO GovernmentCourse VALUES (075, 'Industrial Information Technology', 7);
+INSERT INTO GovernmentCourse VALUES (076, 'Mineral Resources and Technology', 7);
+INSERT INTO GovernmentCourse VALUES (077, 'Business Information Systems(Special)(BIS)', 2);
+INSERT INTO GovernmentCourse VALUES (079, 'Management and Information Technology(SEUSL)', 7);
+INSERT INTO GovernmentCourse VALUES (080, 'Computing & Information Systems', 2);
+INSERT INTO GovernmentCourse VALUES (081, 'Physical Education', 7);
+INSERT INTO GovernmentCourse VALUES (082, 'Sports Science & Management', 7);
+INSERT INTO GovernmentCourse VALUES (083, 'Speech ad Hearing Sciences', 7);
+INSERT INTO GovernmentCourse VALUES (084, 'Arabic Language', 1);
+INSERT INTO GovernmentCourse VALUES (085, 'Visual Arts', 1);
+INSERT INTO GovernmentCourse VALUES (086, 'Animal Science & Fisheries', 3);
+INSERT INTO GovernmentCourse VALUES (087, 'Food Production & Technology Management', 3);
+INSERT INTO GovernmentCourse VALUES (088, 'Aquatic Resources Technology', 3);
+INSERT INTO GovernmentCourse VALUES (089, 'Palm and Latex Technology & Value Addition', 7);
+INSERT INTO GovernmentCourse VALUES (090, 'Hospitiality, Tourism and Events Management', 7);
+INSERT INTO GovernmentCourse VALUES (091, 'Information Technology & Management', 7);
+INSERT INTO GovernmentCourse VALUES (092, 'Tourism & Hospitality Management', 7);
+INSERT INTO GovernmentCourse VALUES (093, 'Agricultural Resource Management & Technology', 3);
+INSERT INTO GovernmentCourse VALUES (094, 'Agribusiness Management', 3);
+INSERT INTO GovernmentCourse VALUES (095, 'Green Technology', 3);
+INSERT INTO GovernmentCourse VALUES (096, 'Information Systems', 7);
+INSERT INTO GovernmentCourse VALUES (097, 'Landscape Architecture', 7);
+INSERT INTO GovernmentCourse VALUES (098, 'Translation Studies', 7);
+INSERT INTO GovernmentCourse VALUES (099, 'Software Engineering', 7);
+INSERT INTO GovernmentCourse VALUES (100, 'Film & Television Studies', 7);
+INSERT INTO GovernmentCourse VALUES (101, 'Project Management', 7);
+INSERT INTO GovernmentCourse VALUES (102, 'Engineering Technology(ET)', 5);
+INSERT INTO GovernmentCourse VALUES (103, 'Biosystems Technology(BST)', 6);
+INSERT INTO GovernmentCourse VALUES (104, 'Information Communication Technology', 6);
+INSERT INTO GovernmentCourse VALUES (105, 'Teaching English as a Second Language(TESL)', 1);
+INSERT INTO GovernmentCourse VALUES (106, 'Marine and Freshwater Sciences', 7);
+INSERT INTO GovernmentCourse VALUES (107, 'Food Business Management', 7);
+INSERT INTO GovernmentCourse VALUES (108, 'Physical Science - ICT', 4);
+INSERT INTO GovernmentCourse VALUES (109, 'Business Science', 7);
+INSERT INTO GovernmentCourse VALUES (110, 'Financial Engineering', 7);
+INSERT INTO GovernmentCourse VALUES (111, 'Geographical Information Science', 7);
+INSERT INTO GovernmentCourse VALUES (112, 'Social Work', 1);
+INSERT INTO GovernmentCourse VALUES (113, 'Financial Mathematics and Industrial Statistics', 7);
+INSERT INTO GovernmentCourse VALUES (114, 'Human Resource Development', 7);
+INSERT INTO GovernmentCourse VALUES (115, 'Arts - Information Technology', 1);
+INSERT INTO GovernmentCourse VALUES (116, 'Accounting Information Systems', 2);
+INSERT INTO GovernmentCourse VALUES (117, 'Ocuupational Therapy', 3);
+INSERT INTO GovernmentCourse VALUES (118, 'Optometry', 3);
+INSERT INTO GovernmentCourse VALUES (119, 'Applied Chemistry', 3);
+INSERT INTO GovernmentCourse VALUES (120, 'Indigenous Medicinal Resources', 3);
+INSERT INTO GovernmentCourse VALUES (121, 'Aquatic Bioresources', 3);
+INSERT INTO GovernmentCourse VALUES (122, 'Urban Bioresources', 3);
+INSERT INTO GovernmentCourse VALUES (123, 'Computing & Information Systems', 4);
+INSERT INTO GovernmentCourse VALUES (124, 'Artificial Intelligence', 4);
+INSERT INTO GovernmentCourse VALUES (125, 'Electronics and Computer Science', 4);
+INSERT INTO GovernmentCourse VALUES (126, 'Health Information and Communication Technology', 7);
+INSERT INTO GovernmentCourse VALUES (127, 'Health Tourism and Hospitality Management', 7);
+INSERT INTO GovernmentCourse VALUES (128, 'Biomedical Technology', 7);
+INSERT INTO GovernmentCourse VALUES (129, 'Indigenous Pharmaceutical Technology', 7);
+INSERT INTO GovernmentCourse VALUES (130, 'Yoga and Parapsychology', 7);
+INSERT INTO GovernmentCourse VALUES (131, 'Social studeis in Indigenous Knowledge', 7);
 
 CREATE TABLE GovermentUniversity (
   gov_uni_id INT NOT NULL AUTO_INCREMENT,
@@ -139,6 +154,32 @@ CREATE TABLE GovermentUniversity (
   PRIMARY KEY(gov_uni_id)
 ); 
 
+
+INSERT INTO `GovermentUniversity` (`gov_uni_id`, `uni_name`, `description`, `world_rank`, `student_amount`, `graduate_job_rate`, `logo`, `bg_img`) VALUES
+(1, 'University of Colombo', NULL, NULL, NULL, NULL, 'university_of_colombo_logo.png', 'university_of_colombo_bg.jpg'),
+(2, 'University of Peradeniya', NULL, NULL, NULL, NULL, 'university_of_peradeniya_logo.png', 'university_of_peradeniya_bg.jpg'),
+(3, 'University of Sri Jayawardenepura', NULL, NULL, NULL, NULL, 'university_of_sri_jayaawardhanapura_logo.png', 'university_of_sri_jayaawardhanapura_bg.jpg'),
+(4, 'University of Kelaniya', NULL, NULL, NULL, NULL, 'university_of_kelaniya_logo.png', 'university_of_kelaniya_bg.jpg'),
+(5, 'University of Moratuwa', NULL, NULL, NULL, NULL, 'university_of_moratuwa_logo.png', 'university_of_moratuwa_bg.jpg'),
+(6, 'University of Jaffna', NULL, NULL, NULL, NULL, 'university_of_jaffna_logo.png', 'university_of_jaffna_bg.png'),
+(7, 'University of Ruhuna', NULL, NULL, NULL, NULL, 'university_of_ruhuna_logo.png', 'university_of_ruhuna_bg.jpg'),
+(8, 'Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'esatern_university_logo.png', 'esatern_university_bg.jpg'),
+(9, 'South Eastern University of Sri Lanka ', NULL, NULL, NULL, NULL, 'south_esatern_university_logo.png', 'south_esatern_university_bg.jpg'),
+(10, 'Rajarata University of Sri Lanka ', NULL, NULL, NULL, NULL, 'rajarata_university_logo.png', 'rajarata_university_bg.jpg'),
+(11, 'Sabaragamuwa University of Sri Lanka', NULL, NULL, NULL, NULL, 'sabaragamuwa_university_logo.png', 'sabaragamuwa_university_bg.jpg'),
+(12, 'Wayamba University of Sri Lanka', NULL, NULL, NULL, NULL, 'wayamba_university_logo.png', 'wayamba_university_logo.jpg'),
+(13, 'Uva Wellassa University of Sri Lanka', NULL, NULL, NULL, NULL, 'uva_wellassa_university_logo.png', 'uva_wellassa_university_bg.jpg'),
+(14, 'University of the Visual & Performing Arts', NULL, NULL, NULL, NULL, 'university_of_the_visual_&_performing_arts.png', 'university_of_the_visual_&_performing_arts_bg.jpg'),
+(15, 'Sripalee Campus, University of Colombo', NULL, NULL, NULL, NULL, 'sri_palee_campus_logo.png', 'sri_palee_campus_bg.jpg'),
+(16, 'Trincomalee Campus, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'trincomalee_campus_logo.png', 'trincomalee_campus_bg.jpg'),
+(17, 'Vavuniya Campus, University of Jaffna', NULL, NULL, NULL, NULL, 'vavuniya_campus_logo.png', 'vavuniya_campus_logo.jpg'),
+(18, 'Institute of Indigenous Medicine, University of Colombo', NULL, NULL, NULL, NULL, 'institute_of_indigenous_medicine_logo.png', 'institute_of_ndigenous_medicine_bg.jpg'),
+(19, 'Gampaha Wickramaarachchi Ayurveda Institute, University of Colombo', NULL, NULL, NULL, NULL, 'gampaha_wickramarachchi_university_of_indigenous_medicine_logo.png', 'gampaha_wickramarachchi_university_of_indigenous_medicine_bg.jpg'),
+(20, 'University of Colombo School of Computing', NULL, NULL, NULL, NULL, 'university_of_colombo_school_of_computing_logo.png', 'university_of_colombo_school_of_computing_bg.jpg'),
+(21, 'Swami Vipulananda Institure of Aesthetic Studies, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'swami_vipulananda_institure_of_aesthetic_studies_logo.png', 'swami_vipulananda_institure_of_aesthetic_studies_bg.jpg'),
+(22, 'Ramanathan Academy of Fine Arts, University of Jaffna', NULL, NULL, NULL, NULL, 'ramanathan_academy_of_fine_arts_logo.png', 'ramanathan_academy_of_fine_arts_bg.jpg');
+
+
 CREATE TABLE GovernmentCourseOfferedByGovermentUniversity (
   id  INT NOT NULL AUTO_INCREMENT,
   gov_course_id INT NOT NULL,
@@ -146,12 +187,13 @@ CREATE TABLE GovernmentCourseOfferedByGovermentUniversity (
   purposed_intake INT NOT NULL,
   duration INT,
   description VARCHAR(255),
+  unicode VARCHAR(10),
   PRIMARY KEY(id),
   FOREIGN KEY(gov_course_id)	REFERENCES GovernmentCourse(gov_course_id),
   FOREIGN KEY(gov_uni_id)	REFERENCES GovermentUniversity(gov_uni_id)
 );
 
---data inserted using admin panel
+-- data inserted using admin panel
 
 INSERT INTO `governmentcourseofferedbygovermentuniversity` (`id`, `gov_course_id`, `gov_uni_id`, `purposed_intake`, `duration`, `description`, `unicode`) VALUES
 (1, 19, 1, -1, -1, '-1', '019A'),
@@ -409,7 +451,8 @@ CREATE VIEW v_gov_course_and_university AS
 	GovernmentCourseOfferedByGovermentUniversity.unicode AS unicode,
 	GovernmentCourseOfferedByGovermentUniversity.purposed_intake,
 	GovernmentCourseOfferedByGovermentUniversity.duration,
-	GovernmentCourseOfferedByGovermentUniversity.description
+	GovernmentCourseOfferedByGovermentUniversity.description,
+	GovernmentCourse.stream_id AS stream_id
 	FROM
 	GovernmentCourseOfferedByGovermentUniversity
 	INNER JOIN GovernmentCourse
@@ -428,30 +471,6 @@ CREATE TABLE UniCodes (
 );
 
 -- data records for government courses
-INSERT INTO `GovermentUniversity` (`gov_uni_id`, `uni_name`, `description`, `world_rank`, `student_amount`, `graduate_job_rate`, `logo`, `bg_img`) VALUES
-(1, 'University of Colombo', NULL, NULL, NULL, NULL, 'university_of_colombo_logo.png', 'university_of_colombo_bg.jpg'),
-(2, 'University of Peradeniya', NULL, NULL, NULL, NULL, 'university_of_peradeniya_logo.png', 'university_of_peradeniya_bg.jpg'),
-(3, 'University of Sri Jayawardenepura', NULL, NULL, NULL, NULL, 'university_of_sri_jayaawardhanapura_logo.png', 'university_of_sri_jayaawardhanapura_bg.jpg'),
-(4, 'University of Kelaniya', NULL, NULL, NULL, NULL, 'university_of_kelaniya_logo.png', 'university_of_kelaniya_bg.jpg'),
-(5, 'University of Moratuwa', NULL, NULL, NULL, NULL, 'university_of_moratuwa_logo.png', 'university_of_moratuwa_bg.jpg'),
-(6, 'University of Jaffna', NULL, NULL, NULL, NULL, 'university_of_jaffna_logo.png', 'university_of_jaffna_bg.png'),
-(7, 'University of Ruhuna', NULL, NULL, NULL, NULL, 'university_of_ruhuna_logo.png', 'university_of_ruhuna_bg.jpg'),
-(8, 'Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'esatern_university_logo.png', 'esatern_university_bg.jpg'),
-(9, 'South Eastern University of Sri Lanka ', NULL, NULL, NULL, NULL, 'south_esatern_university_logo.png', 'south_esatern_university_bg.jpg'),
-(10, 'Rajarata University of Sri Lanka ', NULL, NULL, NULL, NULL, 'rajarata_university_logo.png', 'rajarata_university_bg.jpg'),
-(11, 'Sabaragamuwa University of Sri Lanka', NULL, NULL, NULL, NULL, 'sabaragamuwa_university_logo.png', 'sabaragamuwa_university_bg.jpg'),
-(12, 'Wayamba University of Sri Lanka', NULL, NULL, NULL, NULL, 'wayamba_university_logo.png', 'wayamba_university_logo.jpg'),
-(13, 'Uva Wellassa University of Sri Lanka', NULL, NULL, NULL, NULL, 'uva_wellassa_university_logo.png', 'uva_wellassa_university_bg.jpg'),
-(14, 'University of the Visual & Performing Arts', NULL, NULL, NULL, NULL, 'university_of_the_visual_&_performing_arts.png', 'university_of_the_visual_&_performing_arts_bg.jpg'),
-(15, 'Sripalee Campus, University of Colombo', NULL, NULL, NULL, NULL, 'sri_palee_campus_logo.png', 'sri_palee_campus_bg.jpg'),
-(16, 'Trincomalee Campus, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'trincomalee_campus_logo.png', 'trincomalee_campus_bg.jpg'),
-(17, 'Vavuniya Campus, University of Jaffna', NULL, NULL, NULL, NULL, 'vavuniya_campus_logo.png', 'vavuniya_campus_logo.jpg'),
-(18, 'Institute of Indigenous Medicine, University of Colombo', NULL, NULL, NULL, NULL, 'institute_of_indigenous_medicine_logo.png', 'institute_of_ndigenous_medicine_bg.jpg'),
-(19, 'Gampaha Wickramaarachchi Ayurveda Institute, University of Colombo', NULL, NULL, NULL, NULL, 'gampaha_wickramarachchi_university_of_indigenous_medicine_logo.png', 'gampaha_wickramarachchi_university_of_indigenous_medicine_bg.jpg'),
-(20, 'University of Colombo School of Computing', NULL, NULL, NULL, NULL, 'university_of_colombo_school_of_computing_logo.png', 'university_of_colombo_school_of_computing_bg.jpg'),
-(21, 'Swami Vipulananda Institure of Aesthetic Studies, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'swami_vipulananda_institure_of_aesthetic_studies_logo.png', 'swami_vipulananda_institure_of_aesthetic_studies_bg.jpg'),
-(22, 'Ramanathan Academy of Fine Arts, University of Jaffna', NULL, NULL, NULL, NULL, 'ramanathan_academy_of_fine_arts_logo.png', 'ramanathan_academy_of_fine_arts_bg.jpg');
-
 CREATE TABLE GovermentUniversityRankings (
   gov_uni_id INT NOT NULL,
   year INT NOT NULL,
@@ -610,19 +629,7 @@ CREATE TABLE OLQualifiedStudent (
 	FOREIGN KEY(ol_sub9_id)	REFERENCES OLSubject(ol_sub_id)
 );
 
-CREATE TABLE Stream (
-	stream_id INT NOT NULL AUTO_INCREMENT,
-	stream_name VARCHAR(255) NOT NULL,
-	PRIMARY KEY(stream_id)
-);
 
-INSERT INTO Stream(stream_name) VALUES('Arts');
-INSERT INTO Stream(stream_name) VALUES('Commerce');
-INSERT INTO Stream(stream_name) VALUES('Biological Science');
-INSERT INTO Stream(stream_name) VALUES('Physical Science (Maths)');
-INSERT INTO Stream(stream_name) VALUES('Engineering Technology');
-INSERT INTO Stream(stream_name) VALUES('Biosystems Technology(BST)');
-INSERT INTO Stream(stream_name) VALUES('Other');
 
 
 CREATE TABLE ALSubject (
