@@ -7261,6 +7261,22 @@ INSERT INTO School(name, type, district_id) VALUES ("OKI International School, W
 INSERT INTO School(name, type, district_id) VALUES ("Sri Bodhiraja International College, Embilipitiya", 'International', 26);
 INSERT INTO School(name, type, district_id) VALUES ("Ward International School, Gampaha", 'International', 26);
 
+-- Social profile details
+CREATE TABLE SocialProfiles (
+	profile_record_id INT AUTO_INCREMENT,
+	user_id INT,
+	facebook VARCHAR(255),
+	twitter VARCHAR(255),
+	linkedin VARCHAR(255),
+	instagram VARCHAR(255),
+	medium VARCHAR(255),
+	printerest VARCHAR(255),
+	youtube VARCHAR(255),
+	reddit VARCHAR(255),
+	PRIMARY KEY(profile_record_id),
+	FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE
+);
+
 -- views
 -- for ratings
 CREATE VIEW v_posts_rate1 AS

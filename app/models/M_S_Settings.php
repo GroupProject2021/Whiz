@@ -7,6 +7,82 @@ class M_S_Settings {
         $this->db = new Database;
     }
 
+    // social platform data
+    public function getSocialPlatformData($id) {
+        $this->db->query('SELECT * FROM SocialProfiles INNER JOIN Users ON Users.id = SocialProfiles.user_id WHERE user_id = :id');
+        // bind values
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
+
+    public function addSocialPlatformData($id, $data) {
+        $this->db->query('INSERT INTO SocialProfiles(user_id, facebook, twitter, linkedin, instagram, medium, printerest, youtube, reddit)
+         VALUES(:id, :facebook, :twitter, :linkedin, :instagram, :medium, :printerest, :youtube, :reddit)');
+        // bind values                        
+        $this->db->bind(":id", $id);
+        $this->db->bind(":facebook", $data['facebook']);
+        $this->db->bind(":twitter", $data['twitter']);
+        $this->db->bind(":linkedin", $data['linkedin']);
+        $this->db->bind(":instagram", $data['instagram']);
+        $this->db->bind(":medium", $data['medium']);
+        $this->db->bind(":printerest", $data['printerest']);
+        $this->db->bind(":youtube", $data['youtube']);
+        $this->db->bind(":reddit", $data['reddit']);
+
+        if($this->db->execute()) {
+            // return true;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function updateSocialPlatformData($id, $data) {
+        $this->db->query('UPDATE SocialProfiles SET facebook = :facebook, twitter = :twitter, linkedin = :linkedin, instagram = :instagram,
+                            medium = :medium, printerest = :printerest, youtube = :youtube, reddit = :reddit
+                             WHERE user_id = :id');
+        // bind values                
+        $this->db->bind(":facebook", $data['facebook']);
+        $this->db->bind(":twitter", $data['twitter']);
+        $this->db->bind(":linkedin", $data['linkedin']);
+        $this->db->bind(":instagram", $data['instagram']);
+        $this->db->bind(":medium", $data['medium']);
+        $this->db->bind(":printerest", $data['printerest']);
+        $this->db->bind(":youtube", $data['youtube']);
+        $this->db->bind(":reddit", $data['reddit']);
+        $this->db->bind(":id", $id);
+
+        $res1 = $this->db->execute();
+
+        // Execute
+        if($res1) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function isSocialPlatformDataExist($id) {
+        $this->db->query('SELECT * FROM SocialProfiles WHERE user_id = :id'); // this is a prepared statement
+        // bind value
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        // Check row - return true if email exists. Because then rowCount is not 0
+        if($this->db->rowCount() > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     // get student details
     public function getStudentDetails($id) {
         $this->db->query('SELECT * FROM Student INNER JOIN Users ON Users.id = Student.stu_id WHERE stu_id = :id');

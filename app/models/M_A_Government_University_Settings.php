@@ -26,6 +26,23 @@ class M_A_Government_University_Settings {
 
         return $results;
     }
+
+    public function isCoursesRelatedToStreamExists($uniName, $streamid) {
+        $this->db->query('SELECT * FROM v_gov_course_and_university WHERE uni_name = :uni_name AND stream_id = :stream_id'); // this is a prepared statement
+        // bind value
+        $this->db->bind(":uni_name", $uniName);
+        $this->db->bind(":stream_id", $streamid);
+
+        $row = $this->db->resultSet();
+
+        // Check row - return true if email exists. Because then rowCount is not 0
+        if($this->db->rowCount() > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     
     // get user details
     public function getUserDetails($id) {

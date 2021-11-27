@@ -95,6 +95,7 @@
                                 </div>
                                 <hr>
                                 <!-- art stream -->
+                                <?php if($data['IsStream1Exist']): ?>
                                 <div class="division">
                                     <div class="division-name">Art stream related </div>
                                 </div>
@@ -109,8 +110,10 @@
                                     <?php endforeach; ?>
                                 </div>
                                 <br>
+                                <?php endif; ?>
 
                                 <!-- commerce stream -->
+                                <?php if($data['IsStream2Exist']): ?>
                                 <div class="division">
                                     <div class="division-name">Commerce stream related </div>
                                 </div>
@@ -125,8 +128,10 @@
                                     <?php endforeach; ?>
                                 </div>
                                 <br>
+                                <?php endif; ?>
 
                                 <!-- Biological Science stream -->
+                                <?php if($data['IsStream3Exist']): ?>
                                 <div class="division">
                                     <div class="division-name">Biological Science stream related </div>
                                 </div>
@@ -141,8 +146,10 @@
                                     <?php endforeach; ?>
                                 </div>
                                 <br>
+                                <?php endif; ?>
 
                                 <!-- Physical Science (Maths) stream -->
+                                <?php if($data['IsStream4Exist']): ?>
                                 <div class="division">
                                     <div class="division-name">Physical Science (Maths) stream related </div>
                                 </div>
@@ -157,8 +164,10 @@
                                     <?php endforeach; ?>
                                 </div>
                                 <br>
+                                <?php endif; ?>
 
                                 <!-- Engineering Technology stream -->
+                                <?php if($data['IsStream5Exist']): ?>
                                 <div class="division">
                                     <div class="division-name">Engineering Technology stream related </div>
                                 </div>
@@ -173,8 +182,10 @@
                                     <?php endforeach; ?>
                                 </div>
                                 <br>
+                                <?php endif; ?>
 
                                 <!-- Biosystems Technology(BST) stream -->
+                                <?php if($data['IsStream6Exist']): ?>
                                 <div class="division">
                                     <div class="division-name">Biosystems Technology(BST) stream related </div>
                                 </div>
@@ -189,8 +200,10 @@
                                     <?php endforeach; ?>
                                 </div>
                                 <br>
+                                <?php endif; ?>
 
                                 <!-- Other stream -->
+                                <?php if($data['IsStream7Exist']): ?>
                                 <div class="division">
                                     <div class="division-name">Other stream related </div>
                                 </div>
@@ -204,6 +217,8 @@
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 </div>
+                                <?php endif; ?>
+                                
                                 <hr>
                          
                             </div>

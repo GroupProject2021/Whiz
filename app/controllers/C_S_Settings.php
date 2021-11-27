@@ -13,6 +13,9 @@ class C_S_Settings extends Controller {
         // settings redirection
         profileRedirect('Student', $userData->actor_type, $id);
 
+        // social platform details
+        $socialData = $this->settingsModel->getSocialPlatformData($id);
+
         $followerCount = $this->countFollowers($id);
         $followingCount = $this->countFollowings($id);
         $isAlreadyFollow = $this->checkFollowability($id);
@@ -33,7 +36,10 @@ class C_S_Settings extends Controller {
                     'gender' => $studentData->gender,
                     'date_of_birth' => $studentData->date_of_birth,
                     'address' => $studentData->address,
-                    'phn_no' => $studentData->phn_no
+                    'phn_no' => $studentData->phn_no,
+
+                    'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
+                    'socialData' => $socialData
                 ];
 
                 $this->view('students/opt_settings/v_student_profile', $data);
@@ -75,7 +81,10 @@ class C_S_Settings extends Controller {
                     'ol_sub8_name' =>  $this->settingsModel->getOLSubjectName($studentOLData->ol_sub8_id),
                     'ol_sub8_grade' => $studentOLData->ol_sub8_grade,
                     'ol_sub9_name' =>  $this->settingsModel->getOLSubjectName($studentOLData->ol_sub9_id),
-                    'ol_sub9_grade' => $studentOLData->ol_sub9_grade
+                    'ol_sub9_grade' => $studentOLData->ol_sub9_grade,
+                    
+                    'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
+                    'socialData' => $socialData
                 ];
 
                 $this->view('students/opt_settings/v_student_profile', $data);
@@ -133,7 +142,10 @@ class C_S_Settings extends Controller {
                     'al_sub2_name' =>  $this->settingsModel->getALSubjectName($studentALData->al_sub2_id),
                     'al_sub2_grade' => $studentALData->al_sub2_grade,
                     'al_sub3_name' =>  $this->settingsModel->getALSubjectName($studentALData->al_sub3_id),
-                    'al_sub3_grade' => $studentALData->al_sub3_grade
+                    'al_sub3_grade' => $studentALData->al_sub3_grade,
+                    
+                    'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
+                    'socialData' => $socialData
                 ];
 
                 $this->view('students/opt_settings/v_student_profile', $data);
@@ -197,7 +209,10 @@ class C_S_Settings extends Controller {
                     'uni_type' => $uniData->uni_type,
                     'uni_name' => $uniData->uni_name,
                     'degree' => $uniData->degree,
-                    'gpa' => $uniData->gpa
+                    'gpa' => $uniData->gpa,
+                    
+                    'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
+                    'socialData' => $socialData
                 ];
 
                 $this->view('students/opt_settings/v_student_profile', $data);
@@ -213,6 +228,191 @@ class C_S_Settings extends Controller {
         $res = $this->settingsModel->getALSubjectsById($streamId);
 
         echo json_encode($res);
+    }
+
+    // add social profile links
+    public function isSocialPlatformDataExist($id) {
+        $result = $this->settingsModel->isSocialPlatformDataExist($id);
+
+        return $result;
+    }
+
+    public function addSocialProfileDetails($id) {
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Sanetize the POST array
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $data = [
+                'facebook' => trim($_POST['facebook']),
+                'linkedin' => trim($_POST['linkedin']),
+                'twitter' => trim($_POST['twitter']),
+                'instagram' => trim($_POST['instagram']),
+                'medium' => trim($_POST['medium']),
+                'printerest' => trim($_POST['printerest']),
+                'youtube' => trim($_POST['youtube']),
+                'reddit' => trim($_POST['reddit']),
+
+                'facebook_err' => '',
+                'linkedin_err' => '',
+                'twitter_err' => '',
+                'instagram_err' => '',
+                'medium_err' => '',
+                'printerest_err' => '',
+                'youtube_err' => '',
+                'reddit_err' => ''
+            ];
+
+            // Validate gender
+            if(empty($data['facebook_err'])) {
+                
+            }
+
+            // Validate date of birth
+            if(empty($data['linkedin_err'])) {
+                
+            }
+
+            // Validate address
+            if(empty($data['twitter_err'])) {
+                
+            }
+
+            // Validate phone number
+            if(empty($data['instagram_err'])) {
+                
+            }
+
+            // Make sure no errors
+            if(empty($data['facebook_err']) && empty($data['linkedin_err']) && empty($data['twitter_err']) && empty($data['instagram_err'])) {
+                // Validated
+                if($this->settingsModel->addSocialPlatformData($id, $data)) {
+                    flash('settings_message', 'Social profile data added');
+                    //$this->updateUserSessions($_SESSION['user_id']);
+                    
+                    redirect('C_S_Settings/settings/'.$_SESSION['user_id']);
+                }
+                else {
+                    die('Something went wrong');
+                }
+            }
+            else {
+                // Load view with errors
+                $this->view('students/opt_settings/add/v_add_socialdata', $data);
+            }
+        }
+        else {
+            $data = [
+                'facebook' => '',                
+                'linkedin' => '',
+                'twitter' => '',
+                'instagram' => '',
+                'medium' => '',                
+                'printerest' => '',
+                'youtube' => '',
+                'reddit' => '',
+
+                'facebook_err' => '',
+                'linkedin_err' => '',
+                'twitter_err' => '',
+                'instagram_err' => '',
+                'medium_err' => '',
+                'printerest_err' => '',
+                'youtube_err' => '',
+                'reddit_err' => ''
+            ];
+        }
+
+        $this->view('students/opt_settings/add/v_add_socialdata', $data);
+    }
+
+    public function updateSocialProfileDetails($id) {
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Sanetize the POST array
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $data = [
+                'facebook' => trim($_POST['facebook']),
+                'linkedin' => trim($_POST['linkedin']),
+                'twitter' => trim($_POST['twitter']),
+                'instagram' => trim($_POST['instagram']),
+                'medium' => trim($_POST['medium']),
+                'printerest' => trim($_POST['printerest']),
+                'youtube' => trim($_POST['youtube']),
+                'reddit' => trim($_POST['reddit']),
+
+                'facebook_err' => '',
+                'linkedin_err' => '',
+                'twitter_err' => '',
+                'instagram_err' => '',
+                'medium_err' => '',
+                'printerest_err' => '',
+                'youtube_err' => '',
+                'reddit_err' => ''
+            ];
+
+            // Validate gender
+            if(empty($data['facebook_err'])) {
+                
+            }
+
+            // Validate date of birth
+            if(empty($data['linkedin_err'])) {
+                
+            }
+
+            // Validate address
+            if(empty($data['twitter_err'])) {
+                
+            }
+
+            // Validate phone number
+            if(empty($data['instagram_err'])) {
+                
+            }
+
+            // Make sure no errors
+            if(empty($data['facebook_err']) && empty($data['linkedin_err']) && empty($data['twitter_err']) && empty($data['instagram_err'])) {
+                // Validated
+                if($this->settingsModel->updateSocialPlatformData($id, $data)) {
+                    flash('settings_message', 'Social profile data updated');
+                    //$this->updateUserSessions($_SESSION['user_id']);
+                    
+                    redirect('C_S_Settings/settings/'.$_SESSION['user_id']);
+                }
+                else {
+                    die('Something went wrong');
+                }
+            }
+            else {
+                // Load view with errors
+                $this->view('students/opt_settings/edit/v_edit_socialdata', $data);
+            }
+        }
+        else {
+            $socialData = $this->settingsModel->getSocialPlatformData($id);
+
+            $data = [
+                'facebook' => $socialData->facebook,                
+                'linkedin' => $socialData->linkedin,   
+                'twitter' => $socialData->twitter,   
+                'instagram' => $socialData->instagram,   
+                'medium' => $socialData->medium,                
+                'printerest' => $socialData->printerest,   
+                'youtube' => $socialData->youtube,   
+                'reddit' => $socialData->reddit,   
+
+                'facebook_err' => '',
+                'linkedin_err' => '',
+                'twitter_err' => '',
+                'instagram_err' => '',
+                'medium_err' => '',
+                'printerest_err' => '',
+                'youtube_err' => '',
+                'reddit_err' => ''
+            ];
+        }
+
+        $this->view('students/opt_settings/edit/v_edit_socialdata', $data);
     }
 
 

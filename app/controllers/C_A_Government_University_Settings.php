@@ -5,6 +5,12 @@ class C_A_Government_University_Settings extends Controller {
         $this->govUniModel = $this->model('M_A_Government_University_Settings');
     }
 
+    public function isCoursesRelatedToStreamExists($uniName, $streamId) {
+        $result = $this->govUniModel->isCoursesRelatedToStreamExists($uniName, $streamId);
+
+        return $result;
+    }
+
     // Profile management
     // Settings
     public function settings($id) {
@@ -26,7 +32,14 @@ class C_A_Government_University_Settings extends Controller {
             'graduate_job_rate' => $uniData->graduate_job_rate,
             'logo' => $uniData->logo,
             'bg_img' => $uniData->bg_img,
-            'course_offerings' => $courseOfferingData
+            'course_offerings' => $courseOfferingData,
+            'IsStream1Exist' => $this->isCoursesRelatedToStreamExists($uniData->uni_name, 1),
+            'IsStream2Exist' => $this->isCoursesRelatedToStreamExists($uniData->uni_name, 2),
+            'IsStream3Exist' => $this->isCoursesRelatedToStreamExists($uniData->uni_name, 3),
+            'IsStream4Exist' => $this->isCoursesRelatedToStreamExists($uniData->uni_name, 4),
+            'IsStream5Exist' => $this->isCoursesRelatedToStreamExists($uniData->uni_name, 5),
+            'IsStream6Exist' => $this->isCoursesRelatedToStreamExists($uniData->uni_name, 6),
+            'IsStream7Exist' => $this->isCoursesRelatedToStreamExists($uniData->uni_name, 7),
         ];
 
         $this->view('admin/governmentUniversity/opt_settings/v_gov_university_profile', $data);        

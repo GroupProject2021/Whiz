@@ -264,6 +264,17 @@
     margin-left: 10px;
 }
 
+.social-detials-idle .message {
+    background: linear-gradient(42deg, rgba(190, 190, 190, 0.3) 0%, rgba(255, 225, 252, 0.3) 38%, rgba(240,242,239,0.3) 100%, rgba(255,255,248,0.3) 100%);
+    text-align: center;
+    padding: 5px;
+}
+.social-detials-idle .message .text {
+    padding-bottom: 5px;
+    font-size: 15px;
+    color: #333;
+}
+
 /* responsive features */
 @media only screen and (max-width: 1124px) {
     .stu-profile {
