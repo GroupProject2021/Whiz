@@ -50,14 +50,32 @@ class C_S_Course extends Controller {
     }
 
      // Government course recommendation
-     public function getRecommendedGovCourseList() {
-        $govCourses = $this->courseModel->getGovCourseList();
+     public function getRecommendedGovCourseList($id) {
+        $districtName = $this->courseModel->getStudentDistrict($id);
+        $streamId = $this->courseModel->getStudentStream($id);
+        $zScore = $this->courseModel->getStudentZScore($id);
+
+        $recommendedCourses = $this->courseModel->getRecommendedGovCourseList($districtName, $streamId, $zScore);
 
         $data = [
-            'courses' => $govCourses
+            'recommended_courses' => $recommendedCourses
         ];
 
-        $this->view('students/opt_courses/v_gov_course_recommendation', $data);
+        $this->view('students/opt_courses/v_gov_course_recommendation', $data);   
+    }
+    
+    // Admissible government courses
+    public function getAdmissibleGovCourseList($id) {
+        $districtName = $this->courseModel->getStudentDistrict($id);
+        $streamId = $this->courseModel->getStudentStream($id);
+
+        $addmissibleCourses = $this->courseModel->getAdmissibleGovCourseList($districtName, $streamId);
+
+        $data = [
+            'admissible_courses' => $addmissibleCourses
+        ];
+
+        $this->view('students/opt_courses/v_gov_course_admissibleCourses', $data);
     }
 }
 

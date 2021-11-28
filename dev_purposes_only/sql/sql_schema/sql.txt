@@ -6733,7 +6733,8 @@ CREATE VIEW v_zscore_table AS
 	District.district_name AS district_name,
 	v_gov_course_and_university.gov_course_name AS gov_course_name,
 	v_gov_course_and_university.uni_name AS uni_name,
-	v_gov_course_and_university.unicode AS unicode,
+	v_gov_course_and_university.unicode AS unicode,	
+	v_gov_course_and_university.stream_id AS stream_id,
 	ZScoreTable.syllabus AS syllabus,
 	ZScoreTable.year AS year,
 	ZScoreTable.z_score AS z_score

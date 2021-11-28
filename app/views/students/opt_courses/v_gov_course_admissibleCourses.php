@@ -18,19 +18,22 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                    <h1>
+                        <h1>
                             <a href="<?php echo URLROOT; ?>/C_S_Course/index">courses</a>
                             >
                             <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList">Government</a>
                             >
                             <a href="<?php echo URLROOT.'/C_S_Course/getAdmissibleGovCourseList/'.$_SESSION['user_id']; ?>">My courses</a>
-                            >
-                            <a href="<?php echo URLROOT.'/C_S_Course/getRecommendedGovCourseList/'.$_SESSION['user_id']; ?>">recommendation</a>
                         </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
+                        <div>
+                            <a href="<?php echo URLROOT.'/C_S_Course/getRecommendedGovCourseList/'.$_SESSION['user_id']; ?>"><button class="btn3">Recommend Government courses</button></a>
+                        </div>
+                        <br>
+
                         <table>
                             <tr>
                                 <th>Unicode</th>
@@ -38,7 +41,7 @@
                                 <th>University</th>
                                 <th>Z-Score</th>
                             </tr>
-                        <?php foreach($data['recommended_courses'] as $course):?>
+                        <?php foreach($data['admissible_courses'] as $course):?>
                             <tr>
                                 <td><?php echo $course->unicode; ?></td>
                                 <td><?php echo $course->gov_course_name; ?></td>
@@ -46,7 +49,7 @@
                                 <td><?php echo $course->z_score; ?></td>
                             </tr>
                         <?php endforeach; ?>    
-                        </table>    
+                        </table>                
                     </div>
 
 
