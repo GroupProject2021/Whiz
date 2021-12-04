@@ -32,8 +32,17 @@ class C_S_Course extends Controller {
     }
 
     // Government course view more
-    public function govCourseViewMore($id) {
-        $data = [];
+    public function govCourseViewMore($unicode) {
+        $govCourse = $this->courseModel->getGovCourseById($unicode);
+        $totalIntake = $this->courseModel->getTotalIntake();
+        
+        $uniDetails = $this->courseModel->getUniDetails($govCourse->uni_name);
+
+        $data = [
+            'gov_course' => $govCourse,
+            'total_intake' => $totalIntake->total_intake,
+            'uni_detials' => $uniDetails
+        ];
 
         $this->view('students/opt_courses/v_gov_course_viewMore', $data);
     }

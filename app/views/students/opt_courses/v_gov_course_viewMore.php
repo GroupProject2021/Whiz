@@ -18,20 +18,56 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Courses > Government > View</h1>
+                        <h1>
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/index">courses</a>
+                            >
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList">Government</a>
+                            >
+                            View
+                        </h1>                            
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <div class="under-construction">
-                            <div class="img">
-                                <img src="<?php echo URLROOT; ?>/imgs/under-construction.png" height="200px" alt="logo">
+                        <div class="upper">
+                            <!-- side images -->
+                            <div class="side-image">
+                                <!-- <div class="logo-image">
+                                    <img src="<?php echo URLROOT.'/profileimages/admin/governmentUniversity/logo/'.$data['uni_detials']->logo; ?>" alt="">
+                                </div>                             -->
+                                <div class="wall-image">
+                                    <img src="<?php echo URLROOT.'/profileimages/admin/governmentUniversity/bgImg/'.$data['uni_detials']->bg_img; ?>" alt="">
+                                </div>
                             </div>
-                            <div class="title">Government course view more</div>
-                            <div class="text">
-                            THIS PAGE IS CURRENTLY UNDER CONSTRUCTION !
+
+                            <div class="details">
+                                <h1><?php echo $data['gov_course']->gov_course_name; ?></h1>
+                                <h4><?php echo $data['gov_course']->uni_name; ?></h4>
+                                <p>Unicode: <?php echo $data['gov_course']->unicode; ?></p>
+                                <br>
+                                <h4>Intake</h4>
+                                <div class="poles">
+                                    <div class="pole-prg-bar bar1">
+                                        <progress max="<?php echo $data['total_intake']; ?>" value="<?php echo $data['gov_course']->purposed_intake; ?>" id="prgBar"></progress>
+                                        <div class="percentage" id="percentage"><?php if($data['gov_course']->purposed_intake != 0){ echo number_format(($data['gov_course']->purposed_intake / $data['total_intake']) *100, 1, '.', '');} else { echo 0;} ?>%</div>
+                                    </div>
+                                    <div class="text">
+                                        <div class="applied" id="applied"><?php echo $data['gov_course']->purposed_intake; ?> Intake</div>
+                                        <div class="capacity"> of <?php echo $data['total_intake']; ?> Total</div>
+                                    </div>
+                                </div>
+                                <br>
+                                <h4>Duration: <?php echo $data['gov_course']->duration; ?> Years</h4>
                             </div>
                         </div>
+
+                        <br>
+                        <h2>Description</h2>
+                        <br>
+                        <p><?php echo $data['gov_course']->description; ?></p>
+
+                        
+                                                              
                     </div>
 
                     <!-- BOTTOM PANEL -->

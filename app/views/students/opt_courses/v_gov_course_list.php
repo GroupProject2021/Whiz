@@ -29,7 +29,7 @@
                     <div class="middle-panel-single">
                         <div>
                             <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList"><button class="btn3">Government courses</button></a>
-                            <a href="<?php echo URLROOT; ?>/C_S_Course/govUniversityList"><button class="btn1">Show Government University list</button></a>
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/govUniversityList"><button class="btn1">Government Universities</button></a>
                         </div>
                         <br>
                         <div>
@@ -53,7 +53,7 @@
                                     <tr>
                                         <td class="gov-course-index"><?php echo $govCourse->gov_course_id; ?></td>
                                         <td class="gov-course-name"><?php echo $govCourse->gov_course_name; ?></td>
-                                        <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_S_Course/govCourseViewMore/'.$govCourse->gov_course_id;?>"><button class="btn3">View more</button></a></td>
+                                        <td class="gov-course-viewmore"><a href=""><button class="btn3">EXPLORE</button></a></td>
                                     </tr>
                                     <tr><td colspan="7"><hr></td></tr>
                                     <?php endforeach; ?>

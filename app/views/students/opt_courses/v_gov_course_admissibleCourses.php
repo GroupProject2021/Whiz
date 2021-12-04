@@ -30,11 +30,16 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
                         <div>
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList"><button class="btn3">Government courses</button></a>
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/govUniversityList"><button class="btn1">Government Universities</button></a>
+                        </div>
+                        <br>
+                        <div>
                             <a href="<?php echo URLROOT.'/C_S_Course/getRecommendedGovCourseList/'.$_SESSION['user_id']; ?>"><button class="btn3">Recommend Government courses</button></a>
                         </div>
                         <br>
 
-                        <table>
+                        <table class="gov-course-table">
                             <tr>
                                 <th>Unicode</th>
                                 <th>Course name</th>
@@ -42,13 +47,16 @@
                                 <th>Z-Score</th>
                             </tr>
                         <?php foreach($data['admissible_courses'] as $course):?>
+                            <tr><td colspan="7"><hr></td></tr>
                             <tr>
                                 <td><?php echo $course->unicode; ?></td>
                                 <td><?php echo $course->gov_course_name; ?></td>
                                 <td><?php echo $course->uni_name; ?></td>
                                 <td><?php echo $course->z_score; ?></td>
+                                <td ><a href="<?php echo URLROOT.'/C_S_Course/govCourseViewMore/'.$course->unicode; ?>"><button class="btn3">VIEW</button></a></td>
                             </tr>
                         <?php endforeach; ?>    
+                        
                         </table>                
                     </div>
 

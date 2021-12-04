@@ -21,7 +21,7 @@
                     <h1>
                             <a href="<?php echo URLROOT; ?>/C_S_Course/index">courses</a>
                             >
-                            <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList">Government</a>
+                            <a href="<?php echo URLROOT.'/C_S_Course/getAdmissibleGovCourseList/'.$_SESSION['user_id']; ?>">Government</a>
                             >
                             <a href="<?php echo URLROOT.'/C_S_Course/getAdmissibleGovCourseList/'.$_SESSION['user_id']; ?>">My courses</a>
                             >
@@ -39,11 +39,12 @@
                                 <th>Z-Score</th>
                             </tr>
                         <?php foreach($data['recommended_courses'] as $course):?>
-                            <tr>
+                            <tr class="rec-course">
                                 <td><?php echo $course->unicode; ?></td>
                                 <td><?php echo $course->gov_course_name; ?></td>
                                 <td><?php echo $course->uni_name; ?></td>
                                 <td><?php echo $course->z_score; ?></td>
+                                <td ><a href="<?php echo URLROOT.'/C_S_Course/govCourseViewMore/'.$course->unicode; ?>"><button class="btn3">VIEW</button></a></td>
                             </tr>
                         <?php endforeach; ?>    
                         </table>    
