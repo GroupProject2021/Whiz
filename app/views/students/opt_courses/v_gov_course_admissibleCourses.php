@@ -47,7 +47,6 @@
                                 <th>Z-Score</th>
                             </tr>
                         <?php foreach($data['admissible_courses'] as $course):?>
-                            <tr><td colspan="7"><hr></td></tr>
                             <tr>
                                 <td><?php echo $course->unicode; ?></td>
                                 <td><?php echo $course->gov_course_name; ?></td>

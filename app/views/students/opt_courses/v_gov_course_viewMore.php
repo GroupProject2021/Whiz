@@ -42,8 +42,11 @@
 
                             <div class="details">
                                 <h1><?php echo $data['gov_course']->gov_course_name; ?></h1>
-                                <h4><?php echo $data['gov_course']->uni_name; ?></h4>
-                                <p>Unicode: <?php echo $data['gov_course']->unicode; ?></p>
+                                <div class="uni-section">
+                                    <img src="<?php echo URLROOT.'/profileimages/admin/governmentUniversity/logo/'.$data['uni_detials']->logo; ?>" alt="">
+                                    <h4><a href="<?php echo URLROOT.'/C_A_Government_University_Settings/settings/'.$data['uni_detials']->gov_uni_id;?>"><?php echo $data['gov_course']->uni_name; ?></a></h4>
+                                </div>
+                                <p><b>Unicode: </b><?php echo $data['gov_course']->unicode; ?></p>
                                 <br>
                                 <h4>Intake</h4>
                                 <div class="poles">

@@ -31,6 +31,19 @@ class C_S_Course extends Controller {
         $this->view('students/opt_courses/v_gov_university_list', $data);
     }
 
+    // explore
+    public function govCourseExplore($courseId) {
+        $courseName = $this->courseModel->getCourseNameById($courseId);
+        $associatedGovUniversities = $this->courseModel->getAssociatedGovUnisById($courseId);
+
+        $data = [
+            'course_name' => $courseName,
+            'associated_universities' => $associatedGovUniversities
+        ];
+
+        $this->view('students/opt_courses/v_gov_course_explore', $data);
+    }
+
     // Government course view more
     public function govCourseViewMore($unicode) {
         $govCourse = $this->courseModel->getGovCourseById($unicode);

@@ -1,6 +1,7 @@
 /* If CSS didn't apply try Ctrl+F5 clear cache and then reload the browser again*/
 /* pages */
 @import url('pages/index-styles.css');
+@import url('pages/coursesPage-style.css');
 
 /* seperate component styles */
 @import url('components/topnav.css');
@@ -33,6 +34,7 @@
 /* Cards */
 @import url('cards/select-stream-card.css');
 @import url('cards/recommend-stream-cards.css');
+@import url('cards/course-card.css');
 
 /* profiles */
 @import url('profiles/student-profile.css');

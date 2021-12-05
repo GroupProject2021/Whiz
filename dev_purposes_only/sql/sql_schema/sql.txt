@@ -446,7 +446,9 @@ INSERT INTO `governmentcourseofferedbygovermentuniversity` (`id`, `gov_course_id
 CREATE VIEW v_gov_course_and_university AS
 	SELECT
 	GovernmentCourseOfferedByGovermentUniversity.id AS id,
+	GovernmentCourse.gov_course_id AS gov_course_id,
 	GovernmentCourse.gov_course_name AS gov_course_name,
+	GovermentUniversity.gov_uni_id AS gov_uni_id,
 	GovermentUniversity.uni_name AS uni_name,
 	GovernmentCourseOfferedByGovermentUniversity.unicode AS unicode,
 	GovernmentCourseOfferedByGovermentUniversity.purposed_intake,

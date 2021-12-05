@@ -52,6 +52,30 @@
     padding: 10px;
 }
 
+.upper .details .uni-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.upper .details .uni-section {
+    margin: 1px 0 5px 0;
+}
+
+.upper .details .uni-section img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.upper .details a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.upper .details a:hover {
+    text-decoration: underline;
+}
+
 .poles {
     /* background: rgb(131,58,180);
     background: linear-gradient(90deg, rgba(131,58,180,0.1) 0%, rgba(253,29,29,0.1) 50%, rgba(252,176,69,0.2) 100%); */

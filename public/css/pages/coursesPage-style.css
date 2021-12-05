@@ -1,0 +1,10 @@
+.course-card-panel {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.course-card-panel a {
+    text-decoration: none;
+    color: inherit;
+}

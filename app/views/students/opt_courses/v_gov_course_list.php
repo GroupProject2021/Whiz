@@ -48,14 +48,12 @@
                                         <th>Government course name</th>
                                         <th></th>
                                     </tr>
-                                    <tr><td colspan="7"><hr></td></tr>
                                     <?php foreach($data['courses'] as $govCourse): ?>
                                     <tr>
                                         <td class="gov-course-index"><?php echo $govCourse->gov_course_id; ?></td>
                                         <td class="gov-course-name"><?php echo $govCourse->gov_course_name; ?></td>
-                                        <td class="gov-course-viewmore"><a href=""><button class="btn3">EXPLORE</button></a></td>
+                                        <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_S_Course/govCourseExplore/'.$govCourse->gov_course_id;?>"><button class="btn3">EXPLORE</button></a></td>
                                     </tr>
-                                    <tr><td colspan="7"><hr></td></tr>
                                     <?php endforeach; ?>
                                 </table>
                             <hr>
