@@ -27,15 +27,7 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <div class="under-construction">
-                            <div class="img">
-                                <img src="<?php echo URLROOT; ?>/imgs/under-construction.png" height="200px" alt="logo">
-                            </div>
-                            <div class="title">generate my CV</div>
-                            <div class="text">
-                            THIS PAGE IS CURRENTLY UNDER CONSTRUCTION !
-                            </div>
-                        </div>
+                        
                     </div>
 
                     <!-- BOTTOM PANEL -->
