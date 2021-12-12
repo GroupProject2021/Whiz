@@ -2,6 +2,7 @@
 /* pages */
 @import url('pages/index-styles.css');
 @import url('pages/coursesPage-style.css');
+@import url('pages/std_CV-styles.css');
 
 /* seperate component styles */
 @import url('components/topnav.css');
@@ -58,7 +59,7 @@
 
 :root {
     --main-background-color: #f8f9fa;
-    /* --main-background-color: rgb(163, 107, 2); */
+    /* --main-background-color: rgb(94, 61, 0); */
 }
 
 /* global styles */

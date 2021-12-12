@@ -1,0 +1,58 @@
+:root{
+    --form-submit-button-background-color: #db7e31;
+    --form-submit-button-color: white;
+}
+
+/* skill table */
+.std_cv_skill_table {
+    width: 75%;
+}
+
+.std_cv_skill_table th {
+    text-align: center;
+}
+
+.std_cv_skill_table .ability_prg {
+    width: 100%;
+    margin-left: 10px;
+}
+
+.std_cv_skill_table .amount_text {
+    padding-left: 20px;
+}
+
+/* experience table */
+.std_cv_exp_table {
+    width: 75%;
+}
+
+.cv_generate_btn {
+    background-color: var(--form-submit-button-background-color);
+    color: var(--form-submit-button-color);
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 75%;
+    opacity: 0.9;
+    border-radius: 3px;
+}
+
+.cv_generate_btn:hover {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 1124px) {
+    .std_cv_skill_table {
+        width: 100%;
+    }
+
+    .std_cv_exp_table {
+        width: 100%;
+    }
+
+    .cv_generate_btn {
+        width: 100%;
+    }
+    
+}
