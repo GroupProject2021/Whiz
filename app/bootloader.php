@@ -3,6 +3,8 @@
     require_once 'config/config.php';
 
     // Load helpers
+    require_once 'helpers/FileUpload_Helper.php';
+    require_once 'helpers/HTML_Helper.php';
     require_once 'helpers/PDF_Helper.php';
     require_once 'helpers/URL_Helper.php';
     require_once 'helpers/Session_Helper.php';

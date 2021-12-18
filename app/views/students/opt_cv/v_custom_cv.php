@@ -27,15 +27,18 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <div class="under-construction">
-                            <div class="img">
-                                <img src="<?php echo URLROOT; ?>/imgs/under-construction.png" height="200px" alt="logo">
+                        
+                        <form action="<?php echo URLROOT; ?>/C_S_CV/uploadCustomCV" method="post" enctype="multipart/form-data">
+                            <p>Upload your CV here</p>
+                            <br>
+                            <div class="file-upload-area">
+                                <?php require APPROOT.'/views/inc/components/fileUpload/fileUpload.php'?>   
+                                <br>
+                                <button type="submit" class="form-submit">Upload</button>
                             </div>
-                            <div class="title">Upload custom CV</div>
-                            <div class="text">
-                            THIS PAGE IS CURRENTLY UNDER CONSTRUCTION !
-                            </div>
-                        </div>
+
+                        </form>
+                        
                     </div>
 
                     <!-- BOTTOM PANEL -->

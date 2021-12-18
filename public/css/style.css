@@ -15,6 +15,7 @@
 @import url('components/mycards.css');
 
 /* comprehnsive component styles */
+@import url('components/fileUpload/fileUpload_styles.css');
 @import url('components/imageUpload/imageUpload-styles.css');
 @import url('components/captcha/captcha-styles.css');
 @import url('components/notificationAlert/notificationAlert-styles.css');
