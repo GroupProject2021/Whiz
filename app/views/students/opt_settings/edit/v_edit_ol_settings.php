@@ -24,7 +24,7 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
                         <div class="settings-form-edit-container">
-                            <form action="<?php echo URLROOT; ?>/C_S_Settings/editSettingsOL/" method="post">
+                            <form action="<?php echo URLROOT; ?>/C_S_Settings/editSettingsOL/" method="post" enctype="multipart/form-data">
                                 <div class="settings-header">
                                         <div class="settings-header-item"><a href="<?php echo URLROOT.'/C_S_Settings/settings/'.$_SESSION['user_id']; ?>"><input class="cancel-button" type="button" value="Cancel"></a></div>
                                         <div class="settings-header-item"><a href=""><input class="save-button" type="submit" value="Save"></a></div>
@@ -310,6 +310,16 @@
                                     </tr>
                                     <tr>                                        
                                         <span class="form-invalid"><?php echo $data['ol_results_err']; ?></span><br>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="7">
+                                            OL Result sheet (PDF or Clear Image) <span style="color: red;">[OPTIONAL]</span>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7">
+                                            <?php require APPROOT.'/views/inc/components/fileUpload/fileUpload.php'?>   
+                                        </td>
                                     </tr>
                                 </table>
                                 </div>

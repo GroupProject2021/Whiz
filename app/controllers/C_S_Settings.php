@@ -540,10 +540,13 @@ class C_S_Settings extends Controller {
                 'radio_basket_2' => $_POST['radio_basket_2'],
                 'ol_sub9_id' => $_POST['basket3'],
                 'radio_basket_3' => $_POST['radio_basket_3'],
+                'file' => $_FILES['file_to_be_upload'],
+                'file_name' => time().'_'.$_FILES['file_to_be_upload']['name'],
                 
                 'ol_school_err' => '',
                 'ol_district_err' => '',
-                'ol_results_err' => ''
+                'ol_results_err' => '',
+                'file_err' => ''
             ];
 
             // Validate OL school
@@ -563,8 +566,17 @@ class C_S_Settings extends Controller {
                     $data['ol_results_err'] = 'Please check whether you have selected all the ol result check boxes';
             }
 
+            // validate and upload file
+            if(uploadFile($data['file']['tmp_name'], $data['file_name'], '/files/OL_Result_Sheets/')) {
+                flash('file_upload', 'File uploaded successfully');
+            }
+            else {
+                // upload unsuccessfull
+                $data['file_err'] = 'File uploading unsuccessful';
+            }
+
             // Make sure all errors are empty
-            if(empty($data['ol_school_err']) && empty($data['ol_district_err']) && empty($data['ol_results_err'])) {
+            if(empty($data['ol_school_err']) && empty($data['ol_district_err']) && empty($data['ol_results_err']) && empty($data['file_err'])) {
                 // Validated                    
                 $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
                 if($this->settingsModel->updateStudentOLSettings($id, $data)) {
@@ -610,10 +622,13 @@ class C_S_Settings extends Controller {
                 'radio_basket_2' => $studentData->ol_sub8_grade,
                 'ol_sub9_id' => $studentData->ol_sub9_id,
                 'radio_basket_3' => $studentData->ol_sub9_grade,
+                'file' => '',
+                'file_name' => '',
 
                 'ol_school_err' => '',
                 'ol_district_err' => '',
-                'ol_results_err' => ''
+                'ol_results_err' => '',
+                'file_err' => ''
             ];
         }
 
@@ -649,6 +664,8 @@ class C_S_Settings extends Controller {
                 'al_sub3_id' => $_POST['subject3'],
                 'radio_subject_3' => $_POST['radio_subject_3'],
                 'subjects_validity' => $_POST['subjects_validity'],
+                'file' => $_FILES['file_to_be_upload'],
+                'file_name' => time().'_'.$_FILES['file_to_be_upload']['name'],
 
                 'al_school_err' => '',
                 'stream_err' => '',
@@ -656,7 +673,8 @@ class C_S_Settings extends Controller {
                 'al_district_err' => '',
                 'general_test_grade_err' => '',
                 'radio_general_english_err' => '',
-                'al_results_err' => ''
+                'al_results_err' => '',
+                'file_err' => ''
             ];
 
             // Validate AL school
@@ -698,10 +716,19 @@ class C_S_Settings extends Controller {
                 }
             }
 
+            // validate and upload file
+            if(uploadFile($data['file']['tmp_name'], $data['file_name'], '/files/AL_Result_Sheets/')) {
+                flash('file_upload', 'File uploaded successfully');
+            }
+            else {
+                // upload unsuccessfull
+                $data['file_err'] = 'File uploading unsuccessful';
+            }
+
             // Make sure all errors are empty
             if(empty($data['al_school_err']) && empty($data['stream_err']) && empty($data['z_score_err'])
                 && empty($data['al_district_err']) && empty($data['general_test_grade_err']) && empty($data['radio_general_english_err'])
-                && empty($data['al_results_err'])) {
+                && empty($data['al_results_err']) && empty($data['file_err'])) {
                 // Validated                    
                 $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
                 if($this->settingsModel->updateStudentALSettings($id, $data)) {
@@ -741,6 +768,8 @@ class C_S_Settings extends Controller {
                 'al_sub3_id' => $studentData->al_sub3_id,
                 'radio_subject_3' => $studentData->al_sub3_grade,
                 'subjects_validity' => 'valid',
+                'file' => '',
+                'file_name' => '',
 
                 'al_school_err' => '',
                 'stream_err' => '',
@@ -749,6 +778,7 @@ class C_S_Settings extends Controller {
                 'general_test_grade_err' => '',
                 'radio_general_english_err' => '',
                 'al_results_err' => '',
+                'file_err' => ''
             ];
         }
 

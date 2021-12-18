@@ -33,6 +33,7 @@
                             <br>
                             <div class="file-upload-area">
                                 <?php require APPROOT.'/views/inc/components/fileUpload/fileUpload.php'?>   
+                                
                                 <br>
                                 <button type="submit" class="form-submit">Upload</button>
                             </div>

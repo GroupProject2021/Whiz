@@ -1,3 +1,4 @@
+
 <div class="file-form-drag-area">
     <div class="file-icon">
         <img src="<?php echo URLROOT; ?>/imgs/components/fileUpload/upload-icon.png" id="file_image_placeholder" width="90px" height="90px" alt="file_image">

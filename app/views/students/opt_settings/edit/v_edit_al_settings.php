@@ -24,7 +24,7 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
                         <div class="settings-form-edit-container">
-                            <form action="<?php echo URLROOT; ?>/C_S_Settings/editSettingsAL" method="post">
+                            <form action="<?php echo URLROOT; ?>/C_S_Settings/editSettingsAL" method="post" enctype="multipart/form-data">
                                 <div class="settings-header">
                                     <div class="settings-header-item"><a href="<?php echo URLROOT.'/C_S_Settings/settings/'.$_SESSION['user_id']; ?>"><input class="cancel-button" type="button" value="Cancel"></a></div>
                                     <div class="settings-header-item"><a href=""><input class="save-button" type="submit" value="Save"></a></div>
@@ -207,7 +207,7 @@
                                                 }
                                             }
                                         ?>
-                                    </tr>                                    
+                                    </tr>                      
                                 </table>
 
                                 <!-- for error -->
@@ -219,6 +219,20 @@
                                         Your subject selection are valid
                                     </div>
                                 </div>
+
+                                <br><br>
+                                <table class="settings-table">                                        
+                                    <tr>
+                                        <th>
+                                            AL Result sheet (PDF or Clear Image) <span style="color: red;">[OPTIONAL]</span>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <?php require APPROOT.'/views/inc/components/fileUpload/fileUpload.php'?>   
+                                        </td>
+                                    </tr>         
+                                </table>
 
                                 </div>
                             </form>

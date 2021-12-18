@@ -208,7 +208,8 @@ class M_S_Settings {
                             ol_sub2_id = :ol_sub2_id, ol_sub2_grade = :ol_sub2_grade, ol_sub3_id = :ol_sub3_id, ol_sub3_grade = :ol_sub3_grade,
                             ol_sub4_id = :ol_sub4_id, ol_sub4_grade = :ol_sub4_grade, ol_sub5_id = :ol_sub5_id, ol_sub5_grade = :ol_sub5_grade,
                             ol_sub6_id = :ol_sub6_id, ol_sub6_grade = :ol_sub6_grade, ol_sub7_id = :ol_sub7_id, ol_sub7_grade = :ol_sub7_grade, 
-                            ol_sub8_id = :ol_sub8_id, ol_sub8_grade = :ol_sub8_grade, ol_sub9_id = :ol_sub9_id,  ol_sub9_grade = :ol_sub9_grade
+                            ol_sub8_id = :ol_sub8_id, ol_sub8_grade = :ol_sub8_grade, ol_sub9_id = :ol_sub9_id,  ol_sub9_grade = :ol_sub9_grade,
+                            ol_result_file = :ol_result_file
                              WHERE stu_id = :id');
 
         // bind values
@@ -233,6 +234,8 @@ class M_S_Settings {
         $this->db->bind(':ol_sub8_grade', $data['radio_basket_2']);
         $this->db->bind(':ol_sub9_id', $data['ol_sub9_id']);
         $this->db->bind(':ol_sub9_grade', $data['radio_basket_3']);
+        $this->db->bind(':ol_result_file', $data['file_name']);
+
 
         // Execute
         if($this->db->execute()) {
@@ -248,7 +251,7 @@ class M_S_Settings {
         $this->db->query('UPDATE ALQualifiedStudent SET al_school = :al_school, stream = :stream, z_score = :z_score,
                             al_district = :al_district, al_general_test_grade = :al_general_test_grade, al_general_english_grade = :al_general_english_grade, 
                             al_sub1_id = :al_sub1_id, al_sub1_grade = :al_sub1_grade, al_sub2_id = :al_sub2_id, al_sub2_grade = :al_sub2_grade,
-                            al_sub3_id = :al_sub3_id, al_sub3_grade = :al_sub3_grade
+                            al_sub3_id = :al_sub3_id, al_sub3_grade = :al_sub3_grade, al_result_file = :al_result_file
                              WHERE stu_id = :id');
 
         $this->db->bind(':id', $id);
@@ -264,6 +267,7 @@ class M_S_Settings {
         $this->db->bind(':al_sub2_grade', $data['radio_subject_2']);
         $this->db->bind(':al_sub3_id', $data['al_sub3_id']);
         $this->db->bind(':al_sub3_grade', $data['radio_subject_3']);
+        $this->db->bind(':al_result_file', $data['file_name']);
 
         // Execute
         if($this->db->execute()) {

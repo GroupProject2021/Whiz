@@ -7451,3 +7451,6 @@ CREATE VIEW v_enrol_student_list AS
 	ON profguiderenrollments.user_id = Users.id;
 
 	
+-- new alterations
+ALTER TABLE OLQualifiedStudent ADD ol_result_file VARCHAR(255);
+ALTER TABLE ALQualifiedStudent ADD al_result_file VARCHAR(255);
