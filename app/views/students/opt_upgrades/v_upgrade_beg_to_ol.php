@@ -10,7 +10,7 @@
 
         <!-- REGISTRATION FORM -->
         <div class="form-container">
-            <form action="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToOlQualified" method="post">
+            <form action="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToOlQualified" method="post" enctype="multipart/form-data">
                 <h1>Student OL details</h1>
                 <p>Please fill the following details but you can skip this now and fill those in later as well.</p>
                 <hr class="form-hr">
@@ -237,6 +237,38 @@
                         <td><input type="radio" name="radio_basket_3" value="E">E</td>
                         <td><input type="radio" name="radio_basket_3" value="F">F</td>                        
                     </tr>
+                    <tr></tr>
+                    <tr>
+                        <th colspan="6">
+                            OL Result sheet (PDF or Clear Image) <span style="color: red;">[OPTIONAL]</span>
+                        </th>
+                    </tr>
+                    <tr>
+                    <td colspan="6">
+                        <div class="file-form-drag-area">
+                            <div class="file-icon">
+                                    <img src="<?php echo URLROOT; ?>/imgs/components/fileUpload/upload-icon.png" id="file_image_placeholder" width="90px" height="90px" alt="file_image">
+                            </div>
+                            <div class="file-right-content">
+                                <!-- file upload area title -->
+                                <div class="file-description"><b>Drag & Drop to Upload File</b></div>
+                                <!-- file upload area description -->
+                                <div class="file-description">Make sure that you upload a file as PDF, JPJ, JPEG or PNG.</div>
+                                <!-- file upload button -->
+                                <div class="file-form-upload">
+                                    <input type="file" name="file_to_be_upload" id="file_to_be_upload" onchange="displayImage(this)" style="display: none;">
+                                    Browse File
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="form-validation">
+                            <div class="profile-image-validation">
+                                <img src="<?php echo URLROOT; ?>/imgs/form/green-tick-icon.png" width="15px" height="15px" alt="green-tick">
+                                Select a file
+                            </div>
+                        </div>  
+                        </td>
+                    </tr>
                 </table>
                 <span class="form-invalid"><?php echo $data['ol_results_err']; ?></span><br>
 
@@ -266,6 +298,9 @@
         
         <!-- upgrade js -->
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/opt_upgrades/beg_to_ol_Upgrade.js"></script>
+
+        <!-- javascipt -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/fileUpload/fileUpload.js"></script>
 
     </body>
 </html>
