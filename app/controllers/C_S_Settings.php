@@ -510,6 +510,15 @@ class C_S_Settings extends Controller {
     public function editSettingsOL() {
         $district_list = $this->settingsModel->getDistricts();
         $ol_subject_list = $this->settingsModel->getOLSubjects();
+        
+        $fileName = $this->settingsModel->isOLFileExists($_SESSION['user_id']);
+
+        if($fileName != NULL) {
+            $isOLFileExists = true;
+        }
+        else {
+            $isOLFileExists = false;
+        }
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
@@ -542,6 +551,7 @@ class C_S_Settings extends Controller {
                 'radio_basket_3' => $_POST['radio_basket_3'],
                 'file' => $_FILES['file_to_be_upload'],
                 'file_name' => time().'_'.$_FILES['file_to_be_upload']['name'],
+                'is_ol_file_exists' => $isOLFileExists,
                 
                 'ol_school_err' => '',
                 'ol_district_err' => '',
@@ -567,12 +577,28 @@ class C_S_Settings extends Controller {
             }
 
             // validate and upload file
-            if(uploadFile($data['file']['tmp_name'], $data['file_name'], '/files/OL_Result_Sheets/')) {
-                flash('file_upload', 'File uploaded successfully');
+            if($data['file']['name'] == null) {
+                if($fileName != null) {
+                    $data['file_name'] = $fileName;
+                }
             }
-            else {
-                // upload unsuccessfull
-                $data['file_err'] = 'File uploading unsuccessful';
+            elseif($data['file_name'] != $fileName) {
+                if(updateFile(PUBROOT.'/files/OL_Result_Sheets/'.$fileName, $data['file']['tmp_name'], $data['file_name'], '/files/OL_Result_Sheets/')) {
+                    flash('file_upload', 'File updated successfully');
+                }
+                else {
+                    // upload unsuccessfull
+                    $data['file_err'] = 'File uploading unsuccessful';
+                }
+            }
+            else{
+                if(uploadFile($data['file']['tmp_name'], $data['file_name'], '/files/OL_Result_Sheets/')) {
+                    flash('file_upload', 'File uploaded successfully');
+                }
+                else {
+                    // upload unsuccessfull
+                    $data['file_err'] = 'File uploading unsuccessful';
+                }
             }
 
             // Make sure all errors are empty
@@ -623,7 +649,8 @@ class C_S_Settings extends Controller {
                 'ol_sub9_id' => $studentData->ol_sub9_id,
                 'radio_basket_3' => $studentData->ol_sub9_grade,
                 'file' => '',
-                'file_name' => '',
+                'file_name' => $fileName,
+                'is_ol_file_exists' => $isOLFileExists,
 
                 'ol_school_err' => '',
                 'ol_district_err' => '',
@@ -639,12 +666,21 @@ class C_S_Settings extends Controller {
     public function editSettingsAL() {
         $district_list = $this->settingsModel->getDistricts();
         $stream_list = $this->settingsModel->getStreams();
-        $al_subject_list = $this->settingsModel->getALSubjects();
+        $al_subject_list = $this->settingsModel->getALSubjects();      
+        
+        $fileName = $this->settingsModel->isALFileExists($_SESSION['user_id']);
+
+        if($fileName != NULL) {
+            $isALFileExists = true;
+        }
+        else {
+            $isALFileExists = false;
+        }
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-            
+                     
             // Init data
             $data = [
                 'district_list' => $district_list,
@@ -666,6 +702,7 @@ class C_S_Settings extends Controller {
                 'subjects_validity' => $_POST['subjects_validity'],
                 'file' => $_FILES['file_to_be_upload'],
                 'file_name' => time().'_'.$_FILES['file_to_be_upload']['name'],
+                'is_al_file_exists' => $isALFileExists,
 
                 'al_school_err' => '',
                 'stream_err' => '',
@@ -717,12 +754,28 @@ class C_S_Settings extends Controller {
             }
 
             // validate and upload file
-            if(uploadFile($data['file']['tmp_name'], $data['file_name'], '/files/AL_Result_Sheets/')) {
-                flash('file_upload', 'File uploaded successfully');
+            if($data['file']['name'] == null) {
+                if($fileName != null) {
+                    $data['file_name'] = $fileName;
+                }
             }
-            else {
-                // upload unsuccessfull
-                $data['file_err'] = 'File uploading unsuccessful';
+            elseif($data['file_name'] != $fileName) {
+                if(updateFile(PUBROOT.'/files/AL_Result_Sheets/'.$fileName, $data['file']['tmp_name'], $data['file_name'], '/files/AL_Result_Sheets/')) {
+                    flash('file_upload', 'File updated successfully');
+                }
+                else {
+                    // upload unsuccessfull
+                    $data['file_err'] = 'File uploading unsuccessful';
+                }
+            }
+            else{
+                if(uploadFile($data['file']['tmp_name'], $data['file_name'], '/files/AL_Result_Sheets/')) {
+                    flash('file_upload', 'File uploaded successfully');
+                }
+                else {
+                    // upload unsuccessfull
+                    $data['file_err'] = 'File uploading unsuccessful';
+                }
             }
 
             // Make sure all errors are empty
@@ -769,7 +822,8 @@ class C_S_Settings extends Controller {
                 'radio_subject_3' => $studentData->al_sub3_grade,
                 'subjects_validity' => 'valid',
                 'file' => '',
-                'file_name' => '',
+                'file_name' => $fileName,
+                'is_al_file_exists' => $isALFileExists,
 
                 'al_school_err' => '',
                 'stream_err' => '',

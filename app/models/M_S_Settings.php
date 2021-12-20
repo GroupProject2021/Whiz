@@ -168,6 +168,28 @@ class M_S_Settings {
         return $id;
     }
 
+    // get OL file existence
+    public function isOLFileExists($id) {
+        $this->db->query('SELECT ol_result_file FROM OLQualifiedStudent WHERE stu_id = :id'); // this is a prepared statement
+        // bind value
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        return $row->ol_result_file;
+    }
+
+    // get AL file existence
+    public function isALFileExists($id) {
+        $this->db->query('SELECT al_result_file FROM ALQualifiedStudent WHERE stu_id = :id'); // this is a prepared statement
+        // bind value
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        return $row->al_result_file;
+    }
+
     
 
     // update settings for beginnner

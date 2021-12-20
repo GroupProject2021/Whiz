@@ -25,6 +25,9 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
+                        
+                    <?php flash('settings_message'); ?>
+                    <?php flash('file_upload'); ?>
                     
                     <div class="stu-profile">
                         <div class="header">
