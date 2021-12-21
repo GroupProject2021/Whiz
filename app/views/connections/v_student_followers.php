@@ -62,7 +62,7 @@
                         <?php
                         // initial user list
                             foreach($data['followers'] as $follower) {
-                                echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$follower->id.'" class="card-link">';
+                                echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$follower->id.'/'.$_SESSION['user_id'].'" class="card-link">';
                                 echo '<div class="user-block">';
                                 echo    '<div class="pic"><img src="'.URLROOT.'/profileimages/'.getActorTypeForIcons($follower->actor_type).'/'.$follower->profile_image.'" alt=""></div>';
                                 echo    '<div class="name">'.$follower->first_name.' '.$follower->last_name.'</div>';

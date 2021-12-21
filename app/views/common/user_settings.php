@@ -25,6 +25,8 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
+                        <?php flash('acc_settings_msg'); ?>
+
                         <h2>Audience and Visibility</h2>
                         <p>Control who can see your profile and details</p>
                         <br>
@@ -65,6 +67,19 @@
                         </div>
                         </form>
                         <?php else: ?>
+                        <form action="<?php echo URLROOT; ?>/Account_Settings/unlockProfile/<?php echo $_SESSION['user_id']; ?>" method="post">
+                            <div class="lock_disable_msg">
+                                <div class="left">
+                                    <img src="<?php echo URLROOT.'/imgs/pages/settings/shield-icon.png'?>" alt="">
+                                </div>
+                                <div class="right">
+                                    <div><b>You have enabled the privacy shield</b></div>
+                                    <div>Only your following people will be able to see your profile detials.</div>
+                                    <button class="btn1">Disable shield</button>
+                                </div>
+                            </div>
+                        </form>
+                        <br>
                         <form method="post">
                         <table class="acc-profile-locking">
                             <tr>

@@ -9,7 +9,7 @@
             $userList = $this->profileStatAndConnectionModel->getUsersByName($name);
 
             foreach($userList as $user) {
-                echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$user->id.'" class="card-link">';
+                echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$user->id.'/'.$_SESSION['user_id'].'" class="card-link">';
                 echo '<div class="show-userlist-item">';
                 echo    '<div class="item-pic"><img src="'.URLROOT.'/profileimages/'.getActorTypeForIcons($user->actor_type).'/'.$user->profile_image.'" alt=""></div>';
                 echo    '<div class="item-name">'.$user->first_name.' '.$user->last_name.'</div>';

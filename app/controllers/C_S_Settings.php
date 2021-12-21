@@ -3,10 +3,11 @@
 class C_S_Settings extends Controller {
     public function __construct() {
         $this->settingsModel = $this->model('M_S_Settings');
+        $this->accSettingsModel = $this->model('Account_Setting');
     }
 
     // Settings
-    public function settings($id) {
+    public function settings($id, $viewer) {
         // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
         $userData = $this->settingsModel->getUserDetails($id);
 
@@ -19,6 +20,29 @@ class C_S_Settings extends Controller {
         $followerCount = $this->countFollowers($id);
         $followingCount = $this->countFollowings($id);
         $isAlreadyFollow = $this->checkFollowability($id);
+
+        // privacy shield related 
+        $locked = $this->accSettingsModel->isUserLockedProfile($id);
+
+        if($locked) {
+            // check whether the viewer is in the following list of the profile owner
+            if($this->accSettingsModel->checkViewerIsAFollowerOrNot($id, $viewer)) {
+                // viewer is followed by the profile owner --> then the content is visible if locked
+                $isGenDetailsLocked = false;
+                $isSocDetailsLocked = false;
+            }
+            else {
+                // view is not followed by the profile owner --> then the content is visible if it is unlocked at the shield options
+                $settings = $this->accSettingsModel->getSettings($id);
+
+                $isGenDetailsLocked = $settings->is_pri_gen_details_visible;
+                $isSocDetailsLocked = $settings->is_pri_soc_details_visible;
+            }
+        }
+        else {
+            $isGenDetailsLocked = false;
+            $isSocDetailsLocked = false;
+        }
 
         switch($userData->specialized_actor_type) {
             // For beginner
@@ -39,7 +63,10 @@ class C_S_Settings extends Controller {
                     'phn_no' => $studentData->phn_no,
 
                     'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
-                    'socialData' => $socialData
+                    'socialData' => $socialData,
+
+                    'is_pri_gen_details_locked' => $isGenDetailsLocked,
+                    'is_pri_soc_details_locked' => $isSocDetailsLocked
                 ];
 
                 $this->view('students/opt_settings/v_student_profile', $data);
@@ -84,7 +111,10 @@ class C_S_Settings extends Controller {
                     'ol_sub9_grade' => $studentOLData->ol_sub9_grade,
                     
                     'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
-                    'socialData' => $socialData
+                    'socialData' => $socialData,
+
+                    'is_pri_gen_details_locked' => $isGenDetailsLocked,
+                    'is_pri_soc_details_locked' => $isSocDetailsLocked
                 ];
 
                 $this->view('students/opt_settings/v_student_profile', $data);
@@ -145,7 +175,10 @@ class C_S_Settings extends Controller {
                     'al_sub3_grade' => $studentALData->al_sub3_grade,
                     
                     'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
-                    'socialData' => $socialData
+                    'socialData' => $socialData,
+
+                    'is_pri_gen_details_locked' => $isGenDetailsLocked,
+                    'is_pri_soc_details_locked' => $isSocDetailsLocked
                 ];
 
                 $this->view('students/opt_settings/v_student_profile', $data);
@@ -212,7 +245,10 @@ class C_S_Settings extends Controller {
                     'gpa' => $uniData->gpa,
                     
                     'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
-                    'socialData' => $socialData
+                    'socialData' => $socialData,
+
+                    'is_pri_gen_details_locked' => $isGenDetailsLocked,
+                    'is_pri_soc_details_locked' => $isSocDetailsLocked
                 ];
 
                 $this->view('students/opt_settings/v_student_profile', $data);

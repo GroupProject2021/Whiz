@@ -106,19 +106,19 @@
             <?php 
                 switch($_SESSION['actor_type']) {
                     case 'Student':
-                        echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$_SESSION['user_id'].'" class="topnav-link">';
+                        echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id'].'" class="topnav-link">';
                         break;
 
                     case 'Mentor':
-                        echo '<a href="'.URLROOT.'/C_M_Settings/settings/'.$_SESSION['user_id'].'" class="topnav-link">';
+                        echo '<a href="'.URLROOT.'/C_M_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id'].'" class="topnav-link">';
                         break;
                     
                     case 'Organization':
-                        echo '<a href="'.URLROOT.'/C_O_Settings/settings/'.$_SESSION['user_id'].'" class="topnav-link">';
+                        echo '<a href="'.URLROOT.'/C_O_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id'].'" class="topnav-link">';
                         break;
 
                     case 'Admin':
-                        echo '<a href="'.URLROOT.'/C_A_Settings/settings/'.$_SESSION['user_id'].'" class="topnav-link">';
+                        echo '<a href="'.URLROOT.'/C_A_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id'].'" class="topnav-link">';
                         break;
 
                     default:

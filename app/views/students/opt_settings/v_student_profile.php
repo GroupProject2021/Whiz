@@ -109,6 +109,8 @@
                                 </div>
                                 <hr>
                                 <?php endif; ?>
+                        <!-- general details -->
+                        <?php if(!$data['is_pri_gen_details_locked'] || $data['user']->id == $_SESSION['user_id']): ?>
                                 <!-- beginner details -->
                         <?php if($data['user']->specialized_actor_type == 'Beginner' || $data['user']->specialized_actor_type == 'OL qualified' || $data['user']->specialized_actor_type == 'AL qualified' || $data['user']->specialized_actor_type == 'Undergraduate Graduate'): ?>
                                 <div class="division">
@@ -269,7 +271,39 @@
                                 </div>
                                 <hr>
                         <?php endif; ?>
+                        <?php else: ?>
+                                <!-- locked general details -->
+                                <div class="division">
+                                    <div class="division-name">General details</div>
+                                    <div></div>
+                                </div>
+                                <div class="user-locked-profile">
+                                    <div class="left">
+                                        <img src="<?php echo URLROOT.'/imgs/pages/settings/shield-icon.png'?>" alt="">
+                                    </div>
+                                    <div class="right">
+                                        <div><b>
+                                            <?php echo $data['first_name'].' '.$data['last_name'];?> locked 
+                                            <?php if($data['gender'] == 'Male'): ?>
+                                            his
+                                            <?php else: ?>
+                                            her
+                                            <?php endif; ?>
+                                            profile
+                                        </b></div>
+                                        <div>Only 
+                                        <?php if($data['gender'] == 'Male'): ?>
+                                            his
+                                            <?php else: ?>
+                                            her
+                                            <?php endif; ?>
+                                        following people will be able to see this profile's general detials.</div>
+                                    </div>
+                                </div>
+                        <?php endif; ?>
+
                         <!-- social platform details -->
+                        <?php if(!$data['is_pri_soc_details_locked'] || $data['user']->id == $_SESSION['user_id']): ?>
                             <?php if($data['isSocialDataExist']):?>
                                 <div class="division">
                                     <div class="division-name">Social platform details</div>
@@ -331,6 +365,7 @@
                                 </div>
                                 <hr>
                             <?php else: ?>
+                                <?php if($data['user']->id == $_SESSION['user_id']): ?>
                                 <div class="division">
                                     <div class="division-name">Social platform details</div>
                                 </div>
@@ -340,8 +375,38 @@
                                         <a href="<?php echo URLROOT.'/C_S_Settings/addSocialProfileDetails/'.$_SESSION['user_id']; ?>"><button class="btn2">ADD</button></a>        
                                     </div>
                                 </div>
+                                <?php endif; ?>
                             <?php endif; ?>
-                                
+                        <?php else: ?>
+                                <!-- locked social details -->
+                                <div class="division">
+                                    <div class="division-name">Social platform details</div>
+                                    <div></div>
+                                </div>
+                                <div class="user-locked-profile">
+                                    <div class="left">
+                                        <img src="<?php echo URLROOT.'/imgs/pages/settings/shield-icon.png'?>" alt="">
+                                    </div>
+                                    <div class="right">
+                                        <div><b>
+                                            <?php echo $data['first_name'].' '.$data['last_name'];?> locked 
+                                            <?php if($data['gender'] == 'Male'): ?>
+                                            his
+                                            <?php else: ?>
+                                            her
+                                            <?php endif; ?>
+                                            profile
+                                        </b></div>
+                                        <div>Only 
+                                        <?php if($data['gender'] == 'Male'): ?>
+                                            his
+                                            <?php else: ?>
+                                            her
+                                            <?php endif; ?>
+                                        following people will be able to see this profile's social detials.</div>
+                                    </div>
+                                </div>
+                        <?php endif; ?>
                             </div>
                         </div>
                         <div class="body">

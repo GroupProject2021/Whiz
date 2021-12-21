@@ -47,6 +47,20 @@
             }
         }
 
+        public function disableLockProfile($id) {
+            $this->db->query('DELETE FROM AdditionalSettings  WHERE user_id = :user_id');
+            // bind value
+            $this->db->bind(":user_id", $id);
+
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
         public function toggleGeneralDetails($id, $x) {
             $this->db->query('UPDATE AdditionalSettings SET is_pri_gen_details_visible = :x WHERE user_id = :user_id');
             // bind values            
@@ -70,6 +84,23 @@
 
             // Execute
             if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        public function checkViewerIsAFollowerOrNot($id, $viewer) {
+            $this->db->query('SELECT * FROM Connections WHERE to_user_id = :viewer AND from_user_id = :id'); // this is a prepared statement
+            // bind value
+            $this->db->bind(":id", $id);
+            $this->db->bind(":viewer", $viewer);
+
+            $row = $this->db->single();
+
+            // Check row - return true if email exists. Because then rowCount is not 0
+            if($this->db->rowCount() > 0) {
                 return true;
             }
             else {

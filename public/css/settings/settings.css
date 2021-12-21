@@ -51,12 +51,49 @@
     height: 30px;
 }
 
+/* lock shild msg */
+.lock_disable_msg {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgb(158, 158, 158);
+    width: 50%;
+}
+
+.lock_disable_msg .left {
+    padding: 10px;
+}
+
+.lock_disable_msg .right {
+    padding: 10px;
+}
+
+/* profile locked msg */
+.user-locked-profile {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgb(158, 158, 158);
+    width: 100%;
+}
+
+.user-locked-profile .left {
+    padding: 10px;
+}
+
+.user-locked-profile .right {
+    padding: 10px;
+}
+
+
 @media only screen and (max-width: 1124px) {
     .lock_profile {
         width: 100%;
     }
 
     .acc-profile-locking {
+        width: 100%;
+    }
+
+    .lock_disable_msg {
         width: 100%;
     }
 }
