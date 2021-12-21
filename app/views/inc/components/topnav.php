@@ -27,6 +27,10 @@
                 </button>
             
                 <div class="dropdown-content">
+                    <a href="<?php echo URLROOT; ?>/Account_Settings/accountSettings/<?php echo $_SESSION['user_id']; ?>">
+                        <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/settings-icon.png' ?>" alt=""></div>
+                        <div class="name">Settings</div>
+                    </a>
                     <a href="<?php echo URLROOT; ?>/Pages/privacy">
                         <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/privacy-icon.png' ?>" alt=""></div>
                         <div class="name">Privacy Policy</div>

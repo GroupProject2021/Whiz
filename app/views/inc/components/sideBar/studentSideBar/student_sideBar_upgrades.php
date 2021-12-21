@@ -61,7 +61,7 @@
             </div>
             <div class="profile-upgrade-button-area">
                 <a href="<?php echo URLROOT; ?>/Students_ProfileUpgrade/upgradeToUndergraduateGraduate">
-                    <input class="profile-upgrade-button" type="button" value="UPGRADE TO AL UNDERGRAD/GRAD">
+                    <input class="profile-upgrade-button" type="button" value="UPGRADE TO UNDERGRAD/GRAD">
                 </a>
             </div>
         </div>

@@ -1006,6 +1006,7 @@ class C_S_Settings extends Controller {
 
         return $this->settingsModel->isAlreadyFollow($me, $id);
     }
+    
 }
 
 ?>

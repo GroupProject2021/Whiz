@@ -244,3 +244,41 @@
 .btn9:hover {
     background-color: var(--btn9-bg-color-hover);
 }
+
+/* toggle button */
+.toggle {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 25px;
+    border-radius: 50px;
+    background: rgb(204, 204, 204);
+    transition: 0.2s;
+    cursor: pointer;
+    box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0, 0.1),
+                inset 0 8px 8px rgba(0, 0, 0, 0, 0.1),
+                inset 0 -4px -4px rgba(0, 0, 0, 0, 0.1);
+}
+
+.toggle.active {
+    background: rgb(211, 173, 117);
+}
+
+.toggle .indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(to bottom, rgb(156, 156, 156), rgb(122, 122, 122));
+    border-radius: 50%;
+    transform: scale(0.9);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5),
+                inset 0 1px 4px rgba(255, 255, 255, 0.2),
+                inset 0 -4px 4px rgba(255, 255, 255, 0.2);
+}
+
+.toggle.active .indicator {
+    left: 25px;
+    background: linear-gradient(to bottom, rgb(199, 120, 2), rgb(185, 45, 2));
+}
