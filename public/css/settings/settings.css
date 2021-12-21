@@ -50,3 +50,13 @@
 .acc-profile-locking tr {
     height: 30px;
 }
+
+@media only screen and (max-width: 1124px) {
+    .lock_profile {
+        width: 100%;
+    }
+
+    .acc-profile-locking {
+        width: 100%;
+    }
+}

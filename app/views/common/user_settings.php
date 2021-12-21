@@ -65,41 +65,71 @@
                         </div>
                         </form>
                         <?php else: ?>
+                        <form method="post">
                         <table class="acc-profile-locking">
                             <tr>
                                 <td class="left">Hide acdemic details</td>
                                 <td class="right">
+                                    <?php if($data['isGenDetailsLocked']):?>
+                                    <div id="btn1" class="toggle active">
+                                        <i class="indicator active"></i>
+                                    </div>  
+                                    <?php else: ?>
                                     <div id="btn1" class="toggle">
                                         <i class="indicator"></i>
-                                    </div>                               
+                                    </div>  
+                                    <?php endif; ?>                             
                                 </td>
                             </tr>
                             <tr>
                                 <td class="left">Hide social media details</td>
                                 <td class="right">
+                                    <?php if($data['isSocDetailsLocked']):?>
+                                    <div id="btn2" class="toggle active">
+                                        <i class="indicator active"></i>
+                                    </div>                 
+                                    <?php else: ?>
                                     <div id="btn2" class="toggle">
                                         <i class="indicator"></i>
-                                    </div>                           
+                                    </div>    
+                                    <?php endif; ?>          
                                 </td>
                             </tr>
                         </table>
+                        </form>
                         <?php endif; ?>
 
                     </div>
             </main>
         </div>
 
+<!-- javascript -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+
+<script type="text/JavaScript">
+    var URLROOT = '<?php echo URLROOT; ?>';            
+    var USER_ID= '<?php echo $_SESSION["user_id"]; ?>';
+</script>
+
+<!-- javascript -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/profilesRelated/settings.js"></script>
+
 <script>
-    const btn1 = document.getElementById('btn1');
-    const btn2 = document.getElementById('btn2');
+    
 
-    btn1.onclick = function() {
-        btn1.classList.toggle('active');
-    }
+    // const btn1 = document.getElementById('btn1');
+    // const btn2 = document.getElementById('btn2');
 
-    btn2.onclick = function() {
-        btn2.classList.toggle('active');
-    }
+    // btn1.onclick = function() {
+    //     btn1.classList.toggle('active');
+    // }
+
+    // btn2.onclick = function() {
+    //     btn2.classList.toggle('active');
+    // }
+
+    
+    // }
 
 </script>
 

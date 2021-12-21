@@ -7,8 +7,12 @@
         
         // Addiotion account settings - Privary protections
         public function accountSettings($id) {
+            $settings = $this->accSettingsModel->getSettings($id);
+
             $data = [
-                'isProfileLocked' => $this->accSettingsModel->isUserLockedProfile($id)
+                'isProfileLocked' => $this->accSettingsModel->isUserLockedProfile($id),
+                'isGenDetailsLocked' => $settings->is_pri_gen_details_visible,
+                'isSocDetailsLocked' => $settings->is_pri_soc_details_visible
             ];
 
             $this->view('common/user_settings', $data);
@@ -24,6 +28,14 @@
             {
                 die('Something went wrong');
             }
+        }
+
+        public function toggleGeneralDetails($id, $x) {
+            $this->accSettingsModel->toggleGeneralDetails($id, $x);
+        }
+
+        public function toggleSocialDetails($id, $x) {
+            $this->accSettingsModel->toggleSocialDetails($id, $x);
         }
     }
 ?>
