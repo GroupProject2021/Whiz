@@ -24,23 +24,15 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
                         <?php flash('post_message'); ?>
-                        <!-- <?php foreach($data['posts'] as $post): ?>
-                            <?php if($post->id == $_SESSION['user_id']): ?>
-                                <div class="list">
-                                    <div class="name">
-                                        <?php echo $post->title; ?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?> -->
+                        
                         <div>
                         <table class="gov-course-table">
                             <tr>
-                                <!-- <th></th> -->
+                                
                                 <th>Post</th>
-                                <!-- <th colspan="2">Offered university</th> -->
+                                
                                 <th colspan="2">Enrolled Student<br>Count</th>
-                                <!-- <th>Intake</th> -->
+                                
                                 <th></th>
                             </tr>
                             <tr><td colspan="3"><hr></td></tr>

@@ -59,6 +59,31 @@ class M_M_Enrolment_List{
 
         return $results;
     }
+
+    public function addLink($data) {
+        $this->db->query('INSERT INTO sessionlink( post_id, body) VALUES(:post_id, :body)');
+        // bind values
+        $this->db->bind(':post_id', $data['post_id']);
+        $this->db->bind(":body", $data['body']);
+        
+
+        // Execute
+        if($this->db->execute()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function getSessionLink($id) {
+        $this->db->query('SELECT * FROM sessionlink WHERE post_id = :id');
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
 }
 
 

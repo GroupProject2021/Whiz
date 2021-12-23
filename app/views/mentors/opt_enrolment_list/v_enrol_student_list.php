@@ -20,11 +20,23 @@
                     <div class="top-panel">
                         <h1>Enrolment List</h1>
                     </div>
-                    <br>
+                    <!-- <br> -->
+                    <div class="button-panel">
+                            <a href="<?php echo URLROOT;?>/C_M_Enrolment_List/index"><button class="btn8 post-back">Back</button></a>
+                            <!-- <a href="<?php echo URLROOT;?>/C_M_Enrolment_List/addlink"><button class="btn1 post-back">Upload Link</button></a> -->
+                            <!-- <a href="<?php echo URLROOT.'/C_M_Enrolment_List/addlink/'.$_SESSION['current_viewing_post_id']; ?>" button class="btn1 post-back">Link</a> -->
+
+                            <!-- wip -->
+                            <?php if($data['link'] != Null):?>
+                                <a href="<?php echo URLROOT.'/C_M_Enrolment_List/viewlink/'.$_SESSION['current_viewing_post_id']; ?>" button class="btn1 post-back"> view Link</a>                                   
+                            <?php else: ?>
+                                <a href="<?php echo URLROOT.'/C_M_Enrolment_List/addlink/'.$_SESSION['current_viewing_post_id']; ?>" button class="btn1 post-back">add Link</a>
+                            <?php endif; ?>
+                            <!-- wip -->
+                        
+                    </div>
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                    <a href="<?php echo URLROOT;?>/C_M_Enrolment_List/index"><button class="btn8 post-back">Back</button></a>
-                    
                     <?php flash('post_message'); ?>
                        
                         <div>
