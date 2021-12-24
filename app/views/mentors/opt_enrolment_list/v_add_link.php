@@ -18,18 +18,14 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1> Upload Link
-                            <!-- <?php foreach($data['post'] as $post): ?>
-                                <?php if($post->userId == $_SESSION['user_id']): ?>
-                                    <?php echo $post->title; ?>
-                                <?php endif; ?>
-                            <?php endforeach; ?> -->
+                        <h1> Upload Link > <?php echo $data['title'];?>
+                            
                         </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <a href="<?php echo URLROOT;?>/C_M_Enrolment_List/index"><button class="btn8 post-back">Back</button></a>
+                        <a href="<?php echo URLROOT.'/C_M_Enrolment_List/enrolStudentList/'.$_SESSION['current_viewing_post_id']; ?>"><input class="btn8 post-back" type="button" value="Back"></a>
                         
                         <br>
                     

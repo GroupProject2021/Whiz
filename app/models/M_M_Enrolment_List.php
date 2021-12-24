@@ -84,6 +84,21 @@ class M_M_Enrolment_List{
 
         return $row;
     }
+
+    public function deleteLink($id) {
+        $this->db->query('DELETE FROM sessionlink WHERE post_id = :id');
+        // bind values
+        
+        $this->db->bind(":id", $id);
+
+        // Execute
+        if($this->db->execute()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
 
 

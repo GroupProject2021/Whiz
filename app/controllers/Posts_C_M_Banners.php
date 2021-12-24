@@ -9,7 +9,8 @@
             $this->commentModel = $this->model('Comment');            
             $this->reviewModel = $this->model('Review');
 
-            $this->commonModel = $this->model('Common');            
+            $this->commonModel = $this->model('Common');
+            $this->sessionLinkModel = $this->model('M_M_Enrolment_List');
         }        
 
         // Load banners
@@ -296,8 +297,11 @@
                 // validate and upload profile image
                 $postImage = PUBROOT.'/imgs/posts/banners/'.$post->image;
                 $res5 = deleteImage($postImage);
+
+                // session link
+                $link = $this->sessionLinkModel->deleteLink($id);
                 
-                if($res1 && $res2 && $res3 && $res4 && $res5) {
+                if($res1 && $res2 && $res3 && $res4 && $res5 && $link) {
                     flash('post_message', 'Post Removed');
                     redirect('Posts_C_M_Banners');
                 }

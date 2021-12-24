@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Enrolment List</h1>
+                        <h1>Enrolment List > <?php echo $data['title'];?></h1>
                     </div>
                     <!-- <br> -->
                     <div class="button-panel">
@@ -28,9 +28,11 @@
 
                             <!-- wip -->
                             <?php if($data['link'] != Null):?>
-                                <a href="<?php echo URLROOT.'/C_M_Enrolment_List/viewlink/'.$_SESSION['current_viewing_post_id']; ?>" button class="btn1 post-back"> view Link</a>                                   
+                                <a href="<?php echo URLROOT.'/C_M_Enrolment_List/viewlink/'.$_SESSION['current_viewing_post_id']; ?>"><input class="btn1 post-back" type="button" value="View Link"></a>
+                                  
                             <?php else: ?>
-                                <a href="<?php echo URLROOT.'/C_M_Enrolment_List/addlink/'.$_SESSION['current_viewing_post_id']; ?>" button class="btn1 post-back">add Link</a>
+                                <a href="<?php echo URLROOT.'/C_M_Enrolment_List/addlink/'.$_SESSION['current_viewing_post_id']; ?>"><input class="btn1 post-back" type="button" value="Add Link"></a>
+
                             <?php endif; ?>
                             <!-- wip -->
                         
@@ -58,7 +60,7 @@
                                     <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/profileimages/student/'.$studentList->profile_image; ?>" alt=""></td>
                                     <td class="gov-course-name"><?php echo $studentList->first_name.' '.$studentList->last_name; ?></td>
                                     <td class="gov-course-name"><?php echo $studentList->specialized_actor_type; ?></td>
-                                    <td class="gov-course-intake">2021-10-02 09.52.03</td>
+                                    <td class="gov-course-intake"><?php echo $studentList->applied_date; ?></td>
                                 </tr>
                                 <tr><td colspan="4"><hr></td></tr>
                                 

@@ -37,6 +37,7 @@ class C_M_Enrolment_List extends Controller{
         $_SESSION['current_viewing_post_id'] = $post_id;
         $studentList = $this->enrolmentListModel->getStudentListById($post_id);
         $link = $this->enrolmentListModel->getSessionLink($post_id);
+        $sessionTitle = $this->enrolmentListModel->getPostById($post_id);
         // $post = $this->mentorDashboardModel->getPosts();
 
         switch($_SESSION['specialized_actor_type']) {
@@ -59,7 +60,8 @@ class C_M_Enrolment_List extends Controller{
             // 'posts' => $post,
             'link' => $link,
             'list' => $studentList,
-            'enrollments' => $enrollments
+            'enrollments' => $enrollments,
+            'title' => $sessionTitle->title
         ];
 
         $this->view('mentors/opt_enrolment_list/v_enrol_student_list', $data);
@@ -109,7 +111,8 @@ class C_M_Enrolment_List extends Controller{
         else {
             $data = [
                 'body' => '',
-                'post' => $post
+                'post' => $post,
+                'title' => $post->title
             ];
         }
 
@@ -118,8 +121,14 @@ class C_M_Enrolment_List extends Controller{
 
     public function viewlink () {
 
+        $postId = $_SESSION['current_viewing_post_id'];
+        // $post = $this->mentorDashboardModel->getPostById($postId);
+        $sessionData = $this->enrolmentListModel->getSessionLink($postId);
+        $sessionTitle = $this->enrolmentListModel->getPostById($postId);
+
         $data = [
-            
+            'link' => $sessionData->body,
+            'title' => $sessionTitle->title
         ];
 
         $this->view('mentors/opt_enrolment_list/v_view_link', $data);
