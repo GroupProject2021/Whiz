@@ -5,7 +5,7 @@
                 redirect('users/login');
             }
 
-            $this->postModel = $this->model('Post');
+            $this->postModel = $this->model('M_O_U_Course');
             $this->commentModel = $this->model('Comment');            
             $this->reviewModel = $this->model('Review');
 
@@ -36,13 +36,17 @@
                     'type' => 'coursepost',
                     'image' => $_FILES['image'],
                     'image_name' => time().'_'.$_FILES['image']['name'],
-                    'title' => trim($_POST['title']),
-                    'body' => trim($_POST['body']),
-                    'applied' => 0,
-                    'capacity' => 0,
-                    'user_id' => $_SESSION['user_id'],
-                    'title_err' => 0,
-                    'body_err' => 0,
+                    'course_name' => trim($_POST['course_name']),
+                    'course_content' => trim($_POST['course_content']),
+                    'provide_degree' => trim($_POST['provide_degree']),
+                    'course_fee' => trim($_POST['course_fee']),
+                    'private_uni_id' => $_SESSION['user_id'],
+                    
+                    'image_err' => '',
+                    'course_name_err' => '',
+                    'course_content_err' => '',
+                    'provide_degree_err' => '',
+                    'course_fee_err' => '',
                     
                     'ups' => 0,
                     'downs' => 0,
@@ -53,11 +57,11 @@
                 // validate and upload profile image
                 if($data['image']['size'] > 0) {
                     if(uploadImage($data['image']['tmp_name'], $data['image_name'], '/imgs/posts/courseposts/')) {
-                        // flash('profile_image_upload', 'Profile picture uploaded successfully');
+                        flash('profile_image_upload', 'Profile picture uploaded successfully');
                     }
                     else {
                         // upload unsuccessfull
-                        die('uns');
+                        $data['image_err'] = 'Profile picture uploading unsuccessful';
                     }
                 }
                 else {
@@ -65,18 +69,32 @@
                     $data['image_name'] = null;
                 }
 
-                // Validate title
-                if(empty($data['title'])) {
-                    $data['title_err'] = 'Please enter title';
+                // Validate course name
+                if(empty($data['course_name'])) {
+                    $data['course_name_err'] = 'Please enter course name';
                 }
 
-                // Validate body
-                if(empty($data['body'])) {
-                    $data['body_err'] = 'Please enter title';
+                // Validate content
+                if(empty($data['course_content'])) {
+                    $data['course_content_err'] = 'Please enter course content';
+                }
+
+                // Validate degree
+                if(empty($data['provide_degree'])) {
+                    $data['provide_degree_err'] = 'Please enter provide degree';
+                }
+
+                // Validate fee
+                if(empty($data['course_fee'])) {
+                    $data['course_fee_err'] = 'Please enter course fee';
+                }
+                else if(is_numeric($data['course_fee']) == false) {
+                    $data['course_fee_err'] = 'Please enter valid fee';
                 }
 
                 // Make sure no errors
-                if(empty($data['title_err']) && empty($data['body_err'])) {
+                if(empty($data['image_err']) && empty($data['course_name_err']) && empty($data['course_content_err']) 
+                && empty($data['provide_degree_err']) && empty($data['course_fee_err'])) {
                     // Validated
                     if($this->postModel->addPost($data)) {
                         flash('post_message', 'Post added');
@@ -96,15 +114,22 @@
                     'type' => '',
                     'image' => '',
                     'image_name' => '',
-                    'id' => '',
-                    'title' => '',
-                    'body' => '',
-                    'applied' => '',
-                    'capacity' => '',
-                    'ups' => '',
-                    'downs' => '',
-                    'shares' => '',
-                    'views' => ''
+                    'course_name' => '',
+                    'course_content' => '',
+                    'provide_degree' => '',
+                    'course_fee' => '',
+                    'private_uni_id' => '',
+                    
+                    'image_err' => '',
+                    'course_name_err' => '',
+                    'course_content_err' => '',
+                    'provide_degree_err' => '',
+                    'course_fee_err' => '',
+                    
+                    'ups' => 0,
+                    'downs' => 0,
+                    'shares' => 0,
+                    'views' => 0
                 ];
             }
 

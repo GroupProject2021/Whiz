@@ -33,14 +33,21 @@
                                     <img src="" alt="" id="image_placeholder" style="display: none;">
                                 </div>
                                 <div class="post-creator-title">
-                                    <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
+                                    <input type="text" name="course_name" id="course_name" autocomplete="off" placeholder="Course Name" value="<?php echo $data['course_name']; ?>">
+                                    <span class="form-invalid"><?php echo $data['course_name_err']; ?></span>
                                     <div class="image-select"><img src="<?php echo URLROOT.'/imgs/components/posts/add-image-icon.png'; ?>" alt="" id="addImageBtn" onclick="toggleBrowse()"></div>
                                     <div class="image-select"><img src="<?php echo URLROOT.'/imgs/components/posts/remove-image-icon.png'; ?>" alt="" id="removeImageBtn" onclick="removeImage()" style="display: none;"></div>
                                     <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
+                                    <span class="form-invalid"><?php echo $data['image_err']; ?></span>
                                 </div>
                                 <hr>
                                 <div class="post-creator-content">
-                                    <textarea name="body" id="body" cols="30" rows="10" placeholder="Content"><?php echo $data['body']; ?></textarea>
+                                    <input type="text" name="degree" id="degree" autocomplete="off" placeholder="Degree Name" value="<?php echo $data['provide_degree']; ?>">
+                                    <span class="form-invalid"><?php echo $data['provide_degree_err']; ?></span>
+                                    <input type="text" name="course_fee" id="course_fee" autocomplete="off" placeholder="Course Fee" value="<?php echo $data['course_fee']; ?>">
+                                    <span class="form-invalid"><?php echo $data['course_fee_err']; ?></span>
+                                    <textarea name="content" id="content" cols="30" rows="25" placeholder="Course Content"><?php echo $data['course_content']; ?></textarea>
+                                    <span class="form-invalid"><?php echo $data['course_content_err']; ?></span>
                                 </div>
                                 <br>
                                 <hr>
