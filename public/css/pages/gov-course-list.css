@@ -76,14 +76,14 @@
     text-decoration: underline;
 }
 
-.poles {
+.gov-poles {
     /* background: rgb(131,58,180);
     background: linear-gradient(90deg, rgba(131,58,180,0.1) 0%, rgba(253,29,29,0.1) 50%, rgba(252,176,69,0.2) 100%); */
     /* padding: 5px 0 5px 0;     */
     /* border: 1px solid rgb(219, 219, 219); */
 }
 
-.poles .pole-prg-bar {
+.gov-poles .pole-prg-bar {
     width: 500px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -91,25 +91,25 @@
     flex-direction: row;
 }
 
-.poles .pole-prg-bar progress {
+.gov-poles .pole-prg-bar progress {
     width: 100%;
     height: 20px;
     -webkit-appearance: none;
     appearance: none;
 }
 
-.poles .pole-prg-bar progress::-webkit-progress-value {
+.gov-poles .pole-prg-bar progress::-webkit-progress-value {
     -webkit-appearance: none;    
     background-color: rgb(150, 0, 150);
     border-radius: 3px;
 }
 
-.poles .pole-prg-bar progress[value]::-webkit-progress-bar {
+.gov-poles .pole-prg-bar progress[value]::-webkit-progress-bar {
     background-color: rgb(233, 195, 225);
     border-radius: 3px;
 }
 
-.poles .pole-prg-bar .percentage {
+.gov-poles .pole-prg-bar .percentage {
     line-height: 20px;
     vertical-align: middle;
     width: 30px;
@@ -118,19 +118,19 @@
     color: rgb(83, 74, 74);
 }
 
-.poles .text {
+.gov-poles .text {
     padding-top: 5px;
     padding-bottom: 5px;
     display: flex;
     flex-direction: row;
 }
 
-.poles .text .applied {
+.gov-poles .text .applied {
     padding-right: 5px;
     font-weight: 600;
 }
 
-.poles .text .capacity {
+.gov-poles .text .capacity {
     color: gray;
     font-weight: 600;
 }

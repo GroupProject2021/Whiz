@@ -3,6 +3,8 @@
 @import url('pages/index-styles.css');
 @import url('pages/coursesPage-style.css');
 @import url('pages/std_CV-styles.css');
+@import url('pages/gov-course-list.css');
+@import url('pages/communityThread-style.css');
 
 /* seperate component styles */
 @import url('components/topnav.css');
@@ -31,7 +33,6 @@
 @import url('utilities/responsive_grid_layout.css');
 
 /* Lists */
-@import url('lists/gov-course-list.css');
 
 /* Cards */
 @import url('cards/select-stream-card.css');
