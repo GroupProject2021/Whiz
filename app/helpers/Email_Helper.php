@@ -163,4 +163,43 @@
             return false;
         }
     }
+
+
+// sending session link
+    function sendMentorSessionLink($email, $data) {
+        $_SESSION['session_link_sent_email'] = $email;
+        
+        // body contain image taken from google drive logo.png
+        /* 
+            later create a new gmail for whiz
+            then store that image on that drive
+            then copy the link like following
+
+            Drive link preview: https://drive.google.com/file/d/10XKWTckkC-tquXJYrDyQrluabr51FAJL/view
+            Set it as this: https://drive.google.com/uc?export=view&id=10XKWTckkC-tquXJYrDyQrluabr51FAJL
+        */
+        $receiver = $email;
+        $subject = "Whiz mentor session link";
+
+        $replaceContent = array('%title%', '%link%');
+        $replaceContent_Data = array($data['title'], $data['link']);
+        $body = str_replace($replaceContent, $replaceContent_Data, file_get_contents('../app/templates/email/mentor_session_link.php'));
+            
+        $header = "From:whizweblk@gmail.com";
+        $header .= "MIME-Version: 1.0\r\n";
+        $header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+        if(mail($receiver, $subject, $body, $header)) {
+            // set the verification code
+            // $_SESSION['admin_verification_code'] = $verificationCode;
+
+            return true;
+        }
+        else {
+            // unset the sent verificaiton code
+            unset($_SESSION['admin_verification_code']);
+
+            return false;
+        }
+    }
 ?>

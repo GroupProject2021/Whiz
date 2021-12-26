@@ -28,7 +28,7 @@
                         <div class="middle-panel-single">
                             <?php flash('post_message'); ?>
                             <!-- <br> -->
-                                <!-- <a href="<?php echo URLROOT; ?>/C_M_Complaints/add"><button class="btn1">New Complaint</button> </a> -->
+                                <a href="<?php echo URLROOT; ?>/C_M_Complaints/add"><button class="btn1">New Complaint</button> </a>
                                 <br>
 
                                 <div>

@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1> View Link > <?php echo $data['title'];?>
+                        <h1>Enrolment List > <?php echo $data['title'];?> > View Link
                         </h1>
                     </div>
 
@@ -26,10 +26,10 @@
                     <div class="middle-panel-single">
                         <div class="button-panel">
                             <a href="<?php echo URLROOT.'/C_M_Enrolment_List/enrolStudentList/'.$_SESSION['current_viewing_post_id']; ?>"><input class="btn8 post-back" type="button" value="Back"></a>
-                            <a href="<?php echo URLROOT.'/C_M_Settings/settings/'.$_SESSION['user_id']; ?>"><input class="btn6 post-back" type="button" value="Edit"></a>
+                            <!-- <a href="<?php echo URLROOT.'/C_M_Enrolment_List/editlink/'.$_SESSION['current_viewing_post_id']; ?>"><input class="btn6 post-back" type="button" value="Edit"></a> -->
                         </div>
                         <div class="table-section">
-                            <h3><div class="text"><a href="<?php echo $data['link'];?>"><?php echo $data['link'];?></a></div></h3>
+                            <div class="link"><a href="<?php echo $data['link'];?>"><?php echo $data['link'];?></a></div>
                         </div>
                     </div>
 

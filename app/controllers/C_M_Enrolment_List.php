@@ -125,13 +125,112 @@ class C_M_Enrolment_List extends Controller{
         // $post = $this->mentorDashboardModel->getPostById($postId);
         $sessionData = $this->enrolmentListModel->getSessionLink($postId);
         $sessionTitle = $this->enrolmentListModel->getPostById($postId);
-
+        
         $data = [
             'link' => $sessionData->body,
             'title' => $sessionTitle->title
         ];
 
         $this->view('mentors/opt_enrolment_list/v_view_link', $data);
+    }
+
+    public function editlink($id) {
+
+        $postId = $_SESSION['current_viewing_post_id'];
+        $post = $this->enrolmentListModel->getPostById($postId);
+        $link = $this->enrolmentListModel->getSessionLink($postId);
+
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Sanetize the POST array
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $data = [
+                'id'=> $id,
+                'post_id' => $postId,
+                'body' => trim($_POST['body']),
+                'title' => $post->title,
+
+                'body_err' => ''
+            ];
+
+            // validate link
+            if(empty($data['body'])) {
+                $data['body_err'] = 'Please enter link';
+            }
+
+            // Make sure no errors
+            if(empty($data['body_err'])) {
+                // Validated                    
+                // $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
+                if($this->mentorSettingsModel->updateLink($data)) {
+                    flash('settings_message', 'Link updated');
+                    redirect('C_M_Enrolment_List/enrolStudentList'.$_SESSION['current_viewing_post_id']);
+                }
+                else {
+                    die('Something went wrong');
+                }
+            }
+            else {
+                // Load view with errors
+                $this->view('mentors/opt_enrolment_list/v_edit_link', $data);
+            }
+        }
+        else {
+            
+            // Get existing post from model                
+            // $mentorData = $this->mentorSettingsModel->getMentorDetails($id);
+            // $postId = $_SESSION['current_viewing_post_id'];
+            $post = $this->enrolmentListModel->getPostById($postId);
+            $link = $this->enrolmentListModel->getSessionLink($postId);
+
+            if($link->post_id != $postId) {
+                redirect('C_M_Enrolment_List/enrolStudentList'.$_SESSION['current_viewing_post_id']);
+            }
+
+            $data = [
+                'id' => $id,
+                'post_id' => $postId,
+                'body' => $link->body,
+                'title' => $post->title,
+
+                'body_err' => ''
+            ];
+        }
+
+        $this->view('mentors/opt_enrolment_list/v_edit_link', $data);
+    }
+
+    public function sendlink(){
+        $postId = $_SESSION['current_viewing_post_id'];
+        $post = $this->enrolmentListModel->getPostById($postId);
+        $link = $this->enrolmentListModel->getSessionLink($postId);
+        switch($_SESSION['specialized_actor_type']) {
+            case 'Professional Guider' :
+                $enrollments = $this->enrolmentListModel->getEnrollmentsForAPostG($postId);
+                break;
+            
+            case 'Teacher' :
+                $enrollments = $this->enrolmentListModel->getEnrollmentsForAPostT($postId);
+                break;
+
+            default:
+                // nothing
+                break;
+        }
+
+        $userData = [
+            'email' => $enrollments->email
+        ];
+
+        $data = [
+            'link' => $link->body,
+            'title' => $post->title
+        ];
+
+        sendMentorSessionLink($userData['email'] , $data);
+        flash('settings_message', 'Link sent');
+        redirect('C_M_Enrolment_List/enrolStudentList'.$_SESSION['current_viewing_post_id']);
     }
 }
 

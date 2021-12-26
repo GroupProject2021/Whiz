@@ -18,8 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1> Upload Link > <?php echo $data['title'];?>
-                            
+                        <h1>Enrolment List > <?php echo $data['title'];?> > Upload Link  
                         </h1>
                     </div>
 
