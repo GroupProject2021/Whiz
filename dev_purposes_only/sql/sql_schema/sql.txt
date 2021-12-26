@@ -7462,3 +7462,16 @@ CREATE TABLE AdditionalSettings(
 	is_pri_soc_details_visible INT,
 	PRIMARY KEY(user_id)
 )
+
+-- gov course comment table
+CREATE TABLE Community (
+	thread_id INT AUTO_INCREMENT,
+	user_id INT,
+	content TEXT NOT NULL,
+	ups INT,
+	downs INT,
+	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (thread_id),
+	FOREIGN KEY (user_id) REFERENCES Users (id)
+);
+

@@ -49,7 +49,7 @@
                                 <p><b>Unicode: </b><?php echo $data['gov_course']->unicode; ?></p>
                                 <br>
                                 <h4>Intake</h4>
-                                <div class="poles">
+                                <div class="gov-poles">
                                     <div class="pole-prg-bar bar1">
                                         <progress max="<?php echo $data['total_intake']; ?>" value="<?php echo $data['gov_course']->purposed_intake; ?>" id="prgBar"></progress>
                                         <div class="percentage" id="percentage"><?php if($data['gov_course']->purposed_intake != 0){ echo number_format(($data['gov_course']->purposed_intake / $data['total_intake']) *100, 1, '.', '');} else { echo 0;} ?>%</div>
@@ -68,8 +68,6 @@
                         <h2>Description</h2>
                         <br>
                         <p><?php echo $data['gov_course']->description; ?></p>
-
-                        
                                                               
                     </div>
 

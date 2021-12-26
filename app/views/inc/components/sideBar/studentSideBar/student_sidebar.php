@@ -69,7 +69,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Community/index">
+            <a href="<?php echo URLROOT; ?>/CommunityThreads/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/community-icon-sidebar.png">
@@ -135,7 +135,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Community/index">
+            <a href="<?php echo URLROOT; ?>/CommunityThreads/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/community-icon-sidebar.png">
@@ -198,7 +198,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/C_S_Community/index">
+            <a href="<?php echo URLROOT; ?>/CommunityThreads/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/community-icon-sidebar.png">
