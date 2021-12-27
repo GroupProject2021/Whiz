@@ -30,7 +30,7 @@
             // bind values
             $this->db->bind(":image", $data['image_name']);
             $this->db->bind(":title", $data['course_name']);
-            $this->db->bind(":user_id", $data['user_id']);
+            $this->db->bind(":user_id", $data['private_uni_id']);
             $this->db->bind(":body", $data['course_content']);
             $this->db->bind(":ups", $data['ups']);
             $this->db->bind(":downs", $data['downs']);
@@ -42,22 +42,14 @@
 
             $this->db->execute();
 
-            $this->db->query('INSERT INTO Courses(course_name, course_content, provide_degree, course_type) VALUES(:course_name, :course_content, :provide_degree, :course_type)');
+            $postId = $this->getPostIdByContent($data['course_name'], $data['private_uni_id'], $data['course_content']);
+
+            $this->db->query('INSERT INTO Privatecourses(provide_degree, course_fee, private_uni_id, post_id) VALUES(:provide_degree, :course_fee, :private_uni_id, :post_id)');
             // bind values
-            $this->db->bind(":course_name", $data['course_name']);
-            $this->db->bind(":course_content", $data['course_content']);
             $this->db->bind(":provide_degree", $data['provide_degree']);
-            $this->db->bind(":course_type", 'Private');
-
-            $this->db->execute();
-
-            $private_course_id = $this->findCourseId($data['course_name'],$data['course_content'],'Private');
-
-            $this->db->query('INSERT INTO Privatecourses(private_course_id, course_fee, provide_uni_id) VALUES(:private_course_id, :course_fee, :provide_uni_id)');
-            // bind values
-            $this->db->bind(":private_course_id", $private_course_id);
-            $this->db->bind(":course_fee", $data['course_fee']);
-            $this->db->bind(":provide_uni_id", $data['provide_uni_id']);
+            $this->db->bind(":course_fee", $data['course_fee']);            
+            $this->db->bind(":private_uni_id", $data['private_uni_id']); 
+            $this->db->bind(":post_id", $postId);
 
             $this->db->execute();
 
@@ -68,6 +60,18 @@
             else {
                 return false;
             }
+        }
+
+        public function getPostIdByContent($title, $userId, $body) {
+            $this->db->query('SELECT id FROM Posts WHERE title = :title AND user_id = :user_id AND body = :body');
+            // bind values
+            $this->db->bind(":title", $title);
+            $this->db->bind(":user_id", $userId);
+            $this->db->bind(":body", $body);
+
+            $row = $this->db->single();
+
+            return $row->id;
         }
 
         public function addAdvertisement($data) {

@@ -26,7 +26,7 @@
                     <div class="middle-panel-single">
                         <div class="button-panel">
                             <a href="<?php echo URLROOT.'/C_M_Enrolment_List/enrolStudentList/'.$_SESSION['current_viewing_post_id']; ?>"><input class="btn8 post-back" type="button" value="Back"></a>
-                            <!-- <a href="<?php echo URLROOT.'/C_M_Enrolment_List/editlink/'.$_SESSION['current_viewing_post_id']; ?>"><input class="btn6 post-back" type="button" value="Edit"></a> -->
+                            <a href="<?php echo URLROOT.'/C_M_Enrolment_List/editlink/'.$_SESSION['current_viewing_post_id']; ?>"><input class="btn6 post-back" type="button" value="Edit"></a>
                         </div>
                         <div class="table-section">
                             <div class="link"><a href="<?php echo $data['link'];?>"><?php echo $data['link'];?></a></div>

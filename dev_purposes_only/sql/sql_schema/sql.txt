@@ -851,42 +851,18 @@ CREATE TABLE Jobs (
   PRIMARY KEY (job_id),
   FOREIGN KEY (company_id) REFERENCES Company  (company_id)
 ); 
- 
-CREATE TABLE Courses (
-  course_id int(11) NOT NULL AUTO_INCREMENT,
-  course_name varchar(255) NOT NULL,
-  course_content varchar(500) NOT NULL,
-  provide_degree varchar(100) NOT NULL,
-  course_type varchar(20) NOT NULL,
-  PRIMARY KEY (course_id)
-);
 
 -- replaced as coursepost
 CREATE TABLE PrivateCourses (
-  privatecourse_id int(11) NOT NULL,
+  privatecourse_id int(11) NOT NULL AUTO_INCREMENT,
+  provide_degree VARCHAR(255),
   course_fee varchar(50) NULL,
   private_uni_Id int(11) NOT NULL,
+  post_id INT,
   PRIMARY KEY (privatecourse_id),
-  FOREIGN KEY (privatecourse_id) REFERENCES Courses  (course_id),
   FOREIGN KEY (private_uni_Id) REFERENCES PrivateUniversity  (privateuni_id)
 );   
 
-
-CREATE TABLE ApplicableCourcesForJobs (
-  course_id int(11) NOT NULL,
-  job_id int(11) NOT NULL,
-  PRIMARY KEY (course_id,job_id),
-  FOREIGN KEY (course_id) REFERENCES Courses (course_id),
-  FOREIGN KEY (job_id) REFERENCES Jobs (job_id)
-); 
- 
-CREATE TABLE ApplicableStreamsForCourses (
-  st_sub_id int(11) NOT NULL,
-  course_id int(11) NOT NULL,
-  PRIMARY KEY (st_sub_id,course_id),
-  FOREIGN KEY (course_id) REFERENCES Courses (course_id),
-  FOREIGN KEY (st_sub_id) REFERENCES ALAdmissibleStreamSubject(stream_sbj_id )
-); 
  
  
  
@@ -7475,3 +7451,11 @@ CREATE TABLE Community (
 	FOREIGN KEY (user_id) REFERENCES Users (id)
 );
 
+-- session links
+CREATE TABLE sessionLink(
+id int NOT NULL AUTO_INCREMENT,
+post_id int NOT NULL,
+body varchar(255) NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE
+);

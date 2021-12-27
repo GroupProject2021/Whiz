@@ -360,6 +360,12 @@
     font-size: 22px;
 }
 
+.post-creator-subtitle input[type=text] {
+    background-color: #f5f3f3;
+    border: none;
+    font-size: 17px;
+}
+
 .post-creator .image-select {
     height: 30px;
     line-height: 30px;

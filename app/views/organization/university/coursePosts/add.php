@@ -40,13 +40,17 @@
                                     <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
                                     <span class="form-invalid"><?php echo $data['image_err']; ?></span>
                                 </div>
-                                <hr>
-                                <div class="post-creator-content">
-                                    <input type="text" name="degree" id="degree" autocomplete="off" placeholder="Degree Name" value="<?php echo $data['provide_degree']; ?>">
+                                <div class="post-creator-subtitle">                                    
+                                    <input type="text" name="provide_degree" id="degree" autocomplete="off" placeholder="Degree Name" value="<?php echo $data['provide_degree']; ?>">
                                     <span class="form-invalid"><?php echo $data['provide_degree_err']; ?></span>
+                                </div>
+                                <div class="post-creator-subtitle">
                                     <input type="text" name="course_fee" id="course_fee" autocomplete="off" placeholder="Course Fee" value="<?php echo $data['course_fee']; ?>">
                                     <span class="form-invalid"><?php echo $data['course_fee_err']; ?></span>
-                                    <textarea name="content" id="content" cols="30" rows="25" placeholder="Course Content"><?php echo $data['course_content']; ?></textarea>
+                                </div>
+                                <hr>
+                                <div class="post-creator-content">
+                                    <textarea name="course_content" id="content" cols="30" rows="25" placeholder="Course Content"><?php echo $data['course_content']; ?></textarea>
                                     <span class="form-invalid"><?php echo $data['course_content_err']; ?></span>
                                 </div>
                                 <br>

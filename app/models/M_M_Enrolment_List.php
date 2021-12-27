@@ -86,10 +86,9 @@ class M_M_Enrolment_List{
     }
 
     public function updateLink($data) {
-        $this->db->query('UPDATE sessionlink SET body = :body');
+        $this->db->query('UPDATE sessionlink SET body = :body WHERE id = :link_id');
         // bind values
-        $this->db->bind(":id", $data['id']);
-        $this->db->bind(':post_id', $data['post_id']);
+        $this->db->bind(":link_id", $data['id']);
         $this->db->bind(":body", $data['body']);
 
         // Execute

@@ -134,7 +134,7 @@ class C_M_Enrolment_List extends Controller{
         $this->view('mentors/opt_enrolment_list/v_view_link', $data);
     }
 
-    public function editlink($id) {
+    public function editlink() {
 
         $postId = $_SESSION['current_viewing_post_id'];
         $post = $this->enrolmentListModel->getPostById($postId);
@@ -146,9 +146,9 @@ class C_M_Enrolment_List extends Controller{
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             
             $data = [
-                'id'=> $id,
+                'id'=> $link->id,
                 'post_id' => $postId,
-                'body' => trim($_POST['body']),
+                'body' => trim($_POST['link']),
                 'title' => $post->title,
 
                 'body_err' => ''
@@ -163,7 +163,7 @@ class C_M_Enrolment_List extends Controller{
             if(empty($data['body_err'])) {
                 // Validated                    
                 // $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
-                if($this->mentorSettingsModel->updateLink($data)) {
+                if($this->enrolmentListModel->updateLink($data)) {
                     flash('settings_message', 'Link updated');
                     redirect('C_M_Enrolment_List/enrolStudentList'.$_SESSION['current_viewing_post_id']);
                 }
@@ -189,7 +189,7 @@ class C_M_Enrolment_List extends Controller{
             }
 
             $data = [
-                'id' => $id,
+                'id' => $link->id,
                 'post_id' => $postId,
                 'body' => $link->body,
                 'title' => $post->title,
