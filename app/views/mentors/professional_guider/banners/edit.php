@@ -18,7 +18,11 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Banner > Edit</h1>
+                        <h1><a href="<?php echo URLROOT;?>/Posts_C_M_Banners/index">Banner</a>
+                        > 
+                        <?php echo $data['title']; ?>
+                        > Edit
+                    </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

@@ -18,7 +18,9 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Enrolment List > <?php echo $data['title'];?></h1>
+                        <h1><a href="<?php echo URLROOT; ?>/C_M_Enrolment_List/index">Enrolment List</a>
+                         > 
+                        <?php echo $data['title'];?></h1>
                     </div>
                     <!-- <br> -->
                     <div class="button-panel">
