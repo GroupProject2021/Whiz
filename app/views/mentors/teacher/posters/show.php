@@ -18,7 +18,9 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Poster > View</h1>
+                        <h1><a href="<?php echo URLROOT;?>/Posts_C_M_Posters/index">Banner</a>
+                        >
+                        <?php echo $data['post']->title; ?></h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->

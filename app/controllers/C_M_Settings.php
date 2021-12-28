@@ -16,6 +16,7 @@ class C_M_Settings extends Controller{
         $followerCount = $this->countFollowers($id);
         $followingCount = $this->countFollowings($id);
         $isAlreadyFollow = $this->checkFollowability($id);
+        $socialData = $this->mentorSettingsModel->getSocialPlatformData($id);
         
 
         switch($userData->specialized_actor_type) {
@@ -34,7 +35,9 @@ class C_M_Settings extends Controller{
                     'gender' => $mentorData->gender,
                     'institute' => $mentorData->institute,
                     'address' => $mentorData->address,
-                    'phn_no' => $mentorData->phn_no
+                    'phn_no' => $mentorData->phn_no,
+                    'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
+                    'socialData' => $socialData
                 ];
 
                 $this->view('mentors/opt_settings/v_proguider_profile', $data);
@@ -53,7 +56,9 @@ class C_M_Settings extends Controller{
                     'email' => $mentorData->email,
                     'gender' => $mentorData->gender,
                     'address' => $mentorData->address,
-                    'phn_no' => $mentorData->phn_no
+                    'phn_no' => $mentorData->phn_no,
+                    'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
+                    'socialData' => $socialData
                 ];
  
                 $this->view('mentors/opt_settings/v_teacher_profile', $data);
@@ -328,6 +333,192 @@ class C_M_Settings extends Controller{
 
         return $this->mentorSettingsModel->isAlreadyFollow($me, $id);
     }
+
+    // add social profile links
+    public function isSocialPlatformDataExist($id) {
+        $result = $this->mentorSettingsModel->isSocialPlatformDataExist($id);
+
+        return $result;
+    }
+
+    public function addSocialProfileDetails($id) {
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Sanetize the POST array
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $data = [
+                'facebook' => trim($_POST['facebook']),
+                'linkedin' => trim($_POST['linkedin']),
+                'twitter' => trim($_POST['twitter']),
+                'instagram' => trim($_POST['instagram']),
+                'medium' => trim($_POST['medium']),
+                'printerest' => trim($_POST['printerest']),
+                'youtube' => trim($_POST['youtube']),
+                'reddit' => trim($_POST['reddit']),
+
+                'facebook_err' => '',
+                'linkedin_err' => '',
+                'twitter_err' => '',
+                'instagram_err' => '',
+                'medium_err' => '',
+                'printerest_err' => '',
+                'youtube_err' => '',
+                'reddit_err' => ''
+            ];
+
+            // Validate gender
+            if(empty($data['facebook_err'])) {
+                
+            }
+
+            // Validate date of birth
+            if(empty($data['linkedin_err'])) {
+                
+            }
+
+            // Validate address
+            if(empty($data['twitter_err'])) {
+                
+            }
+
+            // Validate phone number
+            if(empty($data['instagram_err'])) {
+                
+            }
+
+            // Make sure no errors
+            if(empty($data['facebook_err']) && empty($data['linkedin_err']) && empty($data['twitter_err']) && empty($data['instagram_err'])) {
+                // Validated
+                if($this->mentorSettingsModel->addSocialPlatformData($id, $data)) {
+                    flash('settings_message', 'Social profile data added');
+                    //$this->updateUserSessions($_SESSION['user_id']);
+                    
+                    redirect('C_M_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id']);
+                }
+                else {
+                    die('Something went wrong');
+                }
+            }
+            else {
+                // Load view with errors
+                $this->view('mentors/opt_settings/v_add_socialdata', $data);
+            }
+        }
+        else {
+            $data = [
+                'facebook' => '',                
+                'linkedin' => '',
+                'twitter' => '',
+                'instagram' => '',
+                'medium' => '',                
+                'printerest' => '',
+                'youtube' => '',
+                'reddit' => '',
+
+                'facebook_err' => '',
+                'linkedin_err' => '',
+                'twitter_err' => '',
+                'instagram_err' => '',
+                'medium_err' => '',
+                'printerest_err' => '',
+                'youtube_err' => '',
+                'reddit_err' => ''
+            ];
+        }
+
+        $this->view('mentors/opt_settings/v_add_socialdata', $data);
+    }
+
+    public function updateSocialProfileDetails($id) {
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Sanetize the POST array
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $data = [
+                'facebook' => trim($_POST['facebook']),
+                'linkedin' => trim($_POST['linkedin']),
+                'twitter' => trim($_POST['twitter']),
+                'instagram' => trim($_POST['instagram']),
+                'medium' => trim($_POST['medium']),
+                'printerest' => trim($_POST['printerest']),
+                'youtube' => trim($_POST['youtube']),
+                'reddit' => trim($_POST['reddit']),
+
+                'facebook_err' => '',
+                'linkedin_err' => '',
+                'twitter_err' => '',
+                'instagram_err' => '',
+                'medium_err' => '',
+                'printerest_err' => '',
+                'youtube_err' => '',
+                'reddit_err' => ''
+            ];
+
+            // Validate gender
+            if(empty($data['facebook_err'])) {
+                
+            }
+
+            // Validate date of birth
+            if(empty($data['linkedin_err'])) {
+                
+            }
+
+            // Validate address
+            if(empty($data['twitter_err'])) {
+                
+            }
+
+            // Validate phone number
+            if(empty($data['instagram_err'])) {
+                
+            }
+
+            // Make sure no errors
+            if(empty($data['facebook_err']) && empty($data['linkedin_err']) && empty($data['twitter_err']) && empty($data['instagram_err'])) {
+                // Validated
+                if($this->mentorSettingsModel->updateSocialPlatformData($id, $data)) {
+                    flash('settings_message', 'Social profile data updated');
+                    //$this->updateUserSessions($_SESSION['user_id']);
+                    
+                    redirect('C_M_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id']);
+                }
+                else {
+                    die('Something went wrong');
+                }
+            }
+            else {
+                // Load view with errors
+                $this->view('mentors/opt_settings/edit/v_edit_socialdata', $data);
+            }
+        }
+        else {
+            $socialData = $this->mentorSettingsModel->getSocialPlatformData($id);
+
+            $data = [
+                'facebook' => $socialData->facebook,                
+                'linkedin' => $socialData->linkedin,   
+                'twitter' => $socialData->twitter,   
+                'instagram' => $socialData->instagram,   
+                'medium' => $socialData->medium,                
+                'printerest' => $socialData->printerest,   
+                'youtube' => $socialData->youtube,   
+                'reddit' => $socialData->reddit,   
+
+                'facebook_err' => '',
+                'linkedin_err' => '',
+                'twitter_err' => '',
+                'instagram_err' => '',
+                'medium_err' => '',
+                'printerest_err' => '',
+                'youtube_err' => '',
+                'reddit_err' => ''
+            ];
+        }
+
+        $this->view('mentors/opt_settings/edit/v_edit_socialdata', $data);
+    }
+
 }
 
 ?>
