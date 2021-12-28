@@ -6,17 +6,44 @@ class C_O_Settings extends Controller {
     }
 
      // Settings
-     public function settings($id) {
+     public function settings($id,$viewer) {
         // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
         $userData = $this->settingsModel->getUserDetails($id);
+        $this->accSettingsModel = $this->model('Account_Setting');
 
         // settings redirection
         profileRedirect('Organization', $userData->actor_type, $id);
+
+        // social platform details
+        $socialData = $this->settingsModel->getSocialPlatformData($id);
 
         $followerCount = $this->countFollowers($id);
         $followingCount = $this->countFollowings($id);
         $isAlreadyFollow = $this->checkFollowability($id);
 
+        // privacy shield related 
+        $locked = $this->accSettingsModel->isUserLockedProfile($id);
+
+        if($locked) {
+            // check whether the viewer is in the following list of the profile owner
+            if($this->accSettingsModel->checkViewerIsAFollowerOrNot($id, $viewer)) {
+                // viewer is followed by the profile owner --> then the content is visible if locked
+                $isGenDetailsLocked = false;
+                $isSocDetailsLocked = false;
+            }
+            else {
+                // view is not followed by the profile owner --> then the content is visible if it is unlocked at the shield options
+                $settings = $this->accSettingsModel->getSettings($id);
+
+                $isGenDetailsLocked = $settings->is_pri_gen_details_visible;
+                $isSocDetailsLocked = $settings->is_pri_soc_details_visible;
+            }
+        }
+        else {
+            $isGenDetailsLocked = false;
+            $isSocDetailsLocked = false;
+        }
+        
         // $org_id = $this->settingsModel->findOrganizationIdbyEmail($userData->email);
         $organizationData = $this->settingsModel->getOrganizationDetails($id);
 

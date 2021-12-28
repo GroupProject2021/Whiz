@@ -7426,6 +7426,38 @@ CREATE VIEW v_enrol_student_list AS
 	INNER JOIN Users  
 	ON profguiderenrollments.user_id = Users.id;
 
+--view for course posts
+CREATE VIEW v_posts_courses AS
+	SELECT
+	v_complete_posts.postId AS post_id,
+	v_complete_posts.userId AS private_uni_id,
+	v_complete_posts.type AS type,
+	v_complete_posts.image AS image,
+	v_complete_posts.actor_type AS actor_type,
+	v_complete_posts.specialized_actor_type AS specialized_actor_type,
+	v_complete_posts.profile_image AS profile_image,
+	v_complete_posts.first_name AS first_name,
+	v_complete_posts.last_name AS last_name,
+	v_complete_posts.status AS status,
+	v_complete_posts.postCreated as postCreated,
+	v_complete_posts.title AS courseName,
+	v_complete_posts.body AS courseContent,
+   	privatecourses.provide_degree AS provide_degree,
+    privatecourses.course_fee AS course_fee,
+	v_complete_posts.applied AS applied,
+	v_complete_posts.capacity AS capacity,
+	v_complete_posts.ups AS ups,
+	v_complete_posts.downs AS downs,
+	v_complete_posts.comment_count AS comment_count,
+	IFNULL(v_complete_posts.rate1, 0) AS rate1,
+	IFNULL(v_complete_posts.rate2, 0) AS rate2,
+	IFNULL(v_complete_posts.rate3, 0) AS rate3,
+	IFNULL(v_complete_posts.rate4, 0) AS rate4,
+	IFNULL(v_complete_posts.rate5, 0) AS rate5,
+	v_complete_posts.review_count AS review_count
+	FROM v_complete_posts
+	INNER JOIN privatecourses
+    ON privatecourses.post_id = v_complete_posts.postId;
 	
 -- new alterations
 ALTER TABLE OLQualifiedStudent ADD ol_result_file VARCHAR(255);

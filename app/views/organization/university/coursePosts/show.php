@@ -28,34 +28,36 @@
                     <a href="<?php echo URLROOT;?>/Posts_C_O_CoursePosts/index"><button class="btn8 post-back">Back</button></a>
                                                                           
                             <div class="post">
-                                <?php if($data['post']->image != null):?>
+                               <?php if($data['post']->image != null):?>
                                     <div class="post-header">
                                         <img src="<?php echo URLROOT.'/imgs/posts/courseposts/'.$data['post']->image; ?>" alt="">
                                     </div>  
                                 <?php endif; ?>
                                 <div class="post-details">
-                                    <div class="profpic"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id.'/'.$_SESSION['user_id'];?>"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image;?>" alt=""></a></div>
+                                    <div class="profpic"><a class="post-link" href="<?php echo URLROOT.'/C_O_Settings/settings/'.$data['user']->id.'/'.$_SESSION['user_id'];?>"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image;?>" alt=""></a></div>
                                     <div class="profpic-sub"><img src="<?php echo URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($data['user']->actor_type).'-'.getActorSpecializedTypeForIcons($data['user']->actor_type, $data['user']->specialized_actor_type).'-icon.png'; ?>" alt=""></div>
-                                    <div class="postedby"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id.'/'.$_SESSION['user_id'];?>"><?php echo $data['user']->first_name.' '.$data['user']->last_name; ?></a></div>
+                                    <div class="postedby"><a class="post-link" href="<?php echo URLROOT.'/C_O_Settings/settings/'.$data['user']->id.'/'.$_SESSION['user_id'];?>"><?php echo $data['user']->first_name.' '.$data['user']->last_name; ?></a></div>
                                     <?php if($data['user']->status == 'verified'): ?>
-                                    <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
+                                        <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
                                     <?php endif; ?>
-                                    <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
+                                    <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->postCreated); ?></div>
                                     <!-- edit delete options -->
-                                    <?php if($data['post']->user_id == $_SESSION['user_id']): ?>    
+                                    <?php if($data['post']->private_uni_id == $_SESSION['user_id']): ?>    
                                         <div class="post-control-buttons">                                        
-                                            <a href="<?php echo URLROOT?>/Posts_C_O_CoursePosts/edit/<?php echo $data['post']->id;?>">
+                                            <a href="<?php echo URLROOT?>/Posts_C_O_CoursePosts/edit/<?php echo $data['post']->post_id;?>">
                                                 <button class="post-header-editbtn">Edit</button>
                                             </a>
-                                            <form action="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/delete/<?php echo $data['post']->id; ?>" method="post">
+                                            <form action="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/delete/<?php echo $data['post']->post_id; ?>" method="post">
                                                 <input type="submit" value="Delete" class="post-header-deletebtn">
                                             </form>
                                         </div>
                                      <?php endif; ?>
                                 </div>
                                 <div class="post-body">
-                                    <div class="title"><?php echo $data['post']->title; ?></div>
-                                    <div class="postedby"><?php echo $data['post']->body; ?></div>
+                                    <div class="title"><?php echo $data['post']->courseName; ?></div>
+                                    <div class="degree"><?php echo $data['post']->provide_degree; ?></div>
+                                    <div class="price"><?php echo $data['post']->course_fee.' LKR'; ?></div>
+                                    <div class="postedby"><?php echo $data['post']->courseContent; ?></div>
                                 </div>
                                 <form method="post">
                                 <div class="post-footer">

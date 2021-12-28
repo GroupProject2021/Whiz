@@ -63,6 +63,17 @@ class M_O_Setting {
         return $id;
     }
 
+    // social platform data
+    public function getSocialPlatformData($id) {
+        $this->db->query('SELECT * FROM SocialProfiles INNER JOIN Users ON Users.id = SocialProfiles.user_id WHERE user_id = :id');
+        // bind values
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
+
     // update settings for university
     public function updateUniversitySettings($id, $data) {
         $this->db->query('UPDATE Users SET first_name = :uniname WHERE id = :id');

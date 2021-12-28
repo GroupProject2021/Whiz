@@ -36,9 +36,9 @@
                                     <input type="text" name="course_name" id="course_name" autocomplete="off" placeholder="Course Name" value="<?php echo $data['course_name']; ?>">
                                     <span class="form-invalid"><?php echo $data['course_name_err']; ?></span>
                                     <div class="image-select"><img src="<?php echo URLROOT.'/imgs/components/posts/add-image-icon.png'; ?>" alt="" id="addImageBtn" onclick="toggleBrowse()"></div>
+                                    <span class="form-invalid"><?php echo $data['image_err']; ?></span>
                                     <div class="image-select"><img src="<?php echo URLROOT.'/imgs/components/posts/remove-image-icon.png'; ?>" alt="" id="removeImageBtn" onclick="removeImage()" style="display: none;"></div>
                                     <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
-                                    <span class="form-invalid"><?php echo $data['image_err']; ?></span>
                                 </div>
                                 <div class="post-creator-subtitle">                                    
                                     <input type="text" name="provide_degree" id="degree" autocomplete="off" placeholder="Degree Name" value="<?php echo $data['provide_degree']; ?>">

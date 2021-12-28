@@ -1,121 +1,127 @@
 .coursepost {
-    width: 300px;
-    border: 1px solid rgb(219, 219, 219);
-    transition: .1s all;
+  width: 300px;
+  border: 1px solid rgb(219, 219, 219);
+  transition: 0.1s all;
 }
 
 .coursepost:hover {
-    cursor: pointer;
-    transform: scale(1.005);
-    box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transform: scale(1.005);
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
 .coursepost .pic img {
-    width: 300px;
-    height: 200px;
+  width: 300px;
+  height: 200px;
 }
 
 .coursepost .user-pic {
-    position: relative;
-    height: 0;
-    top: -50px;
-    left: 5px;
+  position: relative;
+  height: 0;
+  top: -50px;
+  left: 5px;
 }
 
 .coursepost .user-pic img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid white;
-    box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 1);
 }
 
 .coursepost .coursepost-body .title {
-    font-size: 16px;
-    font-weight: 600;
-    padding: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.coursepost .coursepost-body .degree {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px;
 }
 
 .coursepost .coursepost-body .postedby {
-    padding-left: 5px;
-    color: rgb(78, 78, 78);
+  padding-left: 5px;
+  color: rgb(78, 78, 78);
 }
 
 .coursepost .coursepost-body .postedat {
-    padding: 3px 5px 3px 5px;
-    font-size: 12px;
-    color: rgb(46, 38, 38);
-    background-color: rgb(235, 235, 235);
+  padding: 3px 5px 3px 5px;
+  font-size: 12px;
+  color: rgb(46, 38, 38);
+  background-color: rgb(235, 235, 235);
 }
 
 .coursepost .coursepost-body .price {
-    font-size: 16px;
-    font-weight: 600;
-    padding: 5px 0 10px 5px;
-    color: rgb(78, 78, 78);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px 0 10px 5px;
+  color: rgb(78, 78, 78);
 }
 
 .coursepost .coursepost-stats {
-    display: flex;
-    flex-direction: row;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 20px;
-    vertical-align: middle;
-    border-top: 1px solid rgb(219, 219, 219);
-    background-color: rgb(235, 235, 235);
-    padding-top: 5px;
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  vertical-align: middle;
+  border-top: 1px solid rgb(219, 219, 219);
+  background-color: rgb(235, 235, 235);
+  padding-top: 5px;
 }
 
 .coursepost .coursepost-stats img {
-    position: relative;
-    top: 2px;
+  position: relative;
+  top: 2px;
 }
 
 .coursepost .coursepost-stats .ups img {
-    width: 15px;
-    margin: 0 auto;
+  width: 15px;
+  margin: 0 auto;
 }
 
 .coursepost .coursepost-stats .ups-count {
-    padding: 0 5px 0 2px;    
-    color: green;
+  padding: 0 5px 0 2px;
+  color: green;
 }
 
 .coursepost .coursepost-stats .downs img {
-    width: 15px;
+  width: 15px;
 }
 
 .coursepost .coursepost-stats .downs-count {
-    padding: 0 5px 0 2px;    
-    color: red;
+  padding: 0 5px 0 2px;
+  color: red;
 }
 
 .coursepost .coursepost-stats .comments img {
-    width: 15px;
+  width: 15px;
 }
 
 .coursepost .coursepost-stats .comments-count {
-    padding: 0 5px 0 2px;    
-    color: black;
+  padding: 0 5px 0 2px;
+  color: black;
 }
 
-.coursepost .coursepost-stats .rate {    
-    color: rgb(209, 178, 0);
-    padding: 0 3px 0 3px;
+.coursepost .coursepost-stats .rate {
+  color: rgb(209, 178, 0);
+  padding: 0 3px 0 3px;
 }
 
 .coursepost .coursepost-stats .rate-star img {
-    width: 15px;
-    filter: grayscale(100%);
+  width: 15px;
+  filter: grayscale(100%);
 }
 
 .coursepost .coursepost-stats .rate-star.active img {
-    width: 15px;
-    filter: grayscale(0%);
+  width: 15px;
+  filter: grayscale(0%);
 }
 
 .coursepost .coursepost-stats .reviews {
-    color: #333;
-    padding-left: 5px;
+  color: #333;
+  padding-left: 5px;
 }

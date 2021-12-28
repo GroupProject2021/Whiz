@@ -130,6 +130,7 @@
                     'downs' => 0,
                     'shares' => 0,
                     'views' => 0
+            
                 ];
             }
 
@@ -145,12 +146,18 @@
                 $data = [
                     'image' => $_FILES['image'],
                     'image_name' => time().'_'.$_FILES['image']['name'],
-                    'id' => $id,
-                    'title' => trim($_POST['title']),
-                    'body' => trim($_POST['body']),
-                    'user_id' => $_SESSION['user_id'],
-                    'title_err' => '',
-                    'body_err' => ''
+                    'postid' => $id,
+                    'course_name' => trim($_POST['course_name']),
+                    'course_content' => trim($_POST['course_content']),
+                    'provide_degree' => trim($_POST['provide_degree']),
+                    'course_fee' => trim($_POST['course_fee']),
+                    'private_uni_id' => $_SESSION['user_id'],
+                    
+                    'image_err' => '',
+                    'course_name_err' => '',
+                    'course_content_err' => '',
+                    'provide_degree_err' => '',
+                    'course_fee_err' => '',
                 ];
 
                 // validate and upload profile image
@@ -170,25 +177,50 @@
                     else {
                         // updated for a new photo
                         updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/posts/courseposts/');
+
+                        // validate and upload profile image
+                        if($data['image']['size'] > 0) {
+                            if(uploadImage($data['image']['tmp_name'], $data['image_name'], '/imgs/posts/courseposts/')) {
+                                flash('image_upload', 'Profile picture uploaded successfully');
+                            }
+                            else {
+                                // upload unsuccessfull
+                                $data['image_err'] = 'Profile picture uploading unsuccessful';
+                            }
+                        }
                     }
                 }
 
-                // Validate title
-                if(empty($data['title'])) {
-                    $data['title_err'] = 'Please enter title';
+                // Validate course name
+                if(empty($data['course_name'])) {
+                    $data['course_name_err'] = 'Please enter course name';
                 }
 
-                // Validate body
-                if(empty($data['body'])) {
-                    $data['body_err'] = 'Please enter title';
+                // Validate content
+                if(empty($data['course_content'])) {
+                    $data['course_content_err'] = 'Please enter course content';
+                }
+
+                // Validate degree
+                if(empty($data['provide_degree'])) {
+                    $data['provide_degree_err'] = 'Please enter providing degree';
+                }
+
+                // Validate fee
+                if(empty($data['course_fee'])) {
+                    $data['course_fee_err'] = 'Please enter course fee';
+                }
+                else if(is_numeric($data['course_fee']) == false) {
+                    $data['course_fee_err'] = 'Please enter valid fee';
                 }
 
                 // Make sure no errors
-                if(empty($data['title_err']) && empty($data['body_err'])) {
+                if(empty($data['image_err']) && empty($data['course_name_err']) && empty($data['course_content_err']) 
+                && empty($data['provide_degree_err']) && empty($data['course_fee_err'])) {
                     // Validated
                     if($this->postModel->updatePost($data)) {
                         flash('post_message', 'Post updated');
-                        redirect('Posts_C_O_CoursePosts');
+                        redirect('/Posts_C_O_CoursePosts/show/$id');
                     }
                     else {
                         die('Something went wrong');
@@ -197,28 +229,36 @@
                 else {
                     // Load view with errors
                     $this->view('organization/university/coursePosts/edit', $data);
+                    }
                 }
-            }
+
             else {
                 // Get existing post from model
                 $post = $this->postModel->getPostById($id);
 
                 // Check for owner
-                if($post->user_id != $_SESSION['user_id']) {
-                    redirect('Posts_C_O_CoursePosts');
+                if($post->private_uni_id != $_SESSION['user_id']) {
+                    redirect('Posts_C_O_CoursePosts/index');
                 }
 
                 $data = [
                     'image' => '',
-                    'image_name' => $post->image,
-                    'id' => $id,
-                    'title' => $post->title,
-                    'body' => $post->body,                    
-                    'title_err' => '',
-                    'body_err' => ''
+                    'image_name' =>  $post->image,
+                    'postid' => $id,
+                    'course_name' => $post->courseName,
+                    'course_content' => $post->courseContent,
+                    'provide_degree' => $post->provide_degree,                       
+                    'course_fee' => $post->course_fee,
+                    'private_uni_id' => $_SESSION['user_id'],
+                        
+                    'image_err' => '',
+                    'course_name_err' => '',
+                    'course_content_err' => '',
+                    'provide_degree_err' => '',
+                    'course_fee_err' => '',
                 ];
             }
-
+    
             $this->view('organization/university/coursePosts/edit', $data);
         }
 
@@ -234,7 +274,7 @@
             $_SESSION['currect_viewing_post_type'] = "Course Post";
 
             $post = $this->postModel->getPostById($id);
-            $user = $this->commonModel->getUserById($post->user_id);
+            $user = $this->commonModel->getUserById($post->private_uni_id);
 
             $ups = $this->postModel->getInc($id)->ups;
             $downs = $this->postModel->getDown($id)->downs;
@@ -308,7 +348,7 @@
 
                 // Check for owner
                 if($post->user_id != $_SESSION['user_id']) {
-                    redirect('Posts_C_O_CoursePosts');
+                    redirect('Posts_C_O_CoursePosts/index');
                 }
 
                 $res1 = $this->commentModel->deleteComment($id);
@@ -322,14 +362,14 @@
                 
                 if($res1 && $res2 && $res3 && $res4 && $res5) {
                     flash('post_message', 'Post Removed');
-                    redirect('Posts_C_O_CoursePosts');
+                    redirect('Posts_C_O_CoursePosts/index');
                 }
                 else {
                     die('Something went wrong');
                 }
             }
             else {
-                redirect('Posts_C_O_CoursePosts');
+                redirect('Posts_C_O_CoursePosts/show/$id');
             }
         }
 

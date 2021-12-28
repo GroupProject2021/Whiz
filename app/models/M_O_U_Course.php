@@ -17,7 +17,7 @@
             //                     ON posts.user_id = users.id 
             //                     ORDER BY posts.created_at DESC");
 
-            $this->db->query("SELECT * FROM v_complete_posts;");
+            $this->db->query("SELECT * FROM v_posts_courses;");
             
 
             $results = $this->db->resultSet();
@@ -50,8 +50,6 @@
             $this->db->bind(":course_fee", $data['course_fee']);            
             $this->db->bind(":private_uni_id", $data['private_uni_id']); 
             $this->db->bind(":post_id", $postId);
-
-            $this->db->execute();
 
             // Execute
             if($this->db->execute()) {
@@ -91,12 +89,20 @@
         }
 
         public function updatePost($data) {
-            $this->db->query('UPDATE Posts SET image = :image, title = :title, body = :body WHERE id = :id');
+            $this->db->query('UPDATE Posts SET image = :image, title = :course_name, body = :course_content WHERE id = :id');
             // bind values
             $this->db->bind(":image", $data['image_name']);            
-            $this->db->bind(":id", $data['id']);
-            $this->db->bind(":title", $data['title']);
-            $this->db->bind(":body", $data['body']);
+            $this->db->bind(":id", $data['postid']);
+            $this->db->bind(":course_name", $data['course_name']);
+            $this->db->bind(":course_content", $data['course_content']);
+
+            $this->db->execute();
+
+            $this->db->query('UPDATE Privatecourses SET provide_degree = :provide_degree, course_fee = :course_feet WHERE post_id = :id');
+            // bind values    
+            $this->db->bind(":id", $data['postid']);
+            $this->db->bind(":provide_degree", $data['provide_degree']);
+            $this->db->bind(":course_fee", $data['course_fee']); 
 
             // Execute
             if($this->db->execute()) {
@@ -108,7 +114,7 @@
         }
 
         public function getPostById($id) {
-            $this->db->query('SELECT * FROM Posts WHERE id = :id');
+            $this->db->query('SELECT * FROM v_posts_courses WHERE post_id = :id');
             $this->db->bind(':id', $id);
 
             $row = $this->db->single();
@@ -119,7 +125,12 @@
         public function deletePost($id) {
             $this->db->query('DELETE FROM Posts WHERE id = :id');
             // bind values
-            
+            $this->db->bind(":id", $id);
+
+            $this->db->execute();
+
+            $this->db->query('DELETE FROM Privatecourses WHERE post_id = :id');
+            // bind values
             $this->db->bind(":id", $id);
 
             // Execute
