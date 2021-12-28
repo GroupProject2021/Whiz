@@ -57,7 +57,7 @@
                 // validate and upload profile image
                 if($data['image']['size'] > 0) {
                     if(uploadImage($data['image']['tmp_name'], $data['image_name'], '/imgs/posts/courseposts/')) {
-                        flash('profile_image_upload', 'Profile picture uploaded successfully');
+                        flash('image_upload', 'Profile picture uploaded successfully');
                     }
                     else {
                         // upload unsuccessfull
@@ -81,7 +81,7 @@
 
                 // Validate degree
                 if(empty($data['provide_degree'])) {
-                    $data['provide_degree_err'] = 'Please enter provide degree';
+                    $data['provide_degree_err'] = 'Please enter providing degree';
                 }
 
                 // Validate fee
@@ -98,7 +98,7 @@
                     // Validated
                     if($this->postModel->addPost($data)) {
                         flash('post_message', 'Post added');
-                        redirect('Posts_C_O_CoursePosts');
+                        redirect('Posts_C_O_CoursePosts/index');
                     }
                     else {
                         die('Something went wrong');
