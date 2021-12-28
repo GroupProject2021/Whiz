@@ -147,6 +147,82 @@
                             <hr>
                                 
                         </div>
+                        <!-- !$data['is_pri_soc_details_locked'] || -->
+                        <?php if( $data['user']->id == $_SESSION['user_id']): ?>
+                            <?php if($data['isSocialDataExist']):?>
+                                <div class="division">
+                                    <div class="division-name">Social platform details</div>
+                                    <?php if($data['user']->id == $_SESSION['user_id']): ?>
+                                    <div class="editable">
+                                        <a href="<?php echo URLROOT.'/C_M_Settings/updateSocialProfileDetails/'.$_SESSION['user_id']; ?>"><button class="btn1-small">Edit</button></a>
+                                    </div>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="beginner-detials">
+                                    <?php if($data['socialData']->facebook != NULL) :?>
+                                    <div class="Facebook">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/facebook-icon.png'; ?>" alt="">Facebook</div>
+                                        <div class="text"><?php echo $data['socialData']->facebook;?></div>                                        
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->linkedin != NULL) :?>
+                                    <div class="LinkedIn">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/linkedin-icon.png'; ?>" alt="">LinkedIn</div>
+                                        <div class="text"><?php echo $data['socialData']->linkedin;?></div>
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->twitter != NULL) :?>
+                                    <div class="Twitter">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/twitter-icon.png'; ?>" alt="">Twitter</div>
+                                        <div class="text"><?php echo $data['socialData']->twitter;?></div>                                        
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->instagram != NULL) :?>
+                                    <div class="Instagram">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/instagram-icon.png'; ?>" alt="">Instagram</div>
+                                        <div class="text"><?php echo $data['socialData']->instagram;?></div>
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->medium != NULL) :?>
+                                    <div class="Medium">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/medium-icon.png'; ?>" alt="">Medium</div>
+                                        <div class="text"><?php echo $data['socialData']->medium;?></div>
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->printerest != NULL) :?>
+                                    <div class="Printerest">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/printerest-icon.png'; ?>" alt="">Printerest</div>
+                                        <div class="text"><?php echo $data['socialData']->printerest;?></div>
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->youtube != NULL) :?>
+                                    <div class="Youtube">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/youtube-icon.png'; ?>" alt="">Youtube</div>
+                                        <div class="text"><?php echo $data['socialData']->youtube;?></div>
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->reddit != NULL) :?>
+                                    <div class="Reddit">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/reddit-icon.png'; ?>" alt="">Reddit</div>
+                                        <div class="text"><?php echo $data['socialData']->reddit;?></div>
+                                    </div>
+                                    <?php endif; ?>
+                                </div>
+                                <hr>
+                            <?php else: ?>
+                                <?php if($data['user']->id == $_SESSION['user_id']): ?>
+                                <div class="division">
+                                    <div class="division-name">Social platform details</div>
+                                </div>
+                                <div class="social-detials-idle">
+                                    <div class="message">
+                                        <div class="text">Enter your social profile details here</div>     
+                                        <a href="<?php echo URLROOT.'/C_M_Settings/addSocialProfileDetails/'.$_SESSION['user_id']; ?>"><button class="btn2">ADD</button></a>        
+                                    </div>
+                                </div>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        <?php endif; ?>
                         </div>
                         <div class="body">
 
