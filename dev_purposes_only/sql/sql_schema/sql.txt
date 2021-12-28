@@ -7431,13 +7431,13 @@ CREATE VIEW v_enrol_student_list AS
 ALTER TABLE OLQualifiedStudent ADD ol_result_file VARCHAR(255);
 ALTER TABLE ALQualifiedStudent ADD al_result_file VARCHAR(255);
 
--- settings table (Privacy && Others)
+-- settings table
 CREATE TABLE AdditionalSettings(
 	user_id INT,
 	is_pri_gen_details_visible INT,
 	is_pri_soc_details_visible INT,
 	PRIMARY KEY(user_id)
-)
+);
 
 -- gov course comment table
 CREATE TABLE Community (

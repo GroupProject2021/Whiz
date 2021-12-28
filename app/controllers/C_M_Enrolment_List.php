@@ -165,6 +165,8 @@ class C_M_Enrolment_List extends Controller{
                 // $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
                 if($this->enrolmentListModel->updateLink($data)) {
                     flash('settings_message', 'Link updated');
+                    // send notification
+                    
                     redirect('C_M_Enrolment_List/enrolStudentList'.$_SESSION['current_viewing_post_id']);
                 }
                 else {
