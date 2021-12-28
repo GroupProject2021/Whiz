@@ -18,7 +18,10 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Enrolment List > <?php echo $data['title'];?> > Edit Link </h1>
+                        <h1><a href="<?php echo URLROOT; ?>/C_M_Enrolment_List/index">Enrolment List</a>
+                        >
+                        <a href="<?php echo URLROOT.'/C_M_Enrolment_List/viewlink/'.$_SESSION['current_viewing_post_id']; ?>"><?php echo $data['title'];?></a>
+                        > Edit Link </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
