@@ -7426,7 +7426,7 @@ CREATE VIEW v_enrol_student_list AS
 	INNER JOIN Users  
 	ON profguiderenrollments.user_id = Users.id;
 
---view for course posts
+-- view for course posts
 CREATE VIEW v_posts_courses AS
 	SELECT
 	v_complete_posts.postId AS post_id,
@@ -7471,17 +7471,59 @@ CREATE TABLE AdditionalSettings(
 	PRIMARY KEY(user_id)
 );
 
--- gov course comment table
+-- community
 CREATE TABLE Community (
 	thread_id INT AUTO_INCREMENT,
+	user_id INT,
+	title TEXT NOT NULL,
+	body TEXT NOT NULL,
+	views INT,
+	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (thread_id),
+	FOREIGN KEY (user_id) REFERENCES Users (id)
+);
+
+CREATE TABLE CommunityComments (
+	comment_id INT AUTO_INCREMENT,
+	thread_id INT,
 	user_id INT,
 	content TEXT NOT NULL,
 	ups INT,
 	downs INT,
 	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (thread_id),
+	PRIMARY KEY (comment_id),
+	FOREIGN KEY (thread_id) REFERENCES Community(thread_id) ON DELETE CASCADE,
 	FOREIGN KEY (user_id) REFERENCES Users (id)
 );
+
+CREATE TABLE CommunityCommentInteractions (
+	comment_interaction_id INT AUTO_INCREMENT,
+	user_id INT,
+	comment_id INT,
+	comment_interaction VARCHAR(10),
+	PRIMARY KEY(comment_interaction_id),
+	FOREIGN KEY(user_id) REFERENCES Users(id),
+	FOREIGN KEY(comment_id) REFERENCES CommunityComments(comment_id) ON DELETE CASCADE
+);
+
+CREATE VIEW v_community AS
+	SELECT 
+	Users.id AS user_id,
+	Users.profile_image AS profile_image,
+	Users.first_name AS first_name,
+	Users.last_name AS last_name,
+	Users.actor_type AS actor_type,
+	Users.specialized_actor_type AS specialized_actor_type,
+	Users.status AS status,
+	Community.thread_id AS thread_id,
+	Community.title AS title,
+	Community.body AS body,
+	Community.views AS views,
+	Community.created_at AS created_at
+	FROM Users
+	INNER JOIN Community
+	ON Users.id = Community.user_id
+	ORDER BY Community.created_at DESC;
 
 -- session links
 CREATE TABLE sessionLink(

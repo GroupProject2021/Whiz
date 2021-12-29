@@ -99,3 +99,112 @@
 .thread-footer .views-amount {
     color: #5c5c5c;
 }
+
+/* add */
+
+/* POST ADD */
+.thread-creator {
+    width: 80%;
+    height: fit-content;
+    background-color: #f5f5f5;
+    border: 2px solid #c7c7c7;
+    border-radius: 5px;
+}
+.thread-creator .thread-creator-image img {
+    width: 100%;
+}
+
+.thread-creator-title {
+    display: flex;
+    flex-direction: row;
+}
+
+.thread-creator-title input[type=text] {
+    background-color: #f5f3f3;
+    border: none;
+    font-size: 22px;
+}
+
+.thread-creator-subtitle input[type=text] {
+    background-color: #f5f3f3;
+    border: none;
+    font-size: 17px;
+}
+
+.thread-creator .image-select {
+    height: 30px;
+    line-height: 30px;
+    margin: auto 5px auto 0;
+}
+
+.thread-creator-title .image-select img {
+    width: 30px;
+    transition: .1s all;
+}
+
+.thread-creator-title .image-select img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.thread-creator-content textarea {
+    background-color: #f5f5f5;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.thread-creator-content textarea:focus {
+    outline: 0;
+}
+
+.thread-creator-submit {
+    background-color: #246f7c;
+    color: #e4e4e4;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    font-size: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.thread-creator-submit:hover {
+    opacity: 1;
+}
+
+/* thread show */
+.thread-comment-area {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.thread-comment-area .comment-text {
+    width: 100%;
+    padding-right: 10px;
+}
+
+.thread-comment-btn {
+    background-color: rgb(138, 167, 187);
+    color: rgb(248, 255, 255);
+    padding: 12px 20px;
+    border: none;
+    width: fit-content;
+    opacity: 0.9;
+    transition: .2s;
+}
+
+.thread-comment-btn:hover {
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1124px) {
+    .thread-creator {
+        width: 100%;
+    }  
+}
