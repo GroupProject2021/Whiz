@@ -25,19 +25,19 @@
                     <div class="middle-panel-single">
                         <?php flash('post_message'); ?>
 
-                        <a href="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/add"><button class="btn3">CREATE COURSE</button></a>
+                        <a href="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/add"><button class="btn3">CREATE INTAKE NOTICE</button></a>
                         <br><br><br>
 
                     <div class="card-flex-box">
                     
-                    <!-- COURSE POST -->
+                    <!-- NOTICE POST -->
                    <?php foreach($data['posts'] as $post): ?>
                     <?php if($post->type == "coursepost"): ?>
-                        <a href="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/show/<?php echo $post->post_id; ?>" class="card-link">
+                        <a href="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="coursepost">
                             <?php if($post->image != null):?>
                             <div class="pic">
-                                <img src="<?php echo URLROOT.'/imgs/posts/courseposts/'.$post->image; ?>" alt="">
+                                <img src="<?php echo URLROOT.'/imgs/posts/notices/'.$post->image; ?>" alt="">
                             </div>
                             <?php endif; ?>
                             <div class="coursepost-body">
@@ -45,10 +45,8 @@
                                     <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
                                 </div>
                                 <div class="postedat">Posted At: <?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
-                                <div class="title"><?php echo $post->courseName; ?></div>
-                                <div class="degree"><?php echo $post->provide_degree; ?></div>
+                                <div class="title"><?php echo $post->noticeName; ?></div>
                                 <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
-                               <div class="price"><?php echo $post->course_fee.' LKR'; ?></div>
                             </div>
                             <div class="coursepost-stats">
                                 <div class="ups"><img src="<?php echo URLROOT.'/imgs/components/posts/up-icon.png'; ?>" alt=""></div>

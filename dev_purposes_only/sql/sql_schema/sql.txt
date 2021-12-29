@@ -857,10 +857,11 @@ CREATE TABLE PrivateCourses (
   privatecourse_id int(11) NOT NULL AUTO_INCREMENT,
   provide_degree VARCHAR(255),
   course_fee varchar(50) NULL,
-  private_uni_Id int(11) NOT NULL,
+  private_uni_id int(11) NOT NULL,
   post_id INT,
   PRIMARY KEY (privatecourse_id),
-  FOREIGN KEY (private_uni_Id) REFERENCES PrivateUniversity  (privateuni_id)
+  FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id),
+  FOREIGN KEY (post_id) REFERENCES Posts (id)
 );   
 
  
@@ -880,14 +881,15 @@ CREATE TABLE JobApplicants (
 
 CREATE TABLE IntakeNotices (
   notice_id int(11) NOT NULL AUTO_INCREMENT,
-  content varchar(255) NOT NULL,
-  paid_date date NOT NULL,
-  uni_id int(11) NOT NULL,
+  expire_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  private_uni_id int(11) NOT NULL,
+  post_id INT,
   PRIMARY KEY (notice_id),
-  FOREIGN KEY (uni_id) REFERENCES PrivateUniversity (privateuni_id)
+  FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id),
+  FOREIGN KEY (post_id) REFERENCES Posts (id)
 ); 
 
-
+/*UPDATE IntakeNotices SET expire_date =  DATEADD(MONTH, 1, paid_date);*/
 
 
 -- MENTOR RELATED
@@ -7426,38 +7428,6 @@ CREATE VIEW v_enrol_student_list AS
 	INNER JOIN Users  
 	ON profguiderenrollments.user_id = Users.id;
 
---view for course posts
-CREATE VIEW v_posts_courses AS
-	SELECT
-	v_complete_posts.postId AS post_id,
-	v_complete_posts.userId AS private_uni_id,
-	v_complete_posts.type AS type,
-	v_complete_posts.image AS image,
-	v_complete_posts.actor_type AS actor_type,
-	v_complete_posts.specialized_actor_type AS specialized_actor_type,
-	v_complete_posts.profile_image AS profile_image,
-	v_complete_posts.first_name AS first_name,
-	v_complete_posts.last_name AS last_name,
-	v_complete_posts.status AS status,
-	v_complete_posts.postCreated as postCreated,
-	v_complete_posts.title AS courseName,
-	v_complete_posts.body AS courseContent,
-   	privatecourses.provide_degree AS provide_degree,
-    privatecourses.course_fee AS course_fee,
-	v_complete_posts.applied AS applied,
-	v_complete_posts.capacity AS capacity,
-	v_complete_posts.ups AS ups,
-	v_complete_posts.downs AS downs,
-	v_complete_posts.comment_count AS comment_count,
-	IFNULL(v_complete_posts.rate1, 0) AS rate1,
-	IFNULL(v_complete_posts.rate2, 0) AS rate2,
-	IFNULL(v_complete_posts.rate3, 0) AS rate3,
-	IFNULL(v_complete_posts.rate4, 0) AS rate4,
-	IFNULL(v_complete_posts.rate5, 0) AS rate5,
-	v_complete_posts.review_count AS review_count
-	FROM v_complete_posts
-	INNER JOIN privatecourses
-    ON privatecourses.post_id = v_complete_posts.postId;
 	
 -- new alterations
 ALTER TABLE OLQualifiedStudent ADD ol_result_file VARCHAR(255);
@@ -7491,3 +7461,68 @@ body varchar(255) NOT NULL,
 PRIMARY KEY(id),
 FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE
 );
+
+-- view for course posts
+CREATE VIEW v_posts_courses AS
+	SELECT
+	v_complete_posts.postId AS post_id,
+	v_complete_posts.userId AS private_uni_id,
+	v_complete_posts.type AS type,
+	v_complete_posts.image AS image,
+	v_complete_posts.actor_type AS actor_type,
+	v_complete_posts.specialized_actor_type AS specialized_actor_type,
+	v_complete_posts.profile_image AS profile_image,
+	v_complete_posts.first_name AS first_name,
+	v_complete_posts.last_name AS last_name,
+	v_complete_posts.status AS status,
+	v_complete_posts.postCreated as postCreated,
+	v_complete_posts.title AS courseName,
+	v_complete_posts.body AS courseContent,
+   	privatecourses.provide_degree AS provide_degree,
+    privatecourses.course_fee AS course_fee,
+	v_complete_posts.applied AS applied,
+	v_complete_posts.capacity AS capacity,
+	v_complete_posts.ups AS ups,
+	v_complete_posts.downs AS downs,
+	v_complete_posts.comment_count AS comment_count,
+	IFNULL(v_complete_posts.rate1, 0) AS rate1,
+	IFNULL(v_complete_posts.rate2, 0) AS rate2,
+	IFNULL(v_complete_posts.rate3, 0) AS rate3,
+	IFNULL(v_complete_posts.rate4, 0) AS rate4,
+	IFNULL(v_complete_posts.rate5, 0) AS rate5,
+	v_complete_posts.review_count AS review_count
+	FROM v_complete_posts
+	INNER JOIN privatecourses
+    ON privatecourses.post_id = v_complete_posts.postId;
+
+/*-- view for notice posts
+CREATE VIEW v_posts_notices AS
+	SELECT
+	v_complete_posts.postId AS post_id,
+	v_complete_posts.userId AS private_uni_id,
+	v_complete_posts.type AS type,
+	v_complete_posts.image AS image,
+	v_complete_posts.actor_type AS actor_type,
+	v_complete_posts.specialized_actor_type AS specialized_actor_type,
+	v_complete_posts.profile_image AS profile_image,
+	v_complete_posts.first_name AS first_name,
+	v_complete_posts.last_name AS last_name,
+	v_complete_posts.status AS status,
+	v_complete_posts.postCreated as postCreated,
+	IntakeNotices.expire_date AS expire_date,
+	v_complete_posts.title AS noticeName,
+	v_complete_posts.body AS noticeContent,
+	v_complete_posts.applied AS applied,
+	v_complete_posts.capacity AS capacity,
+	v_complete_posts.ups AS ups,
+	v_complete_posts.downs AS downs,
+	v_complete_posts.comment_count AS comment_count,
+	IFNULL(v_complete_posts.rate1, 0) AS rate1,
+	IFNULL(v_complete_posts.rate2, 0) AS rate2,
+	IFNULL(v_complete_posts.rate3, 0) AS rate3,
+	IFNULL(v_complete_posts.rate4, 0) AS rate4,
+	IFNULL(v_complete_posts.rate5, 0) AS rate5,
+	v_complete_posts.review_count AS review_count
+	FROM v_complete_posts
+	INNER JOIN intakenotices
+    ON intakenotices.post_id = v_complete_posts.postId;*/

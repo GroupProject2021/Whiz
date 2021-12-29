@@ -18,19 +18,19 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Course post > View</h1>
+                        <h1>Intake Notice post > View</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
 
 
-                    <a href="<?php echo URLROOT;?>/Posts_C_O_CoursePosts/index"><button class="btn8 post-back">Back</button></a>
+                    <a href="<?php echo URLROOT;?>/Posts_C_O_IntakeNotices/index"><button class="btn8 post-back">Back</button></a>
                                                                           
                             <div class="post">
                                 <?php if($data['post']->image != null):?>
                                     <div class="post-header">
-                                        <img src="<?php echo URLROOT.'/imgs/posts/courseposts/'.$data['post']->image; ?>" alt="">
+                                        <img src="<?php echo URLROOT.'/imgs/posts/notices/'.$data['post']->image; ?>" alt="">
                                     </div>  
                                 <?php endif; ?>
                                 <div class="post-details">
@@ -44,20 +44,18 @@
                                     <!-- edit delete options -->
                                     <?php if($data['post']->private_uni_id == $_SESSION['user_id']): ?>    
                                         <div class="post-control-buttons">                                        
-                                            <a href="<?php echo URLROOT?>/Posts_C_O_CoursePosts/edit/<?php echo $data['post']->post_id;?>">
+                                            <a href="<?php echo URLROOT?>/Posts_C_O_IntakeNotices/edit/<?php echo $data['post']->post_id;?>">
                                                 <button class="post-header-editbtn">Edit</button>
                                             </a>
-                                            <form action="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/delete/<?php echo $data['post']->post_id; ?>" method="post">
+                                            <form action="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/delete/<?php echo $data['post']->post_id; ?>" method="post">
                                                 <input type="submit" value="Delete" class="post-header-deletebtn">
                                             </form>
                                         </div>
                                      <?php endif; ?>
                                 </div>
                                 <div class="post-body">
-                                    <div class="title"><?php echo $data['post']->courseName; ?></div>
-                                    <div class="degree"><?php echo $data['post']->provide_degree; ?></div>
-                                    <div class="price"><?php echo $data['post']->course_fee.' LKR'; ?></div>
-                                    <div class="postedby"><?php echo $data['post']->courseContent; ?></div>
+                                    <div class="title"><?php echo $data['post']->noticeName; ?></div>
+                                    <div class="postedby"><?php echo $data['post']->noticeContent; ?></div>
                                 </div>
                                 <form method="post">
                                 <div class="post-footer">

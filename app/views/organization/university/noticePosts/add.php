@@ -18,40 +18,33 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Course post > Create</h1>
+                        <h1>Intake Notice post > Create</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
 
-                        <a href="<?php echo URLROOT;?>/Posts_C_O_CoursePosts/index"><button class="btn8">Back</button></a>
+                        <a href="<?php echo URLROOT;?>/Posts_C_O_IntakeNotices/index"><button class="btn8">Back</button></a>
                         <br>
                     
-                        <form action="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/add" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/add" method="post" enctype="multipart/form-data">
                             <div class="post-creator">
                                 <div class="post-creator-image">
                                     <img src="" alt="" id="image_placeholder" style="display: none;">
                                 </div>
                                 <div class="post-creator-title">
-                                    <input type="text" name="course_name" id="course_name" autocomplete="off" placeholder="Course Name" value="<?php echo $data['course_name']; ?>">
-                                    <span class="form-invalid"><?php echo $data['course_name_err']; ?></span>
+                                    <input type="text" name="notice_name" id="notice_name" autocomplete="off" placeholder="Notice Title" value="<?php echo $data['notice_name']; ?>">
+                                    <span class="form-invalid"><?php echo $data['notice_name_err']; ?></span>
                                     <div class="image-select"><img src="<?php echo URLROOT.'/imgs/components/posts/add-image-icon.png'; ?>" alt="" id="addImageBtn" onclick="toggleBrowse()"></div>
                                     <div class="image-select"><img src="<?php echo URLROOT.'/imgs/components/posts/remove-image-icon.png'; ?>" alt="" id="removeImageBtn" onclick="removeImage()" style="display: none;"></div>
                                     <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
                                     <span class="form-invalid"><?php echo $data['image_err']; ?></span>
                                 </div>
-                                <div class="post-creator-subtitle">                                    
-                                    <input type="text" name="provide_degree" id="degree" autocomplete="off" placeholder="Degree Name" value="<?php echo $data['provide_degree']; ?>">
-                                    <span class="form-invalid"><?php echo $data['provide_degree_err']; ?></span>
-                                </div>
-                                <div class="post-creator-subtitle">
-                                    <input type="text" name="course_fee" id="course_fee" autocomplete="off" placeholder="Course Fee" value="<?php echo $data['course_fee']; ?>">
-                                    <span class="form-invalid"><?php echo $data['course_fee_err']; ?></span>
-                                </div>
+                                
                                 <hr>
                                 <div class="post-creator-content">
-                                    <textarea name="course_content" id="content" cols="30" rows="25" placeholder="Course Content"><?php echo $data['course_content']; ?></textarea>
-                                    <span class="form-invalid"><?php echo $data['course_content_err']; ?></span>
+                                    <textarea name="notice_content" id="content" cols="30" rows="25" placeholder="Notice Content"><?php echo $data['notice_content']; ?></textarea>
+                                    <span class="form-invalid"><?php echo $data['notice_content_err']; ?></span>
                                 </div>
                                 <br>
                                 <hr>
