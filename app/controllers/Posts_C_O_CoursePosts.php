@@ -152,7 +152,6 @@
                     'provide_degree' => trim($_POST['provide_degree']),
                     'course_fee' => trim($_POST['course_fee']),
                     'private_uni_id' => $_SESSION['user_id'],
-                    'isImageRemoved' => $_POST['isImageRemoved']
                     
                     'image_err' => '',
                     'course_name_err' => '',

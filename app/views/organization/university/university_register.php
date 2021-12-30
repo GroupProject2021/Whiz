@@ -216,7 +216,9 @@
         </div>
 
         <!-- java script form validation -->
-        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/completeFormValidation.js"></script>
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/passwordValidation.js"></script>
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/emailValidation.js"></script>
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/phoneNoValidation.js"></script>
 
         <script>
             // student amount range slider
