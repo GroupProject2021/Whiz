@@ -216,8 +216,8 @@
         </div>
 
         <!-- java script form validation -->
-        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/completeFormValidation.js"></script>
-
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/passwordValidation.js"></script>
+        
         <script>
             // student amount range slider
             function fetch_sa_value() {
