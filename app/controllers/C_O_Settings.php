@@ -112,6 +112,7 @@ class C_O_Settings extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             
             $data = [
+                'uniid' => '',
                 'uniname' => trim($_POST['uniname']),
                 'address' => trim($_POST['address']),
                 'phn_no' => trim($_POST['phn_no']),
@@ -236,6 +237,7 @@ class C_O_Settings extends Controller {
             $uniData = $this->settingsModel->getUniversityDetails($id);
 
             $data = [
+                'uniid' => $orgData->org_id,
                 'uniname' => $orgData->first_name,
                 'address' => $orgData->address,
                 'phn_no' => $orgData->phone_no,
@@ -275,6 +277,7 @@ class C_O_Settings extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             
             $data = [
+                'comid' => '',
                 'comname' => trim($_POST['comname']),
                 'address' => trim($_POST['address']),
                 'phn_no' => trim($_POST['phn_no']),
@@ -399,6 +402,7 @@ class C_O_Settings extends Controller {
             $comData = $this->settingsModel->getCompanyDetails($id);
 
             $data = [
+                'comid' => $orgData->org_id,
                 'comname' => $orgData->first_name,
                 'address' => $orgData->address,
                 'phn_no' => $orgData->phone_no,
