@@ -112,7 +112,7 @@ class C_O_Settings extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             
             $data = [
-                'uniid' => '',
+                'uniid' => trim($_POST['uniid']),
                 'uniname' => trim($_POST['uniname']),
                 'address' => trim($_POST['address']),
                 'phn_no' => trim($_POST['phn_no']),
@@ -219,7 +219,7 @@ class C_O_Settings extends Controller {
                     flash('settings_message', 'University data updated');
                     $this->updateUserSessions($_SESSION['user_id']);
 
-                    redirect('C_O_Settings/settings/'.$_SESSION['user_id']);
+                    redirect('C_O_Settings/settings/'.$data['uniid'].'/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');
@@ -277,7 +277,7 @@ class C_O_Settings extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             
             $data = [
-                'comid' => '',
+                'comid' => trim($_POST['comid']),
                 'comname' => trim($_POST['comname']),
                 'address' => trim($_POST['address']),
                 'phn_no' => trim($_POST['phn_no']),
@@ -384,7 +384,7 @@ class C_O_Settings extends Controller {
                     flash('settings_message', 'Company data updated');
                     $this->updateUserSessions($_SESSION['user_id']);
 
-                    redirect('C_O_Settings/settings/'.$_SESSION['user_id']);
+                    redirect('C_O_Settings/settings/'.$data['comid'].'/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');
@@ -433,6 +433,34 @@ class C_O_Settings extends Controller {
         $this->view('organization/opt_settings/edit/v_edit_company_settings', $data);
     }
 
+    //delete account
+    public function deleteAccount($id,$type) {
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            // Check for owner
+            if(id != $_SESSION['user_id']) {
+                redirect('C_O_Settings/settings/'.$id.'/'.$_SESSION['user_id']);
+            }
+
+        
+            // validate and upload profile image
+            $proImage = PUBROOT.'imgs/profileimages/organization'.$_SESSION['user_profile_image'];
+            $res1 = deleteImage($proImage);
+            $res2 = deleteAccount($id,$type);
+            
+            if($res && res2) {
+                flash('post_message', 'Account Removed');
+                redirect('Commons/logout');
+            }
+            else {
+                die('Something went wrong');
+            }
+        }
+        else {
+            redirect('C_O_Settings/settings/'.$id.'/'.$_SESSION['user_id']);
+        }
+    }
+
     // Edit profile picture
     public function editProfilePic() {
         // Check for POST
@@ -443,6 +471,7 @@ class C_O_Settings extends Controller {
 
             // Init data
             $data = [
+                'user_id' => trim($_POST['user_id']),
                 'profile_image' => $_FILES['profile_image'],
                 'profile_image_name' => time().'_'.$_FILES['profile_image']['name'],
 
@@ -468,7 +497,7 @@ class C_O_Settings extends Controller {
                 if($this->settingsModel->updateProfilePic($data)) {
                     $this->updateUserSessions($_SESSION['user_id']);
                     
-                    redirect('C_S_Settings/settings/'.$_SESSION['user_id']);
+                    redirect('C_O_Settings/settings/'.$data['user_id'].'/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');

@@ -100,6 +100,7 @@
                                 </tr>
                             </table>
                             </div>
+                            <input type="hidden" id="comid" name="comid" value="<?php echo $data['comid'];?>">
                         </form>
                         </div>
                     </div>

@@ -881,7 +881,7 @@ CREATE TABLE JobApplicants (
 
 CREATE TABLE IntakeNotices (
   notice_id int(11) NOT NULL AUTO_INCREMENT,
-  expire_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  paid_date DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
   private_uni_id int(11) NOT NULL,
   post_id INT,
   PRIMARY KEY (notice_id),
@@ -7537,7 +7537,7 @@ CREATE VIEW v_posts_courses AS
 	INNER JOIN privatecourses
     ON privatecourses.post_id = v_complete_posts.postId;
 
-/*-- view for notice posts
+-- view for notice posts
 CREATE VIEW v_posts_notices AS
 	SELECT
 	v_complete_posts.postId AS post_id,
@@ -7551,7 +7551,8 @@ CREATE VIEW v_posts_notices AS
 	v_complete_posts.last_name AS last_name,
 	v_complete_posts.status AS status,
 	v_complete_posts.postCreated as postCreated,
-	IntakeNotices.expire_date AS expire_date,
+	IntakeNotices.paid_date AS paid_date,
+	/*DATEADD(month, 1, IntakeNotices.paid_date) AS expire_date;*/
 	v_complete_posts.title AS noticeName,
 	v_complete_posts.body AS noticeContent,
 	v_complete_posts.applied AS applied,
@@ -7567,4 +7568,4 @@ CREATE VIEW v_posts_notices AS
 	v_complete_posts.review_count AS review_count
 	FROM v_complete_posts
 	INNER JOIN intakenotices
-    ON intakenotices.post_id = v_complete_posts.postId;*/
+    ON intakenotices.post_id = v_complete_posts.postId;

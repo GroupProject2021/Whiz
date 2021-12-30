@@ -48,7 +48,7 @@
                                 </div>
                                 <br>
                                 <hr>
-                                <button type="submit" class="post-creator-submit">Post</button>
+                                <button type="submit" class="post-creator-submit">PAY FOR NOTICE</button>
                             </div>
                         </form>
 

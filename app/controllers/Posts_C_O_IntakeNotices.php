@@ -15,7 +15,7 @@
         // Load notice posts
         public function index() {
             // Get posts
-            $posts = $this->postModel->getPosts();
+            $posts = $this->postModel->getPosts($_SESSION['user_id']);
             $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
 
             $data = [
@@ -80,7 +80,7 @@
                 if(empty($data['image_err']) && empty($data['notice_name_err']) && empty($data['notice_content_err'])) {
                     // Validated
                     if($this->postModel->addPost($data)) {
-                        flash('post_message', 'Post added');
+                        flash('post_message', 'Notice added');
                         redirect('Posts_C_O_IntakeNotices/index');
                     }
                     else {
@@ -129,11 +129,11 @@
                     'notice_name' => trim($_POST['notice_name']),
                     'notice_content' => trim($_POST['notice_content']),
                     'private_uni_id' => $_SESSION['user_id'],
-                    'isImageRemoved' => $_POST['isImageRemoved']
                     
                     'image_err' => '',
                     'notice_name_err' => '',
                     'notice_content_err' => '',
+                    'isImageRemoved' => $_POST['isImageRemoved']
                 ];
 
                 // validate and upload profile image

@@ -282,6 +282,8 @@
             unset($_SESSION['user_name']);
             unset($_SESSION['actor_type']);
             unset($_SESSION['specialized_actor_type']);
+            unset($_SESSION['status']);
+            unset($_SESSION['user_profile_image']);
             session_destroy();
 
             // redirect('students/login');

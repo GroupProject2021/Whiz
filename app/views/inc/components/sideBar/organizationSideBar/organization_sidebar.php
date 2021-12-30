@@ -31,7 +31,7 @@
         </div>
         
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/Post_C_O_IntakeNotices/index">
+            <a href="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/notice-icon.png">

@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Courses</h1>
+                        <h1>Intake Notices</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -32,7 +32,7 @@
                     
                     <!-- NOTICE POST -->
                    <?php foreach($data['posts'] as $post): ?>
-                    <?php if($post->type == "coursepost"): ?>
+                    <?php if($post->type == "noticepost" ): ?>
                         <a href="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="coursepost">
                             <?php if($post->image != null):?>

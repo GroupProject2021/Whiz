@@ -139,6 +139,7 @@
                                 </tr>
                             </table>
                             </div>
+                            <input type="hidden" id="uniid" name="uniid" value="<?php echo $data['uniid'];?>">
                         </form>
                         </div>
                     </div>
