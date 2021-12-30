@@ -152,6 +152,7 @@
                     'provide_degree' => trim($_POST['provide_degree']),
                     'course_fee' => trim($_POST['course_fee']),
                     'private_uni_id' => $_SESSION['user_id'],
+                    'isImageRemoved' => $_POST['isImageRemoved']
                     
                     'image_err' => '',
                     'course_name_err' => '',
@@ -162,7 +163,7 @@
 
                 // validate and upload profile image
                 $post = $this->postModel->getPostById($id);
-                $oldImage = PUBROOT.'/imgs/POSTS/'.$post->image;
+                $oldImage = PUBROOT.'/imgs/posts/courseposts/'.$post->image;
 
                 // photo intentionally removed
                 if($data['isImageRemoved'] == 'removed') {
