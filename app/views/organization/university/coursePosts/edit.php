@@ -27,7 +27,7 @@
                         <a href="<?php echo URLROOT;?>/Posts_C_O_CoursePosts/index"><button class="btn8">Back</button></a>
                         <br>
                     
-                        <form action="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/edit/<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/edit/<?php echo $data['postid']; ?>" method="post" enctype="multipart/form-data">
                             <div class="post-creator">
                                 <div class="post-creator-image" id="post-creator-image">
                                     <img src="<?php if($data['image_name'] != null){ echo URLROOT.'/imgs/posts/courseposts/'.$data['image_name'];}else{ echo '';} ?>" alt="" id="image_placeholder" style="display: none;">

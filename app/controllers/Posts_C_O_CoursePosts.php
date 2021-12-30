@@ -158,11 +158,12 @@
                     'course_content_err' => '',
                     'provide_degree_err' => '',
                     'course_fee_err' => '',
+                    'isImageRemoved' => $_POST['isImageRemoved']
                 ];
 
                 // validate and upload profile image
                 $post = $this->postModel->getPostById($id);
-                $oldImage = PUBROOT.'/imgs/POSTS/'.$post->image;
+                $oldImage = PUBROOT.'/imgs/posts/courseposts/'.$post->image;
 
                 // photo intentionally removed
                 if($data['isImageRemoved'] == 'removed') {
@@ -177,17 +178,6 @@
                     else {
                         // updated for a new photo
                         updateImage($oldImage, $data['image']['tmp_name'], $data['image_name'], '/imgs/posts/courseposts/');
-
-                        // validate and upload profile image
-                        if($data['image']['size'] > 0) {
-                            if(uploadImage($data['image']['tmp_name'], $data['image_name'], '/imgs/posts/courseposts/')) {
-                                flash('image_upload', 'Profile picture uploaded successfully');
-                            }
-                            else {
-                                // upload unsuccessfull
-                                $data['image_err'] = 'Profile picture uploading unsuccessful';
-                            }
-                        }
                     }
                 }
 
