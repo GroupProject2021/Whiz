@@ -29,10 +29,10 @@
                     
                         <form action="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/edit/<?php echo $data['postid']; ?>" method="post" enctype="multipart/form-data">
                             <div class="post-creator">
-                                <!--<div class="post-creator-image" id="post-creator-image">
-                                    <img src="<?php //if($data['image_name'] != null){ echo URLROOT.'/imgs/posts/courseposts/'.$data['image_name'];}else{ echo '';} ?>" alt="" id="image_placeholder" style="display: none;">
+                                <div class="post-creator-image" id="post-creator-image">
+                                    <img src="<?php if($data['image_name'] != null){ echo URLROOT.'/imgs/posts/courseposts/'.$data['image_name'];}else{ echo '';} ?>" alt="" id="image_placeholder" style="display: none;">
                                     <input type="text" name="isImageRemoved" id="isImageRemoved" style="display: none;">
-                                </div>-->
+                                </div>
                                 <div class="post-creator-title">
                                     <input type="text" name="course_name" id="course_name" autocomplete="off" placeholder="Course Name" value="<?php echo $data['course_name']; ?>">
                                     <span class="form-invalid"><?php echo $data['course_name_err']; ?></span>

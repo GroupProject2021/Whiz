@@ -98,7 +98,7 @@
 
             $this->db->execute();
 
-            $this->db->query('UPDATE Privatecourses SET provide_degree = :provide_degree, course_fee = :course_feet WHERE post_id = :id');
+            $this->db->query('UPDATE Privatecourses SET provide_degree = :provide_degree, course_fee = :course_fee WHERE post_id = :id');
             // bind values    
             $this->db->bind(":id", $data['postid']);
             $this->db->bind(":provide_degree", $data['provide_degree']);
