@@ -42,11 +42,14 @@
                                     <?php endif; ?>
                                     <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->postCreated); ?></div>
                                     <!-- edit delete options -->
-                                    <?php if($data['post']->private_uni_id == $_SESSION['user_id']): ?>    
+                                    <?php $exp_date = date('Y-m-d', strtotime($data['post']t->paid_date. ' + 1 months')) ?>
+                                    <?php if($data['post']->company_id == $_SESSION['user_id']): ?> 
+                                        <?php if(date("Y-m-d") <= $exp_date):?>   
                                         <div class="post-control-buttons">                                        
                                             <a href="<?php echo URLROOT?>/Posts_C_O_JobAds/edit/<?php echo $data['post']->post_id;?>">
                                                 <button class="post-header-editbtn">Edit</button>
                                             </a>
+                                        <?php endif; ?>
                                             <form action="<?php echo URLROOT; ?>/Posts_C_O_JobAds/delete/<?php echo $data['post']->post_id; ?>" method="post">
                                                 <input type="submit" value="Delete" class="post-header-deletebtn">
                                             </form>
