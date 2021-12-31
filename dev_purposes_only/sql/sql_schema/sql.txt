@@ -842,14 +842,15 @@ CREATE TABLE PrivateUniversity (
   FOREIGN KEY (privateuni_id) REFERENCES Organization  (org_id)
 ); 
 
--- replaced as advertisements
+-- replaced as job advertisements
 CREATE TABLE Jobs (
   job_id int(11) NOT NULL AUTO_INCREMENT,
-  job_title varchar(100) NOT NULL,
-  content varchar(255) NOT NULL,
+  paid_date DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
   company_id int(11) NOT NULL,
+  post_id INT,
   PRIMARY KEY (job_id),
-  FOREIGN KEY (company_id) REFERENCES Company  (company_id)
+  FOREIGN KEY (company_id) REFERENCES Company  (company_id),
+  FOREIGN KEY (post_id) REFERENCES Posts (id)
 ); 
 
 -- replaced as coursepost
@@ -862,9 +863,7 @@ CREATE TABLE PrivateCourses (
   PRIMARY KEY (privatecourse_id),
   FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id),
   FOREIGN KEY (post_id) REFERENCES Posts (id)
-);   
-
- 
+);  
  
  
 CREATE TABLE JobApplicants (
@@ -888,8 +887,6 @@ CREATE TABLE IntakeNotices (
   FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id),
   FOREIGN KEY (post_id) REFERENCES Posts (id)
 ); 
-
-/*UPDATE IntakeNotices SET expire_date =  DATEADD(MONTH, 1, paid_date);*/
 
 
 -- MENTOR RELATED
@@ -7552,7 +7549,6 @@ CREATE VIEW v_posts_notices AS
 	v_complete_posts.status AS status,
 	v_complete_posts.postCreated as postCreated,
 	IntakeNotices.paid_date AS paid_date,
-	/*DATEADD(month, 1, IntakeNotices.paid_date) AS expire_date;*/
 	v_complete_posts.title AS noticeName,
 	v_complete_posts.body AS noticeContent,
 	v_complete_posts.applied AS applied,
@@ -7569,3 +7565,51 @@ CREATE VIEW v_posts_notices AS
 	FROM v_complete_posts
 	INNER JOIN intakenotices
     ON intakenotices.post_id = v_complete_posts.postId;
+
+-- view for job posts
+CREATE VIEW v_posts_jobs AS
+	SELECT
+	v_complete_posts.postId AS post_id,
+	v_complete_posts.userId AS company_id,
+	v_complete_posts.type AS type,
+	v_complete_posts.image AS image,
+	v_complete_posts.actor_type AS actor_type,
+	v_complete_posts.specialized_actor_type AS specialized_actor_type,
+	v_complete_posts.profile_image AS profile_image,
+	v_complete_posts.first_name AS first_name,
+	v_complete_posts.last_name AS last_name,
+	v_complete_posts.status AS status,
+	v_complete_posts.postCreated as postCreated,
+	jobs.paid_date AS paid_date,
+	v_complete_posts.title AS jobName,
+	v_complete_posts.body AS jobContent,
+	v_complete_posts.applied AS applied,
+	v_complete_posts.capacity AS capacity,
+	v_complete_posts.ups AS ups,
+	v_complete_posts.downs AS downs,
+	v_complete_posts.comment_count AS comment_count,
+	IFNULL(v_complete_posts.rate1, 0) AS rate1,
+	IFNULL(v_complete_posts.rate2, 0) AS rate2,
+	IFNULL(v_complete_posts.rate3, 0) AS rate3,
+	IFNULL(v_complete_posts.rate4, 0) AS rate4,
+	IFNULL(v_complete_posts.rate5, 0) AS rate5,
+	v_complete_posts.review_count AS review_count
+	FROM v_complete_posts
+	INNER JOIN jobs
+    ON jobs.post_id = v_complete_posts.postId;
+
+/*--for development purpose removable
+INSERT INTO users (id, profile_image, first_name, last_name, email, password, actor_type, specialized_actor_type, status) VALUES
+(6, '1635069017_sliitfd61a3b2-fbf1-4d5b-9b0f-8702058bdd5c.jpg', 'SLIIT', NULL, 'unisliitlk@gmail.com', '$2y$10$O19mMmhglJxRpBT.r50/3OnCnFt1xD7qGFoNc8BS5gWCu5G7HpQYS', 'Organization', 'University', 'verified'),
+(7, '1635069224_abc2296d3db-eac7-4616-aae0-65ee01127d26.jpg', 'ABC', NULL, 'abcgroup202@gmail.com', '$2y$10$vEj1uPZ6zkXyoSdo4xP6OeoElHAqhcRHVkcWVtag27WzyIacDWh/K', 'Organization', 'Company', 'verified');
+
+INSERT INTO organization (org_id, address, email, password, phone_no, website_address, founder, founded_year, org_type) VALUES
+(6, '123, Jasmine Road, Colombo 3', 'unisliitlk@gmail.com', '$2y$10$O19mMmhglJxRpBT.r50/3OnCnFt1xD7qGFoNc8BS5gWCu5G7HpQYS', '0714526390', 'www.sliit.lk', 'Mandila wimalasiri', 2004, 'University'),
+(7, '456, Galle road, Colombo', 'abcgroup202@gmail.com', '$2y$10$vEj1uPZ6zkXyoSdo4xP6OeoElHAqhcRHVkcWVtag27WzyIacDWh/K', '0112345678', 'www.abc.com', 'Mark perera', 2004, 'Company');
+
+INSERT INTO privateuniversity (privateuni_id, ugc_approval, world_rank, student_amount, graduate_job_rate, description, uni_type) VALUES
+(6, 'Yes', 2422, 7790, 98, 'We are a leading non-state degree awarding institute approved by the University Grants Commission (UGC)', 'Private');
+
+INSERT INTO company (company_id, current_emplyee_amount, company_size, registered, overview, services) VALUES
+(7, 200, 1000, 'Yes', 'We are one of the leading IT comppany in the island', 'Web development, Industrial Computer system design, Network administation');
+*/

@@ -401,7 +401,7 @@
 
                 // Validate overview
                 if(empty($data['overview'])) {
-                    $data['overview'] = 'Please enter overview';
+                    $data['overview_err'] = 'Please enter overview';
                 }
 
                 // Validate type

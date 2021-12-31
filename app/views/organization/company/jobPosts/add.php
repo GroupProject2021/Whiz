@@ -18,41 +18,42 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Advertisement > Create</h1>
+                        <h1>Job Vacancy post > Create</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
 
-                        <a href="<?php echo URLROOT;?>/Posts_C_O_Advertisement/index"><button class="btn8">Back</button></a>
+                        <a href="<?php echo URLROOT;?>/Posts_C_O_JobAds/index"><button class="btn8">Back</button></a>
                         <br>
                     
-                        <form action="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/add" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo URLROOT; ?>/Posts_C_O_JobAds/add" method="post" enctype="multipart/form-data">
                             <div class="post-creator">
                                 <div class="post-creator-image">
                                     <img src="" alt="" id="image_placeholder" style="display: none;">
                                 </div>
                                 <div class="post-creator-title">
-                                    <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
+                                    <input type="text" name="job_name" id="job_name" autocomplete="off" placeholder="Job Title" value="<?php echo $data['job_name']; ?>">
+                                    <span class="form-invalid"><?php echo $data['job_name_err']; ?></span>
                                     <div class="image-select"><img src="<?php echo URLROOT.'/imgs/components/posts/add-image-icon.png'; ?>" alt="" id="addImageBtn" onclick="toggleBrowse()"></div>
                                     <div class="image-select"><img src="<?php echo URLROOT.'/imgs/components/posts/remove-image-icon.png'; ?>" alt="" id="removeImageBtn" onclick="removeImage()" style="display: none;"></div>
                                     <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
+                                    <span class="form-invalid"><?php echo $data['image_err']; ?></span>
                                 </div>
+                                
                                 <hr>
                                 <div class="post-creator-content">
-                                    <textarea name="body" id="body" cols="30" rows="10" placeholder="Content"><?php echo $data['body']; ?></textarea>
+                                    <textarea name="job_content" id="content" cols="30" rows="25" placeholder="Job Content"><?php echo $data['job_content']; ?></textarea>
+                                    <span class="form-invalid"><?php echo $data['job_content_err']; ?></span>
                                 </div>
                                 <br>
                                 <hr>
-                                <div class="interaction-detail">
-                                    Maximum apply capacity <input type="number" name="capacity" id="capacity" placeholder="capacity" min=0>
-                                </div>
-                                <hr>
-                                <button type="submit" class="post-creator-submit">Post</button>
+                                <button type="submit" class="post-creator-submit">PAY FOR VACANCY</button>
                             </div>
                         </form>
+                        <div><h4><p><i>* Once you pay for a Job Vacancy it will be appeared for users for one month.</i></p></h4></div>
 
-                    </div>
+                   </div>
 
                     <!-- BOTTOM PANEL -->
                     <div class="bottom-panel">

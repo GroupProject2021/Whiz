@@ -49,7 +49,7 @@
             <span>Company options</span>
         </div>
         <div class="sidebar-item">
-            <a href="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/index">
+            <a href="<?php echo URLROOT; ?>/Posts_C_O_JobAds/index">
                 <button>
                     <div class="sidebar-item-icon">
                         <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/organizationSideBar/jobs-icon.png">
