@@ -15,7 +15,7 @@
         // Load course posts
         public function index() {
             // Get posts
-            $posts = $this->postModel->getPosts();
+            $posts = $this->postModel->getPosts($_SESSION['user_id']);
             $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
 
             $data = [
@@ -359,7 +359,7 @@
                 }
             }
             else {
-                redirect('Posts_C_O_CoursePosts/show/$id');
+                redirect('Posts_C_O_CoursePosts/show/'.$id);
             }
         }
 

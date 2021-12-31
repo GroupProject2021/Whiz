@@ -48,9 +48,10 @@
                                 </div>
                                 <br>
                                 <hr>
-                                <button type="submit" class="post-creator-submit">Post</button>
+                                <button type="submit" class="post-creator-submit">PAY FOR NOTICE</button>
                             </div>
                         </form>
+                        <div><h4><p><i>* Once you pay for a Intake Notice, it will be appeared for users for one month.</i></p></h4></div>
 
                     </div>
 

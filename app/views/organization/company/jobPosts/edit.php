@@ -18,36 +18,37 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Advertisement > Edit</h1>
+                        <h1>Job Vacancy post > Edit</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
 
-                        <a href="<?php echo URLROOT;?>/Posts_C_O_Advertisement/index"><button class="btn8">Back</button></a>
+                        <a href="<?php echo URLROOT;?>/Posts_C_O_JobAds/index"><button class="btn8">Back</button></a>
                         <br>
                     
-                        <form action="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/edit/<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo URLROOT; ?>/Posts_C_O_JobAds/edit/<?php echo $data['postid']; ?>" method="post" enctype="multipart/form-data">
                             <div class="post-creator">
                                 <div class="post-creator-image" id="post-creator-image">
-                                    <img src="<?php if($data['image_name'] != null){ echo URLROOT.'/imgs/posts/advertisements/'.$data['image_name'];}else{ echo '';} ?>" alt="" id="image_placeholder" style="display: none;">
+                                    <img src="<?php if($data['image_name'] != null){ echo URLROOT.'/imgs/posts/jobads/'.$data['image_name'];}else{ echo '';} ?>" alt="" id="image_placeholder" style="display: none;">
                                     <input type="text" name="isImageRemoved" id="isImageRemoved" style="display: none;">
                                 </div>
                                 <div class="post-creator-title">
-                                    <input type="text" name="title" id="title" autocomplete="off" placeholder="Title" value="<?php echo $data['title']; ?>">
+                                    <input type="text" name="job_name" id="job_name" autocomplete="off" placeholder="Job Title" value="<?php echo $data['job_name']; ?>">
+                                    <span class="form-invalid"><?php echo $data['job_name_err']; ?></span>
                                     <div class="image-select"><img src="<?php echo URLROOT.'/imgs/components/posts/add-image-icon.png'; ?>" alt="" id="addImageBtn" onclick="toggleBrowse()"></div>
                                     <div class="image-select"><img src="<?php echo URLROOT.'/imgs/components/posts/remove-image-icon.png'; ?>" alt="" id="removeImageBtn" onclick="removeImage()" style="display: none;"></div>
                                     <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
+                                    <span class="form-invalid"><?php echo $data['image_err']; ?></span>
                                 </div>
+                                <hr>
+                                
                                 <hr>
                                 <div class="post-creator-content">
-                                    <textarea name="body" id="body" cols="30" rows="10" placeholder="Content"><?php echo $data['body']; ?></textarea>
+                                    <textarea name="job_content" id="content" cols="30" rows="25" placeholder="Job Content"><?php echo $data['job_content']; ?></textarea>
+                                    <span class="form-invalid"><?php echo $data['job_content_err']; ?></span>
                                 </div>
                                 <br>
-                                <hr>
-                                <div class="interaction-detail">
-                                    Maximum apply capacity <input type="number" name="capacity" id="capacity" value = "<?php echo $data['capacity']; ?>" placeholder="capacity" min=0>
-                                </div>
                                 <hr>
                                 <button type="submit" class="post-creator-submit">Save</button>
                             </div>

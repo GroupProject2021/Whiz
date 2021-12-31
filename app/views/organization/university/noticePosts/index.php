@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Courses</h1>
+                        <h1>Intake Notices</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
@@ -32,7 +32,8 @@
                     
                     <!-- NOTICE POST -->
                    <?php foreach($data['posts'] as $post): ?>
-                    <?php if($post->type == "coursepost"): ?>
+                    <?php $exp_date = date('Y-m-d', strtotime($post->paid_date. ' + 1 months')) ?>
+                    <?php if($post->type == "noticepost" ): ?>
                         <a href="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="coursepost">
                             <?php if($post->image != null):?>
@@ -44,7 +45,10 @@
                                 <div class="user-pic">
                                     <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
                                 </div>
-                                <div class="postedat">Posted At: <?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
+                                <div class="postedat">
+                                    <?php if(date("Y-m-d") > $exp_date){ echo "<font color=red>(Expired)</font>";} ?>
+                                    Posted At: <?php echo convertedToReadableTimeFormat($post->postCreated); ?>
+                                </div>
                                 <div class="title"><?php echo $post->noticeName; ?></div>
                                 <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
                             </div>

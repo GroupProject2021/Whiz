@@ -6,7 +6,7 @@
             $this->db = new Database;
         }
 
-        public function getPosts() {
+        public function getPosts($userid) {
             // OLD QUERY
             // $this->db->query("SELECT *, 
             //                     posts.id AS postId,
@@ -17,7 +17,7 @@
             //                     ON posts.user_id = users.id 
             //                     ORDER BY posts.created_at DESC");
 
-            $this->db->query("SELECT * FROM v_posts_courses;");
+            $this->db->query("SELECT * FROM v_posts_courses WHERE private_uni_id = $userid ORDER BY post_id DESC;");
             
 
             $results = $this->db->resultSet();
@@ -310,18 +310,5 @@
             }
         } 
         
-        public function findCourseId($course_name,$course_content,$course_type) {
-            $this->db->query('SELECT * FROM Courses WHERE course_name = :course_name AND 
-            course_content = :course_content AND course_type = :course_type');
-            //bind values
-            $this->db->bind(':course_name', $course_name);
-            $this->db->bind(':course_content', $course_content);
-            $this->db->bind(':course_type', $course_type);
-
-            $row = $this->db->single();
-
-            return $row->course_id;
-        }
-
     }
 ?>

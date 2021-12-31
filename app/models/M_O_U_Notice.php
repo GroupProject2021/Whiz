@@ -6,7 +6,7 @@
             $this->db = new Database;
         }
 
-        public function getPosts() {
+        public function getPosts($userid) {
             // OLD QUERY
             // $this->db->query("SELECT *, 
             //                     posts.id AS postId,
@@ -17,7 +17,7 @@
             //                     ON posts.user_id = users.id 
             //                     ORDER BY posts.created_at DESC");
 
-            $this->db->query("SELECT * FROM v_posts_notices;");
+            $this->db->query("SELECT * FROM v_posts_notices WHERE private_uni_id = $userid ORDER BY post_id DESC;");
             
 
             $results = $this->db->resultSet();
@@ -93,14 +93,7 @@
             $this->db->bind(":id", $data['postid']);
             $this->db->bind(":notice_name", $data['notice_name']);
             $this->db->bind(":notice_content", $data['notice_content']);
-
-            $this->db->execute();
-
-            $this->db->query('UPDATE IntakeNotices SET provide_degree = :provide_degree, course_fee = :course_feet WHERE post_id = :id');
-            // bind values    
-            $this->db->bind(":id", $data['postid']);
-            $this->db->bind(":provide_degree", $data['provide_degree']);
-            $this->db->bind(":course_fee", $data['course_fee']); 
+ 
 
             // Execute
             if($this->db->execute()) {
@@ -308,18 +301,5 @@
             }
         } 
         
-        public function findCourseId($course_name,$course_content,$course_type) {
-            $this->db->query('SELECT * FROM Courses WHERE course_name = :course_name AND 
-            course_content = :course_content AND course_type = :course_type');
-            //bind values
-            $this->db->bind(':course_name', $course_name);
-            $this->db->bind(':course_content', $course_content);
-            $this->db->bind(':course_type', $course_type);
-
-            $row = $this->db->single();
-
-            return $row->course_id;
-        }
-
     }
 ?>

@@ -18,55 +18,45 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Advertisement > View</h1>
+                        <h1>Job Vacancy post > View</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
 
 
-                    <a href="<?php echo URLROOT;?>/Posts_C_O_Advertisement/index"><button class="btn8 post-back">Back</button></a>
+                    <a href="<?php echo URLROOT;?>/Posts_C_O_JobAds/index"><button class="btn8 post-back">Back</button></a>
                                                                           
                             <div class="post">
                                 <?php if($data['post']->image != null):?>
                                     <div class="post-header">
-                                        <img src="<?php echo URLROOT.'/imgs/posts/advertisements/'.$data['post']->image; ?>" alt="">
+                                        <img src="<?php echo URLROOT.'/imgs/posts/jobads/'.$data['post']->image; ?>" alt="">
                                     </div>  
                                 <?php endif; ?>
                                 <div class="post-details">
-                                    <div class="profpic"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id.'/'.$_SESSION['user_id'];?>"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image;?>" alt=""></a></div>
+                                    <div class="profpic"><a class="post-link" href="<?php echo URLROOT.'/C_O_Settings/settings/'.$data['user']->id.'/'.$_SESSION['user_id'];?>"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image;?>" alt=""></a></div>
                                     <div class="profpic-sub"><img src="<?php echo URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($data['user']->actor_type).'-'.getActorSpecializedTypeForIcons($data['user']->actor_type, $data['user']->specialized_actor_type).'-icon.png'; ?>" alt=""></div>
-                                    <div class="postedby"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id.'/'.$_SESSION['user_id'];?>"><?php echo $data['user']->first_name.' '.$data['user']->last_name; ?></a></div>
+                                    <div class="postedby"><a class="post-link" href="<?php echo URLROOT.'/C_O_Settings/settings/'.$data['user']->id.'/'.$_SESSION['user_id'];?>"><?php echo $data['user']->first_name.' '.$data['user']->last_name; ?></a></div>
                                     <?php if($data['user']->status == 'verified'): ?>
-                                    <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
+                                        <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
                                     <?php endif; ?>
-                                    <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
+                                    <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->postCreated); ?></div>
                                     <!-- edit delete options -->
-                                    <?php if($data['post']->user_id == $_SESSION['user_id']): ?>    
+                                    <?php if($data['post']->private_uni_id == $_SESSION['user_id']): ?>    
                                         <div class="post-control-buttons">                                        
-                                            <a href="<?php echo URLROOT?>/Posts_C_O_Advertisement/edit/<?php echo $data['post']->id;?>">
+                                            <a href="<?php echo URLROOT?>/Posts_C_O_JobAds/edit/<?php echo $data['post']->post_id;?>">
                                                 <button class="post-header-editbtn">Edit</button>
                                             </a>
-                                            <form action="<?php echo URLROOT; ?>/Posts_C_O_Advertisement/delete/<?php echo $data['post']->id; ?>" method="post">
+                                            <form action="<?php echo URLROOT; ?>/Posts_C_O_JobAds/delete/<?php echo $data['post']->post_id; ?>" method="post">
                                                 <input type="submit" value="Delete" class="post-header-deletebtn">
                                             </form>
                                         </div>
                                      <?php endif; ?>
                                 </div>
                                 <div class="post-body">
-                                    <div class="title"><?php echo $data['post']->title; ?></div>
-                                    <div class="postedby"><?php echo $data['post']->body; ?></div>
+                                    <div class="title"><?php echo $data['post']->jobName; ?></div>
+                                    <div class="postedby"><?php echo $data['post']->jobContent; ?></div>
                                 </div>
-                                <div class="poles">
-                                    <div class="pole-prg-bar bar1">
-                                        <progress max="100" value="<?php if($data['post']->capacity != 0){ echo ($data['post']->applied / $data['post']->capacity) * 100;} else {echo 0;} ?>" id="prgBar"></progress>
-                                        <div class="percentage" id="percentage"><?php if($data['post']->capacity != 0){ echo number_format(($data['post']->applied / $data['post']->capacity) *100, 1, '.', '');} else { echo 0;} ?>%</div>
-                                   </div>
-                                   <div class="text">
-                                       <div class="applied" id="applied"><?php echo $data['post']->applied; ?> Applied</div>
-                                       <div class="capacity"> of <?php echo $data['post']->capacity; ?> Capacity</div>
-                                   </div>
-                               </div>
                                 <form method="post">
                                 <div class="post-footer">
                                     <button id="like" >

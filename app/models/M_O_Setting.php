@@ -7,6 +7,42 @@ class M_O_Setting {
         $this->db = new Database;
     }
 
+    //delete account
+    public function deleteAccount($id,$type) {
+
+        if($type == 'University'){
+            $this->db->query('DELETE FROM Privateuniversity WHERE privateuni_id = :id');
+            //bind value
+            $this->db->bind(':id', $id);
+            $this->db->execute();
+        }
+        else if($type == 'Company'){
+            $this->db->query('DELETE FROM Company WHERE company_id = :id');
+            //bind value
+            $this->db->bind(':id', $id);
+            $this->db->execute();
+        }
+
+        $this->db->query('DELETE FROM Users WHERE id = :id');
+        //bind value
+        $this->db->bind(':id', $id);
+
+        $this->db->execute();
+
+        $this->db->query('DELETE FROM Organization WHERE org_id = :id');
+        //bind value
+        $this->db->bind(':id', $id);
+
+        // Execute
+        if($this->db->execute()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
     // get organization details
     public function getOrganizationDetails($id) {
         $this->db->query('SELECT * FROM Organization INNER JOIN Users ON Organization.org_id = Users.id WHERE org_id = :id');

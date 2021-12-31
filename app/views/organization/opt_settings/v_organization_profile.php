@@ -45,7 +45,7 @@
                                     </div>
                                     <?php endif; ?>
                                 </div>
-                                
+                                <input type="hidden" id="user_id" name="user_id" value="<?php echo $data['user']->id;?>">
                             </form>
                             </div>
                             <div class="details">
@@ -202,6 +202,12 @@
                          
                             </div>
                         </div>
+                        <form action="<?php echo URLROOT; ?>/Posts_C_O_Setting/deleteAccount/<?php echo $data['user']->id.'/'.$data['user']->specialized_actor_type; ?>" method="post">
+                            <div class = editable>
+                                <input type="submit" value="Delete Account Permenently" class="btn4">
+                            </div>
+                            
+                        </form>
                         <div class="body">
 
                         </div>
@@ -212,6 +218,8 @@
                     </div>
 
                     <br>
+
+                    <div class= 
 
                     <div class="stu-profile-tail">
                         
