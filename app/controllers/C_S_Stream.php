@@ -27,6 +27,7 @@ class C_S_Stream extends Controller {
         $al_subject_list =  $this->streamModel->getALSubjectsById($stream_id);
 
         $data = [
+            'stream_id' => $stream_id,
             'stream_name' => $stream_name,
             'al_subject_list' => $al_subject_list
         ];
