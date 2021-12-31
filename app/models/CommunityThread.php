@@ -15,6 +15,15 @@
             return $results;
         }
 
+        public function getUserThreads($id) {
+            $this->db->query("SELECT * FROM v_community WHERE user_id = :user_id;");
+            $this->db->bind(":user_id", $id);            
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
         public function addThread($data) {
             $this->db->query('INSERT INTO Community(user_id, title, body, views) VALUES(:user_id, :title, :body, :views)');
             // bind values

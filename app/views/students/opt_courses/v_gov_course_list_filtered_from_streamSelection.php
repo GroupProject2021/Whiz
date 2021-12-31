@@ -23,15 +23,25 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <div class="under-construction">
-                            <div class="img">
-                                <img src="<?php echo URLROOT; ?>/imgs/under-construction.png" height="200px" alt="logo">
-                            </div>
-                            <div class="title">Admissible government university courses</div>
-                            <div class="text">
-                            THIS PAGE IS CURRENTLY UNDER CONSTRUCTION !
-                            </div>
-                        </div>
+                    
+                    <div>
+                                <table class="gov-course-table">
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Government course name</th>
+                                        <th></th>
+                                    </tr>
+                                    <?php foreach($data['courses'] as $govCourse): ?>
+                                    <tr>
+                                        <td class="gov-course-index"><?php echo $govCourse->gov_course_id; ?></td>
+                                        <td class="gov-course-name"><?php echo $govCourse->gov_course_name; ?></td>
+                                        <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_S_Course/govCourseExplore/'.$govCourse->gov_course_id;?>"><button class="btn3">EXPLORE</button></a></td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </table>
+                            <hr>
+                        </div>    
+
                     </div>
 
 

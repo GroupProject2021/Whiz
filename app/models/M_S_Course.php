@@ -16,6 +16,15 @@ class M_S_Course {
         return $results;
     }
 
+    public function getGovCourseListForStream($streamId) {
+        $this->db->query('SELECT * FROM GovernmentCourse WHERE stream_id = :stream_id');
+        $this->db->bind(':stream_id', $streamId);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
     public function getAssociatedGovUnisById($courseId) {
         $this->db->query('SELECT uni_name, unicode FROM v_gov_course_and_university WHERE gov_course_id = :gov_course_id');
         $this->db->bind(':gov_course_id', $courseId);

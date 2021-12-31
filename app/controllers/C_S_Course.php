@@ -61,8 +61,8 @@ class C_S_Course extends Controller {
     }
 
     // Government course selecttion
-    public function filteredGovCourseList() {
-        $govCourses = $this->courseModel->getGovCourseList();
+    public function filteredGovCourseList($streamId) {
+        $govCourses = $this->courseModel->getGovCourseListForStream($streamId);
 
         $data = [
             'courses' => $govCourses
@@ -99,6 +99,7 @@ class C_S_Course extends Controller {
 
         $this->view('students/opt_courses/v_gov_course_admissibleCourses', $data);
     }
+
 }
 
 ?>

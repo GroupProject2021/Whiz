@@ -70,7 +70,7 @@
                             </select>
                             <br>
                             
-                            <a href="<?php echo URLROOT?>/C_S_Course/filteredGovCourseList"><div class="btn2">Continue</div></a>
+                            <a href="<?php echo URLROOT?>/C_S_Course/filteredGovCourseList/<?php echo $data['stream_id']; ?>"><div class="btn2">Continue</div></a>
                         </form>
                     </div>
 

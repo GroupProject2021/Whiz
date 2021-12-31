@@ -16,6 +16,18 @@
 
             $this->view('common/community_thread', $data);
         }
+        
+        // my threads
+        public function myThreads($id) {
+            // Get posts
+            $threads = $this->communityModel->getUserThreads($id);
+
+            $data = [
+                'threads' => $threads
+            ];
+
+            $this->view('common/community_thread_myThreads', $data);
+        }
 
         // add
         public function add() {
