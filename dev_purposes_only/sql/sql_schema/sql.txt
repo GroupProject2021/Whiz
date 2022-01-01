@@ -517,6 +517,7 @@ CREATE TABLE Posts (
 	downs 	INT,
 	shares	INT,
 	views	INT,
+	payed INT DEFAULT 0,
 	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(id)
 );
@@ -7343,7 +7344,8 @@ CREATE VIEW v_posts_with_users AS
 	Posts.applied AS applied,
 	Posts.capacity AS capacity,
 	Posts.ups AS ups,
-	Posts.downs AS downs
+	Posts.downs AS downs,
+	Posts.payed AS payed
 	FROM Posts
 	INNER JOIN Users  
 	ON Posts.user_id = Users.id;
@@ -7397,6 +7399,7 @@ CREATE VIEW v_complete_posts AS
 	v_posts_with_users.capacity AS capacity,
 	v_posts_with_users.ups AS ups,
 	v_posts_with_users.downs AS downs,
+	v_posts_with_users.payed AS payed,
 	v_posts_with_comments.comment_count AS comment_count,
 	IFNULL(v_posts_with_rates.rate1, 0) AS rate1,
 	IFNULL(v_posts_with_rates.rate2, 0) AS rate2,

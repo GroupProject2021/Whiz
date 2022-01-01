@@ -11,6 +11,9 @@
 
             $this->commonModel = $this->model('Common');
             $this->sessionLinkModel = $this->model('M_M_Enrolment_List');
+
+            // For payments
+            $this->mentorModel = $this->model('Mentor');
         }        
 
         // Load banners
@@ -78,10 +81,14 @@
 
                 // Make sure no errors
                 if(empty($data['title_err']) && empty($data['body_err'])) {
+
                     // Validated
                     if($this->postModel->addPost($data)) {
-                        flash('post_message', 'Post added');
-                        redirect('Posts_C_M_Banners');
+                        // flash('post_message', 'Post added');
+                        // redirect('Posts_C_M_Banners');
+                        
+                        $_SESSION['post_to_be_payed'] = $this->postModel->getPostIdByImageTitleAndBody($data);
+                        redirect('Posts_C_M_Banners/payment');
                     }
                     else {
                         die('Something went wrong');
@@ -110,6 +117,61 @@
             }
 
             $this->view('mentors/professional_guider/banners/add', $data);
+        }
+
+        // payment gateway
+        /*
+            Initially payment gateway list down all the user details that it need to be payed
+            Then at the call back it must be notified to the DB to update the post as payed (BUT CURRENTLY notify_url CALLBACK NOT WORKING)
+            -- post -> payed = 0 means not payed
+            -- post -> payed = 1 means payed
+        */
+        public function payment() {
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    // to do
+                    $merchant_id         = $_POST['merchant_id'];
+                    $order_id             = $_POST['order_id'];
+                    $payhere_amount     = $_POST['payhere_amount'];
+                    $payhere_currency    = $_POST['payhere_currency'];
+                    $status_code         = $_POST['status_code'];
+                    $md5sig                = $_POST['md5sig'];
+
+                    $merchant_secret = '1219553'; // Replace with your Merchant Secret (Can be found on your PayHere account's Settings page)
+
+                    $local_md5sig = strtoupper (md5 ( $merchant_id . $order_id . $payhere_amount . $payhere_currency . $status_code . strtoupper(md5($merchant_secret)) ) );
+
+                    if (($local_md5sig === $md5sig) AND ($status_code == 2) ){
+                            //TODO: Update your database as payment success
+                            $postToBePayed = $_SESSION['post_to_be_payed'];
+                            $this->postModel->recordPaymentAsCompleted($postToBePayed);
+                            unset($_SESSION['post_to_be_payed']);
+                    }
+            }
+            else {
+                $id = $_SESSION['user_id'];
+
+                $userDetails = $this->postModel->getUserDetailsForPayments($id);
+
+                // Getting mentor details
+                $mentorDetails = $this->mentorModel->getMentorDetailsForPayments($id);
+
+                $paymentData = [
+                    'order_id' => 'ItemNo1234',
+                    'items' => 'Banner',
+                    'currency' => 'LKR',
+                    'amount' => 100,
+
+                    'first_name' => $userDetails->first_name,
+                    'last_name' => $userDetails->last_name,
+                    'email' => $userDetails->email,
+                    'phone' => $mentorDetails->phn_no,
+                    'address' => $mentorDetails->address,
+                    'city' => 'Hanwella',
+                    'country' => 'Sri Lanka'
+                ];
+            }
+            
+            $this->view('mentors/professional_guider/banners/payment', $paymentData);
         }
 
         // Edit banner

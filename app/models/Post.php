@@ -17,12 +17,27 @@
             //                     ON posts.user_id = users.id 
             //                     ORDER BY posts.created_at DESC");
 
-            $this->db->query("SELECT * FROM v_complete_posts;");
+            $this->db->query("SELECT * FROM v_complete_posts WHERE payed = 0");
             
 
             $results = $this->db->resultSet();
 
             return $results;
+        }
+
+        // payment completed
+        public function recordPaymentAsCompleted($postId) {
+            $this->db->query('UPDATE Posts SET payed = 1 WHERE id = :id');
+            // bind values
+            $this->db->bind(":id", $postId);
+
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
 
         public function addPost($data) {
@@ -273,6 +288,27 @@
                 return false;
             }
         }   
+
+        // for payments
+        public function getUserDetailsForPayments($id) {
+            $this->db->query('SELECT * FROM Users WHERE id = :id');
+            $this->db->bind(':id', $id);
+
+            $row = $this->db->single();
+
+            return $row;
+        }
+
+        public function getPostIdByImageTitleAndBody($data) {
+            $this->db->query('SELECT id FROM Posts WHERE image = :image AND title = :title AND body = :body');
+            $this->db->bind(':image', $data['image_name']);
+            $this->db->bind(':title', $data['title']);
+            $this->db->bind(':body', $data['body']);
+
+            $row = $this->db->single();
+
+            return $row->id;
+        }
 
     }
 ?>
