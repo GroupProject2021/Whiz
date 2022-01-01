@@ -48,9 +48,13 @@
                                     Maximum enroll capacity <input type="number" name="capacity" id="capacity" placeholder="capacity" min=0>
                                 </div>
                                 <hr>
+                                <!-- payment link -->
+                                <!-- <form action="https://sandbox.payhere.lk/pay/o46dfcd35" method="get"><input name="submit" type="image" src="https://www.payhere.lk/downloads/images/pay_with_payhere.png" style="width:150px;" value="Pay now"></form> -->
                                 <button type="submit" class="post-creator-submit">Post</button>
                             </div>
                         </form>
+                        <form action="https://sandbox.payhere.lk/pay/o46dfcd35" method="get"><input name="submit" type="image" src="https://www.payhere.lk/downloads/images/pay_with_payhere.png" style="width:150px;" value="Pay now"></form>
+
 
                     </div>
 
