@@ -25,21 +25,6 @@
             return $results;
         }
 
-        // payment completed
-        public function recordPaymentAsCompleted($postId) {
-            $this->db->query('UPDATE Posts SET payed = 1 WHERE id = :id');
-            // bind values
-            $this->db->bind(":id", $postId);
-
-            // Execute
-            if($this->db->execute()) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-
         public function addPost($data) {
             $this->db->query('INSERT INTO Posts(image, title, user_id, body, ups, downs, shares, views, type, applied, capacity) VALUES(:image, :title, :user_id, :body, :ups, :downs, :shares, :views, :type, :applied, :capacity)');
             // bind values
@@ -287,18 +272,9 @@
             else {
                 return false;
             }
-        }   
+        }  
 
-        // for payments
-        public function getUserDetailsForPayments($id) {
-            $this->db->query('SELECT * FROM Users WHERE id = :id');
-            $this->db->bind(':id', $id);
-
-            $row = $this->db->single();
-
-            return $row;
-        }
-
+        
         public function getPostIdByImageTitleAndBody($data) {
             $this->db->query('SELECT id FROM Posts WHERE image = :image AND title = :title AND body = :body');
             $this->db->bind(':image', $data['image_name']);
@@ -309,14 +285,5 @@
 
             return $row->id;
         }
-
-        public function getCities() {
-            $this->db->query("SELECT city_name FROM City");            
-
-            $results = $this->db->resultSet();
-
-            return $results;
-        }
-
     }
 ?>

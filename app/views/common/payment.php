@@ -18,20 +18,40 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1><a href="<?php echo URLROOT;?>/Posts_C_M_Banners/index">Banner</a> > Create
-                        >
-                        Payment
+                        <h1>
+                        Payment gateway
                         </h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-
+                            
                             <form method="post" action="https://sandbox.payhere.lk/pay/checkout">   
                                 <input type="hidden" name="merchant_id" value="<?php echo PG_MERCHANT_ID; ?>">    <!-- Replace your Merchant ID -->
-                                <input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_M_Banners/index">
-                                <input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_M_Banners/add">
-                                <input type="hidden" name="notify_url" value="http://localhost/whiz/Posts_C_M_Banners/payment">
+                                <?php 
+                                    switch($_SESSION['specialized_actor_type']) {
+                                        case 'University':
+                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_O_CoursePosts/index">';
+                                            echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_O_CoursePosts/add">';
+                                            break;
+
+                                        case 'Company':
+                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_O_Advertisement/index">';
+                                            echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_O_Advertisement/add">';
+                                            break;
+
+                                        case 'Professional Guider':
+                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_M_Banners/index">';
+                                            echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_M_Banners/add">';
+                                            break;
+
+                                        case 'Teacher':
+                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_M_Posters/index">';
+                                            echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_M_Posters/add">';
+                                            break;
+                                    }                                    
+                                ?>
+                                <input type="hidden" name="notify_url" value="http://localhost/whiz/Payments/payment">
                                 
                                 <div class="payment-container">
                                     <div class="payment-details">
@@ -40,7 +60,7 @@
                                         <table>
                                             <tr>
                                                 <td><b>Order ID</b></td>
-                                                <td colspan="2"><input type="text" name="order_id" value="<?php echo $data['order_id']; ?>" readonly></td>
+                                                <td colspan="2"><input type="text" name="order_id" value="# <?php echo $data['order_id']; ?>" readonly></td>
                                             </tr>
                                             <tr>
                                                 <td><b>Order Item</b></td>

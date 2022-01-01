@@ -115,15 +115,5 @@
 
             return $row->id;
         }
-
-        // get mentor detials for payments
-        public function getMentorDetailsForPayments($id) {
-            $this->db->query('SELECT * FROM Mentor WHERE mentor_id = :id');
-            $this->db->bind(':id', $id);
-
-            $row = $this->db->single();
-
-            return $row;
-        }
     }
 ?>

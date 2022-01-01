@@ -993,7 +993,7 @@ CREATE TABLE City (
     PRIMARY KEY ( city_id)
 );
 
---A--
+-- A
 INSERT INTO City(city_name) VALUES('Ambalanthota');
 INSERT INTO City(city_name) VALUES('Akmeemana');
 INSERT INTO City(city_name) VALUES('Akuressa');
@@ -1009,7 +1009,7 @@ INSERT INTO City(city_name) VALUES('Attanagalla');
 INSERT INTO City(city_name) VALUES('Angunakolapelessa');
 INSERT INTO City(city_name) VALUES('Akkaraipattu');
 INSERT INTO City(city_name) VALUES('Ambanganga Korale');
---B--
+-- B
 INSERT INTO City(city_name) VALUES('Benthota');
 INSERT INTO City(city_name) VALUES('Buttala');
 INSERT INTO City(city_name) VALUES('Beliatta');
@@ -1024,10 +1024,10 @@ INSERT INTO City(city_name) VALUES('Bandaragama');
 INSERT INTO City(city_name) VALUES('Balangoda');
 INSERT INTO City(city_name) VALUES('Biyagama');
 INSERT INTO City(city_name) VALUES('Bibile');
---C--
+-- C
 INSERT INTO City(city_name) VALUES('Colombo');
 INSERT INTO City(city_name) VALUES('Chilaw');
---D--
+-- D
 INSERT INTO City(city_name) VALUES('Dankotuwa');
 INSERT INTO City(city_name) VALUES('Dimbulagala');
 INSERT INTO City(city_name) VALUES('Doluwa');
@@ -1042,21 +1042,21 @@ INSERT INTO City(city_name) VALUES('Dehiattakandiya');
 INSERT INTO City(city_name) VALUES('Dompe');
 INSERT INTO City(city_name) VALUES('Delft');
 INSERT INTO City(city_name) VALUES('Dehiovita');
---E--
+-- E
 INSERT INTO City(city_name) VALUES('Embilipitiya');
 INSERT INTO City(city_name) VALUES('Eravur Town');
 INSERT INTO City(city_name) VALUES('Ella');
 INSERT INTO City(city_name) VALUES('Eravur Pattu');
 INSERT INTO City(city_name) VALUES('Elpitiya');
 INSERT INTO City(city_name) VALUES('Eheliyagoda');
---G--
+-- G
 INSERT INTO City(city_name) VALUES('Galgamuwa');
 INSERT INTO City(city_name) VALUES('Galle');
 INSERT INTO City(city_name) VALUES('Galewela');
 INSERT INTO City(city_name) VALUES('Gampaha');
 INSERT INTO City(city_name) VALUES('Godakawela');
 INSERT INTO City(city_name) VALUES('Galigamuwa');
---H--
+-- H
 INSERT INTO City(city_name) VALUES('Harispattuwa');
 INSERT INTO City(city_name) VALUES('Hatharaliyadda');
 INSERT INTO City(city_name) VALUES('Hikkaduwa');
@@ -1070,16 +1070,16 @@ INSERT INTO City(city_name) VALUES('Hanguranketha');
 INSERT INTO City(city_name) VALUES('Horana');
 INSERT INTO City(city_name) VALUES('Homagama');
 INSERT INTO City(city_name) VALUES('Hanwella');
---I--
+-- I
 INSERT INTO City(city_name) VALUES('Imaduwa');
 INSERT INTO City(city_name) VALUES('Ipalogama');
 INSERT INTO City(city_name) VALUES('Imbulpe');
 INSERT INTO City(city_name) VALUES('Ibbagamuwa');
 INSERT INTO City(city_name) VALUES('Ingiriya');
---J--
+-- J
 INSERT INTO City(city_name) VALUES('Jaffna');
 INSERT INTO City(city_name) VALUES('Ja-Ela');
---K--
+-- K
 INSERT INTO City(city_name) VALUES('Katunayake');
 INSERT INTO City(city_name) VALUES('Kalutara');
 INSERT INTO City(city_name) VALUES('Kaduwela');
@@ -1110,13 +1110,13 @@ INSERT INTO City(city_name) VALUES('Katuwana');
 INSERT INTO City(city_name) VALUES('Karandeniya');
 INSERT INTO City(city_name) VALUES('Karachchi');
 INSERT INTO City(city_name) VALUES('Karuwalagaswewa');
---L--
+-- L
 INSERT INTO City(city_name) VALUES('Lankapura');
 INSERT INTO City(city_name) VALUES('Lunugamvehera');
 INSERT INTO City(city_name) VALUES('Lahugala');
 INSERT INTO City(city_name) VALUES('Laggala-Pallegama');
 INSERT INTO City(city_name) VALUES('Lunugala');
---M--
+-- M
 INSERT INTO City(city_name) VALUES('Mount Lavinia');
 INSERT INTO City(city_name) VALUES('Mathugama');
 INSERT INTO City(city_name) VALUES('Mahiyanganaya');
@@ -1148,7 +1148,7 @@ INSERT INTO City(city_name) VALUES('Madurawala');
 INSERT INTO City(city_name) VALUES('Mallawapitiya');
 INSERT INTO City(city_name) VALUES('Medagama');
 INSERT INTO City(city_name) VALUES('Meegahakivula');
---N--
+-- N
 INSERT INTO City(city_name) VALUES('Nivithigala');
 INSERT INTO City(city_name) VALUES('Nochchiyagama');
 INSERT INTO City(city_name) VALUES('Nallur');
@@ -1162,9 +1162,9 @@ INSERT INTO City(city_name) VALUES('Nikaweratiya');
 INSERT INTO City(city_name) VALUES('Ninthavur');
 INSERT INTO City(city_name) VALUES('Nattandiya');
 INSERT INTO City(city_name) VALUES('Niyagama');
---O--
+-- O
 INSERT INTO City(city_name) VALUES('Opanayake');
---P--
+-- P
 INSERT INTO City(city_name) VALUES('Passara');
 INSERT INTO City(city_name) VALUES('Palugaswewa');
 INSERT INTO City(city_name) VALUES('Pathahewaheta');
@@ -1187,14 +1187,14 @@ INSERT INTO City(city_name) VALUES('Panduwasnuwara');
 INSERT INTO City(city_name) VALUES('Payagala');
 INSERT INTO City(city_name) VALUES('Polgahawela');
 INSERT INTO City(city_name) VALUES('Pachchilaipalli');
---R--
+-- R
 INSERT INTO City(city_name) VALUES('Rambukkana');
 INSERT INTO City(city_name) VALUES('Rambewewa');
 INSERT INTO City(city_name) VALUES('Ratnapura');
 INSERT INTO City(city_name) VALUES('Ruwanwella');
 INSERT INTO City(city_name) VALUES('Rattota');
 INSERT INTO City(city_name) VALUES('Rideegama');
---S--
+-- S
 INSERT INTO City(city_name) VALUES('Sri Jayawardenepura Kotte');
 INSERT INTO City(city_name) VALUES('Sevanagala');
 INSERT INTO City(city_name) VALUES('Sigiriya');
@@ -1202,7 +1202,7 @@ INSERT INTO City(city_name) VALUES('Sooriyawewa');
 INSERT INTO City(city_name) VALUES('Siyabalanduwa');
 INSERT INTO City(city_name) VALUES('Sainthamaruthu');
 INSERT INTO City(city_name) VALUES('Samanthurai');
---T--
+-- T
 INSERT INTO City(city_name) VALUES('Tangalle');
 INSERT INTO City(city_name) VALUES('Thissamaharama');
 INSERT INTO City(city_name) VALUES('Thumpane');
@@ -1214,7 +1214,7 @@ INSERT INTO City(city_name) VALUES('Thamankaduwa');
 INSERT INTO City(city_name) VALUES('Tricomalee');
 INSERT INTO City(city_name) VALUES('Thawalama');
 INSERT INTO City(city_name) VALUES('Thalawa');
---U--
+-- U
 INSERT INTO City(city_name) VALUES('Ukuwela');
 INSERT INTO City(city_name) VALUES('Udubaddawa');
 INSERT INTO City(city_name) VALUES('Udapalatha');
@@ -1223,7 +1223,7 @@ INSERT INTO City(city_name) VALUES('Udunuwara');
 INSERT INTO City(city_name) VALUES('Unawatuna');
 INSERT INTO City(city_name) VALUES('Udadumbara');
 INSERT INTO City(city_name) VALUES('Uhana');
---V--
+-- V
 INSERT INTO City(city_name) VALUES('Valikamam South-West');
 INSERT INTO City(city_name) VALUES('Valikamam South');
 INSERT INTO City(city_name) VALUES('Valikamam East');
@@ -1232,7 +1232,7 @@ INSERT INTO City(city_name) VALUES('Vanathavilluwa');
 INSERT INTO City(city_name) VALUES('Vavuniya');
 INSERT INTO City(city_name) VALUES('Valikamam North');
 INSERT INTO City(city_name) VALUES('Vadamaradchy');
---W--
+-- W
 INSERT INTO City(city_name) VALUES('Welikanda');
 INSERT INTO City(city_name) VALUES('Weligama');
 INSERT INTO City(city_name) VALUES('Welipitiya');
@@ -1246,7 +1246,7 @@ INSERT INTO City(city_name) VALUES('Wattala');
 INSERT INTO City(city_name) VALUES('Weeraketiya');
 INSERT INTO City(city_name) VALUES('Wariyapola');
 INSERT INTO City(city_name) VALUES('Wilgamuwa');
---Y--
+-- Y
 INSERT INTO City(city_name) VALUES('Yakkalamulla');
 INSERT INTO City(city_name) VALUES('Yatinuwara');
 INSERT INTO City(city_name) VALUES('Yatiyantota');
