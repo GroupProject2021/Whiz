@@ -310,5 +310,13 @@
             return $row->id;
         }
 
+        public function getCities() {
+            $this->db->query("SELECT city_name FROM City");            
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
     }
 ?>

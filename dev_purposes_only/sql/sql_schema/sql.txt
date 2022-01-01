@@ -987,6 +987,28 @@ INSERT INTO District(district_name) VALUES('Rathnapura');
 INSERT INTO District(district_name) VALUES('Kegalle');
 INSERT INTO District(district_name) VALUES('Other');
 
+CREATE TABLE City (
+    city_id INT NOT NULL AUTO_INCREMENT,
+    city_name VARCHAR(255) NOT NULL,
+    PRIMARY KEY ( city_id)
+);
+
+INSERT INTO City(city_name) VALUES('Ambalanthota');
+INSERT INTO City(city_name) VALUES('Akmeemana');
+INSERT INTO City(city_name) VALUES('Akuressa');
+INSERT INTO City(city_name) VALUES('Ambalangoda');
+INSERT INTO City(city_name) VALUES('Akurana');
+INSERT INTO City(city_name) VALUES('Ambagamuwa');
+INSERT INTO City(city_name) VALUES('Arachchikattuwa');
+INSERT INTO City(city_name) VALUES('Agalawatta');
+INSERT INTO City(city_name) VALUES('Alawwa');
+INSERT INTO City(city_name) VALUES('Ayagama');
+INSERT INTO City(city_name) VALUES('Ampara');
+INSERT INTO City(city_name) VALUES('Attanagalla');
+INSERT INTO City(city_name) VALUES('Angunakolapelessa');
+INSERT INTO City(city_name) VALUES('Akkaraipattu');
+INSERT INTO City(city_name) VALUES('Ambanganga Korale');
+
 CREATE TABLE AdminOffersGovernmentCourse(
 	admin_id INT NOT NULL,
 	gov_course_id INT NOT NULL,

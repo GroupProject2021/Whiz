@@ -15,6 +15,7 @@
 @import url('components/bottomnav.css');
 @import url('components/buttons.css');
 @import url('components/mycards.css');
+@import url('components/paymentGateway/payment-styles.css');
 
 /* comprehnsive component styles */
 @import url('components/fileUpload/fileUpload_styles.css');

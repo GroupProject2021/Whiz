@@ -5,6 +5,9 @@
     define('DB_PASS', '');
     define('DB_NAME', 'whiz_db');
 
+    // Payment gatewar parameters
+    define('PG_MERCHANT_ID', '1219553');
+
     // App root
     define('APPROOT', dirname(dirname(__FILE__)));
     // Public Root

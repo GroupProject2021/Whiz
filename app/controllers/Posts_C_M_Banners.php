@@ -136,7 +136,7 @@
                     $status_code         = $_POST['status_code'];
                     $md5sig                = $_POST['md5sig'];
 
-                    $merchant_secret = '1219553'; // Replace with your Merchant Secret (Can be found on your PayHere account's Settings page)
+                    $merchant_secret = PG_MERCHANT_ID; // Replace with your Merchant Secret (Can be found on your PayHere account's Settings page)
 
                     $local_md5sig = strtoupper (md5 ( $merchant_id . $order_id . $payhere_amount . $payhere_currency . $status_code . strtoupper(md5($merchant_secret)) ) );
 
@@ -156,7 +156,7 @@
                 $mentorDetails = $this->mentorModel->getMentorDetailsForPayments($id);
 
                 $paymentData = [
-                    'order_id' => 'ItemNo1234',
+                    'order_id' => '# '.$_SESSION['post_to_be_payed'],
                     'items' => 'Banner',
                     'currency' => 'LKR',
                     'amount' => 100,
@@ -167,7 +167,9 @@
                     'phone' => $mentorDetails->phn_no,
                     'address' => $mentorDetails->address,
                     'city' => 'Hanwella',
-                    'country' => 'Sri Lanka'
+                    'country' => 'Sri Lanka',
+
+                    'cities' => $this->postModel->getCities()
                 ];
             }
             
