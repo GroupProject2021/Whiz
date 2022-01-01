@@ -40,9 +40,11 @@
                                     <?php if($data['user']->status == 'verified'): ?>
                                         <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
                                     <?php endif; ?>
-                                    <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->postCreated); ?></div>
+                                    <div class="postedat">
+                                        <?php $exp_date = date('Y-m-d', strtotime($data['post']->paid_date. ' + 1 months')) ?>
+                                        <?php if(date("Y-m-d") > $exp_date){ echo "<font color=red>(Expired)</font>";} ?>
+                                        <?php echo convertedToReadableTimeFormat($data['post']->postCreated); ?></div>
                                     <!-- edit delete options -->
-                                    <?php $exp_date = date('Y-m-d', strtotime($data['post']t->paid_date. ' + 1 months')) ?>
                                     <?php if($data['post']->company_id == $_SESSION['user_id']): ?> 
                                         <?php if(date("Y-m-d") <= $exp_date):?>   
                                         <div class="post-control-buttons">                                        
