@@ -81,7 +81,7 @@
 
                 $paymentData = [
                     'order_id' => $_SESSION['post_to_be_payed'],
-                    'items' => 'Banner',
+                    'items' => $item,
                     'currency' => 'LKR',
                     'amount' => 100,
 
