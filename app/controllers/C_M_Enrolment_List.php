@@ -10,6 +10,8 @@ class C_M_Enrolment_List extends Controller{
 
     // Index
     public function index() {
+
+
         switch($_SESSION['specialized_actor_type']) {
             case 'Professional Guider' :
                 $post = $this->mentorDashboardModel->getPosts();
@@ -23,9 +25,11 @@ class C_M_Enrolment_List extends Controller{
                 // nothing
                 break;
         }
-            
+         
+
         $data = [
-            'posts' => $post
+            'posts' => $post,
+            
         ];
 
         $this->view('mentors/opt_enrolment_list/v_enrolment_list', $data);
@@ -80,20 +84,35 @@ class C_M_Enrolment_List extends Controller{
             $data = [
                 
                 'post_id' => $postId,
+                'date' => trim($_POST['date']),
+                'time' => trim($_POST['time']),
                 'body' => trim($_POST['body']),
 
-                'body_err' => ''
+                'date_err' => '',
+                'time_err' => '',
+                'body_err' => '',
+
+                'title' => $post->title,
+                
                 
                 
             ];
 
-            // Validate body
+            // Validate content
+            if(empty($data['date'])) {
+                $data['date_err'] = 'Please enter date';
+            }
+
+            if(empty($data['time'])) {
+                $data['time_err'] = 'Please enter time';
+            }
+
             if(empty($data['body'])) {
                 $data['body_err'] = 'Please enter link';
             }
 
             // Make sure no errors
-            if(empty($data['body_err'])) {
+            if(empty($data['date_err']) && empty($data['time_err']) && empty($data['body_err'])) {
                 // Validated
                 if($this->enrolmentListModel->addLink($data)) { // model needs to update
                     flash('post_message', 'Link Uploaded');
@@ -111,8 +130,13 @@ class C_M_Enrolment_List extends Controller{
         else {
             $data = [
                 'body' => '',
+                'date' => '',
+                'time' => '',
                 'post' => $post,
-                'title' => $post->title
+                'title' => $post->title,
+
+                'date_err' => '',
+                'time_err' => ''
             ];
         }
 
@@ -127,6 +151,8 @@ class C_M_Enrolment_List extends Controller{
         $sessionTitle = $this->enrolmentListModel->getPostById($postId);
         
         $data = [
+            'date' => $sessionData->date,
+            'time' => $sessionData->time,
             'link' => $sessionData->body,
             'title' => $sessionTitle->title
         ];
@@ -148,19 +174,31 @@ class C_M_Enrolment_List extends Controller{
             $data = [
                 'id'=> $link->id,
                 'post_id' => $postId,
+                'date' => trim($_POST['date']),
+                'time' => trim($_POST['time']),
                 'body' => trim($_POST['link']),
                 'title' => $post->title,
 
+                'date_err' => '',
+                'time_err' => '',
                 'body_err' => ''
             ];
 
             // validate link
+            if(empty($data['date'])) {
+                $data['date_err'] = 'Please enter date';
+            }
+
+            if(empty($data['time'])) {
+                $data['time_err'] = 'Please enter time';
+            }
+
             if(empty($data['body'])) {
                 $data['body_err'] = 'Please enter link';
             }
 
             // Make sure no errors
-            if(empty($data['body_err'])) {
+            if(empty($data['date_err']) && empty($data['time_err']) && empty($data['body_err'])) {
                 // Validated                    
                 // $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
                 if($this->enrolmentListModel->updateLink($data)) {
@@ -196,6 +234,8 @@ class C_M_Enrolment_List extends Controller{
                 'body' => $link->body,
                 'title' => $post->title,
 
+                'date_err' => '',
+                'time_err' => '',
                 'body_err' => ''
             ];
         }

@@ -61,9 +61,11 @@ class M_M_Enrolment_List{
     }
 
     public function addLink($data) {
-        $this->db->query('INSERT INTO sessionlink( post_id, body) VALUES(:post_id, :body)');
+        $this->db->query('INSERT INTO sessionlink( post_id, date, time, body) VALUES(:post_id, :date, :time, :body)');
         // bind values
         $this->db->bind(':post_id', $data['post_id']);
+        $this->db->bind(":date", $data['date']);
+        $this->db->bind(":time", $data['time']);
         $this->db->bind(":body", $data['body']);
         
 

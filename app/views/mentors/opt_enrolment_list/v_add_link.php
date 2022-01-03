@@ -33,6 +33,14 @@
                     
                         <form action="<?php echo URLROOT; ?>/C_M_Enrolment_List/addlink" method="post" enctype="multipart/form-data">
                             <div class="post-creator">
+                                 <div class="post-creator-subtitle">                                    
+                                    <input type="date" name="date" id="date" autocomplete="off" placeholder="Date" value="<?php echo $data['date']; ?>">
+                                    <span class="form-invalid"><?php echo $data['date_err']; ?></span>
+                                </div>
+                                <div class="post-creator-subtitle">                                    
+                                    <input type="time" name="time" id="time" autocomplete="off" placeholder="Time" value="<?php echo $data['time']; ?>">
+                                    <span class="form-invalid"><?php echo $data['time_err']; ?></span>
+                                </div>
                                 <div class="post-creator-content">
                                     <textarea name="body" id="body" cols="30" rows="10" placeholder="Link"><?php echo $data['body']; ?></textarea>
                                 </div>

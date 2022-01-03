@@ -7766,6 +7766,8 @@ CREATE VIEW v_community AS
 CREATE TABLE sessionLink(
 id int NOT NULL AUTO_INCREMENT,
 post_id int NOT NULL,
+date DATE NOT NULL,
+time TIME NOT NULL,
 body varchar(255) NOT NULL,
 PRIMARY KEY(id),
 FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE

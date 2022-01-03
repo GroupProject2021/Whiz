@@ -32,7 +32,11 @@
                             <a href="<?php echo URLROOT.'/C_M_Enrolment_List/editlink/'.$_SESSION['current_viewing_post_id']; ?>"><input class="btn6 post-back" type="button" value="Edit"></a>
                         </div>
                         <div class="table-section">
-                            <div class="link"><a href="<?php echo $data['link'];?>"><?php echo $data['link'];?></a></div>
+                            <div class="division-name">Date : <?php echo $data['date'];?></div>
+                            <hr>
+                            <div class="link">Time : <?php echo $data['time'];?></div>
+                            <hr>
+                            <div class="link">Link : <a href="<?php echo $data['link'];?>"><?php echo $data['link'];?></a></div>
                         </div>
                     </div>
 

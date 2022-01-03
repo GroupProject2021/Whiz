@@ -36,6 +36,8 @@
                             </div>                      
                             <br>
                             <div class="table-section">
+                                <input type="date" name="date" id="date" value="<?php echo $data['date'];?>"></p>
+                                <input type="time" name="time" id="time" value="<?php echo $data['time'];?>"></p>
                                 <input type="text" name="link" id="link" value="<?php echo $data['body'];?>"></p>
                                 <span class="form-invalid"><?php echo $data['body_err']; ?>   
                             </div>

@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1><a href="<?php echo URLROOT;?>/Posts_C_M_Posters/index">Banner</a>
+                        <h1><a href="<?php echo URLROOT;?>/Posts_C_M_Posters/index">Poster</a>
                         >
                         <?php echo $data['post']->title; ?></h1>
                     </div>
