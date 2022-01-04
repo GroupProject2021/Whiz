@@ -306,7 +306,7 @@
                 $post = $this->postModel->getPostById($id);
 
                 // Check for owner
-                if($post->user_id != $_SESSION['user_id']) {
+                if($post->company_id != $_SESSION['user_id']) {
                     redirect('Posts_C_O_JobAds/index');
                 }
 
@@ -316,7 +316,7 @@
                 $res4 = $this->postModel->deletePost($id);
 
                 // validate and upload profile image
-                $postImage = PUBROOT.'/imgs/posts/jobs/'.$post->image;
+                $postImage = PUBROOT.'/imgs/posts/jobads/'.$post->image;
                 $res5 = deleteImage($postImage);
                 
                 if($res1 && $res2 && $res3 && $res4 && $res5) {

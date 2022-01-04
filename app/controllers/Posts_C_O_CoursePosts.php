@@ -337,8 +337,8 @@
                 $post = $this->postModel->getPostById($id);
 
                 // Check for owner
-                if($post->user_id != $_SESSION['user_id']) {
-                    redirect('Posts_C_O_CoursePosts/index');
+                if($post->private_uni_id != $_SESSION['user_id']) {
+                    redirect('Posts_C_O_CoursePosts/index/'.$post->user_id.'/'.$_SESSION['user_id']);
                 }
 
                 $res1 = $this->commentModel->deleteComment($id);

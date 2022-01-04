@@ -444,13 +444,22 @@ class C_O_Settings extends Controller {
 
         
             // validate and upload profile image
-            $proImage = PUBROOT.'imgs/profileimages/organization'.$_SESSION['user_profile_image'];
+            $proImage = PUBROOT.'/profileimages/organization/'.$_SESSION['user_profile_image'];
             $res1 = deleteImage($proImage);
             $res2 = $this->settingsModel->deleteAccount($id,$type);
             
             if($res1 && $res2) {
                 flash('post_message', 'Account Removed');
-                redirect('Commons/logout');
+                unset($_SESSION['user_id']);
+                unset($_SESSION['user_email']);
+                unset($_SESSION['user_name']);
+                unset($_SESSION['actor_type']);
+                unset($_SESSION['specialized_actor_type']);
+                unset($_SESSION['status']);
+                unset($_SESSION['user_profile_image']);
+
+
+                redirect('Whiz/index');
             }
             else {
                 die('Something went wrong');
