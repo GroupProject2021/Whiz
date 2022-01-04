@@ -31,34 +31,54 @@
                             
                         
                         </div>
+                        
                         <div class="middle-right-panel">
                             <div class="notices">
                                 <h2>Notices</h2>
                                 <hr>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut est aliquid fugit porro hic iusto aliquam? Sit cumque, voluptates pariatur perspiciatis blanditiis tempora laborum fugiat maiores error odio quidem fuga!
-                                <hr>
+                                <p>Whiz introduce following features for you. Upgrade your profile for more features.</p>
+                                <br>
 
-                                
-
-                                
+                                <div class="slideshow-container">
+                                    <div class="mySlides fade">
+                                        <div class="numbertext">1 / 3</div>
+                                        <img src="<?php echo URLROOT; ?>/imgs/components/carousels/img1.jpg" style="width:100%">
+                                        <div class="text">Caption Text</div>
+                                    </div>
+                                    <div class="mySlides fade">
+                                        <div class="numbertext">2 / 3</div>
+                                        <img src="<?php echo URLROOT; ?>/imgs/components/carousels/img2.jpg" style="width:100%">
+                                        <div class="text">Caption Two</div>
+                                    </div>
+                                    <div class="mySlides fade">
+                                        <div class="numbertext">3 / 3</div>
+                                        <img src="<?php echo URLROOT; ?>/imgs/components/carousels/img3.jpg" style="width:100%">
+                                        <div class="text">Caption Three</div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="slideshow-dots" style="text-align:center">
+                                    <span class="dot"></span> 
+                                    <span class="dot"></span> 
+                                    <span class="dot"></span> 
+                                </div>
                                 
                                 
                             </div>
                             <div class="updates">
                                 <h2>Following List</h2>
                                 <hr>
-                                <div class="default-list">
+                                <div class="index-following-list">
                                 <?php
                                 // initial user list
                                     foreach($data['following'] as $follower) {
                                         echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$follower->id.'/'.$_SESSION['user_id'].'" class="card-link">';
-                                        echo '<div class="user-block">';
+                                        echo '<div class="index-user-block">';
                                         echo    '<div class="pic"><img src="'.URLROOT.'/profileimages/'.getActorTypeForIcons($follower->actor_type).'/'.$follower->profile_image.'" alt=""></div>';
                                         echo    '<div class="name">'.$follower->first_name.' '.$follower->last_name.'</div>';
                                         if($follower->status == 'verified'){
                                             echo    '<div class="verified"><img src="'.URLROOT.'/imgs/verified.png" alt=""></div>';
                                         }
-                                        echo '<div class="types">'.$follower->actor_type.' | '.$follower->specialized_actor_type.'</div>';
                                         echo '</div>';
                                         echo '</a>';
                                     }
@@ -78,5 +98,8 @@
 
         
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+
+        <!-- Carousels -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/carousels/slideshow.js"></script>
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>

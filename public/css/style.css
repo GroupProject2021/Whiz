@@ -29,6 +29,7 @@
 @import url('components/posts/poster-styles.css');
 @import url('components/posts/advertisement-styles.css');
 @import url('components/posts/coursepost-styles.css');
+@import url('components/crousels/slideshow_styles.css');
 
 /* Utilities - [EXPERIMENTAL] */
 @import url('utilities/responsive_grid_layout.css');

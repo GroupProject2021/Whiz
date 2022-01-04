@@ -152,6 +152,15 @@
     padding-left: 10px;
 }
 
+.index-following-list {
+    max-height: 300px;
+    overflow: scroll;
+}
+
+.index-following-list::-webkit-scrollbar {
+    display: none;
+}
+
 /* search bar */
 .search-user {
     height: 10px;
