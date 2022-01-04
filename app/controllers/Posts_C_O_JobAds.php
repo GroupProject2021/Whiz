@@ -306,7 +306,7 @@
                 $post = $this->postModel->getPostById($id);
 
                 // Check for owner
-                if($post->user_id != $_SESSION['user_id']) {
+                if($post->company_id != $_SESSION['user_id']) {
                     redirect('Posts_C_O_JobAds/index');
                 }
 

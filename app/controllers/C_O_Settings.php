@@ -446,7 +446,7 @@ class C_O_Settings extends Controller {
             // validate and upload profile image
             $proImage = PUBROOT.'imgs/profileimages/organization'.$_SESSION['user_profile_image'];
             $res1 = deleteImage($proImage);
-            $res2 = deleteAccount($id,$type);
+            $res2 = this->settingModel->deleteAccount($id,$type);
             
             if($res && res2) {
                 flash('post_message', 'Account Removed');

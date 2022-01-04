@@ -850,7 +850,7 @@ CREATE TABLE Jobs (
   company_id int(11) NOT NULL,
   post_id INT,
   PRIMARY KEY (job_id),
-  FOREIGN KEY (company_id) REFERENCES Company  (company_id),
+  FOREIGN KEY (company_id) REFERENCES Company  (company_id) ON DELETE CASCADE,
   FOREIGN KEY (post_id) REFERENCES Posts (id)
 ); 
 
@@ -862,7 +862,7 @@ CREATE TABLE PrivateCourses (
   private_uni_id int(11) NOT NULL,
   post_id INT,
   PRIMARY KEY (privatecourse_id),
-  FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id),
+  FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id) ON DELETE CASCADE
   FOREIGN KEY (post_id) REFERENCES Posts (id)
 );  
  
@@ -885,7 +885,7 @@ CREATE TABLE IntakeNotices (
   private_uni_id int(11) NOT NULL,
   post_id INT,
   PRIMARY KEY (notice_id),
-  FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id),
+  FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id) ON DELETE CASCADE,
   FOREIGN KEY (post_id) REFERENCES Posts (id)
 ); 
 
