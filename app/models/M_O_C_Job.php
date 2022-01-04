@@ -120,7 +120,7 @@
 
             $this->db->execute();
 
-            $this->db->query('DELETE FROM Privatecourses WHERE post_id = :id');
+            $this->db->query('DELETE FROM Jobs WHERE post_id = :id');
             // bind values
             $this->db->bind(":id", $id);
 

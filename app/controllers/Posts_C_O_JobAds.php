@@ -200,7 +200,7 @@
                 $post = $this->postModel->getPostById($id);
 
                 // Check for owner
-                if($post->private_uni_id != $_SESSION['user_id']) {
+                if($post->company_id != $_SESSION['user_id']) {
                     redirect('Posts_C_O_JobAds/index');
                 }
 
@@ -233,7 +233,7 @@
             $_SESSION['currect_viewing_post_type'] = "Job Post";
 
             $post = $this->postModel->getPostById($id);
-            $user = $this->commonModel->getUserById($post->private_uni_id);
+            $user = $this->commonModel->getUserById($post->company_id);
 
             $ups = $this->postModel->getInc($id)->ups;
             $downs = $this->postModel->getDown($id)->downs;
