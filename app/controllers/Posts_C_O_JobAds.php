@@ -316,7 +316,7 @@
                 $res4 = $this->postModel->deletePost($id);
 
                 // validate and upload profile image
-                $postImage = PUBROOT.'/imgs/posts/jobs/'.$post->image;
+                $postImage = PUBROOT.'/imgs/posts/jobads/'.$post->image;
                 $res5 = deleteImage($postImage);
                 
                 if($res1 && $res2 && $res3 && $res4 && $res5) {

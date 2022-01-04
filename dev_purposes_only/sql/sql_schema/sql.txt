@@ -519,7 +519,8 @@ CREATE TABLE Posts (
 	views	INT,
 	payed INT DEFAULT 0,
 	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY(id)
+	PRIMARY KEY(id),
+	FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 
 -- STUDENT RELATED
@@ -850,8 +851,8 @@ CREATE TABLE Jobs (
   company_id int(11) NOT NULL,
   post_id INT,
   PRIMARY KEY (job_id),
-  FOREIGN KEY (company_id) REFERENCES Company  (company_id) ON DELETE CASCADE,
-  FOREIGN KEY (post_id) REFERENCES Posts (id)
+  FOREIGN KEY (company_id) REFERENCES Company  (company_id)  ON DELETE CASCADE,
+  FOREIGN KEY (post_id) REFERENCES Posts (id) ON DELETE CASCADE
 ); 
 
 -- replaced as coursepost
@@ -862,8 +863,8 @@ CREATE TABLE PrivateCourses (
   private_uni_id int(11) NOT NULL,
   post_id INT,
   PRIMARY KEY (privatecourse_id),
-  FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id) ON DELETE CASCADE
-  FOREIGN KEY (post_id) REFERENCES Posts (id)
+  FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id) ON DELETE CASCADE,
+  FOREIGN KEY (post_id) REFERENCES Posts (id) ON DELETE CASCADE
 );  
  
  
@@ -874,7 +875,7 @@ CREATE TABLE JobApplicants (
   interaction VARCHAR(100),
   applied_date date not null,
   PRIMARY KEY (job_apply_id),
-  FOREIGN KEY (user_id) REFERENCES Users  (id),
+  FOREIGN KEY (user_id) REFERENCES Users  (id) ON DELETE CASCADE,
   FOREIGN KEY (post_id) REFERENCES Posts  (id) ON DELETE CASCADE
 ); 
 
@@ -885,8 +886,8 @@ CREATE TABLE IntakeNotices (
   private_uni_id int(11) NOT NULL,
   post_id INT,
   PRIMARY KEY (notice_id),
-  FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id) ON DELETE CASCADE,
-  FOREIGN KEY (post_id) REFERENCES Posts (id)
+  FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id)  ON DELETE CASCADE,
+  FOREIGN KEY (post_id) REFERENCES Posts (id) ON DELETE CASCADE
 ); 
 
 
@@ -930,7 +931,7 @@ CREATE TABLE TeacherEnrollments (
   interaction VARCHAR(100),
   applied_date date not null,
   PRIMARY KEY (enroll_id),
-  FOREIGN KEY (user_id) REFERENCES Users  (id),
+  FOREIGN KEY (user_id) REFERENCES Users  (id) ON DELETE CASCADE,
   FOREIGN KEY (post_id) REFERENCES Posts  (id) ON DELETE CASCADE
 ); 
 
@@ -941,7 +942,7 @@ CREATE TABLE ProfGuiderEnrollments (
   interaction VARCHAR(100),
   applied_date date not null,
   PRIMARY KEY (enroll_id),
-  FOREIGN KEY (user_id) REFERENCES Users  (id),
+  FOREIGN KEY (user_id) REFERENCES Users  (id) ON DELETE CASCADE,
   FOREIGN KEY (post_id) REFERENCES Posts  (id) ON DELETE CASCADE
 ); 
 
@@ -7007,7 +7008,7 @@ CREATE TABLE Comments (
 	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (comment_id),
 	FOREIGN KEY (post_id) REFERENCES Posts(id) ON DELETE CASCADE,
-	FOREIGN KEY (user_id) REFERENCES Users (id)
+	FOREIGN KEY (user_id) REFERENCES Users (id) ON DELETE CASCADE
 );
 
 
@@ -7041,7 +7042,7 @@ CREATE TABLE Review (
 	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(review_id),
 	FOREIGN KEY(post_id) REFERENCES Posts(id) ON DELETE CASCADE,
-	FOREIGN KEY(user_id) REFERENCES Users(id)	
+	FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE	
 );
 
 CREATE TABLE PostInteractions (
@@ -7050,7 +7051,7 @@ CREATE TABLE PostInteractions (
 	post_id INT,
 	interaction VARCHAR(10),
 	PRIMARY KEY(interaction_id),
-	FOREIGN KEY(user_id) REFERENCES Users(id),
+	FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE,
 	FOREIGN KEY(post_id) REFERENCES Posts(id) ON DELETE CASCADE
 );
 
@@ -7060,7 +7061,7 @@ CREATE TABLE CommentInteractions (
 	comment_id INT,
 	comment_interaction VARCHAR(10),
 	PRIMARY KEY(comment_interaction_id),
-	FOREIGN KEY(user_id) REFERENCES Users(id),
+	FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE,
 	FOREIGN KEY(comment_id) REFERENCES Comments(comment_id) ON DELETE CASCADE
 );
 
@@ -7705,7 +7706,8 @@ CREATE TABLE AdditionalSettings(
 	user_id INT,
 	is_pri_gen_details_visible INT,
 	is_pri_soc_details_visible INT,
-	PRIMARY KEY(user_id)
+	PRIMARY KEY(user_id),
+	FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 
 -- community
@@ -7717,7 +7719,7 @@ CREATE TABLE Community (
 	views INT,
 	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (thread_id),
-	FOREIGN KEY (user_id) REFERENCES Users (id)
+	FOREIGN KEY (user_id) REFERENCES Users (id) ON DELETE CASCADE
 );
 
 CREATE TABLE CommunityComments (
@@ -7730,7 +7732,7 @@ CREATE TABLE CommunityComments (
 	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (comment_id),
 	FOREIGN KEY (thread_id) REFERENCES Community(thread_id) ON DELETE CASCADE,
-	FOREIGN KEY (user_id) REFERENCES Users (id)
+	FOREIGN KEY (user_id) REFERENCES Users (id) ON DELETE CASCADE
 );
 
 CREATE TABLE CommunityCommentInteractions (
@@ -7739,7 +7741,7 @@ CREATE TABLE CommunityCommentInteractions (
 	comment_id INT,
 	comment_interaction VARCHAR(10),
 	PRIMARY KEY(comment_interaction_id),
-	FOREIGN KEY(user_id) REFERENCES Users(id),
+	FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE,
 	FOREIGN KEY(comment_id) REFERENCES CommunityComments(comment_id) ON DELETE CASCADE
 );
 

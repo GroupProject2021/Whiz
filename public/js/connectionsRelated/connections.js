@@ -54,6 +54,7 @@ let organizationDropHeader = document.getElementById('organization-drop-down-hea
                     method: 'post',
                     success: function(response) {
                         $(".default-list").html(response);
+                        console.log(response);
                     }
                 });
             }

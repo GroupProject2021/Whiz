@@ -202,7 +202,7 @@
                          
                             </div>
                         </div>
-                        <form action="<?php echo URLROOT; ?>/Posts_C_O_Setting/deleteAccount/<?php echo $data['user']->id.'/'.$data['user']->specialized_actor_type; ?>" method="post">
+                        <form action="<?php echo URLROOT; ?>/C_O_Settings/deleteAccount/<?php echo $_SESSION['user_id']; ?>/<?php echo $_SESSION['specialized_actor_type'];?>" method="post">
                             <div class = editable>
                                 <input type="submit" value="Delete Account Permenently" class="btn4">
                             </div>

@@ -129,10 +129,6 @@
                     'notice_name' => trim($_POST['notice_name']),
                     'notice_content' => trim($_POST['notice_content']),
                     'private_uni_id' => $_SESSION['user_id'],
-<<<<<<< HEAD
-                    'isImageRemoved' => $_POST['isImageRemoved'],
-=======
->>>>>>> 6e8f3976b7411cefbb2b6bdf49fb6dc9379109bf
                     
                     'image_err' => '',
                     'notice_name_err' => '',
