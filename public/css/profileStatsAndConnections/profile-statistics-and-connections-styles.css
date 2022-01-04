@@ -100,6 +100,58 @@
     padding-left: 10px;
 }
 
+/* index user block */
+.index-user-block {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    line-height: 50px;
+    vertical-align: middle;
+    background-color: rgb(233, 233, 233);
+    transition: .2s all;
+    margin-bottom: 5px;
+    /* justify-content: center; */
+}
+
+.index-user-block:hover{
+    background-color: rgb(207, 207, 207);
+    cursor: pointer;
+}
+
+.index-user-block .pic {    
+    padding: 10px;
+}
+
+.index-user-block .pic img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.index-user-block .name {
+    padding-left: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 60px;
+    vertical-align: middle;
+}
+
+.index-user-block .verified {
+    padding: 20px 20px 20px 10px;
+}
+
+.index-user-block .verified img{
+    height: 20px;
+    width: 20px;
+}
+
+.index-user-block .types {
+    color: gray;
+    line-height: 60px;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
 /* search bar */
 .search-user {
     height: 10px;

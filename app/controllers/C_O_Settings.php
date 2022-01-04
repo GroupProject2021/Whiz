@@ -438,7 +438,7 @@ class C_O_Settings extends Controller {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Check for owner
-            if(id != $_SESSION['user_id']) {
+            if($id != $_SESSION['user_id']) {
                 redirect('C_O_Settings/settings/'.$id.'/'.$_SESSION['user_id']);
             }
 
@@ -446,9 +446,9 @@ class C_O_Settings extends Controller {
             // validate and upload profile image
             $proImage = PUBROOT.'imgs/profileimages/organization'.$_SESSION['user_profile_image'];
             $res1 = deleteImage($proImage);
-            $res2 = deleteAccount($id,$type);
+            $res2 = $this->settingsModel->deleteAccount($id,$type);
             
-            if($res && res2) {
+            if($res1 && $res2) {
                 flash('post_message', 'Account Removed');
                 redirect('Commons/logout');
             }

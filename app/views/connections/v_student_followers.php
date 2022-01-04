@@ -39,7 +39,8 @@
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
 
-                    <div class="link-header">
+                    <!-- USER TYPE FILTERING -->
+                    <!-- <div class="link-header">
                         <div class="title"><a class="card-link" onclick="showAll();">All</a></div>
                         <div class="title"><a class="card-link" onclick="showStudentsOnly();">Students</a></div>
                         <div class="title"><a class="card-link" onclick="showOrganizationDropHeader();">Organizations</a></div>
@@ -55,7 +56,7 @@
                         <div class="title"><a class="card-link" onclick="showSpecializedActorTypeList('Professional');">Professional Guider</a></div>
                     </div>
                     
-                    <br>
+                    <br> -->
                     
                     
                     <div class="default-list">
