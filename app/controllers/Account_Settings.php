@@ -60,5 +60,67 @@
         public function toggleSocialDetails($id, $x) {
             $this->accSettingsModel->toggleSocialDetails($id, $x);
         }
+
+        // Account delete
+        public function deleteAccount($id) {
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                // Check for confirm text
+                $text_to_be_matched = 'I am '.$_SESSION['user_name'].'. Delete my account.';
+                if($text_to_be_matched != $_POST['acc_delete_confirmation_text']) {
+                    redirect('Whiz/index');
+                }
+
+                // Check for owner
+                if($id != $_SESSION['user_id']) {
+                    redirect('Whiz/index');
+                }
+
+            
+                // validate and upload profile image
+                switch($_SESSION['actor_type']) {
+                    case 'Student': 
+                        $folderName = 'student';
+                        break;
+                    case 'Organization': 
+                        $folderName = 'organization';
+                        break;
+                    case 'Mentor': 
+                        $folderName = 'mentor';
+                        break;
+                    case 'Admin':
+                        $folderName = 'admin';
+                        break;
+                    default: 
+                        break;
+                }
+
+                $img = PUBROOT.'/profileimages/'.$folderName.'/'.$_SESSION['user_profile_image'];
+                $res1 = deleteImage($img);
+                $res2 = $this->accSettingsModel->deleteAccount($id);
+                
+                if($res1 && $res2) {
+                    flash('post_message', 'Account Removed');
+                    unset($_SESSION['user_id']);
+                    unset($_SESSION['user_email']);
+                    unset($_SESSION['user_name']);
+                    unset($_SESSION['actor_type']);
+                    unset($_SESSION['specialized_actor_type']);
+                    unset($_SESSION['status']);
+                    unset($_SESSION['user_profile_image']);
+
+
+                    redirect('Whiz/index');
+                }
+                else {
+                    die('Something went wrong');
+                }
+            }
+            else {
+                redirect('Whiz/index');
+            }
+        }
     }
 ?>

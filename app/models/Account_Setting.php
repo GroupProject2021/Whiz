@@ -107,5 +107,20 @@
                 return false;
             }
         }
+
+        // delete account
+        public function deleteAccount($id) {
+            $this->db->query('DELETE FROM Users WHERE id = :id');
+            //bind value
+            $this->db->bind(':id', $id);
+
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+            }
     }
 ?>

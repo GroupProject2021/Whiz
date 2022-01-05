@@ -3,11 +3,14 @@
 class C_S_Undergrad_Grad_Dashboard extends Controller {
     public function __construct() {
         $this->beginnerDashboardModel = $this->model('M_S_Beginner_Dashboard');
+        $this->profileStatAndConnectionModel = $this->model('profileStatAndConnection');
     }
 
     // Index
     public function index() {
-        $data = ['title' => 'Welcome to Students undergraduate graduate dashboard'];
+        $followingList = $this->profileStatAndConnectionModel->getFollowings($_SESSION['user_id']);
+
+        $data = ['following' => $followingList];
         
         $this->view('students/dashboards/v_student_ug_dashboard', $data);
     }

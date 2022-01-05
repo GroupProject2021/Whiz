@@ -114,6 +114,23 @@
                         </form>
                         <?php endif; ?>
 
+                        <!-- Account delete -->
+                        <h2>Delete account</h2>
+                        <p>This will delete your profile as well as the posts, posts interactions and other activities.</p>
+                        <p class="user-settings-red-text">This process is unrecoverable and please make sure to backup the data if you want, before deleting the account. </p>
+                        <br>
+                        <p>Please type <b>"I am <?php echo $_SESSION['user_name']; ?>. Delete my account."</b> to confirm your action</p>
+                        <br>
+                        <div class="acc_delete_confirmation">
+                            <input type="text" name="acc_delete_confirmation_text" id="acc_delete_confirmation_text" class="acc_delete_confirmation_text" oninput="checkDeleteText()">
+                        </div>
+                        <br>
+                        <form action="<?php echo URLROOT; ?>/Account_Settings/deleteAccount/<?php echo $_SESSION['user_id']; ?>" method="post">
+                            <div class = editable>
+                                <input type="submit" value="Delete Account Permenently" class="btn7" id="deleteAccBtn" disabled>
+                            </div>                            
+                        </form>
+
                     </div>
             </main>
         </div>
@@ -124,6 +141,7 @@
 <script type="text/JavaScript">
     var URLROOT = '<?php echo URLROOT; ?>';            
     var USER_ID= '<?php echo $_SESSION["user_id"]; ?>';
+    var DELETE_TEXT = 'I am <?php echo $_SESSION['user_name']; ?>. Delete my account.';
 </script>
 
 <!-- javascript -->
@@ -132,19 +150,24 @@
 <script>
     
 
-    // const btn1 = document.getElementById('btn1');
-    // const btn2 = document.getElementById('btn2');
+    const acc_delete_confirmation_text = document.getElementById("acc_delete_confirmation_text");
+    const text_need_to_be_matched = DELETE_TEXT;
 
-    // btn1.onclick = function() {
-    //     btn1.classList.toggle('active');
-    // }
+    const deleteAccBtn = document.getElementById("deleteAccBtn");
 
-    // btn2.onclick = function() {
-    //     btn2.classList.toggle('active');
-    // }
+    function checkDeleteText() {
+        if(text_need_to_be_matched == acc_delete_confirmation_text.value) {
+            console.log('matched');
+            deleteAccBtn.disabled = false;
+            deleteAccBtn.className = "btn4";
+        }
+        else {
+            console.log('not matching');
+            deleteAccBtn.disabled = true;
+            deleteAccBtn.className = "btn7";
+        }
+    }
 
-    
-    // }
 
 </script>
 
