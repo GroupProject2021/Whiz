@@ -127,7 +127,7 @@
 
                 <!-- founded year -->
                 <br>
-                <input type="text" placeholder=" " name="founded_year" id="founded_year" value="<?php echo $data['founded_year']; ?>">
+                <input type="number" placeholder=" " name="founded_year" id="founded_year" value="<?php echo $data['founded_year']; ?>">
                 <label>Founded Year</label>
                 <span class="form-invalid"><?php echo $data['founded_year_err']; ?></span>
 
@@ -135,7 +135,7 @@
                 <br>
                 <p class="form-bold">UGC Approved?</p><br>
                 <input type="radio"  name="approved" value="Yes">Yes
-                <input type="radio"  name="approved" value="No">No
+                <input type="radio"  name="approved" value="No" checked>No
                 <span class="form-invalid"><?php echo $data['approved_err']; ?></span><br>
 
                 <!-- world rank -->
@@ -150,7 +150,7 @@
                             <input type="range" min="0" max="10000" step="1" oninput="fetch_wr_value()" class="form-slider" placeholder="Enter World Rank" name="rank" id="rank" value="<?php echo $data['rank']; ?>">
                         </td>
                         <td>
-                            <input type="text" value="5000" oninput="fetch_wr()" name="rank_value" id="rank_value">
+                            <input type="number" value="5000" oninput="fetch_wr()" name="rank_value" id="rank_value" min="0" max="10000">
                             <!-- <span id="gpa_value"></span> -->
                         </td>
                     </tr>
@@ -158,7 +158,7 @@
                 <span class="form-invalid"><?php echo $data['rank_err']; ?></span>
 
                 <!-- student amount -->
-                <br>
+                <!-- <br> -->
                 <!-- <input type="text" placeholder=" " name="amount" id="amount" value="<?php echo $data['amount']; ?>"> -->
                 <!-- <label>Student Amount</label> -->
                 <p class="form-bold">Student Amount</p>
@@ -169,7 +169,7 @@
                             <input type="range" min="0" max="10000" step="1" oninput="fetch_sa_value()" class="form-slider" placeholder="Enter Student Amount" name="amount" id="amount" value="<?php echo $data['amount']; ?>">
                         </td>
                         <td>
-                            <input type="text" value="5000" oninput="fetch_sa()" name="amount_value" id="amount_value">
+                            <input type="number" value="5000" oninput="fetch_sa()" name="amount_value" id="amount_value"  min="0" max="10000">
                             <!-- <span id="gpa_value"></span> -->
                         </td>
                     </tr>
@@ -177,9 +177,23 @@
                 <span class="form-invalid"><?php echo $data['amount_err']; ?></span>
 
                 <!-- graduate job rate -->
-                <br>
-                <input type="text" placeholder=" " name="rate" id="rate" value="<?php echo $data['rate']; ?>">
+                <!-- <br> -->
+                <!-- <input type="text" placeholder=" " name="rate" id="rate" value="<?php echo $data['rate']; ?>">
                 <label>Graduate Job Rate</label>
+                <span class="form-invalid"><?php //echo $data['rate_err']; ?></span> -->
+                <p class="form-bold">Graduate Job Rate</p>
+                <table width="100%">
+                    </tr>
+                    <tr>                        
+                        <td width="75%">
+                            <input type="range" min="0" max="100" step="1" oninput="fetch_jr_value()" class="form-slider" placeholder="Enter job rate" name="rate" id="rate" value="<?php echo $data['rate']; ?>">
+                        </td>
+                        <td>
+                            <input type="number" value="50" oninput="fetch_jr()" name="rate_value" id="rate_value"  min="0" max="100">
+                            <!-- <span id="gpa_value"></span> -->
+                        </td>
+                    </tr>
+                </table>
                 <span class="form-invalid"><?php echo $data['rate_err']; ?></span>
 
                 <!-- description -->
@@ -192,7 +206,7 @@
                 <br>
                 <br><p class="form-bold">University Type</p><br>
                 <input type="radio" name="type" value="Semi Government">Semi-Government(Government Affiliated)<br>
-                <input type="radio" name="type" value="Private">Private
+                <input type="radio" name="type" value="Private" checked>Private
                 <span class="form-invalid"><?php echo $data['type_err']; ?></span><br>
 
                 <hr class="form-hr">
@@ -245,6 +259,17 @@
             function fetch_wr() {
                 var rank = document.getElementById("rank_value").value;
                 document.getElementById("rank").value = rank;
+            }
+
+            // job rate range slider
+            function fetch_jr_value() {
+                var rate_value = document.getElementById("rate").value;
+                document.getElementById("rate_value").value = rate_value;
+            }
+
+            function fetch_jr() {
+                var rate = document.getElementById("rate_value").value;
+                document.getElementById("rate").value = rate;
             }
         </script>
     </body>

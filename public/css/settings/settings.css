@@ -83,6 +83,16 @@
     padding: 10px;
 }
 
+/* red text */
+.user-settings-red-text {
+    color: rgb(199, 0, 0);
+    font-weight: 600;
+}
+
+.acc_delete_confirmation {
+    width: 50%;
+}
+
 
 @media only screen and (max-width: 1124px) {
     .lock_profile {
@@ -94,6 +104,10 @@
     }
 
     .lock_disable_msg {
+        width: 100%;
+    }
+
+    .acc_delete_confirmation {
         width: 100%;
     }
 }
