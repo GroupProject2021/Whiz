@@ -217,13 +217,9 @@
 
         <!-- java script form validation -->
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/passwordValidation.js"></script>
-<<<<<<< HEAD
-        
-=======
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/emailValidation.js"></script>
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/phoneNoValidation.js"></script>
 
->>>>>>> d95c4b6cf1434fcf174a08f4d7d2d8fdc5a9939c
         <script>
             // student amount range slider
             function fetch_sa_value() {

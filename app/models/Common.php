@@ -83,4 +83,20 @@
             }
         }
     }
+
+    public function sendcomplaint($userid,$profileid) {
+        $this->db->query('INSERT INTO Complaint(complaintsender_id, profile_id) VALUES(:complaintsender_id, :profile_id)');
+        // bind values
+        $this->db->bind(":complaintsender_id", $userid);
+        $this->db->bind(":profile_id", $profile_id);
+
+        // Execute
+        if($this->db->execute()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+            
+    }
 ?>

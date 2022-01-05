@@ -6,7 +6,7 @@ class C_M_Settings extends Controller{
     }
 
     // Settings
-    public function settings($id){
+    public function settings($id,$viewer){
         // $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
         $userData = $this->mentorSettingsModel->getUserDetails($id);
 
@@ -18,6 +18,28 @@ class C_M_Settings extends Controller{
         $isAlreadyFollow = $this->checkFollowability($id);
         $socialData = $this->mentorSettingsModel->getSocialPlatformData($id);
         
+        // privacy shield related 
+        $locked = $this->accSettingsModel->isUserLockedProfile($id);
+
+        if($locked) {
+            // check whether the viewer is in the following list of the profile owner
+            if($this->accSettingsModel->checkViewerIsAFollowerOrNot($id, $viewer)) {
+                // viewer is followed by the profile owner --> then the content is visible if locked
+                $isGenDetailsLocked = false;
+                $isSocDetailsLocked = false;
+            }
+            else {
+                // view is not followed by the profile owner --> then the content is visible if it is unlocked at the shield options
+                $settings = $this->accSettingsModel->getSettings($id);
+
+                $isGenDetailsLocked = $settings->is_pri_gen_details_visible;
+                $isSocDetailsLocked = $settings->is_pri_soc_details_visible;
+            }
+        }
+        else {
+            $isGenDetailsLocked = false;
+            $isSocDetailsLocked = false;
+        }
 
         switch($userData->specialized_actor_type) {
             // For Professional guider

@@ -449,7 +449,7 @@ class C_O_Settings extends Controller {
             $res2 = $this->settingsModel->deleteAccount($id,$type);
             
             if($res1 && $res2) {
-                flash('post_message', 'Account Removed');
+                //flash('post_message', 'Account Removed');
                 unset($_SESSION['user_id']);
                 unset($_SESSION['user_email']);
                 unset($_SESSION['user_name']);
@@ -457,7 +457,6 @@ class C_O_Settings extends Controller {
                 unset($_SESSION['specialized_actor_type']);
                 unset($_SESSION['status']);
                 unset($_SESSION['user_profile_image']);
-
 
                 redirect('Whiz/index');
             }

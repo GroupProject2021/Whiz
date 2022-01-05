@@ -43,6 +43,12 @@
                                         <input type="submit" value="Save Changes" class="btn1-small" id="save_profilepic_click" style="display: none;">
                                         <div class="btn1-small" onclick="cancelProfPicChange(); " id="canceledit_profpic_click" style="display: none;">Cancel</div>
                                     </div>
+                                    <?php else:?>
+                                        <form action="<?php echo URLROOT; ?>/Commons/sendcomplaint/<?php echo $data['user']->id; ?>/<?php echo $data['user']->firstname;?>" method="post">
+                                            <div class = editable>
+                                            <input type="submit" value="Report Profile" class="btn4">
+                                            </div>
+                                        </form>
                                     <?php endif; ?>
                                 </div>
                                 <input type="hidden" id="user_id" name="user_id" value="<?php echo $data['user']->id;?>">
