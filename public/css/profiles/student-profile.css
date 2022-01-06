@@ -45,9 +45,6 @@
     height: 20px;
 }
 
-.stu-profile .details .occupation {
-
-}
 
 .stu-profile .details .institute {
     font-size: small;
@@ -243,10 +240,6 @@
     padding-right: 20px;
 }
 
-.division .editable {
-    /* width: 100%;
-    text-align: right; */
-}
 
 .stu-profile .profpic .profile-pic-edit-area {
     position: relative;
