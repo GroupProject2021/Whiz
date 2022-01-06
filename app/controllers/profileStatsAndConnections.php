@@ -9,7 +9,20 @@
             $userList = $this->profileStatAndConnectionModel->getUsersByName($name);
 
             foreach($userList as $user) {
-                echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$user->id.'/'.$_SESSION['user_id'].'" class="card-link">';
+                switch($user->actor_type) {
+                    case 'Student': 
+                            echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$user->id.'/'.$_SESSION['user_id'].'" class="card-link">';
+                            break;
+                    case 'Organization': 
+                            echo '<a href="'.URLROOT.'/C_O_Settings/settings/'.$user->id.'/'.$_SESSION['user_id'].'" class="card-link">';
+                            break;
+                    case 'Mentor': 
+                            echo '<a href="'.URLROOT.'/C_M_Settings/settings/'.$user->id.'/'.$_SESSION['user_id'].'" class="card-link">';
+                            break;
+                    default: 
+                            break;
+                }
+
                 echo '<div class="show-userlist-item">';
                 echo    '<div class="item-pic"><img src="'.URLROOT.'/profileimages/'.getActorTypeForIcons($user->actor_type).'/'.$user->profile_image.'" alt=""></div>';
                 echo    '<div class="item-name">'.$user->first_name.' '.$user->last_name.'</div>';
@@ -73,7 +86,20 @@
         // Generate user list
         public function generateUserList($userList) {
             foreach($userList as $user) {
-                echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$user->id.'" class="card-link">';
+                switch($user->actor_type) {
+                    case 'Student': 
+                            echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$user->id.'/'.$_SESSION['user_id'].'" class="card-link">';
+                            break;
+                    case 'Organization': 
+                            echo '<a href="'.URLROOT.'/C_O_Settings/settings/'.$user->id.'/'.$_SESSION['user_id'].'" class="card-link">';
+                            break;
+                    case 'Mentor': 
+                            echo '<a href="'.URLROOT.'/C_M_Settings/settings/'.$user->id.'/'.$_SESSION['user_id'].'" class="card-link">';
+                            break;
+                    default: 
+                            break;
+                }
+
                 echo '<div class="user-block">';
                 echo    '<div class="pic"><img src="'.URLROOT.'/profileimages/'.getActorTypeForIcons($user->actor_type).'/'.$user->profile_image.'" alt=""></div>';
                 echo    '<div class="name">'.$user->first_name.' '.$user->last_name.'</div>';

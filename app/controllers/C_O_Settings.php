@@ -3,10 +3,11 @@
 class C_O_Settings extends Controller {
     public function __construct() {
         $this->settingsModel = $this->model('M_O_Setting');
+        $this->commonModel = $this->model('Common');
     }
 
      // Settings
-     public function settings($id,$viewer) {
+     public function settings($id, $viewer) {
         // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
         $userData = $this->settingsModel->getUserDetails($id);
         $this->accSettingsModel = $this->model('Account_Setting');
@@ -43,6 +44,9 @@ class C_O_Settings extends Controller {
             $isGenDetailsLocked = false;
             $isSocDetailsLocked = false;
         }
+
+        // report check (wheter the view already reported the viewing profile or not)
+        $isAlreadyReported = $this->commonModel->getIsReportedOrNnot($id, $viewer);
         
         // $org_id = $this->settingsModel->findOrganizationIdbyEmail($userData->email);
         $organizationData = $this->settingsModel->getOrganizationDetails($id);
@@ -69,7 +73,9 @@ class C_O_Settings extends Controller {
                     'amount' => $uniData->student_amount,
                     'rate' => $uniData->graduate_job_rate,
                     'descrip' => $uniData->description,
-                    'type' => $uniData->uni_type
+                    'type' => $uniData->uni_type,
+
+                    'is_already_reported' => $isAlreadyReported
                 ];
 
                 $this->view('organization/opt_settings/v_organization_profile', $data);
@@ -95,7 +101,9 @@ class C_O_Settings extends Controller {
                     'size' => $comData->company_size,
                     'registered' => $comData->registered,
                     'overview' => $comData->overview,
-                    'services' => $comData->services
+                    'services' => $comData->services,
+
+                    'is_already_reported' => $isAlreadyReported
                 ];
 
                 $this->view('organization/opt_settings/v_organization_profile', $data);

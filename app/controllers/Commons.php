@@ -467,7 +467,7 @@
 
                 if($this->commonModel->sendReport($data)){
                     flash('post_message', 'Profile Reported');
-                    redirect('Commons/reportProfileRedirect/'.$reporterId.'/'.$reportedId);
+                    redirect('Commons/reportProfileRedirect/'.$reportedId.'/'.$reporterId);
                 }
                 else{
                     die('Something went wrong');
@@ -475,7 +475,7 @@
             }
         }
 
-        public function reportProfileRedirect($reporterId, $reportedId){
+        public function reportProfileRedirect($reportedId, $reporterId){
             $profile = $this->commonModel->getUserById($reportedId);
 
             if($profile->actor_type == 'Student'){

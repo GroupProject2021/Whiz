@@ -2,11 +2,12 @@
 
 class C_M_Settings extends Controller{
     public function __construct() {
-        $this->mentorSettingsModel = $this->model('M_M_Settings');
+        $this->mentorSettingsModel = $this->model('M_M_Settings');        
+        $this->commonModel = $this->model('Common');
     }
 
     // Settings
-    public function settings($id,$viewer){
+    public function settings($id, $viewer){
         // $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
         $userData = $this->mentorSettingsModel->getUserDetails($id);
 
@@ -41,6 +42,9 @@ class C_M_Settings extends Controller{
             $isSocDetailsLocked = false;
         }
 
+        // report check (wheter the view already reported the viewing profile or not)
+        $isAlreadyReported = $this->commonModel->getIsReportedOrNnot($id, $viewer);
+
         switch($userData->specialized_actor_type) {
             // For Professional guider
             case 'Professional Guider':
@@ -59,7 +63,9 @@ class C_M_Settings extends Controller{
                     'address' => $mentorData->address,
                     'phn_no' => $mentorData->phn_no,
                     'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
-                    'socialData' => $socialData
+                    'socialData' => $socialData,
+
+                    'is_already_reported' => $isAlreadyReported
                 ];
 
                 $this->view('mentors/opt_settings/v_proguider_profile', $data);
@@ -80,7 +86,9 @@ class C_M_Settings extends Controller{
                     'address' => $mentorData->address,
                     'phn_no' => $mentorData->phn_no,
                     'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
-                    'socialData' => $socialData
+                    'socialData' => $socialData,
+
+                    'is_already_reported' => $isAlreadyReported
                 ];
  
                 $this->view('mentors/opt_settings/v_teacher_profile', $data);

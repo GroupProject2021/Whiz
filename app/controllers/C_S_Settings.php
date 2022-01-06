@@ -4,6 +4,7 @@ class C_S_Settings extends Controller {
     public function __construct() {
         $this->settingsModel = $this->model('M_S_Settings');
         $this->accSettingsModel = $this->model('Account_Setting');
+        $this->commonModel = $this->model('Common');
     }
 
     // Settings
@@ -44,6 +45,9 @@ class C_S_Settings extends Controller {
             $isSocDetailsLocked = false;
         }
 
+        // report check (wheter the view already reported the viewing profile or not)
+        $isAlreadyReported = $this->commonModel->getIsReportedOrNnot($id, $viewer);
+
         switch($userData->specialized_actor_type) {
             // For beginner
             case 'Beginner':
@@ -66,7 +70,9 @@ class C_S_Settings extends Controller {
                     'socialData' => $socialData,
 
                     'is_pri_gen_details_locked' => $isGenDetailsLocked,
-                    'is_pri_soc_details_locked' => $isSocDetailsLocked
+                    'is_pri_soc_details_locked' => $isSocDetailsLocked,
+
+                    'is_already_reported' => $isAlreadyReported
                 ];
 
                 $this->view('students/opt_settings/v_student_profile', $data);
@@ -114,7 +120,9 @@ class C_S_Settings extends Controller {
                     'socialData' => $socialData,
 
                     'is_pri_gen_details_locked' => $isGenDetailsLocked,
-                    'is_pri_soc_details_locked' => $isSocDetailsLocked
+                    'is_pri_soc_details_locked' => $isSocDetailsLocked,
+                    
+                    'is_already_reported' => $isAlreadyReported
                 ];
 
                 $this->view('students/opt_settings/v_student_profile', $data);
@@ -178,7 +186,9 @@ class C_S_Settings extends Controller {
                     'socialData' => $socialData,
 
                     'is_pri_gen_details_locked' => $isGenDetailsLocked,
-                    'is_pri_soc_details_locked' => $isSocDetailsLocked
+                    'is_pri_soc_details_locked' => $isSocDetailsLocked,
+                    
+                    'is_already_reported' => $isAlreadyReported
                 ];
 
                 $this->view('students/opt_settings/v_student_profile', $data);
@@ -248,7 +258,9 @@ class C_S_Settings extends Controller {
                     'socialData' => $socialData,
 
                     'is_pri_gen_details_locked' => $isGenDetailsLocked,
-                    'is_pri_soc_details_locked' => $isSocDetailsLocked
+                    'is_pri_soc_details_locked' => $isSocDetailsLocked,
+                    
+                    'is_already_reported' => $isAlreadyReported
                 ];
 
                 $this->view('students/opt_settings/v_student_profile', $data);

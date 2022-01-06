@@ -48,13 +48,6 @@
                                         <input type="submit" value="Save Changes" class="btn1-small" id="save_profilepic_click" style="display: none;">
                                         <div class="btn1-small" onclick="cancelProfPicChange(); " id="canceledit_profpic_click" style="display: none;">Cancel</div>
                                     </div>
-                                    <!-- Profile report area -->
-                                    <?php else:?>
-                                        <!-- <form action="<?php echo URLROOT; ?>/Commons/sendcomplaint/<?php echo $data['user']->id; ?>/<?php echo $data['user']->firstname;?>" method="post">
-                                            <div class="profile-pic-edit-area">
-                                                <input type="submit" value="Report Profile" class="btn4">
-                                            </div>
-                                        </form> -->
                                     <?php endif; ?>
                                 </div>
                                 
@@ -417,22 +410,30 @@
                             </div>
                         </div>
                         
-                        
+                        <!-- REPORT PROFILE (styles at css/com/profile/student-profile maybe change it later) -->                        
+                        <?php if($data['user']->id != $_SESSION['user_id']): ?>
                         <br><hr>
                         <div class="division">
                             <div class="division-name">Report  profile</div>
                         </div>
-                        <div class="report-details">
-                            <p>If you suspect this profile is a fake or bogus one please report the profile.
-                            Please note that if you send a report, it will be analyzed by <b>Whiz.</b></p>
-                            <br>                      
-                            <!-- request goes as Commons/report/reportedId/reporterId -->
-                            <form action="<?php echo URLROOT; ?>/Commons/report/<?php echo $data['user']->id; ?>/<?php echo $_SESSION['user_id']?>" method="post">
-                                <input type="text" name="report" id="report" placeholder="Give us a reason...">
-                                <br>
-                                <input type="submit" value="Report Profile" class="btn4">
-                            </form>
-                        </div>
+                            <?php if(!$data['is_already_reported']): ?>
+                            <div class="report-details">
+                                <p>If you suspect this profile is a fake or bogus one please report the profile.
+                                Please note that if you send a report, it will be analyzed by <b>Whiz.</b></p>
+                                <br>                      
+                                <!-- request goes as Commons/report/reportedId/reporterId -->
+                                <form action="<?php echo URLROOT; ?>/Commons/report/<?php echo $data['user']->id; ?>/<?php echo $_SESSION['user_id']?>" method="post">
+                                    <input type="text" name="report" id="report" placeholder="Give us a reason...">
+                                    <br>
+                                    <input type="submit" value="Report Profile" class="btn4">
+                                </form>
+                            </div>
+                            <?php else: ?>
+                                <div class="report-details">
+                                    <b class="user-settings-red-text">You have already reported this account. We are processing your report which may take few days.</b>
+                                </div>
+                            <?php endif; ?>
+                        <?php endif; ?>
 
                         <div class="body">
 

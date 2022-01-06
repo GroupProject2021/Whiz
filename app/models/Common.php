@@ -99,6 +99,23 @@
                 return false;
             }
         }
+
+        public function getIsReportedOrNnot($reportedId, $reporterId) {
+            $this->db->query('SELECT * FROM Report WHERE reported_id = :reported_id AND reporter_id = :reporter_id'); // this is a prepared statement
+            // bind value
+            $this->db->bind(":reported_id", $reportedId);
+            $this->db->bind(":reporter_id", $reporterId);
+
+            $row = $this->db->single();
+
+            // Check row - return true if email exists. Because then rowCount is not 0
+            if($this->db->rowCount() > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }
 
     
