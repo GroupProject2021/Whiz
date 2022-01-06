@@ -82,21 +82,24 @@
                 return false;
             }
         }
+
+        // report
+        public function sendReport($data) {
+            $this->db->query('INSERT INTO Report(reported_id, reporter_id, report) VALUES(:reported_id, :reporter_id, :report)');
+            // bind values
+            $this->db->bind(":reported_id", $data['reported_id']);
+            $this->db->bind(":reporter_id", $data['reporter_id']);
+            $this->db->bind(":report", $data['report']);
+    
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }
 
-    public function sendcomplaint($userid,$profileid) {
-        $this->db->query('INSERT INTO Complaint(complaintsender_id, profile_id) VALUES(:complaintsender_id, :profile_id)');
-        // bind values
-        $this->db->bind(":complaintsender_id", $userid);
-        $this->db->bind(":profile_id", $profile_id);
-
-        // Execute
-        if($this->db->execute()) {
-            return true;
-        }
-        else {
-            return false;
-        }
-            
-    }
+    
 ?>

@@ -275,6 +275,10 @@
     color: #333;
 }
 
+.report-details {
+    padding: 5px;
+}
+
 /* responsive features */
 @media only screen and (max-width: 1124px) {
     .stu-profile {

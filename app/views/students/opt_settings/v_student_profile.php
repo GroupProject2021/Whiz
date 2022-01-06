@@ -48,12 +48,13 @@
                                         <input type="submit" value="Save Changes" class="btn1-small" id="save_profilepic_click" style="display: none;">
                                         <div class="btn1-small" onclick="cancelProfPicChange(); " id="canceledit_profpic_click" style="display: none;">Cancel</div>
                                     </div>
+                                    <!-- Profile report area -->
                                     <?php else:?>
-                                        <form action="<?php echo URLROOT; ?>/Commons/sendcomplaint/<?php echo $data['user']->id; ?>/<?php echo $data['user']->firstname;?>" method="post">
-                                            <div class = editable>
-                                            <input type="submit" value="Report Profile" class="btn4">
+                                        <!-- <form action="<?php echo URLROOT; ?>/Commons/sendcomplaint/<?php echo $data['user']->id; ?>/<?php echo $data['user']->firstname;?>" method="post">
+                                            <div class="profile-pic-edit-area">
+                                                <input type="submit" value="Report Profile" class="btn4">
                                             </div>
-                                        </form>
+                                        </form> -->
                                     <?php endif; ?>
                                 </div>
                                 
@@ -415,6 +416,24 @@
                         <?php endif; ?>
                             </div>
                         </div>
+                        
+                        
+                        <br><hr>
+                        <div class="division">
+                            <div class="division-name">Report  profile</div>
+                        </div>
+                        <div class="report-details">
+                            <p>If you suspect this profile is a fake or bogus one please report the profile.
+                            Please note that if you send a report, it will be analyzed by <b>Whiz.</b></p>
+                            <br>                      
+                            <!-- request goes as Commons/report/reportedId/reporterId -->
+                            <form action="<?php echo URLROOT; ?>/Commons/report/<?php echo $data['user']->id; ?>/<?php echo $_SESSION['user_id']?>" method="post">
+                                <input type="text" name="report" id="report" placeholder="Give us a reason...">
+                                <br>
+                                <input type="submit" value="Report Profile" class="btn4">
+                            </form>
+                        </div>
+
                         <div class="body">
 
                         </div>
@@ -448,7 +467,7 @@
         <!-- common settings js -->
         <script type="text/JavaScript">
             var URLROOT = '<?php echo URLROOT; ?>';
-            var USER_ID = '<?php echo $data['user']->id; ?>';
+            var USER_ID = '<?php echo $data['user']->id; ?>/<?php echo $data['user']->id; ?>';
         </script>
 
         <!-- javascript profile follow related  -->

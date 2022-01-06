@@ -447,8 +447,10 @@
             $this->view('common/user_reset_password', $data);
         }
 
-        //send complaint
-        public function sendcomplaint($profileid,$profilename) {
+
+
+        // report
+        public function report($reportedId, $reporterId) {
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Process form
@@ -458,60 +460,32 @@
 
                 // Init data
                 $data = [
-                    'profile_name' => $profilename,
-                    'profile_id' => $profileid,
-                    'complaint' => trim($_POST['complaint']),
-                    
-                    'complaint_err' => ''
+                    'reported_id' => $reportedId,
+                    'reporter_id' => $reporterId,
+                    'report' => trim($_POST['report'])
                 ];
 
-                // Validate email
-                if(empty($data['complaint'])) {
-                    $data['complaint_err'] = 'Please enter complaint details';
+                if($this->commonModel->sendReport($data)){
+                    flash('post_message', 'Profile Reported');
+                    redirect('Commons/reportProfileRedirect/'.$reporterId.'/'.$reportedId);
                 }
-
-                // Make sure errors are empty
-                if(empty($data['complaint_err'])) {
-                // Validated
-                    if($this->commonModel->sendcomplaint($_SESSION['user_id'],$profileid)){
-                        flash('post_message', 'Profile Reported');
-                        redirect('Commons/profileview/$profileid');
-                    }
-                    else{
-                        die('Something went wrong');
-                    }
-                }
-                else {
-                    // Load view with errors
-                    $this->view('common/complaint', $data);
+                else{
+                    die('Something went wrong');
                 }
             }
-            else {
-                // Init data
-                $data = [
-                    'profile_name' => $profilename,
-                    'profile_id' => $profileid,
-                    'complaint' => '',
-                    
-                    'complaint_err' => '',
-                ];
-            }
-
-            // Load view
-            $this->view('common/complaint', $data);
         }
 
-        public function profileview($profileid){
-            $profile = $this->commonModel->getUserById($profileid);
+        public function reportProfileRedirect($reporterId, $reportedId){
+            $profile = $this->commonModel->getUserById($reportedId);
 
             if($profile->actor_type == 'Student'){
-                redirect('C_S_Settings/settings/$profileid/$_SESSION['user_id']');
+                redirect('C_S_Settings/settings/'.$reportedId.'/'.$reporterId);
             }
             else if($profile->actor_type == 'Organization'){
-                redirect('C_O_Settings/settings/$profileid/$_SESSION['user_id']');
+                redirect('C_O_Settings/settings/'.$reportedId.'/'.$reporterId);
             }
             else if($profile->actor_type == 'Mentor'){
-                redirect('C_M_Settings/settings/$profileid/$_SESSION['user_id']');
+                redirect('C_M_Settings/settings/'.$reportedId.'/'.$reporterId);
             }
         }
     }

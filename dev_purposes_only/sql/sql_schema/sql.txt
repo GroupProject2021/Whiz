@@ -7897,3 +7897,14 @@ INSERT INTO privateuniversity (privateuni_id, ugc_approval, world_rank, student_
 INSERT INTO company (company_id, current_emplyee_amount, company_size, registered, overview, services) VALUES
 (7, 200, 1000, 'Yes', 'We are one of the leading IT comppany in the island', 'Web development, Industrial Computer system design, Network administation');
 */
+
+
+-- report
+CREATE TABLE Report(
+	reported_id INT,
+	reporter_id INT,
+	report VARCHAR(255),
+	PRIMARY KEY(reported_id, reporter_id),
+	FOREIGN KEY(reported_id) REFERENCES Users(id) ON DELETE CASCADE,
+	FOREIGN KEY(reporter_id) REFERENCES Users(id) ON DELETE CASCADE
+);

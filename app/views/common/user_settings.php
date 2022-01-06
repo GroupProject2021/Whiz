@@ -115,6 +115,7 @@
                         <?php endif; ?>
 
                         <!-- Account delete -->
+                        <br><hr><br>
                         <h2>Delete account</h2>
                         <p>This will delete your profile as well as the posts, posts interactions and other activities.</p>
                         <p class="user-settings-red-text">This process is unrecoverable and please make sure to backup the data if you want, before deleting the account. </p>
