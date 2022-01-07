@@ -4,6 +4,7 @@ class C_M_Settings extends Controller{
     public function __construct() {
         $this->mentorSettingsModel = $this->model('M_M_Settings');        
         $this->commonModel = $this->model('Common');
+        $this->accSettingsModel = $this->model('Account_Setting');
     }
 
     // Settings

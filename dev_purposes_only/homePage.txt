@@ -1,0 +1,76 @@
+--Student--
+
+Whiz provides variety of functionalities for all the type of students. To get started, all you have to do is register as a student in
+Whiz. All the students will be considered as beginners once they registered. You can upgrade your profile at any time by providing
+necessary details and documents. The services we provide within our system may differ based on the student type. You can follow other 
+students, companies, private universities, professional guiders and teachers.
+So start with Whiz today...
+
+--Beginner--
+Once you registered as a student, you will be directed to the beginner dashboard. The students who have not taken GCD Oridinery Level
+(O/L) exam yet will be considered under the beginner category. 
+
+If you have already completed your O/L exams and got your results, you can upgrade your profile to O/L qualified student.
+To upgrade as O/L qualified student, you need to provide your O/L exam results along with a scanned copy of your results sheet.
+
+The beginner options are,
+
+Streams : By choosing Streams option, you can view Advanced Level streams which you can select for your A/Ls. By clicking on a stream
+          you can see the subjects which you can do and also can have a idea on what are the availbale subject
+          combinations by selecting that stream. Not only the subject combinations, but also you can view the university courses availbale
+          for that subject combinations along with the universities.
+          In order to recommend stream, you need to upgrade as an O/L qualified student.
+Courses : By choosing Courses option, you can explore about all the degree courses provide by both government and private universities.
+Jobs    : You can view job advertisements published by companies by choosing Jobs option.
+Professional Guiders : By choosing Professional Guiders option, you can enrol,comment,review guider sessions.
+Community : 
+
+To upgrade as O/L completed student, you need to provide your O/L exam results along with a scanned copy of your results sheet.
+
+--O/L Qualified--
+
+If you have already completed your A/L exams and got your results, you can upgrade your profile to A/L qualified student.
+To upgrade as A/L qualified student, you need to provide your A/L exam results along with a scanned copy of your results sheet.
+
+The O/L Qualified options are,
+
+Streams : By choosing Streams option, you can view Advanced Level streams which you can select for your A/Ls. By clicking on a stream
+          you can see the subjects which you can do and also can have a idea on what are the availbale subject
+          combinations by selecting that stream.
+          Recommend stream option will recommend you an A/L stream based on your O/L results.
+          Other than the subject combinations, you can view the university courses availbale for that subject combinations 
+          along with the universities.
+          
+Courses : By choosing Courses option, you can explore about all the degree courses provide by both government and private universities.
+          In order to show your government courses, you need to upgrade as an A/L qualified student.
+Jobs    : You can view job advertisements published by companies by choosing Jobs option.
+Professional Guiders : By choosing Professional Guiders option, you can enrol,comment,review guider sessions.
+Community : 
+
+--A/L Qualified--
+
+If you are already an undergraduate/gradute you can upgrade your profile to undergraduate/gradute student.
+To upgrade, you need to provide your university and degree details.
+
+The A/L Qualified options are,
+
+Courses : By choosing Courses option, you can explore about all the degree courses provide by both government and private universities.
+          By selecting "show my government courses", you can view all the government university degree course offerings under your A/L.
+          If you select "Recommend Government Courses", all the applicable government degree courses will be list down considering your
+          A/L results and Z-score according to the previous year cutoff marks.
+Jobs    : You can view job advertisements published by companies by choosing Jobs option.
+Professional Guiders : By choosing Professional Guiders option, you can enrol,comment,review guider sessions.
+Teachers  : You can view posters published by teachers who conduct pre-university classes. Enrol,comment and review options are availbale
+            in here as well.
+Community :
+
+--Undergraduate/Graduate--
+
+The Undergraduate/Graduate options are,
+
+Jobs    : You can view job advertisements published by companies by choosing Jobs option.
+My CV   : By filling your skill levels and experience you can generate CV to apply for your jobs. This CV may contain your
+          O/L results, A/L results and university details as well. Also, you can upload a custom CV as prefered.
+Professional Guiders : By choosing Professional Guiders option, you can enrol,comment,review guider sessions.
+
+

@@ -261,18 +261,22 @@ class C_M_Enrolment_List extends Controller{
                 break;
         }
 
-        $userData = [
-            'email' => $enrollments->email
-        ];
+        // $userData = [
+        //     'email' => $enrollments->email
+        // ];
 
         $data = [
             'link' => $link->body,
             'title' => $post->title
         ];
 
-        sendMentorSessionLink($userData['email'] , $data);
-        flash('settings_message', 'Link sent');
-        redirect('C_M_Enrolment_List/enrolStudentList'.$_SESSION['current_viewing_post_id']);
+        foreach ($enrollments as $enrollments) {
+            sendMentorSessionLink($enrollments->email , $data);
+        }
+
+        // sendMentorSessionLink($userData['email'] , $data);
+        // flash('settings_message', 'Link sent');
+        // redirect('C_M_Enrolment_List/enrolStudentList'.$_SESSION['current_viewing_post_id']);
     }
 }
 
