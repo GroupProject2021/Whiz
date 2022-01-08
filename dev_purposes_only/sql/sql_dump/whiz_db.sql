@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2021 at 04:27 PM
+-- Generation Time: Jan 08, 2022 at 11:24 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -24,6 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `additionalsettings`
+--
+
+CREATE TABLE `additionalsettings` (
+  `user_id` int(11) NOT NULL,
+  `is_pri_gen_details_visible` int(11) DEFAULT NULL,
+  `is_pri_soc_details_visible` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `admin`
 --
 
@@ -32,7 +44,7 @@ CREATE TABLE `admin` (
   `email` varchar(255) NOT NULL,
   `phone_number` int(11) NOT NULL,
   `user_role` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
@@ -50,7 +62,7 @@ INSERT INTO `admin` (`admin_id`, `email`, `phone_number`, `user_role`) VALUES
 CREATE TABLE `adminoffersgovernmentcourse` (
   `admin_id` int(11) NOT NULL,
   `gov_course_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -64,7 +76,7 @@ CREATE TABLE `aladmissiblestreamsubject` (
   `sub2_id` int(11) NOT NULL,
   `sub3_id` int(11) NOT NULL,
   `stream_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -81,7 +93,7 @@ CREATE TABLE `aladmissiblestreamsubjectselected` (
   `ol_sub1_grade` char(1) NOT NULL,
   `ol_sub2_grade` char(1) NOT NULL,
   `ol_sub3_grade` char(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -102,16 +114,17 @@ CREATE TABLE `alqualifiedstudent` (
   `al_sub2_id` int(11) NOT NULL,
   `al_sub2_grade` char(1) NOT NULL,
   `al_sub3_id` int(11) NOT NULL,
-  `al_sub3_grade` char(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `al_sub3_grade` char(1) NOT NULL,
+  `al_result_file` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `alqualifiedstudent`
 --
 
-INSERT INTO `alqualifiedstudent` (`stu_id`, `al_school`, `stream`, `z_score`, `al_district`, `al_general_test_grade`, `al_general_english_grade`, `al_sub1_id`, `al_sub1_grade`, `al_sub2_id`, `al_sub2_grade`, `al_sub3_id`, `al_sub3_grade`) VALUES
-(4, 'Ananda College', '4', '3.1088', 'Colombo', 89, 'A', 44, 'A', 45, 'A', 47, 'A'),
-(5, 'Ananda college', '4', '3.8970', 'Colombo', 93, 'A', 44, 'A', 45, 'A', 47, 'A');
+INSERT INTO `alqualifiedstudent` (`stu_id`, `al_school`, `stream`, `z_score`, `al_district`, `al_general_test_grade`, `al_general_english_grade`, `al_sub1_id`, `al_sub1_grade`, `al_sub2_id`, `al_sub2_grade`, `al_sub3_id`, `al_sub3_grade`, `al_result_file`) VALUES
+(4, 'Ananda College', '4', '3.9462', 'Colombo', 91, 'A', 44, 'A', 45, 'A', 47, 'A', '1641679752_al_res_sheet.jpg'),
+(5, 'Hanwella rajasinghe central college', '4', '3.9231', 'Colombo', 89, 'A', 44, 'A', 45, 'A', 47, 'A', '1641679957_al_res_sheet.jpg');
 
 -- --------------------------------------------------------
 
@@ -123,7 +136,7 @@ CREATE TABLE `alsubject` (
   `al_sub_id` int(11) NOT NULL,
   `al_sub_name` varchar(255) NOT NULL,
   `al_stream_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `alsubject`
@@ -185,35 +198,266 @@ INSERT INTO `alsubject` (`al_sub_id`, `al_sub_name`, `al_stream_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `applicablecourcesforjobs`
---
-
-CREATE TABLE `applicablecourcesforjobs` (
-  `course_id` int(11) NOT NULL,
-  `job_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `applicablestreamsforcourses`
---
-
-CREATE TABLE `applicablestreamsforcourses` (
-  `st_sub_id` int(11) NOT NULL,
-  `course_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `beginnerstudent`
 --
 
 CREATE TABLE `beginnerstudent` (
   `stu_id` int(11) NOT NULL,
   `school` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `city`
+--
+
+CREATE TABLE `city` (
+  `city_id` int(11) NOT NULL,
+  `city_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`city_id`, `city_name`) VALUES
+(1, 'Ambalanthota'),
+(2, 'Akmeemana'),
+(3, 'Akuressa'),
+(4, 'Ambalangoda'),
+(5, 'Akurana'),
+(6, 'Ambagamuwa'),
+(7, 'Arachchikattuwa'),
+(8, 'Agalawatta'),
+(9, 'Alawwa'),
+(10, 'Ayagama'),
+(11, 'Ampara'),
+(12, 'Attanagalla'),
+(13, 'Angunakolapelessa'),
+(14, 'Akkaraipattu'),
+(15, 'Ambanganga Korale'),
+(16, 'Benthota'),
+(17, 'Buttala'),
+(18, 'Beliatta'),
+(19, 'Bope-Poddala'),
+(20, 'Beruwala'),
+(21, 'Bandarawela'),
+(22, 'Baddegama'),
+(23, 'Balapitiya'),
+(24, 'Bentota'),
+(25, 'Badulla'),
+(26, 'Bandaragama'),
+(27, 'Balangoda'),
+(28, 'Biyagama'),
+(29, 'Bibile'),
+(30, 'Colombo'),
+(31, 'Chilaw'),
+(32, 'Dankotuwa'),
+(33, 'Dimbulagala'),
+(34, 'Doluwa'),
+(35, 'Divulapitiya'),
+(36, 'Dambulla'),
+(37, 'Dodangoda'),
+(38, 'Devinuwara'),
+(39, 'Dickwella'),
+(40, 'Delthota'),
+(41, 'Deraniyagala'),
+(42, 'Dehiattakandiya'),
+(43, 'Dompe'),
+(44, 'Delft'),
+(45, 'Dehiovita'),
+(46, 'Embilipitiya'),
+(47, 'Eravur Town'),
+(48, 'Ella'),
+(49, 'Eravur Pattu'),
+(50, 'Elpitiya'),
+(51, 'Eheliyagoda'),
+(52, 'Galgamuwa'),
+(53, 'Galle'),
+(54, 'Galewela'),
+(55, 'Gampaha'),
+(56, 'Godakawela'),
+(57, 'Galigamuwa'),
+(58, 'Harispattuwa'),
+(59, 'Hatharaliyadda'),
+(60, 'Hikkaduwa'),
+(61, 'Hali-Ela'),
+(62, 'Haputale'),
+(63, 'Hingurakgoda'),
+(64, 'Haldummulla'),
+(65, 'Hambantota'),
+(66, 'Habaraduwa'),
+(67, 'Hanguranketha'),
+(68, 'Horana'),
+(69, 'Homagama'),
+(70, 'Hanwella'),
+(71, 'Imaduwa'),
+(72, 'Ipalogama'),
+(73, 'Imbulpe'),
+(74, 'Ibbagamuwa'),
+(75, 'Ingiriya'),
+(76, 'Jaffna'),
+(77, 'Ja-Ela'),
+(78, 'Katunayake'),
+(79, 'Kalutara'),
+(80, 'Kaduwela'),
+(81, 'Kotapola'),
+(82, 'Kuchchaveli'),
+(83, 'Kesbewa'),
+(84, 'Koralai Pattu(Valachchenai)'),
+(85, 'Kekirawa'),
+(86, 'Kuruwita'),
+(87, 'Kalpitiya'),
+(88, 'Kelaniya'),
+(89, 'Kothmale'),
+(90, 'Kundasale'),
+(91, 'Kataragama'),
+(92, 'Kandy'),
+(93, 'Kamburupitiya'),
+(94, 'Kegalle'),
+(95, 'Kolonna'),
+(96, 'Kurunegala'),
+(97, 'Kalawana'),
+(98, 'Kahawatta'),
+(99, 'Kobeigane'),
+(100, 'Kiriella'),
+(101, 'Kuliyapitiya'),
+(102, 'Kolonnawa'),
+(103, 'Kinniya'),
+(104, 'Katuwana'),
+(105, 'Karandeniya'),
+(106, 'Karachchi'),
+(107, 'Karuwalagaswewa'),
+(108, 'Lankapura'),
+(109, 'Lunugamvehera'),
+(110, 'Lahugala'),
+(111, 'Laggala-Pallegama'),
+(112, 'Lunugala'),
+(113, 'Mount Lavinia'),
+(114, 'Mathugama'),
+(115, 'Mahiyanganaya'),
+(116, 'Mannar'),
+(117, 'Maharagama'),
+(118, 'Millaniya'),
+(119, 'Matale'),
+(120, 'Mihinthale'),
+(121, 'Mulatiyana'),
+(122, 'Medadumbara'),
+(123, 'Mawathagama'),
+(124, 'Mahara'),
+(125, 'Moratuwa'),
+(126, 'Minipe'),
+(127, 'Mawanella'),
+(128, 'Matara'),
+(129, 'Minuwangoda'),
+(130, 'Mahawewa'),
+(131, 'Mahakumbukkadawala'),
+(132, 'Mirigama'),
+(133, 'Maspotha'),
+(134, 'Monaragala'),
+(135, 'Madulla'),
+(136, 'Mahawa'),
+(137, 'Medawachchiya'),
+(138, 'Mundalama'),
+(139, 'Mirissa'),
+(140, 'Madurawala'),
+(141, 'Mallawapitiya'),
+(142, 'Medagama'),
+(143, 'Meegahakivula'),
+(144, 'Nivithigala'),
+(145, 'Nochchiyagama'),
+(146, 'Nallur'),
+(147, 'Nachchadoowa'),
+(148, 'Naula'),
+(149, 'Nanaddan'),
+(150, 'Nagoda'),
+(151, 'Negombo'),
+(152, 'Nuwara Eliya'),
+(153, 'Nikaweratiya'),
+(154, 'Ninthavur'),
+(155, 'Nattandiya'),
+(156, 'Niyagama'),
+(157, 'Opanayake'),
+(158, 'Passara'),
+(159, 'Palugaswewa'),
+(160, 'Pathahewaheta'),
+(161, 'Pasbage'),
+(162, 'Poojapitiya'),
+(163, 'Polpithigama'),
+(164, 'Panvila'),
+(165, 'Pathadumbara'),
+(166, 'Padukka'),
+(167, 'Padukka'),
+(168, 'Puttalam'),
+(169, 'Panadura'),
+(170, 'Pothuvil'),
+(171, 'Pallepola'),
+(172, 'Pelmadulla'),
+(173, 'Pitabeddara'),
+(174, 'Palindanuwara'),
+(175, 'Pannala'),
+(176, 'Panduwasnuwara'),
+(177, 'Payagala'),
+(178, 'Polgahawela'),
+(179, 'Pachchilaipalli'),
+(180, 'Rambukkana'),
+(181, 'Rambewewa'),
+(182, 'Ratnapura'),
+(183, 'Ruwanwella'),
+(184, 'Rattota'),
+(185, 'Rideegama'),
+(186, 'Sri Jayawardenepura Kotte'),
+(187, 'Sevanagala'),
+(188, 'Sigiriya'),
+(189, 'Sooriyawewa'),
+(190, 'Siyabalanduwa'),
+(191, 'Sainthamaruthu'),
+(192, 'Samanthurai'),
+(193, 'Tangalle'),
+(194, 'Thissamaharama'),
+(195, 'Thumpane'),
+(196, 'Thambuttegama'),
+(197, 'Thirappane'),
+(198, 'Thihagoda'),
+(199, 'Thanamalvila'),
+(200, 'Thamankaduwa'),
+(201, 'Tricomalee'),
+(202, 'Thawalama'),
+(203, 'Thalawa'),
+(204, 'Ukuwela'),
+(205, 'Udubaddawa'),
+(206, 'Udapalatha'),
+(207, 'Uva Paranagama'),
+(208, 'Udunuwara'),
+(209, 'Unawatuna'),
+(210, 'Udadumbara'),
+(211, 'Uhana'),
+(212, 'Valikamam South-West'),
+(213, 'Valikamam South'),
+(214, 'Valikamam East'),
+(215, 'Valikamam West'),
+(216, 'Vanathavilluwa'),
+(217, 'Vavuniya'),
+(218, 'Valikamam North'),
+(219, 'Vadamaradchy'),
+(220, 'Welikanda'),
+(221, 'Weligama'),
+(222, 'Welipitiya'),
+(223, 'Wennappuwa'),
+(224, 'Walallawita'),
+(225, 'Wellawaya'),
+(226, 'Welivitiya'),
+(227, 'Welimada'),
+(228, 'Walapane'),
+(229, 'Wattala'),
+(230, 'Weeraketiya'),
+(231, 'Wariyapola'),
+(232, 'Wilgamuwa'),
+(233, 'Yakkalamulla'),
+(234, 'Yatinuwara'),
+(235, 'Yatiyantota'),
+(236, 'Yatawatta');
 
 -- --------------------------------------------------------
 
@@ -226,20 +470,7 @@ CREATE TABLE `commentinteractions` (
   `user_id` int(11) DEFAULT NULL,
   `comment_id` int(11) DEFAULT NULL,
   `comment_interaction` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `commentinteractions`
---
-
-INSERT INTO `commentinteractions` (`comment_interaction_id`, `user_id`, `comment_id`, `comment_interaction`) VALUES
-(1, 4, 1, 'liked'),
-(2, 5, 2, 'liked'),
-(3, 2, 4, 'liked'),
-(4, 3, 4, 'liked'),
-(5, 3, 6, 'liked'),
-(6, 4, 4, 'liked'),
-(7, 4, 7, 'disliked');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -255,20 +486,51 @@ CREATE TABLE `comments` (
   `ups` int(11) DEFAULT NULL,
   `downs` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `comments`
+-- Table structure for table `community`
 --
 
-INSERT INTO `comments` (`comment_id`, `post_id`, `user_id`, `content`, `ups`, `downs`, `created_at`) VALUES
-(1, 2, 4, 'Sir can you do sessions for java as well?', 1, 0, '2021-10-24 19:06:19'),
-(2, 1, 5, 'Do companies participate in this session?', 1, 0, '2021-10-24 19:07:13'),
-(3, 2, 4, 'Sir can we have record permissions for your sessions or recorded video of session?', 0, 0, '2021-10-24 19:10:12'),
-(4, 4, 2, 'What kind of jobs can get from this course?', 3, 0, '2021-10-24 19:31:08'),
-(6, 4, 3, 'What is the duration of this course?', 1, 0, '2021-10-24 19:32:45'),
-(7, 4, 4, 'Will be java covered by this course?', 0, 1, '2021-10-24 19:33:34'),
-(8, 3, 5, 'Do you expect previous experience for this job?', 0, 0, '2021-10-24 19:36:21');
+CREATE TABLE `community` (
+  `thread_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `title` text NOT NULL,
+  `body` text NOT NULL,
+  `views` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `communitycommentinteractions`
+--
+
+CREATE TABLE `communitycommentinteractions` (
+  `comment_interaction_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `comment_id` int(11) DEFAULT NULL,
+  `comment_interaction` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `communitycomments`
+--
+
+CREATE TABLE `communitycomments` (
+  `comment_id` int(11) NOT NULL,
+  `thread_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `content` text NOT NULL,
+  `ups` int(11) DEFAULT NULL,
+  `downs` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -283,7 +545,7 @@ CREATE TABLE `company` (
   `registered` varchar(3) NOT NULL,
   `overview` varchar(255) NOT NULL,
   `services` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `company`
@@ -295,6 +557,19 @@ INSERT INTO `company` (`company_id`, `current_emplyee_amount`, `company_size`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `complaint`
+--
+
+CREATE TABLE `complaint` (
+  `complaint_id` int(11) NOT NULL,
+  `complaintsender_id` int(11) NOT NULL,
+  `profile_id` int(11) NOT NULL,
+  `sent_date` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `connections`
 --
 
@@ -302,41 +577,7 @@ CREATE TABLE `connections` (
   `connection_id` int(11) NOT NULL,
   `from_user_id` int(11) DEFAULT NULL,
   `to_user_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `connections`
---
-
-INSERT INTO `connections` (`connection_id`, `from_user_id`, `to_user_id`) VALUES
-(1, 2, 6),
-(2, 2, 7),
-(3, 2, 8),
-(4, 3, 6),
-(5, 3, 7),
-(6, 3, 8),
-(7, 4, 6),
-(8, 4, 7),
-(9, 4, 8),
-(10, 4, 9),
-(11, 5, 7),
-(12, 5, 8),
-(13, 8, 4),
-(14, 9, 4);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `courses`
---
-
-CREATE TABLE `courses` (
-  `course_id` int(11) NOT NULL,
-  `course_name` varchar(255) NOT NULL,
-  `course_content` varchar(500) NOT NULL,
-  `provide_degree` varchar(100) NOT NULL,
-  `course_type` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -347,7 +588,7 @@ CREATE TABLE `courses` (
 CREATE TABLE `district` (
   `district_id` int(11) NOT NULL,
   `district_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `district`
@@ -393,36 +634,51 @@ CREATE TABLE `govermentuniversity` (
   `description` varchar(255) DEFAULT NULL,
   `world_rank` int(11) DEFAULT NULL,
   `student_amount` int(11) DEFAULT NULL,
-  `graduate_job_rate` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `graduate_job_rate` int(11) DEFAULT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  `bg_img` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `govermentuniversity`
 --
 
-INSERT INTO `govermentuniversity` (`gov_uni_id`, `uni_name`, `description`, `world_rank`, `student_amount`, `graduate_job_rate`) VALUES
-(1, 'University of Colombo', NULL, NULL, NULL, NULL),
-(2, 'University of Peradeniya', NULL, NULL, NULL, NULL),
-(3, 'University of Sri Jayawardenepura', NULL, NULL, NULL, NULL),
-(4, 'University of Kelaniya', NULL, NULL, NULL, NULL),
-(5, 'University of Moratuwa', NULL, NULL, NULL, NULL),
-(6, 'University of Jaffna', NULL, NULL, NULL, NULL),
-(7, 'University of Ruhuna', NULL, NULL, NULL, NULL),
-(8, 'Eastern University, Sri Lanka', NULL, NULL, NULL, NULL),
-(9, 'South Eastern University of Sri Lanka ', NULL, NULL, NULL, NULL),
-(10, 'Rajarata University of Sri Lanka ', NULL, NULL, NULL, NULL),
-(11, 'Sabaragamuwa University of Sri Lanka', NULL, NULL, NULL, NULL),
-(12, 'Wayamba University of Sri Lanka', NULL, NULL, NULL, NULL),
-(13, 'Uva Wellassa University of Sri Lanka', NULL, NULL, NULL, NULL),
-(14, 'University of the Visual & Performing Arts', NULL, NULL, NULL, NULL),
-(15, 'Sripalee Campus, University of Colombo', NULL, NULL, NULL, NULL),
-(16, 'Trincomalee Campus, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL),
-(17, 'Vavuniya Campus, University of Jaffna', NULL, NULL, NULL, NULL),
-(18, 'Institute of Indigenous Medicine, University of Colombo', NULL, NULL, NULL, NULL),
-(19, 'Gampaha Wickramaarachchi Ayurveda Institute, University of Colombo', NULL, NULL, NULL, NULL),
-(20, 'University of Colombo School of Computing', NULL, NULL, NULL, NULL),
-(21, 'Swami Vipulananda Institure of Aesthetic Studies, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL),
-(22, 'Ramanathan Academy of Fine Arts, University of Jaffna', NULL, NULL, NULL, NULL);
+INSERT INTO `govermentuniversity` (`gov_uni_id`, `uni_name`, `description`, `world_rank`, `student_amount`, `graduate_job_rate`, `logo`, `bg_img`) VALUES
+(1, 'University of Colombo', NULL, NULL, NULL, NULL, 'university_of_colombo_logo.png', 'university_of_colombo_bg.jpg'),
+(2, 'University of Peradeniya', NULL, NULL, NULL, NULL, 'university_of_peradeniya_logo.png', 'university_of_peradeniya_bg.jpg'),
+(3, 'University of Sri Jayawardenepura', NULL, NULL, NULL, NULL, 'university_of_sri_jayaawardhanapura_logo.png', 'university_of_sri_jayaawardhanapura_bg.jpg'),
+(4, 'University of Kelaniya', NULL, NULL, NULL, NULL, 'university_of_kelaniya_logo.png', 'university_of_kelaniya_bg.jpg'),
+(5, 'University of Moratuwa', NULL, NULL, NULL, NULL, 'university_of_moratuwa_logo.png', 'university_of_moratuwa_bg.jpg'),
+(6, 'University of Jaffna', NULL, NULL, NULL, NULL, 'university_of_jaffna_logo.png', 'university_of_jaffna_bg.png'),
+(7, 'University of Ruhuna', NULL, NULL, NULL, NULL, 'university_of_ruhuna_logo.png', 'university_of_ruhuna_bg.jpg'),
+(8, 'Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'esatern_university_logo.png', 'esatern_university_bg.jpg'),
+(9, 'South Eastern University of Sri Lanka ', NULL, NULL, NULL, NULL, 'south_esatern_university_logo.png', 'south_esatern_university_bg.jpg'),
+(10, 'Rajarata University of Sri Lanka ', NULL, NULL, NULL, NULL, 'rajarata_university_logo.png', 'rajarata_university_bg.jpg'),
+(11, 'Sabaragamuwa University of Sri Lanka', NULL, NULL, NULL, NULL, 'sabaragamuwa_university_logo.png', 'sabaragamuwa_university_bg.jpg'),
+(12, 'Wayamba University of Sri Lanka', NULL, NULL, NULL, NULL, 'wayamba_university_logo.png', 'wayamba_university_logo.jpg'),
+(13, 'Uva Wellassa University of Sri Lanka', NULL, NULL, NULL, NULL, 'uva_wellassa_university_logo.png', 'uva_wellassa_university_bg.jpg'),
+(14, 'University of the Visual & Performing Arts', NULL, NULL, NULL, NULL, 'university_of_the_visual_&_performing_arts.png', 'university_of_the_visual_&_performing_arts_bg.jpg'),
+(15, 'Sripalee Campus, University of Colombo', NULL, NULL, NULL, NULL, 'sri_palee_campus_logo.png', 'sri_palee_campus_bg.jpg'),
+(16, 'Trincomalee Campus, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'trincomalee_campus_logo.png', 'trincomalee_campus_bg.jpg'),
+(17, 'Vavuniya Campus, University of Jaffna', NULL, NULL, NULL, NULL, 'vavuniya_campus_logo.png', 'vavuniya_campus_logo.jpg'),
+(18, 'Institute of Indigenous Medicine, University of Colombo', NULL, NULL, NULL, NULL, 'institute_of_indigenous_medicine_logo.png', 'institute_of_ndigenous_medicine_bg.jpg'),
+(19, 'Gampaha Wickramaarachchi Ayurveda Institute, University of Colombo', NULL, NULL, NULL, NULL, 'gampaha_wickramarachchi_university_of_indigenous_medicine_logo.png', 'gampaha_wickramarachchi_university_of_indigenous_medicine_bg.jpg'),
+(20, 'University of Colombo School of Computing', NULL, NULL, NULL, NULL, 'university_of_colombo_school_of_computing_logo.png', 'university_of_colombo_school_of_computing_bg.jpg'),
+(21, 'Swami Vipulananda Institure of Aesthetic Studies, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'swami_vipulananda_institure_of_aesthetic_studies_logo.png', 'swami_vipulananda_institure_of_aesthetic_studies_bg.jpg'),
+(22, 'Ramanathan Academy of Fine Arts, University of Jaffna', NULL, NULL, NULL, NULL, 'ramanathan_academy_of_fine_arts_logo.png', 'ramanathan_academy_of_fine_arts_bg.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `govermentuniversityrankings`
+--
+
+CREATE TABLE `govermentuniversityrankings` (
+  `gov_uni_id` int(11) NOT NULL,
+  `year` int(11) NOT NULL,
+  `edition` varchar(255) NOT NULL,
+  `world_ranking` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -432,135 +688,136 @@ INSERT INTO `govermentuniversity` (`gov_uni_id`, `uni_name`, `description`, `wor
 
 CREATE TABLE `governmentcourse` (
   `gov_course_id` int(11) NOT NULL,
-  `gov_course_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `gov_course_name` varchar(255) NOT NULL,
+  `stream_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `governmentcourse`
 --
 
-INSERT INTO `governmentcourse` (`gov_course_id`, `gov_course_name`) VALUES
-(1, 'Medicine'),
-(2, 'Dental Surgery'),
-(3, 'Veterinary Science'),
-(4, 'Agriculture'),
-(5, 'Food Science & Nutrition'),
-(6, 'Biological Science'),
-(7, 'Applied Sciences(Biological Science)'),
-(8, 'Engineering'),
-(9, 'Engineering(EM)'),
-(10, 'Engineering(TM)'),
-(11, 'Quantity Surveying'),
-(12, 'Computer Science'),
-(13, 'Physical Science'),
-(14, 'Surveying Science'),
-(15, 'Applied Sciences(Physical Science)'),
-(16, 'Management'),
-(17, 'Estate Management & Valuation'),
-(18, 'Commerce'),
-(19, 'Arts'),
-(20, 'Arts(SP) - Mass Media'),
-(21, 'Arts(SAB)'),
-(22, 'Management Studies(TV)'),
-(23, 'Architecture'),
-(24, 'Design'),
-(25, 'Law'),
-(26, 'Information Technology(IT)'),
-(27, 'Management and Information Technology(MIT)'),
-(28, 'Management(Public) Special'),
-(29, 'Communication Studies'),
-(30, 'Town & Country Planning'),
-(31, 'Peace and Conflict Resolution'),
-(32, 'Ayurvedic Medicine and Surgery'),
-(33, 'Unani Medicine and Surgery'),
-(34, 'Fashion Design & Product Development'),
-(35, 'Food Science & Technology'),
-(36, 'Siddha Medicine & Surgery'),
-(37, 'Nursing'),
-(38, 'Information and Communication Technology(ICT)'),
-(39, 'Agricultural Technology & Management'),
-(41, 'Arts(SP) - Performing Arts'),
-(50, 'Health Promotion'),
-(51, 'Pharmacy'),
-(52, 'Medical Laboratory Sciences'),
-(53, 'Radiography'),
-(54, 'Physiotherapy'),
-(55, 'Environmental Conversation & Management'),
-(56, 'Facilities Management'),
-(57, 'Transport & Logistics Management'),
-(58, 'Molecular Biology & Biochemistry'),
-(59, 'Industrial Statistics & Mathematical Finance'),
-(60, 'Statistics & Operations Research'),
-(61, 'Computation & Management'),
-(62, 'Fisheries & Marine Sciences'),
-(63, 'Islamic Studies'),
-(64, 'Science and Technology'),
-(65, 'Computer Science & Technology'),
-(66, 'Entrepreneuship & Management'),
-(67, 'Animal Science'),
-(68, 'Music'),
-(69, 'Dance'),
-(70, 'Art & Design'),
-(71, 'Drama & Theatre'),
-(72, 'Visual & Technological Arts'),
-(73, 'Export Agriculture'),
-(74, 'Tea Technology & Value Addition'),
-(75, 'Industrial Information Technology'),
-(76, 'Mineral Resources and Technology'),
-(77, 'Business Information Systems(Special)(BIS)'),
-(79, 'Management and Information Technology(SEUSL)'),
-(80, 'Computing & Information Systems'),
-(81, 'Physical Education'),
-(82, 'Sports Science & Management'),
-(83, 'Speech ad Hearing Sciences'),
-(84, 'Arabic Language)'),
-(85, 'Visual Arts'),
-(86, 'Animal Science & Fisheries'),
-(87, 'Food Production & Technology Management'),
-(88, 'Aquatic Resources Technology'),
-(89, 'Palm and Latex Technology & Value Addition'),
-(90, 'Hospitiality, Tourism and Events Management'),
-(91, 'Information Technology & Management'),
-(92, 'Tourism & Hospitality Management'),
-(93, 'Agricultural Resource Management & Technology'),
-(94, 'Agribusiness Management'),
-(95, 'Green Technology'),
-(96, 'Information Systems'),
-(97, 'Landscape Architecture'),
-(98, 'Translation Studies'),
-(99, 'Software Engineering'),
-(100, 'Film & Television Studies'),
-(101, 'Project Management'),
-(102, 'Engineering Technology(ET)'),
-(103, 'Biosystems Technology(BST)'),
-(104, 'Information Communication Technology'),
-(105, 'Teaching English as a Second Language(TESL)'),
-(106, 'Marine and Freshwater Sciences'),
-(107, 'Food Business Management'),
-(108, 'Physical Science - ICT'),
-(109, 'Business Science'),
-(110, 'Financial Engineering'),
-(111, 'Geographical Information Science'),
-(112, 'Social Work'),
-(113, 'Financial Mathematics and Industrial Statistics'),
-(114, 'Human Resource Development'),
-(115, 'Arts - Information Technology'),
-(116, 'Accounting Information Systems'),
-(117, 'Ocuupational Therapy'),
-(118, 'Optometry'),
-(119, 'Applied Chemistry'),
-(120, 'Indigenous Medicinal Resources'),
-(121, 'Aquatic Bioresources'),
-(122, 'Urban Bioresources'),
-(123, 'Computing & Information Systems'),
-(124, 'Artificial Intelligence'),
-(125, 'Electronics and Computer Science'),
-(126, 'Health Information and Communication Technology'),
-(127, 'Health Tourism and Hospitality Management'),
-(128, 'Biomedical Technology'),
-(129, 'Indigenous Pharmaceutical Technology'),
-(130, 'Yoga and Parapsychology'),
-(131, 'Social studeis in Indigenous Knowledge');
+INSERT INTO `governmentcourse` (`gov_course_id`, `gov_course_name`, `stream_id`) VALUES
+(1, 'Medicine', 3),
+(2, 'Dental Surgery', 3),
+(3, 'Veterinary Science', 3),
+(4, 'Agriculture', 3),
+(5, 'Food Science & Nutrition', 3),
+(6, 'Biological Science', 3),
+(7, 'Applied Sciences(Biological Science)', 3),
+(8, 'Engineering', 4),
+(9, 'Engineering(EM)', 4),
+(10, 'Engineering(TM)', 4),
+(11, 'Quantity Surveying', 7),
+(12, 'Computer Science', 4),
+(13, 'Physical Science', 4),
+(14, 'Surveying Science', 7),
+(15, 'Applied Sciences(Physical Science)', 4),
+(16, 'Management', 2),
+(17, 'Estate Management & Valuation', 2),
+(18, 'Commerce', 2),
+(19, 'Arts', 1),
+(20, 'Arts(SP) - Mass Media', 1),
+(21, 'Arts(SAB)', 1),
+(22, 'Management Studies(TV)', 2),
+(23, 'Architecture', 7),
+(24, 'Design', 7),
+(25, 'Law', 7),
+(26, 'Information Technology(IT)', 7),
+(27, 'Management and Information Technology(MIT)', 7),
+(28, 'Management(Public) Special', 2),
+(29, 'Communication Studies', 1),
+(30, 'Town & Country Planning', 7),
+(31, 'Peace and Conflict Resolution', 1),
+(32, 'Ayurvedic Medicine and Surgery', 3),
+(33, 'Unani Medicine and Surgery', 3),
+(34, 'Fashion Design & Product Development', 7),
+(35, 'Food Science & Technology', 3),
+(36, 'Siddha Medicine & Surgery', 3),
+(37, 'Nursing', 3),
+(38, 'Information and Communication Technology(ICT)', 7),
+(39, 'Agricultural Technology & Management', 3),
+(41, 'Arts(SP) - Performing Arts', 1),
+(50, 'Health Promotion', 3),
+(51, 'Pharmacy', 3),
+(52, 'Medical Laboratory Sciences', 3),
+(53, 'Radiography', 3),
+(54, 'Physiotherapy', 3),
+(55, 'Environmental Conversation & Management', 3),
+(56, 'Facilities Management', 7),
+(57, 'Transport & Logistics Management', 4),
+(58, 'Molecular Biology & Biochemistry', 3),
+(59, 'Industrial Statistics & Mathematical Finance', 4),
+(60, 'Statistics & Operations Research', 4),
+(61, 'Computation & Management', 2),
+(62, 'Fisheries & Marine Sciences', 3),
+(63, 'Islamic Studies', 1),
+(64, 'Science and Technology', 7),
+(65, 'Computer Science & Technology', 7),
+(66, 'Entrepreneuship & Management', 7),
+(67, 'Animal Science', 3),
+(68, 'Music', 1),
+(69, 'Dance', 1),
+(70, 'Art & Design', 1),
+(71, 'Drama & Theatre', 1),
+(72, 'Visual & Technological Arts', 1),
+(73, 'Export Agriculture', 3),
+(74, 'Tea Technology & Value Addition', 7),
+(75, 'Industrial Information Technology', 7),
+(76, 'Mineral Resources and Technology', 7),
+(77, 'Business Information Systems(Special)(BIS)', 2),
+(79, 'Management and Information Technology(SEUSL)', 7),
+(80, 'Computing & Information Systems', 2),
+(81, 'Physical Education', 7),
+(82, 'Sports Science & Management', 7),
+(83, 'Speech ad Hearing Sciences', 7),
+(84, 'Arabic Language', 1),
+(85, 'Visual Arts', 1),
+(86, 'Animal Science & Fisheries', 3),
+(87, 'Food Production & Technology Management', 3),
+(88, 'Aquatic Resources Technology', 3),
+(89, 'Palm and Latex Technology & Value Addition', 7),
+(90, 'Hospitiality, Tourism and Events Management', 7),
+(91, 'Information Technology & Management', 7),
+(92, 'Tourism & Hospitality Management', 7),
+(93, 'Agricultural Resource Management & Technology', 3),
+(94, 'Agribusiness Management', 3),
+(95, 'Green Technology', 3),
+(96, 'Information Systems', 7),
+(97, 'Landscape Architecture', 7),
+(98, 'Translation Studies', 7),
+(99, 'Software Engineering', 7),
+(100, 'Film & Television Studies', 7),
+(101, 'Project Management', 7),
+(102, 'Engineering Technology(ET)', 5),
+(103, 'Biosystems Technology(BST)', 6),
+(104, 'Information Communication Technology', 6),
+(105, 'Teaching English as a Second Language(TESL)', 1),
+(106, 'Marine and Freshwater Sciences', 7),
+(107, 'Food Business Management', 7),
+(108, 'Physical Science - ICT', 4),
+(109, 'Business Science', 7),
+(110, 'Financial Engineering', 7),
+(111, 'Geographical Information Science', 7),
+(112, 'Social Work', 1),
+(113, 'Financial Mathematics and Industrial Statistics', 7),
+(114, 'Human Resource Development', 7),
+(115, 'Arts - Information Technology', 1),
+(116, 'Accounting Information Systems', 2),
+(117, 'Ocuupational Therapy', 3),
+(118, 'Optometry', 3),
+(119, 'Applied Chemistry', 3),
+(120, 'Indigenous Medicinal Resources', 3),
+(121, 'Aquatic Bioresources', 3),
+(122, 'Urban Bioresources', 3),
+(123, 'Computing & Information Systems', 4),
+(124, 'Artificial Intelligence', 4),
+(125, 'Electronics and Computer Science', 4),
+(126, 'Health Information and Communication Technology', 7),
+(127, 'Health Tourism and Hospitality Management', 7),
+(128, 'Biomedical Technology', 7),
+(129, 'Indigenous Pharmaceutical Technology', 7),
+(130, 'Yoga and Parapsychology', 7),
+(131, 'Social studeis in Indigenous Knowledge', 7);
 
 -- --------------------------------------------------------
 
@@ -577,7 +834,7 @@ CREATE TABLE `governmentcourseminimumeligibilityrequsingalsubjects` (
   `minimum_al_sub2_grade` char(1) NOT NULL,
   `al_sub3_id` int(11) NOT NULL,
   `minimum_al_sub3_grade` char(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -591,175 +848,177 @@ CREATE TABLE `governmentcourseofferedbygovermentuniversity` (
   `gov_uni_id` int(11) NOT NULL,
   `purposed_intake` int(11) NOT NULL,
   `duration` int(11) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `unicode` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `description` longtext DEFAULT NULL,
+  `unicode` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `governmentcourseofferedbygovermentuniversity`
 --
 
 INSERT INTO `governmentcourseofferedbygovermentuniversity` (`id`, `gov_course_id`, `gov_uni_id`, `purposed_intake`, `duration`, `description`, `unicode`) VALUES
-(1, 19, 1, -1, -1, '-1', '019A'),
-(2, 19, 4, -1, -1, '-1', '019D'),
-(3, 19, 3, -1, -1, '-1', '019C'),
-(4, 19, 7, -1, -1, '-1', '019F'),
-(5, 19, 2, -1, -1, '-1', '019B'),
-(6, 19, 6, -1, -1, '-1', '019E'),
-(7, 19, 8, -1, -1, '-1', '019H'),
-(8, 19, 9, -1, -1, '-1', '019J'),
-(9, 19, 10, -1, -1, '-1', '019K'),
-(10, 20, 15, -1, -1, '-1', '020S'),
-(11, 21, 11, -1, -1, '-1', '021L'),
-(12, 29, 16, -1, -1, '-1', '029W'),
-(13, 31, 4, -1, -1, '-1', '031D'),
-(14, 63, 9, -1, -1, '-1', '063J'),
-(15, 84, 9, -1, -1, '-1', '084J'),
-(16, 105, 4, -1, -1, '-1', '105D'),
-(17, 105, 3, -1, -1, '-1', '105C'),
-(18, 112, 2, -1, -1, '-1', '112B'),
-(19, 68, 14, -1, -1, '-1', '068Z'),
-(20, 68, 21, -1, -1, '-1', '068Y'),
-(21, 68, 22, -1, -1, '-1', '068X'),
-(22, 69, 14, -1, -1, '-1', '069Z'),
-(23, 69, 21, -1, -1, '-1', '069Y'),
-(24, 69, 22, -1, -1, '-1', '069X'),
-(25, 71, 14, -1, -1, '-1', '071Z'),
-(26, 71, 21, -1, -1, '-1', '071Y'),
-(27, 85, 14, -1, -1, '-1', '085Z'),
-(28, 72, 21, -1, -1, '-1', '072Y'),
-(29, 70, 22, -1, -1, '-1', '070X'),
-(30, 16, 1, -1, -1, '-1', '016A'),
-(31, 16, 2, -1, -1, '-1', '016B'),
-(32, 16, 3, -1, -1, '-1', '016C'),
-(33, 16, 4, -1, -1, '-1', '016D'),
-(34, 16, 6, -1, -1, '-1', '016E'),
-(35, 16, 7, -1, -1, '-1', '016F'),
-(36, 16, 8, -1, -1, '-1', '016H'),
-(37, 16, 9, -1, -1, '-1', '016J'),
-(38, 16, 10, -1, -1, '-1', '016K'),
-(39, 16, 11, -1, -1, '-1', '016L'),
-(40, 16, 12, -1, -1, '-1', '016M'),
-(41, 28, 3, -1, -1, '-1', '028C'),
-(42, 17, 3, -1, -1, '-1', '017C'),
-(43, 18, 3, -1, -1, '-1', '018C'),
-(44, 18, 4, -1, -1, '-1', '018D'),
-(45, 18, 6, -1, -1, '-1', '018E'),
-(46, 18, 8, -1, -1, '-1', '018H'),
-(47, 18, 9, -1, -1, '-1', '018J'),
-(48, 22, 16, -1, -1, '-1', '022W'),
-(49, 22, 17, -1, -1, '-1', '022R'),
-(50, 77, 3, -1, -1, '-1', '077C'),
-(51, 1, 1, -1, -1, '-1', '001A'),
-(52, 1, 2, -1, -1, '-1', '001B'),
-(53, 1, 3, -1, -1, '-1', '001C'),
-(54, 1, 4, -1, -1, '-1', '001D'),
-(55, 1, 6, -1, -1, '-1', '001E'),
-(56, 1, 7, -1, -1, '-1', '001F'),
-(57, 1, 8, -1, -1, '-1', '001H'),
-(58, 1, 10, -1, -1, '-1', '001K'),
-(59, 1, 12, -1, -1, '-1', '001M'),
-(60, 1, 11, -1, -1, '-1', '001L'),
-(61, 1, 5, -1, -1, '-1', '001G'),
-(62, 2, 2, -1, -1, '-1', '002B'),
-(63, 2, 3, -1, -1, '-1', '002C'),
-(64, 3, 2, -1, -1, '-1', '003B'),
-(65, 39, 2, -1, -1, '-1', '039B'),
-(66, 4, 6, -1, -1, '-1', '004E'),
-(67, 4, 8, -1, -1, '-1', '004H'),
-(68, 4, 10, -1, -1, '-1', '004K'),
-(69, 4, 11, -1, -1, '-1', '004L'),
-(70, 4, 12, -1, -1, '-1', '004M'),
-(71, 5, 12, -1, -1, '-1', '005M'),
-(72, 35, 2, -1, -1, '-1', '035B'),
-(73, 35, 3, -1, -1, '-1', '035C'),
-(74, 35, 11, -1, -1, '-1', '035L'),
-(75, 32, 18, -1, -1, '-1', '032N'),
-(76, 32, 19, -1, -1, '-1', '032P'),
-(77, 33, 18, -1, -1, '-1', '033N'),
-(78, 36, 6, -1, -1, '-1', '036E'),
-(79, 36, 16, -1, -1, '-1', '036W'),
-(80, 6, 1, -1, -1, '-1', '006A'),
-(81, 6, 2, -1, -1, '-1', '006B'),
-(82, 6, 3, -1, -1, '-1', '006C'),
-(83, 6, 4, -1, -1, '-1', '006D'),
-(84, 6, 6, -1, -1, '-1', '006E'),
-(85, 6, 7, -1, -1, '-1', '006F'),
-(86, 6, 8, -1, -1, '-1', '006H'),
-(87, 6, 9, -1, -1, '-1', '006J'),
-(88, 7, 10, -1, -1, '-1', '007K'),
-(89, 7, 11, -1, -1, '-1', '007L'),
-(90, 7, 17, -1, -1, '-1', '007R'),
-(91, 50, 10, -1, -1, '-1', '050K'),
-(92, 37, 2, -1, -1, '-1', '037B'),
-(93, 37, 3, -1, -1, '-1', '037C'),
-(94, 37, 6, -1, -1, '-1', '037E'),
-(95, 37, 7, -1, -1, '-1', '037F'),
-(96, 37, 8, -1, -1, '-1', '037H'),
-(97, 37, 1, -1, -1, '-1', '037A'),
-(98, 51, 2, -1, -1, '-1', '051B'),
-(99, 51, 3, -1, -1, '-1', '051C'),
-(100, 51, 6, -1, -1, '-1', '051E'),
-(101, 51, 7, -1, -1, '-1', '051F'),
-(102, 53, 2, -1, -1, '-1', '053B'),
-(103, 54, 1, -1, -1, '-1', '054A'),
-(104, 54, 2, -1, -1, '-1', '054B'),
-(105, 58, 1, -1, -1, '-1', '058A'),
-(106, 62, 7, -1, -1, '-1', '062F'),
-(107, 55, 4, -1, -1, '-1', '055D'),
-(108, 86, 2, -1, -1, '-1', '086B'),
-(109, 87, 12, -1, -1, '-1', '087M'),
-(110, 93, 7, -1, -1, '-1', '093F'),
-(111, 94, 7, -1, -1, '-1', '094F'),
-(112, 95, 7, -1, -1, '-1', '095F'),
-(113, 67, 13, -1, -1, '-1', '067U'),
-(114, 73, 13, -1, -1, '-1', '073U'),
-(115, 88, 13, -1, -1, '-1', '088U'),
-(116, 8, 2, -1, -1, '-1', '008B'),
-(117, 8, 6, -1, -1, '-1', '008E'),
-(118, 8, 7, -1, -1, '-1', '008F'),
-(119, 8, 5, -1, -1, '-1', '008G'),
-(120, 8, 9, -1, -1, '-1', '008J'),
-(121, 8, 3, -1, -1, '-1', '008C'),
-(122, 9, 5, -1, -1, '-1', '009G'),
-(123, 10, 5, -1, -1, '-1', '010G'),
-(124, 13, 1, -1, -1, '-1', '013A'),
-(125, 13, 2, -1, -1, '-1', '013B'),
-(126, 13, 3, -1, -1, '-1', '013C'),
-(127, 13, 4, -1, -1, '-1', '013D'),
-(128, 13, 6, -1, -1, '-1', '013E'),
-(129, 13, 7, -1, -1, '-1', '013F'),
-(130, 13, 8, -1, -1, '-1', '013H'),
-(131, 13, 9, -1, -1, '-1', '013J'),
-(132, 12, 6, -1, -1, '-1', '012E'),
-(133, 12, 7, -1, -1, '-1', '012F'),
-(134, 12, 20, -1, -1, '-1', '012T'),
-(135, 12, 16, -1, -1, '-1', '012W'),
-(136, 12, 4, -1, -1, '-1', '012D'),
-(137, 15, 10, -1, -1, '-1', '015K'),
-(138, 15, 11, -1, -1, '-1', '015L'),
-(139, 15, 12, -1, -1, '-1', '015M'),
-(140, 15, 17, -1, -1, '-1', '015R'),
-(141, 15, 16, -1, -1, '-1', '015W'),
-(142, 57, 5, -1, -1, '-1', '057G'),
-(143, 59, 1, -1, -1, '-1', '059A'),
-(144, 60, 2, -1, -1, '-1', '060B'),
-(145, 108, 3, -1, -1, '-1', '108C'),
-(146, 108, 4, -1, -1, '-1', '108D'),
-(147, 102, 3, -1, -1, '-1', '102C'),
-(148, 102, 4, -1, -1, '-1', '102D'),
-(149, 102, 6, -1, -1, '-1', '102E'),
-(150, 102, 7, -1, -1, '-1', '102F'),
-(151, 102, 10, -1, -1, '-1', '102K'),
-(152, 102, 13, -1, -1, '-1', '102U'),
-(153, 102, 12, -1, -1, '-1', '102M'),
-(154, 102, 1, -1, -1, '-1', '102A'),
-(155, 102, 11, -1, -1, '-1', '102L'),
-(156, 103, 3, -1, -1, '-1', '103C'),
-(157, 103, 6, -1, -1, '-1', '103E'),
-(158, 103, 8, -1, -1, '-1', '103H'),
-(159, 103, 10, -1, -1, '-1', '103K'),
-(160, 103, 9, -1, -1, '-1', '103J'),
+(1, 19, 1, 6985, 4, ' To be eligible for admission to a course of study in Arts, candidates must have obtained at least ‘S’ grades for three subjects considered.  As there are many subjects in the Arts stream for the G.C.E. (Advanced Level) Examination, subjects are classified under four baskets.  Students should have obtained passes in three subjects at the G.C.E. (Advanced Level) Examination from the following baskets. Basket 01- Social Sciences / Applied Social Studies: 1. Economics 2. Geography 3. History 4. Home Economics 5. Agricultural Science / Mathematics / Combined Mathematics 6. Communication & Media Studies 7. Information & Communication Technology 8. Accounting / Business Statistics 9. Political Science 10. Logic & Scientific Method 11. One subject from Technological Subjects :  Civil Technology  Electrical, Electronic and Information Technology  Agro Technology  Mechanical Technology  Food Technology  Bio-Resource Technology Guidance for selection of subjects from basket 01:  Students should select at least one subject from this basket.  Students can also select all three subjects only from basket 01. There are three exceptions to this rule. These are; 1. Students selecting three National Languages; Sinhala, Tamil and English from the basket 04 (Language Basket) as the three subjects, need not to select any subject from basket 01. 2. Students selecting a combination of National and Classical languages need not to select any subject from basket 01.National Languages are; Sinhala Tamil English Classical Languages are; Arabic Pali Sanskrit For example, students can select three subjects like Sinhala, Pali and Sanskrit etc. These students need not to select any subject from basket 01. However, no candidate can select three classical languages as three subjects. They can select a maximum of two classical languages only. 3. Students selecting two languages from the basket 04 and the third subject from Religions and Civilizations or Aesthetic subject classified under basket 02 and 03 given below need not to select any subject from basket 01. Basket 02 - Religions and Civilizations: 1. Buddhism 2. Hinduism 3. Christianity 4. Islam 5. Buddhist Civilization 6. Hindu Civilization 7. Christian Civilization 8. Islamic Civilization 9. Greek & Roman Civilization Guidance for selection of subjects from basket 02:  A candidate can select maximum of two subjects from the basket 02.  However, if a religion (Eg: Buddhism) is selected as a subject, the related civilization of the selected religion (Eg: Buddhist Civilization) cannot be offered as another subject from this basket. Basket 03- Aesthetic Studies: Aesthetic subjects consists of four subject areas. These are; 1. Art 2. Dancing 3. Music 4. Drama & Theatre This can be further sub-classified as; 1. Art 2. Dancing a. Sinhala b. Baratha3. Music a. Oriental b. Carnatic c. Western 4.Drama & Theatre a. Sinhala b. Tamil c. English Guidance for selection of subjects from basket 03:  Students can select two subjects out of above four subject areas. However, no student is allowed to select the two subjects from one subject area. Basket 04 - Languages: The language basket has three subject areas. These are;  National Languages  Classical Languages  Foreign Languages National Languages are:  Sinhala  Tamil  English Classical Languages are:  Arabic  Pali  Sanskrit Foreign Languages are:  Chinese  French  German  Hindi  Japanese  Malay  Russian Guidance for selection of subjects from basket 04:  Students are allowed to select a maximum of two subjects from this basket. For example, when selecting the three subjects, students can select Chinese and French from basket 04 and the other subject from another basket.', '019A'),
+(2, 19, 4, 6985, 4, ' To be eligible for admission to a course of study in Arts, candidates must have obtained at least ‘S’ grades for three subjects considered.  As there are many subjects in the Arts stream for the G.C.E. (Advanced Level) Examination, subjects are classified under four baskets.  Students should have obtained passes in three subjects at the G.C.E. (Advanced Level) Examination from the following baskets. Basket 01- Social Sciences / Applied Social Studies: 1. Economics 2. Geography 3. History 4. Home Economics 5. Agricultural Science / Mathematics / Combined Mathematics 6. Communication & Media Studies 7. Information & Communication Technology 8. Accounting / Business Statistics 9. Political Science 10. Logic & Scientific Method 11. One subject from Technological Subjects :  Civil Technology  Electrical, Electronic and Information Technology  Agro Technology  Mechanical Technology  Food Technology  Bio-Resource Technology Guidance for selection of subjects from basket 01:  Students should select at least one subject from this basket.  Students can also select all three subjects only from basket 01. There are three exceptions to this rule. These are; 1. Students selecting three National Languages; Sinhala, Tamil and English from the basket 04 (Language Basket) as the three subjects, need not to select any subject from basket 01. 2. Students selecting a combination of National and Classical languages need not to select any subject from basket 01.National Languages are; Sinhala Tamil English Classical Languages are; Arabic Pali Sanskrit For example, students can select three subjects like Sinhala, Pali and Sanskrit etc. These students need not to select any subject from basket 01. However, no candidate can select three classical languages as three subjects. They can select a maximum of two classical languages only. 3. Students selecting two languages from the basket 04 and the third subject from Religions and Civilizations or Aesthetic subject classified under basket 02 and 03 given below need not to select any subject from basket 01. Basket 02 - Religions and Civilizations: 1. Buddhism 2. Hinduism 3. Christianity 4. Islam 5. Buddhist Civilization 6. Hindu Civilization 7. Christian Civilization 8. Islamic Civilization 9. Greek & Roman Civilization Guidance for selection of subjects from basket 02:  A candidate can select maximum of two subjects from the basket 02.  However, if a religion (Eg: Buddhism) is selected as a subject, the related civilization of the selected religion (Eg: Buddhist Civilization) cannot be offered as another subject from this basket. Basket 03- Aesthetic Studies: Aesthetic subjects consists of four subject areas. These are; 1. Art 2. Dancing 3. Music 4. Drama & Theatre This can be further sub-classified as; 1. Art 2. Dancing a. Sinhala b. Baratha3. Music a. Oriental b. Carnatic c. Western 4.Drama & Theatre a. Sinhala b. Tamil c. English Guidance for selection of subjects from basket 03:  Students can select two subjects out of above four subject areas. However, no student is allowed to select the two subjects from one subject area. Basket 04 - Languages: The language basket has three subject areas. These are;  National Languages  Classical Languages  Foreign Languages National Languages are:  Sinhala  Tamil  English Classical Languages are:  Arabic  Pali  Sanskrit Foreign Languages are:  Chinese  French  German  Hindi  Japanese  Malay  Russian Guidance for selection of subjects from basket 04:  Students are allowed to select a maximum of two subjects from this basket. For example, when selecting the three subjects, students can select Chinese and French from basket 04 and the other subject from another basket.', '019D'),
+(3, 19, 3, 6985, 4, ' To be eligible for admission to a course of study in Arts, candidates must have obtained at least ‘S’ grades for three subjects considered.  As there are many subjects in the Arts stream for the G.C.E. (Advanced Level) Examination, subjects are classified under four baskets.  Students should have obtained passes in three subjects at the G.C.E. (Advanced Level) Examination from the following baskets. Basket 01- Social Sciences / Applied Social Studies: 1. Economics 2. Geography 3. History 4. Home Economics 5. Agricultural Science / Mathematics / Combined Mathematics 6. Communication & Media Studies 7. Information & Communication Technology 8. Accounting / Business Statistics 9. Political Science 10. Logic & Scientific Method 11. One subject from Technological Subjects :  Civil Technology  Electrical, Electronic and Information Technology  Agro Technology  Mechanical Technology  Food Technology  Bio-Resource Technology Guidance for selection of subjects from basket 01:  Students should select at least one subject from this basket.  Students can also select all three subjects only from basket 01. There are three exceptions to this rule. These are; 1. Students selecting three National Languages; Sinhala, Tamil and English from the basket 04 (Language Basket) as the three subjects, need not to select any subject from basket 01. 2. Students selecting a combination of National and Classical languages need not to select any subject from basket 01.National Languages are; Sinhala Tamil English Classical Languages are; Arabic Pali Sanskrit For example, students can select three subjects like Sinhala, Pali and Sanskrit etc. These students need not to select any subject from basket 01. However, no candidate can select three classical languages as three subjects. They can select a maximum of two classical languages only. 3. Students selecting two languages from the basket 04 and the third subject from Religions and Civilizations or Aesthetic subject classified under basket 02 and 03 given below need not to select any subject from basket 01. Basket 02 - Religions and Civilizations: 1. Buddhism 2. Hinduism 3. Christianity 4. Islam 5. Buddhist Civilization 6. Hindu Civilization 7. Christian Civilization 8. Islamic Civilization 9. Greek & Roman Civilization Guidance for selection of subjects from basket 02:  A candidate can select maximum of two subjects from the basket 02.  However, if a religion (Eg: Buddhism) is selected as a subject, the related civilization of the selected religion (Eg: Buddhist Civilization) cannot be offered as another subject from this basket. Basket 03- Aesthetic Studies: Aesthetic subjects consists of four subject areas. These are; 1. Art 2. Dancing 3. Music 4. Drama & Theatre This can be further sub-classified as; 1. Art 2. Dancing a. Sinhala b. Baratha3. Music a. Oriental b. Carnatic c. Western 4.Drama & Theatre a. Sinhala b. Tamil c. English Guidance for selection of subjects from basket 03:  Students can select two subjects out of above four subject areas. However, no student is allowed to select the two subjects from one subject area. Basket 04 - Languages: The language basket has three subject areas. These are;  National Languages  Classical Languages  Foreign Languages National Languages are:  Sinhala  Tamil  English Classical Languages are:  Arabic  Pali  Sanskrit Foreign Languages are:  Chinese  French  German  Hindi  Japanese  Malay  Russian Guidance for selection of subjects from basket 04:  Students are allowed to select a maximum of two subjects from this basket. For example, when selecting the three subjects, students can select Chinese and French from basket 04 and the other subject from another basket.', '019C'),
+(4, 19, 7, 6985, 4, ' To be eligible for admission to a course of study in Arts, candidates must have obtained at least ‘S’ grades for three subjects considered.  As there are many subjects in the Arts stream for the G.C.E. (Advanced Level) Examination, subjects are classified under four baskets.  Students should have obtained passes in three subjects at the G.C.E. (Advanced Level) Examination from the following baskets. Basket 01- Social Sciences / Applied Social Studies: 1. Economics 2. Geography 3. History 4. Home Economics 5. Agricultural Science / Mathematics / Combined Mathematics 6. Communication & Media Studies 7. Information & Communication Technology 8. Accounting / Business Statistics 9. Political Science 10. Logic & Scientific Method 11. One subject from Technological Subjects :  Civil Technology  Electrical, Electronic and Information Technology  Agro Technology  Mechanical Technology  Food Technology  Bio-Resource Technology Guidance for selection of subjects from basket 01:  Students should select at least one subject from this basket.  Students can also select all three subjects only from basket 01. There are three exceptions to this rule. These are; 1. Students selecting three National Languages; Sinhala, Tamil and English from the basket 04 (Language Basket) as the three subjects, need not to select any subject from basket 01. 2. Students selecting a combination of National and Classical languages need not to select any subject from basket 01.National Languages are; Sinhala Tamil English Classical Languages are; Arabic Pali Sanskrit For example, students can select three subjects like Sinhala, Pali and Sanskrit etc. These students need not to select any subject from basket 01. However, no candidate can select three classical languages as three subjects. They can select a maximum of two classical languages only. 3. Students selecting two languages from the basket 04 and the third subject from Religions and Civilizations or Aesthetic subject classified under basket 02 and 03 given below need not to select any subject from basket 01. Basket 02 - Religions and Civilizations: 1. Buddhism 2. Hinduism 3. Christianity 4. Islam 5. Buddhist Civilization 6. Hindu Civilization 7. Christian Civilization 8. Islamic Civilization 9. Greek & Roman Civilization Guidance for selection of subjects from basket 02:  A candidate can select maximum of two subjects from the basket 02.  However, if a religion (Eg: Buddhism) is selected as a subject, the related civilization of the selected religion (Eg: Buddhist Civilization) cannot be offered as another subject from this basket. Basket 03- Aesthetic Studies: Aesthetic subjects consists of four subject areas. These are; 1. Art 2. Dancing 3. Music 4. Drama & Theatre This can be further sub-classified as; 1. Art 2. Dancing a. Sinhala b. Baratha3. Music a. Oriental b. Carnatic c. Western 4.Drama & Theatre a. Sinhala b. Tamil c. English Guidance for selection of subjects from basket 03:  Students can select two subjects out of above four subject areas. However, no student is allowed to select the two subjects from one subject area. Basket 04 - Languages: The language basket has three subject areas. These are;  National Languages  Classical Languages  Foreign Languages National Languages are:  Sinhala  Tamil  English Classical Languages are:  Arabic  Pali  Sanskrit Foreign Languages are:  Chinese  French  German  Hindi  Japanese  Malay  Russian Guidance for selection of subjects from basket 04:  Students are allowed to select a maximum of two subjects from this basket. For example, when selecting the three subjects, students can select Chinese and French from basket 04 and the other subject from another basket.', '019F'),
+(5, 19, 2, 6985, 4, ' To be eligible for admission to a course of study in Arts, candidates must have obtained at least ‘S’ grades for three subjects considered.  As there are many subjects in the Arts stream for the G.C.E. (Advanced Level) Examination, subjects are classified under four baskets.  Students should have obtained passes in three subjects at the G.C.E. (Advanced Level) Examination from the following baskets. Basket 01- Social Sciences / Applied Social Studies: 1. Economics 2. Geography 3. History 4. Home Economics 5. Agricultural Science / Mathematics / Combined Mathematics 6. Communication & Media Studies 7. Information & Communication Technology 8. Accounting / Business Statistics 9. Political Science 10. Logic & Scientific Method 11. One subject from Technological Subjects :  Civil Technology  Electrical, Electronic and Information Technology  Agro Technology  Mechanical Technology  Food Technology  Bio-Resource Technology Guidance for selection of subjects from basket 01:  Students should select at least one subject from this basket.  Students can also select all three subjects only from basket 01. There are three exceptions to this rule. These are; 1. Students selecting three National Languages; Sinhala, Tamil and English from the basket 04 (Language Basket) as the three subjects, need not to select any subject from basket 01. 2. Students selecting a combination of National and Classical languages need not to select any subject from basket 01.National Languages are; Sinhala Tamil English Classical Languages are; Arabic Pali Sanskrit For example, students can select three subjects like Sinhala, Pali and Sanskrit etc. These students need not to select any subject from basket 01. However, no candidate can select three classical languages as three subjects. They can select a maximum of two classical languages only. 3. Students selecting two languages from the basket 04 and the third subject from Religions and Civilizations or Aesthetic subject classified under basket 02 and 03 given below need not to select any subject from basket 01. Basket 02 - Religions and Civilizations: 1. Buddhism 2. Hinduism 3. Christianity 4. Islam 5. Buddhist Civilization 6. Hindu Civilization 7. Christian Civilization 8. Islamic Civilization 9. Greek & Roman Civilization Guidance for selection of subjects from basket 02:  A candidate can select maximum of two subjects from the basket 02.  However, if a religion (Eg: Buddhism) is selected as a subject, the related civilization of the selected religion (Eg: Buddhist Civilization) cannot be offered as another subject from this basket. Basket 03- Aesthetic Studies: Aesthetic subjects consists of four subject areas. These are; 1. Art 2. Dancing 3. Music 4. Drama & Theatre This can be further sub-classified as; 1. Art 2. Dancing a. Sinhala b. Baratha3. Music a. Oriental b. Carnatic c. Western 4.Drama & Theatre a. Sinhala b. Tamil c. English Guidance for selection of subjects from basket 03:  Students can select two subjects out of above four subject areas. However, no student is allowed to select the two subjects from one subject area. Basket 04 - Languages: The language basket has three subject areas. These are;  National Languages  Classical Languages  Foreign Languages National Languages are:  Sinhala  Tamil  English Classical Languages are:  Arabic  Pali  Sanskrit Foreign Languages are:  Chinese  French  German  Hindi  Japanese  Malay  Russian Guidance for selection of subjects from basket 04:  Students are allowed to select a maximum of two subjects from this basket. For example, when selecting the three subjects, students can select Chinese and French from basket 04 and the other subject from another basket.', '019B'),
+(6, 19, 6, 6985, 4, ' To be eligible for admission to a course of study in Arts, candidates must have obtained at least ‘S’ grades for three subjects considered.  As there are many subjects in the Arts stream for the G.C.E. (Advanced Level) Examination, subjects are classified under four baskets.  Students should have obtained passes in three subjects at the G.C.E. (Advanced Level) Examination from the following baskets. Basket 01- Social Sciences / Applied Social Studies: 1. Economics 2. Geography 3. History 4. Home Economics 5. Agricultural Science / Mathematics / Combined Mathematics 6. Communication & Media Studies 7. Information & Communication Technology 8. Accounting / Business Statistics 9. Political Science 10. Logic & Scientific Method 11. One subject from Technological Subjects :  Civil Technology  Electrical, Electronic and Information Technology  Agro Technology  Mechanical Technology  Food Technology  Bio-Resource Technology Guidance for selection of subjects from basket 01:  Students should select at least one subject from this basket.  Students can also select all three subjects only from basket 01. There are three exceptions to this rule. These are; 1. Students selecting three National Languages; Sinhala, Tamil and English from the basket 04 (Language Basket) as the three subjects, need not to select any subject from basket 01. 2. Students selecting a combination of National and Classical languages need not to select any subject from basket 01.National Languages are; Sinhala Tamil English Classical Languages are; Arabic Pali Sanskrit For example, students can select three subjects like Sinhala, Pali and Sanskrit etc. These students need not to select any subject from basket 01. However, no candidate can select three classical languages as three subjects. They can select a maximum of two classical languages only. 3. Students selecting two languages from the basket 04 and the third subject from Religions and Civilizations or Aesthetic subject classified under basket 02 and 03 given below need not to select any subject from basket 01. Basket 02 - Religions and Civilizations: 1. Buddhism 2. Hinduism 3. Christianity 4. Islam 5. Buddhist Civilization 6. Hindu Civilization 7. Christian Civilization 8. Islamic Civilization 9. Greek & Roman Civilization Guidance for selection of subjects from basket 02:  A candidate can select maximum of two subjects from the basket 02.  However, if a religion (Eg: Buddhism) is selected as a subject, the related civilization of the selected religion (Eg: Buddhist Civilization) cannot be offered as another subject from this basket. Basket 03- Aesthetic Studies: Aesthetic subjects consists of four subject areas. These are; 1. Art 2. Dancing 3. Music 4. Drama & Theatre This can be further sub-classified as; 1. Art 2. Dancing a. Sinhala b. Baratha3. Music a. Oriental b. Carnatic c. Western 4.Drama & Theatre a. Sinhala b. Tamil c. English Guidance for selection of subjects from basket 03:  Students can select two subjects out of above four subject areas. However, no student is allowed to select the two subjects from one subject area. Basket 04 - Languages: The language basket has three subject areas. These are;  National Languages  Classical Languages  Foreign Languages National Languages are:  Sinhala  Tamil  English Classical Languages are:  Arabic  Pali  Sanskrit Foreign Languages are:  Chinese  French  German  Hindi  Japanese  Malay  Russian Guidance for selection of subjects from basket 04:  Students are allowed to select a maximum of two subjects from this basket. For example, when selecting the three subjects, students can select Chinese and French from basket 04 and the other subject from another basket.', '019E'),
+(7, 19, 8, 6985, 4, ' To be eligible for admission to a course of study in Arts, candidates must have obtained at least ‘S’ grades for three subjects considered.  As there are many subjects in the Arts stream for the G.C.E. (Advanced Level) Examination, subjects are classified under four baskets.  Students should have obtained passes in three subjects at the G.C.E. (Advanced Level) Examination from the following baskets. Basket 01- Social Sciences / Applied Social Studies: 1. Economics 2. Geography 3. History 4. Home Economics 5. Agricultural Science / Mathematics / Combined Mathematics 6. Communication & Media Studies 7. Information & Communication Technology 8. Accounting / Business Statistics 9. Political Science 10. Logic & Scientific Method 11. One subject from Technological Subjects :  Civil Technology  Electrical, Electronic and Information Technology  Agro Technology  Mechanical Technology  Food Technology  Bio-Resource Technology Guidance for selection of subjects from basket 01:  Students should select at least one subject from this basket.  Students can also select all three subjects only from basket 01. There are three exceptions to this rule. These are; 1. Students selecting three National Languages; Sinhala, Tamil and English from the basket 04 (Language Basket) as the three subjects, need not to select any subject from basket 01. 2. Students selecting a combination of National and Classical languages need not to select any subject from basket 01.National Languages are; Sinhala Tamil English Classical Languages are; Arabic Pali Sanskrit For example, students can select three subjects like Sinhala, Pali and Sanskrit etc. These students need not to select any subject from basket 01. However, no candidate can select three classical languages as three subjects. They can select a maximum of two classical languages only. 3. Students selecting two languages from the basket 04 and the third subject from Religions and Civilizations or Aesthetic subject classified under basket 02 and 03 given below need not to select any subject from basket 01. Basket 02 - Religions and Civilizations: 1. Buddhism 2. Hinduism 3. Christianity 4. Islam 5. Buddhist Civilization 6. Hindu Civilization 7. Christian Civilization 8. Islamic Civilization 9. Greek & Roman Civilization Guidance for selection of subjects from basket 02:  A candidate can select maximum of two subjects from the basket 02.  However, if a religion (Eg: Buddhism) is selected as a subject, the related civilization of the selected religion (Eg: Buddhist Civilization) cannot be offered as another subject from this basket. Basket 03- Aesthetic Studies: Aesthetic subjects consists of four subject areas. These are; 1. Art 2. Dancing 3. Music 4. Drama & Theatre This can be further sub-classified as; 1. Art 2. Dancing a. Sinhala b. Baratha3. Music a. Oriental b. Carnatic c. Western 4.Drama & Theatre a. Sinhala b. Tamil c. English Guidance for selection of subjects from basket 03:  Students can select two subjects out of above four subject areas. However, no student is allowed to select the two subjects from one subject area. Basket 04 - Languages: The language basket has three subject areas. These are;  National Languages  Classical Languages  Foreign Languages National Languages are:  Sinhala  Tamil  English Classical Languages are:  Arabic  Pali  Sanskrit Foreign Languages are:  Chinese  French  German  Hindi  Japanese  Malay  Russian Guidance for selection of subjects from basket 04:  Students are allowed to select a maximum of two subjects from this basket. For example, when selecting the three subjects, students can select Chinese and French from basket 04 and the other subject from another basket.', '019H'),
+(8, 19, 9, 6985, 4, ' To be eligible for admission to a course of study in Arts, candidates must have obtained at least ‘S’ grades for three subjects considered.  As there are many subjects in the Arts stream for the G.C.E. (Advanced Level) Examination, subjects are classified under four baskets.  Students should have obtained passes in three subjects at the G.C.E. (Advanced Level) Examination from the following baskets. Basket 01- Social Sciences / Applied Social Studies: 1. Economics 2. Geography 3. History 4. Home Economics 5. Agricultural Science / Mathematics / Combined Mathematics 6. Communication & Media Studies 7. Information & Communication Technology 8. Accounting / Business Statistics 9. Political Science 10. Logic & Scientific Method 11. One subject from Technological Subjects :  Civil Technology  Electrical, Electronic and Information Technology  Agro Technology  Mechanical Technology  Food Technology  Bio-Resource Technology Guidance for selection of subjects from basket 01:  Students should select at least one subject from this basket.  Students can also select all three subjects only from basket 01. There are three exceptions to this rule. These are; 1. Students selecting three National Languages; Sinhala, Tamil and English from the basket 04 (Language Basket) as the three subjects, need not to select any subject from basket 01. 2. Students selecting a combination of National and Classical languages need not to select any subject from basket 01.National Languages are; Sinhala Tamil English Classical Languages are; Arabic Pali Sanskrit For example, students can select three subjects like Sinhala, Pali and Sanskrit etc. These students need not to select any subject from basket 01. However, no candidate can select three classical languages as three subjects. They can select a maximum of two classical languages only. 3. Students selecting two languages from the basket 04 and the third subject from Religions and Civilizations or Aesthetic subject classified under basket 02 and 03 given below need not to select any subject from basket 01. Basket 02 - Religions and Civilizations: 1. Buddhism 2. Hinduism 3. Christianity 4. Islam 5. Buddhist Civilization 6. Hindu Civilization 7. Christian Civilization 8. Islamic Civilization 9. Greek & Roman Civilization Guidance for selection of subjects from basket 02:  A candidate can select maximum of two subjects from the basket 02.  However, if a religion (Eg: Buddhism) is selected as a subject, the related civilization of the selected religion (Eg: Buddhist Civilization) cannot be offered as another subject from this basket. Basket 03- Aesthetic Studies: Aesthetic subjects consists of four subject areas. These are; 1. Art 2. Dancing 3. Music 4. Drama & Theatre This can be further sub-classified as; 1. Art 2. Dancing a. Sinhala b. Baratha3. Music a. Oriental b. Carnatic c. Western 4.Drama & Theatre a. Sinhala b. Tamil c. English Guidance for selection of subjects from basket 03:  Students can select two subjects out of above four subject areas. However, no student is allowed to select the two subjects from one subject area. Basket 04 - Languages: The language basket has three subject areas. These are;  National Languages  Classical Languages  Foreign Languages National Languages are:  Sinhala  Tamil  English Classical Languages are:  Arabic  Pali  Sanskrit Foreign Languages are:  Chinese  French  German  Hindi  Japanese  Malay  Russian Guidance for selection of subjects from basket 04:  Students are allowed to select a maximum of two subjects from this basket. For example, when selecting the three subjects, students can select Chinese and French from basket 04 and the other subject from another basket.', '019J'),
+(9, 19, 10, 6985, 4, ' To be eligible for admission to a course of study in Arts, candidates must have obtained at least ‘S’ grades for three subjects considered.  As there are many subjects in the Arts stream for the G.C.E. (Advanced Level) Examination, subjects are classified under four baskets.  Students should have obtained passes in three subjects at the G.C.E. (Advanced Level) Examination from the following baskets. Basket 01- Social Sciences / Applied Social Studies: 1. Economics 2. Geography 3. History 4. Home Economics 5. Agricultural Science / Mathematics / Combined Mathematics 6. Communication & Media Studies 7. Information & Communication Technology 8. Accounting / Business Statistics 9. Political Science 10. Logic & Scientific Method 11. One subject from Technological Subjects :  Civil Technology  Electrical, Electronic and Information Technology  Agro Technology  Mechanical Technology  Food Technology  Bio-Resource Technology Guidance for selection of subjects from basket 01:  Students should select at least one subject from this basket.  Students can also select all three subjects only from basket 01. There are three exceptions to this rule. These are; 1. Students selecting three National Languages; Sinhala, Tamil and English from the basket 04 (Language Basket) as the three subjects, need not to select any subject from basket 01. 2. Students selecting a combination of National and Classical languages need not to select any subject from basket 01.National Languages are; Sinhala Tamil English Classical Languages are; Arabic Pali Sanskrit For example, students can select three subjects like Sinhala, Pali and Sanskrit etc. These students need not to select any subject from basket 01. However, no candidate can select three classical languages as three subjects. They can select a maximum of two classical languages only. 3. Students selecting two languages from the basket 04 and the third subject from Religions and Civilizations or Aesthetic subject classified under basket 02 and 03 given below need not to select any subject from basket 01. Basket 02 - Religions and Civilizations: 1. Buddhism 2. Hinduism 3. Christianity 4. Islam 5. Buddhist Civilization 6. Hindu Civilization 7. Christian Civilization 8. Islamic Civilization 9. Greek & Roman Civilization Guidance for selection of subjects from basket 02:  A candidate can select maximum of two subjects from the basket 02.  However, if a religion (Eg: Buddhism) is selected as a subject, the related civilization of the selected religion (Eg: Buddhist Civilization) cannot be offered as another subject from this basket. Basket 03- Aesthetic Studies: Aesthetic subjects consists of four subject areas. These are; 1. Art 2. Dancing 3. Music 4. Drama & Theatre This can be further sub-classified as; 1. Art 2. Dancing a. Sinhala b. Baratha3. Music a. Oriental b. Carnatic c. Western 4.Drama & Theatre a. Sinhala b. Tamil c. English Guidance for selection of subjects from basket 03:  Students can select two subjects out of above four subject areas. However, no student is allowed to select the two subjects from one subject area. Basket 04 - Languages: The language basket has three subject areas. These are;  National Languages  Classical Languages  Foreign Languages National Languages are:  Sinhala  Tamil  English Classical Languages are:  Arabic  Pali  Sanskrit Foreign Languages are:  Chinese  French  German  Hindi  Japanese  Malay  Russian Guidance for selection of subjects from basket 04:  Students are allowed to select a maximum of two subjects from this basket. For example, when selecting the three subjects, students can select Chinese and French from basket 04 and the other subject from another basket.', '019K'),
+(10, 20, 15, 110, 4, 'Under this course of study, two degree programmes are offered. These are; 1. B.A. Honours Degree in Performing Arts 2. B.A. Honours Degree in Mass Media Durations of both degree programmes are 04 years. The required three Advanced Level subjects and the special requirements needed to get selected for these two degree programmes are given in next page.Three subjects should have offered at the G.C.E. (Advanced Level) Examination from Arts stream, subject to the following conditions. 1. Not more than two Languages 2. Not more than one subject from Religions and Civilizations basket 3. Not more than one Technological subject 4. Not more than one of the following subjects  Accounting  Business Statistics  Economics Moreover, there are two special requirements to be fulfilled. These are; 1. To have a minimum of an ordinary pass (S) in English at the G.C.E. (Ordinary Level) Examination. Candidates are required to submit the duly certified copy of the original G.C.E. (Ordinary Level) certificate along with the application. Candidates are kindly reminded that failure to submit the above evidence may result in the rejection of the application for the above course of study. 2. To have a pass in the Aptitude Test conducted by the Sripalee Campus of the University of Colombo. The Sripalee Campus of the University of Colombo will publish a press notice calling for applications to sit the Aptitude Test. Aptitude Test may consist of either an Interview, Practical Test or a Written Test or all three components as decided by the Sripalee Campus. Candidates may contact the Senior Assistant Registrar of the Sripalee Campus, Horana if they wish to obtain further details.', '020S'),
+(11, 21, 11, 309, 3, 'Students who have satisfied the minimum requirements for admission in Arts stream or Commerce stream are eligible to seek admission for this programme. The two degree programmes offered are: 1. Bachelor of Arts (Honours) - Duration four years 2. Bachelor of Arts - Duration three years Selection of students to the four year honours degree is based on the performance of them in the first year. The main subjects offered under these two degree programmes are given below. 1. Economics - (English & Sinhala medium) 2. Statistics - (English & Sinhala medium) 3. Geography - (English & Sinhala medium) 4. Sociology - (English & Sinhala medium) 5. Political Science - (English & Sinhala medium) 6. Sinhala 7. Tamil 8. English 9. Japanese 10. Hindi 11. Chinese 12. German 13. Information & Communication Technology (ICT) - (Only in English medium).The basis of selection of students: As the opportunities are made available to both Arts and Commerce stream students to seek admissions to this course of study, of the total number of seats available (309), 55% is allocated from the Arts stream and balance is allocated from the Commerce stream.', '021L'),
+(12, 29, 16, 200, 3, 'Under this course of study, the Trincomalee campus offers two degree programmes. They are; 1. B.A. (Communication Studies) 2. B.A. (Languages) Students admitted to a three year degree programme may proceed to fourth year if they so desire and satisfy the requirements of the university. In the fourth year, students will be offered extra modules of courses relevant to the areas of specialization as determined by the Faculty and Senate of the University. Selection criteria for this course of study are very flexible. That is, any student who have satisfied the minimum requirements for university admission [minimum of Simple (S) passes in three subjects and 30% or more for the Common General Paper] in G.C.E. (Advanced Level) Examination are eligible but one of the three subjects must have a Credit (C) pass in Sinhala, Tamil or English. However, because the medium of instructions of this course of study is English, to be eligible, the student also must have obtained at least a Credit (C) pass in English at the G.C.E. (Ordinary Level) Examination. Candidates are required to submit the duly certified copy of the original G.C.E (Ordinary Level) certificate along with the application. Candidates are kindly reminded that failure to submit the above evidence may result in the rejection of the application for the course of study in Communication Studies. The Trincomalee campus will decide the maximum number of students allocated to one degree programme in accordance with the criteria determined by the campus.', '029W'),
+(13, 31, 4, 36, 4, 'Name of the degree programme is B.A. Honours in Peace and Conflict Resolution [BAHons (Peace and Conflict Resolution)]. Duration of the degree programme is 04 years. Candidates who have satisfied the minimum requirements for university admission [minimum of Simple (S) passes in three subjects and 30% or more for the Common General Paper] having offered any three subjects available at the G.C.E.(Advanced Level) Examination are eligible to seek admission to this programme. Medium of instructions is English.', '031D'),
+(14, 63, 9, 278, 3, 'Name of the degree programme is B.A. in Islamic Studies. Duration of the programme is 03 years. Candidates with at least Simple (S) passes in any three subjects at the G.C.E. (Advanced Level) Examination are eligible. However, one must include a subject of Islam or Islamic Civilization.', '063J'),
+(15, 84, 9, 225, 3, 'Name of the degree programme is B.A. in Arabic Language. Duration of the programme is 03 years. Candidates with at least Simple (S) passes in any three subjects at the G.C.E.(Advanced Level) Examination are eligible. However one must include a subject of Arabic language.', '084J'),
+(16, 105, 4, 81, 4, 'Name of the degree programme is B.A. in TESL (Honours). In order to be eligible for this course of study, candidates should have obtained a minimum grade of ‘S’ or above for English and passes in any other two subjects at the G.C.E.(Advanced Level) Examination. Duration of the degree programme is 04 years. This course is conducted only in the English Medium.', '105D'),
+(17, 105, 3, 81, 4, 'Name of the degree programme is B.A. in TESL (Honours). In order to be eligible for this course of study, candidates should have obtained a minimum grade of ‘S’ or above for English and passes in any other two subjects at the G.C.E.(Advanced Level) Examination. Duration of the degree programme is 04 years. This course is conducted only in the English Medium.', '105C'),
+(18, 112, 2, 51, 4, 'Name of the degree programme is Bachelor of Social Work Honours [BSW(Hons)]. In order to be eligible for this course of study, candidates should have obtained at least Simple (S) passes in any three subjects of the Arts stream at G.C.E.(Advanced Level) Examination, selected according to the conditions specified in the Section 2.2.1.1 of this handbook. Duration of the degree programme is 04 years. The medium of instructions is English.', '112B'),
+(19, 68, 14, 300, 4, 'The University of the Visual & Performing Arts offer Bachelor of Performing Arts- Music (Honours). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the University of the Visual & Performing Arts is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example, a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Visual Arts must have obtained a Credit (C) pass or more for Art at the G.C.E. (Advanced Level) Examination. The university also conducts Practical / Aptitude Tests for selection. These are for Music, Dance, Drama & Theatre and Visual Arts. If a student fails the Practical/ Aptitude Test, he/she is deemed ineligible for admission for the relevant course of study. However, such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. The University of the Visual and Performing Arts will publish a press notice, calling for applications for the Practical / Aptitude test. Students are requested to contact the Registrar of the University for further details. The medium of instructions for all degree programmes conducted by the University of the Visual and Performing Arts is Sinhala.', '068Z'),
+(20, 68, 21, 103, 4, 'Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka offer degree programme Bachelor of Fine Arts (Music). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Visual & Technological Arts must have obtained a Credit (C) pass or more for Art in G.C.E. (Advanced Level) Examination. The institute also conducts Practical/Aptitude Tests for selection. These are for Music, Dance, Drama & Theatre and Visual & Technological Arts. If a student fails the Practical/Aptitude Test he/she is deemed ineligible for admission for the relevant course of study. However such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka will publish a press notice, calling for applications for the Practical/Aptitude Test. Students are requested to contact the Senior Assistant Registrar of the Swami Vipulananda Institute for further details. The medium of instructions for all degree programmes conducted by the Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka is Tamil.', '068Y'),
+(21, 68, 22, 117, 4, 'The Ramanathan Academy of Fine Arts of the University of Jaffna offer degree programme Bachelor of Fine Arts (Music). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the Ramanathan Academy of Fine Arts is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example, a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Arts & Design must have obtained a Credit (C) pass or more for Art at the G.C.E. (Advanced Level) Examination. Ramanathan Academy of Fine Arts of the University of Jaffna also conducts Practical/Aptitude Tests for selection. These are for Music, Dance and Art & Design. If a student fails the Practical/Aptitude Test, he/she is deemed ineligible for admission for the relevant course of study. However, such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. Ramanathan Academy of Fine Arts of the University of Jaffna will publish a press notice, calling for applications for the Practical / Aptitude Test. Students are requested to contact the Senior Assistant Registrar of the Ramanathan Academy for further details. The medium of instructions for all degree programmes conducted by the Ramanathan Academy of Fine Arts is Tamil.', '068X'),
+(22, 69, 14, 300, 4, 'The University of the Visual & Performing Arts offer degree programme Bachelor of Performing Arts-Dance and Drama (Honours). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the University of the Visual & Performing Arts is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example, a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Visual Arts must have obtained a Credit (C) pass or more for Art at the G.C.E. (Advanced Level) Examination. The university also conducts Practical / Aptitude Tests for selection. These are for Music, Dance, Drama & Theatre and Visual Arts. If a student fails the Practical/ Aptitude Test, he/she is deemed ineligible for admission for the relevant course of study. However, such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. The University of the Visual and Performing Arts will publish a press notice, calling for applications for the Practical / Aptitude test. Students are requested to contact the Registrar of the University for further details. The medium of instructions for all degree programmes conducted by the University of the Visual and Performing Arts is Sinhala.', '069Z'),
+(23, 69, 21, 93, 4, 'Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka offer degree programme Bachelor of Fine Arts (Dance). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Visual & Technological Arts must have obtained a Credit (C) pass or more for Art in G.C.E. (Advanced Level) Examination. The institute also conducts Practical/Aptitude Tests for selection. These are for Music, Dance, Drama & Theatre and Visual & Technological Arts. If a student fails the Practical/Aptitude Test he/she is deemed ineligible for admission for the relevant course of study. However such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka will publish a press notice, calling for applications for the Practical/Aptitude Test. Students are requested to contact the Senior Assistant Registrar of the Swami Vipulananda Institute for further details. The medium of instructions for all degree programmes conducted by the Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka is Tamil.', '069Y');
+INSERT INTO `governmentcourseofferedbygovermentuniversity` (`id`, `gov_course_id`, `gov_uni_id`, `purposed_intake`, `duration`, `description`, `unicode`) VALUES
+(24, 69, 22, 101, 4, 'The Ramanathan Academy of Fine Arts of the University of Jaffna offer degree programme Bachelor of Fine Arts (Dance). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the Ramanathan Academy of Fine Arts is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example, a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Arts & Design must have obtained a Credit (C) pass or more for Art at the G.C.E. (Advanced Level) Examination. Ramanathan Academy of Fine Arts of the University of Jaffna also conducts Practical/Aptitude Tests for selection. These are for Music, Dance and Art & Design. If a student fails the Practical/Aptitude Test, he/she is deemed ineligible for admission for the relevant course of study. However, such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. Ramanathan Academy of Fine Arts of the University of Jaffna will publish a press notice, calling for applications for the Practical / Aptitude Test. Students are requested to contact the Senior Assistant Registrar of the Ramanathan Academy for further details. The medium of instructions for all degree programmes conducted by the Ramanathan Academy of Fine Arts is Tamil.', '069X'),
+(25, 71, 14, 74, 4, 'The University of the Visual & Performing Arts offer degree programme Bachelor of Performing Arts-Dance and Drama (Honours). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the University of the Visual & Performing Arts is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example, a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Visual Arts must have obtained a Credit (C) pass or more for Art at the G.C.E. (Advanced Level) Examination. The university also conducts Practical / Aptitude Tests for selection. These are for Music, Dance, Drama & Theatre and Visual Arts. If a student fails the Practical/ Aptitude Test, he/she is deemed ineligible for admission for the relevant course of study. However, such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. The University of the Visual and Performing Arts will publish a press notice, calling for applications for the Practical / Aptitude test. Students are requested to contact the Registrar of the University for further details. The medium of instructions for all degree programmes conducted by the University of the Visual and Performing Arts is Sinhala.', '071Z'),
+(26, 71, 21, 104, 4, 'Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka offer degree programme Bachelor of Fine Arts (Drama & Theatre). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Visual & Technological Arts must have obtained a Credit (C) pass or more for Art in G.C.E. (Advanced Level) Examination. The institute also conducts Practical/Aptitude Tests for selection. These are for Music, Dance, Drama & Theatre and Visual & Technological Arts. If a student fails the Practical/Aptitude Test he/she is deemed ineligible for admission for the relevant course of study. However such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka will publish a press notice, calling for applications for the Practical/Aptitude Test. Students are requested to contact the Senior Assistant Registrar of the Swami Vipulananda Institute for further details. The medium of instructions for all degree programmes conducted by the Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka is Tamil.', '071Y'),
+(27, 85, 14, 120, 4, 'The University of the Visual & Performing Arts offer degree programme Bachelor of Visual Arts (Honours). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the University of the Visual & Performing Arts is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example, a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Visual Arts must have obtained a Credit (C) pass or more for Art at the G.C.E. (Advanced Level) Examination. The university also conducts Practical / Aptitude Tests for selection. These are for Music, Dance, Drama & Theatre and Visual Arts. If a student fails the Practical/ Aptitude Test, he/she is deemed ineligible for admission for the relevant course of study. However, such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. The University of the Visual and Performing Arts will publish a press notice, calling for applications for the Practical / Aptitude test. Students are requested to contact the Registrar of the University for further details. The medium of instructions for all degree programmes conducted by the University of the Visual and Performing Arts is Sinhala.', '085Z'),
+(28, 72, 21, 94, 4, 'Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka offer degree programme Bachelor of Fine Arts (Visual & Technological Art). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Visual & Technological Arts must have obtained a Credit (C) pass or more for Art in G.C.E. (Advanced Level) Examination. The institute also conducts Practical/Aptitude Tests for selection. These are for Music, Dance, Drama & Theatre and Visual & Technological Arts. If a student fails the Practical/Aptitude Test he/she is deemed ineligible for admission for the relevant course of study. However such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka will publish a press notice, calling for applications for the Practical/Aptitude Test. Students are requested to contact the Senior Assistant Registrar of the Swami Vipulananda Institute for further details. The medium of instructions for all degree programmes conducted by the Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka is Tamil.', '072Y'),
+(29, 70, 22, 62, 4, 'The Ramanathan Academy of Fine Arts of the University of Jaffna offer degree programme Bachelor of Fine Arts (Art & Design). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the Ramanathan Academy of Fine Arts is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example, a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Arts & Design must have obtained a Credit (C) pass or more for Art at the G.C.E. (Advanced Level) Examination. Ramanathan Academy of Fine Arts of the University of Jaffna also conducts Practical/Aptitude Tests for selection. These are for Music, Dance and Art & Design. If a student fails the Practical/Aptitude Test, he/she is deemed ineligible for admission for the relevant course of study. However, such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. Ramanathan Academy of Fine Arts of the University of Jaffna will publish a press notice, calling for applications for the Practical / Aptitude Test. Students are requested to contact the Senior Assistant Registrar of the Ramanathan Academy for further details. The medium of instructions for all degree programmes conducted by the Ramanathan Academy of Fine Arts is Tamil.', '070X'),
+(30, 16, 1, 5336, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  Bachelor of Business Administration Honours  Bachelor of Business Administration Honours in Finance  Bachelor of Business Administration Honours in Human Resource Management  Bachelor of Business Administration Honours in Marketing  Bachelor of Business Administration Honours in Accounting  Bachelor of Business Administration Honours in Business Economics  Bachelor of Business Administration Honours in International Business  Bachelor of Business Administration Honours in Hospitality and Leisure Management', '016A'),
+(31, 16, 2, 5336, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:   Bachelor of Business Administration Honours in Human Resource Management  Bachelor of Business Administration Honours in Marketing Management  Bachelor of Business Administration Honours in Operations Management  Bachelor of Business Administration Honours in Accounting and Finance  Bachelor of Business Administration Honours in Organizational Management', '016B'),
+(32, 16, 3, 5336, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  B.Sc. Business Administration (Honours)\r\n B.Sc. Management (Public) Honours\r\n B.Com. (Honours)\r\n B.Sc. Estate Management & Valuation (Honours)\r\n B.Sc. Accounting (Honours)\r\n B.Sc. Marketing Management (Honours)\r\n B.Sc. Human Resource Management (Honours)\r\n B.Sc. Business Administration (Business Economics) Honours\r\n B.Sc. Finance (Honours)\r\n B.Sc. Business Information Systems (Honours)\r\n B.Sc. Operations and Technology Management (Honours)\r\n B.Sc. Entrepreneurship (Honours)', '016C'),
+(33, 16, 4, 5336, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  Bachelor of Business Management Honours in Human Resource\r\n Bachelor of Business Management Honours in Accountancy\r\n Bachelor of Business Management Honours in Marketing\r\n Bachelor of Business Management Honours in Finance\r\n Bachelor of Commerce Honours\r\n Bachelor of Commerce Honours in Business Technology\r\n Bachelor of Commerce Honours in Entrepreneurship\r\n Bachelor of Commerce Honours in Financial Management\r\n Bachelor of Business Management Honours in Insurance\r\n Bachelor of Business Management Honours in Banking\r\n Bachelor of Business Management Honours in Auditing and Forensic Accounting\r\n Bachelor of Business Management Honours in Financial Engineering', '016D'),
+(34, 16, 6, 5336, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  Bachelor of Business Administration Honours in Tourism and Hospitality Management\r\n Bachelor of Business Administration Honours in Accounting\r\n Bachelor of Business Administration Honours in Financial Management\r\n Bachelor of Business Administration Honours in Human Resource Management\r\n Bachelor of Business Administration Honours in Marketing\r\n Bachelor of Commerce Honours in Accounting and Finance\r\n Bachelor of Commerce Honours in Business Technology Management\r\n Bachelor of Commerce Honours', '016E'),
+(35, 16, 7, 5336, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  B.B.A. Honours in Accounting\r\n B.B.A. Honours in Entrepreneurship\r\n B.B.A. Honours in Human Resources Management\r\n B.B.A. Honours in Marketing\r\n B.B.A. Honours in Business Management', '016F'),
+(36, 16, 8, 5336, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  Bachelor of Business Administration Honours\r\n Bachelor of Business Administration Honours in Marketing Management\r\n Bachelor of Business Administration Honours in Human Resource Management\r\n Bachelor of Commerce Honours\r\n Bachelor of Commerce Honours in Accounting and Finance\r\n Bachelor of Commerce Honours in Enterprise Development\r\n Bachelor of Commerce Honours in Business Economics', '016H'),
+(37, 16, 9, 5336, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  B.B.A. (Honours)\r\n B.Com (Honours)', '016J'),
+(38, 16, 10, 5336, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  Bachelor of Science Honours in Accountancy & Finance\r\n Bachelor of Science Honours in Business Management\r\n Bachelor of Science Honours in Tourism and Hospitality Management\r\n Bachelor of Science Honours in Marketing Management\r\n Bachelor of Science Honours in Human Resource Management\r\n Bachelor of Science Honours in Information Systems', '016K'),
+(39, 16, 11, 5336, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  B.Sc. (Business Management) Honours\r\n B.Sc. (Financial Management) Honours\r\n B.Sc. (Marketing Management) Honours\r\n B.Sc. (Tourism Management) Honours\r\n B.Sc. (Eco Business Management) Honours\r\n B.Sc. (Banking & Insurance) Honours', '016L'),
+(40, 16, 12, 5336, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  B.Sc. (Accountancy & Business Finance) Honours\r\n B.Sc. (Banking & Business Finance) Honours\r\n B.Sc. (Business Management) Honours\r\n B.Sc. Honours in Insurance & Finance', '016M'),
+(41, 28, 3, 114, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  B.Sc. Business Administration (Honours)\r\n B.Sc. Management (Public) Honours\r\n B.Com. (Honours)\r\n B.Sc. Estate Management & Valuation (Honours)\r\n B.Sc. Accounting (Honours)\r\n B.Sc. Marketing Management (Honours)\r\n B.Sc. Human Resource Management (Honours)\r\n B.Sc. Business Administration (Business Economics) Honours\r\n B.Sc. Finance (Honours)\r\n B.Sc. Business Information Systems (Honours)\r\n B.Sc. Operations and Technology Management (Honours)\r\n B.Sc. Entrepreneurship (Honours)', '028C'),
+(42, 17, 3, 88, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  B.Sc. Business Administration (Honours)\r\n B.Sc. Management (Public) Honours\r\n B.Com. (Honours)\r\n B.Sc. Estate Management & Valuation (Honours)\r\n B.Sc. Accounting (Honours)\r\n B.Sc. Marketing Management (Honours)\r\n B.Sc. Human Resource Management (Honours)\r\n B.Sc. Business Administration (Business Economics) Honours\r\n B.Sc. Finance (Honours)\r\n B.Sc. Business Information Systems (Honours)\r\n B.Sc. Operations and Technology Management (Honours)\r\n B.Sc. Entrepreneurship (Honours)', '017C'),
+(43, 18, 3, 899, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  B.Sc. Business Administration (Honours)\r\n B.Sc. Management (Public) Honours\r\n B.Com. (Honours)\r\n B.Sc. Estate Management & Valuation (Honours)\r\n B.Sc. Accounting (Honours)\r\n B.Sc. Marketing Management (Honours)\r\n B.Sc. Human Resource Management (Honours)\r\n B.Sc. Business Administration (Business Economics) Honours\r\n B.Sc. Finance (Honours)\r\n B.Sc. Business Information Systems (Honours)\r\n B.Sc. Operations and Technology Management (Honours)\r\n B.Sc. Entrepreneurship (Honours)', '018C'),
+(44, 18, 4, 899, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  Bachelor of Business Management Honours in Human Resource\r\n Bachelor of Business Management Honours in Accountancy\r\n Bachelor of Business Management Honours in Marketing\r\n Bachelor of Business Management Honours in Finance\r\n Bachelor of Commerce Honours\r\n Bachelor of Commerce Honours in Business Technology\r\n Bachelor of Commerce Honours in Entrepreneurship\r\n Bachelor of Commerce Honours in Financial Management\r\n Bachelor of Business Management Honours in Insurance\r\n Bachelor of Business Management Honours in Banking\r\n Bachelor of Business Management Honours in Auditing and Forensic Accounting\r\n Bachelor of Business Management Honours in Financial Engineering', '018D'),
+(45, 18, 6, 899, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  Bachelor of Business Administration Honours in Tourism and Hospitality Management\r\n Bachelor of Business Administration Honours in Accounting\r\n Bachelor of Business Administration Honours in Financial Management\r\n Bachelor of Business Administration Honours in Human Resource Management\r\n Bachelor of Business Administration Honours in Marketing\r\n Bachelor of Commerce Honours in Accounting and Finance\r\n Bachelor of Commerce Honours in Business Technology Management\r\n Bachelor of Commerce Honours', '018E'),
+(46, 18, 8, 899, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  Bachelor of Business Administration Honours\r\n Bachelor of Business Administration Honours in Marketing Management\r\n Bachelor of Business Administration Honours in Human Resource Management\r\n Bachelor of Commerce Honours\r\n Bachelor of Commerce Honours in Accounting and Finance\r\n Bachelor of Commerce Honours in Enterprise Development\r\n Bachelor of Commerce Honours in Business Economics', '018H'),
+(47, 18, 9, 899, 4, 'To obtain admission to the above mentioned course of study, a student should have obtained at least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Agricultural Science  Geography  Business Statistics  German  Combined Mathematics or Mathematics  History  Political Science  English  Logic & Scientific Method  French  Information & Communication Technology To enter into some degree programmes such as Accountancy, Auditing & Forensic Accounting and Finance in a university, students should have offered Accounting as a subject at the G.C.E. (Advanced Level) Examination. Durations of the degree programmes are 04 years. Degree programmes available at those universities:  B.B.A. (Honours)\r\n B.Com (Honours)', '018J'),
+(48, 22, 16, 458, 3, 'Candidates who have satisfied the minimum requirements for admission having offered any three subjects at the G.C.E. (Advanced Level) Examination are eligible to seek admission to follow a degree course in Management Studies (TV) at one of the following universities. 1. Trincomalee Campus, Eastern University, Sri Lanka 2. Vavuniya Campus of the University of Jaffna However, when selecting students, it will be ensured that at least 60% of the intake to the Vavuniya Campus of the University of Jaffna and at least 40% of the intake to the Trincomalee Campus of the Eastern University, Sri Lanka will be from the students in the Commerce Stream. Students admitted to a three year degree programme may proceed to the fourth year if they so desire and satisfy the requirements of the University. In the fourth year students will be offered extra modules of courses relevant to the areas of specialization as determined by the Faculty/Senate of the University. Names of the universities and the degree programmes available: Trincomalee Campus of the Eastern University, Sri Lanka  Bachelor of Science in Accounting & Financial Management  Bachelor of Science in Marketing Management  Bachelor of Science in Human Resources Management  Bachelor of Science in Information Management Vavuniya Campus of University of Jaffna  Bachelor of Business Management  Bachelor of Business Management Honours in Accounting & Finance  Bachelor of Business Management Honours in Marketing Management  Bachelor of Business Management Honours in Business Economics  Bachelor of Business Management Honours in Human Resource Management', '022W'),
+(49, 22, 17, 458, 3, 'Candidates who have satisfied the minimum requirements for admission having offered any three subjects at the G.C.E. (Advanced Level) Examination are eligible to seek admission to follow a degree course in Management Studies (TV) at one of the following universities. 1. Trincomalee Campus, Eastern University, Sri Lanka 2. Vavuniya Campus of the University of Jaffna However, when selecting students, it will be ensured that at least 60% of the intake to the Vavuniya Campus of the University of Jaffna and at least 40% of the intake to the Trincomalee Campus of the Eastern University, Sri Lanka will be from the students in the Commerce Stream. Students admitted to a three year degree programme may proceed to the fourth year if they so desire and satisfy the requirements of the University. In the fourth year students will be offered extra modules of courses relevant to the areas of specialization as determined by the Faculty/Senate of the University. Names of the universities and the degree programmes available: Trincomalee Campus of the Eastern University, Sri Lanka  Bachelor of Science in Accounting & Financial Management  Bachelor of Science in Marketing Management  Bachelor of Science in Human Resources Management  Bachelor of Science in Information Management Vavuniya Campus of University of Jaffna  Bachelor of Business Management  Bachelor of Business Management Honours in Accounting & Finance  Bachelor of Business Management Honours in Marketing Management  Bachelor of Business Management Honours in Business Economics  Bachelor of Business Management Honours in Human Resource Management', '022R'),
+(50, 77, 3, 80, 4, 'Minimum eligibility requirements for admission : At least three ‘S’ grades for following three subjects at G.C.E. (Advanced Level) Examination;  Business Studies  Economics  Accounting or At least two subjects given above and the third subject from the subjects given below;  Information & Communication Technology  Combined Mathematics  Logic & Scientific Method  Business Statistics  Physics.  Degree Programme : Business Information Systems (Honours)  Available University : University of Sri Jayewardenepura  Duration : 04 years', '077C'),
+(51, 1, 1, 1864, 5, 'Duration: 05 Years', '001A'),
+(52, 1, 2, 1864, 5, 'Duration: 05 Years', '001B'),
+(53, 1, 3, 1864, 5, 'Duration: 05 Years', '001C'),
+(54, 1, 4, 1864, 5, 'Duration: 05 Years', '001D'),
+(55, 1, 6, 1864, 5, 'Duration: 05 Years', '001E'),
+(56, 1, 7, 1864, 5, 'Duration: 05 Years', '001F'),
+(57, 1, 8, 1864, 5, 'Duration: 05 Years', '001H'),
+(58, 1, 10, 1864, 5, 'Duration: 05 Years', '001K'),
+(59, 1, 12, 1864, 5, 'Duration: 05 Years', '001M'),
+(60, 1, 11, 1864, 5, 'Duration: 05 Years', '001L'),
+(61, 1, 5, 1864, 5, 'Duration: 05 Years', '001G'),
+(62, 2, 2, 153, 5, 'Duration: 05 Years', '002B'),
+(63, 2, 3, 153, 5, 'Duration: 05 Years', '002C'),
+(64, 3, 2, 130, 5, 'Duration: 05 Years', '003B'),
+(65, 39, 2, 221, 4, 'Minimum eligibility requirements for admission : At least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination. (i) Chemistry; Physics; and Biology (ii) Chemistry; Physics or Mathematics; Biology or Agricultural Science (iii) Chemistry; Biology; Agricultural Science or Mathematics  Degree Programme : B.Sc. in Agricultural Technology & Management  Available University : University of Peradeniya  Duration : 04 years', '039B'),
+(66, 4, 6, 889, 4, 'Minimum eligibility requirements for admission : At least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination. (i) Chemistry; Physics; and Biology (ii) Chemistry; Physics or Mathematics; Biology or Agricultural Science (iii) Chemistry; Biology; Agricultural Science or Mathematics Degree Programmes : Bachelor of Science Honours in Agriculture', '004E'),
+(67, 4, 8, 889, 4, 'Minimum eligibility requirements for admission : At least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination. (i) Chemistry; Physics; and Biology (ii) Chemistry; Physics or Mathematics; Biology or Agricultural Science (iii) Chemistry; Biology; Agricultural Science or Mathematics Degree Programmes : Bachelor of Science Honours in Agriculture', '004H'),
+(68, 4, 10, 889, 4, 'Minimum eligibility requirements for admission : At least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination. (i) Chemistry; Physics; and Biology (ii) Chemistry; Physics or Mathematics; Biology or Agricultural Science (iii) Chemistry; Biology; Agricultural Science or Mathematics Degree Programmes : Bachelor of Science Honours in Agriculture', '004K'),
+(69, 4, 11, 889, 4, 'Minimum eligibility requirements for admission : At least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination. (i) Chemistry; Physics; and Biology (ii) Chemistry; Physics or Mathematics; Biology or Agricultural Science (iii) Chemistry; Biology; Agricultural Science or Mathematics Degree Programmes : Bachelor of Science in Agriculture', '004L'),
+(70, 4, 12, 889, 4, 'Minimum eligibility requirements for admission : At least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination. (i) Chemistry; Physics; and Biology (ii) Chemistry; Physics or Mathematics; Biology or Agricultural Science (iii) Chemistry; Biology; Agricultural Science or Mathematics Degree Programmes : Bachelor of Science Honours in Agriculture', '004M'),
+(71, 5, 12, 164, 4, 'Minimum eligibility requirements for admission : At least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination. (i) Chemistry; Physics; and Biology (ii) Chemistry; Physics or Mathematics; Biology or Agricultural Science (iii) Chemistry; Biology; Agricultural Science or Mathematics  Degree Programme : Bachelor of Science Honours in Food Science & Nutrition [BScHons (Food Sc & Nutr)]  Available University : Wayamba University of Sri Lanka  Duration : 04 years  Fields of Specialization : Food Science & Technology Applied Nutrition', '005M'),
+(72, 35, 2, 218, 4, 'Minimum eligibility requirements for admission : At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E.(Advanced Level) Examination.  Degree Programme : B.Sc. Honours in Food Science & Technology  Duration : 04 years', '035B'),
+(73, 35, 3, 218, 4, 'Minimum eligibility requirements for admission : At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E.(Advanced Level) Examination.  Degree Programme : B.Sc. Honours in Food Science & Technology [BScHons (FST)]  Duration : 04 years', '035C'),
+(74, 35, 11, 218, 4, 'Minimum eligibility requirements for admission : At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E.(Advanced Level) Examination.  Degree Programme : B.Sc. Honours in Food Science & Technology  Duration : 04 years', '035L'),
+(75, 32, 18, 383, 6, 'Minimum eligibility requirements for admission : At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E.(Advanced Level) Examination.  Degree Programme : Bachelor of Ayurvedic Medicine and Surgery (B.A.M.S)  Duration : 06 years [05 academic years and 01-year (final) internship]  Medium of Instructions : English', '032N'),
+(76, 32, 19, 383, 6, 'Minimum eligibility requirements for admission : At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E.(Advanced Level) Examination.  Degree Programme : Bachelor of Ayurvedic Medicine and Surgery (B.A.M.S)  Duration : 06 years [05 academic years and 01-year (final) internship]  Medium of Instructions : English', '032P'),
+(77, 33, 18, 89, 6, 'Minimum eligibility requirements for admission : At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E. (Advanced Level) Examination.  Degree Programme : Bachelor of Unani Medicine and Surgery (B.U.M.S.)  Available University : Institute of Indigenous Medicine, University of Colombo  Duration : 06 years [05 academic years and 01-year (final) internship]  Medium of Instructions : English', '033N'),
+(78, 36, 6, 247, 6, 'Minimum eligibility requirements for admission : At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E. (Advanced Level) Examination  Degree Programme : Bachelor of Siddha Medicine and Surgery (B.S.M.S.)  Available Universities : University of Jaffna Trincomalee Campus of the Eastern University, Sri Lanka  Duration : 06 years [05 academic years and 01-year (final) internship]  Medium of Instructions : University of Jaffna - Tamil Trincomalee Campus of the Eastern University, Sri Lanka - English', '036E'),
+(79, 36, 16, 247, 6, 'Minimum eligibility requirements for admission : At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E. (Advanced Level) Examination  Degree Programme : Bachelor of Siddha Medicine and Surgery (B.S.M.S.)  Available Universities : University of Jaffna Trincomalee Campus of the Eastern University, Sri Lanka  Duration : 06 years [05 academic years and 01-year (final) internship]  Medium of Instructions : University of Jaffna - Tamil Trincomalee Campus of the Eastern University, Sri Lanka - English', '036W'),
+(80, 6, 1, 1686, 4, 'Minimum eligibility requirements for admission : At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E.(Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics  Degree Programme : B.Sc. in Biological Science  Available Universities : University of Colombo University of Peradeniya University of Sri Jayewardenepura University of Kelaniya University of Jaffna University of Ruhuna Eastern University, Sri Lanka South Eastern University of Sri Lanka', '006A'),
+(81, 6, 2, 1686, 3, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E.(Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics', '006B'),
+(82, 6, 3, 1686, 3, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E.(Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics ACADEMIC YEAR 2020/2021 - 51 ', '006C'),
+(83, 6, 4, 1686, 3, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E.(Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics ACADEMIC YEAR 2020/2021 - 51 ', '006D'),
+(84, 6, 6, 1686, 3, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E.(Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics ACADEMIC YEAR 2020/2021 - 51 ', '006E'),
+(85, 6, 7, 1686, 3, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E.(Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics ACADEMIC YEAR 2020/2021 - 51 ', '006F'),
+(86, 6, 8, 1686, 3, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E.(Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics ACADEMIC YEAR 2020/2021 - 51 ', '006H'),
+(87, 6, 9, 1686, 3, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E.(Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics ACADEMIC YEAR 2020/2021 - 51 ', '006J'),
+(88, 7, 10, 410, -1, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E. (Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics', '007K'),
+(89, 7, 11, 410, -1, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E. (Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics Names of the degree programm', '007L'),
+(90, 7, 17, 410, -1, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E. (Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics Names of the degree programm', '007R'),
+(91, 50, 10, 103, -1, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E. (Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics  Degree Programmes : B.Sc. ', '050K'),
+(92, 37, 2, 559, -1, 'At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E. (Advanced Level) Examination. In addition to that, at least a ‘S’ pass in English at the G.C.E. (Ordinary Level) Examination.', '037B'),
+(93, 37, 3, 559, -1, 'At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E. (Advanced Level) Examination. In addition to that, at least a ‘S’ pass in English at the G.C.E. (Ordinary Level) Examination.', '037C'),
+(94, 37, 6, 559, -1, 'At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E. (Advanced Level) Examination. In addition to that, at least a ‘S’ pass in English at the G.C.E. (Ordinary Level) Examination.', '037E'),
+(95, 37, 7, 559, -1, 'At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E. (Advanced Level) Examination. In addition to that, at least a ‘S’ pass in English at the G.C.E. (Ordinary Level) Examination.', '037F'),
+(96, 37, 8, 559, -1, 'At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E. (Advanced Level) Examination. In addition to that, at least a ‘S’ pass in English at the G.C.E. (Ordinary Level) Examination.', '037H');
+INSERT INTO `governmentcourseofferedbygovermentuniversity` (`id`, `gov_course_id`, `gov_uni_id`, `purposed_intake`, `duration`, `description`, `unicode`) VALUES
+(97, 37, 1, 559, -1, 'At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E. (Advanced Level) Examination. In addition to that, at least a ‘S’ pass in English at the G.C.E. (Ordinary Level) Examination.', '037A'),
+(98, 51, 2, 227, -1, 'At least a ‘C’ grade in Chemistry and ‘S’ grades in Physics and Biology at the G.C.E. (Advanced Level) Examination. In addition to that, at least a ‘S’ pass in English at the G.C.E. (Ordinary Level) Examination.', '051B'),
+(99, 51, 3, 227, -1, 'At least a ‘C’ grade in Chemistry and ‘S’ grades in Physics and Biology at the G.C.E. (Advanced Level) Examination. In addition to that, at least a ‘S’ pass in English at the G.C.E. (Ordinary Level) Examination.', '051C'),
+(100, 51, 6, 227, -1, 'At least a ‘C’ grade in Chemistry and ‘S’ grades in Physics and Biology at the G.C.E. (Advanced Level) Examination. In addition to that, at least a ‘S’ pass in English at the G.C.E. (Ordinary Level) Examination.', '051E'),
+(101, 51, 7, 227, -1, 'At least a ‘C’ grade in Chemistry and ‘S’ grades in Physics and Biology at the G.C.E. (Advanced Level) Examination. In addition to that, at least a ‘S’ pass in English at the G.C.E. (Ordinary Level) Examination.', '051F'),
+(102, 53, 2, 68, -1, 'At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E. (Advanced Level) Examination. In addition to that, at least a ‘S’ pass in English at the G.C.E. (Ordinary Level) Examination. University of Peradeniya offers a 120 credit curriculum', '053B'),
+(103, 54, 1, 101, -1, 'At least ‘S’ grades in Physics, Chemistry and the third subject from the following subjects at the G.C.E. (Advanced Level) Examination;  Biology  Mathematics  Higher Mathematics  Combined Mathematics In addition to that, at least a ‘S’ pass in English', '054A'),
+(104, 54, 2, 101, -1, 'At least ‘S’ grades in Physics, Chemistry and the third subject from the following subjects at the G.C.E. (Advanced Level) Examination;  Biology  Mathematics  Higher Mathematics  Combined Mathematics In addition to that, at least a ‘S’ pass in English', '054B'),
+(105, 58, 1, 80, -1, 'At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E. (Advanced Level) Examination.  Degree Programmes : B.Sc. Duration : 03 years : B.Sc. Honours (Biochemistry & Molecular Biology) Duration : 04 years B.Sc. Honours (Molecular Biology', '058A'),
+(106, 62, 7, 120, 4, 'At least three ‘S’ grades in Chemistry, Physics and Biology at the G.C.E. (Advanced Level) Examination.  Degree Programme : B.Sc. Honours in Fisheries and Marine Sciences  Fields of Specialization : Fisheries Sciences Aquaculture  Medium : English', '062F'),
+(107, 55, 4, 109, -1, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E. (Advanced Level) Examination;  Physics  Combined Mathematics  Mathematics  Agricultural Science ACADEMIC YEAR 2020/2021 - 56 - UNIVERSITY GRANTS ', '055D'),
+(108, 86, 2, 74, 4, 'At least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination; (i) Chemistry, Biology and Physics (ii) Chemistry, Biology and Agricultural Science  Degree Programme : B.Sc. in Animal Science & Fisherie', '086B'),
+(109, 87, 12, 139, 4, 'At least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination; (i) Chemistry; Physics; and Biology (ii) Chemistry; Physics or Mathematics; Biology or Agricultural Science (iii) Chemistry; Biology; Agric', '087M'),
+(110, 93, 7, 181, 4, 'At least three ‘S’ grades for one of the following combinations of subjects at G.C.E. (Advanced Level) Examination; (i) Chemistry; Physics; and Biology (ii) Chemistry; Physics or Mathematics; Biology or Agricultural Science (iii) Chemistry; Biology; Agric', '093F'),
+(111, 94, 7, 78, 4, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E.(Advanced Level) Examination;  Physics  Agricultural Science  Food Technology /Bio - Resource Technology/Agro Technology  Degree Programme : B.Sc.', '094F'),
+(112, 95, 7, 72, 4, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E.(Advanced Level) Examination;  Physics  Agricultural Science  Food Technology/Bio - Resource Technology/Agro Technology In addition to that, at lea', '095F'),
+(113, 67, 13, 108, 4, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E.(Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics  Degree Programme : Bachelor', '067U'),
+(114, 73, 13, 105, 4, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E.(Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics ACADEMIC YEAR 2020/2021 - 59 ', '073U'),
+(115, 88, 13, 114, 4, 'At least ‘S’ grades in Biology, Chemistry and the third subject from the following subjects at the G.C.E. (Advanced Level) Examination;  Agricultural Science  Higher Mathematics  Mathematics  Combined Mathematics  Physics  Degree Programme : Bachelo', '088U'),
+(116, 8, 2, 2213, -1, 'At least three ‘S’ grades in Chemistry, Combined Mathematics and Physics at the G.C.E. (Advanced Level) Examination.  Fields of specialization available are :   Civil Engineering  Chemical & Process Engineering  Computer Engineering  Electrical & Elec', '008B'),
+(117, 8, 6, 2213, -1, 'At least three ‘S’ grades in Chemistry, Combined Mathematics and Physics at the G.C.E. (Advanced Level) Examination. Fields of specialization available are :   Civil Engineering  Electrical and Electronic Engineering  Mechanical Engineering  Computer ', '008E'),
+(118, 8, 7, 2213, -1, 'At least three ‘S’ grades in Chemistry, Combined Mathematics and Physics at the G.C.E. (Advanced Level) Examination. Fields of specialization available are :   Civil and Environmental Engineering  Electrical and Information Engineering  Mechanical and ', '008F'),
+(119, 8, 5, 2213, -1, 'At least three ‘S’ grades in Chemistry, Combined Mathematics and Physics at the G.C.E. (Advanced Level) Examination. Fields of specialization available are :   Biomedical Engineering  Electrical Engineering  Chemical & Process Engineering  Electronic ', '008G'),
+(120, 8, 9, 2213, -1, 'At least three ‘S’ grades in Chemistry, Combined Mathematics and Physics at the G.C.E. (Advanced Level) Examination. Fields of specialization available are :   Civil Engineering  Electrical Engineering #  Electronic Engineering #  Mechanical Engineeri', '008J'),
+(121, 8, 3, 2213, -1, 'At least three ‘S’ grades in Chemistry, Combined Mathematics and Physics at the G.C.E. (Advanced Level) Examination. Fields of specialization available are :   Civil Engineering  Computer Engineering  Electrical and E', '008C'),
+(122, 9, 5, 80, 4, 'At least three ‘S’ grades in Chemistry, Combined Mathematics and Physics at the G.C.E. (Advanced Level) Examination', '009G'),
+(123, 10, 5, 98, 4, 'At least three ‘S’ grades in Chemistry, Combined Mathematics and Physics at the G.C.E. (Advanced Level) Examination  Degree Programme : Bachelor of the Science of Engineering Honours in Textile & Apparel Engineering [BScEngHons (Textile & Apparel Enginee', '010G'),
+(124, 13, 1, 2327, -1, 'At least ‘S’ grades in following three subjects at the G.C.E. (Advanced Level) Examination and the three subjects must include; 1. Combined Mathematics or Higher Mathematics and 2. Chemistry or Physics and the third subject from the list given below;  Ag', '013A'),
+(125, 13, 2, 2327, -1, 'At least ‘S’ grades in following three subjects at the G.C.E. (Advanced Level) Examination and the three subjects must include; 1. Combined Mathematics or Higher Mathematics and 2. Chemistry or Physics and the third subject from the list given below;  Ag', '013B'),
+(126, 13, 3, 2327, -1, 'At least ‘S’ grades in following three subjects at the G.C.E. (Advanced Level) Examination and the three subjects must include; 1. Combined Mathematics or Higher Mathematics and 2. Chemistry or Physics and the third subject from the list given below;  Ag', '013C'),
+(127, 13, 4, 2327, -1, 'At least ‘S’ grades in following three subjects at the G.C.E. (Advanced Level) Examination and the three subjects must include; 1. Combined Mathematics or Higher Mathematics and 2. Chemistry or Physics and the third subject from the list given below;  Ag', '013D'),
+(128, 13, 6, 2327, -1, 'At least ‘S’ grades in following three subjects at the G.C.E. (Advanced Level) Examination and the three subjects must include; 1. Combined Mathematics or Higher Mathematics and 2. Chemistry or Physics and the third subject from the list given below;  Ag', '013E'),
+(129, 13, 7, 2327, -1, 'At least ‘S’ grades in following three subjects at the G.C.E. (Advanced Level) Examination and the three subjects must include; 1. Combined Mathematics or Higher Mathematics and 2. Chemistry or Physics and the third subject from the list given below;  Ag', '013F'),
+(130, 13, 8, 2327, -1, 'At least ‘S’ grades in following three subjects at the G.C.E. (Advanced Level) Examination and the three subjects must include; 1. Combined Mathematics or Higher Mathematics and 2. Chemistry or Physics and the third subject from the list given below;  Ag', '013H'),
+(131, 13, 9, 2327, -1, 'At least ‘S’ grades in following three subjects at the G.C.E. (Advanced Level) Examination and the three subjects must include; 1. Combined Mathematics or Higher Mathematics and 2. Chemistry or Physics and the third subject from the list given below;  Ag', '013J'),
+(132, 12, 6, 647, 3, 'At least a ‘C’ grade in Combined Mathematics or Physics or Higher Mathematics; and At least ‘S’ grades in two other subjects listed below at the G.C.E. (Advanced Level) Examination;  Combined Mathematics  Higher Mathematics  Mathematics  Physics  Che', '012E'),
+(133, 12, 7, 647, 3, 'At least a ‘C’ grade in Combined Mathematics or Physics or Higher Mathematics; and At least ‘S’ grades in two other subjects listed below at the G.C.E. (Advanced Level) Examination;  Combined Mathematics  Higher Mathematics  Mathematics  Physics  Che', '012F'),
+(134, 12, 20, 647, 3, 'At least a ‘C’ grade in Combined Mathematics or Physics or Higher Mathematics; and At least ‘S’ grades in two other subjects listed below at the G.C.E. (Advanced Level) Examination;  Combined Mathematics  Higher Mathematics  Mathematics  Physics  Che', '012T'),
+(135, 12, 16, 647, 3, 'At least a ‘C’ grade in Combined Mathematics or Physics or Higher Mathematics; and At least ‘S’ grades in two other subjects listed below at the G.C.E. (Advanced Level) Examination;  Combined Mathematics  Higher Mathematics  Mathematics  Physics  Che', '012W'),
+(136, 12, 4, 647, 3, 'At least a ‘C’ grade in Combined Mathematics or Physics or Higher Mathematics; and At least ‘S’ grades in two other subjects listed below at the G.C.E. (Advanced Level) Examination;  Combined Mathematics  Higher Mathematics  Mathematics  Physics  Che', '012D'),
+(137, 15, 10, 768, -1, 'At least ‘S’ grades in following three subjects at the G.C.E. (Advanced Level) Examination and the three subjects must include; 1. Combined Mathematics or Higher Mathematics and 2. Chemistry or Physics and the third subject from the list given below;  Ag', '015K'),
+(138, 15, 11, 768, -1, 'At least ‘S’ grades in following three subjects at the G.C.E. (Advanced Level) Examination and the three subjects must include; 1. Combined Mathematics or Higher Mathematics and 2. Chemistry or Physics and the third subject from the list given below;  Ag', '015L'),
+(139, 15, 12, 768, -1, 'At least ‘S’ grades in following three subjects at the G.C.E. (Advanced Level) Examination and the three subjects must include; 1. Combined Mathematics or Higher Mathematics and 2. Chemistry or Physics and the third subject from the list given below;  Ag', '015M'),
+(140, 15, 17, 768, -1, 'At least ‘S’ grades in following three subjects at the G.C.E. (Advanced Level) Examination and the three subjects must include; 1. Combined Mathematics or Higher Mathematics and 2. Chemistry or Physics and the third subject from the list given below;  Ag', '015R'),
+(141, 15, 16, 768, -1, 'At least ‘S’ grades in following three subjects at the G.C.E. (Advanced Level) Examination and the three subjects must include; 1. Combined Mathematics or Higher Mathematics and 2. Chemistry or Physics and the third subject from the list given below;  Ag', '015W'),
+(142, 57, 5, 91, 4, 'At least three ‘S’ grades in Chemistry, Combined Mathematics and Physics at the G.C.E. (Advanced Level) Examination.  Degree Programme : Bachelor of the Science of Engineering Honours in Transport Management & Logistics Engineering [BScEngHons (Transport', '057G'),
+(143, 59, 1, 121, -1, 'At least ‘S’ grades in Combined Mathematics and any two subjects given below, at the G.C.E. (Advanced Level) Examination; • Higher Mathematics • Physics • Chemistry  Degree Programmes : B.Sc. (General Degree) Duration : 03 years B.Sc. (General Degree) Du', '059A'),
+(144, 60, 2, 79, 4, 'At least ‘S’ grades in Combined Mathematics and two of the following subjects at the G.C.E. (Advanced Level) Examination; • Biology • Chemistry • Physics • Agricultural Science • Mathematics • Higher Mathematics • Information & Communication Technology  ', '060B'),
+(145, 108, 3, 156, 3, 'At least ‘S’ grades in Combined Mathematics, Physics and Information and Communication Technology at the G.C.E. (Advanced Level) Examination.  Degree Programmes : B.Sc. in Physics and ICT [BSc (PICT)]', '108C'),
+(146, 108, 4, 156, 3, 'At least ‘S’ grades in Combined Mathematics, Physics and Information and Communication Technology at the G.C.E. (Advanced Level) Examination.  Degree Programmes : B.Sc. in Physics and Electronics', '108D'),
+(147, 102, 3, 1301, -1, 'At least “S” grades for Engineering Technology (ET), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '102C'),
+(148, 102, 4, 1301, -1, 'At least “S” grades for Engineering Technology (ET), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '102D'),
+(149, 102, 6, 1301, -1, 'At least “S” grades for Engineering Technology (ET), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '102E'),
+(150, 102, 7, 1301, -1, 'At least “S” grades for Engineering Technology (ET), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '102F'),
+(151, 102, 10, 1301, -1, 'At least “S” grades for Engineering Technology (ET), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '102K'),
+(152, 102, 13, 1301, -1, 'At least “S” grades for Engineering Technology (ET), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '102U'),
+(153, 102, 12, 1301, -1, 'At least “S” grades for Engineering Technology (ET), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '102M'),
+(154, 102, 1, 1301, -1, 'At least “S” grades for Engineering Technology (ET), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '102A'),
+(155, 102, 11, 1301, -1, 'At least “S” grades for Engineering Technology (ET), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '102L'),
+(156, 103, 3, 1221, -1, 'At least “S” grades for Biosystems Technology (BST), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '103C'),
+(157, 103, 6, 1221, -1, 'At least “S” grades for Biosystems Technology (BST), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '103E'),
+(158, 103, 8, 1221, -1, 'At least “S” grades for Biosystems Technology (BST), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '103H'),
+(159, 103, 10, 1221, -1, 'At least “S” grades for Biosystems Technology (BST), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '103K'),
+(160, 103, 9, 1221, -1, 'At least “S” grades for Biosystems Technology (BST), Science for Technology (SFT) and for third subject from among;  Economics  Geography  Home Economics  English  Communication and Media Studies  Information & Communication Technology  Art  Busin', '103J'),
 (161, 103, 13, -1, -1, '-1', '103U'),
 (162, 103, 12, -1, -1, '-1', '103M'),
 (163, 103, 1, -1, -1, '-1', '103A'),
@@ -843,8 +1102,7 @@ INSERT INTO `governmentcourseofferedbygovermentuniversity` (`id`, `gov_course_id
 (242, 52, 3, -1, -1, '-1', '052C'),
 (243, 52, 6, -1, -1, '-1', '052E'),
 (244, 52, 7, -1, -1, '-1', '052F'),
-(245, 38, 10, -1, -1, '-1', '104K'),
-(246, 61, 2, -1, -1, '-1', '-1');
+(245, 38, 10, -1, -1, '-1', '104K');
 
 -- --------------------------------------------------------
 
@@ -854,10 +1112,10 @@ INSERT INTO `governmentcourseofferedbygovermentuniversity` (`id`, `gov_course_id
 
 CREATE TABLE `intakenotices` (
   `notice_id` int(11) NOT NULL,
-  `content` varchar(255) NOT NULL,
-  `paid_date` date NOT NULL,
-  `uni_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `paid_date` date NOT NULL DEFAULT current_timestamp(),
+  `private_uni_id` int(11) NOT NULL,
+  `post_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -871,15 +1129,7 @@ CREATE TABLE `jobapplicants` (
   `post_id` int(11) NOT NULL,
   `interaction` varchar(100) DEFAULT NULL,
   `applied_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `jobapplicants`
---
-
-INSERT INTO `jobapplicants` (`job_apply_id`, `user_id`, `post_id`, `interaction`, `applied_date`) VALUES
-(1, 4, 3, 'apply removed', '0000-00-00'),
-(2, 5, 3, 'apply removed', '0000-00-00');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -889,10 +1139,10 @@ INSERT INTO `jobapplicants` (`job_apply_id`, `user_id`, `post_id`, `interaction`
 
 CREATE TABLE `jobs` (
   `job_id` int(11) NOT NULL,
-  `job_title` varchar(100) NOT NULL,
-  `content` varchar(255) NOT NULL,
-  `company_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `paid_date` date NOT NULL DEFAULT current_timestamp(),
+  `company_id` int(11) NOT NULL,
+  `post_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -909,15 +1159,15 @@ CREATE TABLE `mentor` (
   `mentor_type` varchar(20) NOT NULL,
   `institute` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mentor`
 --
 
 INSERT INTO `mentor` (`mentor_id`, `email`, `phn_no`, `address`, `gender`, `mentor_type`, `institute`, `password`) VALUES
-(8, 'tharindu4151@gmail.com', 361486291, 'No 30, Esplanade Rd Uyanwatta, Matara', 'Male', 'Professional Guider', 'abc Institute', '$2y$10$12phD6pcClHASfsQMtqSPeX4TWIgxXfaDsKZ7gKSD4Srmomz2Qo1G'),
-(9, 'pubudu4151@gmail.com', 768913423, 'No 57, Lake, Circular Rd, Kurunegala', 'Male', 'Teacher', NULL, '$2y$10$nEZIakq8bBS7oZhDbsYrxO3.5IoAjM2ZFs9xKN/3NsYGTUm9NMKGm');
+(8, 'tharindu4151@gmail.com', 361486291, 'No 30, Esplanade Rd Uyanwatta, Matara', 'Male', 'Professional Guider', 'abc Institute', '$2y$10$6XQdbr2TC/sXxqdmsINATOawnTNoEuuM75pZHvg7B3s6HWUi8UUTq'),
+(9, 'pubudu4151@gmail.com', 768913423, 'No 57, Lake, Circular Rd, Kurunegala', 'Male', 'Teacher', NULL, '$2y$10$jlm/NaZSrmOPmTudO8yX8OAz.YbXUh0u7gmLvdAv4N16EsylKts5i');
 
 -- --------------------------------------------------------
 
@@ -946,17 +1196,18 @@ CREATE TABLE `olqualifiedstudent` (
   `ol_sub8_id` int(11) NOT NULL,
   `ol_sub8_grade` char(1) NOT NULL,
   `ol_sub9_id` int(11) NOT NULL,
-  `ol_sub9_grade` char(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `ol_sub9_grade` char(1) NOT NULL,
+  `ol_result_file` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `olqualifiedstudent`
 --
 
-INSERT INTO `olqualifiedstudent` (`stu_id`, `ol_school`, `ol_district`, `ol_sub1_id`, `ol_sub1_grade`, `ol_sub2_id`, `ol_sub2_grade`, `ol_sub3_id`, `ol_sub3_grade`, `ol_sub4_id`, `ol_sub4_grade`, `ol_sub5_id`, `ol_sub5_grade`, `ol_sub6_id`, `ol_sub6_grade`, `ol_sub7_id`, `ol_sub7_grade`, `ol_sub8_id`, `ol_sub8_grade`, `ol_sub9_id`, `ol_sub9_grade`) VALUES
-(3, 'Mahanama College', 'Colombo', 1, 'A', 6, 'A', 8, 'A', 9, 'A', 10, 'A', 11, 'A', 12, 'A', 28, 'A', 39, 'A'),
-(4, 'C.W.W. Kannangara Vidyalaya', 'Colombo', 1, 'A', 6, 'A', 8, 'A', 9, 'A', 10, 'A', 11, 'A', 12, 'A', 28, 'A', 39, 'A'),
-(5, 'Carey College, Borella', 'Colombo', 1, 'A', 6, 'A', 8, 'A', 9, 'A', 10, 'A', 11, 'A', 12, 'A', 28, 'A', 39, 'A');
+INSERT INTO `olqualifiedstudent` (`stu_id`, `ol_school`, `ol_district`, `ol_sub1_id`, `ol_sub1_grade`, `ol_sub2_id`, `ol_sub2_grade`, `ol_sub3_id`, `ol_sub3_grade`, `ol_sub4_id`, `ol_sub4_grade`, `ol_sub5_id`, `ol_sub5_grade`, `ol_sub6_id`, `ol_sub6_grade`, `ol_sub7_id`, `ol_sub7_grade`, `ol_sub8_id`, `ol_sub8_grade`, `ol_sub9_id`, `ol_sub9_grade`, `ol_result_file`) VALUES
+(3, 'Ananda College', 'Colombo', 1, 'A', 6, 'B', 8, 'C', 9, 'D', 10, 'E', 11, 'D', 12, 'C', 28, 'B', 39, 'A', '1641679544_ol_res_sheet.png'),
+(4, 'Bandaranayaka College', 'Colombo', 1, 'A', 6, 'B', 8, 'C', 9, 'C', 10, 'A', 11, 'A', 12, 'D', 28, 'D', 39, 'A', '1641679703_ol_res_sheet.png'),
+(5, 'Hanwella rajasinghe central college', 'Colombo', 1, 'A', 6, 'A', 8, 'B', 9, 'A', 10, 'A', 11, 'A', 12, 'A', 33, 'B', 39, 'A', '1641679904_ol_res_sheet.png');
 
 -- --------------------------------------------------------
 
@@ -969,7 +1220,7 @@ CREATE TABLE `olsubject` (
   `ol_sub_name` varchar(255) NOT NULL,
   `ol_category` varchar(255) NOT NULL,
   `ol_type` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `olsubject`
@@ -1042,15 +1293,15 @@ CREATE TABLE `organization` (
   `founder` varchar(255) NOT NULL,
   `founded_year` int(11) NOT NULL,
   `org_type` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `organization`
 --
 
 INSERT INTO `organization` (`org_id`, `address`, `email`, `password`, `phone_no`, `website_address`, `founder`, `founded_year`, `org_type`) VALUES
-(6, '123, Jasmine Road, Colombo 3', 'unisliitlk@gmail.com', '$2y$10$O19mMmhglJxRpBT.r50/3OnCnFt1xD7qGFoNc8BS5gWCu5G7HpQYS', '0714526390', 'www.sliit.lk', 'Mandila wimalasiri', 2004, 'University'),
-(7, '456, Galle road, Colombo', 'abcgroup202@gmail.com', '$2y$10$vEj1uPZ6zkXyoSdo4xP6OeoElHAqhcRHVkcWVtag27WzyIacDWh/K', '0112345678', 'www.abc.com', 'Mark perera', 2004, 'Company');
+(6, '123, Jasmine Road, Colombo 3', 'unisliitlk@gmail.com', '$2y$10$SMy/ZF75n5/PzTKvznShwuHPiaWz7KEnpEl10SSwnZbK/7e42Ernm', '0714526390', 'www.sliit.lk', 'Mandila', 2004, 'University'),
+(7, '456, Galle road, Colombo', 'abcgroup202@gmail.com', '$2y$10$.E/oBAI3/Zzy4Zcj9slx7.3iYSb/GUohJWAr.SBHqBEbDyio/s2NK', '0112345678', 'www.abc.com', 'Mark perera', 2004, 'Company');
 
 -- --------------------------------------------------------
 
@@ -1063,18 +1314,7 @@ CREATE TABLE `postinteractions` (
   `user_id` int(11) DEFAULT NULL,
   `post_id` int(11) DEFAULT NULL,
   `interaction` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `postinteractions`
---
-
-INSERT INTO `postinteractions` (`interaction_id`, `user_id`, `post_id`, `interaction`) VALUES
-(1, 4, 2, 'liked'),
-(2, 5, 1, 'liked'),
-(3, 3, 1, 'liked'),
-(4, 2, 4, 'liked'),
-(5, 4, 4, 'liked');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1088,25 +1328,16 @@ CREATE TABLE `posts` (
   `type` varchar(20) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `title` varchar(255) NOT NULL,
-  `body` text DEFAULT NULL,
+  `body` longtext DEFAULT NULL,
   `applied` int(11) DEFAULT NULL,
   `capacity` int(11) DEFAULT NULL,
   `ups` int(11) DEFAULT NULL,
   `downs` int(11) DEFAULT NULL,
   `shares` int(11) DEFAULT NULL,
   `views` int(11) DEFAULT NULL,
+  `payed` int(11) DEFAULT 0,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `posts`
---
-
-INSERT INTO `posts` (`id`, `user_id`, `type`, `image`, `title`, `body`, `applied`, `capacity`, `ups`, `downs`, `shares`, `views`, `created_at`) VALUES
-(1, 8, 'banner', '1635070084_d9c61564-8d38-45de-9b99-68f47f4d7f8d.jpg', 'Career Counselling', 'For school, College students and Graduates. Enroll with us today', 2, 50, 2, 0, 0, 0, '2021-10-24 15:38:04'),
-(2, 9, 'poster', '1635070173_80eb2485-e32e-42a6-b684-f9de305b8d8f.jpg', 'Learn Python from the beginning', 'Classes will be held on Sunday and Wednesday 11.00 a.m to 2.00 p.m via zoom.', 1, 100, 1, 0, 0, 0, '2021-10-24 15:39:33'),
-(3, 7, 'advertisement', '1635070272_7fe802d5-0d9f-4c8b-8f4c-dfd427a81bfa.jpg', 'We are hiring now !!!', 'Send your CV and latest photograph to us', 0, 10, 0, 0, 0, 0, '2021-10-24 15:41:12'),
-(4, 6, 'coursepost', '1635070328_9c865896-9f9f-43cb-9a46-846d0577c75f.jpg', 'SLIIT - September Intake', 'Admissions are now open for 2021 September intake. Apply Now', 0, 0, 2, 0, 0, 0, '2021-10-24 15:42:08');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1116,9 +1347,11 @@ INSERT INTO `posts` (`id`, `user_id`, `type`, `image`, `title`, `body`, `applied
 
 CREATE TABLE `privatecourses` (
   `privatecourse_id` int(11) NOT NULL,
+  `provide_degree` varchar(255) DEFAULT NULL,
   `course_fee` varchar(50) DEFAULT NULL,
-  `private_uni_Id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `private_uni_id` int(11) NOT NULL,
+  `post_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1134,14 +1367,14 @@ CREATE TABLE `privateuniversity` (
   `graduate_job_rate` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `uni_type` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `privateuniversity`
 --
 
 INSERT INTO `privateuniversity` (`privateuni_id`, `ugc_approval`, `world_rank`, `student_amount`, `graduate_job_rate`, `description`, `uni_type`) VALUES
-(6, 'Yes', 2422, 7790, 98, 'We are a leading non-state degree awarding institute approved by the University Grants Commission (UGC)', 'Private');
+(6, 'Yes', 5000, 5000, 98, 'We are a leading non-state degree awarding institute approved by the University Grants Commission (UGC)', 'Private');
 
 -- --------------------------------------------------------
 
@@ -1156,7 +1389,7 @@ CREATE TABLE `profguide` (
   `subject1` varchar(255) NOT NULL,
   `subject2` varchar(255) DEFAULT NULL,
   `subject3` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1170,15 +1403,19 @@ CREATE TABLE `profguiderenrollments` (
   `post_id` int(11) NOT NULL,
   `interaction` varchar(100) DEFAULT NULL,
   `applied_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `profguiderenrollments`
+-- Table structure for table `report`
 --
 
-INSERT INTO `profguiderenrollments` (`enroll_id`, `user_id`, `post_id`, `interaction`, `applied_date`) VALUES
-(1, 4, 1, 'applied', '0000-00-00'),
-(2, 5, 1, 'applied', '0000-00-00');
+CREATE TABLE `report` (
+  `reported_id` int(11) NOT NULL,
+  `reporter_id` int(11) NOT NULL,
+  `report` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1193,19 +1430,7 @@ CREATE TABLE `review` (
   `rate` int(11) DEFAULT NULL,
   `review` text DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `review`
---
-
-INSERT INTO `review` (`review_id`, `post_id`, `user_id`, `rate`, `review`, `created_at`) VALUES
-(1, 1, 3, 5, 'Everything on this session was goldmine.', '2021-10-24 19:08:21'),
-(2, 1, 2, 4, 'This session proved to be an overall great knowledge booster.', '2021-10-24 19:09:17'),
-(3, 2, 4, 4, 'If you can cover all application cases it would be easy.', '2021-10-24 19:10:39'),
-(4, 2, 4, 5, 'If you can cover all application cases it would be easy.', '2021-10-24 19:11:04'),
-(5, 4, 3, 3, 'Good course. High demand in IT job field for this course.', '2021-10-24 19:32:25'),
-(7, 4, 4, 4, 'Good course and fair course fee from respectable university.', '2021-10-24 19:34:29');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1218,7 +1443,7 @@ CREATE TABLE `school` (
   `name` varchar(255) DEFAULT NULL,
   `type` varchar(50) DEFAULT NULL,
   `district_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `school`
@@ -1586,13 +1811,46 @@ INSERT INTO `school` (`school_id`, `name`, `type`, `district_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sessionlink`
+--
+
+CREATE TABLE `sessionlink` (
+  `id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `body` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `socialprofiles`
+--
+
+CREATE TABLE `socialprofiles` (
+  `profile_record_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `facebook` varchar(255) DEFAULT NULL,
+  `twitter` varchar(255) DEFAULT NULL,
+  `linkedin` varchar(255) DEFAULT NULL,
+  `instagram` varchar(255) DEFAULT NULL,
+  `medium` varchar(255) DEFAULT NULL,
+  `printerest` varchar(255) DEFAULT NULL,
+  `youtube` varchar(255) DEFAULT NULL,
+  `reddit` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `steamselectedbyalqualifiedstudent`
 --
 
 CREATE TABLE `steamselectedbyalqualifiedstudent` (
   `stu_id` int(11) NOT NULL,
   `stream_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1603,7 +1861,7 @@ CREATE TABLE `steamselectedbyalqualifiedstudent` (
 CREATE TABLE `stream` (
   `stream_id` int(11) NOT NULL,
   `stream_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `stream`
@@ -1615,7 +1873,7 @@ INSERT INTO `stream` (`stream_id`, `stream_name`) VALUES
 (3, 'Biological Science'),
 (4, 'Physical Science (Maths)'),
 (5, 'Engineering Technology'),
-(6, 'Biosystems Technology (BST)'),
+(6, 'Biosystems Technology(BST)'),
 (7, 'Other');
 
 -- --------------------------------------------------------
@@ -1631,7 +1889,7 @@ CREATE TABLE `student` (
   `date_of_birth` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `phn_no` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `student`
@@ -1640,8 +1898,8 @@ CREATE TABLE `student` (
 INSERT INTO `student` (`stu_id`, `address`, `gender`, `date_of_birth`, `email`, `phn_no`) VALUES
 (2, '12/a, Kahahena, Waga', 'Male', '2002-05-15', 'denethchamodya03@gmail.com', '0714526390'),
 (3, '34/c, Meepe, Padukka', 'Male', '2001-03-17', 'disaladivanjana@gmail.com', '0719236558'),
-(4, '34/e, Kotikawatta, Padukka', 'Male', '2000-05-20', 'gimanthaanupama008@gmail.com', '0763399475'),
-(5, '131/c, Kahatapitiya, Hanwella', 'Male', '1999-11-12', 'dhanushkasandakelum711@gmail.com', '0775642956');
+(4, '34/e, Kotikawatta, Padukka', 'Male', '2000-03-17', 'gimanthaanupama008@gmail.com', '0763399475'),
+(5, '131/c Kahatapitiya hanwella', 'Male', '1999-11-12', 'dhanushkasandakelum711@gmail.com', '0775642956');
 
 -- --------------------------------------------------------
 
@@ -1654,7 +1912,7 @@ CREATE TABLE `teacher` (
   `mentor_id` int(11) NOT NULL,
   `school` varchar(255) NOT NULL,
   `subjects` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1668,14 +1926,7 @@ CREATE TABLE `teacherenrollments` (
   `post_id` int(11) NOT NULL,
   `interaction` varchar(100) DEFAULT NULL,
   `applied_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `teacherenrollments`
---
-
-INSERT INTO `teacherenrollments` (`enroll_id`, `user_id`, `post_id`, `interaction`, `applied_date`) VALUES
-(1, 4, 2, 'applied', '0000-00-00');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1689,14 +1940,14 @@ CREATE TABLE `undergraduategraduate` (
   `uni_type` varchar(255) NOT NULL,
   `uni_name` varchar(255) NOT NULL,
   `gpa` decimal(5,4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `undergraduategraduate`
 --
 
 INSERT INTO `undergraduategraduate` (`stu_id`, `degree`, `uni_type`, `uni_name`, `gpa`) VALUES
-(5, 'Computer Science', 'Government', 'University of Colombo School of Computing', '3.8888');
+(5, 'Computer Science', 'Government', 'University of Colombo School of Computing', '3.9126');
 
 -- --------------------------------------------------------
 
@@ -1708,7 +1959,7 @@ CREATE TABLE `unicodes` (
   `uni_code` char(4) NOT NULL,
   `gov_uni_id` int(11) NOT NULL,
   `gov_course_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1719,7 +1970,7 @@ CREATE TABLE `unicodes` (
 CREATE TABLE `universitytype` (
   `uni_type_id` int(11) NOT NULL,
   `uni_type_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `universitytype`
@@ -1746,22 +1997,43 @@ CREATE TABLE `users` (
   `actor_type` varchar(255) NOT NULL,
   `specialized_actor_type` varchar(255) NOT NULL,
   `status` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `profile_image`, `first_name`, `last_name`, `email`, `password`, `actor_type`, `specialized_actor_type`, `status`) VALUES
-(1, '1635067735_adminwhiz.png', 'Admin', NULL, 'whizweblk@gmail.com', '$2y$10$83r9z7UOUd6140lFb0CK6eX3Eblo3MR8fwMc3yxBNb7S1yaFNnscq', 'Admin', 'Admin', 'verified'),
-(2, '1635067869_deneth76619278_544743686322459_5761430540020350976_n.jpg', 'Deneth', 'Chamodya', 'denethchamodya03@gmail.com', '$2y$10$uDBbU2KJkUxfubpcdbTJx.LEQFxse3Da922BDBp3DuGzOg5B7Nx8O', 'Student', 'Beginner', 'verified'),
-(3, '1635068007_divanjana175432290_2988468581430438_8059759429240737324_n.jpg', 'Divanjana', 'Disala', 'disaladivanjana@gmail.com', '$2y$10$uxVa.M2.bCb7VjVKOn3joeuyeyUj3tHcd4rzwxfUsOmmhsud1utce', 'Student', 'OL qualified', 'verified'),
-(4, '1635068262_gimantha57104149_2292669454124047_8613897447199997952_n.jpg', 'Gimantha', 'Anupama', 'gimanthaanupama008@gmail.com', '$2y$10$5xUqEBL4Byx/Ekv8WyjZReVwlzrLqXJ8QA7RcbcuaW8H8Xj6PJF2e', 'Student', 'AL qualified', 'verified'),
-(5, '1635068606_Dhanushka_pic.jpg', 'Dhanushka', 'Sandakelum', 'dhanushkasandakelum711@gmail.com', '$2y$10$RKo12K3g7GQ9zDk/d7fWrOc5hcR7NmnXhdhfaz5Tgoh3FLsn4glmO', 'Student', 'Undergraduate Graduate', 'verified'),
-(6, '1635069017_sliitfd61a3b2-fbf1-4d5b-9b0f-8702058bdd5c.jpg', 'SLIIT', NULL, 'unisliitlk@gmail.com', '$2y$10$O19mMmhglJxRpBT.r50/3OnCnFt1xD7qGFoNc8BS5gWCu5G7HpQYS', 'Organization', 'University', 'verified'),
-(7, '1635069224_abc2296d3db-eac7-4616-aae0-65ee01127d26.jpg', 'ABC', NULL, 'abcgroup202@gmail.com', '$2y$10$vEj1uPZ6zkXyoSdo4xP6OeoElHAqhcRHVkcWVtag27WzyIacDWh/K', 'Organization', 'Company', 'verified'),
-(8, '1635069584_tharindu82271b09-b13a-46fa-9e8d-a55f1aa64186.jpg', 'Tharindu', 'Amarasekara', 'tharindu4151@gmail.com', '$2y$10$12phD6pcClHASfsQMtqSPeX4TWIgxXfaDsKZ7gKSD4Srmomz2Qo1G', 'Mentor', 'Professional Guider', 'verified'),
-(9, '1635069687_pubudu73f7e870-17f5-4f53-a479-570d74961101.jpg', 'Pubudu', 'Pathirana', 'pubudu4151@gmail.com', '$2y$10$nEZIakq8bBS7oZhDbsYrxO3.5IoAjM2ZFs9xKN/3NsYGTUm9NMKGm', 'Mentor', 'Teacher', 'verified');
+(1, '1641679023_admin-profile-pic.png', 'Admin', NULL, 'whizweblk@gmail.com', '$2y$10$u7sdhasK5RbAV0CIJlaJF.leHpx8M2J0iakKMQLuptVoUwxzOGyWy', 'Admin', 'Admin', 'verified'),
+(2, '1641679196_deneth.jpg', 'Deneth', 'Chamodya', 'denethchamodya03@gmail.com', '$2y$10$mSHLwtHU/Nb91.g5myxqe.xeu4NuikHAQUmR28yWnviSJmGYXRZpm', 'Student', 'Beginner', 'not verified'),
+(3, '1641679280_divanjana.jpg', 'Divanjana', 'Disala', 'disaladivanjana@gmail.com', '$2y$10$agla9XFqMUdbGrOaXE2rfO1r2bhmT0GfXPY3Iry.zaOb9r83xSKnS', 'Student', 'OL qualified', 'not verified'),
+(4, '1641679643_gimantha.jpg', 'Gimantha', 'Anupama', 'gimanthaanupama008@gmail.com', '$2y$10$vZBZDmf33Md8Gz1DAz5QaObZpXUQNibTMPYznPUCIq31z2cZQwiXm', 'Student', 'AL qualified', 'not verified'),
+(5, '1641679835_dhanushka.jpg', 'Dhanushka', 'sandakelum', 'dhanushkasandakelum711@gmail.com', '$2y$10$IuVqRXfYVH8m2AJLg2.4Y.6W0YlvsylztYPKCQYJU.VbVYmjG27rS', 'Student', 'Undergraduate Graduate', 'not verified'),
+(6, '1641680153_sliit.jpg', 'SLIIT', NULL, 'unisliitlk@gmail.com', '$2y$10$SMy/ZF75n5/PzTKvznShwuHPiaWz7KEnpEl10SSwnZbK/7e42Ernm', 'Organization', 'University', 'not verified'),
+(7, '1641680269_abc.png', 'ABC', NULL, 'abcgroup202@gmail.com', '$2y$10$.E/oBAI3/Zzy4Zcj9slx7.3iYSb/GUohJWAr.SBHqBEbDyio/s2NK', 'Organization', 'Company', 'not verified'),
+(8, '1641680372_tharindu.jpg', 'Tharindu', 'Amarasekara', 'tharindu4151@gmail.com', '$2y$10$6XQdbr2TC/sXxqdmsINATOawnTNoEuuM75pZHvg7B3s6HWUi8UUTq', 'Mentor', 'Professional Guider', 'not verified'),
+(9, '1641680446_pubudu.jpg', 'Pubudu', 'Pathirana', 'pubudu4151@gmail.com', '$2y$10$jlm/NaZSrmOPmTudO8yX8OAz.YbXUh0u7gmLvdAv4N16EsylKts5i', 'Mentor', 'Teacher', 'not verified');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_community`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_community` (
+`user_id` int(11)
+,`profile_image` varchar(255)
+,`first_name` varchar(255)
+,`last_name` varchar(255)
+,`actor_type` varchar(255)
+,`specialized_actor_type` varchar(255)
+,`status` varchar(15)
+,`thread_id` int(11)
+,`title` text
+,`body` text
+,`views` int(11)
+,`created_at` datetime
+);
 
 -- --------------------------------------------------------
 
@@ -1782,11 +2054,12 @@ CREATE TABLE `v_complete_posts` (
 ,`status` varchar(15)
 ,`postCreated` datetime
 ,`title` varchar(255)
-,`body` text
+,`body` longtext
 ,`applied` int(11)
 ,`capacity` int(11)
 ,`ups` int(11)
 ,`downs` int(11)
+,`payed` int(11)
 ,`comment_count` bigint(21)
 ,`rate1` bigint(21)
 ,`rate2` bigint(21)
@@ -1819,12 +2092,118 @@ CREATE TABLE `v_enrol_student_list` (
 --
 CREATE TABLE `v_gov_course_and_university` (
 `id` int(11)
+,`gov_course_id` int(11)
 ,`gov_course_name` varchar(255)
+,`gov_uni_id` int(11)
 ,`uni_name` varchar(255)
-,`unicode` varchar(255)
+,`unicode` varchar(10)
 ,`purposed_intake` int(11)
 ,`duration` int(11)
-,`description` varchar(255)
+,`description` longtext
+,`stream_id` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_posts_courses`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_posts_courses` (
+`post_id` int(11)
+,`private_uni_id` int(11)
+,`type` varchar(20)
+,`image` varchar(255)
+,`actor_type` varchar(255)
+,`specialized_actor_type` varchar(255)
+,`profile_image` varchar(255)
+,`first_name` varchar(255)
+,`last_name` varchar(255)
+,`status` varchar(15)
+,`postCreated` datetime
+,`courseName` varchar(255)
+,`courseContent` longtext
+,`provide_degree` varchar(255)
+,`course_fee` varchar(50)
+,`applied` int(11)
+,`capacity` int(11)
+,`ups` int(11)
+,`downs` int(11)
+,`comment_count` bigint(21)
+,`rate1` bigint(21)
+,`rate2` bigint(21)
+,`rate3` bigint(21)
+,`rate4` bigint(21)
+,`rate5` bigint(21)
+,`review_count` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_posts_jobs`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_posts_jobs` (
+`post_id` int(11)
+,`company_id` int(11)
+,`type` varchar(20)
+,`image` varchar(255)
+,`actor_type` varchar(255)
+,`specialized_actor_type` varchar(255)
+,`profile_image` varchar(255)
+,`first_name` varchar(255)
+,`last_name` varchar(255)
+,`status` varchar(15)
+,`postCreated` datetime
+,`paid_date` date
+,`jobName` varchar(255)
+,`jobContent` longtext
+,`applied` int(11)
+,`capacity` int(11)
+,`ups` int(11)
+,`downs` int(11)
+,`comment_count` bigint(21)
+,`rate1` bigint(21)
+,`rate2` bigint(21)
+,`rate3` bigint(21)
+,`rate4` bigint(21)
+,`rate5` bigint(21)
+,`review_count` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_posts_notices`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_posts_notices` (
+`post_id` int(11)
+,`private_uni_id` int(11)
+,`type` varchar(20)
+,`image` varchar(255)
+,`actor_type` varchar(255)
+,`specialized_actor_type` varchar(255)
+,`profile_image` varchar(255)
+,`first_name` varchar(255)
+,`last_name` varchar(255)
+,`status` varchar(15)
+,`postCreated` datetime
+,`paid_date` date
+,`noticeName` varchar(255)
+,`noticeContent` longtext
+,`applied` int(11)
+,`capacity` int(11)
+,`ups` int(11)
+,`downs` int(11)
+,`comment_count` bigint(21)
+,`rate1` bigint(21)
+,`rate2` bigint(21)
+,`rate3` bigint(21)
+,`rate4` bigint(21)
+,`rate5` bigint(21)
+,`review_count` bigint(21)
 );
 
 -- --------------------------------------------------------
@@ -1953,11 +2332,12 @@ CREATE TABLE `v_posts_with_users` (
 ,`userId` int(11)
 ,`postCreated` datetime
 ,`title` varchar(255)
-,`body` text
+,`body` longtext
 ,`applied` int(11)
 ,`capacity` int(11)
 ,`ups` int(11)
 ,`downs` int(11)
+,`payed` int(11)
 );
 
 -- --------------------------------------------------------
@@ -1970,7 +2350,8 @@ CREATE TABLE `v_zscore_table` (
 `district_name` varchar(255)
 ,`gov_course_name` varchar(255)
 ,`uni_name` varchar(255)
-,`unicode` varchar(255)
+,`unicode` varchar(10)
+,`stream_id` int(11)
 ,`syllabus` varchar(100)
 ,`year` int(11)
 ,`z_score` decimal(5,4)
@@ -1989,7 +2370,7 @@ CREATE TABLE `zscoretable` (
   `syllabus` varchar(100) DEFAULT NULL,
   `year` int(11) DEFAULT NULL,
   `z_score` decimal(5,4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `zscoretable`
@@ -7704,11 +8085,20 @@ INSERT INTO `zscoretable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`,
 -- --------------------------------------------------------
 
 --
+-- Structure for view `v_community`
+--
+DROP TABLE IF EXISTS `v_community`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_community`  AS SELECT `users`.`id` AS `user_id`, `users`.`profile_image` AS `profile_image`, `users`.`first_name` AS `first_name`, `users`.`last_name` AS `last_name`, `users`.`actor_type` AS `actor_type`, `users`.`specialized_actor_type` AS `specialized_actor_type`, `users`.`status` AS `status`, `community`.`thread_id` AS `thread_id`, `community`.`title` AS `title`, `community`.`body` AS `body`, `community`.`views` AS `views`, `community`.`created_at` AS `created_at` FROM (`users` join `community` on(`users`.`id` = `community`.`user_id`)) ORDER BY `community`.`created_at` DESC ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `v_complete_posts`
 --
 DROP TABLE IF EXISTS `v_complete_posts`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_complete_posts`  AS SELECT `v_posts_with_users`.`postId` AS `postId`, `v_posts_with_users`.`userId` AS `userId`, `v_posts_with_users`.`type` AS `type`, `v_posts_with_users`.`image` AS `image`, `v_posts_with_users`.`actor_type` AS `actor_type`, `v_posts_with_users`.`specialized_actor_type` AS `specialized_actor_type`, `v_posts_with_users`.`profile_image` AS `profile_image`, `v_posts_with_users`.`first_name` AS `first_name`, `v_posts_with_users`.`last_name` AS `last_name`, `v_posts_with_users`.`status` AS `status`, `v_posts_with_users`.`postCreated` AS `postCreated`, `v_posts_with_users`.`title` AS `title`, `v_posts_with_users`.`body` AS `body`, `v_posts_with_users`.`applied` AS `applied`, `v_posts_with_users`.`capacity` AS `capacity`, `v_posts_with_users`.`ups` AS `ups`, `v_posts_with_users`.`downs` AS `downs`, `v_posts_with_comments`.`comment_count` AS `comment_count`, ifnull(`v_posts_with_rates`.`rate1`,0) AS `rate1`, ifnull(`v_posts_with_rates`.`rate2`,0) AS `rate2`, ifnull(`v_posts_with_rates`.`rate3`,0) AS `rate3`, ifnull(`v_posts_with_rates`.`rate4`,0) AS `rate4`, ifnull(`v_posts_with_rates`.`rate5`,0) AS `rate5`, `v_posts_with_reviews`.`review_count` AS `review_count` FROM (((`v_posts_with_users` join `v_posts_with_rates` on(`v_posts_with_users`.`postId` = `v_posts_with_rates`.`postId`)) join `v_posts_with_reviews` on(`v_posts_with_users`.`postId` = `v_posts_with_reviews`.`postId`)) join `v_posts_with_comments` on(`v_posts_with_reviews`.`postId` = `v_posts_with_comments`.`postId`)) ORDER BY `v_posts_with_users`.`postCreated` DESC ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_complete_posts`  AS SELECT `v_posts_with_users`.`postId` AS `postId`, `v_posts_with_users`.`userId` AS `userId`, `v_posts_with_users`.`type` AS `type`, `v_posts_with_users`.`image` AS `image`, `v_posts_with_users`.`actor_type` AS `actor_type`, `v_posts_with_users`.`specialized_actor_type` AS `specialized_actor_type`, `v_posts_with_users`.`profile_image` AS `profile_image`, `v_posts_with_users`.`first_name` AS `first_name`, `v_posts_with_users`.`last_name` AS `last_name`, `v_posts_with_users`.`status` AS `status`, `v_posts_with_users`.`postCreated` AS `postCreated`, `v_posts_with_users`.`title` AS `title`, `v_posts_with_users`.`body` AS `body`, `v_posts_with_users`.`applied` AS `applied`, `v_posts_with_users`.`capacity` AS `capacity`, `v_posts_with_users`.`ups` AS `ups`, `v_posts_with_users`.`downs` AS `downs`, `v_posts_with_users`.`payed` AS `payed`, `v_posts_with_comments`.`comment_count` AS `comment_count`, ifnull(`v_posts_with_rates`.`rate1`,0) AS `rate1`, ifnull(`v_posts_with_rates`.`rate2`,0) AS `rate2`, ifnull(`v_posts_with_rates`.`rate3`,0) AS `rate3`, ifnull(`v_posts_with_rates`.`rate4`,0) AS `rate4`, ifnull(`v_posts_with_rates`.`rate5`,0) AS `rate5`, `v_posts_with_reviews`.`review_count` AS `review_count` FROM (((`v_posts_with_users` join `v_posts_with_rates` on(`v_posts_with_users`.`postId` = `v_posts_with_rates`.`postId`)) join `v_posts_with_reviews` on(`v_posts_with_users`.`postId` = `v_posts_with_reviews`.`postId`)) join `v_posts_with_comments` on(`v_posts_with_reviews`.`postId` = `v_posts_with_comments`.`postId`)) ORDER BY `v_posts_with_users`.`postCreated` DESC ;
 
 -- --------------------------------------------------------
 
@@ -7726,7 +8116,34 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_gov_course_and_university`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_gov_course_and_university`  AS SELECT `governmentcourseofferedbygovermentuniversity`.`id` AS `id`, `governmentcourse`.`gov_course_name` AS `gov_course_name`, `govermentuniversity`.`uni_name` AS `uni_name`, `governmentcourseofferedbygovermentuniversity`.`unicode` AS `unicode`, `governmentcourseofferedbygovermentuniversity`.`purposed_intake` AS `purposed_intake`, `governmentcourseofferedbygovermentuniversity`.`duration` AS `duration`, `governmentcourseofferedbygovermentuniversity`.`description` AS `description` FROM ((`governmentcourseofferedbygovermentuniversity` join `governmentcourse` on(`governmentcourseofferedbygovermentuniversity`.`gov_course_id` = `governmentcourse`.`gov_course_id`)) join `govermentuniversity` on(`governmentcourseofferedbygovermentuniversity`.`gov_uni_id` = `govermentuniversity`.`gov_uni_id`)) ORDER BY `governmentcourseofferedbygovermentuniversity`.`id` ASC ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_gov_course_and_university`  AS SELECT `governmentcourseofferedbygovermentuniversity`.`id` AS `id`, `governmentcourse`.`gov_course_id` AS `gov_course_id`, `governmentcourse`.`gov_course_name` AS `gov_course_name`, `govermentuniversity`.`gov_uni_id` AS `gov_uni_id`, `govermentuniversity`.`uni_name` AS `uni_name`, `governmentcourseofferedbygovermentuniversity`.`unicode` AS `unicode`, `governmentcourseofferedbygovermentuniversity`.`purposed_intake` AS `purposed_intake`, `governmentcourseofferedbygovermentuniversity`.`duration` AS `duration`, `governmentcourseofferedbygovermentuniversity`.`description` AS `description`, `governmentcourse`.`stream_id` AS `stream_id` FROM ((`governmentcourseofferedbygovermentuniversity` join `governmentcourse` on(`governmentcourseofferedbygovermentuniversity`.`gov_course_id` = `governmentcourse`.`gov_course_id`)) join `govermentuniversity` on(`governmentcourseofferedbygovermentuniversity`.`gov_uni_id` = `govermentuniversity`.`gov_uni_id`)) ORDER BY `governmentcourseofferedbygovermentuniversity`.`id` ASC ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_posts_courses`
+--
+DROP TABLE IF EXISTS `v_posts_courses`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_posts_courses`  AS SELECT `v_complete_posts`.`postId` AS `post_id`, `v_complete_posts`.`userId` AS `private_uni_id`, `v_complete_posts`.`type` AS `type`, `v_complete_posts`.`image` AS `image`, `v_complete_posts`.`actor_type` AS `actor_type`, `v_complete_posts`.`specialized_actor_type` AS `specialized_actor_type`, `v_complete_posts`.`profile_image` AS `profile_image`, `v_complete_posts`.`first_name` AS `first_name`, `v_complete_posts`.`last_name` AS `last_name`, `v_complete_posts`.`status` AS `status`, `v_complete_posts`.`postCreated` AS `postCreated`, `v_complete_posts`.`title` AS `courseName`, `v_complete_posts`.`body` AS `courseContent`, `privatecourses`.`provide_degree` AS `provide_degree`, `privatecourses`.`course_fee` AS `course_fee`, `v_complete_posts`.`applied` AS `applied`, `v_complete_posts`.`capacity` AS `capacity`, `v_complete_posts`.`ups` AS `ups`, `v_complete_posts`.`downs` AS `downs`, `v_complete_posts`.`comment_count` AS `comment_count`, ifnull(`v_complete_posts`.`rate1`,0) AS `rate1`, ifnull(`v_complete_posts`.`rate2`,0) AS `rate2`, ifnull(`v_complete_posts`.`rate3`,0) AS `rate3`, ifnull(`v_complete_posts`.`rate4`,0) AS `rate4`, ifnull(`v_complete_posts`.`rate5`,0) AS `rate5`, `v_complete_posts`.`review_count` AS `review_count` FROM (`v_complete_posts` join `privatecourses` on(`privatecourses`.`post_id` = `v_complete_posts`.`postId`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_posts_jobs`
+--
+DROP TABLE IF EXISTS `v_posts_jobs`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_posts_jobs`  AS SELECT `v_complete_posts`.`postId` AS `post_id`, `v_complete_posts`.`userId` AS `company_id`, `v_complete_posts`.`type` AS `type`, `v_complete_posts`.`image` AS `image`, `v_complete_posts`.`actor_type` AS `actor_type`, `v_complete_posts`.`specialized_actor_type` AS `specialized_actor_type`, `v_complete_posts`.`profile_image` AS `profile_image`, `v_complete_posts`.`first_name` AS `first_name`, `v_complete_posts`.`last_name` AS `last_name`, `v_complete_posts`.`status` AS `status`, `v_complete_posts`.`postCreated` AS `postCreated`, `jobs`.`paid_date` AS `paid_date`, `v_complete_posts`.`title` AS `jobName`, `v_complete_posts`.`body` AS `jobContent`, `v_complete_posts`.`applied` AS `applied`, `v_complete_posts`.`capacity` AS `capacity`, `v_complete_posts`.`ups` AS `ups`, `v_complete_posts`.`downs` AS `downs`, `v_complete_posts`.`comment_count` AS `comment_count`, ifnull(`v_complete_posts`.`rate1`,0) AS `rate1`, ifnull(`v_complete_posts`.`rate2`,0) AS `rate2`, ifnull(`v_complete_posts`.`rate3`,0) AS `rate3`, ifnull(`v_complete_posts`.`rate4`,0) AS `rate4`, ifnull(`v_complete_posts`.`rate5`,0) AS `rate5`, `v_complete_posts`.`review_count` AS `review_count` FROM (`v_complete_posts` join `jobs` on(`jobs`.`post_id` = `v_complete_posts`.`postId`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_posts_notices`
+--
+DROP TABLE IF EXISTS `v_posts_notices`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_posts_notices`  AS SELECT `v_complete_posts`.`postId` AS `post_id`, `v_complete_posts`.`userId` AS `private_uni_id`, `v_complete_posts`.`type` AS `type`, `v_complete_posts`.`image` AS `image`, `v_complete_posts`.`actor_type` AS `actor_type`, `v_complete_posts`.`specialized_actor_type` AS `specialized_actor_type`, `v_complete_posts`.`profile_image` AS `profile_image`, `v_complete_posts`.`first_name` AS `first_name`, `v_complete_posts`.`last_name` AS `last_name`, `v_complete_posts`.`status` AS `status`, `v_complete_posts`.`postCreated` AS `postCreated`, `intakenotices`.`paid_date` AS `paid_date`, `v_complete_posts`.`title` AS `noticeName`, `v_complete_posts`.`body` AS `noticeContent`, `v_complete_posts`.`applied` AS `applied`, `v_complete_posts`.`capacity` AS `capacity`, `v_complete_posts`.`ups` AS `ups`, `v_complete_posts`.`downs` AS `downs`, `v_complete_posts`.`comment_count` AS `comment_count`, ifnull(`v_complete_posts`.`rate1`,0) AS `rate1`, ifnull(`v_complete_posts`.`rate2`,0) AS `rate2`, ifnull(`v_complete_posts`.`rate3`,0) AS `rate3`, ifnull(`v_complete_posts`.`rate4`,0) AS `rate4`, ifnull(`v_complete_posts`.`rate5`,0) AS `rate5`, `v_complete_posts`.`review_count` AS `review_count` FROM (`v_complete_posts` join `intakenotices` on(`intakenotices`.`post_id` = `v_complete_posts`.`postId`)) ;
 
 -- --------------------------------------------------------
 
@@ -7816,7 +8233,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_posts_with_users`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_posts_with_users`  AS SELECT `posts`.`image` AS `image`, `posts`.`type` AS `type`, `users`.`first_name` AS `first_name`, `users`.`last_name` AS `last_name`, `users`.`profile_image` AS `profile_image`, `users`.`actor_type` AS `actor_type`, `users`.`specialized_actor_type` AS `specialized_actor_type`, `users`.`status` AS `status`, `posts`.`id` AS `postId`, `users`.`id` AS `userId`, `posts`.`created_at` AS `postCreated`, `posts`.`title` AS `title`, `posts`.`body` AS `body`, `posts`.`applied` AS `applied`, `posts`.`capacity` AS `capacity`, `posts`.`ups` AS `ups`, `posts`.`downs` AS `downs` FROM (`posts` join `users` on(`posts`.`user_id` = `users`.`id`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_posts_with_users`  AS SELECT `posts`.`image` AS `image`, `posts`.`type` AS `type`, `users`.`first_name` AS `first_name`, `users`.`last_name` AS `last_name`, `users`.`profile_image` AS `profile_image`, `users`.`actor_type` AS `actor_type`, `users`.`specialized_actor_type` AS `specialized_actor_type`, `users`.`status` AS `status`, `posts`.`id` AS `postId`, `users`.`id` AS `userId`, `posts`.`created_at` AS `postCreated`, `posts`.`title` AS `title`, `posts`.`body` AS `body`, `posts`.`applied` AS `applied`, `posts`.`capacity` AS `capacity`, `posts`.`ups` AS `ups`, `posts`.`downs` AS `downs`, `posts`.`payed` AS `payed` FROM (`posts` join `users` on(`posts`.`user_id` = `users`.`id`)) ;
 
 -- --------------------------------------------------------
 
@@ -7825,11 +8242,17 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_zscore_table`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_zscore_table`  AS SELECT `district`.`district_name` AS `district_name`, `v_gov_course_and_university`.`gov_course_name` AS `gov_course_name`, `v_gov_course_and_university`.`uni_name` AS `uni_name`, `v_gov_course_and_university`.`unicode` AS `unicode`, `zscoretable`.`syllabus` AS `syllabus`, `zscoretable`.`year` AS `year`, `zscoretable`.`z_score` AS `z_score` FROM ((`zscoretable` join `district` on(`zscoretable`.`district_id` = `district`.`district_id`)) left join `v_gov_course_and_university` on(`zscoretable`.`unicode` = `v_gov_course_and_university`.`unicode`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_zscore_table`  AS SELECT `district`.`district_name` AS `district_name`, `v_gov_course_and_university`.`gov_course_name` AS `gov_course_name`, `v_gov_course_and_university`.`uni_name` AS `uni_name`, `v_gov_course_and_university`.`unicode` AS `unicode`, `v_gov_course_and_university`.`stream_id` AS `stream_id`, `zscoretable`.`syllabus` AS `syllabus`, `zscoretable`.`year` AS `year`, `zscoretable`.`z_score` AS `z_score` FROM ((`zscoretable` join `district` on(`zscoretable`.`district_id` = `district`.`district_id`)) left join `v_gov_course_and_university` on(`zscoretable`.`unicode` = `v_gov_course_and_university`.`unicode`)) ;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `additionalsettings`
+--
+ALTER TABLE `additionalsettings`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `admin`
@@ -7881,24 +8304,16 @@ ALTER TABLE `alsubject`
   ADD KEY `al_stream_id` (`al_stream_id`);
 
 --
--- Indexes for table `applicablecourcesforjobs`
---
-ALTER TABLE `applicablecourcesforjobs`
-  ADD PRIMARY KEY (`course_id`,`job_id`),
-  ADD KEY `job_id` (`job_id`);
-
---
--- Indexes for table `applicablestreamsforcourses`
---
-ALTER TABLE `applicablestreamsforcourses`
-  ADD PRIMARY KEY (`st_sub_id`,`course_id`),
-  ADD KEY `course_id` (`course_id`);
-
---
 -- Indexes for table `beginnerstudent`
 --
 ALTER TABLE `beginnerstudent`
   ADD PRIMARY KEY (`stu_id`);
+
+--
+-- Indexes for table `city`
+--
+ALTER TABLE `city`
+  ADD PRIMARY KEY (`city_id`);
 
 --
 -- Indexes for table `commentinteractions`
@@ -7917,10 +8332,41 @@ ALTER TABLE `comments`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `community`
+--
+ALTER TABLE `community`
+  ADD PRIMARY KEY (`thread_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `communitycommentinteractions`
+--
+ALTER TABLE `communitycommentinteractions`
+  ADD PRIMARY KEY (`comment_interaction_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `comment_id` (`comment_id`);
+
+--
+-- Indexes for table `communitycomments`
+--
+ALTER TABLE `communitycomments`
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `thread_id` (`thread_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `company`
 --
 ALTER TABLE `company`
   ADD PRIMARY KEY (`company_id`);
+
+--
+-- Indexes for table `complaint`
+--
+ALTER TABLE `complaint`
+  ADD PRIMARY KEY (`complaint_id`),
+  ADD KEY `complaintsender_id` (`complaintsender_id`),
+  ADD KEY `profile_id` (`profile_id`);
 
 --
 -- Indexes for table `connections`
@@ -7929,12 +8375,6 @@ ALTER TABLE `connections`
   ADD PRIMARY KEY (`connection_id`),
   ADD KEY `from_user_id` (`from_user_id`),
   ADD KEY `to_user_id` (`to_user_id`);
-
---
--- Indexes for table `courses`
---
-ALTER TABLE `courses`
-  ADD PRIMARY KEY (`course_id`);
 
 --
 -- Indexes for table `district`
@@ -7949,10 +8389,17 @@ ALTER TABLE `govermentuniversity`
   ADD PRIMARY KEY (`gov_uni_id`);
 
 --
+-- Indexes for table `govermentuniversityrankings`
+--
+ALTER TABLE `govermentuniversityrankings`
+  ADD PRIMARY KEY (`gov_uni_id`,`year`,`edition`);
+
+--
 -- Indexes for table `governmentcourse`
 --
 ALTER TABLE `governmentcourse`
-  ADD PRIMARY KEY (`gov_course_id`);
+  ADD PRIMARY KEY (`gov_course_id`),
+  ADD KEY `stream_id` (`stream_id`);
 
 --
 -- Indexes for table `governmentcourseminimumeligibilityrequsingalsubjects`
@@ -7976,7 +8423,8 @@ ALTER TABLE `governmentcourseofferedbygovermentuniversity`
 --
 ALTER TABLE `intakenotices`
   ADD PRIMARY KEY (`notice_id`),
-  ADD KEY `uni_id` (`uni_id`);
+  ADD KEY `private_uni_id` (`private_uni_id`),
+  ADD KEY `post_id` (`post_id`);
 
 --
 -- Indexes for table `jobapplicants`
@@ -7991,7 +8439,8 @@ ALTER TABLE `jobapplicants`
 --
 ALTER TABLE `jobs`
   ADD PRIMARY KEY (`job_id`),
-  ADD KEY `company_id` (`company_id`);
+  ADD KEY `company_id` (`company_id`),
+  ADD KEY `post_id` (`post_id`);
 
 --
 -- Indexes for table `mentor`
@@ -8038,14 +8487,16 @@ ALTER TABLE `postinteractions`
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `privatecourses`
 --
 ALTER TABLE `privatecourses`
   ADD PRIMARY KEY (`privatecourse_id`),
-  ADD KEY `private_uni_Id` (`private_uni_Id`);
+  ADD KEY `private_uni_id` (`private_uni_id`),
+  ADD KEY `post_id` (`post_id`);
 
 --
 -- Indexes for table `privateuniversity`
@@ -8069,6 +8520,13 @@ ALTER TABLE `profguiderenrollments`
   ADD KEY `post_id` (`post_id`);
 
 --
+-- Indexes for table `report`
+--
+ALTER TABLE `report`
+  ADD PRIMARY KEY (`reported_id`,`reporter_id`),
+  ADD KEY `reporter_id` (`reporter_id`);
+
+--
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
@@ -8082,6 +8540,20 @@ ALTER TABLE `review`
 ALTER TABLE `school`
   ADD PRIMARY KEY (`school_id`),
   ADD KEY `district_id` (`district_id`);
+
+--
+-- Indexes for table `sessionlink`
+--
+ALTER TABLE `sessionlink`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `post_id` (`post_id`);
+
+--
+-- Indexes for table `socialprofiles`
+--
+ALTER TABLE `socialprofiles`
+  ADD PRIMARY KEY (`profile_record_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `steamselectedbyalqualifiedstudent`
@@ -8167,28 +8639,52 @@ ALTER TABLE `alsubject`
   MODIFY `al_sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
+-- AUTO_INCREMENT for table `city`
+--
+ALTER TABLE `city`
+  MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
+
+--
 -- AUTO_INCREMENT for table `commentinteractions`
 --
 ALTER TABLE `commentinteractions`
-  MODIFY `comment_interaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `comment_interaction_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `community`
+--
+ALTER TABLE `community`
+  MODIFY `thread_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `communitycommentinteractions`
+--
+ALTER TABLE `communitycommentinteractions`
+  MODIFY `comment_interaction_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `communitycomments`
+--
+ALTER TABLE `communitycomments`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `complaint`
+--
+ALTER TABLE `complaint`
+  MODIFY `complaint_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `connections`
 --
 ALTER TABLE `connections`
-  MODIFY `connection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT for table `courses`
---
-ALTER TABLE `courses`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `connection_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `district`
@@ -8212,7 +8708,7 @@ ALTER TABLE `governmentcourseminimumeligibilityrequsingalsubjects`
 -- AUTO_INCREMENT for table `governmentcourseofferedbygovermentuniversity`
 --
 ALTER TABLE `governmentcourseofferedbygovermentuniversity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
 
 --
 -- AUTO_INCREMENT for table `intakenotices`
@@ -8224,7 +8720,7 @@ ALTER TABLE `intakenotices`
 -- AUTO_INCREMENT for table `jobapplicants`
 --
 ALTER TABLE `jobapplicants`
-  MODIFY `job_apply_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `job_apply_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -8248,13 +8744,19 @@ ALTER TABLE `olsubject`
 -- AUTO_INCREMENT for table `postinteractions`
 --
 ALTER TABLE `postinteractions`
-  MODIFY `interaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `interaction_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `privatecourses`
+--
+ALTER TABLE `privatecourses`
+  MODIFY `privatecourse_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `profguide`
@@ -8266,19 +8768,31 @@ ALTER TABLE `profguide`
 -- AUTO_INCREMENT for table `profguiderenrollments`
 --
 ALTER TABLE `profguiderenrollments`
-  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
   MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=358;
+
+--
+-- AUTO_INCREMENT for table `sessionlink`
+--
+ALTER TABLE `sessionlink`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `socialprofiles`
+--
+ALTER TABLE `socialprofiles`
+  MODIFY `profile_record_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `stream`
@@ -8296,7 +8810,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `teacherenrollments`
 --
 ALTER TABLE `teacherenrollments`
-  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `universitytype`
@@ -8319,6 +8833,12 @@ ALTER TABLE `zscoretable`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `additionalsettings`
+--
+ALTER TABLE `additionalsettings`
+  ADD CONSTRAINT `additionalsettings_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `adminoffersgovernmentcourse`
@@ -8362,20 +8882,6 @@ ALTER TABLE `alsubject`
   ADD CONSTRAINT `alsubject_ibfk_1` FOREIGN KEY (`al_stream_id`) REFERENCES `stream` (`stream_id`);
 
 --
--- Constraints for table `applicablecourcesforjobs`
---
-ALTER TABLE `applicablecourcesforjobs`
-  ADD CONSTRAINT `applicablecourcesforjobs_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `courses` (`course_id`),
-  ADD CONSTRAINT `applicablecourcesforjobs_ibfk_2` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`job_id`);
-
---
--- Constraints for table `applicablestreamsforcourses`
---
-ALTER TABLE `applicablestreamsforcourses`
-  ADD CONSTRAINT `applicablestreamsforcourses_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `courses` (`course_id`),
-  ADD CONSTRAINT `applicablestreamsforcourses_ibfk_2` FOREIGN KEY (`st_sub_id`) REFERENCES `aladmissiblestreamsubject` (`stream_sbj_id`);
-
---
 -- Constraints for table `beginnerstudent`
 --
 ALTER TABLE `beginnerstudent`
@@ -8385,7 +8891,7 @@ ALTER TABLE `beginnerstudent`
 -- Constraints for table `commentinteractions`
 --
 ALTER TABLE `commentinteractions`
-  ADD CONSTRAINT `commentinteractions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `commentinteractions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `commentinteractions_ibfk_2` FOREIGN KEY (`comment_id`) REFERENCES `comments` (`comment_id`) ON DELETE CASCADE;
 
 --
@@ -8393,7 +8899,27 @@ ALTER TABLE `commentinteractions`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `community`
+--
+ALTER TABLE `community`
+  ADD CONSTRAINT `community_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `communitycommentinteractions`
+--
+ALTER TABLE `communitycommentinteractions`
+  ADD CONSTRAINT `communitycommentinteractions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `communitycommentinteractions_ibfk_2` FOREIGN KEY (`comment_id`) REFERENCES `communitycomments` (`comment_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `communitycomments`
+--
+ALTER TABLE `communitycomments`
+  ADD CONSTRAINT `communitycomments_ibfk_1` FOREIGN KEY (`thread_id`) REFERENCES `community` (`thread_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `communitycomments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `company`
@@ -8402,11 +8928,24 @@ ALTER TABLE `company`
   ADD CONSTRAINT `company_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `organization` (`org_id`);
 
 --
+-- Constraints for table `complaint`
+--
+ALTER TABLE `complaint`
+  ADD CONSTRAINT `complaint_ibfk_1` FOREIGN KEY (`complaintsender_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `complaint_ibfk_2` FOREIGN KEY (`profile_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `connections`
 --
 ALTER TABLE `connections`
   ADD CONSTRAINT `connections_ibfk_1` FOREIGN KEY (`from_user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `connections_ibfk_2` FOREIGN KEY (`to_user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `governmentcourse`
+--
+ALTER TABLE `governmentcourse`
+  ADD CONSTRAINT `governmentcourse_ibfk_1` FOREIGN KEY (`stream_id`) REFERENCES `stream` (`stream_id`);
 
 --
 -- Constraints for table `governmentcourseminimumeligibilityrequsingalsubjects`
@@ -8427,20 +8966,22 @@ ALTER TABLE `governmentcourseofferedbygovermentuniversity`
 -- Constraints for table `intakenotices`
 --
 ALTER TABLE `intakenotices`
-  ADD CONSTRAINT `intakenotices_ibfk_1` FOREIGN KEY (`uni_id`) REFERENCES `privateuniversity` (`privateuni_id`);
+  ADD CONSTRAINT `intakenotices_ibfk_1` FOREIGN KEY (`private_uni_id`) REFERENCES `privateuniversity` (`privateuni_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `intakenotices_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `jobapplicants`
 --
 ALTER TABLE `jobapplicants`
-  ADD CONSTRAINT `jobapplicants_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `jobapplicants_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `jobapplicants_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `jobs`
 --
 ALTER TABLE `jobs`
-  ADD CONSTRAINT `jobs_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `company` (`company_id`);
+  ADD CONSTRAINT `jobs_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `company` (`company_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `jobs_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `olqualifiedstudent`
@@ -8461,15 +9002,21 @@ ALTER TABLE `olqualifiedstudent`
 -- Constraints for table `postinteractions`
 --
 ALTER TABLE `postinteractions`
-  ADD CONSTRAINT `postinteractions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `postinteractions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `postinteractions_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `posts`
+--
+ALTER TABLE `posts`
+  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `privatecourses`
 --
 ALTER TABLE `privatecourses`
-  ADD CONSTRAINT `privatecourses_ibfk_1` FOREIGN KEY (`privatecourse_id`) REFERENCES `courses` (`course_id`),
-  ADD CONSTRAINT `privatecourses_ibfk_2` FOREIGN KEY (`private_uni_Id`) REFERENCES `privateuniversity` (`privateuni_id`);
+  ADD CONSTRAINT `privatecourses_ibfk_1` FOREIGN KEY (`private_uni_id`) REFERENCES `privateuniversity` (`privateuni_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `privatecourses_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `privateuniversity`
@@ -8487,21 +9034,40 @@ ALTER TABLE `profguide`
 -- Constraints for table `profguiderenrollments`
 --
 ALTER TABLE `profguiderenrollments`
-  ADD CONSTRAINT `profguiderenrollments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `profguiderenrollments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `profguiderenrollments_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `report`
+--
+ALTER TABLE `report`
+  ADD CONSTRAINT `report_ibfk_1` FOREIGN KEY (`reported_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `report_ibfk_2` FOREIGN KEY (`reporter_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `review`
 --
 ALTER TABLE `review`
   ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `school`
 --
 ALTER TABLE `school`
   ADD CONSTRAINT `school_ibfk_1` FOREIGN KEY (`district_id`) REFERENCES `district` (`district_id`);
+
+--
+-- Constraints for table `sessionlink`
+--
+ALTER TABLE `sessionlink`
+  ADD CONSTRAINT `sessionlink_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `socialprofiles`
+--
+ALTER TABLE `socialprofiles`
+  ADD CONSTRAINT `socialprofiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `steamselectedbyalqualifiedstudent`
@@ -8520,7 +9086,7 @@ ALTER TABLE `teacher`
 -- Constraints for table `teacherenrollments`
 --
 ALTER TABLE `teacherenrollments`
-  ADD CONSTRAINT `teacherenrollments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `teacherenrollments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `teacherenrollments_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
 
 --

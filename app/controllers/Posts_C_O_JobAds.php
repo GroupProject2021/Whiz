@@ -80,8 +80,11 @@
                 if(empty($data['image_err']) && empty($data['job_name_err']) && empty($data['job_content_err'])) {
                     // Validated
                     if($this->postModel->addPost($data)) {
-                        flash('post_message', 'Job Vacancy added');
-                        redirect('Posts_C_O_JobAds/index');
+                        // flash('post_message', 'Job Vacancy added');
+                        // redirect('Posts_C_O_JobAds/index');
+
+                        $_SESSION['post_to_be_payed'] = $this->postModel->getPostIdByImageTitleAndBody($data);
+                        redirect('Payments/payment');
                     }
                     else {
                         die('Something went wrong');

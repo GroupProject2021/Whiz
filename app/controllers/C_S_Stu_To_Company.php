@@ -17,7 +17,9 @@
         // Index
         public function index() {
             // Get posts
+            // $posts = $this->postModel->getPosts();
             $posts = $this->postModel->getPosts();
+            
             $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
 
             $data = [

@@ -309,6 +309,17 @@
                 return false;
             }
         } 
+
+        public function getPostIdByImageTitleAndBody($data) {
+            $this->db->query('SELECT id FROM Posts WHERE image = :image AND title = :title AND body = :body');
+            $this->db->bind(':image', $data['image_name']);
+            $this->db->bind(':title', $data['title']);
+            $this->db->bind(':body', $data['body']);
+
+            $row = $this->db->single();
+
+            return $row->id;
+        }
         
     }
 ?>

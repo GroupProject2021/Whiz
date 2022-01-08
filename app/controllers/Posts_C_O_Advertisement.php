@@ -77,8 +77,11 @@
                 if(empty($data['title_err']) && empty($data['body_err'])) {
                     // Validated
                     if($this->postModel->addPost($data)) {
-                        flash('post_message', 'Post added');
-                        redirect('Posts_C_O_Advertisement');
+                        // flash('post_message', 'Post added');
+                        // redirect('Posts_C_O_Advertisement');
+
+                        $_SESSION['post_to_be_payed'] = $this->postModel->getPostIdByImageTitleAndBody($data);
+                        redirect('Payments/payment');
                     }
                     else {
                         die('Something went wrong');

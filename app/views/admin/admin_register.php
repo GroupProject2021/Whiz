@@ -107,8 +107,14 @@
                 <span class="form-invalid"><?php echo $data['phn_no_err']; ?></span><br>
 
                 <!-- user role -->
-                <input type="text" placeholder=" " name="user_role" id="user_role" value="<?php echo $data['user_role']; ?>">
-                <label>User role</label>
+                <!-- <input type="text" placeholder=" " name="user_role" id="user_role" value="<?php echo $data['user_role']; ?>"> -->
+                <!-- <label>User role</label> -->
+                <p class="form-bold">User role</p>
+                <select name="user_role" id="user_role" class="form-select">
+                    <option value="Admin">Admin</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Operator">Operator</option>
+                </select>
                 <span class="form-invalid"><?php echo $data['user_role_err']; ?></span><br>
 
                 <hr class="form-hr">
@@ -132,6 +138,7 @@
         </div>
 
         <!-- java script form validation -->
-        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/completeFormValidation.js"></script>
-    </body>
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/passwordValidation.js"></script>
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/emailValidation.js"></script>
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/validations/phoneNoValidation.js"></script>
 </html>
