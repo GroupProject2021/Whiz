@@ -74,3 +74,33 @@ My CV   : By filling your skill levels and experience you can generate CV to app
 Professional Guiders : By choosing Professional Guiders option, you can enrol,comment,review guider sessions.
 
 
+
+--Organization--
+
+Companies or private universities can register on Whiz under organization category.
+
+--Companies--
+Companies can publish their job advertisements to recruit employees. When publishing job advertisements companies may ask to pay
+posting fee to Whiz. People can send their CVs to ypur company through Whiz as well.
+
+
+--Private Universities--
+Private universities can publish advertisements on their course offerings and intake notices. They may ask to pay posting fee to Whiz
+when posting advertisements.
+
+
+
+--Mentors--
+Professional guiders and teachers are the two categories under mentor. If someone conducts sessions on pre-university classes of 
+A/L completed students, they should register as a teacher.
+
+--Professional guiders--
+Professional guiders can publish banners on their sessions to Whiz by paying postting fee to Whiz. Banners can edit or delete 
+as you wish. Then students can get enroll with your published banners and you can view the enrollment list of students as well.
+Session links can be upload to Whiz as well. Payments from students for the sessions need to be  collect externally.
+
+--Teachers--
+Teachers can publish posters on their pre-university classes to Whiz by paying postting fee to Whiz. Psters can edit or delete 
+as you wish.Then A/L completed students who wish to enter universities can get enroll with your published posters and you can view 
+the enrollment list of students as well. Session links can be upload to Whiz as well. Payments from students for the classes need 
+to be collect externally.
