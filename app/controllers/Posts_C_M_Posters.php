@@ -6,6 +6,7 @@
             }
 
             $this->postModel = $this->model('Post');
+            $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
             $this->commentModel = $this->model('Comment');            
             $this->reviewModel = $this->model('Review');
 
@@ -217,12 +218,12 @@
             $post = $this->postModel->getPostById($id);
             $user = $this->commonModel->getUserById($post->user_id);
 
-            $ups = $this->postModel->getInc($id)->ups;
-            $downs = $this->postModel->getDown($id)->downs;
+            $ups = $this->postUpvoteDownvoteModel->getInc($id)->ups;
+            $downs = $this->postUpvoteDownvoteModel->getDown($id)->downs;
             $userId = $_SESSION['user_id'];
 
-            if($this->postModel->isPostInterationExist($userId, $id)) {
-                $selfInteraction = $this->postModel->getPostInteration($userId, $id);
+            if($this->postUpvoteDownvoteModel->isPostInterationExist($userId, $id)) {
+                $selfInteraction = $this->postUpvoteDownvoteModel->getPostInteration($userId, $id);
                 $selfInteraction = $selfInteraction->interaction;
             }
             else {
