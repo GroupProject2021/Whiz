@@ -533,14 +533,15 @@ CREATE TABLE Student (
 	date_of_birth VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL,
 	phn_no  VARCHAR(255) NOT NULL,
-	PRIMARY KEY(stu_id)
+	PRIMARY KEY(stu_id),
+	FOREIGN KEY(stu_id)	REFERENCES Users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE BeginnerStudent (
 	stu_id INT NOT NULL,
 	school  VARCHAR(255) NOT NULL,
 	PRIMARY KEY(stu_id),
-	FOREIGN KEY(stu_id)	REFERENCES Student(stu_id)
+	FOREIGN KEY(stu_id)	REFERENCES Users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE OLSubject (
@@ -637,7 +638,8 @@ CREATE TABLE OLQualifiedStudent (
 	FOREIGN KEY(ol_sub6_id)	REFERENCES OLSubject(ol_sub_id),
 	FOREIGN KEY(ol_sub7_id)	REFERENCES OLSubject(ol_sub_id),
 	FOREIGN KEY(ol_sub8_id)	REFERENCES OLSubject(ol_sub_id),
-	FOREIGN KEY(ol_sub9_id)	REFERENCES OLSubject(ol_sub_id)
+	FOREIGN KEY(ol_sub9_id)	REFERENCES OLSubject(ol_sub_id),
+	FOREIGN KEY(stu_id)	REFERENCES Users(id) ON DELETE CASCADE
 );
 
 
@@ -741,7 +743,8 @@ CREATE TABLE ALQualifiedStudent (
 	FOREIGN KEY(stu_id)	REFERENCES Student(stu_id),
 	FOREIGN KEY(al_sub1_id)	REFERENCES ALSubject(al_sub_id),
 	FOREIGN KEY(al_sub2_id)	REFERENCES ALSubject(al_sub_id),
-	FOREIGN KEY(al_sub3_id)	REFERENCES ALSubject(al_sub_id)
+	FOREIGN KEY(al_sub3_id)	REFERENCES ALSubject(al_sub_id),
+	FOREIGN KEY(stu_id)	REFERENCES Users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE UndergraduateGraduate (
@@ -751,7 +754,8 @@ CREATE TABLE UndergraduateGraduate (
 	uni_name  VARCHAR(255) NOT NULL,
 	gpa DECIMAL(5, 4),
 	PRIMARY KEY(stu_id),
-	FOREIGN KEY(stu_id)	REFERENCES Student(stu_id)
+	FOREIGN KEY(stu_id)	REFERENCES Student(stu_id),
+	FOREIGN KEY(stu_id)	REFERENCES Users(id) ON DELETE CASCADE
 );
 
 
@@ -7039,8 +7043,8 @@ CREATE TABLE Connections (
 	from_user_id INT,
 	to_user_id INT,
 	PRIMARY KEY(connection_id),
-	FOREIGN KEY (from_user_id) REFERENCES Users(id),
-	FOREIGN KEY (to_user_id) REFERENCES Users(id)
+	FOREIGN KEY (from_user_id) REFERENCES Users(id) ON DELETE CASCADE,
+	FOREIGN KEY (to_user_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Review (
