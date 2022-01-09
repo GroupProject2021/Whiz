@@ -37,8 +37,8 @@
             $this->db->bind(":shares", $data['shares']);
             $this->db->bind(":views", $data['views']);
             $this->db->bind(":type", $data['type']);
-            $this->db->bind(":applied", NULL);
-            $this->db->bind(":capacity", NULL);
+            $this->db->bind(":applied", $data['applied']);
+            $this->db->bind(":capacity", $data['capacity']);
 
             $this->db->execute();
 
@@ -151,5 +151,15 @@
         
         // LIKES DISLIKES REMOVED
         
+        public function getPostIdByImageTitleAndBody($data) {
+            $this->db->query('SELECT id FROM Posts WHERE image = :image AND title = :title AND body = :body');
+            $this->db->bind(':image', $data['image_name']);
+            $this->db->bind(':title', $data['job_name']);
+            $this->db->bind(':body', $data['job_content']);
+
+            $row = $this->db->single();
+
+            return $row->id;
+        }
     }
 ?>

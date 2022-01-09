@@ -35,13 +35,13 @@
                     <?php $exp_date = date('Y-m-d', strtotime($post->paid_date. ' + 1 months')) ?>
                     <?php if($post->type == "jobpost" ): ?>
                         <a href="<?php echo URLROOT; ?>/Posts_C_O_JobAds/show/<?php echo $post->post_id; ?>" class="card-link">
-                        <div class="coursepost">
+                        <div class="advertisement">
                             <?php if($post->image != null):?>
                             <div class="pic">
                                 <img src="<?php echo URLROOT.'/imgs/posts/jobads/'.$post->image; ?>" alt="">
                             </div>
                             <?php endif; ?>
-                            <div class="coursepost-body">
+                            <div class="advertisement-body">
                                 <div class="user-pic">
                                     <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
                                 </div>
@@ -51,8 +51,18 @@
                                 </div>
                                 <div class="title"><?php echo $post->jobName; ?></div>
                                 <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
+                                <div class="poles">
+                                    <div class="pole-prg-bar">
+                                        <progress max="100" value="<?php if($post->capacity != 0){ echo ($post->applied / $post->capacity) * 100;} else {echo 0;} ?>" id="prgBar"></progress>
+                                        <div class="percentage" id="percentage"><?php if($post->capacity != 0){ echo number_format(($post->applied / $post->capacity) *100, 1, '.', '');} else { echo 0;} ?>%</div>
+                                   </div>
+                                   <div class="text">
+                                       <div class="applied" id="applied"><?php echo $post->applied; ?> Applied</div>
+                                       <div class="capacity"> of <?php echo $post->capacity; ?> Capacity</div>
+                                   </div>
+                               </div>
                             </div>
-                            <div class="coursepost-stats">
+                            <div class="advertisement-stats">
                                 <div class="ups"><img src="<?php echo URLROOT.'/imgs/components/posts/up-icon.png'; ?>" alt=""></div>
                                 <div class="ups-count"><?php echo $post->ups; ?></div>
                                 <div class="downs"><img src="<?php echo URLROOT.'/imgs/components/posts/down-icon.png'; ?>" alt=""></div>

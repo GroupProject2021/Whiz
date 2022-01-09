@@ -1,35 +1,38 @@
 $(document).ready(function() { 
 var prgBarVal = $("#prgBar").val();
+
+console.log('apply');
 })
 
 $("#applyBtn").click(function(event) {
-event.preventDefault();
+    event.preventDefault();
+    console.log('aaply');
 
-var prgBarVal = $("#prgBar").val();
-var inc_dec_Amount = INC_DEC_AMOUNT;
+    var prgBarVal = $("#prgBar").val();
+    var inc_dec_Amount = INC_DEC_AMOUNT;
 
-if($(".interation").hasClass("applied")) {
-    if(prgBarVal > 0) {
-        // increment
-        $("#prgBar").val(prgBarVal - inc_dec_Amount);
+    if($(".interation").hasClass("applied")) {
+        if(prgBarVal > 0) {
+            // increment
+            $("#prgBar").val(prgBarVal - inc_dec_Amount);
 
-        // set button
-        $(".interation").removeClass("applied");
+            // set button
+            $(".interation").removeClass("applied");
 
-        decApply();
+            decApply();
+        }
     }
-}
-else {
-    if(prgBarVal < 100) {
-        // increment
-        $("#prgBar").val(prgBarVal + inc_dec_Amount);
+    else {
+        if(prgBarVal < 100) {
+            // increment
+            $("#prgBar").val(prgBarVal + inc_dec_Amount);
 
-        // set button
-        $(".interation").addClass("applied");
+            // set button
+            $(".interation").addClass("applied");
 
-        incApply();
+            incApply();
+        }
     }
-}
 })
 
 function incApply() {

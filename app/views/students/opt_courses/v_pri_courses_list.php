@@ -33,7 +33,7 @@
                      <!-- COURSE POST -->
                    <?php foreach($data['posts'] as $post): ?>
                     <?php if($post->type == "coursepost"): ?>
-                        <a href="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/show/<?php echo $post->post_id; ?>" class="card-link">
+                        <a href="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="coursepost">
                             <?php if($post->image != null):?>
                             <div class="pic">

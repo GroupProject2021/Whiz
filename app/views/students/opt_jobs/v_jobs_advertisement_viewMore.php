@@ -30,35 +30,25 @@
 
 
                     <a href="<?php echo URLROOT;?>/C_S_Stu_To_Company/index"><button class="btn8 post-back">Back</button></a>
-                                                                          
-                            <div class="post">
+                        <div class="center-box">                               
+                        <div class="post">
                                 <?php if($data['post']->image != null):?>
                                     <div class="post-header">
-                                        <img src="<?php echo URLROOT.'/imgs/posts/advertisements/'.$data['post']->image; ?>" alt="">
+                                        <img src="<?php echo URLROOT.'/imgs/posts/jobads/'.$data['post']->image; ?>" alt="">
                                     </div>  
                                 <?php endif; ?>
                                 <div class="post-details">
-                                    <div class="profpic"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id;?>"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image;?>" alt=""></a></div>
+                                    <div class="profpic"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id.'/'.$_SESSION['user_id'];?>"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image;?>" alt=""></a></div>
                                     <div class="profpic-sub"><img src="<?php echo URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($data['user']->actor_type).'-'.getActorSpecializedTypeForIcons($data['user']->actor_type, $data['user']->specialized_actor_type).'-icon.png'; ?>" alt=""></div>
-                                    <div class="postedby"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id;?>"><?php echo $data['user']->first_name.' '.$data['user']->last_name; ?></a></div>
+                                    <div class="postedby"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id.'/'.$_SESSION['user_id'];?>"><?php echo $data['user']->first_name.' '.$data['user']->last_name; ?></a></div>
                                     <?php if($data['user']->status == 'verified'): ?>
                                     <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
                                     <?php endif; ?>
-                                    <?php if($data['post']->user_id == $_SESSION['user_id']): ?>    
-                                        <div class="post-control-buttons">                                        
-                                            <a href="<?php echo URLROOT?>/posts/edit/<?php echo $data['post']->id;?>">
-                                                <button class="post-header-editbtn">Edit</button>
-                                            </a>
-                                            <form action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id; ?>" method="post">
-                                                <input type="submit" value="Delete" class="post-header-deletebtn">
-                                            </form>
-                                        </div>
-                                     <?php endif; ?>
-                                <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
+                                <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->postCreated); ?></div>
                                 </div>
                                 <div class="post-body">
-                                    <div class="title"><?php echo $data['post']->title; ?></div>
-                                    <div class="postedby"><?php echo $data['post']->body; ?></div>
+                                    <div class="title"><?php echo $data['post']->jobName; ?></div>
+                                    <div class="postedby"><?php echo $data['post']->jobContent; ?></div>
                                 </div>
                                 <div class="poles">
                                    <div class="pole-prg-bar bar1">
@@ -68,17 +58,13 @@
                                        <div class="applied" id="applied"><?php echo $data['post']->applied; ?> Applied</div>
                                        <div class="capacity"> of <?php echo $data['post']->capacity; ?> Capacity</div>
                                    </div>
-                                   <?php if($_SESSION['specialized_actor_type'] == "Undergraduate Graduate"): ?>
-                                        <?php if($data['self_job_apply_interaction'] == 'applied'):?>
-                                                <div class="interation applied">                                    
-                                        <?php else: ?>
-                                                <div class="interation"> 
-                                        <?php endif; ?>
-                                            <button id="applyBtn">APPLY</button>
-                                        </div>
-                                    <?php else: ?>
-                                        <!-- nothing -->
-                                    <?php endif; ?>
+                                   <?php if($data['self_job_apply_interaction'] == 'applied'):?>
+                                        <div class="interation applied">                                    
+                                   <?php else: ?>
+                                        <div class="interation"> 
+                                   <?php endif; ?>
+                                       <button id="applyBtn">ENROLL</button>
+                                   </div>
                                </div>
                                 <form method="post">
                                 <div class="post-footer">
@@ -122,7 +108,7 @@
                             <div id="results"></div>
                             
                         </div>
-
+                        </div> 
                         <!-- test msg for comment results - CHECK FOR COMMENT INSERTING ONLY -->
                         <!-- <div id="msg"></div> -->
 
@@ -140,7 +126,7 @@
         <!-- common settings js -->
         <script type="text/JavaScript">
             var URLROOT = '<?php echo URLROOT; ?>';            
-            var CURRENT_POST= '<?php echo $_SESSION["current_viewing_post_id"]?>';
+            var CURRENT_POST= '<?php echo $_SESSION["current_viewing_post_id"]; ?>';
             var INC_DEC_AMOUNT = '<?php echo 100 / $data['post']->capacity; ?>';
         </script>
         

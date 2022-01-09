@@ -44,7 +44,7 @@
             $_SESSION['currect_viewing_post_type'] = "Advertisement";
 
             $post = $this->postModel->getPostById($id);
-            $user = $this->commonModel->getUserById($post->user_id);
+            $user = $this->commonModel->getUserById($post->company_id);
 
             $ups = $this->postUpvoteDownvoteModel->getInc($id)->ups;
             $downs = $this->postUpvoteDownvoteModel->getDown($id)->downs;

@@ -6,6 +6,7 @@
             }
 
             $this->postModel = $this->model('Post_CoursePosts');
+
             $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
             $this->commentModel = $this->model('Comment');            
             $this->reviewModel = $this->model('Review');
@@ -40,7 +41,7 @@
             $_SESSION['currect_viewing_post_type'] = "Course Post";
 
             $post = $this->postModel->getPostById($id);
-            $user = $this->commonModel->getUserById($post->user_id);
+            $user = $this->commonModel->getUserById($post->private_uni_id);
 
             $ups = $this->postUpvoteDownvoteModel->getInc($id)->ups;
             $downs = $this->postUpvoteDownvoteModel->getDown($id)->downs;

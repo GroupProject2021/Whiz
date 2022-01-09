@@ -30,7 +30,7 @@
 
 
                     <a href="<?php echo URLROOT;?>/C_S_Stu_To_ProfessionalGuider/index"><button class="btn8 post-back">Back</button></a>
-                                                                          
+                            <div class="center-box">                                 
                             <div class="post">
                                 <?php if($data['post']->image != null):?>
                                     <div class="post-header">
@@ -38,9 +38,9 @@
                                     </div>  
                                 <?php endif; ?>
                                 <div class="post-details">
-                                    <div class="profpic"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id;?>"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image;?>" alt=""></a></div>
+                                    <div class="profpic"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id.'/'.$_SESSION['user_id'];?>"><img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($data['user']->actor_type).'/'.$data['user']->profile_image;?>" alt=""></a></div>
                                     <div class="profpic-sub"><img src="<?php echo URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($data['user']->actor_type).'-'.getActorSpecializedTypeForIcons($data['user']->actor_type, $data['user']->specialized_actor_type).'-icon.png'; ?>" alt=""></div>
-                                    <div class="postedby"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id;?>"><?php echo $data['user']->first_name.' '.$data['user']->last_name; ?></a></div>
+                                    <div class="postedby"><a class="post-link" href="<?php echo URLROOT.'/C_S_Settings/settings/'.$data['user']->id.'/'.$_SESSION['user_id'];?>"><?php echo $data['user']->first_name.' '.$data['user']->last_name; ?></a></div>
                                     <?php if($data['user']->status == 'verified'): ?>
                                     <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
                                     <?php endif; ?>
@@ -106,7 +106,6 @@
                                 </form>
                             </div>
                             <br>
-
                             <!-- REVIEW RATING SYSTEM -->
                             <div class="ratingSystem">
                                 <?php require APPROOT.'/views/inc/components/ratingSystem/ratingSystem.php'?>
@@ -117,6 +116,7 @@
                             <!-- COMMENT THREAD - AJAX REQUESTS IN REAL-TIME -->
                             <div id="results"></div>
                             
+                            </div>
                         </div>
 
                         <!-- test msg for comment results - CHECK FOR COMMENT INSERTING ONLY -->
@@ -136,7 +136,7 @@
         <!-- common settings js -->
         <script type="text/JavaScript">
             var URLROOT = '<?php echo URLROOT; ?>';            
-            var CURRENT_POST= '<?php echo $_SESSION["current_viewing_post_id"]?>';
+            var CURRENT_POST= '<?php echo $_SESSION["current_viewing_post_id"]; ?>';
             var INC_DEC_AMOUNT = '<?php echo 100 / $data["post"]->capacity; ?>';
         </script>
         

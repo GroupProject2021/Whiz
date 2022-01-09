@@ -322,7 +322,10 @@ main {
     border: 2px solid #db7e31;
 }
 
-
+.center-box {
+    width: 70%;
+    margin: 0 auto;
+}
 
 /* responsive features */
 @media only screen and (max-width: 1124px) {
@@ -341,5 +344,9 @@ main {
 
     .table-section {
         width: 95%;
+    }
+
+    .center-box {
+        width: 100%;
     }
 }

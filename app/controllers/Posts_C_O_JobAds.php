@@ -40,6 +40,8 @@
                     'job_name' => trim($_POST['job_name']),
                     'job_content' => trim($_POST['job_content']),
                     'com_id' => $_SESSION['user_id'],
+                    'applied' => 0,
+                    'capacity' => $_POST['capacity'],
                     
                     'image_err' => '',
                     'job_name_err' => '',
@@ -104,6 +106,8 @@
                     'job_name' => '',
                     'job_content' => '',
                     'com_id' => '',
+                    'applied' => '',
+                    'capacity' => '',
                     
                     'image_err' => '',
                     'job_name_err' => '',
@@ -316,7 +320,7 @@
 
                 $res1 = $this->commentModel->deleteComment($id);
                 $res2 = $this->reviewModel->deleteReview($id);
-                $res3 = $this->postModel->deleteInteraction($id);
+                $res3 = $this->postUpvoteDownvoteModel->deleteInteraction($id);
                 $res4 = $this->postModel->deletePost($id);
 
                 // validate and upload profile image

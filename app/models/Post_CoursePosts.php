@@ -159,6 +159,16 @@
         }
 
         /// LIKES DISLIKES REMOVED
-        
+
+        public function getPostIdByImageTitleAndBody($data) {
+            $this->db->query('SELECT id FROM Posts WHERE image = :image AND title = :title AND body = :body');
+            $this->db->bind(':image', $data['image_name']);
+            $this->db->bind(':title', $data['course_name']);
+            $this->db->bind(':body', $data['course_content']);
+
+            $row = $this->db->single();
+
+            return $row->id;
+        }
     }
 ?>
