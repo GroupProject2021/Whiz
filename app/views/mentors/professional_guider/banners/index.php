@@ -23,12 +23,10 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <?php if($_SESSION['specialized_actor_type'] == 'Professional Guide'): ?>
                         <?php flash('post_message'); ?>
 
                         <a href="<?php echo URLROOT; ?>/Posts_C_M_Banners/add"><button class="btn3">CREATE BANNER</button></a>
                         <br>
-                        <?php endif; ?>
                     <div class="card-flex-box">
 
                     <!-- BANNER -->

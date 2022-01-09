@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2022 at 11:24 PM
+-- Generation Time: Jan 09, 2022 at 03:54 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -123,8 +123,8 @@ CREATE TABLE `alqualifiedstudent` (
 --
 
 INSERT INTO `alqualifiedstudent` (`stu_id`, `al_school`, `stream`, `z_score`, `al_district`, `al_general_test_grade`, `al_general_english_grade`, `al_sub1_id`, `al_sub1_grade`, `al_sub2_id`, `al_sub2_grade`, `al_sub3_id`, `al_sub3_grade`, `al_result_file`) VALUES
-(4, 'Ananda College', '4', '3.9462', 'Colombo', 91, 'A', 44, 'A', 45, 'A', 47, 'A', '1641679752_al_res_sheet.jpg'),
-(5, 'Hanwella rajasinghe central college', '4', '3.9231', 'Colombo', 89, 'A', 44, 'A', 45, 'A', 47, 'A', '1641679957_al_res_sheet.jpg');
+(4, 'Ananda College', '2', '3.3841', 'Colombo', 78, 'A', 34, 'A', 35, 'A', 36, 'A', '1641739387_al_res_sheet.jpg'),
+(5, 'Ananda College', '4', '3.4415', 'Colombo', 84, 'A', 44, 'A', 45, 'A', 47, 'A', '1641739468_al_res_sheet.jpg');
 
 -- --------------------------------------------------------
 
@@ -577,6 +577,32 @@ CREATE TABLE `connections` (
   `connection_id` int(11) NOT NULL,
   `from_user_id` int(11) DEFAULT NULL,
   `to_user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cv`
+--
+
+CREATE TABLE `cv` (
+  `cv_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `cv_file_name` varchar(255) DEFAULT NULL,
+  `uploaded_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cvsenttoapost`
+--
+
+CREATE TABLE `cvsenttoapost` (
+  `id` int(11) NOT NULL,
+  `post_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `cv_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -1144,6 +1170,13 @@ CREATE TABLE `jobs` (
   `post_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`job_id`, `paid_date`, `company_id`, `post_id`) VALUES
+(1, '2022-01-09', 7, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -1166,8 +1199,8 @@ CREATE TABLE `mentor` (
 --
 
 INSERT INTO `mentor` (`mentor_id`, `email`, `phn_no`, `address`, `gender`, `mentor_type`, `institute`, `password`) VALUES
-(8, 'tharindu4151@gmail.com', 361486291, 'No 30, Esplanade Rd Uyanwatta, Matara', 'Male', 'Professional Guider', 'abc Institute', '$2y$10$6XQdbr2TC/sXxqdmsINATOawnTNoEuuM75pZHvg7B3s6HWUi8UUTq'),
-(9, 'pubudu4151@gmail.com', 768913423, 'No 57, Lake, Circular Rd, Kurunegala', 'Male', 'Teacher', NULL, '$2y$10$jlm/NaZSrmOPmTudO8yX8OAz.YbXUh0u7gmLvdAv4N16EsylKts5i');
+(8, 'tharindu4151@gmail.com', 361486291, 'No 30, Esplanade Rd Uyanwatta, Matara', 'Male', 'Professional Guider', 'abc Institute', '$2y$10$6EkaGNj/APWwNfCCJ10fvujP8KtBZ1hWMiyceMhGIZMVNK3ToRIpW'),
+(9, 'pubudu4151@gmail.com', 768913423, 'No 57, Lake, Circular Rd, Kurunegala', 'Male', 'Teacher', NULL, '$2y$10$CTNuaxd5xu7r8mp.UG2rHexldDvtc.lGojT4t5u4Rh.I4Xo6AlTFe');
 
 -- --------------------------------------------------------
 
@@ -1205,9 +1238,9 @@ CREATE TABLE `olqualifiedstudent` (
 --
 
 INSERT INTO `olqualifiedstudent` (`stu_id`, `ol_school`, `ol_district`, `ol_sub1_id`, `ol_sub1_grade`, `ol_sub2_id`, `ol_sub2_grade`, `ol_sub3_id`, `ol_sub3_grade`, `ol_sub4_id`, `ol_sub4_grade`, `ol_sub5_id`, `ol_sub5_grade`, `ol_sub6_id`, `ol_sub6_grade`, `ol_sub7_id`, `ol_sub7_grade`, `ol_sub8_id`, `ol_sub8_grade`, `ol_sub9_id`, `ol_sub9_grade`, `ol_result_file`) VALUES
-(3, 'Ananda College', 'Colombo', 1, 'A', 6, 'B', 8, 'C', 9, 'D', 10, 'E', 11, 'D', 12, 'C', 28, 'B', 39, 'A', '1641679544_ol_res_sheet.png'),
-(4, 'Bandaranayaka College', 'Colombo', 1, 'A', 6, 'B', 8, 'C', 9, 'C', 10, 'A', 11, 'A', 12, 'D', 28, 'D', 39, 'A', '1641679703_ol_res_sheet.png'),
-(5, 'Hanwella rajasinghe central college', 'Colombo', 1, 'A', 6, 'A', 8, 'B', 9, 'A', 10, 'A', 11, 'A', 12, 'A', 33, 'B', 39, 'A', '1641679904_ol_res_sheet.png');
+(3, 'Asoka Vidyalaya, Colombo 10', 'Colombo', 1, 'A', 6, 'A', 8, 'C', 9, 'C', 10, 'C', 11, 'D', 12, 'C', 28, 'A', 39, 'A', '1641739283_ol_res_sheet.png'),
+(4, 'Bandaranayaka College', 'Colombo', 1, 'A', 6, 'C', 8, 'D', 9, 'A', 10, 'D', 11, 'C', 12, 'A', 28, 'A', 39, 'A', '1641739367_ol_res_sheet.png'),
+(5, 'Hanwella rajasinghe central college', 'Colombo', 1, 'A', 6, 'A', 8, 'A', 9, 'A', 10, 'A', 11, 'A', 12, 'A', 28, 'B', 39, 'B', '1641739448_ol_res_sheet.png');
 
 -- --------------------------------------------------------
 
@@ -1300,8 +1333,8 @@ CREATE TABLE `organization` (
 --
 
 INSERT INTO `organization` (`org_id`, `address`, `email`, `password`, `phone_no`, `website_address`, `founder`, `founded_year`, `org_type`) VALUES
-(6, '123, Jasmine Road, Colombo 3', 'unisliitlk@gmail.com', '$2y$10$SMy/ZF75n5/PzTKvznShwuHPiaWz7KEnpEl10SSwnZbK/7e42Ernm', '0714526390', 'www.sliit.lk', 'Mandila', 2004, 'University'),
-(7, '456, Galle road, Colombo', 'abcgroup202@gmail.com', '$2y$10$.E/oBAI3/Zzy4Zcj9slx7.3iYSb/GUohJWAr.SBHqBEbDyio/s2NK', '0112345678', 'www.abc.com', 'Mark perera', 2004, 'Company');
+(6, '123, Jasmine Road, Colombo 3', 'unisliitlk@gmail.com', '$2y$10$xxrpS.ObtHcua3fIyqkdSeIpy23wnMUIKJ1KOYFyP4zQ9KgqefEB2', '0714526390', 'www.sliit.lk', 'Mandila', 2004, 'University'),
+(7, '456, Galle road, Colombo', 'abcgroup202@gmail.com', '$2y$10$gpCuuapfLGvcI.vJcLyy3.Sbc8FcBaCED1g4R9xJfbX8VjtBuPkH6', '0112345678', 'www.abc.com', 'Mark perera', 2004, 'Company');
 
 -- --------------------------------------------------------
 
@@ -1339,6 +1372,16 @@ CREATE TABLE `posts` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `user_id`, `type`, `image`, `title`, `body`, `applied`, `capacity`, `ups`, `downs`, `shares`, `views`, `payed`, `created_at`) VALUES
+(1, 6, 'coursepost', '1641739841_9c865896-9f9f-43cb-9a46-846d0577c75f.jpg', 'New intakes', 'Check this content.', NULL, NULL, 0, 0, 0, 0, 0, '2022-01-09 20:20:41'),
+(2, 7, 'jobpost', '1641739887_7fe802d5-0d9f-4c8b-8f4c-dfd427a81bfa.jpg', 'We are now hiring', 'Amazing job', 0, 12, 0, 0, 0, 0, 0, '2022-01-09 20:21:27'),
+(3, 8, 'banner', '1641739970_d9c61564-8d38-45de-9b99-68f47f4d7f8d.jpg', 'We are available!!!', 'Contact with us.', 0, 10, 0, 0, 0, 0, 0, '2022-01-09 20:22:50'),
+(4, 9, 'poster', '1641740027_80eb2485-e32e-42a6-b684-f9de305b8d8f.jpg', 'Online tutorials', 'We have list of available classes for you.', 0, 50, 0, 0, 0, 0, 0, '2022-01-09 20:23:47');
+
 -- --------------------------------------------------------
 
 --
@@ -1352,6 +1395,13 @@ CREATE TABLE `privatecourses` (
   `private_uni_id` int(11) NOT NULL,
   `post_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `privatecourses`
+--
+
+INSERT INTO `privatecourses` (`privatecourse_id`, `provide_degree`, `course_fee`, `private_uni_id`, `post_id`) VALUES
+(1, 'Computer science', '100000', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -1947,7 +1997,7 @@ CREATE TABLE `undergraduategraduate` (
 --
 
 INSERT INTO `undergraduategraduate` (`stu_id`, `degree`, `uni_type`, `uni_name`, `gpa`) VALUES
-(5, 'Computer Science', 'Government', 'University of Colombo School of Computing', '3.9126');
+(5, 'Computer Science', 'Government', 'University of Colombo School of Computing', '3.9371');
 
 -- --------------------------------------------------------
 
@@ -2004,15 +2054,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `profile_image`, `first_name`, `last_name`, `email`, `password`, `actor_type`, `specialized_actor_type`, `status`) VALUES
-(1, '1641679023_admin-profile-pic.png', 'Admin', NULL, 'whizweblk@gmail.com', '$2y$10$u7sdhasK5RbAV0CIJlaJF.leHpx8M2J0iakKMQLuptVoUwxzOGyWy', 'Admin', 'Admin', 'verified'),
-(2, '1641679196_deneth.jpg', 'Deneth', 'Chamodya', 'denethchamodya03@gmail.com', '$2y$10$mSHLwtHU/Nb91.g5myxqe.xeu4NuikHAQUmR28yWnviSJmGYXRZpm', 'Student', 'Beginner', 'not verified'),
-(3, '1641679280_divanjana.jpg', 'Divanjana', 'Disala', 'disaladivanjana@gmail.com', '$2y$10$agla9XFqMUdbGrOaXE2rfO1r2bhmT0GfXPY3Iry.zaOb9r83xSKnS', 'Student', 'OL qualified', 'not verified'),
-(4, '1641679643_gimantha.jpg', 'Gimantha', 'Anupama', 'gimanthaanupama008@gmail.com', '$2y$10$vZBZDmf33Md8Gz1DAz5QaObZpXUQNibTMPYznPUCIq31z2cZQwiXm', 'Student', 'AL qualified', 'not verified'),
-(5, '1641679835_dhanushka.jpg', 'Dhanushka', 'sandakelum', 'dhanushkasandakelum711@gmail.com', '$2y$10$IuVqRXfYVH8m2AJLg2.4Y.6W0YlvsylztYPKCQYJU.VbVYmjG27rS', 'Student', 'Undergraduate Graduate', 'not verified'),
-(6, '1641680153_sliit.jpg', 'SLIIT', NULL, 'unisliitlk@gmail.com', '$2y$10$SMy/ZF75n5/PzTKvznShwuHPiaWz7KEnpEl10SSwnZbK/7e42Ernm', 'Organization', 'University', 'not verified'),
-(7, '1641680269_abc.png', 'ABC', NULL, 'abcgroup202@gmail.com', '$2y$10$.E/oBAI3/Zzy4Zcj9slx7.3iYSb/GUohJWAr.SBHqBEbDyio/s2NK', 'Organization', 'Company', 'not verified'),
-(8, '1641680372_tharindu.jpg', 'Tharindu', 'Amarasekara', 'tharindu4151@gmail.com', '$2y$10$6XQdbr2TC/sXxqdmsINATOawnTNoEuuM75pZHvg7B3s6HWUi8UUTq', 'Mentor', 'Professional Guider', 'not verified'),
-(9, '1641680446_pubudu.jpg', 'Pubudu', 'Pathirana', 'pubudu4151@gmail.com', '$2y$10$jlm/NaZSrmOPmTudO8yX8OAz.YbXUh0u7gmLvdAv4N16EsylKts5i', 'Mentor', 'Teacher', 'not verified');
+(1, '1641739121_admin-profile-pic.png', 'Admin', NULL, 'whizweblk@gmail.com', '$2y$10$MnIRag14J3YRM7ohakbH2.Nez/mrsxvtGLIGcqmLXoz4MVw2JQD4i', 'Admin', 'Admin', 'verified'),
+(2, '1641739186_deneth.jpg', 'Deneth', 'Chamodya', 'denethchamodya03@gmail.com', '$2y$10$5QuxGnn6gHE3xGnxCAlgPu8robDwx1P95tnIZh4cWbgESs3b0JkCi', 'Student', 'Beginner', 'not verified'),
+(3, '1641739245_divanjana.jpg', 'Divanjana', 'Disala', 'disaladivanjana@gmail.com', '$2y$10$th0QbLAQJUkDLztEsR9u9OoSRMA3SbBAVo/0Gm96gDIVhwjl28yGi', 'Student', 'OL qualified', 'not verified'),
+(4, '1641739334_gimantha.jpg', 'Gimantha', 'Anupama', 'gimanthaanupama008@gmail.com', '$2y$10$BwWXGVmWDMKUu4YppL2ePuvZhuRFqPb8kmDT106fXgRKXgAzTX2bO', 'Student', 'AL qualified', 'not verified'),
+(5, '1641739422_dhanushka.jpg', 'Dhanushka', 'sandakelum', 'dhanushkasandakelum711@gmail.com', '$2y$10$3LaJVq2Hb73xosxYNXu2c.nbI/.RENPhKIuoPFXRsy4/urSKcqX.W', 'Student', 'Undergraduate Graduate', 'not verified'),
+(6, '1641739557_sliit.jpg', 'SLIIT', NULL, 'unisliitlk@gmail.com', '$2y$10$xxrpS.ObtHcua3fIyqkdSeIpy23wnMUIKJ1KOYFyP4zQ9KgqefEB2', 'Organization', 'University', 'not verified'),
+(7, '1641739647_abc.png', 'ABC', NULL, 'abcgroup202@gmail.com', '$2y$10$gpCuuapfLGvcI.vJcLyy3.Sbc8FcBaCED1g4R9xJfbX8VjtBuPkH6', 'Organization', 'Company', 'not verified'),
+(8, '1641739694_tharindu.jpg', 'Tharindu', 'Amarasekara', 'tharindu4151@gmail.com', '$2y$10$6EkaGNj/APWwNfCCJ10fvujP8KtBZ1hWMiyceMhGIZMVNK3ToRIpW', 'Mentor', 'Professional Guider', 'not verified'),
+(9, '1641739734_pubudu.jpg', 'Pubudu', 'Pathirana', 'pubudu4151@gmail.com', '$2y$10$CTNuaxd5xu7r8mp.UG2rHexldDvtc.lGojT4t5u4Rh.I4Xo6AlTFe', 'Mentor', 'Teacher', 'not verified');
 
 -- --------------------------------------------------------
 
@@ -2338,6 +2388,20 @@ CREATE TABLE `v_posts_with_users` (
 ,`ups` int(11)
 ,`downs` int(11)
 ,`payed` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_received_cv`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_received_cv` (
+`post_id` int(11)
+,`user_id` int(11)
+,`first_name` varchar(255)
+,`last_name` varchar(255)
+,`cv_file_name` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -8238,6 +8302,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
+-- Structure for view `v_received_cv`
+--
+DROP TABLE IF EXISTS `v_received_cv`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_received_cv`  AS SELECT `cvsenttoapost`.`post_id` AS `post_id`, `users`.`id` AS `user_id`, `users`.`first_name` AS `first_name`, `users`.`last_name` AS `last_name`, `cv`.`cv_file_name` AS `cv_file_name` FROM ((`cvsenttoapost` join `users` on(`cvsenttoapost`.`user_id` = `users`.`id`)) join `cv` on(`cvsenttoapost`.`cv_id` = `cv`.`cv_id`)) ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `v_zscore_table`
 --
 DROP TABLE IF EXISTS `v_zscore_table`;
@@ -8375,6 +8448,22 @@ ALTER TABLE `connections`
   ADD PRIMARY KEY (`connection_id`),
   ADD KEY `from_user_id` (`from_user_id`),
   ADD KEY `to_user_id` (`to_user_id`);
+
+--
+-- Indexes for table `cv`
+--
+ALTER TABLE `cv`
+  ADD PRIMARY KEY (`cv_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `cvsenttoapost`
+--
+ALTER TABLE `cvsenttoapost`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `post_id` (`post_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `cv_id` (`cv_id`);
 
 --
 -- Indexes for table `district`
@@ -8687,6 +8776,18 @@ ALTER TABLE `connections`
   MODIFY `connection_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `cv`
+--
+ALTER TABLE `cv`
+  MODIFY `cv_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `cvsenttoapost`
+--
+ALTER TABLE `cvsenttoapost`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `district`
 --
 ALTER TABLE `district`
@@ -8726,7 +8827,7 @@ ALTER TABLE `jobapplicants`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `mentor`
@@ -8750,13 +8851,13 @@ ALTER TABLE `postinteractions`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `privatecourses`
 --
 ALTER TABLE `privatecourses`
-  MODIFY `privatecourse_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `privatecourse_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `profguide`
@@ -8873,7 +8974,8 @@ ALTER TABLE `alqualifiedstudent`
   ADD CONSTRAINT `alqualifiedstudent_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `student` (`stu_id`),
   ADD CONSTRAINT `alqualifiedstudent_ibfk_2` FOREIGN KEY (`al_sub1_id`) REFERENCES `alsubject` (`al_sub_id`),
   ADD CONSTRAINT `alqualifiedstudent_ibfk_3` FOREIGN KEY (`al_sub2_id`) REFERENCES `alsubject` (`al_sub_id`),
-  ADD CONSTRAINT `alqualifiedstudent_ibfk_4` FOREIGN KEY (`al_sub3_id`) REFERENCES `alsubject` (`al_sub_id`);
+  ADD CONSTRAINT `alqualifiedstudent_ibfk_4` FOREIGN KEY (`al_sub3_id`) REFERENCES `alsubject` (`al_sub_id`),
+  ADD CONSTRAINT `alqualifiedstudent_ibfk_5` FOREIGN KEY (`stu_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `alsubject`
@@ -8885,7 +8987,7 @@ ALTER TABLE `alsubject`
 -- Constraints for table `beginnerstudent`
 --
 ALTER TABLE `beginnerstudent`
-  ADD CONSTRAINT `beginnerstudent_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `student` (`stu_id`);
+  ADD CONSTRAINT `beginnerstudent_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `commentinteractions`
@@ -8938,8 +9040,22 @@ ALTER TABLE `complaint`
 -- Constraints for table `connections`
 --
 ALTER TABLE `connections`
-  ADD CONSTRAINT `connections_ibfk_1` FOREIGN KEY (`from_user_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `connections_ibfk_2` FOREIGN KEY (`to_user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `connections_ibfk_1` FOREIGN KEY (`from_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `connections_ibfk_2` FOREIGN KEY (`to_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `cv`
+--
+ALTER TABLE `cv`
+  ADD CONSTRAINT `cv_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `cvsenttoapost`
+--
+ALTER TABLE `cvsenttoapost`
+  ADD CONSTRAINT `cvsenttoapost_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `cvsenttoapost_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `cvsenttoapost_ibfk_3` FOREIGN KEY (`cv_id`) REFERENCES `cv` (`cv_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `governmentcourse`
@@ -8989,6 +9105,7 @@ ALTER TABLE `jobs`
 ALTER TABLE `olqualifiedstudent`
   ADD CONSTRAINT `olqualifiedstudent_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `student` (`stu_id`),
   ADD CONSTRAINT `olqualifiedstudent_ibfk_10` FOREIGN KEY (`ol_sub9_id`) REFERENCES `olsubject` (`ol_sub_id`),
+  ADD CONSTRAINT `olqualifiedstudent_ibfk_11` FOREIGN KEY (`stu_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `olqualifiedstudent_ibfk_2` FOREIGN KEY (`ol_sub1_id`) REFERENCES `olsubject` (`ol_sub_id`),
   ADD CONSTRAINT `olqualifiedstudent_ibfk_3` FOREIGN KEY (`ol_sub2_id`) REFERENCES `olsubject` (`ol_sub_id`),
   ADD CONSTRAINT `olqualifiedstudent_ibfk_4` FOREIGN KEY (`ol_sub3_id`) REFERENCES `olsubject` (`ol_sub_id`),
@@ -9077,6 +9194,12 @@ ALTER TABLE `steamselectedbyalqualifiedstudent`
   ADD CONSTRAINT `steamselectedbyalqualifiedstudent_ibfk_2` FOREIGN KEY (`stream_id`) REFERENCES `stream` (`stream_id`);
 
 --
+-- Constraints for table `student`
+--
+ALTER TABLE `student`
+  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `teacher`
 --
 ALTER TABLE `teacher`
@@ -9093,7 +9216,8 @@ ALTER TABLE `teacherenrollments`
 -- Constraints for table `undergraduategraduate`
 --
 ALTER TABLE `undergraduategraduate`
-  ADD CONSTRAINT `undergraduategraduate_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `student` (`stu_id`);
+  ADD CONSTRAINT `undergraduategraduate_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `student` (`stu_id`),
+  ADD CONSTRAINT `undergraduategraduate_ibfk_2` FOREIGN KEY (`stu_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `unicodes`
