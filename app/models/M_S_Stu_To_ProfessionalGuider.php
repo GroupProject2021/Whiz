@@ -46,7 +46,6 @@ class M_S_Stu_To_ProfessionalGuider {
         return $row;
     }
 
-        // like dislike interactions
     public function addProGuiderEnroll($userId, $postId, $interation) {
         $this->db->query('INSERT INTO ProfGuiderEnrollments(user_id, post_id, interaction) VALUES(:user_id, :post_id, :interaction)');
         // bind values

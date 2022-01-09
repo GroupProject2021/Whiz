@@ -68,7 +68,7 @@ $(document).ready(function() {
 
     function incUp() {
         $.ajax({
-            url: URLROOT+"/Posts_C_M_Posters/incUp/"+CURRENT_POST,
+            url: URLROOT+"/Posts_UpvoteDownvote/incUp/"+CURRENT_POST,
             method: "post",
             data: $('form').serialize(),
             dataType: "text",
@@ -80,7 +80,7 @@ $(document).ready(function() {
 
     function decUp() {
         $.ajax({
-            url: URLROOT+"/Posts_C_M_Posters/decUp/"+CURRENT_POST,
+            url: URLROOT+"/Posts_UpvoteDownvote/decUp/"+CURRENT_POST,
             method: "post",
             data: $('form').serialize(),
             dataType: "text",
@@ -92,7 +92,7 @@ $(document).ready(function() {
 
     function incDown() {
         $.ajax({
-            url: URLROOT+"/Posts_C_M_Posters/incDown/"+CURRENT_POST,
+            url: URLROOT+"/Posts_UpvoteDownvote/incDown/"+CURRENT_POST,
             method: "post",
             data: $('form').serialize(),
             dataType: "text",
@@ -104,7 +104,7 @@ $(document).ready(function() {
 
     function decDown() {
         $.ajax({
-            url: URLROOT+"/Posts_C_M_Posters/decDown/"+CURRENT_POST,
+            url: URLROOT+"/Posts_UpvoteDownvote/decDown/"+CURRENT_POST,
             method: "post",
             data: $('form').serialize(),
             dataType: "text",

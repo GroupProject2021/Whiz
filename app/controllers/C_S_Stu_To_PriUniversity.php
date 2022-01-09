@@ -5,7 +5,8 @@
                 redirect('users/login');
             }
 
-            $this->postModel = $this->model('Post');
+            $this->postModel = $this->model('Post_CoursePosts');
+            $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
             $this->commentModel = $this->model('Comment');            
             $this->reviewModel = $this->model('Review');
 
@@ -41,12 +42,12 @@
             $post = $this->postModel->getPostById($id);
             $user = $this->commonModel->getUserById($post->user_id);
 
-            $ups = $this->postModel->getInc($id)->ups;
-            $downs = $this->postModel->getDown($id)->downs;
+            $ups = $this->postUpvoteDownvoteModel->getInc($id)->ups;
+            $downs = $this->postUpvoteDownvoteModel->getDown($id)->downs;
             $userId = $_SESSION['user_id'];
 
-            if($this->postModel->isPostInterationExist($userId, $id)) {
-                $selfInteraction = $this->postModel->getPostInteration($userId, $id);
+            if($this->postUpvoteDownvoteModel->isPostInterationExist($userId, $id)) {
+                $selfInteraction = $this->postUpvoteDownvoteModel->getPostInteration($userId, $id);
                 $selfInteraction = $selfInteraction->interaction;
             }
             else {
@@ -105,75 +106,7 @@
             
         }
 
-        // For likes
-        public function incUp($id) {
-            $ups = $this->postModel->incUp($id);
-
-            $userId = $_SESSION['user_id'];
-
-            if($this->postModel->isPostInterationExist($userId, $id)) {
-                // If already an interaction exists
-                $res = $this->postModel->setPostInteraction($userId, $id, 'liked');
-            }
-            else {
-                // If no previous interaction exists
-                $res = $this->postModel->addPostInteraction($userId, $id, 'liked');
-            }
-
-            if($ups != false && $res != false) {
-                echo $ups->ups;
-            }
-        }
-
-        public function decUp($id) {
-            $ups = $this->postModel->decUp($id);
-
-            $userId = $_SESSION['user_id'];
-            $res = $this->postModel->setPostInteraction($userId, $id, 'like removed');
-
-            if($ups != false && $res != false) {
-                echo $ups->ups;
-            }    
-        }
-
-        // For dislikes
-        public function incDown($id) {
-            $downs = $this->postModel->incDown($id);
-
-            $userId = $_SESSION['user_id'];
-
-            if($this->postModel->isPostInterationExist($userId, $id)) {
-                // If already an interaction exists
-                $res = $this->postModel->setPostInteraction($userId, $id, 'disliked');
-            }
-            else {
-                // If no previous interaction exists
-                $res = $this->postModel->addPostInteraction($userId, $id, 'disliked');
-            }
-
-            if($downs != false && $res != false) {
-                echo $downs->downs;
-            }    
-        }
-
-        public function decDown($id) {
-            $downs = $this->postModel->decDown($id);
-
-            $userId = $_SESSION['user_id'];
-            $res = $this->postModel->setPostInteraction($userId, $id, 'dislike removed');
-
-            if($downs != false && $res != false) {
-                echo $downs->downs;
-            }    
-        }
+        // LIKES DISLIKES REMOVED
         
-
-        public function incShare() {
-
-        }
-
-        public function incView() {
-
-        }
     }
 ?>

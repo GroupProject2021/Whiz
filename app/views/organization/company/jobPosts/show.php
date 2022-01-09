@@ -62,6 +62,26 @@
                                     <div class="title"><?php echo $data['post']->jobName; ?></div>
                                     <div class="postedby"><?php echo $data['post']->jobContent; ?></div>
                                 </div>
+                                <div class="poles">
+                                   <div class="pole-prg-bar bar1">
+                                        <progress max="100" value="<?php if($data['post']->capacity != 0){ echo ($data['post']->applied / $data['post']->capacity) * 100;} else {echo 0;} ?>" id="prgBar"></progress>
+                                   </div>
+                                   <div class="text">
+                                       <div class="applied" id="applied"><?php echo $data['post']->applied; ?> Applied</div>
+                                       <div class="capacity"> of <?php echo $data['post']->capacity; ?> Capacity</div>
+                                   </div>
+                                   <?php if($_SESSION['specialized_actor_type'] == "Undergraduate Graduate"): ?>
+                                        <?php if($data['self_job_apply_interaction'] == 'applied'):?>
+                                                <div class="interation applied">                                    
+                                        <?php else: ?>
+                                                <div class="interation"> 
+                                        <?php endif; ?>
+                                            <button id="applyBtn">APPLY</button>
+                                        </div>
+                                    <?php else: ?>
+                                        <!-- nothing -->
+                                    <?php endif; ?>
+                               </div>
                                 <form method="post">
                                 <div class="post-footer">
                                     <button id="like" >

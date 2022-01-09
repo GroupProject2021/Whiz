@@ -30,10 +30,10 @@
 
                     <div class="card-flex-box">
 
-                    <!-- COURSE POST -->
+                     <!-- COURSE POST -->
                    <?php foreach($data['posts'] as $post): ?>
                     <?php if($post->type == "coursepost"): ?>
-                        <a href="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/show/<?php echo $post->postId; ?>" class="card-link">
+                        <a href="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="coursepost">
                             <?php if($post->image != null):?>
                             <div class="pic">
@@ -45,9 +45,10 @@
                                     <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
                                 </div>
                                 <div class="postedat">Posted At: <?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
-                                <div class="title"><?php echo $post->title; ?></div>
+                                <div class="title"><?php echo $post->courseName; ?></div>
+                                <div class="degree"><?php echo $post->provide_degree; ?></div>
                                 <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
-                               <div class="price">Rs.1000</div>
+                               <div class="price"><?php echo $post->course_fee.' LKR'; ?></div>
                             </div>
                             <div class="coursepost-stats">
                                 <div class="ups"><img src="<?php echo URLROOT.'/imgs/components/posts/up-icon.png'; ?>" alt=""></div>
@@ -73,6 +74,8 @@
                             </div>          
                         </div>
                         </a>
+                        <br>
+                        <br>
                     <?php endif; ?>
                     <?php endforeach; ?>
 

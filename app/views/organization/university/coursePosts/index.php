@@ -32,6 +32,7 @@
                     
                     <!-- COURSE POST -->
                    <?php foreach($data['posts'] as $post): ?>
+                    <?php if($post->private_uni_id == $_SESSION['user_id']): ?>
                     <?php if($post->type == "coursepost"): ?>
                         <a href="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="coursepost">
@@ -76,6 +77,7 @@
                         </a>
                         <br>
                         <br>
+                    <?php endif; ?>
                     <?php endif; ?>
                     <?php endforeach; ?>
 
