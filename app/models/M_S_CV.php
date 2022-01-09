@@ -76,6 +76,58 @@ class M_S_CV {
 
         return $results->stream_name;
     }
+
+    // CV
+    public function addCV($data) {
+        // register as a user    
+        $this->db->query('INSERT INTO CV(user_id, cv_file_name) VALUES(:user_id, :cv_file_name)');
+        // bind values
+        $this->db->bind(':user_id', $_SESSION['user_id']);
+        $this->db->bind(':cv_file_name', $data['file_name']);
+
+        // Execute
+        if($this->db->execute()) {
+            // return true;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function updateCV($data) {
+        $this->db->query('UPDATE CV SET cv_file_name = :cv_file_name WHERE user_id = :id');
+        // bind values                
+        $this->db->bind(":cv_file_name", $data['file_name']);
+        $this->db->bind(":id", $_SESSION['user_id']);
+
+        $res1 = $this->db->execute();
+
+        // Execute
+        if($res1) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    // get CV file existence
+    public function isCVFileExists($id) {
+        $this->db->query('SELECT cv_file_name FROM CV WHERE user_id = :id'); // this is a prepared statement
+        // bind value
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        // Check row - return true if email exists. Because then rowCount is not 0
+        if($this->db->rowCount() > 0) {
+            return $row->cv_file_name;
+        }
+        else {
+            return false;
+        }
+    }
 }
 
 ?>

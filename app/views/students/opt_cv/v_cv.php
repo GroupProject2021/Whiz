@@ -25,10 +25,13 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
+                        <?php flash('file_upload');?>
+
                         <div>
-                            <a href="<?php echo URLROOT; ?>/C_S_CV/uploadCustomCV"><button class="btn2">Upload Custom</button></a>
+                            <a href="<?php echo URLROOT; ?>/C_S_CV/uploadCustomCV"><button class="btn2">Upload Your CV</button></a>
                         </div>
 
+                        <br>
                         <form action="<?php echo URLROOT; ?>/C_S_CV/generateCV" method="post">
                             <h2>SKILLS</h2>
                             <p>Please enter 4 skills you have. Also use the corresponding progress bar to indicate your skill level.</p>

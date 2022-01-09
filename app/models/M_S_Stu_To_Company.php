@@ -46,7 +46,7 @@ class M_S_Stu_To_Company {
         return $row;
     }
 
-        // like dislike interactions
+    // job applying
     public function addJobApply($userId, $postId, $interation) {
         $this->db->query('INSERT INTO JobApplicants(user_id, post_id, interaction) VALUES(:user_id, :post_id, :interaction)');
         // bind values
@@ -120,6 +120,47 @@ class M_S_Stu_To_Company {
             return false;
         }
     }   
+
+    // cv
+    public function addCVtoPost($postId, $userId, $cvId) {
+        $this->db->query('INSERT INTO CVSentToAPost(post_id, user_id, cv_id) VALUES(:post_id, :user_id, :cv_id)');
+        // bind values
+        $this->db->bind(":post_id", $postId);
+        $this->db->bind(":user_id", $userId);
+        $this->db->bind(":cv_id", $cvId);
+
+        // Execute
+        if($this->db->execute()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    public function deleteCVFromPost($postId, $userId) {
+        $this->db->query('DELETE FROM CVSentToAPost WHERE post_id = :post_id AND user_id = :user_id');
+        // bind values
+        $this->db->bind(":post_id", $postId);
+        $this->db->bind(":user_id", $userId);
+
+        // Execute
+        if($this->db->execute()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    } 
+
+    public function getCVIdByUserId($userId) {
+        $this->db->query('SELECT * FROM CV WHERE user_id = :user_id');
+        $this->db->bind(":user_id", $userId);
+
+        $row = $this->db->single();
+
+        return $row->cv_id;
+    }
 }
 
 ?>

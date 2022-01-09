@@ -7908,3 +7908,37 @@ CREATE TABLE Report(
 	FOREIGN KEY(reported_id) REFERENCES Users(id) ON DELETE CASCADE,
 	FOREIGN KEY(reporter_id) REFERENCES Users(id) ON DELETE CASCADE
 );
+
+-- cv
+CREATE TABLE CV(
+	cv_id INT AUTO_INCREMENT,
+	user_id INT,
+	cv_file_name VARCHAR(255),
+	uploaded_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(cv_id),
+	FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE CVSentToAPost(
+	id INT AUTO_INCREMENT,
+	post_id INT,
+	user_id INT,
+	cv_id INT,
+	PRIMARY KEY(id),
+	FOREIGN KEY(post_id) REFERENCES Posts(id) ON DELETE CASCADE,
+	FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE,
+	FOREIGN KEY(cv_id) REFERENCES CV(cv_id) ON DELETE CASCADE
+);
+
+-- reviced cv view
+CREATE VIEW v_received_cv AS
+	SELECT
+	CVSentToAPost.post_id AS post_id,
+	Users.id AS user_id,
+	Users.first_name as first_name,
+	Users.last_name as last_name,
+	CV.cv_file_name as cv_file_name
+	FROM CVSentToAPost INNER JOIN Users
+	ON CVSentToAPost.user_id = Users.id
+	INNER JOIN CV 
+	ON CVSentToAPost.cv_id = CV.cv_id

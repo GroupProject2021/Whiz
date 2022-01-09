@@ -18,34 +18,34 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Enrollments</h1>
+                        <h1>Received CVs</h1>
                     </div>
                     <br>
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
+                        
                         <table class="gov-course-table">
-                            <tr>
-                                
-                                <th>Post</th>
-                                
-                                <th colspan="2">Enrolled Student<br>Count</th>
-                                
+                            <tr>                                
+                                <th>Student</th>                                
+                                <th colspan="2">CV</th>                                
                                 <th></th>
                             </tr>
                             <tr><td colspan="3"><hr></td></tr>
-                            <?php foreach($data['posts'] as $post): ?>
-                                <?php if($post->userId == $_SESSION['user_id']): ?>
+                            <?php foreach($data['applied_cv_list'] as $cv): ?>
                             <tr>
-                                <td class="gov-course-name"><?php echo $post->title; ?></td>
-                               
-                                <td class="gov-course-intake"><?php echo $post->applied;?>/<?php echo $post->capacity;?></td>
+                                <td class="gov-course-name">
+                                    <a href="<?php echo URLROOT;?>/C_S_Settings/settings/<?php echo $cv->user_id; ?>/<?php echo $_SESSION['user_id']; ?>" class="post-link">
+                                        <?php echo $cv->first_name.' '.$cv->last_name; ?>
+                                    </a>
+                                </td>                               
+                                <td class="gov-course-intake"><?php echo substr($cv->cv_file_name, 11);?></td>
                                 
-                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_O_C_Cvs/cvList/'.$post->postId;?>"><button class="btn3">View more</button></a></td>
+                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/files/CVs/'.$cv->cv_file_name;?>"><button class="btn3">Download CV</button></a></td>
                                 </tr>
                                 <tr><td colspan="4"><hr></td></tr>
-                                <?php endif; ?>
                             <?php endforeach; ?>
                         </table>
+
                     </div>
                     </div>
                     

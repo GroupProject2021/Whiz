@@ -138,6 +138,10 @@
             }
 
             if($applies != false && $res != false) {
+                // add cv as well
+                $cvId = $this->stuToCompanyModel->getCVIdByUserId($userId);
+                $this->stuToCompanyModel->addCVtoPost($id, $userId, $cvId);
+
                 echo $applies->applied;
             }    
         }
@@ -149,6 +153,9 @@
             $res = $this->stuToCompanyModel->setJobApply($userId, $id, 'apply removed');
 
             if($applies != false && $res != false) {
+                // delete the applied cv from table
+                $this->stuToCompanyModel->deleteCVFromPost($id, $userId);
+
                 echo $applies->applied;
             }    
         }

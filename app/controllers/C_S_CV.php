@@ -272,41 +272,82 @@ class C_S_CV extends Controller {
 
     // upload custom cv
     public function uploadCustomCV() {
+        $fileName = $this->cvModel->isCVFileExists($_SESSION['user_id']);
+
+        if($fileName != NULL) {
+            $isCVFileExists = true;
+        }
+        else {
+            $isCVFileExists = false;
+        }
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
                 'file' => $_FILES['file_to_be_upload'],
                 'file_name' => time().'_'.$_FILES['file_to_be_upload']['name'],
+                'is_cv_file_exists' => $isCVFileExists,
 
                 'file_err' => ''
             ];
 
             // validate and upload profile image
-            if(uploadFile($data['file']['tmp_name'], $data['file_name'], '/files/CVs/')) {
-                flash('file_upload', 'File uploaded successfully');
+            // if(uploadFile($data['file']['tmp_name'], $data['file_name'], '/files/CVs/')) {
+            //     flash('file_upload', 'File uploaded successfully');
+            // }
+            // else {
+            //     // upload unsuccessfull
+            //     $data['file_err'] = 'File uploading unsuccessful';
+            // }
+
+            // validate and upload file
+            if($data['file']['name'] == null) {
+                if($fileName != null) {
+                    $data['file_name'] = $fileName;
+                }
             }
-            else {
-                // upload unsuccessfull
-                $data['file_err'] = 'File uploading unsuccessful';
+            elseif($data['file_name'] != $fileName) {
+                if($fileName != null) {
+                    if(updateFile(PUBROOT.'/files/CVs/'.$fileName, $data['file']['tmp_name'], $data['file_name'], '/files/CVs/')) {
+                        flash('file_upload', 'File updated successfully');
+                        $this->cvModel->updateCV($data);
+                    }
+                    else {
+                        // upload unsuccessfull
+                        $data['file_err'] = 'File uploading unsuccessful';
+                    }
+                }
+                else{
+                    if(uploadFile($data['file']['tmp_name'], $data['file_name'], '/files/CVs/')) {
+                        flash('file_upload', 'File uploaded successfully');
+                        $this->cvModel->addCV($data);
+                    }
+                    else {
+                        // upload unsuccessfull
+                        $data['file_err'] = 'File uploading unsuccessful';
+                    }
+                }
             }
+            
 
             if(empty($data['file_err'])) {
                 redirect('C_S_CV/index');
             }
             else {
-                $this->view('students/opt_cv/v_custom_cv');
+                $this->view('students/opt_cv/v_custom_cv', $data);
             }
         }
         else {
             $data = [
                 'file' => '',
-                'file_name' => '',
+                'file_name' => $fileName,
+                'is_cv_file_exists' => $isCVFileExists,
 
                 'file_err' => ''
             ];
 
-            $this->view('students/opt_cv/v_custom_cv');
+            $this->view('students/opt_cv/v_custom_cv', $data);
         }
     }
 
