@@ -31,7 +31,7 @@
                     
                         <br>
 
-                        <table>
+                        <table border="1" style="border-collapse: collapse;">
                         <?php foreach($data['courses_university_list'] as $course_uni): ?>
                             <tr>
                                 <td><?php echo $course_uni->id; ?></td>
@@ -40,7 +40,7 @@
                                 <td><?php echo $course_uni->unicode; ?></td>
                                 <td><?php echo $course_uni->purposed_intake; ?></td>
                                 <td><?php echo $course_uni->duration; ?></td>
-                                <td><?php echo $course_uni->description; ?></td>
+                                <td><?php echo substr($course_uni->description, 0, 10); ?>...</td>
                                 <td><a href="<?php echo URLROOT.'/C_A_Government_University/editCourseUniversity/'.$course_uni->id; ?>">Edit</a></td>
                                 <!-- <td><a href="<?php //echo URLROOT.'/C_A_Government_University/deleteCourseUniversity/'.$course_uni->id; ?>">Delete</a></td> -->
                             </tr>

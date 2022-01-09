@@ -73,6 +73,23 @@
                 </button>
             </a>
         </div>
+
+        <!-- Users -->
+        <div class="menu-head">
+            <span>Users</span>
+        </div>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/C_A_Users/reports">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        Reports
+                    </div>
+                </button>
+            </a>
+        </div>
         <?php else: ?>
             <!-- Nothing here -->
         <?php endif;?>

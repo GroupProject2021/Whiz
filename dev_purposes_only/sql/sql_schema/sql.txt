@@ -7942,3 +7942,5 @@ CREATE VIEW v_received_cv AS
 	ON CVSentToAPost.user_id = Users.id
 	INNER JOIN CV 
 	ON CVSentToAPost.cv_id = CV.cv_id
+
+
