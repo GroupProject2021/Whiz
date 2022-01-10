@@ -3,11 +3,22 @@
         public function __construct() {
             $this->mentorDashboardModel = $this->model('Mentor_dashboard');
             $this->commonModel = $this->model('Common');
+            $this->postModel = $this->model('Post');
+            $this->sessionLinkModel = $this->model('M_M_Enrolment_List');
         }
 
         public function index() {
             $posts = $this->mentorDashboardModel->getPosts();
-            $data = ['title' => 'Welcome to Professional Guider dashboard', 'posts' => $posts];
+            $postsforId = $this->postModel->getPosts();
+            // $post_id = $postsforId->postId;
+            // $link = $this->sessionLinkModel->getSessionLink($postsforId->postId);
+
+            $data = [
+                'title' => 'Welcome to Professional Guider dashboard', 
+                'posts' => $posts,
+                'postsid' => $postsforId,
+                // 'link' => $link
+            ];
             //$this->view('mentors/professional_guider/prof_guide_dashboard', $data);
 
             switch($_SESSION['specialized_actor_type']) {
@@ -23,6 +34,11 @@
                     // nothing
                     break;
             }
+
+            // $data = [
+            //     'postsid' => $postsforId,
+            //     'link' => $link
+            // ];
         }
 
         // post functions

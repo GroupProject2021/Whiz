@@ -18,12 +18,12 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Mentor dashboard</h1>
+                        <h1>Dashboard</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
-                    <div class="middle-panel">
-                        <div class="middle-left-panel">                            
+                    <div class="middle-panel-single">
+                        <!-- <div class="middle-left-panel">                            
                             
                         
                         </div>
@@ -43,7 +43,7 @@
                                 <br>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae maiores culpa rerum quae ducimus, atque eveniet animi esse reiciendis est sunt facilis tempore quo pariatur, laudantium impedit at nihil veritatis.
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- BOTTOM PANEL -->

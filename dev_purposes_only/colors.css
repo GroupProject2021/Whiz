@@ -1,0 +1,28 @@
+:root {
+
+/* red-maroon */
+--red1 : (#4d0000);
+--red2 : (#993333);
+
+/* blue */
+--blue1 : (#00334d);
+
+/* yellow */
+--yellow1 : (#ff8c1a);
+
+/* orange */
+--orange1 : (#ff5c33);
+
+
+/* green colors */
+--green1 : (#0d261a);
+--green2 : (#133926);
+--green3 : (#194d33);
+--green4 : (#206040);
+--green5 : (#26734d);
+--green6 : (#2d8659);
+--green7 : (#339966);
+--green8 : (#39ac73);
+
+
+}

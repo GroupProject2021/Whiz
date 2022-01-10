@@ -298,7 +298,7 @@
 
                 $res1 = $this->commentModel->deleteComment($id);
                 $res2 = $this->reviewModel->deleteReview($id);
-                $res3 = $this->postModel->deleteInteraction($id);
+                $res3 = $this->postUpvoteDownvoteModel->deleteInteraction($id);
                 $res4 = $this->postModel->deletePost($id);
 
                 // validate and upload profile image
