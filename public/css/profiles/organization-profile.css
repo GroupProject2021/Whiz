@@ -62,6 +62,7 @@
     background: linear-gradient(42deg, rgba(190,190,190,0.3) 0%, rgba(255,251,225,0.3) 38%, rgba(240,242,239,0.3) 100%, rgba(255,255,248,0.3) 100%);
     display: grid;
     grid-template-columns: 1fr 1fr;
+    border-radius: 10px;
 }
 
 .org-profile .details .beginner-detials img {
@@ -89,6 +90,7 @@
     background: linear-gradient(42deg, rgba(190,190,190,0.3) 0%, rgba(225,255,226,0.3) 38%, rgba(240,242,239,0.3) 100%, rgba(255,255,248,0.3) 100%);
     display: grid;
     grid-template-columns: 1fr 1fr;
+    border-radius: 10px;
 }
 
 .org-profile .details .ol-qualified-details img {
@@ -136,6 +138,7 @@
     background: linear-gradient(42deg, rgba(190,190,190,0.3) 0%, rgba(225,254,255,0.3) 38%, rgba(240,242,239,0.3) 100%, rgba(255,255,248,0.3) 100%);
     display: grid;
     grid-template-columns: 1fr 1fr;
+    border-radius: 10px;
 }
 
 .org-profile .details .al-qualified-details img {
@@ -183,6 +186,7 @@
     background: linear-gradient(42deg, rgba(190,190,190,0.3) 0%, rgba(255,225,249,0.3) 38%, rgba(240,242,239,0.3) 100%, rgba(255,255,248,0.3) 100%);
     display: grid;
     grid-template-columns: 1fr 1fr;
+    border-radius: 10px;
 }
 
 .org-profile .details .ug-details img {

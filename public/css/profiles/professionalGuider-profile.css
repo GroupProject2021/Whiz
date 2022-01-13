@@ -56,6 +56,7 @@
 background: linear-gradient(42deg, rgba(190,190,190,0.3) 0%, rgba(255,225,240,0.3) 38%, rgba(240,242,239,0.3) 100%, rgba(248,255,249,0.3) 100%);
     display: grid;
     grid-template-columns: 1fr 1fr;
+    border-radius: 10px;
 }
 
 .pg-profile .details .contact-detials img {
