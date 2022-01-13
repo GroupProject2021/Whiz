@@ -101,3 +101,7 @@ background: linear-gradient(42deg, rgba(190,190,190,0.3) 0%, rgba(255,225,240,0.
 .pg-profile-tail {
     width: 70%;
 }
+
+.connection-btn {
+    width: 170px;
+}

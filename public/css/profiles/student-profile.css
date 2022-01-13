@@ -1,5 +1,5 @@
 .stu-profile{
-    width: 70%;
+    width: 100%;
 }
 
 .stu-profile .head {
@@ -247,14 +247,8 @@
     left: 200px;
 }
 
-.interactable {
-    display: flex;
-    flex-direction: row;
-}
-
-.interactable .msg-btn {
-    width: 130px;
-    margin-left: 10px;
+.connection-btn {
+    width: 170px;
 }
 
 .social-detials-idle .message {

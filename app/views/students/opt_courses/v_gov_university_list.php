@@ -40,17 +40,15 @@
                                         <th>No.</th>
                                         <th>Logo</th>
                                         <th>Government University name</th>
-                                        <th></th>
                                     </tr>
                                     <tr><td colspan="7"><hr></td></tr>
                                     <?php foreach($data['universities'] as $govUniversity): ?>
                                     <tr>
                                         <td class="gov-course-index"><?php echo $govUniversity->gov_uni_id; ?></td>
                                         <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/profileimages/admin/governmentUniversity/logo/'.$govUniversity->logo?>" alt=""></td>
-                                        <td class="gov-course-name"><?php echo $govUniversity->uni_name; ?></td> 
-                                        <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_A_Government_University_Settings/settings/'.$govUniversity->gov_uni_id;?>"><button class="btn3">View more</button></a></td>
+                                        <td class="gov-course-name"><a class="post-link" href="<?php echo URLROOT.'/C_A_Government_University_Settings/settings/'.$govUniversity->gov_uni_id;?>"><?php echo $govUniversity->uni_name; ?></a></td> 
                                     </tr>
-                                    <tr><td colspan="7"><hr></td></tr>
+                                    <tr><td colspan="7"></td></tr>
                                     <?php endforeach; ?>
                                 </table>
                             <hr>

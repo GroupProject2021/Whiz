@@ -34,17 +34,15 @@
                         <p>This course offered by following universities. Click view for more detials.</p>
                         <br>
 
-                        <table>
+                        <table class="gov-course-table">
                             <tr>
                                 <th>Unicode</th>
                                 <th>Government university name</th>
-                                <th></th>
                             </tr>
                         <?php foreach($data['associated_universities'] as $uni): ?>
                             <tr>
-                                <td><?php echo $uni->unicode; ?></td>
-                                <td><?php echo $uni->uni_name; ?></td>
-                                <td ><a href="<?php echo URLROOT.'/C_S_Course/govCourseViewMore/'.$uni->unicode; ?>"><button class="btn3">VIEW</button></a></td>
+                                <td class="gov-course-index"><?php echo $uni->unicode; ?></td>
+                                <td class="gov-course-name"><a class="post-link" href="<?php echo URLROOT.'/C_S_Course/govCourseViewMore/'.$uni->unicode; ?>"><?php echo $uni->uni_name; ?></a></td>
                             </tr>
                         <?php endforeach; ?>
                         </table>    

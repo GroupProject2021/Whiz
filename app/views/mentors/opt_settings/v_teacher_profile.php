@@ -71,15 +71,8 @@
                                         }
                                     ?>
                                 </div>
-                                <hr>
-                                <div class="profile-stats">
-                                    <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$data['user']->id; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
-                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$data['user']->id; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
-                                    <div class="rating"><a href="" class="card-link"><b>Rate</b> 4.0/5.0</a></div>
-                                </div>
-                                <hr>
                                 <?php if($data['user']->id != $_SESSION['user_id']): ?>
-                                <div class="interactable">
+                                <div class="connection-btn">
                                     <?php if(!$data['isAlreadyFollow']): ?>
                                     <a class="msg-btn card-link" id="follow">
                                         <button class="btn1-round" id="followBtn">Follow</button>
@@ -91,11 +84,16 @@
                                     </a>
                                     <?php endif; ?>
                                     <a href="" class="msg-btn">
-                                        <button class="btn1-round">Message</button>
+                                        <!-- <button class="btn1-round">Message</button> -->
                                     </a>
                                 </div>
-                                <hr>
                                 <?php endif; ?>
+                                <hr>
+                                <div class="profile-stats">
+                                    <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$data['user']->id; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
+                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$data['user']->id; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
+                                </div>
+                                <hr>
                                 <!-- beginner details -->
                         <?php if($data['user']->specialized_actor_type == 'Teacher'): ?>
                                 <div class="division">
@@ -134,19 +132,8 @@
                                     </div> -->
                                     
                                 </div>
-                                <hr>
                         <?php endif; ?>
-                        <div class="About">
-                            <div class="title">About</div>
-                                <div class="text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Commodi velit, quibusdam, cum officia nesciunt, autem impedit quod culpa magnam reiciendi
-                                    s necessitatibus repellat corporis dicta recusandae facere pariatur dignissimos maxime! Laudantium.
-                                </div>
-                            </div>
-                            <hr>
-                                
-                        </div>
+
                         <!-- !$data['is_pri_soc_details_locked'] || -->
                         <?php if( $data['user']->id == $_SESSION['user_id']): ?>
                             <?php if($data['isSocialDataExist']):?>
@@ -224,6 +211,32 @@
                             <?php endif; ?>
                         <?php endif; ?>
                         </div>
+
+                        <!-- REPORT PROFILE (styles at css/com/profile/student-profile maybe change it later) -->                        
+                        <?php if($data['user']->id != $_SESSION['user_id']): ?>
+                        <br><hr>
+                        <div class="division">
+                            <div class="division-name">Report  profile</div>
+                        </div>
+                            <?php if(!$data['is_already_reported']): ?>
+                            <div class="report-details">
+                                <p>If you suspect this profile is a fake or bogus one please report the profile.
+                                Please note that if you send a report, it will be analyzed by <b>Whiz.</b></p>
+                                <br>                      
+                                <!-- request goes as Commons/report/reportedId/reporterId -->
+                                <form action="<?php echo URLROOT; ?>/Commons/report/<?php echo $data['user']->id; ?>/<?php echo $_SESSION['user_id']?>" method="post">
+                                    <input type="text" name="report" id="report" placeholder="Give us a reason..." required>
+                                    <br>
+                                    <input type="submit" value="Report Profile" class="btn4">
+                                </form>
+                            </div>
+                            <?php else: ?>
+                                <div class="report-details">
+                                    <b class="user-settings-red-text">You have already reported this account. We are processing your report which may take few days.</b>
+                                </div>
+                            <?php endif; ?>
+                        <?php endif; ?>
+
                         <div class="body">
 
                         </div>

@@ -56,15 +56,8 @@
                                     <?php endif; ?>
                                 </div>
                                 <div class="occupation"><?php echo $data['user']->actor_type; ?> | <?php echo $data['user']->specialized_actor_type;?> </div>
-                                <hr>
-                                <div class="profile-stats">
-                                    <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$data['user']->id; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
-                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$data['user']->id; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
-                                    <div class="rating"><a href="" class="card-link"><b>Rate</b> 4.0/5.0</a></div>
-                                </div>
-                                <hr>
                                 <?php if($data['user']->id != $_SESSION['user_id']): ?>
-                                <div class="interactable">
+                                <div class="connection-btn">
                                     <?php if(!$data['isAlreadyFollow']): ?>
                                     <a class="msg-btn card-link" id="follow">
                                         <button class="btn1-round" id="followBtn">Follow</button>
@@ -76,11 +69,17 @@
                                     </a>
                                     <?php endif; ?>
                                     <a href="" class="msg-btn">
-                                        <button class="btn1-round">Message</button>
+                                        <!-- <button class="btn1-round">Message</button> -->
                                     </a>
                                 </div>
-                                <hr>
                                 <?php endif; ?>
+                                <hr>
+                                <div class="profile-stats">
+                                    <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$data['user']->id; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
+                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$data['user']->id; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
+                                </div>
+                                <hr>
+                                
 
                                 <!-- university details -->
                         <?php if($data['user']->specialized_actor_type == 'University' ): ?>
@@ -138,7 +137,6 @@
                                         <div class="text"><?php echo $data['descrip'];?></div>    
                                     </div>
                                 </div>
-                                <hr>
                         <?php endif; ?>
 
                         <!-- company details -->
@@ -197,7 +195,6 @@
                                         <div class="text"><?php echo $data['services'];?></div>
                                     </div>
                                 </div>
-                                <hr>
                         <?php endif; ?>
                          
                             </div>
@@ -216,7 +213,7 @@
                                 <br>                      
                                 <!-- request goes as Commons/report/reportedId/reporterId -->
                                 <form action="<?php echo URLROOT; ?>/Commons/report/<?php echo $data['user']->id; ?>/<?php echo $_SESSION['user_id']?>" method="post">
-                                    <input type="text" name="report" id="report" placeholder="Give us a reason...">
+                                    <input type="text" name="report" id="report" placeholder="Give us a reason..." required>
                                     <br>
                                     <input type="submit" value="Report Profile" class="btn4">
                                 </form>

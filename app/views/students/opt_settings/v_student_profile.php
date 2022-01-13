@@ -83,16 +83,9 @@
                                                 break;
                                         }
                                     ?>
-                                </div>
-                                <br>
-                                <hr>
-                                <div class="profile-stats">
-                                    <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$data['user']->id; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
-                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$data['user']->id; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
-                                </div>
-                                <hr>
+                                </div>                           
                                 <?php if($data['user']->id != $_SESSION['user_id']): ?>
-                                <div class="interactable">
+                                <div class="connection-btn">
                                     <?php if(!$data['isAlreadyFollow']): ?>
                                     <a class="msg-btn card-link" id="follow">
                                         <button class="btn1-round" id="followBtn">Follow</button>
@@ -104,11 +97,16 @@
                                     </a>
                                     <?php endif; ?>
                                     <a href="" class="msg-btn">
-                                        <button class="btn1-round">Message</button>
+                                        <!-- <button class="btn1-round">Message</button> -->
                                     </a>
                                 </div>
-                                <hr>
                                 <?php endif; ?>
+                                <hr>
+                                <div class="profile-stats">
+                                    <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$data['user']->id; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
+                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$data['user']->id; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
+                                </div>
+                                <hr>
                         <!-- general details -->
                         <?php if(!$data['is_pri_gen_details_locked'] || $data['user']->id == $_SESSION['user_id']): ?>
                                 <!-- beginner details -->
@@ -363,7 +361,6 @@
                                     </div>
                                     <?php endif; ?>
                                 </div>
-                                <hr>
                             <?php else: ?>
                                 <?php if($data['user']->id == $_SESSION['user_id']): ?>
                                 <div class="division">
@@ -423,7 +420,7 @@
                                 <br>                      
                                 <!-- request goes as Commons/report/reportedId/reporterId -->
                                 <form action="<?php echo URLROOT; ?>/Commons/report/<?php echo $data['user']->id; ?>/<?php echo $_SESSION['user_id']?>" method="post">
-                                    <input type="text" name="report" id="report" placeholder="Give us a reason...">
+                                    <input type="text" name="report" id="report" placeholder="Give us a reason..." required>
                                     <br>
                                     <input type="submit" value="Report Profile" class="btn4">
                                 </form>

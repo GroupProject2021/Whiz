@@ -1,5 +1,5 @@
 .org-profile{
-    width: 70%;
+    width: 100%;
 }
 
 .org-profile .header {
@@ -254,12 +254,6 @@
     left: 200px;
 }
 
-.interactable {
-    display: flex;
-    flex-direction: row;
-}
-
-.interactable .msg-btn {
-    width: 130px;
-    margin-left: 10px;
+.connection-btn {
+    width: 170px;
 }
