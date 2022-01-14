@@ -63,11 +63,11 @@
 
                 
                 <div class="notification-content">
-                <?php for($test = 0; $test < 10; $test++): ?>
-                    <div class="notification">
+                    <div id="notifications"></div>
+                    <!-- <div class="notification">
                         <div class="left">
                             <div class="pic">
-                                <img src="<?php echo URLROOT.'/imgs/prof.jpg'; ?>" alt="">
+                                <img src="<?php //echo URLROOT.'/imgs/prof.jpg'; ?>" alt="">
                             </div>
                         </div>
                         <div class="right">
@@ -78,8 +78,7 @@
                                 Just Now
                             </div>
                         </div>
-                    </div>                          
-                <?php endfor; ?>
+                    </div>          -->
                 </div>
             </div>
 
@@ -176,3 +175,11 @@
 </script>
 
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/sideBarToggle/sideBarToggler.js"></script>
+
+<!-- common settings js -->
+<script type="text/JavaScript">
+    var URLROOT = '<?php echo URLROOT; ?>';            
+    var USER_ID= '<?php echo $_SESSION["user_id"]; ?>';
+</script>
+
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/notificationAlert/notificationAlert.js"></script>

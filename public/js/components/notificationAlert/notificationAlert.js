@@ -1,3 +1,17 @@
+// notifications
+$(document).ready(function() {
+    // onload show notificaitons
+    $.ajax({
+        url: URLROOT+"/Notifications/getNotifications/"+USER_ID,
+        dataType: "html",
+        success: function(results) {
+            $('#notifications').html(results);
+        }
+    })
+})
+
+
+// obselute
 const alertMsg = document.querySelector(".alert");
 const closeBtn = document.querySelector(".close-btn");
 
