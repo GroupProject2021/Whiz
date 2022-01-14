@@ -877,7 +877,7 @@ CREATE TABLE JobApplicants (
   user_id INT NOT NULL,  
   post_id INT NOT NULL,
   interaction VARCHAR(100),
-  applied_date date not null,
+  applied_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (job_apply_id),
   FOREIGN KEY (user_id) REFERENCES Users  (id) ON DELETE CASCADE,
   FOREIGN KEY (post_id) REFERENCES Posts  (id) ON DELETE CASCADE
@@ -933,7 +933,7 @@ CREATE TABLE TeacherEnrollments (
   user_id INT NOT NULL,  
   post_id INT NOT NULL,
   interaction VARCHAR(100),
-  applied_date date not null,
+  applied_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (enroll_id),
   FOREIGN KEY (user_id) REFERENCES Users  (id) ON DELETE CASCADE,
   FOREIGN KEY (post_id) REFERENCES Posts  (id) ON DELETE CASCADE
@@ -944,7 +944,7 @@ CREATE TABLE ProfGuiderEnrollments (
   user_id INT NOT NULL,  
   post_id INT NOT NULL,
   interaction VARCHAR(100),
-  applied_date date not null,
+  applied_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (enroll_id),
   FOREIGN KEY (user_id) REFERENCES Users  (id) ON DELETE CASCADE,
   FOREIGN KEY (post_id) REFERENCES Posts  (id) ON DELETE CASCADE

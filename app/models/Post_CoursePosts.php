@@ -7,15 +7,6 @@
         }
 
         public function getPosts() {
-            // OLD QUERY
-            // $this->db->query("SELECT *, 
-            //                     posts.id AS postId,
-            //                     users.id AS userId,
-            //                     posts.created_at as postCreated
-            //                     FROM posts
-            //                     INNER JOIN users  
-            //                     ON posts.user_id = users.id 
-            //                     ORDER BY posts.created_at DESC");
 
             $this->db->query("SELECT * FROM v_posts_courses ORDER BY post_id DESC;");
             

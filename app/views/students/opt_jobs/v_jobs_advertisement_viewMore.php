@@ -63,7 +63,9 @@
                                    <?php else: ?>
                                         <div class="interation"> 
                                    <?php endif; ?>
+                                        <?php if($_SESSION['specialized_actor_type'] == 'Undergraduate Graduate'): ?>
                                        <button id="applyBtn">ENROLL</button>
+                                       <?php endif; ?>
                                    </div>
                                </div>
                                 <form method="post">

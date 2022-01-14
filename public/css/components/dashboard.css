@@ -337,6 +337,183 @@ main {
     margin: 0 auto;
 }
 
+.dashboard-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* dashboard containers */
+.dashboard-content-title {
+    font-size: 15px;
+    /* font-weight: 600; */
+    color: #464646;
+}
+
+.dashboard-content-container {
+    max-height: 340px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 5px;
+    margin-top: 3px;
+}
+
+.dashboard-content-container .enrollment-container {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    border: 1px solid #c5c3c3;
+    background-color: #ececec;
+    padding: 5px;
+    transition: .2s all;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+.dashboard-content-container .enrollment-container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 1px 3px 3px rgba(0, 0, 0, 0.05);
+    border-radius: 0px;
+}
+
+.dashboard-content-container .enrollment-container .image img {
+    height: 50px;
+    width: 50px;
+}
+
+.dashboard-content-container .enrollment-container .right {
+    width: 100%;
+}
+
+.dashboard-content-container .enrollment-container .right .up {
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard-content-container .enrollment-container .right .up .title {
+    align-self: center;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 600
+}
+
+.dashboard-content-container .enrollment-container .right .up .applied-date {
+    margin-left: 10px;
+    font-size: 12px;
+    color: gray;
+    align-self: center;
+}
+
+.dashboard-content-container .enrollment-container .right .down {
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard-content-container .enrollment-container .right .down .capacity {
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 50%;
+}
+
+.dashboard-content-container .enrollment-container .right .down .capacity progress {
+    width: 100%;
+    height: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.dashboard-content-container .enrollment-container .right .down .capacity.bar-prof-guider progress::-webkit-progress-value {
+    -webkit-appearance: none;    
+    background-color: rgb(243, 147, 3);
+    border-radius: 3px;
+}
+
+.dashboard-content-container .enrollment-container .right .down .capacity.bar-prof-guider progress[value]::-webkit-progress-bar {
+    background-color: rgb(233, 195, 225);
+    border-radius: 3px;
+}
+
+.dashboard-content-container .enrollment-container .right .down .capacity.bar-teacher progress::-webkit-progress-value {
+    -webkit-appearance: none;    
+    background-color: rgb(0, 163, 136);
+    border-radius: 3px;
+}
+
+.dashboard-content-container .enrollment-container .right .down .capacity.bar-teacher progress[value]::-webkit-progress-bar {
+    background-color: rgb(233, 195, 225);
+    border-radius: 3px;
+}
+
+.dashboard-content-container .enrollment-container .right .down .capacity.bar-company progress::-webkit-progress-value {
+    -webkit-appearance: none;    
+    background-color: rgb(150, 0, 150);
+    border-radius: 3px;
+}
+
+.dashboard-content-container .enrollment-container .right .down .capacity.bar-company progress[value]::-webkit-progress-bar {
+    background-color: rgb(233, 195, 225);
+    border-radius: 3px;
+}
+
+.dashboard-content-container .enrollment-container .right .down .capacity-text {
+    color: gray;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+/* dashboard idle container */
+.dashboard-content-idle-container {
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    border: 1px solid rgb(209, 197, 197);
+    margin-bottom: 10px;
+}
+
+.dashboard-content-idle-container.job {
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+.dashboard-content-idle-container.proGuider {
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+}
+
+.dashboard-content-idle-container.teacher {
+    background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+}
+
+.dashboard-content-idle-container .left .image {
+    overflow: hidden;
+}
+
+.dashboard-content-idle-container .left .image img {
+    height: 100%;
+    width: 130px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    overflow: hidden;
+    transition: .5s all
+}
+
+.dashboard-content-idle-container:hover .left .image img {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.dashboard-content-idle-container .right {
+    padding: 10px;
+}
+
+.dashboard-content-idle-container .right .title {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.dashboard-content-idle-container .right .body {
+    margin-bottom: 5px;
+}
+
 /* responsive features */
 @media only screen and (max-width: 1124px) {
     .main-content {
