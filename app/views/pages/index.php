@@ -12,7 +12,7 @@
                 Whiz is a platform that collaborate students, universities, companies, teachers <br>
                 and professional guiders through our system.
                 </p>
-                <a href="Pages/help" class="showcase-btn">
+                <a href="<?php echo URLROOT; ?>/Students/register" class="showcase-btn">
                     GET STARTED
                 </a>
             </div>
@@ -31,7 +31,7 @@
                         If you have not sit for the O/L examination yet and still do not know what subjects can be chosen as basket subjects, we can help you. And also you can search for the university courses as well.
                     </div>
                     <div class="home-card-seemore">
-                        <a href="Pages/help">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
+                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Students/Beginner">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
                     </div>
                 </div>
                 <div>
@@ -45,7 +45,7 @@
                         Are you still worrying about selecting A/L stream ? Then you should give a try on Whiz. We are here to help you in selecting the best stream taking your O/L results into consideration.
                     </div>
                     <div class="home-card-seemore">
-                        <a href="Pages/help">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
+                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Students/OLQualified">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
                     </div>
                 </div>
                 <div>
@@ -59,7 +59,7 @@
                         If you are an A/L qualified student who whishes to enter to the university, Whiz can help you to select courses based on your z-score. And also you can get basic knowledge of your selected course before the university entrance.
                     </div>
                     <div class="home-card-seemore">
-                        <a href="Pages/help">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
+                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Students/ALQualified">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
                     </div>
                 </div>
                 <div>
@@ -73,7 +73,7 @@
                         Still seeking for a job? We publish all the latest job opportunities within the industry. You can apply for them through Whiz as well.
                     </div>
                     <div class="home-card-seemore">
-                        <a href="Pages/help">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
+                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Students/UndergraduateGraduate">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
                     </div>
                 </div>
             </section>
@@ -89,7 +89,7 @@
                     <div class="description">
                         <!-- lll -->
                     </div>
-                    <a href="Pages/help" class="left-btn">
+                    <a href="<?php echo URLROOT; ?>/Organizations/register" class="left-btn">
                         GET STARTED
                     </a>
                 </div>
@@ -104,7 +104,7 @@
                         Whiz can help you to fill institutional vacancies of your company. All you have to do is register on Whiz as a Company under Organization category and post your job notices.
                     </div>
                     <div class="home-card-seemore">
-                        <a href="Pages/help">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
+                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Organizations/Company">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
                     </div>
                 </div>
                 <div>
@@ -118,7 +118,7 @@
                         Private universities and Semi-government universities can register under Organization category and post about intake notices and course offerings through our Whiz platform.
                     </div>
                     <div class="home-card-seemore">
-                        <a href="Pages/help">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
+                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Organizations/PrivateUniversity">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
                     </div>
                 </div>
             </section>
@@ -138,7 +138,7 @@
                         If you are an organization which offers globally recognized career qualifications, Whiz is a great oppertunity for you to educate people. By registering as a professional guider under mentor category, you are permitted to post about career sessions to your enthusiast.
                     </div>
                     <div class="home-card-seemore">
-                        <a href="Pages/help">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
+                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Mentors/ProfessionalGuider">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
                     </div>
                 </div>
                 <div>
@@ -152,7 +152,7 @@
                         If you are willing to help to the Advanced Level qualified students on getting basic knowledge about their selected courses, Whiz is the best platform.
                     </div>
                     <div class="home-card-seemore">
-                        <a href="Pages/help">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
+                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Mentors/Teacher">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
                     </div>
                 </div>
                 <div class="right">
@@ -162,7 +162,7 @@
                     <div class="description">
                         <!-- lll -->
                     </div>
-                    <a href="Pages/help" class="right-btn">
+                    <a href="<?php echo URLROOT; ?>/Mentors/register" class="right-btn">
                         GET STARTED
                     </a>
                 </div>

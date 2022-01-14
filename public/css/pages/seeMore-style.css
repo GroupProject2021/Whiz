@@ -1,0 +1,38 @@
+.see-more-container {
+    margin-top: 2.5rem;
+    padding: 2rem;
+}
+
+.see-more-container .see-more-title {
+    font-size: 30px;
+    font-weight: 600;
+    color: #413f3f;
+    margin-bottom: 1rem;
+}
+
+.see-more-container .see-more-body {
+    font-size: 15px;
+}
+
+.see-more-container .see-more-subtitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #413f3f;
+    margin-bottom: 0.5rem;
+}
+
+.see-more-container .see-more-feature {
+    padding: 1rem;
+}
+
+.see-more-container .see-more-feature .see-more-featuretitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: #413f3f;
+    margin-bottom: 0.3rem;
+    font-style: italic;
+}
+
+.see-more-container .see-more-feature .see-more-featurebody {
+    font-size: 13px;
+}

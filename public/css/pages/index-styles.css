@@ -112,11 +112,13 @@
 .home-cards.organization {
     background-color: #e5ebee;
     padding: 20px;
+    border-radius: 10px;
 }
 
 .home-cards.mentors {
     background-color: #ece3ec;
     padding: 20px;
+    border-radius: 10px;
 }
 
 /* left */

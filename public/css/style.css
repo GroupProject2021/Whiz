@@ -5,6 +5,7 @@
 @import url('pages/std_CV-styles.css');
 @import url('pages/gov-course-list.css');
 @import url('pages/communityThread-style.css');
+@import url('pages/seeMore-style.css');
 
 /* seperate component styles */
 @import url('components/topnav.css');
