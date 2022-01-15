@@ -120,6 +120,16 @@ class M_S_Stu_To_Teacher {
             return false;
         }
     }   
+
+    // session link
+    public function getTeacherSessionLink($postId) {
+        $this->db->query('SELECT * FROM sessionLink WHERE post_id = :post_id');
+        $this->db->bind(":post_id", $postId);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
 }
 
 ?>

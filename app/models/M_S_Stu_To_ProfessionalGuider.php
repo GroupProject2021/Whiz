@@ -119,6 +119,16 @@ class M_S_Stu_To_ProfessionalGuider {
             return false;
         }
     }   
+
+    // session link
+    public function getProfessionalGuiderSessionLink($postId) {
+        $this->db->query('SELECT * FROM sessionLink WHERE post_id = :post_id');
+        $this->db->bind(":post_id", $postId);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
 }
 
 ?>

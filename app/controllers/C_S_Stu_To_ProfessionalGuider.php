@@ -97,6 +97,9 @@
             
             $avgRate = number_format((float)$avgRate, 1, '.', '');
 
+            // session link
+            $sessionLink = $this->stuToProfessionalGuiderModel->getProfessionalGuiderSessionLink($id);
+
             $data = [
                 'post' => $post,
                 'user' => $user,
@@ -112,7 +115,9 @@
                 'rate3' => $rate3Precentage,
                 'rate4' => $rate4Precentage,
                 'rate5' => $rate5Precentage,
-                'avg_rate' => $avgRate
+                'avg_rate' => $avgRate,
+
+                'session_link' => $sessionLink
             ];
 
             $this->view('students/opt_proGuiders/v_proGuiders_banner_viewMore', $data);

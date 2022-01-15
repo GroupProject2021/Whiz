@@ -95,6 +95,9 @@
             }
             
             $avgRate = number_format((float)$avgRate, 1, '.', '');
+            
+            // session link
+            $sessionLink = $this->stuToTeacherModel->getTeacherSessionLink($id);
 
             $data = [
                 'post' => $post,
@@ -111,7 +114,9 @@
                 'rate3' => $rate3Precentage,
                 'rate4' => $rate4Precentage,
                 'rate5' => $rate5Precentage,
-                'avg_rate' => $avgRate
+                'avg_rate' => $avgRate,
+
+                'session_link' => $sessionLink
             ];
 
             $this->view('students/opt_teachers/v_teachers_poster_viewMore', $data);

@@ -78,7 +78,19 @@ class C_M_Enrolment_List extends Controller{
         $postId = $_SESSION['current_viewing_post_id'];
         $post = $this->mentorDashboardModel->getPostById($postId);
 
-        $studentList = $this->enrolmentListModel->getStudentListById($postId);
+        switch($_SESSION['specialized_actor_type']) {
+            case 'Professional Guider' :
+                $studentList = $this->enrolmentListModel->getEnrollmentsForAPostG($postId);
+                break;
+            
+            case 'Teacher' :
+                $studentList = $this->enrolmentListModel->getEnrollmentsForAPostT($postId);
+                break;
+
+            default:
+                // nothing
+                break;
+        }
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
