@@ -64,7 +64,24 @@
                 echo            convertedToReadableTimeFormat($notification->send_at);
                 echo        '</div>';
                 echo    '</div>';
+                echo    '<div class="right-close">';
+                echo    '<div class="btn4-small" onclick="deleteNotification('.$notification->notification_id.')">X</div>';
+                echo    '</div>';
                 echo '</div>';          
+            }
+        }
+
+        public function getNotificationAmount($receiverID) {
+            $amount = $this->notificationModel->getNotificationAmount($receiverID);
+            echo $amount;
+        }
+
+        public function deleteNotification($receiverID) {
+            if($this->notificationModel->deleteNotification($receiverID)) {
+                //do nothing
+            }
+            else {
+                die('Something went wrong');
             }
         }
     }

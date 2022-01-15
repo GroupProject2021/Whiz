@@ -152,6 +152,21 @@
     background-color: var(--btn4-bg-color-hover);
 }
 
+.btn4-small {
+    background-color: var(--btn4-bg-color);
+    color: var(--btn4-color);
+    padding: 0px 4px;
+    /* margin: 8px 0; */
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    opacity: 0.9;
+}
+
+.btn4-small:hover {
+    background-color: var(--btn4-bg-color-hover);
+}
+
 .btn5 {
     background-color: var(--btn5-bg-color);
     color: var(--btn5-color);

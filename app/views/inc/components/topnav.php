@@ -59,6 +59,7 @@
                 <button class="dropbtn">
                     <img src="<?php echo URLROOT.'/imgs/components/topNavBar/notifications-icon.png' ?>" alt="">
                     <div>Notifications</div>
+                    <span class="red-notification-count" id="red-notification-count"></span>
                 </button>
 
                 
