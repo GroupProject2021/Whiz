@@ -30,9 +30,9 @@ class M_M_Enrolment_List{
         $this->db->query('SELECT * FROM v_enrol_student_list WHERE post_id = :post_id ;');
         $this->db->bind(':post_id', $post_id);
 
-        $row = $this->db->single();
+        $results = $this->db->resultSet();
 
-        return $row;
+        return $results;
     }
 
     // new

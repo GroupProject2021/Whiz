@@ -5,6 +5,7 @@ class C_M_Enrolment_List extends Controller{
     public function __construct() {
         $this->enrolmentListModel = $this->model('M_M_Enrolment_List');
         $this->mentorDashboardModel = $this->model('Post');
+        $this->notificationModel = $this->model('Notification');
         
     }
 
@@ -77,6 +78,8 @@ class C_M_Enrolment_List extends Controller{
         $postId = $_SESSION['current_viewing_post_id'];
         $post = $this->mentorDashboardModel->getPostById($postId);
 
+        $studentList = $this->enrolmentListModel->getStudentListById($postId);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -116,6 +119,15 @@ class C_M_Enrolment_List extends Controller{
                 // Validated
                 if($this->enrolmentListModel->addLink($data)) { // model needs to update
                     flash('post_message', 'Link Uploaded');
+
+                    // SEND NOTIFICATIONS
+                    foreach($studentList as $student) {
+                        $senderId = $_SESSION['user_id'];
+                        $receiverID = $student->user_id;
+                        $notification = 'Add a session link';
+                        $this->notificationModel->sendNotification($senderId, $receiverID, $notification);
+                    }
+
                     redirect('C_M_Enrolment_List/enrolStudentList'.$_SESSION['current_viewing_post_id']);
                 }
                 else {
