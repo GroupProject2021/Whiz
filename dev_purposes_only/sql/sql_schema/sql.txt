@@ -201,7 +201,7 @@ CREATE TABLE GovernmentCourseOfferedByGovermentUniversity (
 
 -- data inserted using admin panel
 
-INSERT INTO `governmentcourseofferedbygovermentuniversity` (`id`, `gov_course_id`, `gov_uni_id`, `purposed_intake`, `duration`, `description`, `unicode`) VALUES
+INSERT INTO `GovernmentCourseOfferedByGovermentUniversity` (`id`, `gov_course_id`, `gov_uni_id`, `purposed_intake`, `duration`, `description`, `unicode`) VALUES
 (1, 19, 1, 6985, 4, ' To be eligible for admission to a course of study in Arts, candidates must have obtained at least ‘S’ grades for three subjects considered.  As there are many subjects in the Arts stream for the G.C.E. (Advanced Level) Examination, subjects are classified under four baskets.  Students should have obtained passes in three subjects at the G.C.E. (Advanced Level) Examination from the following baskets. Basket 01- Social Sciences / Applied Social Studies: 1. Economics 2. Geography 3. History 4. Home Economics 5. Agricultural Science / Mathematics / Combined Mathematics 6. Communication & Media Studies 7. Information & Communication Technology 8. Accounting / Business Statistics 9. Political Science 10. Logic & Scientific Method 11. One subject from Technological Subjects :  Civil Technology  Electrical, Electronic and Information Technology  Agro Technology  Mechanical Technology  Food Technology  Bio-Resource Technology Guidance for selection of subjects from basket 01:  Students should select at least one subject from this basket.  Students can also select all three subjects only from basket 01. There are three exceptions to this rule. These are; 1. Students selecting three National Languages; Sinhala, Tamil and English from the basket 04 (Language Basket) as the three subjects, need not to select any subject from basket 01. 2. Students selecting a combination of National and Classical languages need not to select any subject from basket 01.National Languages are; Sinhala Tamil English Classical Languages are; Arabic Pali Sanskrit For example, students can select three subjects like Sinhala, Pali and Sanskrit etc. These students need not to select any subject from basket 01. However, no candidate can select three classical languages as three subjects. They can select a maximum of two classical languages only. 3. Students selecting two languages from the basket 04 and the third subject from Religions and Civilizations or Aesthetic subject classified under basket 02 and 03 given below need not to select any subject from basket 01. Basket 02 - Religions and Civilizations: 1. Buddhism 2. Hinduism 3. Christianity 4. Islam 5. Buddhist Civilization 6. Hindu Civilization 7. Christian Civilization 8. Islamic Civilization 9. Greek & Roman Civilization Guidance for selection of subjects from basket 02:  A candidate can select maximum of two subjects from the basket 02.  However, if a religion (Eg: Buddhism) is selected as a subject, the related civilization of the selected religion (Eg: Buddhist Civilization) cannot be offered as another subject from this basket. Basket 03- Aesthetic Studies: Aesthetic subjects consists of four subject areas. These are; 1. Art 2. Dancing 3. Music 4. Drama & Theatre This can be further sub-classified as; 1. Art 2. Dancing a. Sinhala b. Baratha3. Music a. Oriental b. Carnatic c. Western 4.Drama & Theatre a. Sinhala b. Tamil c. English Guidance for selection of subjects from basket 03:  Students can select two subjects out of above four subject areas. However, no student is allowed to select the two subjects from one subject area. Basket 04 - Languages: The language basket has three subject areas. These are;  National Languages  Classical Languages  Foreign Languages National Languages are:  Sinhala  Tamil  English Classical Languages are:  Arabic  Pali  Sanskrit Foreign Languages are:  Chinese  French  German  Hindi  Japanese  Malay  Russian Guidance for selection of subjects from basket 04:  Students are allowed to select a maximum of two subjects from this basket. For example, when selecting the three subjects, students can select Chinese and French from basket 04 and the other subject from another basket.', '019A'),
 (2, 19, 4, 6985, 4, ' To be eligible for admission to a course of study in Arts, candidates must have obtained at least ‘S’ grades for three subjects considered.  As there are many subjects in the Arts stream for the G.C.E. (Advanced Level) Examination, subjects are classified under four baskets.  Students should have obtained passes in three subjects at the G.C.E. (Advanced Level) Examination from the following baskets. Basket 01- Social Sciences / Applied Social Studies: 1. Economics 2. Geography 3. History 4. Home Economics 5. Agricultural Science / Mathematics / Combined Mathematics 6. Communication & Media Studies 7. Information & Communication Technology 8. Accounting / Business Statistics 9. Political Science 10. Logic & Scientific Method 11. One subject from Technological Subjects :  Civil Technology  Electrical, Electronic and Information Technology  Agro Technology  Mechanical Technology  Food Technology  Bio-Resource Technology Guidance for selection of subjects from basket 01:  Students should select at least one subject from this basket.  Students can also select all three subjects only from basket 01. There are three exceptions to this rule. These are; 1. Students selecting three National Languages; Sinhala, Tamil and English from the basket 04 (Language Basket) as the three subjects, need not to select any subject from basket 01. 2. Students selecting a combination of National and Classical languages need not to select any subject from basket 01.National Languages are; Sinhala Tamil English Classical Languages are; Arabic Pali Sanskrit For example, students can select three subjects like Sinhala, Pali and Sanskrit etc. These students need not to select any subject from basket 01. However, no candidate can select three classical languages as three subjects. They can select a maximum of two classical languages only. 3. Students selecting two languages from the basket 04 and the third subject from Religions and Civilizations or Aesthetic subject classified under basket 02 and 03 given below need not to select any subject from basket 01. Basket 02 - Religions and Civilizations: 1. Buddhism 2. Hinduism 3. Christianity 4. Islam 5. Buddhist Civilization 6. Hindu Civilization 7. Christian Civilization 8. Islamic Civilization 9. Greek & Roman Civilization Guidance for selection of subjects from basket 02:  A candidate can select maximum of two subjects from the basket 02.  However, if a religion (Eg: Buddhism) is selected as a subject, the related civilization of the selected religion (Eg: Buddhist Civilization) cannot be offered as another subject from this basket. Basket 03- Aesthetic Studies: Aesthetic subjects consists of four subject areas. These are; 1. Art 2. Dancing 3. Music 4. Drama & Theatre This can be further sub-classified as; 1. Art 2. Dancing a. Sinhala b. Baratha3. Music a. Oriental b. Carnatic c. Western 4.Drama & Theatre a. Sinhala b. Tamil c. English Guidance for selection of subjects from basket 03:  Students can select two subjects out of above four subject areas. However, no student is allowed to select the two subjects from one subject area. Basket 04 - Languages: The language basket has three subject areas. These are;  National Languages  Classical Languages  Foreign Languages National Languages are:  Sinhala  Tamil  English Classical Languages are:  Arabic  Pali  Sanskrit Foreign Languages are:  Chinese  French  German  Hindi  Japanese  Malay  Russian Guidance for selection of subjects from basket 04:  Students are allowed to select a maximum of two subjects from this basket. For example, when selecting the three subjects, students can select Chinese and French from basket 04 and the other subject from another basket.', '019D'),
 (3, 19, 3, 6985, 4, ' To be eligible for admission to a course of study in Arts, candidates must have obtained at least ‘S’ grades for three subjects considered.  As there are many subjects in the Arts stream for the G.C.E. (Advanced Level) Examination, subjects are classified under four baskets.  Students should have obtained passes in three subjects at the G.C.E. (Advanced Level) Examination from the following baskets. Basket 01- Social Sciences / Applied Social Studies: 1. Economics 2. Geography 3. History 4. Home Economics 5. Agricultural Science / Mathematics / Combined Mathematics 6. Communication & Media Studies 7. Information & Communication Technology 8. Accounting / Business Statistics 9. Political Science 10. Logic & Scientific Method 11. One subject from Technological Subjects :  Civil Technology  Electrical, Electronic and Information Technology  Agro Technology  Mechanical Technology  Food Technology  Bio-Resource Technology Guidance for selection of subjects from basket 01:  Students should select at least one subject from this basket.  Students can also select all three subjects only from basket 01. There are three exceptions to this rule. These are; 1. Students selecting three National Languages; Sinhala, Tamil and English from the basket 04 (Language Basket) as the three subjects, need not to select any subject from basket 01. 2. Students selecting a combination of National and Classical languages need not to select any subject from basket 01.National Languages are; Sinhala Tamil English Classical Languages are; Arabic Pali Sanskrit For example, students can select three subjects like Sinhala, Pali and Sanskrit etc. These students need not to select any subject from basket 01. However, no candidate can select three classical languages as three subjects. They can select a maximum of two classical languages only. 3. Students selecting two languages from the basket 04 and the third subject from Religions and Civilizations or Aesthetic subject classified under basket 02 and 03 given below need not to select any subject from basket 01. Basket 02 - Religions and Civilizations: 1. Buddhism 2. Hinduism 3. Christianity 4. Islam 5. Buddhist Civilization 6. Hindu Civilization 7. Christian Civilization 8. Islamic Civilization 9. Greek & Roman Civilization Guidance for selection of subjects from basket 02:  A candidate can select maximum of two subjects from the basket 02.  However, if a religion (Eg: Buddhism) is selected as a subject, the related civilization of the selected religion (Eg: Buddhist Civilization) cannot be offered as another subject from this basket. Basket 03- Aesthetic Studies: Aesthetic subjects consists of four subject areas. These are; 1. Art 2. Dancing 3. Music 4. Drama & Theatre This can be further sub-classified as; 1. Art 2. Dancing a. Sinhala b. Baratha3. Music a. Oriental b. Carnatic c. Western 4.Drama & Theatre a. Sinhala b. Tamil c. English Guidance for selection of subjects from basket 03:  Students can select two subjects out of above four subject areas. However, no student is allowed to select the two subjects from one subject area. Basket 04 - Languages: The language basket has three subject areas. These are;  National Languages  Classical Languages  Foreign Languages National Languages are:  Sinhala  Tamil  English Classical Languages are:  Arabic  Pali  Sanskrit Foreign Languages are:  Chinese  French  German  Hindi  Japanese  Malay  Russian Guidance for selection of subjects from basket 04:  Students are allowed to select a maximum of two subjects from this basket. For example, when selecting the three subjects, students can select Chinese and French from basket 04 and the other subject from another basket.', '019C'),
@@ -225,7 +225,7 @@ INSERT INTO `governmentcourseofferedbygovermentuniversity` (`id`, `gov_course_id
 (21, 68, 22, 117, 4, 'The Ramanathan Academy of Fine Arts of the University of Jaffna offer degree programme Bachelor of Fine Arts (Music). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the Ramanathan Academy of Fine Arts is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example, a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Arts & Design must have obtained a Credit (C) pass or more for Art at the G.C.E. (Advanced Level) Examination. Ramanathan Academy of Fine Arts of the University of Jaffna also conducts Practical/Aptitude Tests for selection. These are for Music, Dance and Art & Design. If a student fails the Practical/Aptitude Test, he/she is deemed ineligible for admission for the relevant course of study. However, such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. Ramanathan Academy of Fine Arts of the University of Jaffna will publish a press notice, calling for applications for the Practical / Aptitude Test. Students are requested to contact the Senior Assistant Registrar of the Ramanathan Academy for further details. The medium of instructions for all degree programmes conducted by the Ramanathan Academy of Fine Arts is Tamil.', '068X'),
 (22, 69, 14, 300, 4, 'The University of the Visual & Performing Arts offer degree programme Bachelor of Performing Arts-Dance and Drama (Honours). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the University of the Visual & Performing Arts is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example, a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Visual Arts must have obtained a Credit (C) pass or more for Art at the G.C.E. (Advanced Level) Examination. The university also conducts Practical / Aptitude Tests for selection. These are for Music, Dance, Drama & Theatre and Visual Arts. If a student fails the Practical/ Aptitude Test, he/she is deemed ineligible for admission for the relevant course of study. However, such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. The University of the Visual and Performing Arts will publish a press notice, calling for applications for the Practical / Aptitude test. Students are requested to contact the Registrar of the University for further details. The medium of instructions for all degree programmes conducted by the University of the Visual and Performing Arts is Sinhala.', '069Z'),
 (23, 69, 21, 93, 4, 'Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka offer degree programme Bachelor of Fine Arts (Dance). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Visual & Technological Arts must have obtained a Credit (C) pass or more for Art in G.C.E. (Advanced Level) Examination. The institute also conducts Practical/Aptitude Tests for selection. These are for Music, Dance, Drama & Theatre and Visual & Technological Arts. If a student fails the Practical/Aptitude Test he/she is deemed ineligible for admission for the relevant course of study. However such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka will publish a press notice, calling for applications for the Practical/Aptitude Test. Students are requested to contact the Senior Assistant Registrar of the Swami Vipulananda Institute for further details. The medium of instructions for all degree programmes conducted by the Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka is Tamil.', '069Y');
-INSERT INTO `governmentcourseofferedbygovermentuniversity` (`id`, `gov_course_id`, `gov_uni_id`, `purposed_intake`, `duration`, `description`, `unicode`) VALUES
+INSERT INTO `GovernmentCourseOfferedByGovermentUniversity` (`id`, `gov_course_id`, `gov_uni_id`, `purposed_intake`, `duration`, `description`, `unicode`) VALUES
 (24, 69, 22, 101, 4, 'The Ramanathan Academy of Fine Arts of the University of Jaffna offer degree programme Bachelor of Fine Arts (Dance). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the Ramanathan Academy of Fine Arts is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example, a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Arts & Design must have obtained a Credit (C) pass or more for Art at the G.C.E. (Advanced Level) Examination. Ramanathan Academy of Fine Arts of the University of Jaffna also conducts Practical/Aptitude Tests for selection. These are for Music, Dance and Art & Design. If a student fails the Practical/Aptitude Test, he/she is deemed ineligible for admission for the relevant course of study. However, such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. Ramanathan Academy of Fine Arts of the University of Jaffna will publish a press notice, calling for applications for the Practical / Aptitude Test. Students are requested to contact the Senior Assistant Registrar of the Ramanathan Academy for further details. The medium of instructions for all degree programmes conducted by the Ramanathan Academy of Fine Arts is Tamil.', '069X'),
 (25, 71, 14, 74, 4, 'The University of the Visual & Performing Arts offer degree programme Bachelor of Performing Arts-Dance and Drama (Honours). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the University of the Visual & Performing Arts is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example, a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Visual Arts must have obtained a Credit (C) pass or more for Art at the G.C.E. (Advanced Level) Examination. The university also conducts Practical / Aptitude Tests for selection. These are for Music, Dance, Drama & Theatre and Visual Arts. If a student fails the Practical/ Aptitude Test, he/she is deemed ineligible for admission for the relevant course of study. However, such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. The University of the Visual and Performing Arts will publish a press notice, calling for applications for the Practical / Aptitude test. Students are requested to contact the Registrar of the University for further details. The medium of instructions for all degree programmes conducted by the University of the Visual and Performing Arts is Sinhala.', '071Z'),
 (26, 71, 21, 104, 4, 'Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka offer degree programme Bachelor of Fine Arts (Drama & Theatre). Guidance for selection of subjects at the G.C.E. (Advanced Level) Examination to be eligible to enter the Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka is given below: The three subjects at the G.C.E. (Advanced Level) Examination, students must obtain at least two Simple (S) passes in any two subjects and at least a Credit (C) pass for the subject the student wishes to follow. This requirement is mandatory. For example a student wishing to follow Music must have a Credit (C) pass or more in Music in the G.C.E. (Advanced Level) Examination. Similarly, a student wishing to follow a course of study in Visual & Technological Arts must have obtained a Credit (C) pass or more for Art in G.C.E. (Advanced Level) Examination. The institute also conducts Practical/Aptitude Tests for selection. These are for Music, Dance, Drama & Theatre and Visual & Technological Arts. If a student fails the Practical/Aptitude Test he/she is deemed ineligible for admission for the relevant course of study. However such student is eligible to be considered for other courses of study of his/ her preference mentioned in the application form, subject to satisfy the relevant requirements. Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka will publish a press notice, calling for applications for the Practical/Aptitude Test. Students are requested to contact the Senior Assistant Registrar of the Swami Vipulananda Institute for further details. The medium of instructions for all degree programmes conducted by the Swami Vipulananda Institute of Aesthetic Studies of the Eastern University, Sri Lanka is Tamil.', '071Y'),
@@ -1289,7 +1289,7 @@ CREATE TABLE ZScoreTable (
 );
 
 
-INSERT INTO `zscoretable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`, `z_score`) VALUES
+INSERT INTO `ZScoreTable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`, `z_score`) VALUES
 (1, 1, '001A', 'New', 2019, '2.4546'),
 (2, 2, '001A', 'New', 2019, '2.5010'),
 (3, 3, '001A', 'New', 2019, '2.5199'),
@@ -2534,7 +2534,7 @@ INSERT INTO `zscoretable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`,
 (1242, 16, '013A', 'New', 2019, '1.6091'),
 (1243, 19, '013A', 'New', 2019, '-1.0000'),
 (1244, 18, '013A', 'New', 2019, '1.6233');
-INSERT INTO `zscoretable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`, `z_score`) VALUES
+INSERT INTO `ZScoreTable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`, `z_score`) VALUES
 (1245, 20, '013A', 'New', 2019, '-1.0000'),
 (1246, 21, '013A', 'New', 2019, '-1.0000'),
 (1247, 22, '013A', 'New', 2019, '2.5764'),
@@ -3756,7 +3756,7 @@ INSERT INTO `zscoretable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`,
 (2463, 13, '021L', 'New', 2019, '1.2903'),
 (2464, 12, '021L', 'New', 2019, '1.2903'),
 (2465, 17, '021L', 'New', 2019, '1.2903');
-INSERT INTO `zscoretable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`, `z_score`) VALUES
+INSERT INTO `ZScoreTable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`, `z_score`) VALUES
 (2466, 15, '021L', 'New', 2019, '1.2903'),
 (2467, 16, '021L', 'New', 2019, '1.2903'),
 (2468, 19, '021L', 'New', 2019, '1.2903'),
@@ -4978,7 +4978,7 @@ INSERT INTO `zscoretable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`,
 (3684, 9, '052C', 'New', 2019, '-1.0000'),
 (3685, 10, '052C', 'New', 2019, '1.8219'),
 (3686, 14, '052C', 'New', 2019, '-1.0000');
-INSERT INTO `zscoretable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`, `z_score`) VALUES
+INSERT INTO `ZScoreTable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`, `z_score`) VALUES
 (3687, 11, '052C', 'New', 2019, '-1.0000'),
 (3688, 13, '052C', 'New', 2019, '-1.0000'),
 (3689, 12, '052C', 'New', 2019, '-1.0000'),
@@ -6202,7 +6202,7 @@ INSERT INTO `zscoretable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`,
 (4907, 7, '103K', 'New', 2019, '1.2637'),
 (4908, 8, '103K', 'New', 2019, '-1.0000'),
 (4909, 9, '103K', 'New', 2019, '1.2246');
-INSERT INTO `zscoretable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`, `z_score`) VALUES
+INSERT INTO `ZScoreTable` (`z_id`, `district_id`, `unicode`, `syllabus`, `year`, `z_score`) VALUES
 (4910, 10, '103K', 'New', 2019, '1.2848'),
 (4911, 14, '103K', 'New', 2019, '-1.0000'),
 (4912, 11, '103K', 'New', 2019, '1.2153'),
@@ -7700,15 +7700,15 @@ CREATE VIEW v_complete_posts AS
 	
 CREATE VIEW v_enrol_student_list AS
 	SELECT
-	profguiderenrollments.post_id AS post_id,
-	profguiderenrollments.user_id AS user_id,
+	ProfGuiderEnrollments.post_id AS post_id,
+	ProfGuiderEnrollments.user_id AS user_id,
 	Users.first_name AS first_name,
 	Users.last_name AS last_name,
 	Users.profile_image AS profile_image,
 	Users.actor_type AS actor_type
-	FROM profguiderenrollments
+	FROM ProfGuiderEnrollments
 	INNER JOIN Users  
-	ON profguiderenrollments.user_id = Users.id;
+	ON ProfGuiderEnrollments.user_id = Users.id;
 
 	
 -- new alterations
@@ -7779,14 +7779,14 @@ CREATE VIEW v_community AS
 	ORDER BY Community.created_at DESC;
 
 -- session links
-CREATE TABLE sessionLink(
+CREATE TABLE SessionLink(
 id int NOT NULL AUTO_INCREMENT,
 post_id int NOT NULL,
 date DATE NOT NULL,
 time TIME NOT NULL,
 body varchar(255) NOT NULL,
 PRIMARY KEY(id),
-FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE
+FOREIGN KEY (post_id) REFERENCES Posts(id) ON DELETE CASCADE
 );
 
 -- view for course posts
@@ -7805,8 +7805,8 @@ CREATE VIEW v_posts_courses AS
 	v_complete_posts.postCreated as postCreated,
 	v_complete_posts.title AS courseName,
 	v_complete_posts.body AS courseContent,
-   	privatecourses.provide_degree AS provide_degree,
-    privatecourses.course_fee AS course_fee,
+   	PrivateCourses.provide_degree AS provide_degree,
+    PrivateCourses.course_fee AS course_fee,
 	v_complete_posts.applied AS applied,
 	v_complete_posts.capacity AS capacity,
 	v_complete_posts.ups AS ups,
@@ -7819,8 +7819,8 @@ CREATE VIEW v_posts_courses AS
 	IFNULL(v_complete_posts.rate5, 0) AS rate5,
 	v_complete_posts.review_count AS review_count
 	FROM v_complete_posts
-	INNER JOIN privatecourses
-    ON privatecourses.post_id = v_complete_posts.postId;
+	INNER JOIN PrivateCourses
+    ON PrivateCourses.post_id = v_complete_posts.postId;
 
 -- view for notice posts
 CREATE VIEW v_posts_notices AS
@@ -7851,8 +7851,8 @@ CREATE VIEW v_posts_notices AS
 	IFNULL(v_complete_posts.rate5, 0) AS rate5,
 	v_complete_posts.review_count AS review_count
 	FROM v_complete_posts
-	INNER JOIN intakenotices
-    ON intakenotices.post_id = v_complete_posts.postId;
+	INNER JOIN IntakeNotices
+    ON IntakeNotices.post_id = v_complete_posts.postId;
 
 -- view for job posts
 CREATE VIEW v_posts_jobs AS
@@ -7868,7 +7868,7 @@ CREATE VIEW v_posts_jobs AS
 	v_complete_posts.last_name AS last_name,
 	v_complete_posts.status AS status,
 	v_complete_posts.postCreated as postCreated,
-	jobs.paid_date AS paid_date,
+	Jobs.paid_date AS paid_date,
 	v_complete_posts.title AS jobName,
 	v_complete_posts.body AS jobContent,
 	v_complete_posts.applied AS applied,
@@ -7883,24 +7883,8 @@ CREATE VIEW v_posts_jobs AS
 	IFNULL(v_complete_posts.rate5, 0) AS rate5,
 	v_complete_posts.review_count AS review_count
 	FROM v_complete_posts
-	INNER JOIN jobs
-    ON jobs.post_id = v_complete_posts.postId;
-
-/*--for development purpose removable
-INSERT INTO users (id, profile_image, first_name, last_name, email, password, actor_type, specialized_actor_type, status) VALUES
-(6, '1635069017_sliitfd61a3b2-fbf1-4d5b-9b0f-8702058bdd5c.jpg', 'SLIIT', NULL, 'unisliitlk@gmail.com', '$2y$10$O19mMmhglJxRpBT.r50/3OnCnFt1xD7qGFoNc8BS5gWCu5G7HpQYS', 'Organization', 'University', 'verified'),
-(7, '1635069224_abc2296d3db-eac7-4616-aae0-65ee01127d26.jpg', 'ABC', NULL, 'abcgroup202@gmail.com', '$2y$10$vEj1uPZ6zkXyoSdo4xP6OeoElHAqhcRHVkcWVtag27WzyIacDWh/K', 'Organization', 'Company', 'verified');
-
-INSERT INTO organization (org_id, address, email, password, phone_no, website_address, founder, founded_year, org_type) VALUES
-(6, '123, Jasmine Road, Colombo 3', 'unisliitlk@gmail.com', '$2y$10$O19mMmhglJxRpBT.r50/3OnCnFt1xD7qGFoNc8BS5gWCu5G7HpQYS', '0714526390', 'www.sliit.lk', 'Mandila wimalasiri', 2004, 'University'),
-(7, '456, Galle road, Colombo', 'abcgroup202@gmail.com', '$2y$10$vEj1uPZ6zkXyoSdo4xP6OeoElHAqhcRHVkcWVtag27WzyIacDWh/K', '0112345678', 'www.abc.com', 'Mark perera', 2004, 'Company');
-
-INSERT INTO privateuniversity (privateuni_id, ugc_approval, world_rank, student_amount, graduate_job_rate, description, uni_type) VALUES
-(6, 'Yes', 2422, 7790, 98, 'We are a leading non-state degree awarding institute approved by the University Grants Commission (UGC)', 'Private');
-
-INSERT INTO company (company_id, current_emplyee_amount, company_size, registered, overview, services) VALUES
-(7, 200, 1000, 'Yes', 'We are one of the leading IT comppany in the island', 'Web development, Industrial Computer system design, Network administation');
-*/
+	INNER JOIN Jobs
+    ON Jobs.post_id = v_complete_posts.postId;
 
 
 -- report

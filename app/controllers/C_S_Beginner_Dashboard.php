@@ -10,7 +10,13 @@ class C_S_Beginner_Dashboard extends Controller {
     public function index() {
         $followingList = $this->profileStatAndConnectionModel->getFollowings($_SESSION['user_id']);
 
-        $data = ['following' => $followingList];
+        // Enrollments
+       $profGuiderEnrollments = $this->beginnerDashboardModel->getProfGuiderEnrollments();
+
+       $data = [
+           'following' => $followingList,
+           'prof_guider_enrollments' => $profGuiderEnrollments
+       ];
         
         $this->view('students/dashboards/v_student_beg_dashboard', $data);
     }
