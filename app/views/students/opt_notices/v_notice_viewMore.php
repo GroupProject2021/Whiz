@@ -18,23 +18,19 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>
-                            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">Notices</a>
-                            >
-                            View
-                        </h1>
+                        <h1>Notices > View</h1>
                     </div>
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-<?php print_r($data); ?>
+
 
                     <a href="<?php echo URLROOT;?>/C_S_Stu_To_Notices/index"><button class="btn8 post-back">Back</button></a>
-                        <div class="center-box">                               
-                        <div class="post">
+                                                                          
+                            <div class="post">
                                 <?php if($data['post']->image != null):?>
                                     <div class="post-header">
-                                        <img src="<?php echo URLROOT.'/imgs/notices/jobads/'.$data['post']->image; ?>" alt="">
+                                        <img src="<?php echo URLROOT.'/imgs/posts/notices/'.$data['post']->image; ?>" alt="">
                                     </div>  
                                 <?php endif; ?>
                                 <div class="post-details">
@@ -42,32 +38,30 @@
                                     <div class="profpic-sub"><img src="<?php echo URLROOT.'/imgs/actorTypeIcons/'.getActorTypeForIcons($data['user']->actor_type).'-'.getActorSpecializedTypeForIcons($data['user']->actor_type, $data['user']->specialized_actor_type).'-icon.png'; ?>" alt=""></div>
                                     <div class="postedby"><a class="post-link" href="<?php echo URLROOT.'/C_O_Settings/settings/'.$data['user']->id.'/'.$_SESSION['user_id'];?>"><?php echo $data['user']->first_name.' '.$data['user']->last_name; ?></a></div>
                                     <?php if($data['user']->status == 'verified'): ?>
-                                    <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
+                                        <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
                                     <?php endif; ?>
-                                <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->postCreated); ?></div>
+                                    <div class="postedat">
+                                        <?php $exp_date = date('Y-m-d', strtotime($data['post']->paid_date. ' + 1 months')) ?>
+                                        <?php if(date("Y-m-d") > $exp_date){ echo "<font color=red>(Expired)</font>";} ?>
+                                        <?php echo convertedToReadableTimeFormat($data['post']->postCreated); ?></div>
+                                    <!-- edit delete options -->
+                                    <?php if($data['post']->private_uni_id == $_SESSION['user_id']): ?>    
+                                        <?php if(date("Y-m-d") <= $exp_date):?>   
+                                        <div class="post-control-buttons">                                        
+                                            <a href="<?php echo URLROOT?>/Posts_C_O_IntakeNotices/edit/<?php echo $data['post']->post_id;?>">
+                                                <button class="post-header-editbtn">Edit</button>
+                                            </a>
+                                        <?php endif; ?>
+                                            <form action="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/delete/<?php echo $data['post']->post_id; ?>" method="post">
+                                                <input type="submit" value="Delete" class="post-header-deletebtn">
+                                            </form>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="post-body">
                                     <div class="title"><?php echo $data['post']->noticeName; ?></div>
                                     <div class="postedby"><?php echo $data['post']->noticeContent; ?></div>
                                 </div>
-                                <div class="poles">
-                                   <div class="pole-prg-bar bar1">
-                                        <progress max="100" value="<?php if($data['post']->capacity != 0){ echo ($data['post']->applied / $data['post']->capacity) * 100;} else {echo 0;} ?>" id="prgBar"></progress>
-                                   </div>
-                                   <div class="text">
-                                       <div class="applied" id="applied"><?php echo $data['post']->applied; ?> Applied</div>
-                                       <div class="capacity"> of <?php echo $data['post']->capacity; ?> Capacity</div>
-                                   </div>
-                                   <?php if($data['self_job_apply_interaction'] == 'applied'):?>
-                                        <div class="interation applied">                                    
-                                   <?php else: ?>
-                                        <div class="interation"> 
-                                   <?php endif; ?>
-                                        <?php if($_SESSION['specialized_actor_type'] == 'Undergraduate Graduate'): ?>
-                                       <button id="applyBtn">ENROLL</button>
-                                       <?php endif; ?>
-                                   </div>
-                               </div>
                                 <form method="post">
                                 <div class="post-footer">
                                     <button id="like" >
@@ -99,18 +93,11 @@
                             </div>
                             <br>
 
-                            <!-- REVIEW RATING SYSTEM -->
-                            <!-- <div class="ratingSystem"> -->
-                                <!-- <?php //require APPROOT.'/views/inc/components/ratingSystem/ratingSystem.php'?> -->
-                            <!-- </div> -->
-
-                            <br>
-
                             <!-- COMMENT THREAD - AJAX REQUESTS IN REAL-TIME -->
                             <div id="results"></div>
                             
                         </div>
-                        </div> 
+
                         <!-- test msg for comment results - CHECK FOR COMMENT INSERTING ONLY -->
                         <!-- <div id="msg"></div> -->
 
@@ -128,8 +115,7 @@
         <!-- common settings js -->
         <script type="text/JavaScript">
             var URLROOT = '<?php echo URLROOT; ?>';            
-            var CURRENT_POST= '<?php echo $_SESSION["current_viewing_post_id"]; ?>';
-            var INC_DEC_AMOUNT = '<?php echo 100 / $data['post']->capacity; ?>';
+            var CURRENT_POST= '<?php echo $_SESSION["current_viewing_post_id"]?>';
         </script>
         
         <!-- javacript for like dislike systen -->    
@@ -137,8 +123,5 @@
 
         <!-- javascript for comment system -->
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/commentSystem/commentSystem.js"></script>
-
-        <!-- javascript job apply system -->
-        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/studentRelated/opt_jobs/jobApply.js"></script>
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>

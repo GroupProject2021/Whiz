@@ -128,40 +128,39 @@
                         </div>
                         
                         <div class="middle-right-panel">
-                            <div class="notices">
-                                <h2>Notices</h2>
+                        <div class="notices">
+                                <h2><a href="<?php echo URLROOT; ?>/C_S_Stu_To_Notices/index" class="post-link">Notices</a></h2>
                                 <hr>
-                                <p>Whiz introduce following features for you. Upgrade your profile for more features.</p>
-                                <br>
 
                                 <div class="slideshow-container">
-                                    <div class="mySlides fade">
-                                        <div class="numbertext">1 / 3</div>
-                                        <img src="<?php echo URLROOT; ?>/imgs/components/carousels/img1.jpg" style="width:100%">
-                                        <div class="text">Caption Text</div>
-                                    </div>
-                                    <div class="mySlides fade">
-                                        <div class="numbertext">2 / 3</div>
-                                        <img src="<?php echo URLROOT; ?>/imgs/components/carousels/img2.jpg" style="width:100%">
-                                        <div class="text">Caption Two</div>
-                                    </div>
-                                    <div class="mySlides fade">
-                                        <div class="numbertext">3 / 3</div>
-                                        <img src="<?php echo URLROOT; ?>/imgs/components/carousels/img3.jpg" style="width:100%">
-                                        <div class="text">Caption Three</div>
-                                    </div>
+                                    <?php $total = count($data['notices']); $current = 1; ?>
+                                    <?php foreach($data['notices'] as $notice):?>
+                                        <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Notices/show/<?php echo $notice->post_id; ?>" class="card-link">
+                                        <div class="mySlides fade">
+                                            <div class="numbertext"><?php echo $current; ?> / <?php echo $total; ?></div>
+                                            <img src="<?php echo URLROOT.'/imgs/posts/notices/'.$notice->image; ?>" style="width:100%">
+                                            <div class="text"><?php echo $notice->noticeName; ?></div>
+
+                                            <!-- increment -->
+                                            <?php $current = $current + 1; ?>
+                                        </div>
+                                        </a>
+                                    <?php endforeach; ?>
                                 </div>
                                 <br>
                                 <div class="slideshow-dots" style="text-align:center">
-                                    <span class="dot"></span> 
-                                    <span class="dot"></span> 
-                                    <span class="dot"></span> 
+                                    <?php foreach($data['notices'] as $notice):?>
+                                        <span class="dot"></span> 
+                                    <?php endforeach; ?>
                                 </div>
+                                
+                                <p>Listed notices are from your following <b>Organization | University</b> profiles</p>
+                                <a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$_SESSION['user_id']; ?>" class="card-link"><div class="notice-btn">Follow more Organization | University</div></a>
                                 
                                 
                             </div>
                             <div class="updates">
-                                <h2>Following List</h2>
+                                <h2><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$_SESSION['user_id']; ?>" class="post-link">Following List </a></h2>
                                 <hr>
                                 <div class="index-following-list">
                                 <?php

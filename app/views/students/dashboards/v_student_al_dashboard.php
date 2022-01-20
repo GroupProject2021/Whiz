@@ -176,10 +176,8 @@
                         <div class="middle-right-panel">
                             <!-- Notices -->
                             <div class="notices">
-                                <h2>Notices</h2>
+                                <h2><a href="<?php echo URLROOT; ?>/C_S_Stu_To_Notices/index" class="post-link">Notices</a></h2>
                                 <hr>
-                                <p>Whiz introduce following features for you. Upgrade your profile for more features.</p>
-                                <br>
 
                                 <div class="slideshow-container">
                                     <?php $total = count($data['notices']); $current = 1; ?>
@@ -203,10 +201,13 @@
                                     <?php endforeach; ?>
                                 </div>
                                 
+                                <p>Listed notices are from your following <b>Organization | University</b> profiles</p>
+                                <a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$_SESSION['user_id']; ?>" class="card-link"><div class="notice-btn">Follow more Organization | University</div></a>
+                                
                                 
                             </div>
                             <div class="updates">
-                                <h2>Following List</h2>
+                                <h2><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$_SESSION['user_id']; ?>" class="post-link">Following List </a></h2>
                                 <hr>
                                 <div class="index-following-list">
                                 <?php

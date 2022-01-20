@@ -40,6 +40,25 @@
     --btn9-color: #FBFBFB;
 }
 
+.notice-btn {
+    background-color: #00B74A;
+    color: var(--btn2-color);
+    padding: 10px 10px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 5px;
+    text-align: center;
+    transition: .2s all;
+    font-size: 12px;
+}
+
+.notice-btn:hover {
+    background-color: #007730;
+}
+
 .btn1 {
     background-color: var(--btn1-bg-color);
     color: var(--btn1-color);

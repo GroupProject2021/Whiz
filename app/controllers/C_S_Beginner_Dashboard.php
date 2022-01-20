@@ -15,12 +15,15 @@ class C_S_Beginner_Dashboard extends Controller {
        $govCouseAmount = $this->beginnerDashboardModel->getGovCourseAmount();
        $priCouseAmount = $this->beginnerDashboardModel->getPriCourseAmount();
 
+       // notices
+       $notices = $this->beginnerDashboardModel->getNoticesFirstFiveOnly();
 
        $data = [
            'following' => $followingList,
            'prof_guider_enrollments' => $profGuiderEnrollments,
            'gov_course_amount' => $govCouseAmount,
-           'pri_course_amount' => $priCouseAmount
+           'pri_course_amount' => $priCouseAmount,
+           'notices' => $notices
        ];
         
         $this->view('students/dashboards/v_student_beg_dashboard', $data);

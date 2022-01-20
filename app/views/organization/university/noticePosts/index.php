@@ -59,20 +59,6 @@
                                 <div class="downs-count"><?php echo $post->downs; ?></div>
                                 <div class="comments"><img src="<?php echo URLROOT.'/imgs/components/posts/comment-icon.png'; ?>" alt=""></div>
                                 <div class="comments-count"><?php echo $post->comment_count; ?></div>
-                                <div class="rate"><?php echo countRate($post->review_count, $post->rate1, $post->rate2, $post->rate3, $post->rate4, $post->rate5); ?></div>
-                                <?php 
-                                    $rate = countRate($post->review_count, $post->rate1, $post->rate2, $post->rate3, $post->rate4, $post->rate5);
-
-                                    for($i=0; $i <ceil($rate); $i++) {
-                                        echo '<div class="rate-star active"><img src="'.URLROOT.'/imgs/components/posts/star-icon.png"></div>';
-                                    }
-
-                                    for($i=0; $i <5 - ceil($rate); $i++) {
-                                        echo '<div class="rate-star"><img src="'.URLROOT.'/imgs/components/posts/star-icon.png"></div>';
-                                    }
-                                    
-                                    ?>
-                                <div class="reviews">REVIEWS (<?php echo $post->review_count; ?>)</div>
                             </div>          
                         </div>
                         </a>

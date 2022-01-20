@@ -41,7 +41,7 @@ class M_S_AL_Qualified_Dashboard {
     }
 
     // notices
-    public function getNotices() {
+    public function getNoticesFirstFiveOnly() {
         $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
                             ON v_posts_notices.private_uni_id = Connections.to_user_id
                             WHERE Connections.from_user_id = :id LIMIT 5");

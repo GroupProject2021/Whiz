@@ -157,7 +157,7 @@
                                 
                             </div>
                             <div class="updates">
-                                <h2>Following List</h2>
+                                <h2><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$_SESSION['user_id']; ?>" class="post-link">Following List </a></h2>
                                 <hr>
                                 <div class="index-following-list">
                                 <?php

@@ -16,7 +16,7 @@ class C_S_AL_Qualified_Dashboard extends Controller {
         $jobEnrollments = $this->alQualifiedDashboardModel->getJobEnrollments();
 
         // notices
-        $notices = $this->alQualifiedDashboardModel->getNotices();
+        $notices = $this->alQualifiedDashboardModel->getNoticesFirstFiveOnly();
 
         $data = [
             'following' => $followingList,

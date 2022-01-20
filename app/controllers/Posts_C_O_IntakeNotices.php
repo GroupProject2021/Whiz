@@ -7,8 +7,7 @@
 
             $this->postModel = $this->model('M_O_U_Notice');
             $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
-            $this->commentModel = $this->model('Comment');            
-            $this->reviewModel = $this->model('Review');
+            $this->commentModel = $this->model('Comment');     
 
             $this->commonModel = $this->model('Common');            
         }        
@@ -17,11 +16,9 @@
         public function index() {
             // Get posts
             $posts = $this->postModel->getPosts($_SESSION['user_id']);
-            $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
 
             $data = [
-                'posts' => $posts,
-                'reviews_rates' => $postsReviewssAndRates
+                'posts' => $posts
             ];
 
             $this->view('organization/university/noticePosts/index', $data);
@@ -249,50 +246,13 @@
             }
 
 
-            $totalReviews = $this->reviewModel->getTotalReviewsForAPostById($id);
-
-            $rateHaving1 = $this->reviewModel->getRateAmountsForAPostById($id, 1);
-            $rateHaving2 = $this->reviewModel->getRateAmountsForAPostById($id, 2);
-            $rateHaving3 = $this->reviewModel->getRateAmountsForAPostById($id, 3);
-            $rateHaving4 = $this->reviewModel->getRateAmountsForAPostById($id, 4);
-            $rateHaving5 = $this->reviewModel->getRateAmountsForAPostById($id, 5);
-
-            if($totalReviews) {
-                $rate1Precentage = ($rateHaving1/$totalReviews) * 100;
-                $rate2Precentage = ($rateHaving2/$totalReviews) * 100;
-                $rate3Precentage = ($rateHaving3/$totalReviews) * 100;
-                $rate4Precentage = ($rateHaving4/$totalReviews) * 100;
-                $rate5Precentage = ($rateHaving5/$totalReviews) * 100;
-
-                $avgRate = ((1*$rateHaving1) + (2*$rateHaving2) + (3*$rateHaving3) + (4*$rateHaving4) + (5*$rateHaving5)) / $totalReviews;
-            }
-            else {
-                $rate1Precentage = 0;
-                $rate2Precentage = 0;
-                $rate3Precentage = 0;
-                $rate4Precentage = 0;
-                $rate5Precentage = 0;
-
-                $avgRate = 0;
-            }
-            
-            $avgRate = number_format((float)$avgRate, 1, '.', '');
-
             $data = [
                 'post' => $post,
                 'user' => $user,
 
                 'ups' => $ups,
                 'downs' => $downs,
-                'self_interaction' => $selfInteraction,
-
-                'total_reviews' => $totalReviews,
-                'rate1' => $rate1Precentage,
-                'rate2' => $rate2Precentage,
-                'rate3' => $rate3Precentage,
-                'rate4' => $rate4Precentage,
-                'rate5' => $rate5Precentage,
-                'avg_rate' => $avgRate
+                'self_interaction' => $selfInteraction
             ];
 
             $this->view('organization/university/noticePosts/show', $data);

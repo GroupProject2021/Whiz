@@ -15,12 +15,15 @@ class C_S_OL_Qualified_Dashboard extends Controller {
        $govCouseAmount = $this->olQualifiedDashboardModel->getGovCourseAmount();
        $priCouseAmount = $this->olQualifiedDashboardModel->getPriCourseAmount();
 
+       // notices
+       $notices = $this->olQualifiedDashboardModel->getNoticesFirstFiveOnly();
 
        $data = [
            'following' => $followingList,
            'prof_guider_enrollments' => $profGuiderEnrollments,
            'gov_course_amount' => $govCouseAmount,
-           'pri_course_amount' => $priCouseAmount
+           'pri_course_amount' => $priCouseAmount,
+           'notices' => $notices
        ];
         
         $this->view('students/dashboards/v_student_ol_dashboard', $data);

@@ -93,13 +93,6 @@
                             </div>
                             <br>
 
-                            <!-- REVIEW RATING SYSTEM -->
-                            <div class="ratingSystem">
-                                <?php require APPROOT.'/views/inc/components/ratingSystem/ratingSystem.php'?>
-                            </div>
-
-                            <br>
-
                             <!-- COMMENT THREAD - AJAX REQUESTS IN REAL-TIME -->
                             <div id="results"></div>
                             
