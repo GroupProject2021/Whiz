@@ -36,7 +36,11 @@
                                     </div>
                                     <div class="right">
                                         <div class="title">Jobs</div>
-                                        <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iure aperiam, perspiciatis dolorem cupiditate debitis dolorum nihil error exercitationem! Aut, ex? Id dolores rerum exercitationem debitis omnis numquam ratione in?</div>
+                                        <div class="body">
+                                            <ul>
+                                                <li><span class="dashboard-red-bullet">*</span> You can view job advertisements published by companies by choosing Jobs option.</li>
+                                            </ul>
+                                        </div>
                                         <a href="<?php echo URLROOT;?>/C_S_Stu_To_Company/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
                                     </div>
                                 </div>
@@ -70,7 +74,7 @@
                             <?php endif; ?>
 
                             <!-- Professional guider enrollments -->
-                            <?php if(empty($data['prof_guider_enrollments'])):?>
+                         <?php if(empty($data['prof_guider_enrollments'])):?>
                                 <!-- empty - show idle -->
                                 <div class="dashboard-content-idle-container proGuider">
                                     <div class="left">
@@ -80,7 +84,12 @@
                                     </div>
                                     <div class="right">
                                         <div class="title">Professinal guiders</div>
-                                        <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iure aperiam, perspiciatis dolorem cupiditate debitis dolorum nihil error exercitationem! Aut, ex? Id dolores rerum exercitationem debitis omnis numquam ratione in?</div>
+                                        <div class="body">
+                                            <ul>
+                                                <li><span class="dashboard-red-bullet">*</span> By choosing Professional Guiders option, you can enroll with there sessions,comment and review guider sessions.</li>
+                                                <li><span class="dashboard-red-bullet">*</span> This is a good opportunity to prepare yourself before going to some academic or inductrial level.</li>
+                                            </ul>
+                                        </div>
                                         <a href="<?php echo URLROOT;?>/C_S_Stu_To_ProfessionalGuider/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
                                     </div>
                                 </div>
@@ -123,7 +132,12 @@
                                     </div>
                                     <div class="right">
                                         <div class="title">Teachers</div>
-                                        <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iure aperiam, perspiciatis dolorem cupiditate debitis dolorum nihil error exercitationem! Aut, ex? Id dolores rerum exercitationem debitis omnis numquam ratione in?</div>
+                                        <div class="body">
+                                            <ul>
+                                                <li><span class="dashboard-red-bullet">*</span> You can view posters published by teachers who conduct pre-university classes.</li>
+                                                <li><span class="dashboard-red-bullet">*</span> Enroll,comment and review options are available in here as well.</li>
+                                            </ul>
+                                        </div>
                                         <a href="<?php echo URLROOT;?>/C_S_Stu_To_Teacher/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
                                     </div>
                                 </div>
@@ -168,27 +182,25 @@
                                 <br>
 
                                 <div class="slideshow-container">
-                                    <div class="mySlides fade">
-                                        <div class="numbertext">1 / 3</div>
-                                        <img src="<?php echo URLROOT; ?>/imgs/components/carousels/img1.jpg" style="width:100%">
-                                        <div class="text">Caption Text</div>
-                                    </div>
-                                    <div class="mySlides fade">
-                                        <div class="numbertext">2 / 3</div>
-                                        <img src="<?php echo URLROOT; ?>/imgs/components/carousels/img2.jpg" style="width:100%">
-                                        <div class="text">Caption Two</div>
-                                    </div>
-                                    <div class="mySlides fade">
-                                        <div class="numbertext">3 / 3</div>
-                                        <img src="<?php echo URLROOT; ?>/imgs/components/carousels/img3.jpg" style="width:100%">
-                                        <div class="text">Caption Three</div>
-                                    </div>
+                                    <?php $total = count($data['notices']); $current = 1; ?>
+                                    <?php foreach($data['notices'] as $notice):?>
+                                        <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Notices/show/<?php echo $notice->post_id; ?>" class="card-link">
+                                        <div class="mySlides fade">
+                                            <div class="numbertext"><?php echo $current; ?> / <?php echo $total; ?></div>
+                                            <img src="<?php echo URLROOT.'/imgs/posts/notices/'.$notice->image; ?>" style="width:100%">
+                                            <div class="text"><?php echo $notice->noticeName; ?></div>
+
+                                            <!-- increment -->
+                                            <?php $current = $current + 1; ?>
+                                        </div>
+                                        </a>
+                                    <?php endforeach; ?>
                                 </div>
                                 <br>
                                 <div class="slideshow-dots" style="text-align:center">
-                                    <span class="dot"></span> 
-                                    <span class="dot"></span> 
-                                    <span class="dot"></span> 
+                                    <?php foreach($data['notices'] as $notice):?>
+                                        <span class="dot"></span> 
+                                    <?php endforeach; ?>
                                 </div>
                                 
                                 

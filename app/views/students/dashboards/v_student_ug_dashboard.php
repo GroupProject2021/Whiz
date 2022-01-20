@@ -23,10 +23,10 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel">
-                        <div class="middle-left-panel">                            
-                        <div class="dashboard-title">My Enrollments</div>
-                            <!-- Company enrollments -->
-                            <?php if(empty($data['job_enrollments'])):?>
+                        <div class="middle-left-panel">              
+                        <div class="dashboard-title">My Enrollments</div>                      
+                        <!-- Company enrollments -->
+                        <?php if(empty($data['job_enrollments'])):?>
                                 <!-- empty - show idle -->
                                 <div class="dashboard-content-idle-container job">
                                     <div class="left">
@@ -36,7 +36,11 @@
                                     </div>
                                     <div class="right">
                                         <div class="title">Jobs</div>
-                                        <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iure aperiam, perspiciatis dolorem cupiditate debitis dolorum nihil error exercitationem! Aut, ex? Id dolores rerum exercitationem debitis omnis numquam ratione in?</div>
+                                        <div class="body">
+                                            <ul>
+                                                <li><span class="dashboard-red-bullet">*</span> You can view job advertisements published by companies by choosing Jobs option.</li>
+                                            </ul>
+                                        </div>
                                         <a href="<?php echo URLROOT;?>/C_S_Stu_To_Company/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
                                     </div>
                                 </div>
@@ -70,7 +74,7 @@
                             <?php endif; ?>
 
                             <!-- Professional guider enrollments -->
-                            <?php if(empty($data['prof_guider_enrollments'])):?>
+                         <?php if(empty($data['prof_guider_enrollments'])):?>
                                 <!-- empty - show idle -->
                                 <div class="dashboard-content-idle-container proGuider">
                                     <div class="left">
@@ -80,7 +84,12 @@
                                     </div>
                                     <div class="right">
                                         <div class="title">Professinal guiders</div>
-                                        <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iure aperiam, perspiciatis dolorem cupiditate debitis dolorum nihil error exercitationem! Aut, ex? Id dolores rerum exercitationem debitis omnis numquam ratione in?</div>
+                                        <div class="body">
+                                            <ul>
+                                                <li><span class="dashboard-red-bullet">*</span> By choosing Professional Guiders option, you can enroll with there sessions,comment and review guider sessions.</li>
+                                                <li><span class="dashboard-red-bullet">*</span> This is a good opportunity to prepare yourself before going to some academic or inductrial level.</li>
+                                            </ul>
+                                        </div>
                                         <a href="<?php echo URLROOT;?>/C_S_Stu_To_ProfessionalGuider/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
                                     </div>
                                 </div>

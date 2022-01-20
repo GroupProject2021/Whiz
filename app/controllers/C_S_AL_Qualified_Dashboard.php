@@ -15,11 +15,15 @@ class C_S_AL_Qualified_Dashboard extends Controller {
         $teacherEnrollments = $this->alQualifiedDashboardModel->getTeacherEnrollments();
         $jobEnrollments = $this->alQualifiedDashboardModel->getJobEnrollments();
 
+        // notices
+        $notices = $this->alQualifiedDashboardModel->getNotices();
+
         $data = [
             'following' => $followingList,
             'prof_guider_enrollments' => $profGuiderEnrollments,
             'teacher_enrollments' => $teacherEnrollments,
-            'job_enrollments' => $jobEnrollments
+            'job_enrollments' => $jobEnrollments,
+            'notices' => $notices
         ];
         
         $this->view('students/dashboards/v_student_al_dashboard', $data);

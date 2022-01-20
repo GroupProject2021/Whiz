@@ -471,15 +471,23 @@ main {
 }
 
 .dashboard-content-idle-container.job {
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    background-image: linear-gradient(-45deg, #cfd9df 0%, #e2ebf0 100%);
 }
 
 .dashboard-content-idle-container.proGuider {
-    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+    background-image: linear-gradient(-45deg, #e9defa 0%, #fbfcdb 100%);
 }
 
 .dashboard-content-idle-container.teacher {
-    background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+    background-image: linear-gradient(-45deg, #c1dfc4 0%, #deecdd 100%);
+}
+
+.dashboard-content-idle-container.streambox {
+    background-image: linear-gradient(-45deg, #ddddc3 0%, #ecebdd 100%);
+}
+
+.dashboard-content-idle-container.coursebox {
+    background-image: linear-gradient(-45deg, #e9d8e7 0%, #ddebec 100%);
 }
 
 .dashboard-content-idle-container .left .image {
@@ -510,8 +518,37 @@ main {
     font-weight: 600;
 }
 
+.dashboard-content-idle-container .right .stats {    
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 5px;
+    background-color: rgb(199, 199, 199);
+    margin: 5px;
+}
+
+.dashboard-content-idle-container .right .stats .title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+}
+
+.dashboard-content-idle-container .right .stats .item1, .item2 {
+    margin: 0 auto;
+    font-size: 12px;
+}
+
 .dashboard-content-idle-container .right .body {
     margin-bottom: 5px;
+    font-size: 11px;
+    color: #333;
+}
+
+.dashboard-red-bullet {
+    color: red;
+    font-size: 12px;
+    line-height: 17px;
 }
 
 /* responsive features */

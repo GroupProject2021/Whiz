@@ -36,7 +36,12 @@
                                     </div>
                                     <div class="right">
                                         <div class="title">Professinal guiders</div>
-                                        <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iure aperiam, perspiciatis dolorem cupiditate debitis dolorum nihil error exercitationem! Aut, ex? Id dolores rerum exercitationem debitis omnis numquam ratione in?</div>
+                                        <div class="body">
+                                            <ul>
+                                                <li><span class="dashboard-red-bullet">*</span> By choosing Professional Guiders option, you can enroll with there sessions,comment and review guider sessions.</li>
+                                                <li><span class="dashboard-red-bullet">*</span> This is a good opportunity to prepare yourself before going to some academic or inductrial level.</li>
+                                            </ul>
+                                        </div>
                                         <a href="<?php echo URLROOT;?>/C_S_Stu_To_ProfessionalGuider/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
                                     </div>
                                 </div>
@@ -70,30 +75,50 @@
                             <?php endif; ?>
 
                             <!-- STREAM -->
-                            <div class="dashboard-content-idle-container proGuider">
+                            <div class="dashboard-content-idle-container streambox">
                                 <div class="left">
                                     <div class="image">
-                                        <img src="<?php echo URLROOT.'/imgs/dashboard/pro-guider-dashboard.jpg'; ?>" alt="">
+                                        <img src="<?php echo URLROOT.'/imgs/dashboard/stream_dashboard.jpg'; ?>" alt="">
                                     </div>
                                 </div>
                                 <div class="right">
                                     <div class="title">Streams</div>
-                                    <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iure aperiam, perspiciatis dolorem cupiditate debitis dolorum nihil error exercitationem! Aut, ex? Id dolores rerum exercitationem debitis omnis numquam ratione in?</div>
-                                    <a href="<?php echo URLROOT;?>/C_S_Stu_To_ProfessionalGuider/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
+                                    <div class="body">
+                                        <ul>
+                                            <li><span class="dashboard-red-bullet">*</span> Choosing Streams option, you can view G.C.E (A/L) streams which you can select for your A/Ls.</li>
+                                            <li><span class="dashboard-red-bullet">*</span> By clicking on a stream you can see the subjects which you can do and also can have a idea on what are the available subject combinations by selecting that stream.</li>
+                                            <li><span class="dashboard-red-bullet">*</span> Also now you can see <b>recommended stream</b> for you.</li>
+                                        </ul>
+                                    </div>
+                                    <a href="<?php echo URLROOT;?>/C_S_Stream/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
                                 </div>
                             </div>
 
                             <!-- COURSES -->
-                            <div class="dashboard-content-idle-container proGuider">
+                            <div class="dashboard-content-idle-container coursebox">
                                 <div class="left">
                                     <div class="image">
-                                        <img src="<?php echo URLROOT.'/imgs/dashboard/pro-guider-dashboard.jpg'; ?>" alt="">
+                                        <img src="<?php echo URLROOT.'/imgs/dashboard/course-dashboard.jpg'; ?>" alt="">
                                     </div>
                                 </div>
                                 <div class="right">
                                     <div class="title">Courses</div>
-                                    <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iure aperiam, perspiciatis dolorem cupiditate debitis dolorum nihil error exercitationem! Aut, ex? Id dolores rerum exercitationem debitis omnis numquam ratione in?</div>
-                                    <a href="<?php echo URLROOT;?>/C_S_Stu_To_ProfessionalGuider/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
+                                    <div class="stats">
+                                        <div class="title">Available courses</div>
+                                        <div class="item1">
+                                            Government <b><?php echo $data['gov_course_amount']; ?></b>
+                                        </div>
+                                        <div class="item2">
+                                            Private <b><?php echo $data['pri_course_amount']; ?></b>
+                                        </div>
+                                    </div>
+                                    <div class="body">
+                                        <ul>
+                                            <li><span class="dashboard-red-bullet">*</span> By choosing Courses option, you can explore about all the degree courses provide by both government and private universities.</li>
+                                            <li><span class="dashboard-red-bullet">*</span> In order to show your government courses, you need to upgrade as an A/L qualified student.</li>
+                                        </ul>
+                                    </div>
+                                    <a href="<?php echo URLROOT;?>/C_S_Course/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
                                 </div>
                             </div>
                         

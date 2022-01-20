@@ -18,6 +18,36 @@ class M_S_Beginner_Dashboard {
         return $results;
     }
 
+
+    public function getGovCourseAmount() {
+        $this->db->query('SELECT * FROM GovernmentCourse'); // this is a prepared statement
+
+        $row = $this->db->single();
+
+        // Check row - return true if email exists. Because then rowCount is not 0
+        $amount = $this->db->rowCount();
+        if($amount > 0) {
+            return $amount;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function getPriCourseAmount() {
+        $this->db->query('SELECT * FROM PrivateCourses'); // this is a prepared statement
+
+        $row = $this->db->single();
+
+        // Check row - return true if email exists. Because then rowCount is not 0
+        $amount = $this->db->rowCount();
+        if($amount > 0) {
+            return $amount;
+        }
+        else {
+            return false;
+        }
+    }
 }
 
 ?>
