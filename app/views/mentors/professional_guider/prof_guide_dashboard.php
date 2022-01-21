@@ -23,58 +23,64 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single-new">
-                        <h3><center>Upcoming Sessions</center></h3>
-                        <br>
-                        <br>
-                        <!-- <?php print_r($data)?> -->
-                        <table class="gov-course-table">
-                        <?php foreach($data['details'] as $details): ?>
-                                <?php if($details->user_id == $_SESSION['user_id'] ): ?>
-                            <tr>
-                                <td class="gov-course-name"><?php echo $details->title; ?></td>
-                                <td class="gov-course-name"><?php echo $details->date; ?></td>
-                                <td class="gov-course-name"><?php echo $details->time; ?></td>
-                                <td class="gov-course-viewmore"><a href="<?php echo $details->body;?>"><button class="btn3">Click here to join</button></a></td>
-
-                            </tr>
-                                <tr><td colspan="4"><hr></td></tr>
-                                <?php else: ?>
-                                    You have no upcoming sessions
-                                <?php endif; ?>
-                        <?php endforeach; ?>
-                        </table>
-
-                        <!-- <?php if($data['link'] != Null):?>
-                                <a href="<?php echo URLROOT.'/C_M_Enrolment_List/viewlink/'.$_SESSION['current_viewing_details_id']; ?>"><input class="btn1 details-back" type="button" value="View Link"></a>
-                                  
-                            <?php else: ?>
-                                Currently you have no any upcoming sessions
-
-                            <?php endif; ?> -->
-
-
-
-                        <!-- <div class="middle-left-panel">                            
-                            
-                        
-                        </div>
-                        <div class="middle-right-panel">
-                            <div class="notices">
-                                <h2>Notices</h2>
-                                <hr>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut est aliquid fugit porro hic iusto aliquam? Sit cumque, voluptates pariatur perspiciatis blanditiis tempora laborum fugiat maiores error odio quidem fuga!
-                                <hr>
-
-                                
+                        <?php if(empty($data['details'])):?>
+                            <!-- empty - show idle -->
+                            <div class="dashboard-content-idle-container proGuider">
+                                <div class="left">
+                                    <div class="image">
+                                        <img src="<?php echo URLROOT.'/imgs/dashboard/banner.jpg'; ?>" alt="">
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <div class="title">Banners</div>
+                                    <div class="body">
+                                        <ul>
+                                            <li><span class="dashboard-red-bullet">*</span> By choosing Banners option, you will have the opportunity to post an ad about the session you are going to be held.</li>
+                                            <li><span class="dashboard-red-bullet">*</span> Students will enrol with your sessins through these published banners.</li>
+                                        </ul>
+                                    </div>
+                                    <a href="<?php echo URLROOT;?>/Posts_C_M_Banners/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
+                                </div>
                             </div>
-                            <div class="updates">
-                                <h2>Updates</h2>
-                                <hr>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum sapiente harum minima a adipisci facere, totam, autem id atque accusamus, inventore laboriosam! Dignissimos illo dolores maiores nam, quo quis eaque.
-                                <br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae maiores culpa rerum quae ducimus, atque eveniet animi esse reiciendis est sunt facilis tempore quo pariatur, laudantium impedit at nihil veritatis.
+                            <div class="dashboard-content-idle-container proGuider">
+                                <div class="left">
+                                    <div class="image">
+                                        <img src="<?php echo URLROOT.'/imgs/dashboard/enrollments.jpg'; ?>" alt="">
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <div class="title">Enrolment List</div>
+                                    <div class="body">
+                                        <ul>
+                                            <li><span class="dashboard-red-bullet">*</span> This option will show you the student list who have been enolled with your classes through the poster</li>
+                                            <!-- <li><span class="dashboard-red-bullet">*</span> Students will enrol with your classes through these published posters.</li> -->
+                                        </ul>
+                                    </div>
+                                    <a href="<?php echo URLROOT;?>/C_M_Enrolment_List/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
+                                </div>
                             </div>
-                        </div> -->
+                        <?php else: ?>  
+                            <h3><center>Upcoming Sessions</center></h3>
+                            <br>
+                            <br>
+                            <!-- <?php print_r($data)?> -->
+                            <table class="gov-course-table">
+                            <?php foreach($data['details'] as $details): ?>
+                                    <?php if($details->user_id == $_SESSION['user_id'] ): ?>
+                                <tr>
+                                    <td class="gov-course-name"><?php echo $details->title; ?></td>
+                                    <td class="gov-course-name"><?php echo $details->date; ?></td>
+                                    <td class="gov-course-name"><?php echo $details->time; ?></td>
+                                    <td class="gov-course-viewmore"><a href="<?php echo $details->body;?>"><button class="btn3">Click here to join</button></a></td>
+
+                                </tr>
+                                    <tr><td colspan="4"><hr></td></tr>
+                                    <?php else: ?>
+                                        <h3><center>You have no upcoming sessions</center></h3>
+                                    <?php endif; ?>
+                            <?php endforeach; ?>
+                            </table>
+                        <?php endif; ?>
                     </div>
 
                     <!-- BOTTOM PANEL -->
