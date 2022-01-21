@@ -7943,3 +7943,17 @@ CREATE TABLE Notifications (
 	FOREIGN KEY(sender_id) REFERENCES Users(id),
 	FOREIGN KEY(receiver_id) REFERENCES Users(id)
 )
+
+
+CREATE VIEW v_posts_link AS
+	SELECT
+	posts.id AS post_id,
+	Users.id AS user_id,
+	posts.title AS title,
+	sessionlink.date AS date,
+	sessionlink.time AS time,
+	sessionlink.body AS body
+	FROM posts INNER JOIN Users
+	ON posts.user_id = Users.id
+	INNER JOIN sessionlink 
+	ON posts.id = sessionlink.post_id;

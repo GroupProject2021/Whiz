@@ -8,16 +8,13 @@
         }
 
         public function index() {
-            $posts = $this->mentorDashboardModel->getPosts();
-            $postsforId = $this->postModel->getPosts();
-            // $post_id = $postsforId->postId;
-            // $link = $this->sessionLinkModel->getSessionLink($postsforId->postId);
 
+            $details = $this->mentorDashboardModel->dashboard($_SESSION['user_id']);
+            
             $data = [
                 'title' => 'Welcome to Professional Guider dashboard', 
-                'posts' => $posts,
-                'postsid' => $postsforId,
-                // 'link' => $link
+                'details' => $details
+                
             ];
             //$this->view('mentors/professional_guider/prof_guide_dashboard', $data);
 
@@ -34,11 +31,6 @@
                     // nothing
                     break;
             }
-
-            // $data = [
-            //     'postsid' => $postsforId,
-            //     'link' => $link
-            // ];
         }
 
         // post functions

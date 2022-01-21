@@ -471,5 +471,14 @@
 
             return $results;
         }
+
+        public function dashboard($id){
+            $this->db->query('SELECT * FROM v_posts_link WHERE user_id = :id');
+            $this->db->bind(':id', $id);
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
     }
 ?>
