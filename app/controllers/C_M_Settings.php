@@ -281,6 +281,7 @@ class C_M_Settings extends Controller{
 
             // Init data
             $data = [
+                'user_id' => trim($_POST['user_id']),
                 'profile_image' => $_FILES['profile_image'],
                 'profile_image_name' => time().'_'.$_FILES['profile_image']['name'],
 
@@ -305,7 +306,7 @@ class C_M_Settings extends Controller{
                 if($this->mentorSettingsModel->updateProfilePic($data)) {
                     $this->updateUserSessions($_SESSION['user_id']);
                     
-                    redirect('C_M_Settings/settings/'.$_SESSION['user_id']);
+                    redirect('C_M_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');

@@ -28,7 +28,6 @@
                         <div>
                         <table class="gov-course-table">
                             <tr>
-                                
                                 <th>Post</th>
                                 
                                 <th colspan="2">Enrolled Student<br>Count</th>
@@ -45,7 +44,6 @@
                                 
                                 <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_M_Enrolment_List/enrolStudentList/'.$post->postId;?>"><button class="btn3">View more</button></a></td>
                                 </tr>
-                                <tr><td colspan="4"><hr></td></tr>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </table>
