@@ -22,8 +22,8 @@
                     </div>
 
                     <!-- MIDDLE PANEL -->
-                    <div class="middle-panel">
-                        <div class="middle-left-panel">
+                    <div class="middle-panel-single-new">
+                        <!-- <div class="middle-left-panel"> -->
                         <?php if(empty($data['details'])):?>
                             <!-- empty - show idle -->
                             <div class="dashboard-content-idle-container proGuider">
@@ -82,13 +82,13 @@
                             <?php endforeach; ?>
                             </table>
                         <?php endif; ?>
-                        </div>
-                        <div class="middle-right-panel">
+                        <!-- </div> -->
+                        <!-- <div class="middle-right-panel">
                             <div class="notices">
                                 
                                 <iframe src="https://calendar.google.com/calendar/embed?src=en.lk%23holiday%40group.v.calendar.google.com&ctz=Asia%2FColombo" style="border: 0" width="365" height="355" frameborder="0" scrolling="no"></iframe>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- BOTTOM PANEL -->
