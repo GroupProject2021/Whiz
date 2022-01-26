@@ -162,10 +162,10 @@
                 }
                 echo    '<div class="comment-footer-text" id="comment-dislike-count'.$comment->comment_id.'">'.$comment->downs.'</div>';
                 echo '</button>';
-                echo '<button>';
-                echo    '<div class="comment-footer-replybtn"><img src="'.URLROOT.'/imgs/components/posts/reply-icon.png" alt=""></div>';
-                echo    '<div class="comment-footer-text">reply</div>';
-                echo '</button>';
+                //echo '<button>';
+                //echo    '<div class="comment-footer-replybtn"><img src="'.URLROOT.'/imgs/components/posts/reply-icon.png" alt=""></div>';
+                //echo    '<div class="comment-footer-text">reply</div>';
+                //echo '</button>';
                 echo '</div>';
                 echo '</div>';
             }

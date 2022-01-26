@@ -78,6 +78,7 @@ class C_M_Enrolment_List extends Controller{
         $postId = $_SESSION['current_viewing_post_id'];
         $post = $this->mentorDashboardModel->getPostById($postId);
 
+        // to notifications
         switch($_SESSION['specialized_actor_type']) {
             case 'Professional Guider' :
                 $studentList = $this->enrolmentListModel->getEnrollmentsForAPostG($postId);
@@ -190,6 +191,21 @@ class C_M_Enrolment_List extends Controller{
         $post = $this->enrolmentListModel->getPostById($postId);
         $link = $this->enrolmentListModel->getSessionLink($postId);
 
+        // to notifications
+        switch($_SESSION['specialized_actor_type']) {
+            case 'Professional Guider' :
+                $studentList = $this->enrolmentListModel->getEnrollmentsForAPostG($postId);
+                break;
+            
+            case 'Teacher' :
+                $studentList = $this->enrolmentListModel->getEnrollmentsForAPostT($postId);
+                break;
+
+            default:
+                // nothing
+                break;
+        }
+
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
@@ -227,7 +243,14 @@ class C_M_Enrolment_List extends Controller{
                 // $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
                 if($this->enrolmentListModel->updateLink($data)) {
                     flash('settings_message', 'Link updated');
-                    // send notification
+                    
+                    // SEND NOTIFICATIONS
+                    foreach($studentList as $student) {
+                        $senderId = $_SESSION['user_id'];
+                        $receiverID = $student->user_id;
+                        $notification = 'published a new session link';
+                        $this->notificationModel->sendNotification($senderId, $receiverID, $notification);
+                    }
                     
                     redirect('C_M_Enrolment_List/enrolStudentList'.$_SESSION['current_viewing_post_id']);
                 }

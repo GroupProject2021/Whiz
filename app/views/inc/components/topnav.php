@@ -180,7 +180,7 @@
 <!-- common settings js -->
 <script type="text/JavaScript">
     var URLROOT = '<?php echo URLROOT; ?>';            
-    var USER_ID= '<?php echo $_SESSION["user_id"]; ?>';
+    var OWN_USER_ID= '<?php echo $_SESSION['user_id']; ?>';
 </script>
 
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/notificationAlert/notificationAlert.js"></script>

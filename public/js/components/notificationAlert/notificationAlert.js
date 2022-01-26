@@ -1,10 +1,10 @@
 // notifications
 $(document).ready(function() {
     // onload show notificaitons
-    getNotifications(USER_ID);
+    getNotifications(OWN_USER_ID);
 
     // onload get notificaiton amount
-    getNotificationAmount(USER_ID);
+    getNotificationAmount(OWN_USER_ID);
 })
 
 function getNotifications(receiverId) {
@@ -45,8 +45,8 @@ function deleteNotification(notificaitonId) {
         dataType: "text",
         success: function(amount) {
             // update
-            getNotifications(USER_ID);
-            getNotificationAmount(USER_ID);
+            getNotifications(OWN_USER_ID);
+            getNotificationAmount(OWN_USER_ID);
         }
 })
 }

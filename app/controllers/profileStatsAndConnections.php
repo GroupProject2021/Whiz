@@ -2,6 +2,7 @@
     class profileStatsAndConnections extends Controller {
         public function __construct() {
             $this->profileStatAndConnectionModel = $this->model('profileStatAndConnection');
+            $this->notificationModel = $this->model('Notification');
         }
 
         // Search user
@@ -119,6 +120,13 @@
 
             if($this->profileStatAndConnectionModel->addFollower($me, $id)) {
                 // nothing for now
+
+                // SEND NOTIFICATIONS
+                $senderId = $me;
+                $receiverID = $id;
+                $notification = 'follows you';
+                $this->notificationModel->sendNotification($senderId, $receiverID, $notification);
+
                 return print_r($this->countFollowers($id));
             }
         }
