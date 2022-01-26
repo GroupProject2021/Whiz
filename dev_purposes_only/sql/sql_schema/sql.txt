@@ -7929,7 +7929,7 @@ CREATE VIEW v_received_cv AS
 	FROM CVSentToAPost INNER JOIN Users
 	ON CVSentToAPost.user_id = Users.id
 	INNER JOIN CV 
-	ON CVSentToAPost.cv_id = CV.cv_id
+	ON CVSentToAPost.cv_id = CV.cv_id;
 
 
 -- notificaitons
@@ -7942,7 +7942,7 @@ CREATE TABLE Notifications (
 	PRIMARY KEY(notification_id),
 	FOREIGN KEY(sender_id) REFERENCES Users(id),
 	FOREIGN KEY(receiver_id) REFERENCES Users(id)
-)
+);
 
 
 CREATE VIEW v_posts_link AS
