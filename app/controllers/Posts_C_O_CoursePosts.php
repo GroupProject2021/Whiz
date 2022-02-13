@@ -16,15 +16,61 @@
         // Load course posts
         public function index() {
             // Get posts
-            $posts = $this->postModel->getPosts($_SESSION['user_id']);
-            $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
+            // $posts = $this->postModel->getPosts($_SESSION['user_id']);
 
-            $data = [
-                'posts' => $posts,
-                'reviews_rates' => $postsReviewssAndRates
-            ];
+            // $data = [
+            //     'posts' => $posts
+            // ];
 
-            $this->view('organization/university/coursePosts/index', $data);
+            // $this->view('organization/university/coursePosts/index', $data);
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                $posts_filter = trim($_POST['filter']);
+                $posts_filter_order = trim($_POST['filter-order']);
+    
+                // courses & intake notices
+                $coursesAmount = $this->postModel->getUniversityCoursesAmount();
+                
+                // filtering
+                $posts = $this->postModel->filterAndGetPosts($posts_filter, $posts_filter_order);
+    
+    
+                $data = [
+                    'courses_amount' => $coursesAmount,
+    
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('organization/university/coursePosts/index', $data);
+            }
+            else {
+                $posts_filter = 'ups';
+                $posts_filter_order = 'desc';
+    
+                // courses & intake notices
+                $coursesAmount = $this->postModel->getUniversityCoursesAmount();
+                
+                // filtering
+                $posts = $this->postModel->filterAndGetPosts($posts_filter, $posts_filter_order);
+    
+    
+                $data = [
+                    'courses_amount' => $coursesAmount,
+    
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('organization/university/coursePosts/index', $data);
+            }
         }
 
         // Add course posts

@@ -26,7 +26,63 @@
                         <?php flash('post_message'); ?>
 
                         <a href="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/add"><button class="btn3">CREATE INTAKE NOTICE</button></a>
-                        <br><br><br>
+                        <br>
+
+                    <!-- filter area -->
+                    <?php if(!empty($data['intake_notices_amount'])):?>
+                        <form action="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/index/" method="post">
+                            <div class="filter-container">
+                                <div class="filter-icon">
+                                    <img src="<?php echo URLROOT; ?>/imgs/components/filter/filter-icon.png" alt="">
+                                </div>
+                                <div class="filter-text">Filter by</div>
+                                <div class="item">
+                                    <select name="filter" id="filter" class="filter-select">
+                                        <?php if($data['posts_filter'] == "ups"): ?>
+                                            <option value="ups" selected>Upvotes</option>
+                                        <?php else: ?>
+                                            <option value="ups">Upvotes</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "downs"): ?>
+                                            <option value="downs" selected>Downvotes</option>
+                                        <?php else: ?>
+                                            <option value="downs">Downvotes</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "comments"): ?>
+                                            <option value="comments" selected>Comments</option>
+                                        <?php else: ?>
+                                            <option value="comments">Comments</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "reviews"): ?>
+                                            <option value="reviews" selected>Reviews</option>
+                                        <?php else: ?>
+                                            <option value="reviews">Reviews</option>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="filter-text">in</div>
+                                <div class="order">
+                                    <select name="filter-order" id="filter-order" class="filter-select">
+                                        <?php if($data['posts_filter_order'] == "asc"): ?>
+                                            <option value="asc" selected>Ascending</option>
+                                        <?php else: ?>
+                                            <option value="asc">Ascending</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter_order'] == "desc"): ?>
+                                            <option value="desc" selected>Descending</option>
+                                        <?php else: ?>
+                                            <option value="desc">Descending</option>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="filter-text">order</div>
+                                <div class="right">
+                                    <button type="submit" class="filter-btn">Filter</button>
+                                </div>
+                            </div>
+                        </form>
+                    <?php endif; ?>
+                    <br>
 
                     <div class="card-flex-box">
                     

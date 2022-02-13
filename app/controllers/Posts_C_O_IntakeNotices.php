@@ -15,13 +15,61 @@
         // Load notice posts
         public function index() {
             // Get posts
-            $posts = $this->postModel->getPosts($_SESSION['user_id']);
+            // $posts = $this->postModel->getPosts($_SESSION['user_id']);
 
-            $data = [
-                'posts' => $posts
-            ];
+            // $data = [
+            //     'posts' => $posts
+            // ];
 
-            $this->view('organization/university/noticePosts/index', $data);
+            // $this->view('organization/university/noticePosts/index', $data);
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                $posts_filter = trim($_POST['filter']);
+                $posts_filter_order = trim($_POST['filter-order']);
+    
+                // courses & intake notices
+                $intakeNoticesAmount = $this->postModel->getIntakeNoticesAmount();
+                
+                // filtering
+                $posts = $this->postModel->filterAndGetPosts($posts_filter, $posts_filter_order);
+    
+    
+                $data = [
+                    'intake_notices_amount' => $intakeNoticesAmount,
+    
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('organization/university/noticePosts/index', $data);
+            }
+            else {
+                $posts_filter = 'ups';
+                $posts_filter_order = 'desc';
+    
+                // courses & intake notices
+                $intakeNoticesAmount = $this->postModel->getIntakeNoticesAmount();
+                
+                // filtering
+                $posts = $this->postModel->filterAndGetPosts($posts_filter, $posts_filter_order);
+    
+    
+                $data = [
+                    'intake_notices_amount' => $intakeNoticesAmount,
+    
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('organization/university/noticePosts/index', $data);
+            }
         }
 
         // Add notice posts

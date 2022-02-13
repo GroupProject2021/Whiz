@@ -25,38 +25,67 @@
             return $results;
         }
 
+        public function getIntakeNoticesAmount() {
+            $this->db->query('SELECT * FROM v_posts_notices WHERE private_uni_id = :id'); // this is a prepared statement
+            $this->db->bind(":id", $_SESSION['user_id']);
+    
+            $row = $this->db->single();
+    
+            // Check row - return true if email exists. Because then rowCount is not 0
+            $amount = $this->db->rowCount();
+            if($amount > 0) {
+                return $amount;
+            }
+            else {
+                return false;
+            }
+        }
+
         // to dahsboard analytics
-        public function getTopPostsToDashboardUsingFilterByUps() {
-            $this->db->query("SELECT * FROM v_posts_notices ORDER BY ups DESC LIMIT 10;");
+        public function filterAndGetPosts($criteria, $order) {
+            switch($criteria) {
+                case "ups":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices ORDER BY ups ASC LIMIT 10");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices ORDER BY ups DESC LIMIT 10");
+                    }                    
+                    break;
+
+                case "downs":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices ORDER BY downs ASC LIMIT 10");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices ORDER BY downs DESC LIMIT 10");
+                    }
+                    break;
+
+                case "comments":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices ORDER BY comment_count ASC LIMIT 10");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices ORDER BY comment_count DESC LIMIT 10");
+                    }
+                    break;
+
+                case "reviews":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices ORDER BY review_count ASC LIMIT 10");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices ORDER BY review_count DESC LIMIT 10");
+                    }
+                    break;
+            }
 
             $results = $this->db->resultSet();
 
             return $results;
         }
 
-        public function getTopPostsToDashboardUsingFilterByDowns() {
-            $this->db->query("SELECT * FROM v_posts_notices ORDER BY downs DESC LIMIT 10;");
-
-            $results = $this->db->resultSet();
-
-            return $results;
-        }
-
-        public function getTopPostsToDashboardUsingFilterByComments() {
-            $this->db->query("SELECT * FROM v_posts_notices ORDER BY comment_count DESC LIMIT 10;");
-
-            $results = $this->db->resultSet();
-
-            return $results;
-        }
-
-        public function getTopPostsToDashboardUsingFilterByReviews() {
-            $this->db->query("SELECT * FROM v_posts_notices ORDER BY review_count DESC LIMIT 10;");
-
-            $results = $this->db->resultSet();
-
-            return $results;
-        }
 
         public function addPost($data) {
             $this->db->query('INSERT INTO Posts(image, title, user_id, body, ups, downs, shares, views, type, applied, capacity) VALUES(:image, :title, :user_id, :body, :ups, :downs, :shares, :views, :type, :applied, :capacity)');

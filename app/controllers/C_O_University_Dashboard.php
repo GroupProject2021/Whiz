@@ -9,63 +9,62 @@ class C_O_University_Dashboard extends Controller {
     }
 
     // Index
-    public function index($coursePosts_filter = 'ups', $intakeNotices_filter = 'ups') {
-        // courses & intake notices
-        $coursesAmount = $this->universityDashboardModel->getUniversityCoursesAmount();
-        $intakeNoticesAmount = $this->universityDashboardModel->getIntakeNoticesAmount();
+    public function index() {
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        switch($coursePosts_filter) {
-            case 'ups': 
-                $coursePosts = $this->coursePostModel->getTopPostsToDashboardUsingFilterByUps();
-                break;
+            $posts_filter = trim($_POST['filter']);
+            $posts_filter_order = trim($_POST['filter-order']);
 
-            case 'downs': 
-                $coursePosts = $this->coursePostModel->getTopPostsToDashboardUsingFilterByDowns();
-                break;
+            // courses & intake notices
+            $coursesAmount = $this->universityDashboardModel->getUniversityCoursesAmount();
+            $intakeNoticesAmount = $this->universityDashboardModel->getIntakeNoticesAmount();
+            
+            // filtering
+            $coursePosts = $this->coursePostModel->filterAndGetPosts($posts_filter, $posts_filter_order);
+            $intakeNotices = $this->intakeNoticesModel->filterAndGetPosts($posts_filter, $posts_filter_order);
 
-            case 'comments': 
-                $coursePosts = $this->coursePostModel->getTopPostsToDashboardUsingFilterByComments();
-                break;
 
-            case 'reviews': 
-                $coursePosts = $this->coursePostModel->getTopPostsToDashboardUsingFilterByReviews();
-                break;
+            $data = [
+                'courses_amount' => $coursesAmount,
+                'intake_notices_amount' => $intakeNoticesAmount,
 
-            default:
-                // nothing;
+                'posts_filter' => $posts_filter,
+                'posts_filter_order' => $posts_filter_order,
+
+                'course_posts' => $coursePosts,
+                'intake_notices' => $intakeNotices,
+            ];
+            
+            $this->view('organization/university/university_dashboard', $data);
         }
+        else {
+            $posts_filter = 'ups';
+            $posts_filter_order = 'desc';
 
-        switch($intakeNotices_filter) {
-            case 'ups': 
-                $intakeNotices = $this->intakeNoticesModel->getTopPostsToDashboardUsingFilterByUps();
-                break;
+            // courses & intake notices
+            $coursesAmount = $this->universityDashboardModel->getUniversityCoursesAmount();
+            $intakeNoticesAmount = $this->universityDashboardModel->getIntakeNoticesAmount();
+            
+            // filtering
+            $coursePosts = $this->coursePostModel->filterAndGetPosts($posts_filter, $posts_filter_order);
+            $intakeNotices = $this->intakeNoticesModel->filterAndGetPosts($posts_filter, $posts_filter_order);
 
-            case 'downs': 
-                $intakeNotices = $this->intakeNoticesModel->getTopPostsToDashboardUsingFilterByDowns();
-                break;
 
-            case 'comments': 
-                $intakeNotices = $this->intakeNoticesModel->getTopPostsToDashboardUsingFilterByComments();
-                break;
+            $data = [
+                'courses_amount' => $coursesAmount,
+                'intake_notices_amount' => $intakeNoticesAmount,
 
-            case 'reviews': 
-                $intakeNotices = $this->intakeNoticesModel->getTopPostsToDashboardUsingFilterByReviews();
-                break;
+                'posts_filter' => $posts_filter,
+                'posts_filter_order' => $posts_filter_order,
 
-            default:
-                // nothing;
+                'course_posts' => $coursePosts,
+                'intake_notices' => $intakeNotices,
+            ];
+            
+            $this->view('organization/university/university_dashboard', $data);
         }
-
-
-        $data = [
-            'courses_amount' => $coursesAmount,
-            'intake_notices_amount' => $intakeNoticesAmount,
-
-            'course_posts' => $coursePosts,
-            'intake_notices' => $intakeNotices
-        ];
-        
-        $this->view('organization/university/university_dashboard', $data);
     }
 }
 
