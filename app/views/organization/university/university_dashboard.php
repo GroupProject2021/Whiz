@@ -48,7 +48,51 @@
                                 </div>
                             </div>
                         <?php else: ?>      
-                            <?php echo 'course dummy'; ?>
+                            <div class="dashboard-content-title">Courses</div>
+                            <div class="dashboard-content-container">
+                            <?php foreach($data['course_posts'] as $coursePost): ?>
+                                <?php if($coursePost->private_uni_id == $_SESSION['user_id']): ?>
+                                    <?php if($coursePost->type == "coursepost"): ?>
+                                        <a href="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/show/<?php echo $coursePost->post_id; ?>" class="card-link">
+                                            <div class="dashboard-analytics-container">
+                                                <div class="left">
+                                                    <?php if($coursePost->image != null):?>
+                                                    <div class="pic">
+                                                        <img src="<?php echo URLROOT.'/imgs/posts/courseposts/'.$coursePost->image; ?>" alt="">
+                                                    </div>
+                                                    <?php endif; ?>
+                                                </div>
+                                                <div class="right">
+                                                    <div class="title"><?php echo $coursePost->courseName; ?></div>
+                                                    <div class="coursepost-stats">
+                                                        <div class="ups"><img src="<?php echo URLROOT.'/imgs/components/posts/up-icon.png'; ?>" alt=""></div>
+                                                        <div class="ups-count"><?php echo $coursePost->ups; ?></div>
+                                                        <div class="downs"><img src="<?php echo URLROOT.'/imgs/components/posts/down-icon.png'; ?>" alt=""></div>
+                                                        <div class="downs-count"><?php echo $coursePost->downs; ?></div>
+                                                        <div class="comments"><img src="<?php echo URLROOT.'/imgs/components/posts/comment-icon.png'; ?>" alt=""></div>
+                                                        <div class="comments-count"><?php echo $coursePost->comment_count; ?></div>
+                                                        <div class="rate"><?php echo countRate($coursePost->review_count, $coursePost->rate1, $coursePost->rate2, $coursePost->rate3, $coursePost->rate4, $coursePost->rate5); ?></div>
+                                                        <?php 
+                                                            $rate = countRate($coursePost->review_count, $coursePost->rate1, $coursePost->rate2, $coursePost->rate3, $coursePost->rate4, $coursePost->rate5);
+
+                                                            for($i=0; $i <ceil($rate); $i++) {
+                                                                echo '<div class="rate-star active"><img src="'.URLROOT.'/imgs/components/posts/star-icon.png"></div>';
+                                                            }
+
+                                                            for($i=0; $i <5 - ceil($rate); $i++) {
+                                                                echo '<div class="rate-star"><img src="'.URLROOT.'/imgs/components/posts/star-icon.png"></div>';
+                                                            }
+                                                            
+                                                            ?>
+                                                        <div class="reviews">REVIEWS (<?php echo $coursePost->review_count; ?>)</div>
+                                                    </div>         
+                                                </div>
+                                            </div>
+                                        </a>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                            </div>
                         <?php endif; ?>
 
                         <!-- Intake notices -->
@@ -71,8 +115,52 @@
                                     <a href="<?php echo URLROOT;?>/C_S_Stu_To_ProfessionalGuider/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
                                 </div>
                             </div>
-                        <?php else: ?>      
-                            <?php echo 'intake dummy'; ?>
+                        <?php else: ?>  
+                            <div class="dashboard-content-title">Intake notices</div>    
+                            <div class="dashboard-content-container">
+                            <?php foreach($data['intake_notices'] as $intakeNotice): ?>
+                                <?php if($intakeNotice->private_uni_id == $_SESSION['user_id']): ?>
+                                    <?php if($intakeNotice->type == "noticepost"): ?>
+                                        <a href="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/show/<?php echo $intakeNotice->post_id; ?>" class="card-link">
+                                            <div class="dashboard-analytics-container">
+                                                <div class="left">
+                                                    <?php if($intakeNotice->image != null):?>
+                                                    <div class="pic">
+                                                        <img src="<?php echo URLROOT.'/imgs/posts/notices/'.$intakeNotice->image; ?>" alt="">
+                                                    </div>
+                                                    <?php endif; ?>
+                                                </div>
+                                                <div class="right">
+                                                    <div class="title"><?php echo $intakeNotice->noticeName; ?></div>
+                                                    <div class="coursepost-stats">
+                                                        <div class="ups"><img src="<?php echo URLROOT.'/imgs/components/posts/up-icon.png'; ?>" alt=""></div>
+                                                        <div class="ups-count"><?php echo $intakeNotice->ups; ?></div>
+                                                        <div class="downs"><img src="<?php echo URLROOT.'/imgs/components/posts/down-icon.png'; ?>" alt=""></div>
+                                                        <div class="downs-count"><?php echo $intakeNotice->downs; ?></div>
+                                                        <div class="comments"><img src="<?php echo URLROOT.'/imgs/components/posts/comment-icon.png'; ?>" alt=""></div>
+                                                        <div class="comments-count"><?php echo $intakeNotice->comment_count; ?></div>
+                                                        <div class="rate"><?php echo countRate($intakeNotice->review_count, $intakeNotice->rate1, $intakeNotice->rate2, $intakeNotice->rate3, $intakeNotice->rate4, $intakeNotice->rate5); ?></div>
+                                                        <?php 
+                                                            $rate = countRate($intakeNotice->review_count, $intakeNotice->rate1, $intakeNotice->rate2, $intakeNotice->rate3, $intakeNotice->rate4, $intakeNotice->rate5);
+
+                                                            for($i=0; $i <ceil($rate); $i++) {
+                                                                echo '<div class="rate-star active"><img src="'.URLROOT.'/imgs/components/posts/star-icon.png"></div>';
+                                                            }
+
+                                                            for($i=0; $i <5 - ceil($rate); $i++) {
+                                                                echo '<div class="rate-star"><img src="'.URLROOT.'/imgs/components/posts/star-icon.png"></div>';
+                                                            }
+                                                            
+                                                            ?>
+                                                        <div class="reviews">REVIEWS (<?php echo $intakeNotice->review_count; ?>)</div>
+                                                    </div>         
+                                                </div>
+                                            </div>
+                                        </a>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                            </div>
                         <?php endif; ?>
                     </div>
 

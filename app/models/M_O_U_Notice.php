@@ -25,6 +25,39 @@
             return $results;
         }
 
+        // to dahsboard analytics
+        public function getTopPostsToDashboardUsingFilterByUps() {
+            $this->db->query("SELECT * FROM v_posts_notices ORDER BY ups DESC LIMIT 10;");
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        public function getTopPostsToDashboardUsingFilterByDowns() {
+            $this->db->query("SELECT * FROM v_posts_notices ORDER BY downs DESC LIMIT 10;");
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        public function getTopPostsToDashboardUsingFilterByComments() {
+            $this->db->query("SELECT * FROM v_posts_notices ORDER BY comment_count DESC LIMIT 10;");
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        public function getTopPostsToDashboardUsingFilterByReviews() {
+            $this->db->query("SELECT * FROM v_posts_notices ORDER BY review_count DESC LIMIT 10;");
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
         public function addPost($data) {
             $this->db->query('INSERT INTO Posts(image, title, user_id, body, ups, downs, shares, views, type, applied, capacity) VALUES(:image, :title, :user_id, :body, :ups, :downs, :shares, :views, :type, :applied, :capacity)');
             // bind values
