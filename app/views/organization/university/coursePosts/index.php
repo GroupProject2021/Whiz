@@ -31,6 +31,7 @@
                     <!-- filter area -->
                     <?php if(!empty($data['courses_amount'])):?>
                         <form action="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/index/" method="post">
+                        <div class="filter-and-search-container">
                             <div class="filter-container">
                                 <div class="filter-icon">
                                     <img src="<?php echo URLROOT; ?>/imgs/components/filter/filter-icon.png" alt="">
@@ -38,6 +39,11 @@
                                 <div class="filter-text">Filter by</div>
                                 <div class="item">
                                     <select name="filter" id="filter" class="filter-select">
+                                         <?php if($data['posts_filter'] == "all"): ?>
+                                            <option value="all" selected>All</option>
+                                        <?php else: ?>
+                                            <option value="all">All</option>
+                                        <?php endif; ?>
                                         <?php if($data['posts_filter'] == "ups"): ?>
                                             <option value="ups" selected>Upvotes</option>
                                         <?php else: ?>
@@ -52,6 +58,36 @@
                                             <option value="comments" selected>Comments</option>
                                         <?php else: ?>
                                             <option value="comments">Comments</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "rate0"): ?>
+                                            <option value="rate0" selected>No Star</option>
+                                        <?php else: ?>
+                                            <option value="rate0">No Star</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "rate1"): ?>
+                                            <option value="rate1" selected>1 Star</option>
+                                        <?php else: ?>
+                                            <option value="rate1">1 Star</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "rate2"): ?>
+                                            <option value="rate2" selected>2 Star</option>
+                                        <?php else: ?>
+                                            <option value="rate2">2 Star</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "rate3"): ?>
+                                            <option value="rate3" selected>3 Star</option>
+                                        <?php else: ?>
+                                            <option value="rate3">3 Star</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "rate4"): ?>
+                                            <option value="rate4" selected>4 Star</option>
+                                        <?php else: ?>
+                                            <option value="rate4">4 Star</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "rate5"): ?>
+                                            <option value="rate5" selected>5 Star</option>
+                                        <?php else: ?>
+                                            <option value="rate5">5 Star</option>
                                         <?php endif; ?>
                                         <?php if($data['posts_filter'] == "reviews"): ?>
                                             <option value="reviews" selected>Reviews</option>
@@ -80,6 +116,15 @@
                                     <button type="submit" class="filter-btn">Filter</button>
                                 </div>
                             </div>
+                            <div class="search-container">
+                                <div class="search-bar">
+                                    <input type="text" name="post-search" id="post-search" placeholder="Search..." value="<?php echo $data['post_search'];?>">
+                                </div>
+                                <div class="search-btnarea">
+                                    <button type="submit" class="search-btn">Search</button>
+                                </div>
+                            </div>
+                        </div>
                         </form>
                     <?php endif; ?>
                     <br>

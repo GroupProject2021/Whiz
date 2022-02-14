@@ -702,6 +702,22 @@ main {
     top: 3px;
 }
 
+.search-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+
+.search-container .search-bar input[type=text] {
+    height: 31px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.filter-and-search-container {
+    display: flex;
+    flex-direction: row;
+}
+
 
 /* responsive features */
 @media only screen and (max-width: 1124px) {

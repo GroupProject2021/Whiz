@@ -16,6 +16,126 @@
             return $results;
         }
 
+        // at course posts page
+        public function filterAndGetPostsToCoursePosts($criteria, $order) {
+            switch($criteria) {
+                case "all":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_courses ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_courses ORDER BY postCreated DESC");
+                    }                    
+                    break;
+
+                case "ups":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_courses ORDER BY ups ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_courses ORDER BY ups DESC");
+                    }                    
+                    break;
+
+                case "downs":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_courses ORDER BY downs ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_courses ORDER BY downs DESC");
+                    }
+                    break;
+
+                case "comments":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_courses ORDER BY comment_count ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_courses ORDER BY comment_count DESC");
+                    }
+                    break;
+
+                case "rate0":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_courses WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_courses WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate1":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_courses WHERE rate1 = 1 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_courses WHERE rate1 = 1 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate2":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_courses WHERE rate1 = 0 AND rate2 = 1 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_courses WHERE rate1 = 0 AND rate2 = 1 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate3":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_courses WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 1 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_courses WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 1 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate4":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_courses WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 1 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_courses WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 1 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate5":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_courses WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 1 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_courses WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 1 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "reviews":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_courses ORDER BY review_count ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_courses ORDER BY review_count DESC");
+                    }
+                    break;
+            }
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        public function searchAndGetPostsToCoursePosts($search) {
+            $this->db->query("SELECT * FROM v_posts_courses WHERE courseName LIKE '".$search."%' 
+            OR courseContent LIKE '".$search."%' 
+            OR provide_degree LIKE '".$search."%'
+            OR course_fee LIKE '".$search."%'
+            OR first_name LIKE '".$search."%'");
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
         public function getUniversityCoursesAmount() {
             $this->db->query('SELECT * FROM v_posts_courses WHERE private_uni_id = :id'); // this is a prepared statement
             $this->db->bind(":id", $_SESSION['user_id']);
