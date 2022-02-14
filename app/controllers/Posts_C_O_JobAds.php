@@ -34,9 +34,6 @@
                 $posts_filter_order = trim($_POST['filter-order']);
 
                 $posts_search = trim($_POST['post-search']);
-    
-                // courses & intake notices
-                $coursesAmount = $this->postModel->getJobAdsAmount();
                 
                 // filtering
                 if(empty($posts_search)) {
@@ -48,8 +45,6 @@
                 }
     
                 $data = [
-                    'courses_amount' => $coursesAmount,
-    
                     'posts_filter' => $posts_filter,
                     'posts_filter_order' => $posts_filter_order,
 
@@ -61,13 +56,10 @@
                 $this->view('organization/company/jobPosts/index', $data);
             }
             else {
-                $posts_filter = 'ups';
+                $posts_filter = 'all';
                 $posts_filter_order = 'desc';
 
                 $posts_search = '';
-    
-                // courses & intake notices
-                $coursesAmount = $this->postModel->getJobAdsAmount();
                 
                 // filtering
                 $posts = $this->postModel->filterAndGetPostsToJobAds($posts_filter, $posts_filter_order);
@@ -75,8 +67,6 @@
     
     
                 $data = [
-                    'courses_amount' => $coursesAmount,
-    
                     'posts_filter' => $posts_filter,
                     'posts_filter_order' => $posts_filter_order,
 

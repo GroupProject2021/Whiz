@@ -25,7 +25,6 @@
                     <div class="middle-panel-single">
 
                     <!-- filter area -->
-                    <?php //if(!empty($data['intake_notices_amount'])):?>
                         <form action="<?php echo URLROOT; ?>/C_S_Stu_To_Notices/index/" method="post">
                         <div class="filter-and-search-container">
                             <div class="filter-container">
@@ -122,7 +121,6 @@
                             </div>
                         </div>
                         </form>
-                    <?php //endif; ?>
                     <br>
 
                     <div class="card-flex-box">

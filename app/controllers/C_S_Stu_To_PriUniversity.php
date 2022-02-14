@@ -62,7 +62,7 @@
                 $this->view('students/opt_courses/v_pri_courses_list', $data);
             }
             else {
-                $posts_filter = 'ups';
+                $posts_filter = 'all';
                 $posts_filter_order = 'desc';
 
                 $posts_search = '';

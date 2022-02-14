@@ -5,7 +5,7 @@
                 redirect('users/login');
             }
 
-            $this->postModel = $this->model('Post');
+            $this->postModel = $this->model('Post_Banners');
             $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
 
             $this->commentModel = $this->model('Comment');            
@@ -36,23 +36,18 @@
                 $posts_filter_order = trim($_POST['filter-order']);
 
                 $posts_search = trim($_POST['post-search']);
-    
-                // courses & intake notices
-                // $intakeNoticesAmount = $this->postModel->getIntakeNoticesAmount();
-                
+                    
                 // filtering
                 if(empty($posts_search)) {
-                    $posts = $this->postModel->filterAndGetPostsToPosts($posts_filter, $posts_filter_order);
+                    $posts = $this->postModel->filterAndGetPostsToBanners($posts_filter, $posts_filter_order);
                 }
                 else {
                     // Search bar applied
-                    $posts = $this->postModel->searchAndGetPosts($posts_search);
+                    $posts = $this->postModel->searchAndGetPostsToBanners($posts_search);
                 }
     
     
                 $data = [
-                    // 'intake_notices_amount' => $intakeNoticesAmount,
-    
                     'posts_filter' => $posts_filter,
                     'posts_filter_order' => $posts_filter_order,
 
@@ -64,21 +59,18 @@
                 $this->view('mentors/professional_guider/banners/index', $data);
             }
             else {
-                $posts_filter = 'ups';
+                $posts_filter = 'all';
                 $posts_filter_order = 'desc';
 
                 $posts_search = '';
     
                 // courses & intake notices
-                // $intakeNoticesAmount = $this->postModel->getIntakeNoticesAmount();
                 
                 // filtering
-                $posts = $this->postModel->filterAndGetPostsToPosts($posts_filter, $posts_filter_order);
+                $posts = $this->postModel->filterAndGetPostsToBanners($posts_filter, $posts_filter_order);
     
     
-                $data = [
-                    // 'intake_notices_amount' => $intakeNoticesAmount,
-    
+                $data = [    
                     'posts_filter' => $posts_filter,
                     'posts_filter_order' => $posts_filter_order,
 
@@ -105,9 +97,11 @@
                     'body' => trim($_POST['body']),
                     'applied' => 0,
                     'capacity' => $_POST['capacity'],
+                    'session_fee' => $_POST['session_fee'],
                     'user_id' => $_SESSION['user_id'],
                     'title_err' => '',
                     'body_err' => '',
+                    'session_fee_err' => '',
                     
                     'ups' => 0,
                     'downs' => 0,
@@ -140,11 +134,16 @@
                     $data['body_err'] = 'Please enter title';
                 }
 
+                // Validate session fee
+                if(empty($data['session_fee'])) {
+                    $data['session_fee_err'] = 'Please enter session fee';
+                }
+
                 // Make sure no errors
                 if(empty($data['title_err']) && empty($data['body_err'])) {
 
                     // Validated
-                    if($this->postModel->addPost($data)) {
+                    if($this->postModel->addPost($data, 'banner')) {
                         // flash('post_message', 'Post added');
                         // redirect('Posts_C_M_Banners');
                         
@@ -170,10 +169,13 @@
                     'body' => '',
                     'applied' => '',
                     'capacity' => '',
+                    'session_fee' => '',
                     'ups' => '',
                     'downs' => '',
                     'shares' => '',
-                    'views' => ''
+                    'views' => '',
+
+                    'session_fee_err' => ''
                 ];
             }
 

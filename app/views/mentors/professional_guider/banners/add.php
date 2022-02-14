@@ -44,6 +44,10 @@
                                 </div>
                                 <br>
                                 <hr>
+                                <div class="post-creator-subtitle">
+                                    <input type="text" name="session_fee" id="session_fee" autocomplete="off" placeholder="Session Fee" value="<?php echo $data['session_fee']; ?>">
+                                    <span class="form-invalid"><?php echo $data['session_fee_err']; ?></span>
+                                </div>
                                 <div class="interaction-detail">
                                     Maximum enroll capacity <input type="number" name="capacity" id="capacity" placeholder="capacity" min=0>
                                 </div>

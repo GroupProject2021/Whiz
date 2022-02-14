@@ -5,7 +5,7 @@
                 redirect('users/login');
             }
 
-            $this->postModel = $this->model('Post');
+            $this->postModel = $this->model('Post_banners');
             $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
 
             $this->commentModel = $this->model('Comment');            
@@ -43,11 +43,11 @@
                 
                 // filtering
                 if(empty($posts_search)) {
-                    $posts = $this->postModel->filterAndGetPostsToPosts($posts_filter, $posts_filter_order);
+                    $posts = $this->postModel->filterAndGetPostsToBanners($posts_filter, $posts_filter_order);
                 }
                 else {
                     // Search bar applied
-                    $posts = $this->postModel->searchAndGetPosts($posts_search);
+                    $posts = $this->postModel->searchAndGetPostsToBanners($posts_search);
                 }
     
     
@@ -65,7 +65,7 @@
                 $this->view('students/opt_proGuiders/v_proGuiders_banner_list', $data);
             }
             else {
-                $posts_filter = 'ups';
+                $posts_filter = 'all';
                 $posts_filter_order = 'desc';
 
                 $posts_search = '';
@@ -74,7 +74,7 @@
                 // $intakeNoticesAmount = $this->postModel->getIntakeNoticesAmount();
                 
                 // filtering
-                $posts = $this->postModel->filterAndGetPostsToPosts($posts_filter, $posts_filter_order);
+                $posts = $this->postModel->filterAndGetPostsToBanners($posts_filter, $posts_filter_order);
     
     
                 $data = [

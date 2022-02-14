@@ -29,7 +29,6 @@
                         <br>
                     
                         <!-- filter area -->
-                    <?php if(!empty($data['courses_amount'])):?>
                         <form action="<?php echo URLROOT; ?>/Posts_C_O_JobAds/index/" method="post">
                         <div class="filter-and-search-container">
                             <div class="filter-container">
@@ -126,7 +125,6 @@
                             </div>
                         </div>
                         </form>
-                    <?php endif; ?>
                     <br>
 
                     <div class="card-flex-box">

@@ -29,7 +29,6 @@
                         <br>
                         
                     <!-- filter area -->
-                    <?php //if(!empty($data['courses_amount'])):?>
                         <form action="<?php echo URLROOT; ?>/Posts_C_M_Banners/index/" method="post">
                         <div class="filter-and-search-container">
                             <div class="filter-container">
@@ -126,15 +125,14 @@
                             </div>
                         </div>
                         </form>
-                    <?php //endif; ?>
                     <br>
 
                     <div class="card-flex-box">
 
                     <!-- BANNER -->
                     <?php foreach($data['posts'] as $post): ?>
-                    <?php if($post->type == "banner"): ?>
-                        <a href="<?php echo URLROOT; ?>/Posts_C_M_Banners/show/<?php echo $post->postId; ?>" class="card-link">
+                    <?php if($post->userId == $_SESSION['user_id']): ?>
+                        <a href="<?php echo URLROOT; ?>/Posts_C_M_Banners/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="banner">
                             <?php if($post->image != null):?>
                             <div class="pic">
@@ -157,7 +155,7 @@
                                        <div class="capacity"> of <?php echo $post->capacity; ?> Capacity</div>
                                    </div>
                                </div>
-                                <div class="price">Rs.1000</div>
+                                <div class="price">Rs.<?php echo $post->session_fee; ?></div>
                             </div>
                             <div class="banner-stats">
                                 <div class="ups"><img src="<?php echo URLROOT.'/imgs/components/posts/up-icon.png'; ?>" alt=""></div>

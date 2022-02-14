@@ -29,7 +29,6 @@
                     <div class="middle-panel-single">
 
                     <!-- filter area -->
-                    <?php //if(!empty($data['courses_amount'])):?>
                         <form action="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/index/" method="post">
                         <div class="filter-and-search-container">
                             <div class="filter-container">
@@ -126,7 +125,6 @@
                             </div>
                         </div>
                         </form>
-                    <?php //endif; ?>
                     <br>
 
                     <div class="card-flex-box">

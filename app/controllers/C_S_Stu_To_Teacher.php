@@ -5,7 +5,7 @@
                 redirect('users/login');
             }
 
-            $this->postModel = $this->model('Post');
+            $this->postModel = $this->model('Post_posters');
             $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
             $this->commentModel = $this->model('Comment');            
             $this->reviewModel = $this->model('Review');
@@ -42,11 +42,11 @@
                 
                 // filtering
                 if(empty($posts_search)) {
-                    $posts = $this->postModel->filterAndGetPostsToPosts($posts_filter, $posts_filter_order);
+                    $posts = $this->postModel->filterAndGetPostsToPosters($posts_filter, $posts_filter_order);
                 }
                 else {
                     // Search bar applied
-                    $posts = $this->postModel->searchAndGetPosts($posts_search);
+                    $posts = $this->postModel->searchAndGetPostsToPosters($posts_search);
                 }
     
     
@@ -64,7 +64,7 @@
                 $this->view('students/opt_teachers/v_teachers_poster_list', $data);
             }
             else {
-                $posts_filter = 'ups';
+                $posts_filter = 'all';
                 $posts_filter_order = 'desc';
 
                 $posts_search = '';
@@ -73,7 +73,7 @@
                 // $intakeNoticesAmount = $this->postModel->getIntakeNoticesAmount();
                 
                 // filtering
-                $posts = $this->postModel->filterAndGetPostsToPosts($posts_filter, $posts_filter_order);
+                $posts = $this->postModel->filterAndGetPostsToPosters($posts_filter, $posts_filter_order);
     
     
                 $data = [

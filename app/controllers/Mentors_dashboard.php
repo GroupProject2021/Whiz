@@ -3,7 +3,7 @@
         public function __construct() {
             $this->mentorDashboardModel = $this->model('Mentor_dashboard');
             $this->commonModel = $this->model('Common');
-            $this->postModel = $this->model('Post');
+            $this->postModel = $this->model('Post_Posters');
             $this->sessionLinkModel = $this->model('M_M_Enrolment_List');
         }
 

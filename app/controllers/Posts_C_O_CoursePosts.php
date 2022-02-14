@@ -32,9 +32,6 @@
                 $posts_filter_order = trim($_POST['filter-order']);
 
                 $posts_search = trim($_POST['post-search']);
-    
-                // courses & intake notices
-                $coursesAmount = $this->postModel->getUniversityCoursesAmount();
                 
                 // filtering
                 if(empty($posts_search)) {
@@ -46,8 +43,6 @@
                 }
     
                 $data = [
-                    'courses_amount' => $coursesAmount,
-    
                     'posts_filter' => $posts_filter,
                     'posts_filter_order' => $posts_filter_order,
 
@@ -59,13 +54,10 @@
                 $this->view('organization/university/coursePosts/index', $data);
             }
             else {
-                $posts_filter = 'ups';
+                $posts_filter = 'all';
                 $posts_filter_order = 'desc';
 
                 $posts_search = '';
-    
-                // courses & intake notices
-                $coursesAmount = $this->postModel->getUniversityCoursesAmount();
                 
                 // filtering
                 $posts = $this->postModel->filterAndGetPostsToCoursePosts($posts_filter, $posts_filter_order);
@@ -73,8 +65,6 @@
     
     
                 $data = [
-                    'courses_amount' => $coursesAmount,
-    
                     'posts_filter' => $posts_filter,
                     'posts_filter_order' => $posts_filter_order,
 

@@ -7957,3 +7957,79 @@ CREATE VIEW v_posts_link AS
 	ON posts.user_id = Users.id
 	INNER JOIN sessionlink 
 	ON posts.id = sessionlink.post_id;
+
+CREATE TABLE Banner(
+	banner_id INT,
+	session_fee DECIMAL(15,2),
+	PRIMARY KEY(banner_id),
+	FOREIGN KEY(banner_id) REFERENCES Posts(id) ON DELETE CASCADE
+);
+
+CREATE TABLE Poster(
+	poster_id INT,
+	session_fee DECIMAL(15,2),
+	PRIMARY KEY(poster_id),
+	FOREIGN KEY(poster_id) REFERENCES Posts(id) ON DELETE CASCADE
+);
+
+CREATE VIEW v_posts_banners AS
+	SELECT
+	v_complete_posts.postId AS post_id,
+	v_complete_posts.userId AS userId,
+	v_complete_posts.type AS type,
+	v_complete_posts.image AS image,
+	v_complete_posts.actor_type AS actor_type,
+	v_complete_posts.specialized_actor_type AS specialized_actor_type,
+	v_complete_posts.profile_image AS profile_image,
+	v_complete_posts.first_name AS first_name,
+	v_complete_posts.last_name AS last_name,
+	v_complete_posts.status AS status,
+	v_complete_posts.postCreated as postCreated,
+	v_complete_posts.title AS title,
+	v_complete_posts.body AS body,
+	v_complete_posts.applied AS applied,
+	v_complete_posts.capacity AS capacity,
+	Banner.session_fee AS session_fee,
+	v_complete_posts.ups AS ups,
+	v_complete_posts.downs AS downs,
+	v_complete_posts.comment_count AS comment_count,
+	IFNULL(v_complete_posts.rate1, 0) AS rate1,
+	IFNULL(v_complete_posts.rate2, 0) AS rate2,
+	IFNULL(v_complete_posts.rate3, 0) AS rate3,
+	IFNULL(v_complete_posts.rate4, 0) AS rate4,
+	IFNULL(v_complete_posts.rate5, 0) AS rate5,
+	v_complete_posts.review_count AS review_count
+	FROM v_complete_posts
+	INNER JOIN Banner
+    ON Banner.banner_id = v_complete_posts.postId;
+
+CREATE VIEW v_posts_posters AS
+	SELECT
+	v_complete_posts.postId AS post_id,
+	v_complete_posts.userId AS userId,
+	v_complete_posts.type AS type,
+	v_complete_posts.image AS image,
+	v_complete_posts.actor_type AS actor_type,
+	v_complete_posts.specialized_actor_type AS specialized_actor_type,
+	v_complete_posts.profile_image AS profile_image,
+	v_complete_posts.first_name AS first_name,
+	v_complete_posts.last_name AS last_name,
+	v_complete_posts.status AS status,
+	v_complete_posts.postCreated as postCreated,
+	v_complete_posts.title AS title,
+	v_complete_posts.body AS body,
+	v_complete_posts.applied AS applied,
+	v_complete_posts.capacity AS capacity,
+	Poster.session_fee AS session_fee,
+	v_complete_posts.ups AS ups,
+	v_complete_posts.downs AS downs,
+	v_complete_posts.comment_count AS comment_count,
+	IFNULL(v_complete_posts.rate1, 0) AS rate1,
+	IFNULL(v_complete_posts.rate2, 0) AS rate2,
+	IFNULL(v_complete_posts.rate3, 0) AS rate3,
+	IFNULL(v_complete_posts.rate4, 0) AS rate4,
+	IFNULL(v_complete_posts.rate5, 0) AS rate5,
+	v_complete_posts.review_count AS review_count
+	FROM v_complete_posts
+	INNER JOIN Poster
+    ON Poster.poster_id = v_complete_posts.postId;

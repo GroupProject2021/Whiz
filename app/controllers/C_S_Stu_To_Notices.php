@@ -61,7 +61,7 @@
                 $this->view('students/opt_notices/v_notice_list', $data);
             }
             else {
-                $posts_filter = 'ups';
+                $posts_filter = 'all';
                 $posts_filter_order = 'desc';
 
                 $posts_search = '';

@@ -27,7 +27,6 @@
                     <div class="middle-panel-single">
 
                     <!-- filter area -->
-                    <?php //if(!empty($data['courses_amount'])):?>
                         <form action="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index/" method="post">
                         <div class="filter-and-search-container">
                             <div class="filter-container">
@@ -124,7 +123,6 @@
                             </div>
                         </div>
                         </form>
-                    <?php //endif; ?>
                     <br>
 
                     <div class="card-flex-box">
@@ -155,7 +153,7 @@
                                        <div class="capacity"> of <?php echo $post->capacity; ?> Capacity</div>
                                    </div>
                                </div>
-                                <div class="price">Rs.1000</div>
+                                <div class="price">Rs.<?php echo $post->session_fee; ?></div>
                             </div>
                             <div class="banner-stats">
                                 <div class="ups"><img src="<?php echo URLROOT.'/imgs/components/posts/up-icon.png'; ?>" alt=""></div>

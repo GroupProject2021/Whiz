@@ -65,7 +65,7 @@
                 $this->view('students/opt_jobs/v_jobs_advertisement_list', $data);
             }
             else {
-                $posts_filter = 'ups';
+                $posts_filter = 'all';
                 $posts_filter_order = 'desc';
 
                 $posts_search = '';
