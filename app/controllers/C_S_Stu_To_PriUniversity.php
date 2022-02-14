@@ -17,15 +17,77 @@
         // Index
         public function index() {
             // Get posts
-            $posts = $this->postModel->getPosts();
-            $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
+            // $posts = $this->postModel->getPosts();
+            // $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
 
-            $data = [
-                'posts' => $posts,
-                'reviews_rates' => $postsReviewssAndRates
-            ];
+            // $data = [
+            //     'posts' => $posts,
+            //     'reviews_rates' => $postsReviewssAndRates
+            // ];
 
-            $this->view('students/opt_courses/v_pri_courses_list', $data);
+            // $this->view('students/opt_courses/v_pri_courses_list', $data);
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                $posts_filter = trim($_POST['filter']);
+                $posts_filter_order = trim($_POST['filter-order']);
+
+                $posts_search = trim($_POST['post-search']);
+    
+                // courses & intake notices
+                $coursesAmount = $this->postModel->getUniversityCoursesAmount();
+                
+                // filtering
+                if(empty($posts_search)) {
+                    $posts = $this->postModel->filterAndGetPostsToCoursePosts($posts_filter, $posts_filter_order);
+                }
+                else {
+                    // Search bar applied
+                    $posts = $this->postModel->searchAndGetPostsToCoursePosts($posts_search);
+                }
+    
+                $data = [
+                    'courses_amount' => $coursesAmount,
+    
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('students/opt_courses/v_pri_courses_list', $data);
+            }
+            else {
+                $posts_filter = 'ups';
+                $posts_filter_order = 'desc';
+
+                $posts_search = '';
+    
+                // courses & intake notices
+                $coursesAmount = $this->postModel->getUniversityCoursesAmount();
+                
+                // filtering
+                $posts = $this->postModel->filterAndGetPostsToCoursePosts($posts_filter, $posts_filter_order);
+                // serach criteria is not necessary because its initial loading
+    
+    
+                $data = [
+                    'courses_amount' => $coursesAmount,
+    
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('students/opt_courses/v_pri_courses_list', $data);
+            }
         }
 
         
