@@ -35,7 +35,7 @@
                         <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/privacy-icon.png' ?>" alt=""></div>
                         <div class="name">Privacy Policy</div>
                     </a>
-                    <a href="<?php echo URLROOT; ?>/Pages/help">
+                    <a href="<?php echo URLROOT; ?>/Pages/seeMore/<?php echo $_SESSION['actor_type'].'s/'. $_SESSION['specialized_actor_type']?>">
                         <div><img src="<?php echo URLROOT.'/imgs/components/topNavBar/help-icon.png' ?>" alt=""></div>
                         <div class="name">Help & Support</div>
                     </a>
