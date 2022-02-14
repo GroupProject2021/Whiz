@@ -130,7 +130,7 @@
                     <!-- POSTER -->
                     <?php foreach($data['posts'] as $post): ?>
                     <?php if($post->type == "poster"): ?>
-                        <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/show/<?php echo $post->postId; ?>" class="card-link">
+                        <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="poster">
                             <?php if($post->image != null):?>
                             <div class="pic">

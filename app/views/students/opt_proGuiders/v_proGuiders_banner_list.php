@@ -130,7 +130,7 @@
                     <!-- BANNER -->
                     <?php foreach($data['posts'] as $post): ?>
                     <?php if($post->type == "banner"): ?>
-                        <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/show/<?php echo $post->postId; ?>" class="card-link">
+                        <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="banner">
                             <?php if($post->image != null):?>
                             <div class="pic">
