@@ -27,7 +27,7 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-
+                    <?php flash('post_message'); ?>
 
                     <a href="<?php echo URLROOT;?>/C_S_Stu_To_Company/index"><button class="btn8 post-back">Back</button></a>
                         <div class="center-box">                               
@@ -44,7 +44,21 @@
                                     <?php if($data['user']->status == 'verified'): ?>
                                     <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
                                     <?php endif; ?>
-                                <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->postCreated); ?></div>
+                                    <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->postCreated); ?></div>
+                                    <!-- for admin purposes only -->
+                                    <!-- edit delete options -->
+                                    <?php if($_SESSION['actor_type'] == "Admin"): ?> 
+                                        <?php //if(date("Y-m-d") <= $exp_date):?>   
+                                        <div class="post-control-buttons">                                        
+                                            <a href="<?php echo URLROOT?>/Posts_C_O_JobAds/edit/<?php echo $data['post']->post_id;?>">
+                                                <button class="post-header-editbtn">Edit</button>
+                                            </a>
+                                        <?php //endif; ?>
+                                            <form action="<?php echo URLROOT; ?>/Posts_C_O_JobAds/delete/<?php echo $data['post']->post_id; ?>" method="post">
+                                                <input type="submit" value="Delete" class="post-header-deletebtn">
+                                            </form>
+                                        </div>
+                                     <?php endif; ?>
                                 </div>
                                 <div class="post-body">
                                     <div class="title"><?php echo $data['post']->jobName; ?></div>

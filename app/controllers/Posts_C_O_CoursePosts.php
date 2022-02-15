@@ -264,7 +264,12 @@
                     // Validated
                     if($this->postModel->updatePost($data)) {
                         flash('post_message', 'Post updated');
-                        redirect('/Posts_C_O_CoursePosts/show/$id');
+                        if($_SESSION['actor_type'] != "Admin") {
+                            redirect('/Posts_C_O_CoursePosts/show/'.$id);
+                        }
+                        else {
+                            redirect('/C_S_Stu_To_PriUniversity/show/'.$id);
+                        }
                     }
                     else {
                         die('Something went wrong');
@@ -282,7 +287,9 @@
 
                 // Check for owner
                 if($post->private_uni_id != $_SESSION['user_id']) {
-                    redirect('Posts_C_O_CoursePosts/index');
+                    if($_SESSION['actor_type'] != "Admin") {
+                        redirect('Posts_C_O_CoursePosts/index');
+                    }                    
                 }
 
                 $data = [
@@ -392,7 +399,9 @@
 
                 // Check for owner
                 if($post->private_uni_id != $_SESSION['user_id']) {
-                    redirect('Posts_C_O_CoursePosts/index');
+                    if($_SESSION['actor_type'] != "Admin") {
+                        redirect('Posts_C_O_CoursePosts/index');
+                    }
                 }
 
                 $res1 = $this->commentModel->deleteComment($id);

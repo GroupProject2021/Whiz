@@ -27,7 +27,7 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-
+                    <?php flash('post_message'); ?>
 
                     <a href="<?php echo URLROOT;?>/C_S_Stu_To_Teacher/index"><button class="btn8 post-back">Back</button></a>
                                
@@ -56,11 +56,24 @@
                                         </div>
                                      <?php endif; ?>
                                 <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
+                                <!-- for admin purposes only -->
+                                <!-- edit delete options -->
+                                <?php if($_SESSION['actor_type'] == "Admin"): ?>    
+                                        <div class="post-control-buttons">                                        
+                                            <a href="<?php echo URLROOT?>/Posts_C_M_Posters/edit/<?php echo $data['post']->id;?>">
+                                                <button class="post-header-editbtn">Edit</button>
+                                            </a>
+                                            <form action="<?php echo URLROOT; ?>/Posts_C_M_Posters/delete/<?php echo $data['post']->id; ?>" method="post">
+                                                <input type="submit" value="Delete" class="post-header-deletebtn">
+                                            </form>
+                                        </div>
+                                     <?php endif; ?>
                                 </div>
                                 <div class="post-body">
                                     <div class="title"><?php echo $data['post']->title; ?></div>
                                     <div class="postedby"><?php echo $data['post']->body; ?></div>
-                                </div>
+                                </div>                                
+                                <?php if($_SESSION['actor_type'] == "Student"): ?>
                                 <div class="poles">
                                    <div class="pole-prg-bar bar3">
                                         <progress max="100" value="<?php if($data['post']->capacity != 0){ echo ($data['post']->applied / $data['post']->capacity) * 100;} else {echo 0;} ?>" id="prgBar"></progress>
@@ -77,6 +90,7 @@
                                        <button id="applyBtn">ENROLL</button>
                                    </div>
                                </div>
+                               <?php endif; ?>
                                 <form method="post">
                                 <div class="post-footer">
                                     <button id="like" >

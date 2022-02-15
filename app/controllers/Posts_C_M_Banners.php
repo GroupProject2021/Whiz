@@ -236,7 +236,12 @@
                     // Validated
                     if($this->postModel->updatePost($data)) {
                         flash('post_message', 'Post updated');
-                        redirect('Posts_C_M_Banners');
+                        if($_SESSION['actor_type'] != "Admin") {
+                            redirect('/Posts_C_M_Banners/show/'.$id);
+                        }
+                        else {
+                            redirect('/C_S_Stu_To_ProfessionalGuider/show/'.$id);
+                        }
                     }
                     else {
                         die('Something went wrong');
@@ -253,7 +258,9 @@
 
                 // Check for owner
                 if($post->user_id != $_SESSION['user_id']) {
-                    redirect('Posts_C_M_Banners');
+                    if($_SESSION['actor_type'] != "Admin") {
+                        redirect('Posts_C_M_Banners');
+                    }
                 }
 
                 $data = [

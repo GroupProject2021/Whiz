@@ -23,7 +23,7 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-
+                    <?php flash('post_message'); ?>
 
                     <a href="<?php echo URLROOT;?>/C_S_Stu_To_Notices/index"><button class="btn8 post-back">Back</button></a>
                                                                           
@@ -44,8 +44,9 @@
                                         <?php $exp_date = date('Y-m-d', strtotime($data['post']->paid_date. ' + 1 months')) ?>
                                         <?php if(date("Y-m-d") > $exp_date){ echo "<font color=red>(Expired)</font>";} ?>
                                         <?php echo convertedToReadableTimeFormat($data['post']->postCreated); ?></div>
+                                    <!-- for admin purposes only -->
                                     <!-- edit delete options -->
-                                    <?php if($data['post']->private_uni_id == $_SESSION['user_id']): ?>    
+                                    <?php if($_SESSION['actor_type'] == "Admin"): ?>    
                                         <?php if(date("Y-m-d") <= $exp_date):?>   
                                         <div class="post-control-buttons">                                        
                                             <a href="<?php echo URLROOT?>/Posts_C_O_IntakeNotices/edit/<?php echo $data['post']->post_id;?>">

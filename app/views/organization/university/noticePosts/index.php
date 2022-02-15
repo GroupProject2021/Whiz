@@ -133,6 +133,7 @@
                     
                     <!-- NOTICE POST -->
                    <?php foreach($data['posts'] as $post): ?>
+                    <?php if($post->private_uni_id == $_SESSION['user_id']): ?>
                     <?php $exp_date = date('Y-m-d', strtotime($post->paid_date. ' + 1 months')) ?>
                     <?php if($post->type == "noticepost" ): ?>
                         <a href="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/show/<?php echo $post->post_id; ?>" class="card-link">
@@ -165,6 +166,7 @@
                         </a>
                         <br>
                         <br>
+                    <?php endif; ?>
                     <?php endif; ?>
                     <?php endforeach; ?>
 

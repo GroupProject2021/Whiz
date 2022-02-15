@@ -243,7 +243,12 @@
                     // Validated
                     if($this->postModel->updatePost($data)) {
                         flash('post_message', 'Job Vacancy updated');
-                        redirect('/Posts_C_O_JobAds/show/$id');
+                        if($_SESSION['actor_type'] != "Admin") {
+                            redirect('/Posts_C_O_JobAds/show/'.$id);
+                        }
+                        else {
+                            redirect('/C_S_Stu_To_Company/show/'.$id);
+                        }
                     }
                     else {
                         die('Something went wrong');
@@ -261,7 +266,9 @@
 
                 // Check for owner
                 if($post->company_id != $_SESSION['user_id']) {
-                    redirect('Posts_C_O_JobAds/index');
+                    if($_SESSION['actor_type'] != "Admin") {
+                        redirect('Posts_C_O_JobAds/index');
+                    }
                 }
 
                 $data = [
