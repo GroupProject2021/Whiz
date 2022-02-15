@@ -24,6 +24,20 @@
     padding: 0;
 }
 
+.scrollable-sidebar {
+    overflow-y: scroll;
+    height: 600px;
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
 .sidebar {
     width: 280px;
     position: fixed;
