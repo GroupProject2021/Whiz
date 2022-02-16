@@ -172,181 +172,181 @@
             return $row;
         }
 /////////////
-        public function incUpBanner($id) {
-            $this->db->query('UPDATE Banner SET ups = ups + 1 WHERE id = :id');
-            // bind values            
-            $this->db->bind(":id", $id);
+        // public function incUpBanner($id) {
+        //     $this->db->query('UPDATE Banner SET ups = ups + 1 WHERE id = :id');
+        //     // bind values            
+        //     $this->db->bind(":id", $id);
 
-            // Execute
-            if($this->db->execute()) {
-                return $this->getIncBanner($id);
-            }
-            else {
-                return false;
-            }
-        }
+        //     // Execute
+        //     if($this->db->execute()) {
+        //         return $this->getIncBanner($id);
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
 
-        public function decUpBanner($id) {
-            $this->db->query('UPDATE Banner SET ups = ups - 1 WHERE id = :id');
-            // bind values            
-            $this->db->bind(":id", $id);
+        // public function decUpBanner($id) {
+        //     $this->db->query('UPDATE Banner SET ups = ups - 1 WHERE id = :id');
+        //     // bind values            
+        //     $this->db->bind(":id", $id);
 
-            // Execute
-            if($this->db->execute()) {
-                return $this->getIncBanner($id);
-            }
-            else {
-                return false;
-            }
-        }
+        //     // Execute
+        //     if($this->db->execute()) {
+        //         return $this->getIncBanner($id);
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
 
-        public function getIncBanner($id) {
-            $this->db->query('SELECT ups FROM Banner WHERE id = :id');
-            $this->db->bind(':id', $id);
+        // public function getIncBanner($id) {
+        //     $this->db->query('SELECT ups FROM Banner WHERE id = :id');
+        //     $this->db->bind(':id', $id);
 
-            $row = $this->db->single();
+        //     $row = $this->db->single();
 
-        return $row;
-        }
+        // return $row;
+        // }
 
         // dislikes
-        public function incDownBanner($id) {
-            $this->db->query('UPDATE Banner SET downs = downs + 1 WHERE id = :id');
-            // bind values            
-            $this->db->bind(":id", $id);
+        // public function incDownBanner($id) {
+        //     $this->db->query('UPDATE Banner SET downs = downs + 1 WHERE id = :id');
+        //     // bind values            
+        //     $this->db->bind(":id", $id);
 
-            // Execute
-            if($this->db->execute()) {
-                return $this->getDownBanner($id);
-            }
-            else {
-                return false;
-            }
-        }
+        //     // Execute
+        //     if($this->db->execute()) {
+        //         return $this->getDownBanner($id);
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
 
-        public function decDownBanner($id) {
-            $this->db->query('UPDATE Banner SET downs = downs - 1 WHERE id = :id');
-            // bind values            
-            $this->db->bind(":id", $id);
+        // public function decDownBanner($id) {
+        //     $this->db->query('UPDATE Banner SET downs = downs - 1 WHERE id = :id');
+        //     // bind values            
+        //     $this->db->bind(":id", $id);
 
-            // Execute
-            if($this->db->execute()) {
-                return $this->getDownBanner($id);
-            }
-            else {
-                return false;
-            }
-        }
+        //     // Execute
+        //     if($this->db->execute()) {
+        //         return $this->getDownBanner($id);
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
 
-        public function getDownBanner($id) {
-            $this->db->query('SELECT downs FROM Banner WHERE id = :id');
-            $this->db->bind(':id', $id);
+        // public function getDownBanner($id) {
+        //     $this->db->query('SELECT downs FROM Banner WHERE id = :id');
+        //     $this->db->bind(':id', $id);
 
-            $row = $this->db->single();
+        //     $row = $this->db->single();
 
-            return $row;
-        }
+        //     return $row;
+        // }
 ////////////////
-        public function getIncPoster($id) {
-            $this->db->query('SELECT ups FROM Poster WHERE id = :id');
-            $this->db->bind(':id', $id);
+        // public function getIncPoster($id) {
+        //     $this->db->query('SELECT ups FROM Poster WHERE id = :id');
+        //     $this->db->bind(':id', $id);
 
-            $row = $this->db->single();
+        //     $row = $this->db->single();
 
-            return $row;
-        }
+        //     return $row;
+        // }
 
         // dislikes
 
-        public function incUpPoster($id) {
-            $this->db->query('UPDATE Poster SET ups = ups + 1 WHERE id = :id');
-            // bind values            
-            $this->db->bind(":id", $id);
+        // public function incUpPoster($id) {
+        //     $this->db->query('UPDATE Poster SET ups = ups + 1 WHERE id = :id');
+        //     // bind values            
+        //     $this->db->bind(":id", $id);
 
-            // Execute
-            if($this->db->execute()) {
-                return $this->getIncPoster($id);
-            }
-            else {
-                return false;
-            }
-        }
+        //     // Execute
+        //     if($this->db->execute()) {
+        //         return $this->getIncPoster($id);
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
 
-        public function decUpPoster($id) {
-            $this->db->query('UPDATE Poster SET ups = ups - 1 WHERE id = :id');
-            // bind values            
-            $this->db->bind(":id", $id);
+        // public function decUpPoster($id) {
+        //     $this->db->query('UPDATE Poster SET ups = ups - 1 WHERE id = :id');
+        //     // bind values            
+        //     $this->db->bind(":id", $id);
 
-            // Execute
-            if($this->db->execute()) {
-                return $this->getIncPoster($id);
-            }
-            else {
-                return false;
-            }
-        }
-        public function incDownPoster($id) {
-            $this->db->query('UPDATE Poster SET downs = downs + 1 WHERE id = :id');
-            // bind values            
-            $this->db->bind(":id", $id);
+        //     // Execute
+        //     if($this->db->execute()) {
+        //         return $this->getIncPoster($id);
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
+        // public function incDownPoster($id) {
+        //     $this->db->query('UPDATE Poster SET downs = downs + 1 WHERE id = :id');
+        //     // bind values            
+        //     $this->db->bind(":id", $id);
 
-            // Execute
-            if($this->db->execute()) {
-                return $this->getDownPoster($id);
-            }
-            else {
-                return false;
-            }
-        }
+        //     // Execute
+        //     if($this->db->execute()) {
+        //         return $this->getDownPoster($id);
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
 
-        public function decDownPoster($id) {
-            $this->db->query('UPDATE Poster SET downs = downs - 1 WHERE id = :id');
-            // bind values            
-            $this->db->bind(":id", $id);
+        // public function decDownPoster($id) {
+        //     $this->db->query('UPDATE Poster SET downs = downs - 1 WHERE id = :id');
+        //     // bind values            
+        //     $this->db->bind(":id", $id);
 
-            // Execute
-            if($this->db->execute()) {
-                return $this->getDownPoster($id);
-            }
-            else {
-                return false;
-            }
-        }
-        public function getDownPoster($id) {
-            $this->db->query('SELECT downs FROM Poster WHERE id = :id');
-            $this->db->bind(':id', $id);
+        //     // Execute
+        //     if($this->db->execute()) {
+        //         return $this->getDownPoster($id);
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
+        // public function getDownPoster($id) {
+            // $this->db->query('SELECT downs FROM Poster WHERE id = :id');
+            // $this->db->bind(':id', $id);
 
-            $row = $this->db->single();
+            // $row = $this->db->single();
 
-            return $row;
-        }
+            // return $row;
+        // }
 
         // comment
-        public function addComment($data) {
-            $this->db->query('INSERT INTO Comments(post_id, user_id, content) VALUES(:post_id, :user_id, :content)');
-            // bind values
-            $this->db->bind(":post_id", $data['post_id']);
-            $this->db->bind(":user_id", $data['user_id']);
-            $this->db->bind(":content", $data['content']);
+        // public function addComment($data) {
+        //     $this->db->query('INSERT INTO Comments(post_id, user_id, content) VALUES(:post_id, :user_id, :content)');
+        //     // bind values
+        //     $this->db->bind(":post_id", $data['post_id']);
+        //     $this->db->bind(":user_id", $data['user_id']);
+        //     $this->db->bind(":content", $data['content']);
 
-            // Execute
-            if($this->db->execute()) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
+        //     // Execute
+        //     if($this->db->execute()) {
+        //         return true;
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
 
-        public function getComments($id) {
-            // $this->db->query('SELECT * FROM comments WHERE post_id = :post_id');
-            $this->db->query('SELECT * FROM Comments WHERE post_id = :post_id ORDER BY comments.created_at DESC');
-            $this->db->bind(':post_id', $id);
+        // public function getComments($id) {
+        //     // $this->db->query('SELECT * FROM comments WHERE post_id = :post_id');
+        //     $this->db->query('SELECT * FROM Comments WHERE post_id = :post_id ORDER BY comments.created_at DESC');
+        //     $this->db->bind(':post_id', $id);
 
-            $results = $this->db->resultSet();
+        //     $results = $this->db->resultSet();
 
-            return $results;
-        }
+        //     return $results;
+        // }
 
         public function getUserDetails($id) {
             $this->db->query('SELECT * FROM Users WHERE id = :id');
@@ -358,79 +358,79 @@
         }
 
         // like dislike interactions
-        public function addPostInteraction($userId, $postId, $interation) {
-            $this->db->query('INSERT INTO PostInteractions(user_id, post_id, interaction) VALUES(:user_id, :post_id, :interaction)');
-            // bind values
-            $this->db->bind(":user_id", $userId);
-            $this->db->bind(":post_id", $postId);
-            $this->db->bind(":interaction", $interation);
+        // public function addPostInteraction($userId, $postId, $interation) {
+        //     $this->db->query('INSERT INTO PostInteractions(user_id, post_id, interaction) VALUES(:user_id, :post_id, :interaction)');
+        //     // bind values
+        //     $this->db->bind(":user_id", $userId);
+        //     $this->db->bind(":post_id", $postId);
+        //     $this->db->bind(":interaction", $interation);
 
-            // Execute
-            if($this->db->execute()) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
+        //     // Execute
+        //     if($this->db->execute()) {
+        //         return true;
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
 
-        public function setPostInteraction($userId, $postId, $interation) {
-            $this->db->query('UPDATE PostInteractions SET interaction = :interaction WHERE user_id = :user_id AND post_id = :post_id');
-            // bind values
-            $this->db->bind(":user_id", $userId);
-            $this->db->bind(":post_id", $postId);
-            $this->db->bind(":interaction", $interation);
+        // public function setPostInteraction($userId, $postId, $interation) {
+        //     $this->db->query('UPDATE PostInteractions SET interaction = :interaction WHERE user_id = :user_id AND post_id = :post_id');
+        //     // bind values
+        //     $this->db->bind(":user_id", $userId);
+        //     $this->db->bind(":post_id", $postId);
+        //     $this->db->bind(":interaction", $interation);
 
-            // Execute
-            if($this->db->execute()) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
+        //     // Execute
+        //     if($this->db->execute()) {
+        //         return true;
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
 
-        public function getPostInteration($userId, $postId) {
-            $this->db->query('SELECT * FROM PostInteractions WHERE user_id = :user_id AND post_id = :post_id');
-            $this->db->bind(":user_id", $userId);
-            $this->db->bind(":post_id", $postId);
+        // public function getPostInteration($userId, $postId) {
+        //     $this->db->query('SELECT * FROM PostInteractions WHERE user_id = :user_id AND post_id = :post_id');
+        //     $this->db->bind(":user_id", $userId);
+        //     $this->db->bind(":post_id", $postId);
 
-            $row = $this->db->single();
+        //     $row = $this->db->single();
 
-            return $row;
-        }
+        //     return $row;
+        // }
 
-        public function isPostInterationExist($userId, $postId) {
-            $this->db->query('SELECT * FROM PostInteractions WHERE user_id = :user_id AND post_id = :post_id');
-            $this->db->bind(":user_id", $userId);
-            $this->db->bind(":post_id", $postId);
+        // public function isPostInterationExist($userId, $postId) {
+        //     $this->db->query('SELECT * FROM PostInteractions WHERE user_id = :user_id AND post_id = :post_id');
+        //     $this->db->bind(":user_id", $userId);
+        //     $this->db->bind(":post_id", $postId);
 
-            $results = $this->db->single();
+        //     $results = $this->db->single();
 
-            $results = $this->db->rowCount();
+        //     $results = $this->db->rowCount();
 
-            if($results > 0) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
+        //     if($results > 0) {
+        //         return true;
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
 
-        public function deleteInteraction($id) {
-            $this->db->query('DELETE FROM PostInteractions WHERE post_id = :id');
-            // bind values
+        // public function deleteInteraction($id) {
+        //     $this->db->query('DELETE FROM PostInteractions WHERE post_id = :id');
+        //     // bind values
             
-            $this->db->bind(":id", $id);
+        //     $this->db->bind(":id", $id);
 
-            // Execute
-            if($this->db->execute()) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }   
+        //     // Execute
+        //     if($this->db->execute()) {
+        //         return true;
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }   
 
 
         // review

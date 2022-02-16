@@ -6,5 +6,6 @@
             $this->db = new Database;
         }
 
+        // try to refactor from other post modles
     }
 ?>

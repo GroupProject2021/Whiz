@@ -39,11 +39,21 @@
                 
                 // filtering
                 if(empty($posts_search)) {
-                    $posts = $this->postModel->filterAndGetPostsToIntakeNotices($posts_filter, $posts_filter_order);
+                    if($_SESSION['actor_type'] == "Admin") {
+                        $posts = $this->postModel->filterAndGetPostsToIntakeNotices($posts_filter, $posts_filter_order);
+                    }
+                    else {
+                        $posts = $this->postModel->filterAndGetPostsToIntakeNoticesAsMyNotices($posts_filter, $posts_filter_order);
+                    }
                 }
                 else {
                     // Search bar applied
-                    $posts = $this->postModel->searchAndGetPostsToIntakeNotices($posts_search);
+                    if($_SESSION['actor_type'] == "Admin") {
+                        $posts = $this->postModel->searchAndGetPostsToIntakeNotices($posts_search);
+                    }
+                    else {
+                        $posts = $this->postModel->searchAndGetPostsToIntakeNoticesAsMyNotices($posts_search);
+                    }
                 }
     
     
@@ -70,8 +80,12 @@
                 $intakeNoticesAmount = $this->postModel->getIntakeNoticesAmount();
                 
                 // filtering
-                $posts = $this->postModel->filterAndGetPostsToIntakeNotices($posts_filter, $posts_filter_order);
-    
+                if($_SESSION['actor_type'] == "Admin") {
+                    $posts = $this->postModel->filterAndGetPostsToIntakeNotices($posts_filter, $posts_filter_order);
+                }
+                else {
+                    $posts = $this->postModel->filterAndGetPostsToIntakeNoticesAsMyNotices($posts_filter, $posts_filter_order);
+                }
     
                 $data = [
                     'intake_notices_amount' => $intakeNoticesAmount,

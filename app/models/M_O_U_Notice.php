@@ -26,6 +26,7 @@
         }
 
         // at course posts page
+        // to admin
         public function filterAndGetPostsToIntakeNotices($criteria, $order) {
             switch($criteria) {
                 case "all":
@@ -132,7 +133,161 @@
 
             return $results;
         }
+        // to students
+        public function filterAndGetPostsToIntakeNoticesAsMyNotices($criteria, $order) {
+            switch($criteria) {
+                case "all":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id ORDER BY postCreated DESC");
+                    }                    
+                    break;
 
+                case "ups":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id ORDER BY ups ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id ORDER BY ups DESC");
+                    }                    
+                    break;
+
+                case "downs":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id ORDER BY downs ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id ORDER BY downs DESC");
+                    }
+                    break;
+
+                case "comments":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id ORDER BY comment_count ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id ORDER BY comment_count DESC");
+                    }
+                    break;
+
+                case "rate0":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id AND rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id AND rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate1":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id AND rate1 = 1 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id AND rate1 = 1 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate2":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id AND rate1 = 0 AND rate2 = 1 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id AND rate1 = 0 AND rate2 = 1 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate3":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id AND rate1 = 0 AND rate2 = 0 AND rate3 = 1 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id AND rate1 = 0 AND rate2 = 0 AND rate3 = 1 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate4":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id AND rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 1 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id AND rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 1 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate5":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id AND rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 1 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id AND rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 1 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "reviews":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id ORDER BY review_count ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+                        ON v_posts_notices.private_uni_id = Connections.to_user_id
+                        WHERE Connections.from_user_id = :id ORDER BY review_count DESC");
+                    }
+                    break;
+            }
+
+            $this->db->bind(":id", $_SESSION['user_id']);
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        // to admin
         public function searchAndGetPostsToIntakeNotices($search) {
             $this->db->query("SELECT * FROM v_posts_notices WHERE noticeName LIKE '".$search."%' 
             OR noticeContent LIKE '".$search."%' 
@@ -141,7 +296,21 @@
             $results = $this->db->resultSet();
 
             return $results;
+        }        
+        // to students
+        public function searchAndGetPostsToIntakeNoticesAsMyNotices($search) {
+            $this->db->query("SELECT * FROM v_posts_notices INNER JOIN Connections
+            ON v_posts_notices.private_uni_id = Connections.to_user_id
+            WHERE Connections.from_user_id = :id AND noticeName LIKE '".$search."%' 
+            OR noticeContent LIKE '".$search."%' 
+            OR first_name LIKE '".$search."%'");
+            $this->db->bind(":id", $_SESSION['user_id']);
+
+            $results = $this->db->resultSet();
+
+            return $results;
         }
+
 
         public function getIntakeNoticesAmount() {
             $this->db->query('SELECT * FROM v_posts_notices WHERE private_uni_id = :id'); // this is a prepared statement
@@ -328,158 +497,5 @@
                 return false;
             }
         }
-
-        // likes
-        public function incUp($id) {
-            $this->db->query('UPDATE Posts SET ups = ups + 1 WHERE id = :id');
-            // bind values            
-            $this->db->bind(":id", $id);
-
-            // Execute
-            if($this->db->execute()) {
-                return $this->getInc($id);
-            }
-            else {
-                return false;
-            }
-        }
-
-        public function decUp($id) {
-            $this->db->query('UPDATE Posts SET ups = ups - 1 WHERE id = :id');
-            // bind values            
-            $this->db->bind(":id", $id);
-
-            // Execute
-            if($this->db->execute()) {
-                return $this->getInc($id);
-            }
-            else {
-                return false;
-            }
-        }
-
-        public function getInc($id) {
-            $this->db->query('SELECT ups FROM Posts WHERE id = :id');
-            $this->db->bind(':id', $id);
-
-            $row = $this->db->single();
-
-            return $row;
-        }
-
-        // dislikes
-        public function incDown($id) {
-            $this->db->query('UPDATE Posts SET downs = downs + 1 WHERE id = :id');
-            // bind values            
-            $this->db->bind(":id", $id);
-
-            // Execute
-            if($this->db->execute()) {
-                return $this->getDown($id);
-            }
-            else {
-                return false;
-            }
-        }
-
-        public function decDown($id) {
-            $this->db->query('UPDATE Posts SET downs = downs - 1 WHERE id = :id');
-            // bind values            
-            $this->db->bind(":id", $id);
-
-            // Execute
-            if($this->db->execute()) {
-                return $this->getDown($id);
-            }
-            else {
-                return false;
-            }
-        }
-
-        public function getDown($id) {
-            $this->db->query('SELECT downs FROM Posts WHERE id = :id');
-            $this->db->bind(':id', $id);
-
-            $row = $this->db->single();
-
-            return $row;
-        }
-
-
-        // like dislike interactions
-        public function addPostInteraction($userId, $postId, $interation) {
-            $this->db->query('INSERT INTO PostInteractions(user_id, post_id, interaction) VALUES(:user_id, :post_id, :interaction)');
-            // bind values
-            $this->db->bind(":user_id", $userId);
-            $this->db->bind(":post_id", $postId);
-            $this->db->bind(":interaction", $interation);
-
-            // Execute
-            if($this->db->execute()) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-
-        public function setPostInteraction($userId, $postId, $interation) {
-            $this->db->query('UPDATE PostInteractions SET interaction = :interaction WHERE user_id = :user_id AND post_id = :post_id');
-            // bind values
-            $this->db->bind(":user_id", $userId);
-            $this->db->bind(":post_id", $postId);
-            $this->db->bind(":interaction", $interation);
-
-            // Execute
-            if($this->db->execute()) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-
-        public function getPostInteration($userId, $postId) {
-            $this->db->query('SELECT * FROM PostInteractions WHERE user_id = :user_id AND post_id = :post_id');
-            $this->db->bind(":user_id", $userId);
-            $this->db->bind(":post_id", $postId);
-
-            $row = $this->db->single();
-
-            return $row;
-        }
-
-        public function isPostInterationExist($userId, $postId) {
-            $this->db->query('SELECT * FROM PostInteractions WHERE user_id = :user_id AND post_id = :post_id');
-            $this->db->bind(":user_id", $userId);
-            $this->db->bind(":post_id", $postId);
-
-            $results = $this->db->single();
-
-            $results = $this->db->rowCount();
-
-            if($results > 0) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-
-        public function deleteInteraction($id) {
-            $this->db->query('DELETE FROM PostInteractions WHERE post_id = :id');
-            // bind values
-            
-            $this->db->bind(":id", $id);
-
-            // Execute
-            if($this->db->execute()) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        } 
-        
     }
 ?>
