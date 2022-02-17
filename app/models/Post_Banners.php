@@ -25,6 +25,15 @@
             return $results;
         }
 
+        public function getPostsById($id) {
+            $this->db->query("SELECT * FROM v_posts_banners WHERE userId = :id ORDER BY post_id DESC;");     
+            $this->db->bind(":id", $id);       
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
         // at course posts page
         public function filterAndGetPostsToBanners($criteria, $order) {
             switch($criteria) {

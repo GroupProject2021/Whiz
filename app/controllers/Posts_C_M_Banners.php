@@ -367,9 +367,9 @@
                     redirect('Posts_C_M_Banners');
                 }
 
-                $res1 = $this->commentModel->deleteComment($id);
-                $res2 = $this->reviewModel->deleteReview($id);
-                $res3 = $this->postUpvoteDownvoteModel->deleteInteraction($id);
+                // $res1 = $this->commentModel->deleteComment($id);
+                // $res2 = $this->reviewModel->deleteReview($id);
+                // $res3 = $this->postUpvoteDownvoteModel->deleteInteraction($id);
                 $res4 = $this->postModel->deletePost($id);
 
                 // validate and upload profile image
@@ -379,7 +379,7 @@
                 // session link
                 $link = $this->sessionLinkModel->deleteLink($id);
                 
-                if($res1 && $res2 && $res3 && $res4 && $res5 && $link) {
+                if($res4 && $res5 && $link) {
                     flash('post_message', 'Post Removed');
                     redirect('Posts_C_M_Banners');
                 }

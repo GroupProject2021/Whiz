@@ -5,6 +5,9 @@ class C_M_Settings extends Controller{
         $this->mentorSettingsModel = $this->model('M_M_Settings');        
         $this->commonModel = $this->model('Common');
         $this->accSettingsModel = $this->model('Account_Setting');
+
+        $this->bannersPostModel = $this->model('Post_Banners');
+        $this->postersPostModel = $this->model('Post_Posters');
     }
 
     // Settings
@@ -50,6 +53,7 @@ class C_M_Settings extends Controller{
             // For Professional guider
             case 'Professional Guider':
                $mentorData = $this->mentorSettingsModel->getMentorDetails($id);
+               $posts = $this->bannersPostModel->getPostsById($id);
 
                 $data = [
                     'user' => $userData,
@@ -66,7 +70,9 @@ class C_M_Settings extends Controller{
                     'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
                     'socialData' => $socialData,
 
-                    'is_already_reported' => $isAlreadyReported
+                    'is_already_reported' => $isAlreadyReported,
+
+                    'posts' => $posts
                 ];
 
                 $this->view('mentors/opt_settings/v_proguider_profile', $data);
@@ -74,6 +80,7 @@ class C_M_Settings extends Controller{
             // For Teacher
             case 'Teacher':
                $mentorData = $this->mentorSettingsModel->getMentorDetails($id);
+               $posts = $this->postersPostModel->getPostsById($id);
  
                 $data = [
                     'user' => $userData,
@@ -89,7 +96,9 @@ class C_M_Settings extends Controller{
                     'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
                     'socialData' => $socialData,
 
-                    'is_already_reported' => $isAlreadyReported
+                    'is_already_reported' => $isAlreadyReported,
+
+                    'posts' => $posts
                 ];
  
                 $this->view('mentors/opt_settings/v_teacher_profile', $data);

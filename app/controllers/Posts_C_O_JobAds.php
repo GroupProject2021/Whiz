@@ -377,16 +377,16 @@
                     redirect('Posts_C_O_JobAds/index');
                 }
 
-                $res1 = $this->commentModel->deleteComment($id);
-                $res2 = $this->reviewModel->deleteReview($id);
-                $res3 = $this->postUpvoteDownvoteModel->deleteInteraction($id);
+                // $res1 = $this->commentModel->deleteComment($id);
+                // $res2 = $this->reviewModel->deleteReview($id);
+                // $res3 = $this->postUpvoteDownvoteModel->deleteInteraction($id);
                 $res4 = $this->postModel->deletePost($id);
 
                 // validate and upload profile image
                 $postImage = PUBROOT.'/imgs/posts/jobads/'.$post->image;
                 $res5 = deleteImage($postImage);
                 
-                if($res1 && $res2 && $res3 && $res4 && $res5) {
+                if($res4 && $res5) {
                     flash('post_message', 'Job Vacancy Removed');
                     redirect('Posts_C_O_JobAds/index');
                 }
