@@ -8,11 +8,17 @@ class C_S_CV extends Controller {
 
     // Index
     public function index() {
+        // Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['Undergraduate Graduate']);
+
         $this->view('students/opt_cv/v_cv');
     }
 
     // generate cv
     public function generateCV() {
+        // Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['Undergraduate Graduate']);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -272,6 +278,9 @@ class C_S_CV extends Controller {
 
     // upload custom cv
     public function uploadCustomCV() {
+        // Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['Undergraduate Graduate']);
+
         $fileName = $this->cvModel->isCVFileExists($_SESSION['user_id']);
 
         if($fileName != NULL) {
@@ -352,9 +361,12 @@ class C_S_CV extends Controller {
     }
 
     // edit
-    public function editCV() {
-        $this->view('students/opt_cv/v_edit_cv');
-    }
+    // public function editCV() {
+    //     // Check actor types to prevent URL tamperings (Unauthorized access)
+    //     URL_tamper_protection(['Student'], ['Undergraduate Graduate']);
+
+    //     $this->view('students/opt_cv/v_edit_cv');
+    // }
 }
 
 ?>

@@ -8,6 +8,9 @@ class C_S_AL_Qualified_Dashboard extends Controller {
 
     // Index
     public function index() {
+        // Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['AL qualified']);
+
         $followingList = $this->profileStatAndConnectionModel->getFollowings($_SESSION['user_id']);
 
         // Enrollments

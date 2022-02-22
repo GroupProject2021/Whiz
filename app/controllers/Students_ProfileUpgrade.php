@@ -31,6 +31,9 @@
         }
 
         public function upgradeToOlQualified() {
+            // Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['Beginner']);
+
             $district_list = $this->studentProfileUpgrade->getDistricts();
             $ol_subject_list = $this->studentProfileUpgrade->getOLSubjects();
 
@@ -165,6 +168,9 @@
         }
 
         public function upgradeToAlQualified() {
+            // Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['OL qualified']);
+
             $district_list = $this->studentProfileUpgrade->getDistricts();
             $stream_list = $this->studentProfileUpgrade->getStreams();
             $al_subject_list = $this->studentProfileUpgrade->getALSubjects();
@@ -319,6 +325,9 @@
         }
 
         public function upgradeToUndergraduateGraduate() {
+            // Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['AL qualified']);
+
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Process form
