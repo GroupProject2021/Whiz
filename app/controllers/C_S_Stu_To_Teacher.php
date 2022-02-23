@@ -17,16 +17,8 @@
 
         // Index
         public function index() {
-            // Get posts
-            // $posts = $this->postModel->getPosts();
-            // $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
-
-            // $data = [
-            //     'posts' => $posts,
-            //     'reviews_rates' => $postsReviewssAndRates
-            // ];
-
-            // $this->view('students/opt_teachers/v_teachers_poster_list', $data);
+            // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['AL qualified']);
 
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanitize POST data
@@ -94,6 +86,9 @@
 
         // View poster
         public function show($id) {
+            // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['AL qualified']);
+
             // if post not exist
             if(!($this->postModel->isPostExist($id))) {
                 $this->index();

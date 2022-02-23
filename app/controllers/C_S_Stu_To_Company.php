@@ -17,18 +17,8 @@
 
         // Index
         public function index() {
-            // Get posts
-            // $posts = $this->postModel->getPosts();
-            // $posts = $this->postModel->getPosts();
-            
-            // $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
-
-            // $data = [
-            //     'posts' => $posts,
-            //     'reviews_rates' => $postsReviewssAndRates
-            // ];
-
-            // $this->view('students/opt_jobs/v_jobs_advertisement_list', $data);
+            // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified', 'Undergraduate Graduate']);
 
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanitize POST data
@@ -96,6 +86,9 @@
         
         // View job advertisement
         public function show($id) {
+            // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified', 'Undergraduate Graduate']);
+
             // if post not exist
             if(!($this->postModel->isPostExist($id))) {
                 $this->index();

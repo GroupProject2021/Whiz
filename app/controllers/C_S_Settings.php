@@ -286,6 +286,9 @@ class C_S_Settings extends Controller {
     }
 
     public function addSocialProfileDetails($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified', 'Undergraduate Graduate']);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -374,6 +377,9 @@ class C_S_Settings extends Controller {
     }
 
     public function updateSocialProfileDetails($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified', 'Undergraduate Graduate']);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -466,6 +472,9 @@ class C_S_Settings extends Controller {
 
     // Edit beginner settings
     public function editSettingsBeginner() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified', 'Undergraduate Graduate']);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -556,6 +565,9 @@ class C_S_Settings extends Controller {
 
     // Edit OL Qualified settings
     public function editSettingsOL() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['OL qualified', 'AL qualified', 'Undergraduate Graduate']);
+
         $district_list = $this->settingsModel->getDistricts();
         $ol_subject_list = $this->settingsModel->getOLSubjects();
         
@@ -712,6 +724,9 @@ class C_S_Settings extends Controller {
 
     // Edit AL Qualified settings
     public function editSettingsAL() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['AL qualified', 'Undergraduate Graduate']);
+
         $district_list = $this->settingsModel->getDistricts();
         $stream_list = $this->settingsModel->getStreams();
         $al_subject_list = $this->settingsModel->getALSubjects();      
@@ -889,6 +904,9 @@ class C_S_Settings extends Controller {
 
     // Edit Undergraduate/Graduate settings
     public function editSettingsUG() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['Undergraduate Graduate']);
+
         $uni_type_list = $this->settingsModel->getUniTypes();
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -962,6 +980,9 @@ class C_S_Settings extends Controller {
 
     // Edit profile picture
     public function editProfilePic() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified', 'Undergraduate Graduate']);
+        
         // Check for POST
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form

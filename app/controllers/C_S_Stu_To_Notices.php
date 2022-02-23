@@ -15,15 +15,8 @@
 
         // Index
         public function index() {
-            // Get posts
-            // $posts = $this->postModel->getPosts();
-            // $posts = $this->stuToNoticesModel->getNotices();
-            
-            // $data = [
-            //     'posts' => $posts
-            // ];
-
-            // $this->view('students/opt_notices/v_notice_list', $data);
+            // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['OL qualified', 'AL qualified']);
 
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanitize POST data
@@ -101,10 +94,12 @@
                 $this->view('students/opt_notices/v_notice_list', $data);
             }
         }
-
         
         // View job advertisement
         public function show($id) {
+            // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['OL qualified', 'AL qualified']);
+
             // if post not exist
             if(!($this->postModel->isPostExist($id))) {
                 $this->index();
@@ -141,7 +136,6 @@
             ];
 
             $this->view('students/opt_notices/v_notice_viewMore', $data);            
-        }
-        
+        }        
     }
 ?>

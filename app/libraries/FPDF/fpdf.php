@@ -104,9 +104,10 @@ function __construct($orientation='P', $unit='mm', $size='A4')
 	// Font path
 	if(defined('FPDF_FONTPATH'))
 	{
-		$this->fontpath = FPDF_FONTPATH;
-		if(substr($this->fontpath,-1)!='/' && substr($this->fontpath,-1)!='\\')
-			$this->fontpath .= '/';
+		// I comment this because FPDF_FONTPATH not defined
+		// $this->fontpath = FPDF_FONTPATH;
+		// if(substr($this->fontpath,-1)!='/' && substr($this->fontpath,-1)!='\\')
+		// 	$this->fontpath .= '/';
 	}
 	elseif(is_dir(dirname(__FILE__).'/font'))
 		$this->fontpath = dirname(__FILE__).'/font/';

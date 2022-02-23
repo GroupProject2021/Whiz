@@ -7,7 +7,7 @@ class C_S_Course extends Controller {
 
     // Index
     public function index() {
-        // Check actor types to prevent URL tamperings (Unauthorized access)
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified']);
         
         $this->view('students/opt_courses/v_course_selection');
@@ -15,7 +15,7 @@ class C_S_Course extends Controller {
 
     // Get government course list
     public function govCourseList() {
-        // Check actor types to prevent URL tamperings (Unauthorized access)
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified']);
 
         $govCourses = $this->courseModel->getGovCourseList();
@@ -28,7 +28,7 @@ class C_S_Course extends Controller {
     }
 
     public function govUniversityList() {
-        // Check actor types to prevent URL tamperings (Unauthorized access)
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified']);
 
         $govUniversities = $this->courseModel->getGovUniversityList();
@@ -42,7 +42,7 @@ class C_S_Course extends Controller {
 
     // explore
     public function govCourseExplore($courseId) {
-        // Check actor types to prevent URL tamperings (Unauthorized access)
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified']);
 
         $courseName = $this->courseModel->getCourseNameById($courseId);
@@ -58,7 +58,7 @@ class C_S_Course extends Controller {
 
     // Government course view more
     public function govCourseViewMore($unicode) {
-        // Check actor types to prevent URL tamperings (Unauthorized access)
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified']);
 
         $govCourse = $this->courseModel->getGovCourseById($unicode);
@@ -77,7 +77,7 @@ class C_S_Course extends Controller {
 
     // Government course selecttion
     public function filteredGovCourseList($streamId) {
-        // Check actor types to prevent URL tamperings (Unauthorized access)
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Student'], ['Beginner', 'OL qualified']);
 
         $govCourses = $this->courseModel->getGovCourseListForStream($streamId);
@@ -91,7 +91,7 @@ class C_S_Course extends Controller {
 
      // Government course recommendation
      public function getRecommendedGovCourseList($id) {
-        // Check actor types to prevent URL tamperings (Unauthorized access)
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Student'], ['AL qualified']);
 
         $districtName = $this->courseModel->getStudentDistrict($id);
@@ -109,7 +109,7 @@ class C_S_Course extends Controller {
     
     // Admissible government courses
     public function getAdmissibleGovCourseList($id) {
-        // Check actor types to prevent URL tamperings (Unauthorized access)
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Student'], ['AL qualified']);
 
         $districtName = $this->courseModel->getStudentDistrict($id);

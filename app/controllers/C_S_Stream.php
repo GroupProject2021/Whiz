@@ -7,6 +7,9 @@ class C_S_Stream extends Controller {
 
     // Index
     public function index() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['Beginner', 'OL qualified']);
+
         $this->streamSelection();
     }
 
@@ -23,6 +26,9 @@ class C_S_Stream extends Controller {
     }
 
     public function streamSelectionRedirect($stream_id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['Beginner', 'OL qualified']);
+
         $stream_name = $this->streamModel->getStreamNameById($stream_id);
         $al_subject_list =  $this->streamModel->getALSubjectsById($stream_id);
 
@@ -39,6 +45,9 @@ class C_S_Stream extends Controller {
     // For OL qualified
     // Option 1 - stream recommendation
     public function streamRecommendation() {  
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['OL qualified']);
+
         if($_SESSION['specialized_actor_type'] == 'OL qualified') {
             $streams = $this->streamModel->getStreams();
             $id = $this->streamModel->findStudentIdbyEmail($_SESSION['user_email']);

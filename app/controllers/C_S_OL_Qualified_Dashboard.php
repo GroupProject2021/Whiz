@@ -8,7 +8,7 @@ class C_S_OL_Qualified_Dashboard extends Controller {
 
     // Index
     public function index() {
-        // Check actor types to prevent URL tamperings (Unauthorized access)
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Student'], ['OL qualified']);
 
         $followingList = $this->profileStatAndConnectionModel->getFollowings($_SESSION['user_id']);

@@ -16,16 +16,8 @@
 
         // Index
         public function index() {
-            // Get posts
-            // $posts = $this->postModel->getPosts();
-            // $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
-
-            // $data = [
-            //     'posts' => $posts,
-            //     'reviews_rates' => $postsReviewssAndRates
-            // ];
-
-            // $this->view('students/opt_courses/v_pri_courses_list', $data);
+            // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified']);
 
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanitize POST data
@@ -89,10 +81,12 @@
                 $this->view('students/opt_courses/v_pri_courses_list', $data);
             }
         }
-
         
         // View course post
         public function show($id) {
+            // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified']);
+
             // if post not exist
             if(!($this->postModel->isPostExist($id))) {
                 $this->index();
@@ -168,8 +162,5 @@
 
             
         }
-
-        // LIKES DISLIKES REMOVED
-        
     }
 ?>

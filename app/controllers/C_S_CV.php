@@ -8,7 +8,7 @@ class C_S_CV extends Controller {
 
     // Index
     public function index() {
-        // Check actor types to prevent URL tamperings (Unauthorized access)
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Student'], ['Undergraduate Graduate']);
 
         $this->view('students/opt_cv/v_cv');
@@ -16,7 +16,7 @@ class C_S_CV extends Controller {
 
     // generate cv
     public function generateCV() {
-        // Check actor types to prevent URL tamperings (Unauthorized access)
+        //  Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Student'], ['Undergraduate Graduate']);
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -278,7 +278,7 @@ class C_S_CV extends Controller {
 
     // upload custom cv
     public function uploadCustomCV() {
-        // Check actor types to prevent URL tamperings (Unauthorized access)
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Student'], ['Undergraduate Graduate']);
 
         $fileName = $this->cvModel->isCVFileExists($_SESSION['user_id']);
