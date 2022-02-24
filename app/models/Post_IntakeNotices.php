@@ -1,5 +1,5 @@
 <?php
-    class M_O_U_Notice {
+    class Post_IntakeNotices {
         private $db;
 
         public function __construct() {

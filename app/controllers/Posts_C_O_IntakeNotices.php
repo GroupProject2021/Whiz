@@ -1,5 +1,5 @@
 <?php
-    class Post_IntakeNotices extends Controller {
+    class Posts_C_O_IntakeNotices extends Controller {
         public function __construct() {
             if(!isLoggedIn()){
                 redirect('users/login');

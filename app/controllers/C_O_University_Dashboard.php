@@ -5,7 +5,7 @@ class C_O_University_Dashboard extends Controller {
         $this->universityDashboardModel = $this->model('M_O_University_Dashboard');
 
         $this->coursePostModel = $this->model('Post_CoursePosts');
-        $this->intakeNoticesModel = $this->model('M_O_U_Notice');
+        $this->intakeNoticesModel = $this->model('Post_IntakeNotices');
     }
 
     // Index
