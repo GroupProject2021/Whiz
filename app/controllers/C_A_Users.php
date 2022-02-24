@@ -6,6 +6,9 @@ class C_A_Users extends Controller {
     }
 
     public function reports() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         $reportList = $this->usersModel->getReports();
 
         $data = [
@@ -16,6 +19,9 @@ class C_A_Users extends Controller {
     }
 
     public function deleteReportedAccount($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+        
         if($this->usersModel->deleteReportedAccount($id)) {
             flash('delete_acc', 'Reported account deleted');
             redirect('C_A_Users/reports');

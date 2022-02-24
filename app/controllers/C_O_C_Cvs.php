@@ -7,6 +7,8 @@ class C_O_C_Cvs extends Controller{
 
     // Index
     public function index() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Organization'], ['Company']);
 
         $post = $this->cvModel->getPosts();
             
@@ -18,6 +20,8 @@ class C_O_C_Cvs extends Controller{
     }
 
     public function cvList($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Organization'], ['Company']);
 
         $cvList = $this->cvModel->getCVList($id);
 

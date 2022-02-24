@@ -450,6 +450,7 @@ class C_O_Settings extends Controller {
         $this->view('organization/opt_settings/edit/v_edit_company_settings', $data);
     }
 
+    // I THINK THIS FUNCTION CAN BE REMOVED
     //delete account
     public function deleteAccount($id,$type) {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {

@@ -9,7 +9,10 @@ class C_O_University_Dashboard extends Controller {
     }
 
     // Index
-    public function index() {
+    public function index() {        
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Organization'], ['University']);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);

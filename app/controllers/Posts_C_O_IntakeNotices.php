@@ -1,11 +1,11 @@
 <?php
-    class Posts_C_O_IntakeNotices extends Controller {
+    class Post_IntakeNotices extends Controller {
         public function __construct() {
             if(!isLoggedIn()){
                 redirect('users/login');
             }
 
-            $this->postModel = $this->model('M_O_U_Notice');
+            $this->postModel = $this->model('Post_IntakeNotices');
             $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
             $this->commentModel = $this->model('Comment');     
 

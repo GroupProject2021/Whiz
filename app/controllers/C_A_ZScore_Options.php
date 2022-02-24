@@ -7,6 +7,9 @@ class C_A_ZScore_Options extends Controller {
 
     // view z-score
     public function viewZScoreTable() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         $zscore_table = $this->zScoreModel->getZScoreTable();
 
         $data = [
@@ -18,6 +21,9 @@ class C_A_ZScore_Options extends Controller {
 
     // add entry
     public function addZScoreEntry() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         $course_university_list = $this->zScoreModel->getCourseAndUniversities();
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -129,6 +135,9 @@ class C_A_ZScore_Options extends Controller {
 
     // edit entry
     public function editZScoreEntry($unicode) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+        
         $course_university_list = $this->zScoreModel->getCourseAndUniversities();
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {

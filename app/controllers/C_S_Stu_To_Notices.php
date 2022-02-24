@@ -5,7 +5,7 @@
                 redirect('users/login');
             }
 
-            $this->postModel = $this->model('M_O_U_Notice');
+            $this->postModel = $this->model('Post_IntakeNotices');
             $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
 
             $this->commonModel = $this->model('Common');       

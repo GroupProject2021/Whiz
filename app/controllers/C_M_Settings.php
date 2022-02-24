@@ -111,6 +111,9 @@ class C_M_Settings extends Controller{
 
     // Edit professional guider settings
     public function editSettingsGuider() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Mentor'], ['Professional Guider']);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -201,6 +204,9 @@ class C_M_Settings extends Controller{
 
     // Edit teacher settings
     public function editSettingsTeacher() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Mentor'], ['Teacher']);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -383,6 +389,9 @@ class C_M_Settings extends Controller{
     }
 
     public function addSocialProfileDetails($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Mentor'], ['Professional Guider', 'Teacher']);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -471,6 +480,9 @@ class C_M_Settings extends Controller{
     }
 
     public function updateSocialProfileDetails($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Mentor'], ['Professional Guider', 'Teacher']);
+        
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
