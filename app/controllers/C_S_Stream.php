@@ -30,7 +30,14 @@ class C_S_Stream extends Controller {
         URL_tamper_protection(['Student'], ['Beginner', 'OL qualified']);
 
         $stream_name = $this->streamModel->getStreamNameById($stream_id);
-        $al_subject_list =  $this->streamModel->getALSubjectsById($stream_id);
+
+        // if other stream allow all subjects to be selected
+        if($stream_id == 7) {
+            $al_subject_list =  $this->streamModel->getALSubjects();
+        }
+        else {
+            $al_subject_list =  $this->streamModel->getALSubjectsById($stream_id);
+        }
 
         $data = [
             'stream_id' => $stream_id,

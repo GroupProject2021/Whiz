@@ -68,7 +68,7 @@
 
                 <!-- date of birth -->
                 <p class="form-bold">Date of Birth</p>
-                <input type="date" name="date_of_birth" id="date_of_birth" class="form-date-select">
+                <input type="date" value="<?php echo date("Y-m-d"); ?>" max="<?php echo date("Y-m-d"); ?>" name="date_of_birth" id="date_of_birth" class="form-date-select">
                 <span class="form-invalid"><?php echo $data['date_of_birth_err']; ?></span><br>
 
                 <!-- email -->
