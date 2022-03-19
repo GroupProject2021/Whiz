@@ -26,7 +26,8 @@
 
 
                     <a href="<?php echo URLROOT;?>/Posts_C_O_IntakeNotices/index"><button class="btn8 post-back">Back</button></a>
-                                                                          
+                                 
+                        <div class="center-box">   
                             <div class="post">
                                 <?php if($data['post']->image != null):?>
                                     <div class="post-header">
@@ -91,6 +92,7 @@
                                 </div>
                                 </form>
                             </div>
+                        </div>
                             <br>
 
                             <!-- COMMENT THREAD - AJAX REQUESTS IN REAL-TIME -->

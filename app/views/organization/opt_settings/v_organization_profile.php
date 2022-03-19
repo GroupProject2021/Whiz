@@ -200,6 +200,133 @@
                             </div>
                         </div>
 
+                        <br><hr>
+
+                        <!-- posts -->
+                        <?php if($data['user']->specialized_actor_type == 'University' ): ?>
+                            <div class="division">
+                                    <div class="division-name">Course posts</div>
+                            </div>
+                            <div class="card-flex-box">
+                                <!-- COURSE POST -->
+                                <?php foreach($data['posts'] as $post): ?>
+                                    <?php if($post->type == "coursepost"): ?>
+                                        <a href="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/show/<?php echo $post->post_id; ?>" class="card-link">
+                                        <div class="coursepost">
+                                            <?php if($post->image != null):?>
+                                            <div class="pic">
+                                                <img src="<?php echo URLROOT.'/imgs/posts/courseposts/'.$post->image; ?>" alt="">
+                                            </div>
+                                            <?php endif; ?>
+                                            <div class="coursepost-body">
+                                                <div class="user-pic">
+                                                    <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
+                                                </div>
+                                                <div class="postedat">Posted At: <?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
+                                                <div class="title"><?php echo $post->courseName; ?></div>
+                                                <div class="degree"><?php echo $post->provide_degree; ?></div>
+                                                <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
+                                            <div class="price"><?php echo $post->course_fee.' LKR'; ?></div>
+                                            </div>
+                                            <div class="coursepost-stats">
+                                                <div class="ups"><img src="<?php echo URLROOT.'/imgs/components/posts/up-icon.png'; ?>" alt=""></div>
+                                                <div class="ups-count"><?php echo $post->ups; ?></div>
+                                                <div class="downs"><img src="<?php echo URLROOT.'/imgs/components/posts/down-icon.png'; ?>" alt=""></div>
+                                                <div class="downs-count"><?php echo $post->downs; ?></div>
+                                                <div class="comments"><img src="<?php echo URLROOT.'/imgs/components/posts/comment-icon.png'; ?>" alt=""></div>
+                                                <div class="comments-count"><?php echo $post->comment_count; ?></div>
+                                                <div class="rate"><?php echo countRate($post->review_count, $post->rate1, $post->rate2, $post->rate3, $post->rate4, $post->rate5); ?></div>
+                                                <?php 
+                                                    $rate = countRate($post->review_count, $post->rate1, $post->rate2, $post->rate3, $post->rate4, $post->rate5);
+
+                                                    for($i=0; $i <ceil($rate); $i++) {
+                                                        echo '<div class="rate-star active"><img src="'.URLROOT.'/imgs/components/posts/star-icon.png"></div>';
+                                                    }
+
+                                                    for($i=0; $i <5 - ceil($rate); $i++) {
+                                                        echo '<div class="rate-star"><img src="'.URLROOT.'/imgs/components/posts/star-icon.png"></div>';
+                                                    }
+                                                    
+                                                    ?>
+                                                <div class="reviews">REVIEWS (<?php echo $post->review_count; ?>)</div>
+                                            </div>          
+                                        </div>
+                                        </a>
+                                        <br>
+                                        <br>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if($data['user']->specialized_actor_type == 'Company' ): ?>     
+                            <div class="division">
+                                    <div class="division-name">Job Ads</div>
+                            </div>                       
+                            <div class="card-flex-box">
+                             <!-- JOB POST -->
+                            <?php foreach($data['posts'] as $post): ?>
+                                <?php $exp_date = date('Y-m-d', strtotime($post->paid_date. ' + 1 months')) ?>
+                                <?php if($post->type == "jobpost" ): ?>
+                                    <a href="<?php echo URLROOT; ?>/Posts_C_O_JobAds/show/<?php echo $post->post_id; ?>" class="card-link">
+                                    <div class="advertisement">
+                                        <?php if($post->image != null):?>
+                                        <div class="pic">
+                                            <img src="<?php echo URLROOT.'/imgs/posts/jobads/'.$post->image; ?>" alt="">
+                                        </div>
+                                        <?php endif; ?>
+                                        <div class="advertisement-body">
+                                            <div class="user-pic">
+                                                <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
+                                            </div>
+                                            <div class="postedat">
+                                                <?php if(date("Y-m-d") > $exp_date){ echo "<font color=red>(Expired)</font>";} ?>
+                                                Posted At: <?php echo convertedToReadableTimeFormat($post->postCreated); ?>
+                                            </div>
+                                            <div class="title"><?php echo $post->jobName; ?></div>
+                                            <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
+                                            <div class="poles">
+                                                <div class="pole-prg-bar">
+                                                    <progress max="100" value="<?php if($post->capacity != 0){ echo ($post->applied / $post->capacity) * 100;} else {echo 0;} ?>" id="prgBar"></progress>
+                                                    <div class="percentage" id="percentage"><?php if($post->capacity != 0){ echo number_format(($post->applied / $post->capacity) *100, 1, '.', '');} else { echo 0;} ?>%</div>
+                                            </div>
+                                            <div class="text">
+                                                <div class="applied" id="applied"><?php echo $post->applied; ?> Applied</div>
+                                                <div class="capacity"> of <?php echo $post->capacity; ?> Capacity</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="advertisement-stats">
+                                            <div class="ups"><img src="<?php echo URLROOT.'/imgs/components/posts/up-icon.png'; ?>" alt=""></div>
+                                            <div class="ups-count"><?php echo $post->ups; ?></div>
+                                            <div class="downs"><img src="<?php echo URLROOT.'/imgs/components/posts/down-icon.png'; ?>" alt=""></div>
+                                            <div class="downs-count"><?php echo $post->downs; ?></div>
+                                            <div class="comments"><img src="<?php echo URLROOT.'/imgs/components/posts/comment-icon.png'; ?>" alt=""></div>
+                                            <div class="comments-count"><?php echo $post->comment_count; ?></div>
+                                            <div class="rate"><?php echo countRate($post->review_count, $post->rate1, $post->rate2, $post->rate3, $post->rate4, $post->rate5); ?></div>
+                                            <?php 
+                                                $rate = countRate($post->review_count, $post->rate1, $post->rate2, $post->rate3, $post->rate4, $post->rate5);
+
+                                                for($i=0; $i <ceil($rate); $i++) {
+                                                    echo '<div class="rate-star active"><img src="'.URLROOT.'/imgs/components/posts/star-icon.png"></div>';
+                                                }
+
+                                                for($i=0; $i <5 - ceil($rate); $i++) {
+                                                    echo '<div class="rate-star"><img src="'.URLROOT.'/imgs/components/posts/star-icon.png"></div>';
+                                                }
+                                                
+                                                ?>
+                                            <div class="reviews">REVIEWS (<?php echo $post->review_count; ?>)</div>
+                                        </div>          
+                                    </div>
+                                    </a>
+                                    <br>
+                                    <br>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+
                         <!-- REPORT PROFILE (styles at css/com/profile/student-profile maybe change it later) -->                        
                         <?php if($data['user']->id != $_SESSION['user_id']): ?>
                         <br><hr>

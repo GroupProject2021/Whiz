@@ -23,6 +23,14 @@ class M_S_Stream {
         return $results->stream_name;
     }
 
+    public function getALSubjects() {
+        $this->db->query("SELECT * FROM ALSubject");
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
     public function getALSubjectsById($stream_id) {
         $this->db->query("SELECT * FROM ALSubject WHERE al_stream_id = :stream_id");
         $this->db->bind(':stream_id', $stream_id);

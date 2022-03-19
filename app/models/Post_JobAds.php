@@ -7,18 +7,197 @@
         }
 
         public function getPosts() {
-            // OLD QUERY
-            // $this->db->query("SELECT *, 
-            //                     posts.id AS postId,
-            //                     users.id AS userId,
-            //                     posts.created_at as postCreated
-            //                     FROM posts
-            //                     INNER JOIN users  
-            //                     ON posts.user_id = users.id 
-            //                     ORDER BY posts.created_at DESC");
+            $this->db->query("SELECT * FROM v_posts_jobs ORDER BY post_id DESC;");            
 
-            $this->db->query("SELECT * FROM v_posts_jobs ORDER BY post_id DESC;");
-            
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        public function getPostsById($id) {
+            $this->db->query("SELECT * FROM v_posts_jobs WHERE company_id = :id ORDER BY post_id DESC;");     
+            $this->db->bind(":id", $id);       
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        // at course posts page
+        public function filterAndGetPostsToJobAds($criteria, $order) {
+            switch($criteria) {
+                case "all":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY postCreated DESC");
+                    }                    
+                    break;
+
+                case "ups":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY ups ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY ups DESC");
+                    }                    
+                    break;
+
+                case "downs":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY downs ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY downs DESC");
+                    }
+                    break;
+
+                case "comments":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY comment_count ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY comment_count DESC");
+                    }
+                    break;
+
+                case "rate0":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate1":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs WHERE rate1 = 1 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs WHERE rate1 = 1 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate2":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs WHERE rate1 = 0 AND rate2 = 1 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs WHERE rate1 = 0 AND rate2 = 1 AND rate3 = 0 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate3":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 1 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 1 AND rate4 = 0 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate4":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 1 AND rate5 = 0 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 1 AND rate5 = 0 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "rate5":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 1 ORDER BY postCreated ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs WHERE rate1 = 0 AND rate2 = 0 AND rate3 = 0 AND rate4 = 0 AND rate5 = 1 ORDER BY postCreated DESC");
+                    }
+                    break;
+
+                case "reviews":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY review_count ASC");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY review_count DESC");
+                    }
+                    break;
+            }
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        public function searchAndGetPostsToJobAds($search) {
+            $this->db->query("SELECT * FROM v_posts_jobs WHERE jobName LIKE '".$search."%' 
+            OR jobContent LIKE '".$search."%' 
+            OR capacity LIKE '".$search."%'
+            OR first_name LIKE '".$search."%'");
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        public function getJobAdsAmount() {
+            $this->db->query('SELECT * FROM v_posts_jobs WHERE company_id = :id'); // this is a prepared statement
+            $this->db->bind(":id", $_SESSION['user_id']);
+    
+            $row = $this->db->single();
+    
+            // Check row - return true if email exists. Because then rowCount is not 0
+            $amount = $this->db->rowCount();
+            if($amount > 0) {
+                return $amount;
+            }
+            else {
+                return false;
+            }
+        }
+    
+
+        // to dahsboard analytics
+        public function filterAndGetPosts($criteria, $order) {
+            switch($criteria) {
+                case "ups":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY ups ASC LIMIT 10");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY ups DESC LIMIT 10");
+                    }                    
+                    break;
+
+                case "downs":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY downs ASC LIMIT 10");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY downs DESC LIMIT 10");
+                    }
+                    break;
+
+                case "comments":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY comment_count ASC LIMIT 10");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY comment_count DESC LIMIT 10");
+                    }
+                    break;
+
+                case "reviews":
+                    if($order == "asc"){
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY review_count ASC LIMIT 10");
+                    }
+                    else {
+                        $this->db->query("SELECT * FROM v_posts_jobs ORDER BY review_count DESC LIMIT 10");
+                    }
+                    break;
+            }
 
             $results = $this->db->resultSet();
 

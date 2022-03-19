@@ -8,6 +8,9 @@ class C_A_Government_University extends Controller {
 
     // Index
     public function universities() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         $university_list = $this->govUniModel->getUniversities();
 
         $data = [
@@ -18,6 +21,9 @@ class C_A_Government_University extends Controller {
     }
 
     public function courses() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         $courses_list = $this->govUniModel->getCourses();
 
         $data = [
@@ -28,6 +34,9 @@ class C_A_Government_University extends Controller {
     }
 
     public function courseAndUniversities() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         $courses_university_list = $this->govUniModel->getCourseAndUniversities();
 
         $data = [
@@ -40,6 +49,9 @@ class C_A_Government_University extends Controller {
 
     // add
     public function addUniversity() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -120,6 +132,9 @@ class C_A_Government_University extends Controller {
     }
 
     public function addCourse() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -173,6 +188,9 @@ class C_A_Government_University extends Controller {
     }
 
     public function addCourseUniversity() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         $courses_list = $this->govUniModel->getCourses();
         $university_list = $this->govUniModel->getUniversities();
 
@@ -259,6 +277,9 @@ class C_A_Government_University extends Controller {
 
     // edit
     public function editUniversity($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -345,6 +366,9 @@ class C_A_Government_University extends Controller {
     }
 
     public function editCourse($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanetize the POST array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -404,6 +428,9 @@ class C_A_Government_University extends Controller {
     }
     
     public function editCourseUniversity($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         $courses_list = $this->govUniModel->getCourses();
         $university_list = $this->govUniModel->getUniversities();
 
@@ -494,6 +521,9 @@ class C_A_Government_University extends Controller {
 
     // delete
     public function deleteUniversity($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         if($this->govUniModel->deleteUniversity($id)) {
             flash('gov_uni_message', 'Existing record deleted');
             
@@ -505,6 +535,9 @@ class C_A_Government_University extends Controller {
     }
 
     public function deleteCourse($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
         if($this->govUniModel->deleteCourse($id)) {
             flash('gov_uni_message', 'Existing record deleted');
             
@@ -516,6 +549,9 @@ class C_A_Government_University extends Controller {
     }
 
     public function deleteCourseUniversity($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+        
         if($this->govUniModel->deleteCourseUniversity($id)) {
             flash('gov_uni_message', 'Existing record deleted');
             

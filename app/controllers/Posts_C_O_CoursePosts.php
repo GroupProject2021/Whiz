@@ -16,15 +16,65 @@
         // Load course posts
         public function index() {
             // Get posts
-            $posts = $this->postModel->getPosts($_SESSION['user_id']);
-            $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
+            // $posts = $this->postModel->getPosts($_SESSION['user_id']);
 
-            $data = [
-                'posts' => $posts,
-                'reviews_rates' => $postsReviewssAndRates
-            ];
+            // $data = [
+            //     'posts' => $posts
+            // ];
 
-            $this->view('organization/university/coursePosts/index', $data);
+            // $this->view('organization/university/coursePosts/index', $data);
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                $posts_filter = trim($_POST['filter']);
+                $posts_filter_order = trim($_POST['filter-order']);
+
+                $posts_search = trim($_POST['post-search']);
+                
+                // filtering
+                if(empty($posts_search)) {
+                    $posts = $this->postModel->filterAndGetPostsToCoursePosts($posts_filter, $posts_filter_order);
+                }
+                else {
+                    // Search bar applied
+                    $posts = $this->postModel->searchAndGetPostsToCoursePosts($posts_search);
+                }
+    
+                $data = [
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('organization/university/coursePosts/index', $data);
+            }
+            else {
+                $posts_filter = 'all';
+                $posts_filter_order = 'desc';
+
+                $posts_search = '';
+                
+                // filtering
+                $posts = $this->postModel->filterAndGetPostsToCoursePosts($posts_filter, $posts_filter_order);
+                // serach criteria is not necessary because its initial loading
+    
+    
+                $data = [
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('organization/university/coursePosts/index', $data);
+            }
         }
 
         // Add course posts
@@ -214,7 +264,12 @@
                     // Validated
                     if($this->postModel->updatePost($data)) {
                         flash('post_message', 'Post updated');
-                        redirect('/Posts_C_O_CoursePosts/show/$id');
+                        if($_SESSION['actor_type'] != "Admin") {
+                            redirect('/Posts_C_O_CoursePosts/show/'.$id);
+                        }
+                        else {
+                            redirect('/C_S_Stu_To_PriUniversity/show/'.$id);
+                        }
                     }
                     else {
                         die('Something went wrong');
@@ -232,7 +287,9 @@
 
                 // Check for owner
                 if($post->private_uni_id != $_SESSION['user_id']) {
-                    redirect('Posts_C_O_CoursePosts/index');
+                    if($_SESSION['actor_type'] != "Admin") {
+                        redirect('Posts_C_O_CoursePosts/index');
+                    }                    
                 }
 
                 $data = [
@@ -342,19 +399,21 @@
 
                 // Check for owner
                 if($post->private_uni_id != $_SESSION['user_id']) {
-                    redirect('Posts_C_O_CoursePosts/index');
+                    if($_SESSION['actor_type'] != "Admin") {
+                        redirect('Posts_C_O_CoursePosts/index');
+                    }
                 }
 
-                $res1 = $this->commentModel->deleteComment($id);
-                $res2 = $this->reviewModel->deleteReview($id);
-                $res3 = $this->postModel->deleteInteraction($id);
+                // $res1 = $this->commentModel->deleteComment($id);
+                // $res2 = $this->reviewModel->deleteReview($id);
+                // $res3 = $this->postModel->deleteInteraction($id);
                 $res4 = $this->postModel->deletePost($id);
 
                 // validate and upload profile image
                 $postImage = PUBROOT.'/imgs/posts/courseposts/'.$post->image;
                 $res5 = deleteImage($postImage);
                 
-                if($res1 && $res2 && $res3 && $res4 && $res5) {
+                if($res4 && $res5) {
                     flash('post_message', 'Post Removed');
                     redirect('Posts_C_O_CoursePosts/index');
                 }

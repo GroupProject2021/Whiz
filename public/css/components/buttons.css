@@ -59,6 +59,46 @@
     background-color: #007730;
 }
 
+.filter-btn {
+    background-color: #00B74A;
+    color: var(--btn2-color);
+    padding: 8.5px 20px;
+    margin: 0px 0px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+    transition: .2s all;
+    font-size: 12px;
+}
+
+.filter-btn:hover {
+    background-color: #007730;
+}
+
+.search-btn {
+    background-color: #00692a;
+    color: var(--btn2-color);
+    padding: 8.5px 20px;
+    margin: 0px 0px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+    transition: .2s all;
+    font-size: 12px;
+}
+
+.search-btn:hover {
+    background-color: #004b1e;
+}
+
 .btn1 {
     background-color: var(--btn1-bg-color);
     color: var(--btn1-color);

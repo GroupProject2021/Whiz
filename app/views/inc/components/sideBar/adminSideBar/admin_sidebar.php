@@ -14,6 +14,7 @@
     <?php require APPROOT.'/views/inc/components/sideBar/studentSideBar/student_sidebar_upgrades.php'?>
 
         <!-- OPTIONS -->
+    <div class="scrollable-sidebar">
     <?php if(isset($_SESSION['user_id'])) : ?>
         <?php if($_SESSION['specialized_actor_type'] == 'Admin'): ?>
         <!-- Government university options -->
@@ -90,10 +91,94 @@
                 </button>
             </a>
         </div>
+
+        <!-- Posts -->
+        <div class="menu-head">
+            <span>Posts</span>
+        </div>
+        <div class="menu-head">
+            <span>-- Organizations</span>
+        </div>
+        <div class="menu-head">
+            <span>---- Private university</span>
+        </div>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/index">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        Course posts
+                    </div>
+                </button>
+            </a>
+        </div>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Notices/index">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        Notices
+                    </div>
+                </button>
+            </a>
+        </div>
+        <div class="menu-head">
+            <span>---- Company</span>
+        </div>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        Job Ads
+                    </div>
+                </button>
+            </a>
+        </div>
+        <div class="menu-head">
+            <span>-- Mentors</span>
+        </div>
+        <div class="menu-head">
+            <span>---- Professional Guider</span>
+        </div>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        Banners
+                    </div>
+                </button>
+            </a>
+        </div>
+        <div class="menu-head">
+            <span>---- Teacher</span>
+        </div>
+        <div class="sidebar-item">
+            <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/index">
+                <button>
+                    <div class="sidebar-item-icon">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                    </div>
+                    <div class="sidebar-item-name">
+                        Posters
+                    </div>
+                </button>
+            </a>
+        </div>
         <?php else: ?>
             <!-- Nothing here -->
         <?php endif;?>
     <?php endif; ?>
+    </div>
 
     </div>
 </div>

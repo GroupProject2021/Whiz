@@ -5,7 +5,7 @@
                 redirect('users/login');
             }
 
-            $this->postModel = $this->model('Post');
+            $this->postModel = $this->model('Post_Banners');
             $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
 
             $this->commentModel = $this->model('Comment');            
@@ -18,15 +18,69 @@
         // Load banners
         public function index() {
             // Get posts
-            $posts = $this->postModel->getPosts();
-            $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
+            // $posts = $this->postModel->getPosts();
+            // $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
 
-            $data = [
-                'posts' => $posts,
-                'reviews_rates' => $postsReviewssAndRates
-            ];
+            // $data = [
+            //     'posts' => $posts,
+            //     'reviews_rates' => $postsReviewssAndRates
+            // ];
 
-            $this->view('mentors/professional_guider/banners/index', $data);
+            // $this->view('mentors/professional_guider/banners/index', $data);
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                $posts_filter = trim($_POST['filter']);
+                $posts_filter_order = trim($_POST['filter-order']);
+
+                $posts_search = trim($_POST['post-search']);
+                    
+                // filtering
+                if(empty($posts_search)) {
+                    $posts = $this->postModel->filterAndGetPostsToBanners($posts_filter, $posts_filter_order);
+                }
+                else {
+                    // Search bar applied
+                    $posts = $this->postModel->searchAndGetPostsToBanners($posts_search);
+                }
+    
+    
+                $data = [
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('mentors/professional_guider/banners/index', $data);
+            }
+            else {
+                $posts_filter = 'all';
+                $posts_filter_order = 'desc';
+
+                $posts_search = '';
+    
+                // courses & intake notices
+                
+                // filtering
+                $posts = $this->postModel->filterAndGetPostsToBanners($posts_filter, $posts_filter_order);
+    
+    
+                $data = [    
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('mentors/professional_guider/banners/index', $data);
+            }
         }
 
         // Add banner
@@ -43,9 +97,11 @@
                     'body' => trim($_POST['body']),
                     'applied' => 0,
                     'capacity' => $_POST['capacity'],
+                    'session_fee' => $_POST['session_fee'],
                     'user_id' => $_SESSION['user_id'],
                     'title_err' => '',
                     'body_err' => '',
+                    'session_fee_err' => '',
                     
                     'ups' => 0,
                     'downs' => 0,
@@ -78,11 +134,16 @@
                     $data['body_err'] = 'Please enter title';
                 }
 
+                // Validate session fee
+                if(empty($data['session_fee'])) {
+                    $data['session_fee_err'] = 'Please enter session fee';
+                }
+
                 // Make sure no errors
                 if(empty($data['title_err']) && empty($data['body_err'])) {
 
                     // Validated
-                    if($this->postModel->addPost($data)) {
+                    if($this->postModel->addPost($data, 'banner')) {
                         // flash('post_message', 'Post added');
                         // redirect('Posts_C_M_Banners');
                         
@@ -108,10 +169,13 @@
                     'body' => '',
                     'applied' => '',
                     'capacity' => '',
+                    'session_fee' => '',
                     'ups' => '',
                     'downs' => '',
                     'shares' => '',
-                    'views' => ''
+                    'views' => '',
+
+                    'session_fee_err' => ''
                 ];
             }
 
@@ -172,7 +236,12 @@
                     // Validated
                     if($this->postModel->updatePost($data)) {
                         flash('post_message', 'Post updated');
-                        redirect('Posts_C_M_Banners');
+                        if($_SESSION['actor_type'] != "Admin") {
+                            redirect('/Posts_C_M_Banners/show/'.$id);
+                        }
+                        else {
+                            redirect('/C_S_Stu_To_ProfessionalGuider/show/'.$id);
+                        }
                     }
                     else {
                         die('Something went wrong');
@@ -189,7 +258,9 @@
 
                 // Check for owner
                 if($post->user_id != $_SESSION['user_id']) {
-                    redirect('Posts_C_M_Banners');
+                    if($_SESSION['actor_type'] != "Admin") {
+                        redirect('Posts_C_M_Banners');
+                    }
                 }
 
                 $data = [
@@ -296,9 +367,9 @@
                     redirect('Posts_C_M_Banners');
                 }
 
-                $res1 = $this->commentModel->deleteComment($id);
-                $res2 = $this->reviewModel->deleteReview($id);
-                $res3 = $this->postUpvoteDownvoteModel->deleteInteraction($id);
+                // $res1 = $this->commentModel->deleteComment($id);
+                // $res2 = $this->reviewModel->deleteReview($id);
+                // $res3 = $this->postUpvoteDownvoteModel->deleteInteraction($id);
                 $res4 = $this->postModel->deletePost($id);
 
                 // validate and upload profile image
@@ -308,7 +379,7 @@
                 // session link
                 $link = $this->sessionLinkModel->deleteLink($id);
                 
-                if($res1 && $res2 && $res3 && $res4 && $res5 && $link) {
+                if($res4 && $res5 && $link) {
                     flash('post_message', 'Post Removed');
                     redirect('Posts_C_M_Banners');
                 }

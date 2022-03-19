@@ -34,10 +34,10 @@
                     case 'Beginner':
                                     $this->view('pages/seeMore/student/v_beginner');
                                     break;
-                    case 'OLQualified': 
+                    case 'OLqualified': 
                                     $this->view('pages/seeMore/student/v_ol_qualified');
                                     break;
-                    case 'ALQualified':
+                    case 'ALqualified':
                                     $this->view('pages/seeMore/student/v_al_qualified');
                                     break;
                     case 'UndergraduateGraduate':
@@ -52,7 +52,7 @@
                     case 'Company':
                                     $this->view('pages/seeMore/organization/v_company');
                                     break;
-                    case 'PrivateUniversity': 
+                    case 'University': 
                                     $this->view('pages/seeMore/organization/v_pri_university');
                                     break;
                     default:

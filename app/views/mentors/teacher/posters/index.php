@@ -28,12 +28,111 @@
                         <a href="<?php echo URLROOT; ?>/Posts_C_M_Posters/add"><button class="btn3">CREATE POSTER</button></a>
                         <br>
 
+                        <!-- filter area -->
+                        <form action="<?php echo URLROOT; ?>/Posts_C_M_Posters/index/" method="post">
+                        <div class="filter-and-search-container">
+                            <div class="filter-container">
+                                <div class="filter-icon">
+                                    <img src="<?php echo URLROOT; ?>/imgs/components/filter/filter-icon.png" alt="">
+                                </div>
+                                <div class="filter-text">Filter by</div>
+                                <div class="item">
+                                    <select name="filter" id="filter" class="filter-select">
+                                         <?php if($data['posts_filter'] == "all"): ?>
+                                            <option value="all" selected>All</option>
+                                        <?php else: ?>
+                                            <option value="all">All</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "ups"): ?>
+                                            <option value="ups" selected>Upvotes</option>
+                                        <?php else: ?>
+                                            <option value="ups">Upvotes</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "downs"): ?>
+                                            <option value="downs" selected>Downvotes</option>
+                                        <?php else: ?>
+                                            <option value="downs">Downvotes</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "comments"): ?>
+                                            <option value="comments" selected>Comments</option>
+                                        <?php else: ?>
+                                            <option value="comments">Comments</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "rate0"): ?>
+                                            <option value="rate0" selected>No Star</option>
+                                        <?php else: ?>
+                                            <option value="rate0">No Star</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "rate1"): ?>
+                                            <option value="rate1" selected>1 Star</option>
+                                        <?php else: ?>
+                                            <option value="rate1">1 Star</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "rate2"): ?>
+                                            <option value="rate2" selected>2 Star</option>
+                                        <?php else: ?>
+                                            <option value="rate2">2 Star</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "rate3"): ?>
+                                            <option value="rate3" selected>3 Star</option>
+                                        <?php else: ?>
+                                            <option value="rate3">3 Star</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "rate4"): ?>
+                                            <option value="rate4" selected>4 Star</option>
+                                        <?php else: ?>
+                                            <option value="rate4">4 Star</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "rate5"): ?>
+                                            <option value="rate5" selected>5 Star</option>
+                                        <?php else: ?>
+                                            <option value="rate5">5 Star</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter'] == "reviews"): ?>
+                                            <option value="reviews" selected>Reviews</option>
+                                        <?php else: ?>
+                                            <option value="reviews">Reviews</option>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="filter-text">in</div>
+                                <div class="order">
+                                    <select name="filter-order" id="filter-order" class="filter-select">
+                                        <?php if($data['posts_filter_order'] == "asc"): ?>
+                                            <option value="asc" selected>Ascending</option>
+                                        <?php else: ?>
+                                            <option value="asc">Ascending</option>
+                                        <?php endif; ?>
+                                        <?php if($data['posts_filter_order'] == "desc"): ?>
+                                            <option value="desc" selected>Descending</option>
+                                        <?php else: ?>
+                                            <option value="desc">Descending</option>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="filter-text">order</div>
+                                <div class="right">
+                                    <button type="submit" class="filter-btn">Filter</button>
+                                </div>
+                            </div>
+                            <div class="search-container">
+                                <div class="search-bar">
+                                    <input type="text" name="post-search" id="post-search" placeholder="Search..." value="<?php echo $data['post_search'];?>">
+                                </div>
+                                <div class="search-btnarea">
+                                    <button type="submit" class="search-btn">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    <br>
+
                     <div class="card-flex-box">
 
                     <!-- POSTER -->
                     <?php foreach($data['posts'] as $post): ?>
-                    <?php if($post->type == "poster"): ?>
-                        <a href="<?php echo URLROOT; ?>/Posts_C_M_Posters/show/<?php echo $post->postId; ?>" class="card-link">
+                    <?php if($post->userId == $_SESSION['user_id']): ?>
+                        <a href="<?php echo URLROOT; ?>/Posts_C_M_Posters/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="poster">
                             <?php if($post->image != null):?>
                             <div class="pic">
@@ -56,7 +155,7 @@
                                        <div class="capacity"> of <?php echo $post->capacity; ?> Capacity</div>
                                    </div>
                                </div>
-                                <div class="price">Rs.1000</div>
+                                <div class="price">Rs.<?php echo $post->session_fee; ?></div>
                             </div>
                             <div class="poster-stats">
                                 <div class="ups"><img src="<?php echo URLROOT.'/imgs/components/posts/up-icon.png'; ?>" alt=""></div>

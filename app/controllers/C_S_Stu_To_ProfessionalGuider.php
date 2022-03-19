@@ -5,7 +5,7 @@
                 redirect('users/login');
             }
 
-            $this->postModel = $this->model('Post');
+            $this->postModel = $this->model('Post_banners');
             $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
 
             $this->commentModel = $this->model('Comment');            
@@ -18,21 +18,78 @@
 
         // Index
         public function index() {
-            // Get posts
-            $posts = $this->postModel->getPosts();
-            $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
+            // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified', 'Undergraduate Graduate']);
 
-            $data = [
-                'posts' => $posts,
-                'reviews_rates' => $postsReviewssAndRates
-            ];
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                $posts_filter = trim($_POST['filter']);
+                $posts_filter_order = trim($_POST['filter-order']);
 
-            $this->view('students/opt_proGuiders/v_proGuiders_banner_list', $data);
+                $posts_search = trim($_POST['post-search']);
+    
+                // courses & intake notices
+                // $intakeNoticesAmount = $this->postModel->getIntakeNoticesAmount();
+                
+                // filtering
+                if(empty($posts_search)) {
+                    $posts = $this->postModel->filterAndGetPostsToBanners($posts_filter, $posts_filter_order);
+                }
+                else {
+                    // Search bar applied
+                    $posts = $this->postModel->searchAndGetPostsToBanners($posts_search);
+                }
+    
+    
+                $data = [
+                    // 'intake_notices_amount' => $intakeNoticesAmount,
+    
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('students/opt_proGuiders/v_proGuiders_banner_list', $data);
+            }
+            else {
+                $posts_filter = 'all';
+                $posts_filter_order = 'desc';
+
+                $posts_search = '';
+    
+                // courses & intake notices
+                // $intakeNoticesAmount = $this->postModel->getIntakeNoticesAmount();
+                
+                // filtering
+                $posts = $this->postModel->filterAndGetPostsToBanners($posts_filter, $posts_filter_order);
+    
+    
+                $data = [
+                    // 'intake_notices_amount' => $intakeNoticesAmount,
+    
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('students/opt_proGuiders/v_proGuiders_banner_list', $data);
+            }
         }
 
 
         // View banner
         public function show($id) {
+            // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified', 'Undergraduate Graduate']);
+
             // if post not exist
             if(!($this->postModel->isPostExist($id))) {
                 $this->index();

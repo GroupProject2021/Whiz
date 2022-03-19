@@ -4,6 +4,9 @@ class C_O_Settings extends Controller {
     public function __construct() {
         $this->settingsModel = $this->model('M_O_Setting');
         $this->commonModel = $this->model('Common');
+
+        $this->coursePostsPostModel = $this->model('Post_CoursePosts');
+        $this->jobAdsPostModel = $this->model('Post_JobAds');
     }
 
      // Settings
@@ -55,6 +58,7 @@ class C_O_Settings extends Controller {
             // For University
             case 'University':
                 $uniData = $this->settingsModel->getUniversityDetails($id);
+                $posts = $this->coursePostsPostModel->getPostsById($id);
 
                 $data = [
                     'user' => $userData,
@@ -75,7 +79,9 @@ class C_O_Settings extends Controller {
                     'descrip' => $uniData->description,
                     'type' => $uniData->uni_type,
 
-                    'is_already_reported' => $isAlreadyReported
+                    'is_already_reported' => $isAlreadyReported,
+
+                    'posts' => $posts
                 ];
 
                 $this->view('organization/opt_settings/v_organization_profile', $data);
@@ -84,6 +90,7 @@ class C_O_Settings extends Controller {
             // For Company
             case 'Company':
                 $comData = $this->settingsModel->getCompanyDetails($id);
+                $posts = $this->jobAdsPostModel->getPostsById($id);
 
                 $data = [
                     'user' => $userData,
@@ -103,7 +110,9 @@ class C_O_Settings extends Controller {
                     'overview' => $comData->overview,
                     'services' => $comData->services,
 
-                    'is_already_reported' => $isAlreadyReported
+                    'is_already_reported' => $isAlreadyReported,
+
+                    'posts' => $posts
                 ];
 
                 $this->view('organization/opt_settings/v_organization_profile', $data);
@@ -441,6 +450,7 @@ class C_O_Settings extends Controller {
         $this->view('organization/opt_settings/edit/v_edit_company_settings', $data);
     }
 
+    // I THINK THIS FUNCTION CAN BE REMOVED
     //delete account
     public function deleteAccount($id,$type) {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {

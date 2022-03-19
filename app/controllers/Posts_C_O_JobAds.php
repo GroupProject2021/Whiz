@@ -16,15 +16,67 @@
         // Load job posts
         public function index() {
             // Get posts
-            $posts = $this->postModel->getPosts();
-            $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
+            // $posts = $this->postModel->getPosts();
+            // $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
 
-            $data = [
-                'posts' => $posts,
-                'reviews_rates' => $postsReviewssAndRates
-            ];
+            // $data = [
+            //     'posts' => $posts,
+            //     'reviews_rates' => $postsReviewssAndRates
+            // ];
 
-            $this->view('organization/company/jobPosts/index', $data);
+            // $this->view('organization/company/jobPosts/index', $data);
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                $posts_filter = trim($_POST['filter']);
+                $posts_filter_order = trim($_POST['filter-order']);
+
+                $posts_search = trim($_POST['post-search']);
+                
+                // filtering
+                if(empty($posts_search)) {
+                    $posts = $this->postModel->filterAndGetPostsToJobAds($posts_filter, $posts_filter_order);
+                }
+                else {
+                    // Search bar applied
+                    $posts = $this->postModel->searchAndGetPostsToJobAds($posts_search);
+                }
+    
+                $data = [
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('organization/company/jobPosts/index', $data);
+            }
+            else {
+                $posts_filter = 'all';
+                $posts_filter_order = 'desc';
+
+                $posts_search = '';
+                
+                // filtering
+                $posts = $this->postModel->filterAndGetPostsToJobAds($posts_filter, $posts_filter_order);
+                // serach criteria is not necessary because its initial loading
+    
+    
+                $data = [
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('organization/company/jobPosts/index', $data);
+            }
         }
 
         // Add job posts
@@ -200,7 +252,12 @@
                     // Validated
                     if($this->postModel->updatePost($data)) {
                         flash('post_message', 'Job Vacancy updated');
-                        redirect('/Posts_C_O_JobAds/show/$id');
+                        if($_SESSION['actor_type'] != "Admin") {
+                            redirect('/Posts_C_O_JobAds/show/'.$id);
+                        }
+                        else {
+                            redirect('/C_S_Stu_To_Company/show/'.$id);
+                        }
                     }
                     else {
                         die('Something went wrong');
@@ -218,7 +275,9 @@
 
                 // Check for owner
                 if($post->company_id != $_SESSION['user_id']) {
-                    redirect('Posts_C_O_JobAds/index');
+                    if($_SESSION['actor_type'] != "Admin") {
+                        redirect('Posts_C_O_JobAds/index');
+                    }
                 }
 
                 $data = [
@@ -329,16 +388,16 @@
                     redirect('Posts_C_O_JobAds/index');
                 }
 
-                $res1 = $this->commentModel->deleteComment($id);
-                $res2 = $this->reviewModel->deleteReview($id);
-                $res3 = $this->postUpvoteDownvoteModel->deleteInteraction($id);
+                // $res1 = $this->commentModel->deleteComment($id);
+                // $res2 = $this->reviewModel->deleteReview($id);
+                // $res3 = $this->postUpvoteDownvoteModel->deleteInteraction($id);
                 $res4 = $this->postModel->deletePost($id);
 
                 // validate and upload profile image
                 $postImage = PUBROOT.'/imgs/posts/jobads/'.$post->image;
                 $res5 = deleteImage($postImage);
                 
-                if($res1 && $res2 && $res3 && $res4 && $res5) {
+                if($res4 && $res5) {
                     flash('post_message', 'Job Vacancy Removed');
                     redirect('Posts_C_O_JobAds/index');
                 }

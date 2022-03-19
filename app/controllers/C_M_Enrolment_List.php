@@ -4,22 +4,25 @@ class C_M_Enrolment_List extends Controller{
 
     public function __construct() {
         $this->enrolmentListModel = $this->model('M_M_Enrolment_List');
-        $this->mentorDashboardModel = $this->model('Post');
+        // $this->mentorDashboardModel = $this->model('Post');
+        $this->proGuiderModel = $this->model('Post_Banners');
+        $this->teacherModel = $this->model('Post_Posters');
         $this->notificationModel = $this->model('Notification');
         
     }
 
     // Index
     public function index() {
-
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Mentor'], ['Professional Guider', 'Teacher']);
 
         switch($_SESSION['specialized_actor_type']) {
             case 'Professional Guider' :
-                $post = $this->mentorDashboardModel->getPosts();
+                $post = $this->proGuiderModel->getPosts();
                 break;
             
             case 'Teacher' :
-                $post = $this->mentorDashboardModel->getPosts();
+                $post = $this->teacherModel->getPosts();
                 break;
 
             default:
@@ -38,6 +41,8 @@ class C_M_Enrolment_List extends Controller{
 
     // Enroll list
     public function enrolStudentList($post_id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Mentor'], ['Professional Guider', 'Teacher']);
 
         $_SESSION['current_viewing_post_id'] = $post_id;
         $studentList = $this->enrolmentListModel->getStudentListById($post_id);
@@ -74,9 +79,11 @@ class C_M_Enrolment_List extends Controller{
 
     // upload link
     public function addlink() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Mentor'], ['Professional Guider', 'Teacher']);
 
         $postId = $_SESSION['current_viewing_post_id'];
-        $post = $this->mentorDashboardModel->getPostById($postId);
+        $post = $this->proGuiderModel->getPostById($postId);
 
         // to notifications
         switch($_SESSION['specialized_actor_type']) {
@@ -169,6 +176,8 @@ class C_M_Enrolment_List extends Controller{
     }
 
     public function viewlink () {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Mentor'], ['Professional Guider', 'Teacher']);
 
         $postId = $_SESSION['current_viewing_post_id'];
         // $post = $this->mentorDashboardModel->getPostById($postId);
@@ -186,6 +195,8 @@ class C_M_Enrolment_List extends Controller{
     }
 
     public function editlink() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Mentor'], ['Professional Guider', 'Teacher']);
 
         $postId = $_SESSION['current_viewing_post_id'];
         $post = $this->enrolmentListModel->getPostById($postId);
@@ -291,6 +302,9 @@ class C_M_Enrolment_List extends Controller{
     }
 
     public function sendlink(){
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Mentor'], ['Professional Guider', 'Teacher']);
+        
         $postId = $_SESSION['current_viewing_post_id'];
         $post = $this->enrolmentListModel->getPostById($postId);
         $link = $this->enrolmentListModel->getSessionLink($postId);

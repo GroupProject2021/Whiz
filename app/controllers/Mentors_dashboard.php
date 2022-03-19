@@ -3,7 +3,7 @@
         public function __construct() {
             $this->mentorDashboardModel = $this->model('Mentor_dashboard');
             $this->commonModel = $this->model('Common');
-            $this->postModel = $this->model('Post');
+            $this->postModel = $this->model('Post_Posters');
             $this->sessionLinkModel = $this->model('M_M_Enrolment_List');
         }
 
@@ -540,136 +540,136 @@
         }
 
         // For likes guider
-        public function incUpBanner($id) {
-            $ups = $this->mentorDashboardModel->incUpBanner($id);
+        // public function incUpBanner($id) {
+        //     $ups = $this->mentorDashboardModel->incUpBanner($id);
 
-            $userId = $_SESSION['user_id'];
+        //     $userId = $_SESSION['user_id'];
 
-            if($this->mentorDashboardModel->isPostInterationExist($userId, $id)) {
-                // If already an interaction exists
-                $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'liked');
-            }
-            else {
-                // If no previous interaction exists
-                $res = $this->mentorDashboardModel->addPostInteraction($userId, $id, 'liked');
-            }
+        //     if($this->mentorDashboardModel->isPostInterationExist($userId, $id)) {
+        //         // If already an interaction exists
+        //         $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'liked');
+        //     }
+        //     else {
+        //         // If no previous interaction exists
+        //         $res = $this->mentorDashboardModel->addPostInteraction($userId, $id, 'liked');
+        //     }
 
-            if($ups != false && $res != false) {
-                echo $ups->ups;
-            }
-        }
+        //     if($ups != false && $res != false) {
+        //         echo $ups->ups;
+        //     }
+        // }
 
-        public function incUpPoster($id) {
-            $ups = $this->mentorDashboardModel->incUpPoster($id);
+        // public function incUpPoster($id) {
+        //     $ups = $this->mentorDashboardModel->incUpPoster($id);
 
-            $userId = $_SESSION['user_id'];
+        //     $userId = $_SESSION['user_id'];
 
-            if($this->mentorDashboardModel->isPostInterationExist($userId, $id)) {
-                // If already an interaction exists
-                $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'liked');
-            }
-            else {
-                // If no previous interaction exists
-                $res = $this->mentorDashboardModel->addPostInteraction($userId, $id, 'liked');
-            }
+        //     if($this->mentorDashboardModel->isPostInterationExist($userId, $id)) {
+        //         // If already an interaction exists
+        //         $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'liked');
+        //     }
+        //     else {
+        //         // If no previous interaction exists
+        //         $res = $this->mentorDashboardModel->addPostInteraction($userId, $id, 'liked');
+        //     }
 
-            if($ups != false && $res != false) {
-                echo $ups->ups;
-            }
-        }
+        //     if($ups != false && $res != false) {
+        //         echo $ups->ups;
+        //     }
+        // }
 
-        public function decUpBanner($id) {
-            $ups = $this->mentorDashboardModel->decUpBanner($id);
+        // public function decUpBanner($id) {
+        //     $ups = $this->mentorDashboardModel->decUpBanner($id);
 
-            $userId = $_SESSION['user_id'];
-            $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'like removed');
+        //     $userId = $_SESSION['user_id'];
+        //     $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'like removed');
 
-            if($ups != false && $res != false) {
-                echo $ups->ups;
-            }    
-        }
+        //     if($ups != false && $res != false) {
+        //         echo $ups->ups;
+        //     }    
+        // }
 
-        public function decUpPoster($id) {
-            $ups = $this->mentorDashboardModel->decUpPoster($id);
+        // public function decUpPoster($id) {
+        //     $ups = $this->mentorDashboardModel->decUpPoster($id);
 
-            $userId = $_SESSION['user_id'];
-            $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'like removed');
+        //     $userId = $_SESSION['user_id'];
+        //     $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'like removed');
 
-            if($ups != false && $res != false) {
-                echo $ups->ups;
-            }    
-        }
+        //     if($ups != false && $res != false) {
+        //         echo $ups->ups;
+        //     }    
+        // }
 
         // For dislikes
-        public function incDownBanner($id) {
-            $downs = $this->mentorDashboardModel->incDownBanner($id);
+        // public function incDownBanner($id) {
+        //     $downs = $this->mentorDashboardModel->incDownBanner($id);
 
-            $userId = $_SESSION['user_id'];
+        //     $userId = $_SESSION['user_id'];
 
-            if($this->mentorDashboardModel->isPostInterationExist($userId, $id)) {
-                // If already an interaction exists
-                $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'disliked');
-            }
-            else {
-                // If no previous interaction exists
-                $res = $this->mentorDashboardModel->addPostInteraction($userId, $id, 'disliked');
-            }
+        //     if($this->mentorDashboardModel->isPostInterationExist($userId, $id)) {
+        //         // If already an interaction exists
+        //         $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'disliked');
+        //     }
+        //     else {
+        //         // If no previous interaction exists
+        //         $res = $this->mentorDashboardModel->addPostInteraction($userId, $id, 'disliked');
+        //     }
 
-            if($downs != false && $res != false) {
-                echo $downs->downs;
-            }    
-        }
+        //     if($downs != false && $res != false) {
+        //         echo $downs->downs;
+        //     }    
+        // }
 
-        public function incDownPoster($id) {
-            $downs = $this->mentorDashboardModel->incDownPoster($id);
+        // public function incDownPoster($id) {
+        //     $downs = $this->mentorDashboardModel->incDownPoster($id);
 
-            $userId = $_SESSION['user_id'];
+        //     $userId = $_SESSION['user_id'];
 
-            if($this->mentorDashboardModel->isPostInterationExist($userId, $id)) {
-                // If already an interaction exists
-                $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'disliked');
-            }
-            else {
-                // If no previous interaction exists
-                $res = $this->mentorDashboardModel->addPostInteraction($userId, $id, 'disliked');
-            }
+        //     if($this->mentorDashboardModel->isPostInterationExist($userId, $id)) {
+        //         // If already an interaction exists
+        //         $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'disliked');
+        //     }
+        //     else {
+        //         // If no previous interaction exists
+        //         $res = $this->mentorDashboardModel->addPostInteraction($userId, $id, 'disliked');
+        //     }
 
-            if($downs != false && $res != false) {
-                echo $downs->downs;
-            }    
-        }
+        //     if($downs != false && $res != false) {
+        //         echo $downs->downs;
+        //     }    
+        // }
 
-        public function decDownBanner($id) {
-            $downs = $this->mentorDashboardModel->decDownBanner($id);
+        // public function decDownBanner($id) {
+        //     $downs = $this->mentorDashboardModel->decDownBanner($id);
 
-            $userId = $_SESSION['user_id'];
-            $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'dislike removed');
+        //     $userId = $_SESSION['user_id'];
+        //     $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'dislike removed');
 
-            if($downs != false && $res != false) {
-                echo $downs->downs;
-            }    
-        }
+        //     if($downs != false && $res != false) {
+        //         echo $downs->downs;
+        //     }    
+        // }
 
-        public function decDownPoster($id) {
-            $downs = $this->mentorDashboardModel->decDownPoster($id);
+        // public function decDownPoster($id) {
+        //     $downs = $this->mentorDashboardModel->decDownPoster($id);
 
-            $userId = $_SESSION['user_id'];
-            $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'dislike removed');
+        //     $userId = $_SESSION['user_id'];
+        //     $res = $this->mentorDashboardModel->setPostInteraction($userId, $id, 'dislike removed');
 
-            if($downs != false && $res != false) {
-                echo $downs->downs;
-            }    
-        }
+        //     if($downs != false && $res != false) {
+        //         echo $downs->downs;
+        //     }    
+        // }
 
         
 
-        public function incShare() {
+        // public function incShare() {
 
-        }
+        // }
 
-        public function incView() {
+        // public function incView() {
 
-        }
+        // }
 
         // Complaints
         public function complaint() {

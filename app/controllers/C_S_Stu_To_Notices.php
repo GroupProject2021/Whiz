@@ -5,7 +5,7 @@
                 redirect('users/login');
             }
 
-            $this->postModel = $this->model('M_O_U_Notice');
+            $this->postModel = $this->model('Post_IntakeNotices');
             $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
 
             $this->commonModel = $this->model('Common');       
@@ -15,20 +15,91 @@
 
         // Index
         public function index() {
-            // Get posts
-            // $posts = $this->postModel->getPosts();
-            $posts = $this->stuToNoticesModel->getNotices();
-            
-            $data = [
-                'posts' => $posts
-            ];
+            // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['OL qualified', 'AL qualified']);
 
-            $this->view('students/opt_notices/v_notice_list', $data);
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                $posts_filter = trim($_POST['filter']);
+                $posts_filter_order = trim($_POST['filter-order']);
+
+                $posts_search = trim($_POST['post-search']);
+    
+                // courses & intake notices
+                $intakeNoticesAmount = $this->postModel->getIntakeNoticesAmount();
+                
+                // filtering
+                if(empty($posts_search)) {
+                    if($_SESSION['actor_type'] == "Admin") {
+                        $posts = $this->postModel->filterAndGetPostsToIntakeNotices($posts_filter, $posts_filter_order);
+                    }
+                    else {
+                        $posts = $this->postModel->filterAndGetPostsToIntakeNoticesAsMyNotices($posts_filter, $posts_filter_order);
+                    }
+                }
+                else {
+                    // Search bar applied
+                    if($_SESSION['actor_type'] == "Admin") {
+                        $posts = $this->postModel->searchAndGetPostsToIntakeNotices($posts_search);
+                    }
+                    else {
+                        $posts = $this->postModel->searchAndGetPostsToIntakeNoticesAsMyNotices($posts_search);
+                    }
+                }
+    
+    
+                $data = [
+                    'intake_notices_amount' => $intakeNoticesAmount,
+    
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('students/opt_notices/v_notice_list', $data);
+            }
+            else {
+                $posts_filter = 'all';
+                $posts_filter_order = 'desc';
+
+                $posts_search = '';
+    
+                // courses & intake notices
+                $intakeNoticesAmount = $this->postModel->getIntakeNoticesAmount();
+                
+                // filtering
+                if($_SESSION['actor_type'] == "Admin") {
+                    $posts = $this->postModel->filterAndGetPostsToIntakeNotices($posts_filter, $posts_filter_order);
+                }
+                else {
+                    $posts = $this->postModel->filterAndGetPostsToIntakeNoticesAsMyNotices($posts_filter, $posts_filter_order);
+                }
+    
+                $data = [
+                    'intake_notices_amount' => $intakeNoticesAmount,
+    
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('students/opt_notices/v_notice_list', $data);
+            }
         }
-
         
         // View job advertisement
         public function show($id) {
+            // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+            URL_tamper_protection(['Student'], ['OL qualified', 'AL qualified']);
+
             // if post not exist
             if(!($this->postModel->isPostExist($id))) {
                 $this->index();
@@ -65,7 +136,6 @@
             ];
 
             $this->view('students/opt_notices/v_notice_viewMore', $data);            
-        }
-        
+        }        
     }
 ?>

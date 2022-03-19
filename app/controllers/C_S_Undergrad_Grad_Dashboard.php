@@ -8,6 +8,9 @@ class C_S_Undergrad_Grad_Dashboard extends Controller {
 
     // Index
     public function index() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Student'], ['Undergraduate Graduate']);
+
         $followingList = $this->profileStatAndConnectionModel->getFollowings($_SESSION['user_id']);
 
         // Enrollments

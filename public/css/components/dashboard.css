@@ -551,6 +551,174 @@ main {
     line-height: 17px;
 }
 
+
+/* dashboard analytics container */
+.dashboard-analytics-container {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    border: 1px solid #c5c3c3;
+    background-color: #ececec;
+    padding: 5px;
+    transition: .2s all;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+.dashboard-analytics-container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 1px 3px 3px rgba(0, 0, 0, 0.05);
+    border-radius: 0px;
+}
+
+.dashboard-analytics-container .left .pic {
+    padding-left: 5px;
+    padding-right: 15px;
+}
+
+.dashboard-analytics-container .left .pic img {
+    height: 50px;
+    width: 70px;
+}
+
+.dashboard-analytics-container .right {
+    display: flex;
+    line-height: 50px;
+    align-items: center;
+}
+
+.dashboard-analytics-container .right .title {
+    font-size: 13px;
+    font-weight: 600;
+    width: 200px;
+}
+
+.dashboard-analytics-container .right .coursepost-stats {
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    vertical-align: middle;
+    /* border-top: 1px solid rgb(219, 219, 219); */
+    background-color: rgb(235, 235, 235);
+    /* padding-top: 5px; */
+  }
+  
+  .dashboard-analytics-container .right .coursepost-stats img {
+    position: relative;
+    top: 2px;
+  }
+  
+  .dashboard-analytics-container .right .coursepost-stats .ups img {
+    width: 15px;
+    margin: 0 auto;
+  }
+  
+  .dashboard-analytics-container .right .coursepost-stats .ups-count {
+    padding: 0 5px 0 2px;
+    color: green;
+  }
+  
+  .dashboard-analytics-container .right .coursepost-stats .downs img {
+    width: 15px;
+  }
+  
+  .dashboard-analytics-container .right .coursepost-stats .downs-count {
+    padding: 0 5px 0 2px;
+    color: red;
+  }
+  
+  .dashboard-analytics-container .right .coursepost-stats .comments img {
+    width: 15px;
+  }
+  
+  .dashboard-analytics-container .right .coursepost-stats .comments-count {
+    padding: 0 5px 0 2px;
+    color: black;
+  }
+  
+  .dashboard-analytics-container .right .coursepost-stats .rate {
+    color: rgb(209, 178, 0);
+    padding: 0 3px 0 3px;
+  }
+  
+  .dashboard-analytics-container .right .coursepost-stats .rate-star img {
+    width: 15px;
+    filter: grayscale(100%);
+  }
+  
+  .dashboard-analytics-container .right .coursepost-stats .rate-star.active img {
+    width: 15px;
+    filter: grayscale(0%);
+  }
+  
+  .dashboard-analytics-container .right .coursepost-stats .reviews {
+    color: #333;
+    padding-left: 5px;
+  }
+
+  /* filter bar */
+  .filter-container {
+      display: flex;
+      flex-direction: row;
+  }
+
+  .filter-container .filter-text {
+      padding-left: 5px;
+      padding-right: 5px;
+      background-color: #e6e6e6;
+      align-items: center;
+      line-height: 30px;
+      height: 30px;
+  }
+
+  .filter-container .filter-select {
+    width: 100%;
+    height: 30px;
+    padding-left: 0.5rem;
+    margin-bottom: 0.2rem;    
+    transition: .2s;
+}
+
+  .filter-container .filter-select:hover {    
+    cursor: pointer;
+}
+
+  .filter-container .filter-select:focus {
+    border: 2px solid #db7e31;
+}
+
+.filter-container .filter-icon {
+    background-color: #e6e6e6;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    height: 30px;
+}
+
+.filter-container .filter-icon img {
+    height: 25px;
+    width: 25px;
+    position: relative;
+    top: 3px;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+
+.search-container .search-bar input[type=text] {
+    height: 31px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.filter-and-search-container {
+    display: flex;
+    flex-direction: row;
+}
+
+
 /* responsive features */
 @media only screen and (max-width: 1124px) {
     .main-content {
@@ -572,5 +740,12 @@ main {
 
     .center-box {
         width: 100%;
+    }
+
+    /* dashboard analytics */
+    .dashboard-analytics-container .right {
+        display: flex;
+        flex-direction: column;
+        line-height: inherit;
     }
 }

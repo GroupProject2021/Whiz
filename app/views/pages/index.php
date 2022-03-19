@@ -45,7 +45,7 @@
                         Are you still worrying about selecting A/L stream ? Then you should give a try on Whiz. We are here to help you in selecting the best stream taking your O/L results into consideration.
                     </div>
                     <div class="home-card-seemore">
-                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Students/OLQualified">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
+                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Students/OLqualified">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
                     </div>
                 </div>
                 <div>
@@ -59,7 +59,7 @@
                         If you are an A/L qualified student who whishes to enter to the university, Whiz can help you to select courses based on your z-score. And also you can get basic knowledge of your selected course before the university entrance.
                     </div>
                     <div class="home-card-seemore">
-                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Students/ALQualified">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
+                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Students/ALqualified">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
                     </div>
                 </div>
                 <div>
@@ -118,7 +118,7 @@
                         Private universities and Semi-government universities can register under Organization category and post about intake notices and course offerings through our Whiz platform.
                     </div>
                     <div class="home-card-seemore">
-                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Organizations/PrivateUniversity">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
+                        <a href="<?php echo URLROOT; ?>/Pages/seeMore/Organizations/University">See more <i><img class="chevron-right" src="<?php echo URLROOT.'/imgs/pages/index/chevron-right.png'; ?>" alt="" style="width: 20px; height: 20px;"></i></a>
                     </div>
                 </div>
             </section>

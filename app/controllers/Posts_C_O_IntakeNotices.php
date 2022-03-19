@@ -5,7 +5,7 @@
                 redirect('users/login');
             }
 
-            $this->postModel = $this->model('M_O_U_Notice');
+            $this->postModel = $this->model('Post_IntakeNotices');
             $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
             $this->commentModel = $this->model('Comment');     
 
@@ -15,13 +15,65 @@
         // Load notice posts
         public function index() {
             // Get posts
-            $posts = $this->postModel->getPosts($_SESSION['user_id']);
+            // $posts = $this->postModel->getPosts($_SESSION['user_id']);
 
-            $data = [
-                'posts' => $posts
-            ];
+            // $data = [
+            //     'posts' => $posts
+            // ];
 
-            $this->view('organization/university/noticePosts/index', $data);
+            // $this->view('organization/university/noticePosts/index', $data);
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                $posts_filter = trim($_POST['filter']);
+                $posts_filter_order = trim($_POST['filter-order']);
+
+                $posts_search = trim($_POST['post-search']);
+                
+                // filtering
+                if(empty($posts_search)) {
+                    $posts = $this->postModel->filterAndGetPostsToIntakeNotices($posts_filter, $posts_filter_order);
+                }
+                else {
+                    // Search bar applied
+                    $posts = $this->postModel->searchAndGetPostsToIntakeNotices($posts_search);
+                }
+    
+    
+                $data = [
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('organization/university/noticePosts/index', $data);
+            }
+            else {
+                $posts_filter = 'all';
+                $posts_filter_order = 'desc';
+
+                $posts_search = '';
+
+                // filtering
+                $posts = $this->postModel->filterAndGetPostsToIntakeNotices($posts_filter, $posts_filter_order);
+    
+    
+                $data = [
+                    'posts_filter' => $posts_filter,
+                    'posts_filter_order' => $posts_filter_order,
+
+                    'post_search' => $posts_search,
+    
+                    'posts' => $posts
+                ];
+                
+                $this->view('organization/university/noticePosts/index', $data);
+            }
         }
 
         // Add notice posts
@@ -181,7 +233,12 @@
                     // Validated
                     if($this->postModel->updatePost($data)) {
                         flash('post_message', 'Post updated');
-                        redirect('/Posts_C_O_IntakeNotices/show/$id');
+                        if($_SESSION['actor_type'] != "Admin") {
+                            redirect('/Posts_C_O_IntakeNotices/show/'.$id);
+                        }
+                        else {
+                            redirect('/C_S_Stu_To_Notices/show/'.$id);
+                        }
                     }
                     else {
                         die('Something went wrong');
@@ -199,7 +256,9 @@
 
                 // Check for owner
                 if($post->private_uni_id != $_SESSION['user_id']) {
-                    redirect('Posts_C_O_IntakeNotices/index');
+                    if($_SESSION['actor_type'] != "Admin") {
+                        redirect('Posts_C_O_IntakeNotices/index');
+                    }
                 }
 
                 $data = [
@@ -271,16 +330,16 @@
                     redirect('Posts_C_O_IntakeNotices/index');
                 }
 
-                $res1 = $this->commentModel->deleteComment($id);
-                $res2 = $this->reviewModel->deleteReview($id);
-                $res3 = $this->postModel->deleteInteraction($id);
+                // $res1 = $this->commentModel->deleteComment($id);
+                // $res2 = $this->reviewModel->deleteReview($id);
+                // $res3 = $this->postModel->deleteInteraction($id);
                 $res4 = $this->postModel->deletePost($id);
 
                 // validate and upload profile image
                 $postImage = PUBROOT.'/imgs/posts/notices/'.$post->image;
                 $res5 = deleteImage($postImage);
                 
-                if($res1 && $res2 && $res3 && $res4 && $res5) {
+                if($res4 && $res5) {
                     flash('post_message', 'Post Removed');
                     redirect('Posts_C_O_IntakeNotices/index');
                 }
