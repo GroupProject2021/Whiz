@@ -128,7 +128,7 @@
 
                 <!-- founded year -->
                 <br>
-                <input type="text" placeholder=" " name="founded_year" id="founded_year" value="<?php echo $data['founded_year']; ?>">
+                <input type="number" placeholder=" " name="founded_year" id="founded_year" value="<?php echo $data['founded_year']; ?>">
                 <label>Founded Year</label>
                 <span class="form-invalid"><?php echo $data['founded_year_err']; ?></span>
 

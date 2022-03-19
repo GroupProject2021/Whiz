@@ -27,7 +27,41 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et est praesentium, accusamus dicta quaerat hic laborum ullam obcaecati quod doloremque fugiat necessitatibus eum, fuga autem consectetur id repellendus, repudiandae eveniet?
+                        <!-- <div class="middle-left-panel"> -->
+                            <div class="dashboard-content-idle-container proGuider">
+                                <div class="left">
+                                    <div class="image">
+                                        <img src="<?php echo URLROOT.'/imgs/dashboard/course-dashboard.jpg'; ?>" alt="">
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <div class="title">Courses</div>
+                                    <div class="body">
+                                        <ul>
+                                            <li><span class="dashboard-red-bullet">*</span> By choosing Courses option, you will have the opportunity to post about courses you have offered.</li>
+                                            <li><span class="dashboard-red-bullet">*</span> Students will see your courses through these published courses.</li>
+                                        </ul>
+                                    </div>
+                                    <a href="<?php echo URLROOT;?>/Posts_C_O_CoursePosts/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
+                                </div>
+                            </div>
+                            <div class="dashboard-content-idle-container proGuider">
+                                <div class="left">
+                                    <div class="image">
+                                        <img src="<?php echo URLROOT.'/imgs/dashboard/notice.png'; ?>" alt="">
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <div class="title">Intake Notices</div>
+                                    <div class="body">
+                                        <ul>
+                                            <li><span class="dashboard-red-bullet">*</span> This option will be published details of your course intakes for a month by doing payment.</li>
+                                            <li><span class="dashboard-red-bullet">*</span> Students will see your notices through these published intake notices.</li>
+                                        </ul>
+                                    </div>
+                                    <a href="<?php echo URLROOT;?>/Posts_C_O_IntakeNotices/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
+                                </div>
+                            </div>
                     </div>
 
                     <!-- BOTTOM PANEL -->

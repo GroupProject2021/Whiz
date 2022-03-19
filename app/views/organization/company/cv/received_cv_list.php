@@ -26,7 +26,7 @@
                         
                         <table class="gov-course-table">
                             <tr>                                
-                                <th>Student</th>                                
+                                <th>Applicant</th>                                
                                 <th colspan="2">CV</th>                                
                                 <th></th>
                             </tr>

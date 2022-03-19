@@ -87,12 +87,13 @@
         }
 
         public function updatePost($data) {
-            $this->db->query('UPDATE Posts SET image = :image, title = :job_name, body = :job_content WHERE id = :id');
+            $this->db->query('UPDATE Posts SET image = :image, title = :job_name, body = :job_content, capacity = :capacity WHERE id = :id');
             // bind values
             $this->db->bind(":image", $data['image_name']);            
             $this->db->bind(":id", $data['postid']);
             $this->db->bind(":job_name", $data['job_name']);
             $this->db->bind(":job_content", $data['job_content']);
+            $this->db->bind(":capacity", $data['capacity']);
  
 
             // Execute

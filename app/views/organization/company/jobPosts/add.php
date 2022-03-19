@@ -49,7 +49,7 @@
                                 <br>
                                 <hr>
                                 <div class="interaction-detail">
-                                    Maximum enroll capacity <input type="number" name="capacity" id="capacity" placeholder="capacity" min=0>
+                                    Maximum applicants capacity <input type="number" name="capacity" id="capacity" placeholder="capacity" min=0>
                                 </div>
                                 <button type="submit" class="post-creator-submit">PAY FOR VACANCY</button>
                             </div>

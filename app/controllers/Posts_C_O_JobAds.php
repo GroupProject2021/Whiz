@@ -95,7 +95,7 @@
                 }
                 else {
                     // Load view with errors
-                    $this->view('organization/company/jobPosts/index', $data);
+                    $this->view('organization/company/jobPosts/add', $data);
                 }
             }
             else {
@@ -137,10 +137,12 @@
                     'job_name' => trim($_POST['job_name']),
                     'job_content' => trim($_POST['job_content']),
                     'com_id' => $_SESSION['user_id'],
+                    'capacity' => trim($_POST['capacity']),
                     
                     'image_err' => '',
                     'job_name_err' => '',
                     'job_content_err' => '',
+                    'capacity_err' => '',
                     'isImageRemoved' => $_POST['isImageRemoved']
                 ];
 
@@ -180,14 +182,21 @@
                     $data['job_name_err'] = 'Please enter job title';
                 }
 
+                // Validate capacity
+                if(empty($data['capacity'])) {
+                    $data['capacity_err'] = 'Please enter capacity';
+                }
+                else if($data['capacity'] < $post->applied) {
+                    $data['capacity_err'] = 'Please enter a value greater than already applied count';
+                }
+
                 // Validate content
                 if(empty($data['job_content'])) {
                     $data['job_content_err'] = 'Please enter job content';
                 }
-
                 
                 // Make sure no errors
-                if(empty($data['image_err']) && empty($data['job_name_err']) && empty($data['job_content_err'])) {
+                if(empty($data['image_err']) && empty($data['job_name_err']) && empty($data['job_content_err']) && empty($data['capacity_err'])) {
                     // Validated
                     if($this->postModel->updatePost($data)) {
                         flash('post_message', 'Job Vacancy updated');
@@ -219,10 +228,12 @@
                     'job_name' => $post->jobName,
                     'job_content' => $post->jobContent, 
                     'com_id' => $_SESSION['user_id'],
+                    'capacity' => $post->capacity,
                         
                     'image_err' => '',
                     'job_name_err' => '',
                     'job_content_err' => '',
+                    'capacity_err' => ''
                 ];
             }
     

@@ -18,7 +18,7 @@
                 <div class="wrapper">
                     <!-- TOP PANEL -->
                     <div class="top-panel">
-                        <h1>Enrollments</h1>
+                        <h1>Vaccants</h1>
                     </div>
                     <br>
                     <!-- MIDDLE PANEL -->
@@ -26,9 +26,9 @@
                         <table class="gov-course-table">
                             <tr>
                                 
-                                <th>Post</th>
+                                <th>Vaccancy</th>
                                 
-                                <th colspan="2">Enrolled Student<br>Count</th>
+                                <th colspan="2">Applicants<br>Count</th>
                                 
                                 <th></th>
                             </tr>

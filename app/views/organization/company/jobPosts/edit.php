@@ -50,6 +50,9 @@
                                 </div>
                                 <br>
                                 <hr>
+                                <div class="interaction-detail">
+                                    Maximum applicants capacity <input type="number" name="capacity" id="capacity" placeholder="capacity" min=0 value= <?php echo $data['capacity']; ?>>
+                                </div>
                                 <button type="submit" class="post-creator-submit">Save</button>
                             </div>
                         </form>

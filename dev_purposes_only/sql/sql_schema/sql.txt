@@ -7939,7 +7939,7 @@ CREATE TABLE Notifications (
 	receiver_id INT,
 	notification VARCHAR(255),
 	send_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY(notification_id),
+	PRIMARY KEY(notification_id),                                            
 	FOREIGN KEY(sender_id) REFERENCES Users(id),
 	FOREIGN KEY(receiver_id) REFERENCES Users(id)
 );
