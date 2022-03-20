@@ -161,6 +161,22 @@ class M_S_Stu_To_Company {
 
         return $row->cv_id;
     }
+
+    public function isCVExist($userId) {
+        $this->db->query('SELECT * FROM CV WHERE user_id = :user_id'); // this is a prepared statement
+        // bind value
+        $this->db->bind(":user_id", $userId);
+
+        $row = $this->db->single();
+
+        // Check row - return true if email exists. Because then rowCount is not 0
+        if($this->db->rowCount() > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
 
 ?>

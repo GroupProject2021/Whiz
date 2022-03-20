@@ -40,6 +40,10 @@
     --btn9-color: #FBFBFB;
 }
 
+.upper-button-area {
+    flex-direction: row;
+}
+
 .notice-btn {
     background-color: #00B74A;
     color: var(--btn2-color);

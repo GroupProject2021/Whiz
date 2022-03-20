@@ -27,19 +27,16 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <div>
+                        <div class="upper-button-area">
                             <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList"><button class="btn3">Government courses</button></a>
-                            <a href="<?php echo URLROOT; ?>/C_S_Course/govUniversityList"><button class="btn1">Government Universities</button></a>
-                        </div>
-                        <br>
-                        <div>
-                            
+                            <a href="<?php echo URLROOT; ?>/C_S_Course/govUniversityList"><button class="btn1">Government Universities</button></a>                                
                             <?php if($_SESSION['specialized_actor_type'] == 'AL qualified'): ?>
                                 <a href="<?php echo URLROOT.'/C_S_Course/getAdmissibleGovCourseList/'.$_SESSION['user_id']; ?>"><button class="btn2">Show my Government courses</button></a>
                             <?php else: ?>
                                 <a href="" onclick="alert('Upgrade to AL Qualified to unlock this feature')"><button class="btn2 disabled">Show my Government courses</button></a>
-                            <?php endif; ?>                        
+                            <?php endif; ?>
                         </div>
+
                         <br>
                         <div>
                                 <table class="gov-course-table">

@@ -125,7 +125,7 @@
                             <br>
                             <div class="sessionlink-container">
                                 <div class="title">Session Link</div>
-                                <div class="body">Join with the session via <a href="<?php echo $data['session_link']->body; ?>"><?php echo $data['session_link']->body; ?></a></div>
+                                <div class="body">Join with the session via <a href="<?php echo $data['session_link']->body; ?>" target="_blank"><?php echo $data['session_link']->body; ?></a></div>
                                 <div class="schedule">
                                     <div class="date"><b>Date: </b><?php echo $data['session_link']->date; ?></div>
                                     <div class="time"><b>Time: </b><?php echo $data['session_link']->time; ?></div>

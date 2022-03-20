@@ -78,7 +78,13 @@
                                         <div class="interation"> 
                                    <?php endif; ?>
                                         <?php if($_SESSION['specialized_actor_type'] == 'Undergraduate Graduate'): ?>
-                                       <button id="applyBtn">ENROLL</button>
+                                            <?php if($data['is_cv_exists']):?>
+                                                <button id="applyBtn">ENROLL</button>
+                                            <?php else: ?>
+                                                <button>
+                                                    <a href="<?php echo URLROOT; ?>/C_S_CV/index" class="card-link">CV Required! Generate your CV</a>
+                                                </button>    
+                                            <?php endif; ?>
                                        <?php endif; ?>
                                    </div>
                                </div>

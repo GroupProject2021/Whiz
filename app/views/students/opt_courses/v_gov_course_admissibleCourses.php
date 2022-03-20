@@ -29,13 +29,10 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <div>
+                        <div class="upper-button-area">
                             <a href="<?php echo URLROOT; ?>/C_S_Course/govCourseList"><button class="btn3">Government courses</button></a>
                             <a href="<?php echo URLROOT; ?>/C_S_Course/govUniversityList"><button class="btn1">Government Universities</button></a>
-                        </div>
-                        <br>
-                        <div>
-                            <a href="<?php echo URLROOT.'/C_S_Course/getRecommendedGovCourseList/'.$_SESSION['user_id']; ?>"><button class="btn3">Recommend Government courses</button></a>
+                            <a href="<?php echo URLROOT.'/C_S_Course/getRecommendedGovCourseList/'.$_SESSION['user_id']; ?>"><button class="btn2">Recommend Government courses</button></a>
                         </div>
                         <br>
 

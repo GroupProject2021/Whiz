@@ -25,8 +25,8 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <a href="<?php echo URLROOT; ?>/CommunityThreads/add"><button class="btn1">Create Thread</button></a>
-                        <div>
+                        <div class="upper-button-area">
+                            <a href="<?php echo URLROOT; ?>/CommunityThreads/add"><button class="btn1">Create Thread</button></a>
                             <a href="<?php echo URLROOT; ?>/CommunityThreads/myThreads/<?php echo $_SESSION['user_id']; ?>"><button class="btn3">My threads</button></a>
                         </div>
 

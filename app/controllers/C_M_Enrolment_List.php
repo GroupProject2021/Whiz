@@ -289,6 +289,8 @@ class C_M_Enrolment_List extends Controller{
             $data = [
                 'id' => $link->id,
                 'post_id' => $postId,
+                'date' => $link->date,
+                'time' => $link->time,
                 'body' => $link->body,
                 'title' => $post->title,
 

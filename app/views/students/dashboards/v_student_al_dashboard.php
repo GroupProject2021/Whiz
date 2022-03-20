@@ -25,53 +25,6 @@
                     <div class="middle-panel">
                         <div class="middle-left-panel">      
                             <div class="dashboard-title">My Enrollments</div>
-                            <!-- Company enrollments -->
-                            <?php if(empty($data['job_enrollments'])):?>
-                                <!-- empty - show idle -->
-                                <div class="dashboard-content-idle-container job">
-                                    <div class="left">
-                                        <div class="image">
-                                            <img src="<?php echo URLROOT.'/imgs/dashboard/job-dashboard.jpg'; ?>" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="right">
-                                        <div class="title">Jobs</div>
-                                        <div class="body">
-                                            <ul>
-                                                <li><span class="dashboard-red-bullet">*</span> You can view job advertisements published by companies by choosing Jobs option.</li>
-                                            </ul>
-                                        </div>
-                                        <a href="<?php echo URLROOT;?>/C_S_Stu_To_Company/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
-                                    </div>
-                                </div>
-                            <?php else: ?>                                
-                              <div class="dashboard-content-title">Jobs</div>
-                              <div class="dashboard-content-container"><?php echo empty($data['job_enrollments']); ?>
-                                <?php foreach($data['job_enrollments'] as $job_enroll): ?>
-                                <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/show/<?php echo $job_enroll->post_id; ?>" class="card-link">
-                                <div class="enrollment-container">
-                                    <div class="image">
-                                        <img src="<?php echo URLROOT.'/imgs/posts/jobads/'.$job_enroll->image; ?>" alt="">
-                                    </div>
-                                    <div class="right">
-                                        <div class="up">
-                                            <div class="title"><?php echo $job_enroll->title; ?></div>
-                                            <div class="applied-date"><?php echo convertedToReadableTimeFormat($job_enroll->applied_date); ?></div>
-                                        </div>
-                                        <div class="down">
-                                            <div class="capacity bar-company">
-                                                <progress max="100" value="<?php if($job_enroll->capacity != 0){ echo ($job_enroll->applied / $job_enroll->capacity) * 100;} else {echo 0;} ?>" id="prgBar"></progress>
-                                            </div>
-                                            <div class="capacity-text">
-                                                Applied: <?php echo $job_enroll->applied; ?>/ <?php echo $job_enroll->capacity; ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </a>
-                                <?php endforeach; ?>
-                              </div>
-                            <?php endif; ?>
 
                             <!-- Professional guider enrollments -->
                          <?php if(empty($data['prof_guider_enrollments'])):?>

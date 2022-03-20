@@ -153,6 +153,8 @@
             
             $avgRate = number_format((float)$avgRate, 1, '.', '');
 
+            $isCVExists = $this->stuToCompanyModel->isCVExist($_SESSION['user_id']);
+
             $data = [
                 'post' => $post,
                 'user' => $user,
@@ -168,7 +170,9 @@
                 'rate3' => $rate3Precentage,
                 'rate4' => $rate4Precentage,
                 'rate5' => $rate5Precentage,
-                'avg_rate' => $avgRate
+                'avg_rate' => $avgRate,
+
+                'is_cv_exists' => $isCVExists
             ];
 
             $this->view('students/opt_jobs/v_jobs_advertisement_viewMore', $data);            

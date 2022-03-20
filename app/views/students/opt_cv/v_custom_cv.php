@@ -29,7 +29,7 @@
                     <div class="middle-panel-single">
                         
                         <form action="<?php echo URLROOT; ?>/C_S_CV/uploadCustomCV" method="post" enctype="multipart/form-data">
-                            <p>Upload your CV here</p>
+                            <p>Upload your CV here. You can upload your own CV or you can generate a CV by using Whiz, and then upload it here. <a href="<?php echo URLROOT; ?>/C_S_CV/index">Click here</a> to generate your own CV.</p>
                             <br>
                             <div class="file-upload-area">
                                 <?php //require APPROOT.'/views/inc/components/fileUpload/fileUpload.php'?>   
