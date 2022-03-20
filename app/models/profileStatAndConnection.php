@@ -137,6 +137,15 @@
             return $results;
         }
 
-        
+        public function getActorType($id) {
+            $this->db->query("SELECT actor_type FROM Users WHERE id = :id");
+
+            // bind values        
+            $this->db->bind(":id", $id);
+
+            $row = $this->db->single();
+
+            return $row->actor_type;
+        }
     }
 ?>

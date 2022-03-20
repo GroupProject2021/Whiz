@@ -137,19 +137,21 @@
 
             if($this->profileStatAndConnectionModel->removeFollower($me, $id)) {
                 // nothing for now
-                // switch($_SESSION['actor_type']) {
-                //     case 'Student':
-                //         redirect('C_S_Settings/settings/'.$id.'/'.$me);
-                //         break;
 
-                //     case 'Mentor':
-                //         redirect('C_M_Settings/settings/'.$id.'/'.$me);
-                //         break;
+                $removed_follower_actor_type = $this->profileStatAndConnectionModel->getActorType($id);
+                switch($removed_follower_actor_type) {
+                    case 'Student':
+                        redirect('C_S_Settings/settings/'.$id.'/'.$me);
+                        break;
 
-                //     case 'Organization':
-                //         redirect('C_O_Settings/settings/'.$id.'/'.$me);
-                //         break;
-                // }
+                    case 'Mentor':
+                        redirect('C_M_Settings/settings/'.$id.'/'.$me);
+                        break;
+
+                    case 'Organization':
+                        redirect('C_O_Settings/settings/'.$id.'/'.$me);
+                        break;
+                }
 
                 return print_r($this->countFollowers($id));
             }
