@@ -357,15 +357,6 @@
                         $this->db->query("SELECT * FROM v_posts_notices ORDER BY comment_count DESC LIMIT 10");
                     }
                     break;
-
-                case "reviews":
-                    if($order == "asc"){
-                        $this->db->query("SELECT * FROM v_posts_notices ORDER BY review_count ASC LIMIT 10");
-                    }
-                    else {
-                        $this->db->query("SELECT * FROM v_posts_notices ORDER BY review_count DESC LIMIT 10");
-                    }
-                    break;
             }
 
             $results = $this->db->resultSet();
@@ -496,6 +487,18 @@
             else {
                 return false;
             }
+        }
+
+
+        public function getPostIdByImageTitleAndBody($data) {
+            $this->db->query('SELECT id FROM Posts WHERE image = :image AND title = :title AND body = :body');
+            $this->db->bind(':image', $data['image_name']);
+            $this->db->bind(':title', $data['notice_name']);
+            $this->db->bind(':body', $data['notice_content']);
+
+            $row = $this->db->single();
+
+            return $row->id;
         }
     }
 ?>

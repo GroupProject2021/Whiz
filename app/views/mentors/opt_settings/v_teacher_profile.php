@@ -94,7 +94,10 @@
                                     <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$data['user']->id; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
                                 </div>
                                 <hr>
-                                <!-- beginner details -->
+
+                        <!-- general details -->
+                        <?php if(!$data['is_pri_gen_details_locked'] || $data['user']->id == $_SESSION['user_id']): ?>
+                                <!-- general details -->
                         <?php if($data['user']->specialized_actor_type == 'Teacher'): ?>
                                 <div class="division">
                                     <div class="division-name">Basic Details</div>
@@ -133,9 +136,40 @@
                                     
                                 </div>
                         <?php endif; ?>
+                        <?php else: ?>
+                                <!-- locked general details -->
+                                <div class="division">
+                                    <div class="division-name">General details</div>
+                                    <div></div>
+                                </div>
+                                <div class="user-locked-profile">
+                                    <div class="left">
+                                        <img src="<?php echo URLROOT.'/imgs/pages/settings/shield-icon.png'?>" alt="">
+                                    </div>
+                                    <div class="right">
+                                        <div><b>
+                                            <?php echo $data['first_name'].' '.$data['last_name'];?> locked 
+                                            <?php if($data['gender'] == 'Male'): ?>
+                                            his
+                                            <?php else: ?>
+                                            her
+                                            <?php endif; ?>
+                                            profile
+                                        </b></div>
+                                        <div>Only 
+                                        <?php if($data['gender'] == 'Male'): ?>
+                                            his
+                                            <?php else: ?>
+                                            her
+                                            <?php endif; ?>
+                                        following people will be able to see this profile's general detials.</div>
+                                    </div>
+                                </div>
+                        <?php endif; ?>
 
-                        <!-- !$data['is_pri_soc_details_locked'] || -->
-                        <?php if( $data['user']->id == $_SESSION['user_id']): ?>
+                        <!-- social platform details -->
+                        <?php if(!$data['is_pri_soc_details_locked'] || $data['user']->id == $_SESSION['user_id']): ?>
+                        <!-- social details -->
                             <?php if($data['isSocialDataExist']):?>
                                 <div class="division">
                                     <div class="division-name">Social platform details</div>
@@ -209,8 +243,38 @@
                                 </div>
                                 <?php endif; ?>
                             <?php endif; ?>
+                            <?php else: ?>
+                                <!-- locked social details -->
+                                <div class="division">
+                                    <div class="division-name">Social platform details</div>
+                                    <div></div>
+                                </div>
+                                <div class="user-locked-profile">
+                                    <div class="left">
+                                        <img src="<?php echo URLROOT.'/imgs/pages/settings/shield-icon.png'?>" alt="">
+                                    </div>
+                                    <div class="right">
+                                        <div><b>
+                                            <?php echo $data['first_name'].' '.$data['last_name'];?> locked 
+                                            <?php if($data['gender'] == 'Male'): ?>
+                                            his
+                                            <?php else: ?>
+                                            her
+                                            <?php endif; ?>
+                                            profile
+                                        </b></div>
+                                        <div>Only 
+                                        <?php if($data['gender'] == 'Male'): ?>
+                                            his
+                                            <?php else: ?>
+                                            her
+                                            <?php endif; ?>
+                                        following people will be able to see this profile's social detials.</div>
+                                    </div>
+                                </div>
                         <?php endif; ?>
                         </div>
+                        
 
                         <br><hr>
                         <div class="division">

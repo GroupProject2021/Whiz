@@ -29,7 +29,6 @@
                         <br>
 
                     <!-- filter area -->
-                    <?php if(!empty($data['intake_notices_amount'])):?>
                         <form action="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/index/" method="post">
                         <div class="filter-and-search-container">
                             <div class="filter-container">
@@ -58,41 +57,6 @@
                                             <option value="comments" selected>Comments</option>
                                         <?php else: ?>
                                             <option value="comments">Comments</option>
-                                        <?php endif; ?>
-                                        <?php if($data['posts_filter'] == "rate0"): ?>
-                                            <option value="rate0" selected>No Star</option>
-                                        <?php else: ?>
-                                            <option value="rate0">No Star</option>
-                                        <?php endif; ?>
-                                        <?php if($data['posts_filter'] == "rate1"): ?>
-                                            <option value="rate1" selected>1 Star</option>
-                                        <?php else: ?>
-                                            <option value="rate1">1 Star</option>
-                                        <?php endif; ?>
-                                        <?php if($data['posts_filter'] == "rate2"): ?>
-                                            <option value="rate2" selected>2 Star</option>
-                                        <?php else: ?>
-                                            <option value="rate2">2 Star</option>
-                                        <?php endif; ?>
-                                        <?php if($data['posts_filter'] == "rate3"): ?>
-                                            <option value="rate3" selected>3 Star</option>
-                                        <?php else: ?>
-                                            <option value="rate3">3 Star</option>
-                                        <?php endif; ?>
-                                        <?php if($data['posts_filter'] == "rate4"): ?>
-                                            <option value="rate4" selected>4 Star</option>
-                                        <?php else: ?>
-                                            <option value="rate4">4 Star</option>
-                                        <?php endif; ?>
-                                        <?php if($data['posts_filter'] == "rate5"): ?>
-                                            <option value="rate5" selected>5 Star</option>
-                                        <?php else: ?>
-                                            <option value="rate5">5 Star</option>
-                                        <?php endif; ?>
-                                        <?php if($data['posts_filter'] == "reviews"): ?>
-                                            <option value="reviews" selected>Reviews</option>
-                                        <?php else: ?>
-                                            <option value="reviews">Reviews</option>
                                         <?php endif; ?>
                                     </select>
                                 </div>
@@ -126,7 +90,6 @@
                             </div>
                         </div>
                         </form>
-                    <?php endif; ?>
                     <br>
 
                     <div class="card-flex-box">

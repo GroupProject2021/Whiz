@@ -47,7 +47,7 @@
                                     <span class="form-invalid"><?php echo $data['provide_degree_err']; ?></span>
                                 </div>
                                 <div class="post-creator-subtitle">
-                                    <input type="text" name="course_fee" id="course_fee" autocomplete="off" placeholder="Course Fee" value="<?php echo $data['course_fee']; ?>">
+                                    <input type="number" name="course_fee" id="course_fee" autocomplete="off" placeholder="Course Fee" value="<?php echo $data['course_fee']; ?>">
                                     <span class="form-invalid"><?php echo $data['course_fee_err']; ?></span>
                                 </div>
                                 <hr>

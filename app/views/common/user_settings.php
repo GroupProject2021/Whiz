@@ -83,7 +83,7 @@
                         <form method="post">
                         <table class="acc-profile-locking">
                             <tr>
-                                <td class="left">Hide acdemic details</td>
+                                <td class="left">Hide general details</td>
                                 <td class="right">
                                     <?php if($data['isGenDetailsLocked']):?>
                                     <div id="btn1" class="toggle active">

@@ -3,6 +3,7 @@
 class C_O_Settings extends Controller {
     public function __construct() {
         $this->settingsModel = $this->model('M_O_Setting');
+        $this->accSettingsModel = $this->model('Account_Setting');
         $this->commonModel = $this->model('Common');
 
         $this->coursePostsPostModel = $this->model('Post_CoursePosts');
@@ -13,7 +14,6 @@ class C_O_Settings extends Controller {
      public function settings($id, $viewer) {
         // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
         $userData = $this->settingsModel->getUserDetails($id);
-        $this->accSettingsModel = $this->model('Account_Setting');
 
         // settings redirection
         profileRedirect('Organization', $userData->actor_type, $id);
@@ -65,6 +65,8 @@ class C_O_Settings extends Controller {
                     'followerCount' => $followerCount,                    
                     'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
+                    'first_name' => $organizationData->first_name,
+                    'last_name' => $organizationData->last_name,
                     'address' => $organizationData->address,
                     'email' => $organizationData->email,
                     'phn_no' => $organizationData->phone_no,
@@ -78,6 +80,12 @@ class C_O_Settings extends Controller {
                     'rate' => $uniData->graduate_job_rate,
                     'descrip' => $uniData->description,
                     'type' => $uniData->uni_type,
+
+                    'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
+                    'socialData' => $socialData,
+
+                    'is_pri_gen_details_locked' => $isGenDetailsLocked,
+                    'is_pri_soc_details_locked' => $isSocDetailsLocked,
 
                     'is_already_reported' => $isAlreadyReported,
 
@@ -97,6 +105,8 @@ class C_O_Settings extends Controller {
                     'followerCount' => $followerCount,                    
                     'followingCount' => $followingCount,
                     'isAlreadyFollow' => $isAlreadyFollow,
+                    'first_name' => $organizationData->first_name,
+                    'last_name' => $organizationData->last_name,
                     'address' => $organizationData->address,
                     'email' => $organizationData->email,
                     'phn_no' => $organizationData->phone_no,
@@ -109,6 +119,12 @@ class C_O_Settings extends Controller {
                     'registered' => $comData->registered,
                     'overview' => $comData->overview,
                     'services' => $comData->services,
+
+                    'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
+                    'socialData' => $socialData,
+
+                    'is_pri_gen_details_locked' => $isGenDetailsLocked,
+                    'is_pri_soc_details_locked' => $isSocDetailsLocked,
 
                     'is_already_reported' => $isAlreadyReported,
 
@@ -581,6 +597,197 @@ class C_O_Settings extends Controller {
         $me = $_SESSION['user_id'];
 
         return $this->settingsModel->isAlreadyFollow($me, $id);
+    }
+
+    // add social profile links
+    public function isSocialPlatformDataExist($id) {
+        $result = $this->settingsModel->isSocialPlatformDataExist($id);
+
+        return $result;
+    }
+
+    public function addSocialProfileDetails($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Organization'], ['University', 'Company']);
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Sanetize the POST array
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $data = [
+                'facebook' => trim($_POST['facebook']),
+                'linkedin' => trim($_POST['linkedin']),
+                'twitter' => trim($_POST['twitter']),
+                'instagram' => trim($_POST['instagram']),
+                'medium' => trim($_POST['medium']),
+                'printerest' => trim($_POST['printerest']),
+                'youtube' => trim($_POST['youtube']),
+                'reddit' => trim($_POST['reddit']),
+
+                'facebook_err' => '',
+                'linkedin_err' => '',
+                'twitter_err' => '',
+                'instagram_err' => '',
+                'medium_err' => '',
+                'printerest_err' => '',
+                'youtube_err' => '',
+                'reddit_err' => ''
+            ];
+
+            // Validate gender
+            if(empty($data['facebook_err'])) {
+                
+            }
+
+            // Validate date of birth
+            if(empty($data['linkedin_err'])) {
+                
+            }
+
+            // Validate address
+            if(empty($data['twitter_err'])) {
+                
+            }
+
+            // Validate phone number
+            if(empty($data['instagram_err'])) {
+                
+            }
+
+            // Make sure no errors
+            if(empty($data['facebook_err']) && empty($data['linkedin_err']) && empty($data['twitter_err']) && empty($data['instagram_err'])) {
+                // Validated
+                if($this->settingsModel->addSocialPlatformData($id, $data)) {
+                    flash('settings_message', 'Social profile data added');
+                    //$this->updateUserSessions($_SESSION['user_id']);
+                    
+                    redirect('C_O_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id']);
+                }
+                else {
+                    die('Something went wrong');
+                }
+            }
+            else {
+                // Load view with errors
+                $this->view('organization/opt_settings/v_add_socialdata', $data);
+            }
+        }
+        else {
+            $data = [
+                'facebook' => '',                
+                'linkedin' => '',
+                'twitter' => '',
+                'instagram' => '',
+                'medium' => '',                
+                'printerest' => '',
+                'youtube' => '',
+                'reddit' => '',
+
+                'facebook_err' => '',
+                'linkedin_err' => '',
+                'twitter_err' => '',
+                'instagram_err' => '',
+                'medium_err' => '',
+                'printerest_err' => '',
+                'youtube_err' => '',
+                'reddit_err' => ''
+            ];
+        }
+
+        $this->view('organization/opt_settings/v_add_socialdata', $data);
+    }
+
+    public function updateSocialProfileDetails($id) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Organization'], ['University', 'Company']);
+        
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Sanetize the POST array
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $data = [
+                'facebook' => trim($_POST['facebook']),
+                'linkedin' => trim($_POST['linkedin']),
+                'twitter' => trim($_POST['twitter']),
+                'instagram' => trim($_POST['instagram']),
+                'medium' => trim($_POST['medium']),
+                'printerest' => trim($_POST['printerest']),
+                'youtube' => trim($_POST['youtube']),
+                'reddit' => trim($_POST['reddit']),
+
+                'facebook_err' => '',
+                'linkedin_err' => '',
+                'twitter_err' => '',
+                'instagram_err' => '',
+                'medium_err' => '',
+                'printerest_err' => '',
+                'youtube_err' => '',
+                'reddit_err' => ''
+            ];
+
+            // Validate gender
+            if(empty($data['facebook_err'])) {
+                
+            }
+
+            // Validate date of birth
+            if(empty($data['linkedin_err'])) {
+                
+            }
+
+            // Validate address
+            if(empty($data['twitter_err'])) {
+                
+            }
+
+            // Validate phone number
+            if(empty($data['instagram_err'])) {
+                
+            }
+
+            // Make sure no errors
+            if(empty($data['facebook_err']) && empty($data['linkedin_err']) && empty($data['twitter_err']) && empty($data['instagram_err'])) {
+                // Validated
+                if($this->settingsModel->updateSocialPlatformData($id, $data)) {
+                    flash('settings_message', 'Social profile data updated');
+                    //$this->updateUserSessions($_SESSION['user_id']);
+                    
+                    redirect('C_O_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id']);
+                }
+                else {
+                    die('Something went wrong');
+                }
+            }
+            else {
+                // Load view with errors
+                $this->view('organization/opt_settings/edit/v_edit_socialdata', $data);
+            }
+        }
+        else {
+            $socialData = $this->settingsModel->getSocialPlatformData($id);
+
+            $data = [
+                'facebook' => $socialData->facebook,                
+                'linkedin' => $socialData->linkedin,   
+                'twitter' => $socialData->twitter,   
+                'instagram' => $socialData->instagram,   
+                'medium' => $socialData->medium,                
+                'printerest' => $socialData->printerest,   
+                'youtube' => $socialData->youtube,   
+                'reddit' => $socialData->reddit,   
+
+                'facebook_err' => '',
+                'linkedin_err' => '',
+                'twitter_err' => '',
+                'instagram_err' => '',
+                'medium_err' => '',
+                'printerest_err' => '',
+                'youtube_err' => '',
+                'reddit_err' => ''
+            ];
+        }
+
+        $this->view('organization/opt_settings/edit/v_edit_socialdata', $data);
     }
 }
 

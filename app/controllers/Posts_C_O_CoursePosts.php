@@ -148,11 +148,9 @@
                 && empty($data['provide_degree_err']) && empty($data['course_fee_err'])) {
                     // Validated
                     if($this->postModel->addPost($data)) {
-                        // flash('post_message', 'Post added');
-                        // redirect('Posts_C_O_CoursePosts/index');
+                        flash('post_message', 'Post added');
+                        redirect('Posts_C_O_CoursePosts/index');
 
-                        $_SESSION['post_to_be_payed'] = $this->postModel->getPostIdByImageTitleAndBody($data);
-                        redirect('Payments/payment');
                     }
                     else {
                         die('Something went wrong');

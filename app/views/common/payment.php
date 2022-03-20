@@ -31,8 +31,8 @@
                                 <?php 
                                     switch($_SESSION['specialized_actor_type']) {
                                         case 'University':
-                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_O_CoursePosts/index">';
-                                            echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_O_CoursePosts/add">';
+                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_O_IntakeNotices/index">';
+                                            echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_O_IntakeNotices/add">';
                                             break;
 
                                         case 'Company':

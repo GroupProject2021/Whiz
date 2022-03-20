@@ -82,7 +82,10 @@
                                 
 
                                 <!-- university details -->
-                        <?php if($data['user']->specialized_actor_type == 'University' ): ?>
+                                
+                    <?php if($data['user']->specialized_actor_type == 'University' ): ?>
+                            <!-- general details -->
+                    <?php if(!$data['is_pri_gen_details_locked'] || $data['user']->id == $_SESSION['user_id']): ?>
                                 <div class="division">
                                     <div class="division-name">University details</div>
                                     <?php if($data['user']->id == $_SESSION['user_id']): ?>
@@ -137,10 +140,32 @@
                                         <div class="text"><?php echo $data['descrip'];?></div>    
                                     </div>
                                 </div>
+                        <?php else: ?>
+                                <!-- locked general details -->
+                                <div class="division">
+                                    <div class="division-name">General details</div>
+                                    <div></div>
+                                </div>
+                                <div class="user-locked-profile">
+                                    <div class="left">
+                                        <img src="<?php echo URLROOT.'/imgs/pages/settings/shield-icon.png'?>" alt="">
+                                    </div>
+                                    <div class="right">
+                                        <div><b>
+                                            <?php echo $data['first_name'].' '.$data['last_name'];?> locked 
+                                            its profile
+                                        </b></div>
+                                        <div>Only 
+                                        its following people will be able to see this profile's general detials.</div>
+                                    </div>
+                                </div>
                         <?php endif; ?>
+                    <?php endif; ?>
 
                         <!-- company details -->
-                        <?php if($data['user']->specialized_actor_type == 'Company' ): ?>
+                    <?php if($data['user']->specialized_actor_type == 'Company' ): ?>
+                    <!-- general details -->
+                    <?php if(!$data['is_pri_gen_details_locked'] || $data['user']->id == $_SESSION['user_id']): ?>
                                 <div class="division">
                                     <div class="division-name">Company details</div>
                                     <?php if($data['user']->id == $_SESSION['user_id']): ?>
@@ -195,8 +220,122 @@
                                         <div class="text"><?php echo $data['services'];?></div>
                                     </div>
                                 </div>
+                        <?php else: ?>
+                                <!-- locked general details -->
+                                <div class="division">
+                                    <div class="division-name">General details</div>
+                                    <div></div>
+                                </div>
+                                <div class="user-locked-profile">
+                                    <div class="left">
+                                        <img src="<?php echo URLROOT.'/imgs/pages/settings/shield-icon.png'?>" alt="">
+                                    </div>
+                                    <div class="right">
+                                        <div><b>
+                                            <?php echo $data['first_name'].' '.$data['last_name'];?> locked 
+                                            its profile
+                                        </b></div>
+                                        <div>Only its
+                                        following people will be able to see this profile's general detials.</div>
+                                    </div>
+                                </div>
                         <?php endif; ?>
-                         
+                    <?php endif; ?>
+
+                        <!-- social platform details -->
+                        <?php if(!$data['is_pri_soc_details_locked'] || $data['user']->id == $_SESSION['user_id']): ?>
+                            <?php if($data['isSocialDataExist']):?>
+                                <div class="division">
+                                    <div class="division-name">Social platform details</div>
+                                    <?php if($data['user']->id == $_SESSION['user_id']): ?>
+                                    <div class="editable">
+                                        <a href="<?php echo URLROOT.'/C_O_Settings/updateSocialProfileDetails/'.$_SESSION['user_id']; ?>"><button class="btn1-small">Edit</button></a>
+                                    </div>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="beginner-detials">
+                                    <?php if($data['socialData']->facebook != NULL) :?>
+                                    <div class="Facebook">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/facebook-icon.png'; ?>" alt="">Facebook</div>
+                                        <div class="text"><?php echo $data['socialData']->facebook;?></div>                                        
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->linkedin != NULL) :?>
+                                    <div class="LinkedIn">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/linkedin-icon.png'; ?>" alt="">LinkedIn</div>
+                                        <div class="text"><?php echo $data['socialData']->linkedin;?></div>
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->twitter != NULL) :?>
+                                    <div class="Twitter">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/twitter-icon.png'; ?>" alt="">Twitter</div>
+                                        <div class="text"><?php echo $data['socialData']->twitter;?></div>                                        
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->instagram != NULL) :?>
+                                    <div class="Instagram">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/instagram-icon.png'; ?>" alt="">Instagram</div>
+                                        <div class="text"><?php echo $data['socialData']->instagram;?></div>
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->medium != NULL) :?>
+                                    <div class="Medium">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/medium-icon.png'; ?>" alt="">Medium</div>
+                                        <div class="text"><?php echo $data['socialData']->medium;?></div>
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->printerest != NULL) :?>
+                                    <div class="Printerest">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/printerest-icon.png'; ?>" alt="">Printerest</div>
+                                        <div class="text"><?php echo $data['socialData']->printerest;?></div>
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->youtube != NULL) :?>
+                                    <div class="Youtube">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/youtube-icon.png'; ?>" alt="">Youtube</div>
+                                        <div class="text"><?php echo $data['socialData']->youtube;?></div>
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php if($data['socialData']->reddit != NULL) :?>
+                                    <div class="Reddit">
+                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/socialIcons/reddit-icon.png'; ?>" alt="">Reddit</div>
+                                        <div class="text"><?php echo $data['socialData']->reddit;?></div>
+                                    </div>
+                                    <?php endif; ?>
+                                </div>
+                            <?php else: ?>
+                                <?php if($data['user']->id == $_SESSION['user_id']): ?>
+                                <div class="division">
+                                    <div class="division-name">Social platform details</div>
+                                </div>
+                                <div class="social-detials-idle">
+                                    <div class="message">
+                                        <div class="text">Enter your social profile details here</div>     
+                                        <a href="<?php echo URLROOT.'/C_O_Settings/addSocialProfileDetails/'.$_SESSION['user_id']; ?>"><button class="btn2">ADD</button></a>        
+                                    </div>
+                                </div>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        <?php else: ?>
+                                <!-- locked social details -->
+                                <div class="division">
+                                    <div class="division-name">Social platform details</div>
+                                    <div></div>
+                                </div>
+                                <div class="user-locked-profile">
+                                    <div class="left">
+                                        <img src="<?php echo URLROOT.'/imgs/pages/settings/shield-icon.png'?>" alt="">
+                                    </div>
+                                    <div class="right">
+                                        <div><b>
+                                            <?php echo $data['first_name'].' '.$data['last_name'];?> locked 
+                                            its profile
+                                        </b></div>
+                                        <div>Only its
+                                        following people will be able to see this profile's social detials.</div>
+                                    </div>
+                                </div>
+                        <?php endif; ?>
                             </div>
                         </div>
 

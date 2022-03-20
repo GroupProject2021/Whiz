@@ -49,9 +49,11 @@
                 switch($_SESSION['actor_type']) {
                     case 'Organization':
                             $actorDetails = $this->paymentModel->getOrganizationDetailsForPayments($id);
+                            $phn_no = $actorDetails->phone_no;
                             break;
                     case 'Mentor': 
                             $actorDetails = $this->paymentModel->getMentorDetailsForPayments($id);
+                            $phn_no = $actorDetails->phn_no;
                             break;
                     default: 
                             break;
@@ -60,11 +62,11 @@
                 // getting specialized actor details for determine items
                 switch($_SESSION['specialized_actor_type']) {
                     case 'University':
-                            $item = 'Course post';
+                            $item = 'Intake notice';
                             $amount = 100;
                             break;
                     case 'Company':
-                            $item = 'Advertiment';
+                            $item = 'Advertisement';
                             $amount = 150;
                             break;
                     case 'Professional Guider':
@@ -83,12 +85,12 @@
                     'order_id' => $_SESSION['post_to_be_payed'],
                     'items' => $item,
                     'currency' => 'LKR',
-                    'amount' => 100,
+                    'amount' => $amount,
 
                     'first_name' => $userDetails->first_name,
                     'last_name' => $userDetails->last_name,
                     'email' => $userDetails->email,
-                    'phone' => $actorDetails->phn_no,
+                    'phone' => $phn_no,
                     'address' => $actorDetails->address,
                     'city' => 'Hanwella',
                     'country' => 'Sri Lanka',
