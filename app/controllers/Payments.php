@@ -63,19 +63,19 @@
                 switch($_SESSION['specialized_actor_type']) {
                     case 'University':
                             $item = 'Intake notice';
-                            $amount = 100;
+                            $amount = INTAKE_NOTICE_PRICE;
                             break;
                     case 'Company':
                             $item = 'Advertisement';
-                            $amount = 150;
+                            $amount = JOB_ADVERTISEMENT_PRICE;
                             break;
                     case 'Professional Guider':
                             $item = 'Banner';
-                            $amount = 100;
+                            $amount = BANNER_PRICE;
                             break;
                     case 'Teacher':
                             $item = 'Poster';
-                            $amount = 100;
+                            $amount = POSTER_PRICE;
                             break;
                     default: 
                             break;

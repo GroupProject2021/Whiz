@@ -40,7 +40,7 @@ let organizationDropHeader = document.getElementById('organization-drop-down-hea
 
             function getFollowerUserList(searchText) {
                 $.ajax({
-                    url: URLROOT+"/profileStatsAndConnections/existingFollowerUserList/"+searchText,
+                    url: URLROOT+"/ProfileStatsAndConnections/existingFollowerUserList/"+searchText,
                     method: 'post',
                     success: function(response) {
                         $(".default-list").html(response);
@@ -50,7 +50,7 @@ let organizationDropHeader = document.getElementById('organization-drop-down-hea
 
             function getAllFollowerUserList() {
                 $.ajax({
-                    url: URLROOT+"/profileStatsAndConnections/existingAllFollowerUserList",
+                    url: URLROOT+"/ProfileStatsAndConnections/existingAllFollowerUserList",
                     method: 'post',
                     success: function(response) {
                         $(".default-list").html(response);

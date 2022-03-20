@@ -80,7 +80,7 @@
                                     </a>
                                     <?php endif; ?>
                                     <?php if($data['isAlreadyFollow']): ?>
-                                    <a href="<?php echo URLROOT.'/profileStatsAndConnections/unfollow/'.$data['user']->id; ?>" class="msg-btn" id="following">
+                                    <a href="<?php echo URLROOT.'/ProfileStatsAndConnections/unfollow/'.$data['user']->id; ?>" class="msg-btn" id="following">
                                         <button class="btn7-round" id="followingBtn">Following</button>
                                     </a>
                                     <?php endif; ?>
@@ -91,8 +91,8 @@
                                 <?php endif; ?>
                                 <hr>
                                 <div class="profile-stats">
-                                    <div class="followers"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followers/'.$data['user']->id; ?>" class="card-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
-                                    <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$data['user']->id; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
+                                    <div class="followers"><a href="<?php echo URLROOT.'/ProfileStatsAndConnections/followers/'.$data['user']->id; ?>" class="post-link"><b>Followers </b><span id="followers-count"><?php echo $data['followerCount']; ?></span></a></div>
+                                    <div class="following"><a href="<?php echo URLROOT.'/ProfileStatsAndConnections/followings/'.$data['user']->id; ?>" class="post-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
                                 </div>
                                 <hr>
 

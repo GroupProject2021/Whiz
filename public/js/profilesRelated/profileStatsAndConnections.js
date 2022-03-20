@@ -16,7 +16,7 @@ $("#followingBtn").on("click", function() {
         event.preventDefault();
 
     $.ajax({
-        url: URLROOT+"/profileStatsAndConnections/follow/"+USER_ID,
+        url: URLROOT+"/ProfileStatsAndConnections/follow/"+USER_ID,
         method: "post",
         data: $('form').serialize(),
         dataType: "text",

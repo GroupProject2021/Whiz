@@ -4,7 +4,7 @@ $(document).ready(function() {
         
         if(searchText != '') {
             $.ajax({
-                url: URLROOT+"/profileStatsAndConnections/searchUserByName/"+searchText,
+                url: URLROOT+"/ProfileStatsAndConnections/searchUserByName/"+searchText,
                 method: 'post',
                 success: function(response) {
                     $("#show-userlist").html(response);

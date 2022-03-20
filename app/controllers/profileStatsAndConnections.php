@@ -1,5 +1,5 @@
 <?php
-    class profileStatsAndConnections extends Controller {
+    class ProfileStatsAndConnections extends Controller {
         public function __construct() {
             $this->profileStatAndConnectionModel = $this->model('profileStatAndConnection');
             $this->notificationModel = $this->model('Notification');

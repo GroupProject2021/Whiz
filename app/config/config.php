@@ -5,8 +5,12 @@
     define('DB_PASS', '');
     define('DB_NAME', 'whiz_db');
 
-    // Payment gatewar parameters
+    // Payment gateway parameters
     define('PG_MERCHANT_ID', '1219553');
+    define('INTAKE_NOTICE_PRICE', 100);         // Organization --> University
+    define('JOB_ADVERTISEMENT_PRICE', 150);     // Organization --> Company
+    define('BANNER_PRICE', 100);                // Mentor --> Professional Guider
+    define('POSTER_PRICE', 100);                // Mentor --> Teacher
 
     // App root
     define('APPROOT', dirname(dirname(__FILE__)));
