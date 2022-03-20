@@ -47,10 +47,10 @@
 
                                 <td>
                                     <?php if($data['link'] != Null):?>
-                                        <a href="<?php echo URLROOT.'/C_M_Enrolment_List/viewlink/'.$post->postId; ?>"><input class="btn1 post-back" type="button" value="View Link"></a>
+                                        <a href="<?php echo URLROOT.'/C_M_Enrolment_List/viewlink/'.$post->postId; ?>"><input class="btn1 post-back" type="button" value="Session Link"></a>
                                     
                                     <?php else: ?>
-                                        <a href="<?php echo URLROOT.'/C_M_Enrolment_List/addlink/'.$post->postId; ?>"><input class="btn1 post-back" type="button" value="Add Link"></a>
+                                        <a href="<?php echo URLROOT.'/C_M_Enrolment_List/addlink/'.$post->postId; ?>"><input class="btn1 post-back" type="button" value="Sessionadd Link"></a>
 
                                     <?php endif; ?>
                                 </td>

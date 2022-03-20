@@ -18,19 +18,20 @@ class C_M_Enrolment_List extends Controller{
 
         switch($_SESSION['specialized_actor_type']) {
             case 'Professional Guider' :
-                $post = $this->enrolmentListModel->getPosts();
+                $post = $this->proGuiderModel->getPosts();
                 break;
             
             case 'Teacher' :
-                $post = $this->enrolmentListModel->getPosts();
+                $post = $this->teacherModel->getPosts();
                 break;
 
             default:
                 // nothing
                 break;
         }
-         
-        $link = $this->enrolmentListModel->getSessionLink($post->postId);
+        
+        // $postt = $this->enrolmentListModel
+        $link = $this->enrolmentListModel->getSessionLinkwithoutId();
 
         $data = [
             'posts' => $post,

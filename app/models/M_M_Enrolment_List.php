@@ -87,6 +87,16 @@ class M_M_Enrolment_List{
         return $row;
     }
 
+    public function getSessionLinkwithoutId() {
+        $this->db->query('SELECT * FROM sessionlink');
+        // $this->db->bind(':id', $id);
+
+        // $row = $this->db->single();
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
     public function updateLink($data) {
         $this->db->query('UPDATE sessionlink SET body = :body WHERE id = :link_id');
         // bind values
