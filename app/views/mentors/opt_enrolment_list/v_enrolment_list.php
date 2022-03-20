@@ -33,8 +33,9 @@
                                 <th colspan="2">Enrolled Student<br>Count</th>
                                 
                                 <th></th>
+                                <th></th>
                             </tr>
-                            <tr><td colspan="3"><hr></td></tr>
+                            <tr><td colspan="4"><hr></td></tr>
                             <?php foreach($data['posts'] as $post): ?>
                                 <?php if($post->userId == $_SESSION['user_id']): ?>
                             <tr>
@@ -43,6 +44,16 @@
                                 <td class="gov-course-intake"><?php echo $post->applied;?>/<?php echo $post->capacity;?></td>
                                 
                                 <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_M_Enrolment_List/enrolStudentList/'.$post->postId;?>"><button class="btn3">View more</button></a></td>
+
+                                <td>
+                                    <?php if($data['link'] != Null):?>
+                                        <a href="<?php echo URLROOT.'/C_M_Enrolment_List/viewlink/'.$post->postId; ?>"><input class="btn1 post-back" type="button" value="View Link"></a>
+                                    
+                                    <?php else: ?>
+                                        <a href="<?php echo URLROOT.'/C_M_Enrolment_List/addlink/'.$post->postId; ?>"><input class="btn1 post-back" type="button" value="Add Link"></a>
+
+                                    <?php endif; ?>
+                                </td>
                                 </tr>
                                 <?php endif; ?>
                             <?php endforeach; ?>

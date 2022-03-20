@@ -18,11 +18,11 @@ class C_M_Enrolment_List extends Controller{
 
         switch($_SESSION['specialized_actor_type']) {
             case 'Professional Guider' :
-                $post = $this->proGuiderModel->getPosts();
+                $post = $this->enrolmentListModel->getPosts();
                 break;
             
             case 'Teacher' :
-                $post = $this->teacherModel->getPosts();
+                $post = $this->enrolmentListModel->getPosts();
                 break;
 
             default:
@@ -30,9 +30,11 @@ class C_M_Enrolment_List extends Controller{
                 break;
         }
          
+        $link = $this->enrolmentListModel->getSessionLink($post->postId);
 
         $data = [
             'posts' => $post,
+            'link' => $link,
             
         ];
 
@@ -78,12 +80,13 @@ class C_M_Enrolment_List extends Controller{
     }
 
     // upload link
-    public function addlink() {
+    public function addlink($postId) {
         // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Mentor'], ['Professional Guider', 'Teacher']);
 
-        $postId = $_SESSION['current_viewing_post_id'];
+        // $postId = $_SESSION['current_viewing_post_id'];
         $post = $this->proGuiderModel->getPostById($postId);
+        $sessionTitle = $this->enrolmentListModel->getPostById($postId);
 
         // to notifications
         switch($_SESSION['specialized_actor_type']) {
@@ -115,7 +118,7 @@ class C_M_Enrolment_List extends Controller{
                 'time_err' => '',
                 'body_err' => '',
 
-                'title' => $post->title,
+                'title' => $sessionTitle->title,
                 
                 
                 
@@ -165,7 +168,7 @@ class C_M_Enrolment_List extends Controller{
                 'date' => '',
                 'time' => '',
                 'post' => $post,
-                'title' => $post->title,
+                'title' => $sessionTitle->title,
 
                 'date_err' => '',
                 'time_err' => ''
@@ -175,11 +178,11 @@ class C_M_Enrolment_List extends Controller{
         $this->view('mentors/opt_enrolment_list/v_add_link', $data);
     }
 
-    public function viewlink () {
+    public function viewlink ($postId) {
         // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Mentor'], ['Professional Guider', 'Teacher']);
 
-        $postId = $_SESSION['current_viewing_post_id'];
+        // $postId = $_SESSION['current_viewing_post_id'];
         // $post = $this->mentorDashboardModel->getPostById($postId);
         $sessionData = $this->enrolmentListModel->getSessionLink($postId);
         $sessionTitle = $this->enrolmentListModel->getPostById($postId);
