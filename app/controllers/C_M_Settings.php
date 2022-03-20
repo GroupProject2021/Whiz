@@ -17,11 +17,13 @@ class C_M_Settings extends Controller{
 
         // settings redirection
         profileRedirect('Mentor', $userData->actor_type, $id);
+        
+        // social platform details
+        $socialData = $this->mentorSettingsModel->getSocialPlatformData($id);
 
         $followerCount = $this->countFollowers($id);
         $followingCount = $this->countFollowings($id);
         $isAlreadyFollow = $this->checkFollowability($id);
-        $socialData = $this->mentorSettingsModel->getSocialPlatformData($id);
         
         // privacy shield related 
         $locked = $this->accSettingsModel->isUserLockedProfile($id);
@@ -70,6 +72,9 @@ class C_M_Settings extends Controller{
                     'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
                     'socialData' => $socialData,
 
+                    'is_pri_gen_details_locked' => $isGenDetailsLocked,
+                    'is_pri_soc_details_locked' => $isSocDetailsLocked,
+
                     'is_already_reported' => $isAlreadyReported,
 
                     'posts' => $posts
@@ -95,6 +100,9 @@ class C_M_Settings extends Controller{
                     'phn_no' => $mentorData->phn_no,
                     'isSocialDataExist' => $this->isSocialPlatformDataExist($id),
                     'socialData' => $socialData,
+
+                    'is_pri_gen_details_locked' => $isGenDetailsLocked,
+                    'is_pri_soc_details_locked' => $isSocDetailsLocked,
 
                     'is_already_reported' => $isAlreadyReported,
 

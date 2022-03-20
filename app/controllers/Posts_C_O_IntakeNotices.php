@@ -130,8 +130,12 @@
                 if(empty($data['image_err']) && empty($data['notice_name_err']) && empty($data['notice_content_err'])) {
                     // Validated
                     if($this->postModel->addPost($data)) {
-                        flash('post_message', 'Notice added');
-                        redirect('Posts_C_O_IntakeNotices/index');
+                        // flash('post_message', 'Notice added');
+                        // redirect('Posts_C_O_IntakeNotices/index');
+
+                        
+                        $_SESSION['post_to_be_payed'] = $this->postModel->getPostIdByImageTitleAndBody($data);
+                        redirect('Payments/payment');
                     }
                     else {
                         die('Something went wrong');

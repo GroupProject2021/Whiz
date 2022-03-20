@@ -95,43 +95,77 @@
                                     <div class="following"><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$data['user']->id; ?>" class="card-link"><b>Following</b> <?php echo $data['followingCount']; ?></a></div>
                                 </div>
                                 <hr>
-                                <!-- beginner details -->
-                        <?php if($data['user']->specialized_actor_type == 'Professional Guider'): ?>
+
+                        <!-- general details -->
+                        <?php if(!$data['is_pri_gen_details_locked'] || $data['user']->id == $_SESSION['user_id']): ?>
+                                <!-- general details -->
+                            <?php if($data['user']->specialized_actor_type == 'Professional Guider'): ?>
+                                    <div class="division">
+                                        <div class="division-name">Basic Details</div>
+                                        <?php if($data['user']->id == $_SESSION['user_id']): ?>
+                                        <div class="editable">
+                                            <a href="<?php echo URLROOT; ?>/C_M_Settings/editSettingsGuider"><button class="btn1-small">Edit</button></a>
+                                        </div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="beginner-detials">
+                                        <div class="address">
+                                            <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/address-icon.png'; ?>" alt="">Address</div>
+                                            <div class="text"><?php echo $data['address'];?></div>    
+                                        </div>
+                                        <div class="email">
+                                            <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/email-icon.png'; ?>" alt="">Email</div>
+                                            <div class="text"><?php echo $data['email'];?></div>
+                                        </div>
+                                        <div class="Gender">
+                                            <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/gender-icon.png'; ?>" alt="">Gender</div>
+                                            <div class="text"><?php echo $data['gender'];?></div>
+                                        </div>
+                                        <div class="phnno">
+                                            <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/phnno-icon.png'; ?>" alt="">Phone no</div>
+                                            <div class="text"><?php echo $data['phn_no'];?></div>                                        
+                                        </div>
+                                        
+                                        <!-- <div class="website">
+                                            <div class="title"><img src="<?php echo URLROOT.'/imgs/website-icon.png'; ?>" alt="">Website</div>
+                                            <div class="text">www.xyz.com</div>    
+                                        </div> -->
+                                        
+                                    </div>
+                            <?php endif; ?>
+                        <?php else: ?>
+                                <!-- locked social details -->
                                 <div class="division">
-                                    <div class="division-name">Basic Details</div>
-                                    <?php if($data['user']->id == $_SESSION['user_id']): ?>
-                                    <div class="editable">
-                                        <a href="<?php echo URLROOT; ?>/C_M_Settings/editSettingsGuider"><button class="btn1-small">Edit</button></a>
-                                    </div>
-                                    <?php endif; ?>
+                                    <div class="division-name">Social platform details</div>
+                                    <div></div>
                                 </div>
-                                <div class="beginner-detials">
-                                    <div class="address">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/address-icon.png'; ?>" alt="">Address</div>
-                                        <div class="text"><?php echo $data['address'];?></div>    
+                                <div class="user-locked-profile">
+                                    <div class="left">
+                                        <img src="<?php echo URLROOT.'/imgs/pages/settings/shield-icon.png'?>" alt="">
                                     </div>
-                                    <div class="email">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/email-icon.png'; ?>" alt="">Email</div>
-                                        <div class="text"><?php echo $data['email'];?></div>
+                                    <div class="right">
+                                        <div><b>
+                                            <?php echo $data['first_name'].' '.$data['last_name'];?> locked 
+                                            <?php if($data['gender'] == 'Male'): ?>
+                                            his
+                                            <?php else: ?>
+                                            her
+                                            <?php endif; ?>
+                                            profile
+                                        </b></div>
+                                        <div>Only 
+                                        <?php if($data['gender'] == 'Male'): ?>
+                                            his
+                                            <?php else: ?>
+                                            her
+                                            <?php endif; ?>
+                                        following people will be able to see this profile's social detials.</div>
                                     </div>
-                                    <div class="Gender">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/gender-icon.png'; ?>" alt="">Gender</div>
-                                        <div class="text"><?php echo $data['gender'];?></div>
-                                    </div>
-                                    <div class="phnno">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/mentor/phnno-icon.png'; ?>" alt="">Phone no</div>
-                                        <div class="text"><?php echo $data['phn_no'];?></div>                                        
-                                    </div>
-                                    
-                                    <!-- <div class="website">
-                                        <div class="title"><img src="<?php echo URLROOT.'/imgs/website-icon.png'; ?>" alt="">Website</div>
-                                        <div class="text">www.xyz.com</div>    
-                                    </div> -->
-                                    
                                 </div>
                         <?php endif; ?>
-<!-- !$data['is_pri_soc_details_locked'] || -->
-                        <?php if( $data['user']->id == $_SESSION['user_id']): ?>
+
+                        <!-- social platform details -->
+                        <?php if(!$data['is_pri_soc_details_locked'] || $data['user']->id == $_SESSION['user_id']): ?>
                             <?php if($data['isSocialDataExist']):?>
                                 <div class="division">
                                     <div class="division-name">Social platform details</div>
@@ -205,8 +239,37 @@
                                 </div>
                                 <?php endif; ?>
                             <?php endif; ?>
+                            <?php else: ?>
+                                <!-- locked social details -->
+                                <div class="division">
+                                    <div class="division-name">Social platform details</div>
+                                    <div></div>
+                                </div>
+                                <div class="user-locked-profile">
+                                    <div class="left">
+                                        <img src="<?php echo URLROOT.'/imgs/pages/settings/shield-icon.png'?>" alt="">
+                                    </div>
+                                    <div class="right">
+                                        <div><b>
+                                            <?php echo $data['first_name'].' '.$data['last_name'];?> locked 
+                                            <?php if($data['gender'] == 'Male'): ?>
+                                            his
+                                            <?php else: ?>
+                                            her
+                                            <?php endif; ?>
+                                            profile
+                                        </b></div>
+                                        <div>Only 
+                                        <?php if($data['gender'] == 'Male'): ?>
+                                            his
+                                            <?php else: ?>
+                                            her
+                                            <?php endif; ?>
+                                        following people will be able to see this profile's social detials.</div>
+                                    </div>
+                                </div>
                         <?php endif; ?>
-
+                            </div>
                         </div>
 
                         <br><hr>
