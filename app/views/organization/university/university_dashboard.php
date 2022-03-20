@@ -98,7 +98,7 @@
                                             <li><span class="dashboard-red-bullet">*</span> dummy </li>
                                         </ul>
                                     </div>
-                                    <a href="<?php echo URLROOT;?>/C_S_Stu_To_ProfessionalGuider/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
+                                    <a href="<?php echo URLROOT;?>/Posts_C_O_CoursePosts/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
                                 </div>
                             </div>
                         <?php else: ?>      

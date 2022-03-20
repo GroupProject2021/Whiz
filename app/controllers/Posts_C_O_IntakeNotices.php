@@ -237,7 +237,7 @@
                             redirect('/Posts_C_O_IntakeNotices/show/'.$id);
                         }
                         else {
-                            redirect('/C_S_Stu_To_Notices/show/'.$id);
+                            redirect('/Posts_C_O_IntakeNotices/show/'.$id);
                         }
                     }
                     else {

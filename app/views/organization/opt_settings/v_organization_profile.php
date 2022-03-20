@@ -203,13 +203,13 @@
                         <br><hr>
 
                         <!-- posts -->
-                        <?php if($data['user']->specialized_actor_type == 'University' ): ?>
+                        <!-- <?php if($data['user']->specialized_actor_type == 'University' ): ?>
                             <div class="division">
                                     <div class="division-name">Course posts</div>
                             </div>
-                            <div class="card-flex-box">
+                            <div class="card-flex-box"> -->
                                 <!-- COURSE POST -->
-                                <?php foreach($data['posts'] as $post): ?>
+                                <!-- <?php foreach($data['posts'] as $post): ?>
                                     <?php if($post->type == "coursepost"): ?>
                                         <a href="<?php echo URLROOT; ?>/Posts_C_O_CoursePosts/show/<?php echo $post->post_id; ?>" class="card-link">
                                         <div class="coursepost">
@@ -257,15 +257,15 @@
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
-                        <?php endif; ?>
+                        <?php endif; ?> -->
 
-                        <?php if($data['user']->specialized_actor_type == 'Company' ): ?>     
+                        <!-- <?php if($data['user']->specialized_actor_type == 'Company' ): ?>     
                             <div class="division">
                                     <div class="division-name">Job Ads</div>
                             </div>                       
-                            <div class="card-flex-box">
+                            <div class="card-flex-box"> -->
                              <!-- JOB POST -->
-                            <?php foreach($data['posts'] as $post): ?>
+                            <!-- <?php foreach($data['posts'] as $post): ?>
                                 <?php $exp_date = date('Y-m-d', strtotime($post->paid_date. ' + 1 months')) ?>
                                 <?php if($post->type == "jobpost" ): ?>
                                     <a href="<?php echo URLROOT; ?>/Posts_C_O_JobAds/show/<?php echo $post->post_id; ?>" class="card-link">
@@ -325,7 +325,8 @@
                                 <?php endif; ?>
                             <?php endforeach; ?>
                             </div>
-                        <?php endif; ?>
+                        <?php endif; ?> -->
+                        
 
                         <!-- REPORT PROFILE (styles at css/com/profile/student-profile maybe change it later) -->                        
                         <?php if($data['user']->id != $_SESSION['user_id']): ?>
