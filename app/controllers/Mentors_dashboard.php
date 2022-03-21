@@ -5,15 +5,21 @@
             $this->commonModel = $this->model('Common');
             $this->postModel = $this->model('Post_Posters');
             $this->sessionLinkModel = $this->model('M_M_Enrolment_List');
+            $this->profileStatAndConnectionModel = $this->model('profileStatAndConnection');
+
         }
 
         public function index() {
 
             $details = $this->mentorDashboardModel->dashboard($_SESSION['user_id']);
+            $followingList = $this->profileStatAndConnectionModel->getFollowings($_SESSION['user_id']);
+
             
             $data = [
                 'title' => 'Welcome to Professional Guider dashboard', 
-                'details' => $details
+                'details' => $details,
+                'following' => $followingList,
+
                 
             ];
             //$this->view('mentors/professional_guider/prof_guide_dashboard', $data);

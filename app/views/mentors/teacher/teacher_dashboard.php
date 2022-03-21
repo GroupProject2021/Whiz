@@ -22,8 +22,8 @@
                     </div>
 
                     <!-- MIDDLE PANEL -->
-                    <div class="middle-panel-single-new">
-                        <!-- <div class="middle-left-panel"> -->
+                    <div class="middle-panel">
+                        <div class="middle-left-panel">
                         <?php if(empty($data['details'])):?>
                             <!-- empty - show idle -->
                             <div class="dashboard-content-idle-container proGuider">
@@ -82,13 +82,55 @@
                             <?php endforeach; ?>
                             </table>
                         <?php endif; ?>
-                        <!-- </div> -->
+                        </div>
                         <!-- <div class="middle-right-panel">
                             <div class="notices">
                                 
                                 <iframe src="https://calendar.google.com/calendar/embed?src=en.lk%23holiday%40group.v.calendar.google.com&ctz=Asia%2FColombo" style="border: 0" width="365" height="355" frameborder="0" scrolling="no"></iframe>
                             </div>
                         </div> -->
+
+                        <!-- following/follower -->
+                        <div class="middle-right-panel">
+                            <div class="notices">
+                                        <h2><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$_SESSION['user_id']; ?>" class="post-link">Following List </a></h2>
+                                        <hr>
+                                        <div class="index-following-list">
+                                            <?php
+                                                // initial user list
+                                                foreach($data['following'] as $follower) {
+                                                    switch($follower->actor_type) {
+                                                        case "Student": 
+                                                            echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$follower->id.'/'.$_SESSION['user_id'].'" class="card-link">';
+                                                            break;
+
+                                                        case "Organization": 
+                                                            echo '<a href="'.URLROOT.'/C_O_Settings/settings/'.$follower->id.'/'.$_SESSION['user_id'].'" class="card-link">';
+                                                            break;
+
+                                                        case "Mentor": 
+                                                            echo '<a href="'.URLROOT.'/C_M_Settings/settings/'.$follower->id.'/'.$_SESSION['user_id'].'" class="card-link">';
+                                                            break;
+
+                                                        default:
+                                                            // do nothing
+                                                    }
+                                            
+                                                    echo '<div class="index-user-block">';
+                                                    echo    '<div class="pic"><img src="'.URLROOT.'/profileimages/'.getActorTypeForIcons($follower->actor_type).'/'.$follower->profile_image.'" alt=""></div>';
+                                                    echo    '<div class="name">'.$follower->first_name.' '.$follower->last_name.'</div>';
+                                                    if($follower->status == 'verified'){
+                                                        echo    '<div class="verified"><img src="'.URLROOT.'/imgs/verified.png" alt=""></div>';
+                                                    }
+                                                    echo '</div>';
+                                                    echo '</a>';
+                                                }
+                                            ?>
+                                        </div>
+                            </div>
+                        </div>
+
+
                     </div>
 
                     <!-- BOTTOM PANEL -->
