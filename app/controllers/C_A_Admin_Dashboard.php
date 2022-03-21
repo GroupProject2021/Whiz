@@ -23,7 +23,14 @@ class C_A_Admin_Dashboard extends Controller {
             'company_amount' => $this->adminDashboardModel->getUserAmountBySpecialzedActorType('Company'),
 
             'pro_guider_amount' => $this->adminDashboardModel->getUserAmountBySpecialzedActorType('Professional Guider'),
-            'teacher_amount' => $this->adminDashboardModel->getUserAmountBySpecialzedActorType('Teacher')
+            'teacher_amount' => $this->adminDashboardModel->getUserAmountBySpecialzedActorType('Teacher'),
+
+            'total_post_amount' => $this->adminDashboardModel->getTotalPostAmount(),
+            'course_post_amount' => $this->adminDashboardModel->getPostAmountViaPostType('coursepost'),
+            'intake_notice_amount' => $this->adminDashboardModel->getPostAmountViaPostType('noticepost'),
+            'job_ads_amount' => $this->adminDashboardModel->getPostAmountViaPostType('jobpost'),
+            'banner_amount' => $this->adminDashboardModel->getPostAmountViaPostType('banner'),
+            'poster_amount' => $this->adminDashboardModel->getPostAmountViaPostType('poster')
         ];
         
         $this->view('admin/dashboards/v_admin_dashboard', $data);

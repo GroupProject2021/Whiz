@@ -102,6 +102,84 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <br>
+
+                        <!-- post details -->
+                        <div class="post-amount-container">
+                            <div class="title">Posts <span class="gray-text">[Total - <?php echo $data['total_post_amount']; ?>]</div>
+                            <div class="content">
+                                <div class="item">
+                                    <div class="sub-title type1">Course posts</div>
+                                    <div class="sub-content">
+                                        <div class="amount"><?php echo $data['course_post_amount']; ?></div>
+                                        <div class="name">Total</div>
+                                        <div class="ratio">
+                                            <div class="prg-bar type1">
+                                                <progress value="<?php echo $data['course_post_amount']; ?>" max="<?php echo $data['total_post_amount']; ?>"></progress>
+                                            </div>
+                                            <div class="rate"><?php echo getPercentageRounded($data['course_post_amount'], $data['total_post_amount'], 1); ?>%</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="sub-title type2">Intake notices</div>
+                                    <div class="sub-content">
+                                        <div class="amount"><?php echo $data['intake_notice_amount']; ?></div>
+                                        <div class="name">Total</div>
+                                        <div class="ratio">
+                                            <div class="prg-bar type2">
+                                                <progress value="<?php echo $data['intake_notice_amount']; ?>" max="<?php echo $data['total_post_amount']; ?>"></progress>
+                                            </div>
+                                            <div class="rate"><?php echo getPercentageRounded($data['intake_notice_amount'], $data['total_post_amount'], 1); ?>%</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="sub-title type3">Job advertisements</div>
+                                    <div class="sub-content">
+                                        <div class="amount"><?php echo $data['job_ads_amount']; ?></div>
+                                        <div class="name">Total</div>
+                                        <div class="ratio">
+                                            <div class="prg-bar type3">
+                                                <progress value="<?php echo $data['job_ads_amount']; ?>" max="<?php echo $data['total_post_amount']; ?>"></progress>
+                                            </div>
+                                            <div class="rate"><?php echo getPercentageRounded($data['job_ads_amount'], $data['total_post_amount'], 1); ?>%</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="sub-title type4">Banners</div>
+                                    <div class="sub-content">
+                                        <div class="amount"><?php echo $data['banner_amount']; ?></div>
+                                        <div class="name">Total</div>
+                                        <div class="ratio">
+                                            <div class="prg-bar type4">
+                                                <progress value="<?php echo $data['banner_amount']; ?>" max="<?php echo $data['total_post_amount']; ?>"></progress>
+                                            </div>
+                                            <div class="rate"><?php echo getPercentageRounded($data['banner_amount'], $data['total_post_amount'], 1); ?>%</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="sub-title type5">Posters</div>
+                                    <div class="sub-content">
+                                        <div class="amount"><?php echo $data['poster_amount']; ?></div>
+                                        <div class="name">Total</div>
+                                        <div class="ratio">
+                                            <div class="prg-bar type5">
+                                                <progress value="<?php echo $data['poster_amount']; ?>" max="<?php echo $data['total_post_amount']; ?>"></progress>
+                                            </div>
+                                            <div class="rate"><?php echo getPercentageRounded($data['poster_amount'], $data['total_post_amount'], 1); ?>%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- BOTTOM PANEL -->

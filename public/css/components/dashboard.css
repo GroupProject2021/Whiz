@@ -722,6 +722,7 @@ main {
 .gray-text {
     color: gray;
     font-weight: 300;
+    font-size: 13px;
 }
 
 .user-amount-container {
@@ -797,6 +798,129 @@ main {
 .user-amount-container .content .item .sub-content .single-item .right {
     width: 50%;
     font-weight: 600;
+}
+
+/* post amount containers */
+.post-amount-container {
+    width: 100%;
+    height: fit-content;
+    background-color: rgb(238, 237, 237);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 2px 6px var(--box-shadow-color);
+}
+
+.post-amount-container .title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.post-amount-container .content {
+    margin-top: 5px;
+    background-color: rgb(247, 247, 247);
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.post-amount-container .content .item {
+    height: fit-content;
+    width: 100%;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 5px;
+}
+
+.post-amount-container .content .item .sub-title {
+    font-weight: 600;
+    color: #333;
+}
+
+.post-amount-container .content .item .sub-title.type1 {
+    background-color: #d4c9bd;
+}
+
+.post-amount-container .content .item .sub-title.type2 {
+    background-color: #d4d4bd;
+}
+
+.post-amount-container .content .item .sub-title.type3 {
+    background-color: #c0d4bd;
+}
+
+.post-amount-container .content .item .sub-title.type4 {
+    background-color: #bfbdd4;
+}
+
+.post-amount-container .content .item .sub-title.type5 {
+    background-color: #d4bdbd;
+}
+
+.post-amount-container .content .item .sub-content {
+    padding: 5px;
+}
+
+.post-amount-container .content .item .sub-content .amount {
+    font-size: 30px;
+}
+
+.post-amount-container .content .item .sub-content .ratio {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.post-amount-container .content .item .sub-content .ratio .prg-bar {
+    background-color: inherit;
+}
+
+.post-amount-container .content .item .sub-content .ratio .prg-bar progress {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.post-amount-container .content .item .sub-content .ratio .prg-bar.type1 progress::-webkit-progress-value {
+    -webkit-appearance: none;    
+    background-color: #9e5200;
+    border-radius: 3px;
+}
+
+.post-amount-container .content .item .sub-content .ratio .prg-bar.type2 progress::-webkit-progress-value {
+    -webkit-appearance: none;    
+    background-color: #a1a100;
+    border-radius: 3px;
+}
+
+.post-amount-container .content .item .sub-content .ratio .prg-bar.type3 progress::-webkit-progress-value {
+    -webkit-appearance: none;    
+    background-color: #149900;
+    border-radius: 3px;
+}
+
+.post-amount-container .content .item .sub-content .ratio .prg-bar.type4 progress::-webkit-progress-value {
+    -webkit-appearance: none;    
+    background-color: #0e00a8;
+    border-radius: 3px;
+}
+
+.post-amount-container .content .item .sub-content .ratio .prg-bar.type5 progress::-webkit-progress-value {
+    -webkit-appearance: none;    
+    background-color: #9e0000;
+    border-radius: 3px;
+}
+
+.post-amount-container .content .item .sub-content .ratio .prg-bar progress[value]::-webkit-progress-bar {
+    background-color: rgb(233, 195, 225);
+    border-radius: 3px;
+}
+
+.post-amount-container .content .item .sub-content .ratio .rate {
+    font-size: 12px;
+    position: relative;
+    top: 2px;
+    color: gray;
 }
 
 /* responsive features */

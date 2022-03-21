@@ -7,6 +7,7 @@ class M_A_Admin_Dashboard {
         $this->db = new Database;
     }
 
+    // User amount related
     public function getTotalUserAmount() {
         $this->db->query('SELECT * FROM Users'); // this is a prepared statement
 
@@ -63,6 +64,39 @@ class M_A_Admin_Dashboard {
         $results = $this->db->resultSet();
 
         return $results;
+    }
+
+    // Post amount related
+    public function getTotalPostAmount() {
+        $this->db->query('SELECT * FROM Posts'); // this is a prepared statement
+
+        $row = $this->db->resultSet();
+
+        $count = $this->db->rowCount();
+
+        if($count > 0) {
+            return $count;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    public function getPostAmountViaPostType($type) {
+        $this->db->query('SELECT * FROM Posts WHERE type = :type'); // this is a prepared statement
+        // bind value
+        $this->db->bind(":type", $type);
+
+        $row = $this->db->resultSet();
+
+        $count = $this->db->rowCount();
+
+        if($count > 0) {
+            return $count;
+        }
+        else {
+            return 0;
+        }
     }
 }
 

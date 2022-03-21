@@ -14,6 +14,7 @@
     require_once 'helpers/Redirect_Helper.php';
     require_once 'helpers/RateCount_Helper.php';
     require_once 'helpers/Security_Helper.php';
+    require_once 'helpers/Math_Helper.php';
 
     // Auto load libraries (Automatic loading)
     spl_autoload_register(function($className) {
