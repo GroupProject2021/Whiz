@@ -132,6 +132,7 @@
                     <!-- BANNER -->
                     <?php foreach($data['posts'] as $post): ?>
                     <?php if($post->userId == $_SESSION['user_id']): ?>
+                    <!-- <?php $exp_date = date('Y-m-d', strtotime($data['link']->date. ' + 1 months')) ?> -->
                         <a href="<?php echo URLROOT; ?>/Posts_C_M_Banners/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="banner">
                             <?php if($post->image != null):?>
@@ -141,6 +142,10 @@
                             <?php endif; ?>
                             <div class="user-pic">
                                 <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
+                            </div>
+                            <div class="postedat">
+                                <!-- <?php if(date("Y-m-d") > $exp_date){ echo "<font color=red>(Expired)</font>";} ?> -->
+                                Posted At: <?php echo convertedToReadableTimeFormat($post->postCreated); ?>
                             </div>
                             <div class="banner-body">
                                 <div class="title"><?php echo $post->title; ?></div>

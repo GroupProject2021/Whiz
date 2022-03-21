@@ -36,6 +36,8 @@
                 $posts_filter_order = trim($_POST['filter-order']);
 
                 $posts_search = trim($_POST['post-search']);
+                $link = $this->sessionLinkModel->getSessionLinkwithoutId();
+
                     
                 // filtering
                 if(empty($posts_search)) {
@@ -53,7 +55,8 @@
 
                     'post_search' => $posts_search,
     
-                    'posts' => $posts
+                    'posts' => $posts,
+                    'link' => $link
                 ];
                 
                 $this->view('mentors/professional_guider/banners/index', $data);
@@ -68,6 +71,8 @@
                 
                 // filtering
                 $posts = $this->postModel->filterAndGetPostsToBanners($posts_filter, $posts_filter_order);
+                $link = $this->sessionLinkModel->getSessionLinkwithoutId();
+
     
     
                 $data = [    
@@ -76,7 +81,8 @@
 
                     'post_search' => $posts_search,
     
-                    'posts' => $posts
+                    'posts' => $posts,
+                    'link' => $link
                 ];
                 
                 $this->view('mentors/professional_guider/banners/index', $data);
