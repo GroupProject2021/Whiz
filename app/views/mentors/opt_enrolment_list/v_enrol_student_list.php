@@ -44,32 +44,41 @@
                     <?php flash('post_message'); ?>
                        
                         <div>
-                        <table class="gov-course-table">
-                            <tr>
-                                <th>    </th>
-                                <th>Student Name</th>
-                                <th>Student Type</th>
-                                <!-- <th colspan="2">Offered university</th> -->
-                                <th colspan="2">Enrolled at</th>
-                                <!-- <th>Intake</th> -->
-                                <th></th>
-                            </tr>
-                            <tr><td colspan="4"><hr></td></tr>
-                            
-                            <?php foreach($data['enrollments'] as $studentList): ?>
+                        
+
+                            <?php if($data['applied'] != 0): ?>
+
+                                <?php foreach($data['enrollments'] as $studentList): ?>
+
+                                    <table class="gov-course-table">
+                                        <tr>
+                                            <th>    </th>
+                                            <th>Student Name</th>
+                                            <th>Student Type</th>
+                                            <!-- <th colspan="2">Offered university</th> -->
+                                            <th colspan="2">Enrolled at</th>
+                                            <!-- <th>Intake</th> -->
+                                            <th></th>
+                                        </tr>
+                                        <tr><td colspan="4"><hr></td></tr>
+                                        <tr>
+                                            <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/profileimages/student/'.$studentList->profile_image; ?>" alt=""></td>
+                                            <td class="gov-course-name"><?php echo $studentList->first_name.' '.$studentList->last_name; ?></td>
+                                            <td class="gov-course-name"><?php echo $studentList->specialized_actor_type; ?></td>
+                                            <td class="gov-course-intake"><?php echo $studentList->applied_date; ?></td>
+                                        </tr>
+                                        <tr><td colspan="4"><hr></td></tr>
+                                    </table>
+                                    <hr>
+                                <?php endforeach; ?>
+
+
+                            <?php else: ?>
+                                        <h2><center>You have no enrolments yet</center></h2>
+                                        <!-- <?php print_r($data)?> -->
+                            <?php endif; ?>
                                 
-                                <tr>
-                                    <td class="gov-course-uniicon"><img src="<?php echo URLROOT.'/profileimages/student/'.$studentList->profile_image; ?>" alt=""></td>
-                                    <td class="gov-course-name"><?php echo $studentList->first_name.' '.$studentList->last_name; ?></td>
-                                    <td class="gov-course-name"><?php echo $studentList->specialized_actor_type; ?></td>
-                                    <td class="gov-course-intake"><?php echo $studentList->applied_date; ?></td>
-                                </tr>
-                                <tr><td colspan="4"><hr></td></tr>
-                                
-                            <?php endforeach; ?>
-                        </table>
-                        <hr>
-                    </div>
+                        </div>
                     </div>
                     
                     <!-- BOTTOM PANEL -->

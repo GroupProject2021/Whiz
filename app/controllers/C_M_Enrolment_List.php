@@ -74,7 +74,8 @@ class C_M_Enrolment_List extends Controller{
             'link' => $link,
             'list' => $studentList,
             'enrollments' => $enrollments,
-            'title' => $sessionTitle->title
+            'title' => $sessionTitle->title,
+            'applied' => $sessionTitle->applied
         ];
 
         $this->view('mentors/opt_enrolment_list/v_enrol_student_list', $data);
