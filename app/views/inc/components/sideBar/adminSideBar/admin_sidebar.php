@@ -25,7 +25,7 @@
             <a href="<?php echo URLROOT; ?>/C_A_Government_University/universities">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/adminSideBar/university-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Universities
@@ -37,7 +37,7 @@
             <a href="<?php echo URLROOT; ?>/C_A_Government_University/courses">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/adminSideBar/courses-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Courses
@@ -49,7 +49,7 @@
             <a href="<?php echo URLROOT; ?>/C_A_Government_University/courseAndUniversities">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/adminSideBar/uni-course-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Course + University
@@ -66,7 +66,7 @@
             <a href="<?php echo URLROOT; ?>/C_A_ZScore_Options/viewZScoreTable">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/adminSideBar/z-score-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Z-Score table
@@ -83,7 +83,7 @@
             <a href="<?php echo URLROOT; ?>/C_A_Users/reports">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/adminSideBar/report-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Reports
@@ -106,7 +106,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Stu_To_PriUniversity/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/adminSideBar/course-post-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Course posts
@@ -118,7 +118,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Notices/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/adminSideBar/notice-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Notices
@@ -133,7 +133,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/adminSideBar/jobs-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Job Ads
@@ -151,7 +151,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/adminSideBar/banner-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Banners
@@ -166,7 +166,7 @@
             <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/index">
                 <button>
                     <div class="sidebar-item-icon">
-                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/studentSideBar/streams-icon.png">
+                        <img src="<?php echo URLROOT; ?>/imgs/components/sidebar/adminSideBar/poster-icon.png">
                     </div>
                     <div class="sidebar-item-name">
                         Posters

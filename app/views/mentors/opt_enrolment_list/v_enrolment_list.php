@@ -23,7 +23,7 @@
                     <br>
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <?php flash('post_message'); ?>
+                        <?php flash('post_message'); ?><?php print_r($data['link']); ?>
                         
                         <div>
                         <table class="gov-course-table">

@@ -17,7 +17,7 @@
         // Index
         public function index() {
             // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
-            URL_tamper_protection(['Student'], ['Beginner', 'OL qualified', 'AL qualified']);
+            URL_tamper_protection(['Student', 'Admin'], ['Beginner', 'OL qualified', 'AL qualified', 'Admin']);
 
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanitize POST data
