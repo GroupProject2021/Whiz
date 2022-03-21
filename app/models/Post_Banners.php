@@ -178,7 +178,16 @@
             // bind values           
             $this->db->bind(":banner_id", $postId); 
             $this->db->bind(":session_fee", $data['session_fee']);
-            
+
+            $this->db->execute();
+
+            // Record transactions
+            $this->db->query('INSERT INTO Transactions(post_id, user_id, amount) VALUES(:post_id, :user_id, :amount)');
+            // bind values           
+            $this->db->bind(":post_id", $postId); 
+            $this->db->bind(":user_id", $_SESSION['user_id']); 
+            $this->db->bind(":amount", BANNER_PRICE); 
+
             // Execute
             if($this->db->execute()) {
                 return true;

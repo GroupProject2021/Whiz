@@ -98,7 +98,7 @@
         // View job advertisement
         public function show($id) {
             // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
-            URL_tamper_protection(['Student'], ['OL qualified', 'AL qualified']);
+            URL_tamper_protection(['Student', 'Admin'], ['OL qualified', 'AL qualified', 'Admin']);
 
             // if post not exist
             if(!($this->postModel->isPostExist($id))) {

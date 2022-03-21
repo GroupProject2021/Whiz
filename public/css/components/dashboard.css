@@ -832,6 +832,13 @@ main {
     border-radius: 5px;
 }
 
+.post-amount-container .content .item:hover {
+    background-color: rgb(235, 230, 230);
+    box-shadow: 1px 1px 5px var(--box-shadow-color);
+    cursor: pointer;
+    transition: .2s all;
+}
+
 .post-amount-container .content .item .sub-title {
     font-weight: 600;
     color: #333;
@@ -861,8 +868,16 @@ main {
     padding: 5px;
 }
 
+.post-amount-container .content .item .sub-content .revenue {
+    font-size: 20px;
+    font-weight: 600;
+}
+
 .post-amount-container .content .item .sub-content .amount {
-    font-size: 30px;
+    font-size: 15px;
+    border-top: 1px solid rgb(192, 192, 192);
+    margin-top: 5px;
+    padding-top: 5px;
 }
 
 .post-amount-container .content .item .sub-content .ratio {
@@ -921,6 +936,24 @@ main {
     position: relative;
     top: 2px;
     color: gray;
+}
+
+.post-amount-container .footer-content {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.post-amount-container .footer-content .title {
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.post-amount-container .footer-content .amount {
+    font-size: 17px;
+    font-weight: 600;
+    padding-left: 5px;
 }
 
 /* responsive features */

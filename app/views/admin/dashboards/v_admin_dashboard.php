@@ -107,11 +107,15 @@
 
                         <!-- post details -->
                         <div class="post-amount-container">
-                            <div class="title">Posts <span class="gray-text">[Total - <?php echo $data['total_post_amount']; ?>]</div>
+                            <div class="title"><a href="<?php echo URLROOT; ?>/C_A_Admin_Dashboard/PostsRevenues" class="post-link">Posts <span class="gray-text">[Total - <?php echo $data['total_post_amount']; ?>]</a></div>
                             <div class="content">
                                 <div class="item">
                                     <div class="sub-title type1">Course posts</div>
-                                    <div class="sub-content">
+                                    <div class="sub-content">                                        
+                                        <div class="revenue">
+                                            None
+                                        </div>
+                                        <div class="name">Revenue</div>
                                         <div class="amount"><?php echo $data['course_post_amount']; ?></div>
                                         <div class="name">Total</div>
                                         <div class="ratio">
@@ -123,9 +127,14 @@
                                     </div>
                                 </div>
 
+                                <a href="<?php echo URLROOT;?>/C_A_Admin_Dashboard/PostsRevenuesViaPostTypes/noticepost" class="card-link">
                                 <div class="item">
                                     <div class="sub-title type2">Intake notices</div>
                                     <div class="sub-content">
+                                        <div class="revenue">
+                                            Rs.<?php echo $data['intake_notice_revenue'] ?>
+                                        </div>
+                                        <div class="name">Revenue</div>
                                         <div class="amount"><?php echo $data['intake_notice_amount']; ?></div>
                                         <div class="name">Total</div>
                                         <div class="ratio">
@@ -136,10 +145,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                </a>
 
+                                <a href="<?php echo URLROOT;?>/C_A_Admin_Dashboard/PostsRevenuesViaPostTypes/jobpost" class="card-link">
                                 <div class="item">
                                     <div class="sub-title type3">Job advertisements</div>
                                     <div class="sub-content">
+                                        <div class="revenue">
+                                            Rs.<?php echo $data['job_ads_revenue'] ?>
+                                        </div>
+                                        <div class="name">Revenue</div>
                                         <div class="amount"><?php echo $data['job_ads_amount']; ?></div>
                                         <div class="name">Total</div>
                                         <div class="ratio">
@@ -150,10 +165,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                </a>
 
+                                <a href="<?php echo URLROOT;?>/C_A_Admin_Dashboard/PostsRevenuesViaPostTypes/banner" class="card-link">
                                 <div class="item">
                                     <div class="sub-title type4">Banners</div>
                                     <div class="sub-content">
+                                        <div class="revenue">
+                                            Rs.<?php echo $data['banner_revenue'] ?>
+                                        </div>
+                                        <div class="name">Revenue</div>
                                         <div class="amount"><?php echo $data['banner_amount']; ?></div>
                                         <div class="name">Total</div>
                                         <div class="ratio">
@@ -164,10 +185,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                </a>
 
+                                <a href="<?php echo URLROOT;?>/C_A_Admin_Dashboard/PostsRevenuesViaPostTypes/poster" class="card-link">
                                 <div class="item">
                                     <div class="sub-title type5">Posters</div>
                                     <div class="sub-content">
+                                        <div class="revenue">
+                                            Rs.<?php echo $data['poster_revenue'] ?>
+                                        </div>
+                                        <div class="name">Revenue</div>
                                         <div class="amount"><?php echo $data['poster_amount']; ?></div>
                                         <div class="name">Total</div>
                                         <div class="ratio">
@@ -178,6 +205,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                </a>
+                            </div>
+                            <div class="footer-content">
+                                <div class="title">Total revenue: </div>
+                                <div class="amount">Rs.<?php echo $data['intake_notice_revenue'] + 
+                                                                  $data['job_ads_revenue'] +
+                                                                  $data['banner_revenue'] +
+                                                                  $data['poster_revenue']; ?>.00</div>
                             </div>
                         </div>
                     </div>

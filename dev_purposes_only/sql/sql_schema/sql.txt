@@ -8033,3 +8033,28 @@ CREATE VIEW v_posts_posters AS
 	FROM v_complete_posts
 	INNER JOIN Poster
     ON Poster.poster_id = v_complete_posts.postId;
+
+CREATE TABLE Transactions (
+  transaction_id INT AUTO_INCREMENT,
+  post_id INT,
+  user_id INT,
+  amount INT,
+  PRIMARY KEY(transaction_id),
+  FOREIGN KEY(post_id)	REFERENCES Posts(id),
+  FOREIGN KEY(user_id)	REFERENCES Users(id)
+);
+
+CREATE VIEW v_posts_transactions AS
+	SELECT
+	Transactions.transaction_id AS transaction_id,
+	Transactions.post_id AS post_id,
+	Transactions.user_id AS user_id,
+	v_complete_posts.type AS type,
+	v_complete_posts.first_name AS first_name,
+	v_complete_posts.last_name AS last_name,
+	v_complete_posts.actor_type AS actor_type,
+	v_complete_posts.specialized_actor_type AS specialized_actor_type,
+	Transactions.amount AS amount
+	FROM Transactions
+	INNER JOIN v_complete_posts
+	ON Transactions.post_id = v_complete_posts.postId

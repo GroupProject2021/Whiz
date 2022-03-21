@@ -56,7 +56,7 @@
                                     <?php endif; ?>
                                 </div>
                                 <div class="occupation"><?php echo $data['user']->actor_type; ?> | <?php echo $data['user']->specialized_actor_type;?> </div>
-                                <?php if($data['user']->id != $_SESSION['user_id']): ?>
+                                <?php if($data['user']->id != $_SESSION['user_id'] && $_SESSION['actor_type'] != 'Admin'): ?>
                                 <div class="connection-btn">
                                     <?php if(!$data['isAlreadyFollow']): ?>
                                     <a class="msg-btn card-link" id="follow">

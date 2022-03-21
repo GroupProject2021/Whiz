@@ -27,7 +27,7 @@
                         <a href="<?php echo URLROOT;?>/Posts_C_O_JobAds/index"><button class="btn8">Back</button></a>
                         <br>
                     
-                        <form action="<?php echo URLROOT; ?>/Payments/payment" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo URLROOT; ?>/Posts_C_O_JobAds/add" method="post" enctype="multipart/form-data">
                         <!-- /Posts_C_O_JobAds/add -->
                             <div class="post-creator">
                                 <div class="post-creator-image">

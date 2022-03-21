@@ -98,6 +98,35 @@ class M_A_Admin_Dashboard {
             return 0;
         }
     }
+
+    public function getRevenueViaPostType($type) {
+        $this->db->query('SELECT SUM(amount) AS sum_amount FROM v_posts_transactions WHERE type = :type'); // this is a prepared statement
+        // bind value
+        $this->db->bind(":type", $type);
+
+        $row = $this->db->single();
+
+        return $row->sum_amount;
+    }     
+
+    // Revenue related
+    public function getTransactionList() {
+        $this->db->query("SELECT * FROM v_posts_transactions");
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
+    public function getTransactionListViaPostType($post_type) {
+        $this->db->query("SELECT * FROM v_posts_transactions WHERE type = :post_type");
+        // bind value
+        $this->db->bind(":post_type", $post_type);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
 }
 
 ?>

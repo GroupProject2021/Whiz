@@ -25,6 +25,11 @@ class C_A_Admin_Dashboard extends Controller {
             'pro_guider_amount' => $this->adminDashboardModel->getUserAmountBySpecialzedActorType('Professional Guider'),
             'teacher_amount' => $this->adminDashboardModel->getUserAmountBySpecialzedActorType('Teacher'),
 
+            'intake_notice_revenue' => $this->adminDashboardModel->getRevenueViaPostType('noticepost'),
+            'job_ads_revenue' => $this->adminDashboardModel->getRevenueViaPostType('jobpost'),
+            'banner_revenue' => $this->adminDashboardModel->getRevenueViaPostType('banner'),
+            'poster_revenue' => $this->adminDashboardModel->getRevenueViaPostType('poster'),
+
             'total_post_amount' => $this->adminDashboardModel->getTotalPostAmount(),
             'course_post_amount' => $this->adminDashboardModel->getPostAmountViaPostType('coursepost'),
             'intake_notice_amount' => $this->adminDashboardModel->getPostAmountViaPostType('noticepost'),
@@ -113,6 +118,52 @@ class C_A_Admin_Dashboard extends Controller {
         ];
         
         $this->view('admin/dashboards/v_user_lists', $data);
+    }
+
+    public function PostsRevenues() {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
+        $transactions = $this->adminDashboardModel->getTransactionList();
+
+        $data = [
+            'title' => 'All Posts',
+            'transactions' => $transactions
+        ];
+        
+        $this->view('admin/dashboards/v_post_revenue_list', $data);
+    }
+
+    public function PostsRevenuesViaPostTypes($post_type) {
+        // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
+        URL_tamper_protection(['Admin'], ['Admin']);
+
+        $transactions = $this->adminDashboardModel->getTransactionListViaPostType($post_type);
+
+        switch($post_type) {
+            case 'noticepost':
+                $type_to_be_searched = 'Intake notices';
+                break;
+
+            case 'jobpost':
+                $type_to_be_searched = 'Job advertisements';
+                break;
+
+            case 'banner':
+                $type_to_be_searched = 'Banners';
+                break;
+
+            case 'poster':
+                $type_to_be_searched = 'Posters';
+                break;
+        }
+
+        $data = [
+            'title' => $type_to_be_searched,
+            'transactions' => $transactions
+        ];
+        
+        $this->view('admin/dashboards/v_post_revenue_list', $data);
     }
 }
 
