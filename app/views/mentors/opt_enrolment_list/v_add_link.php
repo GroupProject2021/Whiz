@@ -27,7 +27,7 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                    <a href="<?php echo URLROOT;?>/C_M_Enrolment_List/index"><button class="btn8 post-back">Back</button></a>                        
+                    <a href="<?php echo URLROOT.'/C_M_Enrolment_List/enrolStudentList/'.$_SESSION['current_viewing_post_id']; ?>"><button class="btn8 post-back">Back</button></a>
                         <br>
                     
                         <form action="<?php echo URLROOT; ?>/C_M_Enrolment_List/addlink" method="post" enctype="multipart/form-data">

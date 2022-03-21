@@ -81,11 +81,11 @@ class C_M_Enrolment_List extends Controller{
     }
 
     // upload link
-    public function addlink($postId) {
+    public function addlink() {
         // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Mentor'], ['Professional Guider', 'Teacher']);
 
-        // $postId = $_SESSION['current_viewing_post_id'];
+        $postId = $_SESSION['current_viewing_post_id'];
         $post = $this->proGuiderModel->getPostById($postId);
         $sessionTitle = $this->enrolmentListModel->getPostById($postId);
 
@@ -179,11 +179,11 @@ class C_M_Enrolment_List extends Controller{
         $this->view('mentors/opt_enrolment_list/v_add_link', $data);
     }
 
-    public function viewlink ($postId) {
+    public function viewlink () {
         // Build Security-In : Check actor types to prevent URL tamperings (Unauthorized access)
         URL_tamper_protection(['Mentor'], ['Professional Guider', 'Teacher']);
 
-        // $postId = $_SESSION['current_viewing_post_id'];
+        $postId = $_SESSION['current_viewing_post_id'];
         // $post = $this->mentorDashboardModel->getPostById($postId);
         $sessionData = $this->enrolmentListModel->getSessionLink($postId);
         $sessionTitle = $this->enrolmentListModel->getPostById($postId);
