@@ -78,7 +78,7 @@
                                 </tr>
                                     <tr><td colspan="4"><hr></td></tr>
                                     <?php else: ?>
-                                        <h3><center>You have no upcoming sessions</center></h3>
+                                        <h3><center>You have no upcoming sessions yet. Please upload session link to published banner.</center></h3>
                                     <?php endif; ?>
                             <?php endforeach; ?>
                             </table>
@@ -94,7 +94,8 @@
                         
                         <!-- following/follower -->
                         <div class="middle-right-panel">
-                            <div class="notices">
+                            <div class="notices">  
+                                <!-- this will appear on top right corner of dashboard. "update" class can change it to right bottom -->
                                         <h2><a href="<?php echo URLROOT.'/profileStatsAndConnections/followings/'.$_SESSION['user_id']; ?>" class="post-link">Following List </a></h2>
                                         <hr>
                                         <div class="index-following-list">

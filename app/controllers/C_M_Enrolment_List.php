@@ -128,6 +128,8 @@ class C_M_Enrolment_List extends Controller{
             // Validate content
             if(empty($data['date'])) {
                 $data['date_err'] = 'Please enter date';
+            }else if(date("Y-m-d") > $data['date']){
+                $data['date_err'] = 'Please enter a valid date';
             }
 
             if(empty($data['time'])) {
@@ -242,6 +244,8 @@ class C_M_Enrolment_List extends Controller{
             // validate link
             if(empty($data['date'])) {
                 $data['date_err'] = 'Please enter date';
+            }else if(date("Y-m-d") > $data['date']){
+                $data['date_err'] = 'Please enter a valid date';
             }
 
             if(empty($data['time'])) {
