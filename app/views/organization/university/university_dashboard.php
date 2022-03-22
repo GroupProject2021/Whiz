@@ -94,8 +94,8 @@
                                     <div class="title">Courses</div>
                                     <div class="body">
                                         <ul>
-                                            <li><span class="dashboard-red-bullet">*</span> dummy </li>
-                                            <li><span class="dashboard-red-bullet">*</span> dummy </li>
+                                            <li><span class="dashboard-red-bullet">*</span> By choosing Courses option, you will have the opportunity to post a course which are available in your university.</li>
+                                            <li><span class="dashboard-red-bullet">*</span> Students can see your published courses.</li>
                                         </ul>
                                     </div>
                                     <a href="<?php echo URLROOT;?>/Posts_C_O_CoursePosts/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
@@ -159,14 +159,14 @@
                                     </div>
                                 </div>
                                 <div class="right">
-                                    <div class="title">Intake notices</div>
+                                    <div class="title">Intake Notices</div>
                                     <div class="body">
                                         <ul>
-                                            <li><span class="dashboard-red-bullet">*</span> dummy </li>
-                                            <li><span class="dashboard-red-bullet">*</span> dummy </li>
+                                            <li><span class="dashboard-red-bullet">*</span> By choosing Intake Notices option, you will have the opportunity to post a notice about your university intakes for a month by doing payment.</li>
+                                            <li><span class="dashboard-red-bullet">*</span> Students can see your published intake notices.</li>
                                         </ul>
                                     </div>
-                                    <a href="<?php echo URLROOT;?>/C_S_Stu_To_ProfessionalGuider/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
+                                    <a href="<?php echo URLROOT;?>/Posts_C_O_IntakeNotices/index" class="card-link"><div class="btn1-small">GET STARTED</div></a>
                                 </div>
                             </div>
                         <?php else: ?>  
