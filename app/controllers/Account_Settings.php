@@ -20,6 +20,7 @@
             }
 
             $data = [
+                'id' => $id,
                 'isProfileLocked' => $locked,
 
                 'isGenDetailsLocked' => $gen,
@@ -70,7 +71,7 @@
                 // Check for confirm text
                 $text_to_be_matched = 'I am '.$_SESSION['user_name'].'. Delete my account.';
                 if($text_to_be_matched != $_POST['acc_delete_confirmation_text']) {
-                    redirect('Whiz/index');
+                    redirect('Account_Settings/accountSettings/'.$id);
                 }
 
                 // Check for owner
@@ -98,8 +99,11 @@
                 }
 
                 $img = PUBROOT.'/profileimages/'.$folderName.'/'.$_SESSION['user_profile_image'];
-                $res1 = deleteImage($img);
-                $res2 = $this->accSettingsModel->deleteAccount($id);
+                
+                $res1 = $this->accSettingsModel->deleteAccount($id);
+                if($res1) {
+                    $res2 = deleteImage($img);
+                }
                 
                 if($res1 && $res2) {
                     flash('post_message', 'Account Removed');
@@ -119,7 +123,7 @@
                 }
             }
             else {
-                redirect('Whiz/index');
+                redirect('Account_Settings/accountSettings/'.$id);
             }
         }
     }
