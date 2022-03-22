@@ -130,6 +130,7 @@
                     <!-- BANNER -->
                     <?php foreach($data['posts'] as $post): ?>
                     <?php if($post->type == "banner"): ?>
+                    <?php if($post->payed == 1): ?>
                         <a href="<?php echo URLROOT; ?>/C_S_Stu_To_ProfessionalGuider/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="banner">
                             <?php if($post->image != null):?>
@@ -179,6 +180,7 @@
                             </div>          
                         </div>
                         </a>
+                    <?php endif; ?>
                     <?php endif; ?>
                     <?php endforeach; ?>
 

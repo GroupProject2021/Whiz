@@ -296,7 +296,7 @@
             $_SESSION['currect_viewing_post_type'] = "Banner";
 
             $post = $this->postModel->getPostById($id);
-            $user = $this->commonModel->getUserById($post->user_id);
+            $user = $this->commonModel->getUserById($post->userId);
 
             $ups = $this->postUpvoteDownvoteModel->getInc($id)->ups;
             $downs = $this->postUpvoteDownvoteModel->getDown($id)->downs;
@@ -396,6 +396,25 @@
             else {
                 redirect('Posts_C_M_Banners');
             }
+        }
+
+        // payment gateway return
+        public function updateBannerAsPayed() {
+            $res = $this->postModel->updateBannerAsPayed($_SESSION['post_to_be_payed']);
+
+            if($res) {
+                redirect('Posts_C_M_Banners/index');
+            }
+            else {
+                $this->delete($_SESSION['post_to_be_payed']);
+            }
+
+            unset($_SESSION['post_to_be_payed']);
+        }
+
+        public function postPayingForBanner($id) {
+            $_SESSION['post_to_be_payed'] = $id;
+            redirect('Payments/payment');
         }
 
         // LIKES DISLIKES REMOVED

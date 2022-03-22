@@ -179,15 +179,6 @@
             $this->db->bind(":banner_id", $postId); 
             $this->db->bind(":session_fee", $data['session_fee']);
 
-            $this->db->execute();
-
-            // Record transactions
-            $this->db->query('INSERT INTO Transactions(post_id, user_id, amount) VALUES(:post_id, :user_id, :amount)');
-            // bind values           
-            $this->db->bind(":post_id", $postId); 
-            $this->db->bind(":user_id", $_SESSION['user_id']); 
-            $this->db->bind(":amount", BANNER_PRICE); 
-
             // Execute
             if($this->db->execute()) {
                 return true;
@@ -243,7 +234,7 @@
         }
 
         public function getPostById($id) {
-            $this->db->query('SELECT * FROM Posts WHERE id = :id');
+            $this->db->query('SELECT * FROM v_posts_banners WHERE post_id = :id');
             $this->db->bind(':id', $id);
 
             $row = $this->db->single();
@@ -297,5 +288,44 @@
         }
 
 
+        // payment related
+        public function isPostPayed($postId) {
+            $this->db->query('SELECT * FROM Posts WHERE payed = 1 AND id = :post_id');
+            $this->db->bind(":post_id", $postId);
+
+            $results = $this->db->single();
+
+            $results = $this->db->rowCount();
+
+            if($results > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        public function updateBannerAsPayed($id) {
+            $this->db->query('UPDATE Posts SET payed = 1 WHERE id = :id');
+            // bind values       
+            $this->db->bind(":id", $id);
+            
+            $this->db->execute();
+
+            // Record transactions
+            $this->db->query('INSERT INTO Transactions(post_id, user_id, amount) VALUES(:post_id, :user_id, :amount)');
+            // bind values           
+            $this->db->bind(":post_id", $id); 
+            $this->db->bind(":user_id", $_SESSION['user_id']); 
+            $this->db->bind(":amount", BANNER_PRICE); 
+
+            // Execute
+            if($this->db->execute()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }
 ?>

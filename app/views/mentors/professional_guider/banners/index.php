@@ -144,8 +144,12 @@
                                 <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
                             </div>
                             <div class="postedat">
-                                <!-- <?php if(date("Y-m-d") > $exp_date){ echo "<font color=red>(Expired)</font>";} ?> -->
-                                Posted At: <?php echo convertedToReadableTimeFormat($post->postCreated); ?>
+                                <?php if($post->payed == 1): ?>
+                                    <!-- <?php if(date("Y-m-d") > $exp_date){ echo "<font color=red>(Expired)</font>";} ?> -->
+                                    Posted At: <?php echo convertedToReadableTimeFormat($post->postCreated); ?>
+                                <?php else: ?>
+                                    <span class="red-text">[Not payed]</span>
+                                <?php endif; ?>
                             </div>
                             <div class="banner-body">
                                 <div class="title"><?php echo $post->title; ?></div>
