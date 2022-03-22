@@ -41,7 +41,7 @@
                                             break;
 
                                         case 'Professional Guider':
-                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_M_Banners/index">';
+                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_M_Banners/updateBannerAsPayed">';
                                             echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_M_Banners/add">';
                                             break;
 

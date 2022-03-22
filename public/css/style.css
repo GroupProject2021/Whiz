@@ -89,3 +89,9 @@ hr {
     /* color: rgb(145, 145, 145); */
     background-color: rgb(187, 187, 187);
 }
+
+/* Common text stylings */
+.red-text {
+    color: red;
+    font-weight: 600;
+}

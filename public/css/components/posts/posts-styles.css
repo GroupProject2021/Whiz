@@ -565,6 +565,23 @@
     align-self: center;
 }
 
+/* pay area button */
+.pay-area button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    font-weight: 600;
+    color: #f3f3f3;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 98%);
+    transition: .2s all;
+}
+
+.pay-area button:hover {
+    font-size: 15px;
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 1124px) {
     .post-creator {
         width: 100%;
