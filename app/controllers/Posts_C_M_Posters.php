@@ -15,16 +15,6 @@
 
         // Load posters
         public function index() {
-            // Get posts
-            // $posts = $this->postModel->getPosts();
-            // $postsReviewssAndRates = $this->reviewModel->getPostsReviewsAndRates();
-
-            // $data = [
-            //     'posts' => $posts,
-            //     'reviews_rates' => $postsReviewssAndRates
-            // ];
-
-            // $this->view('mentors/teacher/posters/index', $data);
 
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanitize POST data
@@ -280,7 +270,7 @@
             $_SESSION['currect_viewing_post_type'] = "Poster";
 
             $post = $this->postModel->getPostById($id);
-            $user = $this->commonModel->getUserById($post->user_id);
+            $user = $this->commonModel->getUserById($post->userId);
 
             $ups = $this->postUpvoteDownvoteModel->getInc($id)->ups;
             $downs = $this->postUpvoteDownvoteModel->getDown($id)->downs;
@@ -377,6 +367,25 @@
             else {
                 redirect('Posts_C_M_Posters');
             }
+        }
+
+        // payment gateway return
+        public function updatePosterAsPayed() {
+            $res = $this->postModel->updatePosterAsPayed($_SESSION['post_to_be_payed']);
+
+            if($res) {
+                redirect('Posts_C_M_Posters/index');
+            }
+            else {
+                $this->delete($_SESSION['post_to_be_payed']);
+            }
+
+            unset($_SESSION['post_to_be_payed']);
+        }
+
+        public function postPayingForPoster($id) {
+            $_SESSION['post_to_be_payed'] = $id;
+            redirect('Payments/payment');
         }
 
         // LIKES DISLIKES REMOVED

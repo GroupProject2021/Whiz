@@ -46,7 +46,7 @@
                                             break;
 
                                         case 'Teacher':
-                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_M_Posters/index">';
+                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_M_Posters/updatePosterAsPayed">';
                                             echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_M_Posters/add">';
                                             break;
                                     }                                    

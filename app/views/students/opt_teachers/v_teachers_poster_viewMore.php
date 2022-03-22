@@ -45,17 +45,17 @@
                                     <?php if($data['user']->status == 'verified'): ?>
                                     <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
                                     <?php endif; ?>
-                                    <?php if($data['post']->user_id == $_SESSION['user_id']): ?>    
+                                    <?php if($data['post']->userId == $_SESSION['user_id']): ?>    
                                         <div class="post-control-buttons">                                        
-                                            <a href="<?php echo URLROOT?>/posts/edit/<?php echo $data['post']->id;?>">
+                                            <a href="<?php echo URLROOT?>/posts/edit/<?php echo $data['post']->post_id;?>">
                                                 <button class="post-header-editbtn">Edit</button>
                                             </a>
-                                            <form action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id; ?>" method="post">
+                                            <form action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->post_id; ?>" method="post">
                                                 <input type="submit" value="Delete" class="post-header-deletebtn">
                                             </form>
                                         </div>
                                      <?php endif; ?>
-                                <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
+                                <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->postCreated); ?></div>
                                 <!-- for admin purposes only -->
                                 <!-- edit delete options -->
                                 <?php if($_SESSION['actor_type'] == "Admin"): ?>    

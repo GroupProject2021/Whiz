@@ -129,7 +129,8 @@
 
                     <!-- POSTER -->
                     <?php foreach($data['posts'] as $post): ?>
-                    <?php if($post->type == "poster"): ?>
+                    <?php if($post->type == "poster"): ?>                        
+                    <?php if($post->payed == 1): ?>
                         <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Teacher/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="poster">
                             <?php if($post->image != null):?>
@@ -179,6 +180,7 @@
                             </div>          
                         </div>
                         </a>
+                    <?php endif; ?>
                     <?php endif; ?>
                     <?php endforeach; ?>
 

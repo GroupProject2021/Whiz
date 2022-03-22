@@ -42,14 +42,14 @@
                                     <?php if($data['user']->status == 'verified'): ?>
                                     <div class="verified"><img src="<?php echo URLROOT.'/imgs/verified.png'; ?>" alt=""></div>
                                     <?php endif; ?>
-                                    <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->created_at); ?></div>
+                                    <div class="postedat"><?php echo convertedToReadableTimeFormat($data['post']->postCreated); ?></div>
                                     <!-- edit delete options -->
-                                    <?php if($data['post']->user_id == $_SESSION['user_id']): ?>    
+                                    <?php if($data['post']->userId == $_SESSION['user_id']): ?>
                                         <div class="post-control-buttons">                                        
-                                            <a href="<?php echo URLROOT?>/Posts_C_M_Posters/edit/<?php echo $data['post']->id;?>">
+                                            <a href="<?php echo URLROOT?>/Posts_C_M_Posters/edit/<?php echo $data['post']->post_id;?>">
                                                 <button class="post-header-editbtn">Edit</button>
                                             </a>
-                                            <form action="<?php echo URLROOT; ?>/Posts_C_M_Posters/delete/<?php echo $data['post']->id; ?>" method="post">
+                                            <form action="<?php echo URLROOT; ?>/Posts_C_M_Posters/delete/<?php echo $data['post']->post_id; ?>" method="post">
                                                 <input type="submit" value="Delete" class="post-header-deletebtn">
                                             </form>
                                         </div>
@@ -69,6 +69,15 @@
                                        <div class="capacity"> of <?php echo $data['post']->capacity; ?> Capacity</div>
                                    </div>
                                </div>
+                               <?php if($data['post']->payed == 0): ?>
+                                <div class="pay-area">
+                                    <a href="<?php echo URLROOT; ?>/Posts_C_M_Posters/postPayingForPoster/<?php echo $data['post']->post_id; ?>" class="card-link">
+                                    <button>
+                                        Pay Now
+                                    </button>
+                                    </a>
+                                </div>
+                                <?php endif; ?>
                                 <form method="post">
                                 <div class="post-footer">
                                     <button id="like" >

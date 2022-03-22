@@ -95,11 +95,16 @@
                 return;
             }
 
+            if(!($this->postModel->isPostPayed($id))) {
+                // if not payed redirect 
+                redirect('C_S_Stu_To_Teacher/index');
+            }
+
             $_SESSION['current_viewing_post_id'] = $id;
             $_SESSION['currect_viewing_post_type'] = "Poster";
 
             $post = $this->postModel->getPostById($id);
-            $user = $this->commonModel->getUserById($post->user_id);
+            $user = $this->commonModel->getUserById($post->userId);
 
             $ups = $this->postUpvoteDownvoteModel->getInc($id)->ups;
             $downs = $this->postUpvoteDownvoteModel->getDown($id)->downs;
