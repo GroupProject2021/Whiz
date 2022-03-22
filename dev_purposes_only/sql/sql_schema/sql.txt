@@ -7882,7 +7882,8 @@ CREATE VIEW v_posts_jobs AS
 	IFNULL(v_complete_posts.rate3, 0) AS rate3,
 	IFNULL(v_complete_posts.rate4, 0) AS rate4,
 	IFNULL(v_complete_posts.rate5, 0) AS rate5,
-	v_complete_posts.review_count AS review_count
+	v_complete_posts.review_count AS review_count,
+	v_complete_posts.payed AS payed
 	FROM v_complete_posts
 	INNER JOIN Jobs
     ON Jobs.post_id = v_complete_posts.postId;

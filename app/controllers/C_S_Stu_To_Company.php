@@ -95,6 +95,11 @@
                 return;
             }
 
+            if(!($this->postModel->isPostPayed($id))) {
+                // if not payed redirect 
+                redirect('C_S_Stu_To_Company/index');
+            }
+
             $_SESSION['current_viewing_post_id'] = $id;
             $_SESSION['currect_viewing_post_type'] = "Advertisement";
 

@@ -411,6 +411,26 @@
         }
 
 
+
+        // payment gateway return
+        public function updateJobAdsAsPayed() {
+            $res = $this->postModel->updateJobAdsAsPayed($_SESSION['post_to_be_payed']);
+
+            if($res) {
+                redirect('Posts_C_O_JobAds/index');
+            }
+            else {
+                $this->delete($_SESSION['post_to_be_payed']);
+            }
+
+            unset($_SESSION['post_to_be_payed']);
+        }
+
+        public function postPayingForJobAds($id) {
+            $_SESSION['post_to_be_payed'] = $id;
+            redirect('Payments/payment');
+        }
+
         // LIKES DISLIKES REMOVED
     }
 ?>

@@ -36,8 +36,8 @@
                                             break;
 
                                         case 'Company':
-                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_O_Advertisement/index">';
-                                            echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_O_Advertisement/add">';
+                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_O_JobAds/updateJobAdsAsPayed">';
+                                            echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_O_JobAds/add">';
                                             break;
 
                                         case 'Professional Guider':

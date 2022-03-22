@@ -130,6 +130,7 @@
                      <!-- JOB POST -->
                      <?php foreach($data['posts'] as $post): ?>
                     <?php if($post->type == "jobpost"): ?>
+                    <?php if($post->payed == 1): ?>
                         <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Company/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="advertisement">
                             <?php if($post->image != null):?>
@@ -178,6 +179,7 @@
                             </div>          
                         </div>
                         </a>
+                    <?php endif; ?>
                     <?php endif; ?>
                     <?php endforeach; ?>
 
