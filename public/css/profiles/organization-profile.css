@@ -111,6 +111,11 @@
     padding-left: 25px;
 }
 
+.org-profile .details .ol-qualified-details  .number {
+    padding-bottom: 5px;
+    padding-left: 25px;
+}
+
 .org-profile .details .ol-qualified-details .results {
     grid-column: 1/3;
 }

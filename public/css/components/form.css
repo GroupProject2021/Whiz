@@ -61,7 +61,7 @@
 
 
 /* Full width input fields */
-input[type=text], input[type=password], input[type=number] {
+input[type=text], input[type=number], input[type=password]  {
     /* width: 100%;
     padding: 16px;
     display: inline-block;
@@ -105,8 +105,8 @@ label{
     margin-left: 10px;
 }
 
-input[type=text]:focus + label,input[type=password]:focus + label,
-input[type=text]:not(:placeholder-shown) + label, input[type=password]:not(:placeholder-shown) + label{
+input[type=text]:focus + label, input[type=password]:focus + label, input[type=number]:focus + label,
+input[type=text]:not(:placeholder-shown) + label, input[type=password]:not(:placeholder-shown) + label, input[type=number]:not(:placeholder-shown) + label{
     top: -45px;
     left: 15px;
     width: auto;

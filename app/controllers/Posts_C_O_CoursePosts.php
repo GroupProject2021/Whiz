@@ -412,7 +412,7 @@
                 $res5 = deleteImage($postImage);
                 
                 if($res4 && $res5) {
-                    flash('post_message', 'Post Removed');
+                    flash('post_message', 'Course Removed');
                     redirect('Posts_C_O_CoursePosts/index');
                 }
                 else {
