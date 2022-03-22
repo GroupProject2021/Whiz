@@ -357,6 +357,24 @@
         }
 
 
+        // payment gateway return
+        public function updateIntakeNoticeAsPayed() {
+            $res = $this->postModel->updateIntakeNoticeAsPayed($_SESSION['post_to_be_payed']);
+
+            if($res) {
+                redirect('Posts_C_O_IntakeNotices/index');
+            }
+            else {
+                $this->delete($_SESSION['post_to_be_payed']);
+            }
+
+            unset($_SESSION['post_to_be_payed']);
+        }
+
+        public function postPayingForIntakeNotice($id) {
+            $_SESSION['post_to_be_payed'] = $id;
+            redirect('Payments/payment');
+        }
         // LIKES DISLIKES REMOVED
     }
 ?>

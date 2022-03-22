@@ -63,6 +63,15 @@
                                     <div class="title"><?php echo $data['post']->noticeName; ?></div>
                                     <div class="postedby"><?php echo $data['post']->noticeContent; ?></div>
                                 </div>
+                                <?php if($data['post']->payed == 0): ?>
+                                <div class="pay-area">
+                                    <a href="<?php echo URLROOT; ?>/Posts_C_O_IntakeNotices/postPayingForIntakeNotice/<?php echo $data['post']->post_id; ?>" class="card-link">
+                                    <button>
+                                        Pay Now
+                                    </button>
+                                    </a>
+                                </div>
+                                <?php endif; ?>
                                 <form method="post">
                                 <div class="post-footer">
                                     <button id="like" >

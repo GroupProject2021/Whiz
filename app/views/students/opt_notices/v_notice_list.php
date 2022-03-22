@@ -94,6 +94,7 @@
                    <?php foreach($data['posts'] as $post): ?>
                     <?php $exp_date = date('Y-m-d', strtotime($post->paid_date. ' + 1 months')) ?>
                     <?php if($post->type == "noticepost" ): ?>
+                    <?php if($post->payed == 1): ?>
                         <a href="<?php echo URLROOT; ?>/C_S_Stu_To_Notices/show/<?php echo $post->post_id; ?>" class="card-link">
                         <div class="coursepost">
                             <?php if($post->image != null):?>
@@ -124,6 +125,7 @@
                         </a>
                         <br>
                         <br>
+                    <?php endif; ?>
                     <?php endif; ?>
                     <?php endforeach; ?>
 
