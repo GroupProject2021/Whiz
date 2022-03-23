@@ -244,6 +244,9 @@
                 if(empty($data['phn_no'])) {
                     $data['phn_no_err'] = 'Please enter phone number';
                 }
+                else if(strlen($data['phn_no']) != 10 || is_numeric($data['phn_no']) == false) {
+                    $data['phn_no_err'] = 'Please enter valid phone number';
+                }
 
                 // Validate address
                 if(empty($data['address'])) {

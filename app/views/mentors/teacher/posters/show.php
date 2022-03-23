@@ -53,7 +53,7 @@
                                                 <input type="submit" value="Delete" class="post-header-deletebtn">
                                             </form>
                                         </div>
-                                     <?php endif; ?>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="post-body">
                                     <div class="title"><?php echo $data['post']->title; ?></div>
