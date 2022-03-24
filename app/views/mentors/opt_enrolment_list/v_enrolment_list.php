@@ -43,7 +43,7 @@
                                
                                 <td class="gov-course-intake"><?php echo $post->applied;?>/<?php echo $post->capacity;?></td>
                                 
-                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_M_Enrolment_List/enrolStudentList/'.$post->postId;?>"><button class="btn3">View more</button></a></td>
+                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_M_Enrolment_List/enrolStudentList/'.$post->post_id;?>"><button class="btn3">View more</button></a></td>
 
                                 <!-- <td>
                                     <?php if($data['link'] != Null):?>

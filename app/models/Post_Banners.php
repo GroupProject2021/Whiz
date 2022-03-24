@@ -17,7 +17,7 @@
             //                     ON posts.user_id = users.id 
             //                     ORDER BY posts.created_at DESC");
 
-            $this->db->query("SELECT * FROM v_complete_posts WHERE payed = 0  ORDER BY postId DESC");
+            $this->db->query("SELECT * FROM v_posts_banners WHERE payed = 1  ORDER BY post_id DESC");
             
 
             $results = $this->db->resultSet();
