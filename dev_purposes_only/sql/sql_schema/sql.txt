@@ -23,7 +23,7 @@ CREATE TABLE GovernmentCourse (
   gov_course_name VARCHAR(255) NOT NULL,
   stream_id INT,
   PRIMARY KEY(gov_course_id),
-  FOREIGN KEY(stream_id)	REFERENCES Stream(stream_id)
+  FOREIGN KEY(stream_id) REFERENCES Stream(stream_id)
 );
 
 INSERT INTO GovernmentCourse VALUES (001, 'Medicine', 3);
@@ -195,8 +195,8 @@ CREATE TABLE GovernmentCourseOfferedByGovermentUniversity (
   description LONGTEXT,
   unicode VARCHAR(10),
   PRIMARY KEY(id),
-  FOREIGN KEY(gov_course_id)	REFERENCES GovernmentCourse(gov_course_id),
-  FOREIGN KEY(gov_uni_id)	REFERENCES GovermentUniversity(gov_uni_id)
+  FOREIGN KEY(gov_course_id) REFERENCES GovernmentCourse(gov_course_id),
+  FOREIGN KEY(gov_uni_id) REFERENCES GovermentUniversity(gov_uni_id)
 );
 
 -- data inserted using admin panel
@@ -820,7 +820,8 @@ CREATE TABLE Organization (
   founder varchar(255) not null,
   founded_year int not null,
   org_type varchar(50) NOT NULL,
-  PRIMARY KEY (org_id)
+  PRIMARY KEY(org_id),
+  FOREIGN KEY(org_id) REFERENCES Users(id) ON DELETE CASCADE
 ); 
 
 
@@ -831,8 +832,8 @@ CREATE TABLE Company (
   registered  varchar(3) not null,
   overview varchar(255) not null,
   services varchar(255) not null,
-  PRIMARY KEY (company_id),
-  FOREIGN KEY (company_id) REFERENCES Organization  (org_id)
+  PRIMARY KEY(company_id),
+  FOREIGN KEY(company_id) REFERENCES Organization(org_id) ON DELETE CASCADE
 );
 
 
@@ -844,8 +845,8 @@ CREATE TABLE PrivateUniversity (
   graduate_job_rate int not null,
   description varchar(255) not null,
   uni_type varchar(20) not null,
-  PRIMARY KEY (privateuni_id),
-  FOREIGN KEY (privateuni_id) REFERENCES Organization  (org_id) 
+  PRIMARY KEY(privateuni_id),
+  FOREIGN KEY(privateuni_id) REFERENCES Organization(org_id) ON DELETE CASCADE
 ); 
 
 -- replaced as job advertisements
@@ -854,9 +855,9 @@ CREATE TABLE Jobs (
   paid_date DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
   company_id int(11) NOT NULL,
   post_id INT,
-  PRIMARY KEY (job_id),
-  FOREIGN KEY (company_id) REFERENCES Company  (company_id)  ON DELETE CASCADE,
-  FOREIGN KEY (post_id) REFERENCES Posts (id) ON DELETE CASCADE
+  PRIMARY KEY(job_id),
+  FOREIGN KEY(company_id) REFERENCES Company(company_id) ON DELETE CASCADE,
+  FOREIGN KEY(post_id) REFERENCES Posts(id) ON DELETE CASCADE
 ); 
 
 -- replaced as coursepost
@@ -866,9 +867,9 @@ CREATE TABLE PrivateCourses (
   course_fee varchar(50) NULL,
   private_uni_id int(11) NOT NULL,
   post_id INT,
-  PRIMARY KEY (privatecourse_id),
-  FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id) ON DELETE CASCADE,
-  FOREIGN KEY (post_id) REFERENCES Posts (id) ON DELETE CASCADE
+  PRIMARY KEY(privatecourse_id),
+  FOREIGN KEY(private_uni_id) REFERENCES PrivateUniversity(privateuni_id) ON DELETE CASCADE,
+  FOREIGN KEY(post_id) REFERENCES Posts(id) ON DELETE CASCADE
 );  
  
  
@@ -878,9 +879,9 @@ CREATE TABLE JobApplicants (
   post_id INT NOT NULL,
   interaction VARCHAR(100),
   applied_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (job_apply_id),
-  FOREIGN KEY (user_id) REFERENCES Users  (id) ON DELETE CASCADE,
-  FOREIGN KEY (post_id) REFERENCES Posts  (id) ON DELETE CASCADE
+  PRIMARY KEY(job_apply_id),
+  FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE,
+  FOREIGN KEY(post_id) REFERENCES Posts(id) ON DELETE CASCADE
 ); 
 
 
@@ -889,9 +890,9 @@ CREATE TABLE IntakeNotices (
   paid_date DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
   private_uni_id int(11) NOT NULL,
   post_id INT,
-  PRIMARY KEY (notice_id),
-  FOREIGN KEY (private_uni_id) REFERENCES PrivateUniversity (privateuni_id)  ON DELETE CASCADE,
-  FOREIGN KEY (post_id) REFERENCES Posts (id) ON DELETE CASCADE
+  PRIMARY KEY(notice_id),
+  FOREIGN KEY(private_uni_id) REFERENCES PrivateUniversity(privateuni_id) ON DELETE CASCADE,
+  FOREIGN KEY(post_id) REFERENCES Posts(id) ON DELETE CASCADE
 ); 
 
 
@@ -914,7 +915,7 @@ CREATE TABLE Teacher (
     school VARCHAR(255) NOT NULL,
     subjects VARCHAR(255) NOT NULL,
     PRIMARY KEY(teacher_id),
-    FOREIGN KEY (mentor_id) REFERENCES Mentor(mentor_id)
+    FOREIGN KEY(mentor_id) REFERENCES Mentor(mentor_id)
 );
  
 CREATE TABLE Profguide (
@@ -925,7 +926,7 @@ CREATE TABLE Profguide (
     subject2 VARCHAR(255),
     subject3 VARCHAR(255),
     PRIMARY KEY(guider_id),
-    FOREIGN KEY (mentor_id) REFERENCES Mentor(mentor_id)
+    FOREIGN KEY(mentor_id) REFERENCES Mentor(mentor_id)
 );
  
 CREATE TABLE TeacherEnrollments (
@@ -934,9 +935,9 @@ CREATE TABLE TeacherEnrollments (
   post_id INT NOT NULL,
   interaction VARCHAR(100),
   applied_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (enroll_id),
-  FOREIGN KEY (user_id) REFERENCES Users  (id) ON DELETE CASCADE,
-  FOREIGN KEY (post_id) REFERENCES Posts  (id) ON DELETE CASCADE
+  PRIMARY KEY(enroll_id),
+  FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE,
+  FOREIGN KEY(post_id) REFERENCES Posts(id) ON DELETE CASCADE
 ); 
 
 CREATE TABLE ProfGuiderEnrollments (
@@ -945,9 +946,9 @@ CREATE TABLE ProfGuiderEnrollments (
   post_id INT NOT NULL,
   interaction VARCHAR(100),
   applied_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (enroll_id),
-  FOREIGN KEY (user_id) REFERENCES Users  (id) ON DELETE CASCADE,
-  FOREIGN KEY (post_id) REFERENCES Posts  (id) ON DELETE CASCADE
+  PRIMARY KEY(enroll_id),
+  FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE,
+  FOREIGN KEY(post_id) REFERENCES Posts(id) ON DELETE CASCADE
 ); 
 
 -- ADMIN RELATED
@@ -970,9 +971,9 @@ CREATE TABLE Complaint (
     complaintsender_id INT NOT NULL,
     profile_id INT NOT NULL,
 	sent_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (complaint_id),
-	FOREIGN KEY (complaintsender_id) REFERENCES Users (id),
-	FOREIGN KEY (profile_id) REFERENCES Users (id) ON DELETE CASCADE
+	PRIMARY KEY(complaint_id),
+	FOREIGN KEY(complaintsender_id) REFERENCES Users(id),
+	FOREIGN KEY(profile_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 
 INSERT INTO District(district_name) VALUES('Colombo');
@@ -1272,9 +1273,9 @@ INSERT INTO City(city_name) VALUES('Yatawatta');
 CREATE TABLE AdminOffersGovernmentCourse(
 	admin_id INT NOT NULL,
 	gov_course_id INT NOT NULL,
-	PRIMARY KEY (admin_id,gov_course_id),
-	FOREIGN KEY (admin_id) REFERENCES Admin (admin_id),
-	FOREIGN KEY (gov_course_id) REFERENCES GovernmentCourse (gov_course_id)
+	PRIMARY KEY(admin_id,gov_course_id),
+	FOREIGN KEY(admin_id) REFERENCES Admin(admin_id),
+	FOREIGN KEY(gov_course_id) REFERENCES GovernmentCourse(gov_course_id)
 );
 
 CREATE TABLE ZScoreTable (
@@ -1284,8 +1285,8 @@ CREATE TABLE ZScoreTable (
 	syllabus VARCHAR(100),
 	year INT,
 	z_score DECIMAL (5,4),
-	PRIMARY KEY (z_id),
-	FOREIGN KEY (district_id) REFERENCES District (district_id)
+	PRIMARY KEY(z_id),
+	FOREIGN KEY(district_id) REFERENCES District(district_id)
 );
 
 
@@ -7020,9 +7021,9 @@ CREATE TABLE Comments (
 	ups INT,
 	downs INT,
 	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (comment_id),
-	FOREIGN KEY (post_id) REFERENCES Posts(id) ON DELETE CASCADE,
-	FOREIGN KEY (user_id) REFERENCES Users (id) ON DELETE CASCADE
+	PRIMARY KEY(comment_id),
+	FOREIGN KEY(post_id) REFERENCES Posts(id) ON DELETE CASCADE,
+	FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 
 
@@ -7043,8 +7044,8 @@ CREATE TABLE Connections (
 	from_user_id INT,
 	to_user_id INT,
 	PRIMARY KEY(connection_id),
-	FOREIGN KEY (from_user_id) REFERENCES Users(id) ON DELETE CASCADE,
-	FOREIGN KEY (to_user_id) REFERENCES Users(id) ON DELETE CASCADE
+	FOREIGN KEY(from_user_id) REFERENCES Users(id) ON DELETE CASCADE,
+	FOREIGN KEY(to_user_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Review (
@@ -7732,8 +7733,8 @@ CREATE TABLE Community (
 	body TEXT NOT NULL,
 	views INT,
 	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (thread_id),
-	FOREIGN KEY (user_id) REFERENCES Users (id) ON DELETE CASCADE
+	PRIMARY KEY(thread_id),
+	FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE CommunityComments (
@@ -7744,9 +7745,9 @@ CREATE TABLE CommunityComments (
 	ups INT,
 	downs INT,
 	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (comment_id),
-	FOREIGN KEY (thread_id) REFERENCES Community(thread_id) ON DELETE CASCADE,
-	FOREIGN KEY (user_id) REFERENCES Users (id) ON DELETE CASCADE
+	PRIMARY KEY(comment_id),
+	FOREIGN KEY(thread_id) REFERENCES Community(thread_id) ON DELETE CASCADE,
+	FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE CommunityCommentInteractions (
@@ -7786,7 +7787,7 @@ date DATE NOT NULL,
 time TIME NOT NULL,
 body varchar(255) NOT NULL,
 PRIMARY KEY(id),
-FOREIGN KEY (post_id) REFERENCES Posts(id) ON DELETE CASCADE
+FOREIGN KEY(post_id) REFERENCES Posts(id) ON DELETE CASCADE
 );
 
 -- view for course posts

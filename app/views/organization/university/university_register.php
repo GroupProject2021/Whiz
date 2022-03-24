@@ -10,7 +10,7 @@
 
         <!-- REGISTRATION FORM -->
         <div class="form-container">
-            <form action="<?php echo URLROOT; ?>/organizations/university_register" method="post"  enctype="multipart/form-data">
+            <form action="<?php echo URLROOT; ?>/Organizations/university_register" method="post"  enctype="multipart/form-data">
                 <h1>University Register</h1>
                 <p>Please fill in this form to create an account</p>
                 <hr class="form-hr">
