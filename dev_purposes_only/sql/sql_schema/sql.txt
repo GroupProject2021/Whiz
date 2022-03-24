@@ -8043,9 +8043,7 @@ CREATE TABLE Transactions (
   post_id INT,
   user_id INT,
   amount INT,
-  PRIMARY KEY(transaction_id),
-  FOREIGN KEY(post_id)	REFERENCES Posts(id),
-  FOREIGN KEY(user_id)	REFERENCES Users(id)
+  PRIMARY KEY(transaction_id)
 );
 
 CREATE VIEW v_posts_transactions AS
