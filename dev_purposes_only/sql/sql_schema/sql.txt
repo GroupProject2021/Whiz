@@ -7949,16 +7949,16 @@ CREATE TABLE Notifications (
 
 CREATE VIEW v_posts_link AS
 	SELECT
-	posts.id AS post_id,
+	Posts.id AS post_id,
 	Users.id AS user_id,
-	posts.title AS title,
-	sessionlink.date AS date,
-	sessionlink.time AS time,
-	sessionlink.body AS body
-	FROM posts INNER JOIN Users
-	ON posts.user_id = Users.id
-	INNER JOIN sessionlink 
-	ON posts.id = sessionlink.post_id;
+	Posts.title AS title,
+	SessionLink.date AS date,
+	SessionLink.time AS time,
+	SessionLink.body AS body
+	FROM Posts INNER JOIN Users
+	ON Posts.user_id = Users.id
+	INNER JOIN SessionLink 
+	ON Posts.id = SessionLink.post_id;
 
 CREATE TABLE Banner(
 	banner_id INT,
