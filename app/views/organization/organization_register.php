@@ -14,9 +14,9 @@
             <p>Please select your type</p>
             <hr  class="form-hr">
             <center>
-                <a href="<?php echo URLROOT; ?>/organizations/university_register"><button class="form-actor-button">University</button></a>
+                <a href="<?php echo URLROOT; ?>/Organizations/university_register"><button class="form-actor-button">University</button></a>
                 <br>
-                <a href="<?php echo URLROOT; ?>/organizations/company_register"><button class="form-actor-button">Company</button></a>
+                <a href="<?php echo URLROOT; ?>/Organizations/company_register"><button class="form-actor-button">Company</button></a>
             </center>            
         </div>
         <div class="form-container content">
