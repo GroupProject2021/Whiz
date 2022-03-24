@@ -28,7 +28,7 @@
 
         public function getComments($id) {
             // $this->db->query('SELECT * FROM comments WHERE post_id = :post_id');
-            $this->db->query('SELECT * FROM Comments WHERE post_id = :post_id ORDER BY comments.created_at DESC');
+            $this->db->query('SELECT * FROM Comments WHERE post_id = :post_id ORDER BY Comments.created_at DESC');
             $this->db->bind(':post_id', $id);
 
             $results = $this->db->resultSet();

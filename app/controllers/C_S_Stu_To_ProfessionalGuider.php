@@ -5,7 +5,7 @@
                 redirect('users/login');
             }
 
-            $this->postModel = $this->model('Post_banners');
+            $this->postModel = $this->model('Post_Banners');
             $this->postUpvoteDownvoteModel = $this->model('Post_UpvoteDownvote');
 
             $this->commentModel = $this->model('Comment');            

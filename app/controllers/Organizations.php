@@ -77,15 +77,14 @@
                 }
 
                 // Validate email
-                if(empty($data['email'])) {
-                    $data['email_err'] = 'Please enter email';
+                if(empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                    $data['email_err'] = 'Please enter a valid email';
                 }
-                else if(!str_contains($data['email'], '@')) {
-                    $data['email_err'] = 'Please enter valid email';
-                }
-                // Check email
-                else if($this->commonModel->findUserByEmail($data['email'])) {
-                    $data['email_err'] = 'Email is already taken'; 
+                else {
+                    // Check email
+                    if($this->commonModel->findUserByEmail($data['email'])) {
+                        $data['email_err'] = 'Email is already taken'; 
+                    }
                 }
 
                 // Validata password
@@ -320,15 +319,14 @@
                 }
 
                 // Validate email
-                if(empty($data['email'])) {
-                    $data['email_err'] = 'Please enter email';
+                if(empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                    $data['email_err'] = 'Please enter a valid email';
                 }
-                else if(!str_contains($data['email'], '@')) {
-                    $data['email_err'] = 'Please enter valid email';
-                }
-                // Check email
-                else if($this->commonModel->findUserByEmail($data['email'])) {
-                    $data['email_err'] = 'Email is already taken'; 
+                else {
+                    // Check email
+                    if($this->commonModel->findUserByEmail($data['email'])) {
+                        $data['email_err'] = 'Email is already taken'; 
+                    }
                 }
 
                 // Validata password

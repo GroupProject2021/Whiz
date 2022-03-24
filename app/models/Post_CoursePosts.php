@@ -227,7 +227,7 @@
 
             $postId = $this->getPostIdByContent($data['course_name'], $data['private_uni_id'], $data['course_content']);
 
-            $this->db->query('INSERT INTO Privatecourses(provide_degree, course_fee, private_uni_id, post_id) VALUES(:provide_degree, :course_fee, :private_uni_id, :post_id)');
+            $this->db->query('INSERT INTO PrivateCourses(provide_degree, course_fee, private_uni_id, post_id) VALUES(:provide_degree, :course_fee, :private_uni_id, :post_id)');
             // bind values
             $this->db->bind(":provide_degree", $data['provide_degree']);
             $this->db->bind(":course_fee", $data['course_fee']);            
@@ -281,7 +281,7 @@
 
             $this->db->execute();
 
-            $this->db->query('UPDATE Privatecourses SET provide_degree = :provide_degree, course_fee = :course_fee WHERE post_id = :id');
+            $this->db->query('UPDATE PrivateCourses SET provide_degree = :provide_degree, course_fee = :course_fee WHERE post_id = :id');
             // bind values    
             $this->db->bind(":id", $data['postid']);
             $this->db->bind(":provide_degree", $data['provide_degree']);
@@ -312,7 +312,7 @@
 
             $this->db->execute();
 
-            $this->db->query('DELETE FROM Privatecourses WHERE post_id = :id');
+            $this->db->query('DELETE FROM PrivateCourses WHERE post_id = :id');
             // bind values
             $this->db->bind(":id", $id);
 

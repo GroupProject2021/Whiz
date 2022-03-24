@@ -808,7 +808,6 @@ CREATE TABLE ALAdmissibleStreamSubjectSelected (
 
 
 
-
 -- ORGANIZATION RELATED 
 CREATE TABLE Organization (
   org_id int(11) NOT NULL,
