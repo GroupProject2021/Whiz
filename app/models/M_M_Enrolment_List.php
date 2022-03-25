@@ -61,7 +61,7 @@ class M_M_Enrolment_List{
     }
 
     public function addLink($data) {
-        $this->db->query('INSERT INTO sessionlink( post_id, date, time, body) VALUES(:post_id, :date, :time, :body)');
+        $this->db->query('INSERT INTO SessionLink( post_id, date, time, body) VALUES(:post_id, :date, :time, :body)');
         // bind values
         $this->db->bind(':post_id', $data['post_id']);
         $this->db->bind(":date", $data['date']);
@@ -79,7 +79,7 @@ class M_M_Enrolment_List{
     }
 
     public function getSessionLink($id) {
-        $this->db->query('SELECT * FROM sessionlink WHERE post_id = :id');
+        $this->db->query('SELECT * FROM SessionLink WHERE post_id = :id');
         $this->db->bind(':id', $id);
 
         $row = $this->db->single();
@@ -88,7 +88,7 @@ class M_M_Enrolment_List{
     }
 
     public function getSessionLinkwithoutId() {
-        $this->db->query('SELECT * FROM sessionlink');
+        $this->db->query('SELECT * FROM SessionLink');
         // $this->db->bind(':id', $id);
 
         // $row = $this->db->single();
@@ -98,7 +98,7 @@ class M_M_Enrolment_List{
     }
 
     public function updateLink($data) {
-        $this->db->query('UPDATE sessionlink SET body = :body WHERE id = :link_id');
+        $this->db->query('UPDATE SessionLink SET body = :body WHERE id = :link_id');
         // bind values
         $this->db->bind(":link_id", $data['id']);
         $this->db->bind(":body", $data['body']);
@@ -113,7 +113,7 @@ class M_M_Enrolment_List{
     }
 
     public function deleteLink($id) {
-        $this->db->query('DELETE FROM sessionlink WHERE post_id = :id');
+        $this->db->query('DELETE FROM SessionLink WHERE post_id = :id');
         // bind values
         
         $this->db->bind(":id", $id);

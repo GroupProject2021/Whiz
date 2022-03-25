@@ -31,27 +31,27 @@
                                 <?php 
                                     switch($_SESSION['specialized_actor_type']) {
                                         case 'University':
-                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_O_IntakeNotices/updateIntakeNoticeAsPayed">';
-                                            echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_O_IntakeNotices/add">';
+                                            echo '<input type="hidden" name="return_url" value="'.URLROOT.'/Posts_C_O_IntakeNotices/updateIntakeNoticeAsPayed">';
+                                            echo '<input type="hidden" name="cancel_url" value="'.URLROOT.'/Posts_C_O_IntakeNotices/add">';
                                             break;
 
                                         case 'Company':
-                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_O_JobAds/updateJobAdsAsPayed">';
-                                            echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_O_JobAds/add">';
+                                            echo '<input type="hidden" name="return_url" value="'.URLROOT.'/Posts_C_O_JobAds/updateJobAdsAsPayed">';
+                                            echo '<input type="hidden" name="cancel_url" value="'.URLROOT.'/Posts_C_O_JobAds/add">';
                                             break;
 
                                         case 'Professional Guider':
-                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_M_Banners/updateBannerAsPayed">';
-                                            echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_M_Banners/add">';
+                                            echo '<input type="hidden" name="return_url" value="'.URLROOT.'/Posts_C_M_Banners/updateBannerAsPayed">';
+                                            echo '<input type="hidden" name="cancel_url" value="'.URLROOT.'/Posts_C_M_Banners/add">';
                                             break;
 
                                         case 'Teacher':
-                                            echo '<input type="hidden" name="return_url" value="http://localhost/whiz/Posts_C_M_Posters/updatePosterAsPayed">';
-                                            echo '<input type="hidden" name="cancel_url" value="http://localhost/whiz/Posts_C_M_Posters/add">';
+                                            echo '<input type="hidden" name="return_url" value="'.URLROOT.'/Posts_C_M_Posters/updatePosterAsPayed">';
+                                            echo '<input type="hidden" name="cancel_url" value="'.URLROOT.'/Posts_C_M_Posters/add">';
                                             break;
                                     }                                    
                                 ?>
-                                <input type="hidden" name="notify_url" value="http://localhost/whiz/Payments/payment">
+                                <input type="hidden" name="notify_url" value="<?php echo URLROOT; ?>/Payments/payment">
                                 
                                 <div class="payment-container">
                                     <div class="payment-details">
