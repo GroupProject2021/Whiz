@@ -473,7 +473,7 @@
         }
 
         public function dashboard($id){
-            $this->db->query('SELECT * FROM v_posts_link WHERE user_id = :id');
+            $this->db->query("SELECT * FROM v_posts_link WHERE user_id = :id ORDER BY date ASC;");
             $this->db->bind(':id', $id);
 
             $results = $this->db->resultSet();
