@@ -1,8 +1,13 @@
 <?php
     function getPercentageRounded($current, $total, $precision) {
-        $temp = ($current / $total) * 100;
-        $temp = round($temp, $precision);
+        if($total != 0) {
+            $temp = ($current / $total) * 100;
+            $temp = round($temp, $precision);
 
-        return $temp;
+            return $temp;
+        }
+        else {
+            return 0;
+        }
     }
 ?>
