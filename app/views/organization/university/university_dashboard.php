@@ -87,7 +87,7 @@
                             <div class="dashboard-content-idle-container proGuider">
                                 <div class="left">
                                     <div class="image">
-                                        <img src="<?php echo URLROOT.'/imgs/dashboard/pro-guider-dashboard.jpg'; ?>" alt="">
+                                        <img src="<?php echo URLROOT.'/imgs/dashboard/course-dashboard.jpg'; ?>" alt="">
                                     </div>
                                 </div>
                                 <div class="right">
@@ -155,7 +155,7 @@
                             <div class="dashboard-content-idle-container proGuider">
                                 <div class="left">
                                     <div class="image">
-                                        <img src="<?php echo URLROOT.'/imgs/dashboard/pro-guider-dashboard.jpg'; ?>" alt="">
+                                        <img src="<?php echo URLROOT.'/imgs/dashboard/notice.png'; ?>" alt="">
                                     </div>
                                 </div>
                                 <div class="right">
