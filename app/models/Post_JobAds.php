@@ -23,7 +23,7 @@
             return $results;
         }
 
-        // at course posts page
+        // at job posts page
         public function filterAndGetPostsToJobAds($criteria, $order) {
             switch($criteria) {
                 case "all":
