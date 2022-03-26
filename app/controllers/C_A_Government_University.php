@@ -307,28 +307,32 @@ class C_A_Government_University extends Controller {
 
             // Validate gender
             if(empty($data['description'])) {
-                $data['description_err'] = 'Please enter description';
+                // $data['description_err'] = 'Please enter description';
+                $data['description'] = NULL;
             }
 
             // Validate date of birth
             if(empty($data['world_rank'])) {
-                $data['world_rank_err'] = 'Please enter world rank';
+                // $data['world_rank_err'] = 'Please enter world rank';
+                $data['world_rank'] = NULL;
             }
 
             // Validate address
             if(empty($data['student_amount'])) {
-                $data['student_amount_err'] = 'Please enter student amount';
+                // $data['student_amount_err'] = 'Please enter student amount';
+                $data['student_amount'] = NULL;
             }
 
             // Validate address
             if(empty($data['graduate_job_rate'])) {
-                $data['graduate_job_rate_err'] = 'Please enter graduate jo rate';
+                // $data['graduate_job_rate_err'] = 'Please enter graduate jo rate';
+                $data['graduate_job_rate'] = NULL;
             }
 
             // Make sure no errors
             if(empty($data['uni_name_err']) && empty($data['description_err']) && empty($data['world_rank_err']) && empty($data['student_amount_err']) && empty($data['graduate_job_rate_err'])) {
                 // Validated                    
-                if($this->govUniModel->addUniversity($data)) {
+                if($this->govUniModel->editUniversity($data)) {
                     flash('gov_uni_message', 'New record added');
                     
                     redirect('C_A_Government_University/universities');
@@ -396,7 +400,7 @@ class C_A_Government_University extends Controller {
             // Make sure no errors
             if(empty($data['course_id_err']) && empty($data['course_name_err'])) {
                 // Validated                    
-                if($this->govUniModel->addCourse($data)) {
+                if($this->govUniModel->editCourse($data)) {
                     flash('gov_uni_message', 'New record added');
                     
                     redirect('C_A_Government_University/courses');

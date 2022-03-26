@@ -27,7 +27,7 @@
 
                     <!-- MIDDLE PANEL -->
                     <div class="middle-panel-single">
-                        <form action="<?php echo URLROOT; ?>/C_A_Government_University/editUniversity" method="post">
+                        <form action="<?php echo URLROOT; ?>/C_A_Government_University/editUniversity/<?php echo $data['id']; ?>" method="post">
                             <table>   
                                 <tr>
                                     <td>University name</td>
@@ -61,7 +61,7 @@
                                 </tr>        
                                 <tr>
                                     <td colspan="2">
-                                        <button type="submit" class="form-next-button">Add</button>
+                                        <button type="submit" class="form-next-button">Edit</button>
                                     </td>
                                 </tr>        
                             </table>                            
