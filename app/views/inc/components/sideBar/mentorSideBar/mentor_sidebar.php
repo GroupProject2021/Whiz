@@ -19,7 +19,7 @@
                 </div>
                 <div class="user-level-content">
                     <div class="user-level-name">
-                    <!-- <p>Teacher</p> -->
+                    <!-- <p>Guider</p> -->
                         <p><?php echo $_SESSION['user_name']; ?></p>
                     </div>
                 </div>
