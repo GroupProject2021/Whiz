@@ -754,7 +754,6 @@ CREATE TABLE UndergraduateGraduate (
 	uni_name  VARCHAR(255) NOT NULL,
 	gpa DECIMAL(5, 4),
 	PRIMARY KEY(stu_id),
-	FOREIGN KEY(stu_id)	REFERENCES Student(stu_id),
 	FOREIGN KEY(stu_id)	REFERENCES Users(id) ON DELETE CASCADE
 );
 

@@ -9557,7 +9557,6 @@ ALTER TABLE `teacherenrollments`
 -- Constraints for table `undergraduategraduate`
 --
 ALTER TABLE `undergraduategraduate`
-  ADD CONSTRAINT `undergraduategraduate_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `student` (`stu_id`),
   ADD CONSTRAINT `undergraduategraduate_ibfk_2` FOREIGN KEY (`stu_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
