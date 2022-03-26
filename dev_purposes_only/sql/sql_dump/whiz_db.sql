@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2022 at 08:31 PM
+-- Generation Time: Mar 26, 2022 at 06:27 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -211,11 +211,11 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`banner_id`, `session_fee`) VALUES
-(16, '1000.00'),
-(17, '1500.00'),
-(18, '1000.00'),
-(19, '500.00'),
-(20, '1000.00');
+(16, '1500.00'),
+(17, '1000.00'),
+(18, '500.00'),
+(19, '1000.00'),
+(20, '500.00');
 
 -- --------------------------------------------------------
 
@@ -1170,11 +1170,11 @@ CREATE TABLE `intakenotices` (
 --
 
 INSERT INTO `intakenotices` (`notice_id`, `paid_date`, `private_uni_id`, `post_id`) VALUES
-(1, '2022-03-25', 6, 6),
-(2, '2022-03-25', 6, 7),
-(3, '2022-03-25', 6, 8),
-(4, '2022-03-25', 6, 9),
-(5, '2022-03-25', 6, 10);
+(1, '2022-03-26', 6, 6),
+(2, '2022-03-26', 6, 7),
+(3, '2022-03-26', 6, 8),
+(4, '2022-03-26', 6, 9),
+(5, '2022-03-26', 6, 10);
 
 -- --------------------------------------------------------
 
@@ -1208,11 +1208,11 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`job_id`, `paid_date`, `company_id`, `post_id`) VALUES
-(1, '2022-03-25', 7, 11),
-(2, '2022-03-25', 7, 12),
-(3, '2022-03-25', 7, 13),
-(4, '2022-03-25', 7, 14),
-(5, '2022-03-25', 7, 15);
+(1, '2022-03-26', 7, 11),
+(2, '2022-03-26', 7, 12),
+(3, '2022-03-26', 7, 13),
+(4, '2022-03-26', 7, 14),
+(5, '2022-03-26', 7, 15);
 
 -- --------------------------------------------------------
 
@@ -1450,31 +1450,31 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `type`, `image`, `title`, `body`, `applied`, `capacity`, `ups`, `downs`, `shares`, `views`, `payed`, `created_at`) VALUES
-(1, 6, 'coursepost', '1648184984_course1.jpeg', 'Computer Science', 'Through the development of new applications in science, engineering, and business, Computer Science is radically changing the way in which we experience our world. This programme equips students with the skills needed to contribute to this exciting and rapidly evolving field.\r\n\r\nComputer Science is our most flexible programme, allowing you to chose course units to reflect your developing and changing interests. Furthermore, a wide range of themes from across the discipline allow you to specialize in the second and third years.\r\n\r\nYou will gain not only knowledge and practical experience of the latest technologies, but also a grounding in the underlying principles of the subject. It is this combination of skills that enable our graduates to keep pace with this fast moving subject, and secure rewarding careers that can be pursued almost anywhere in the world.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-25 10:39:44'),
-(2, 6, 'coursepost', '1648185107_course2.jpeg', 'Advanced Certificate in English', 'Having an excellent grasp of spoken and written English is a fundamental requirement for success in the corporate world or other careers. Such knowledge also builds confidence and helps in forming relationships in business and social settings. This course is intended to develop the Listening, Speaking, Reading, and Writing Skills of students. The course will use interactive sessions and technologies based on the ‘Communicative Approach to Language Teaching’, which is the latest language teaching methodology practiced around the world. The syllabus covers a broad range of topics required to reach a level of competence in using English effectively and confidently.\r\n\r\nEntry Requirements\r\nCompletion of GCE O/L, A/L examinations AND Certificate in English (CIE) course', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-25 10:41:47'),
-(3, 6, 'coursepost', '1648191004_course3.jpeg', 'Artificial Intelligence', 'Artificial intelligence courses after 12th are related to the domain of Computer Science which focuses on developing programmed machines or computers that can function similarly to a human brain.\r\n\r\nIn India, many institutes and websites offer Artificial Intelligence Courses After 12th. Candidates would be eligible to apply for the Artificial Intelligence course after the completion of their class 12th exam.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-25 12:20:04'),
-(4, 6, 'coursepost', '1648191600_course4.jpeg', 'Mathematics and Statistic', 'B.Sc Mathematics is a 3-year undergraduate course that deals with the discipline of mathematics and the analysis of numbers, structure, transition, and space is the focus of the B.Sc Maths program. Aspirants will find job opportunities in finance, information technology, and research firms after completing the B.Sc Mathematics course.\r\n\r\nB.Sc Mathematics Course Details\r\n\r\nDegree -	Bachelors\r\nFull Form -	Bachelor of Science in Mathematics\r\nDuration -	Course Duration of Bachelor of Science [B.Sc] \r\n                  (Mathematics) is 3 Years.\r\nAge -	        The minimum age to join B.Sc course is 18 years. There \r\n                  is no upper age limit.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-25 12:30:00'),
-(5, 6, 'coursepost', '1648197151_course5.jpeg', 'Civil Engineering', 'The Faculty of Engineering is the epicenter of engineering education, research, knowledge creation and distribution in Sri Lanka. Comprised of prominent lecturers, researchers and a helpful academic staff, the students are guaranteed to receive quality education and knowledge.\r\n\r\nThe students will be well guided so that they study their courses and learn that they are working for knowledge and career, not just to pass examinations. Our academic programs are dedicated to create innovative leaders in a world of modern technology.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-25 14:02:31'),
-(6, 6, 'noticepost', '1648197675_intake1.jpeg', 'CALLING INTERVIEW AND REGISTRATION FOR INFORMATION TECHNOLOGY', 'Closing Date          -  2022/05/31\r\n\r\nMinimum Qualification -  C for G.C.E. O/L English\r\n                         Pass G.C.E. Advanced Level in Physical stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-25 14:11:15'),
-(7, 6, 'noticepost', '1648197829_intake2.jpeg', 'INTERVIEW AND REGISTRATION FOR ENGLISH', 'Closing Date          -  2022/05/31\r\n\r\nMinimum Qualification -  C for G.C.E. O/L English\r\n                         Pass G.C.E. Advanced Level in any stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-25 14:13:49'),
-(8, 6, 'noticepost', '1648197883_intake3.png', 'INTAKE FOR 2023', 'Closing Date          -  2022/05/31\r\n\r\nMinimum Qualification -  C for G.C.E. O/L English\r\n                         Pass G.C.E. Advanced Level in Physical stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-25 14:14:43'),
-(9, 6, 'noticepost', '1648197966_intake4.jpeg', 'REGISTRATION DEADLINE EXTENDED', 'Closing Date          -  2022/05/31\r\n\r\nMinimum Qualification -  C for G.C.E. O/L English\r\n                         Pass G.C.E. Advanced Level in any stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-25 14:16:06'),
-(10, 6, 'noticepost', '1648198043_intake5.jpeg', 'MBA and EMBA INTAKE FOR 2022', 'Closing Date          -  2022/05/31\r\n\r\nMinimum Qualification -  C for G.C.E. O/L English\r\n                         Pass G.C.E. Advanced Level in Commerce stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-25 14:17:23'),
-(11, 7, 'jobpost', '1648198478_job1.jpeg', 'Vacancies for Full Stack Developers', 'A Java, C#, .Net, C, Sybase and Oracle Software Developer is generally responsible for the development, design and implementation of new or modified software products or ongoing business projects.\r\n\r\nTypically sitting within the IT team of a business, a Software Developer will be involved in liaising with the Business Analysts and Development Managers to ensure software projects meet requirements.', 0, 40, 0, 0, 0, 0, 1, '2022-03-25 14:24:38'),
-(12, 7, 'jobpost', '1648198645_job2.png', 'Hiring Graphic Designers', 'You&#39;ll work on a variety of products and activities, such as websites, advertising, books, magazines, posters, computer games, product packaging, exhibitions and displays, corporate communications and corporate identity, i.e. giving organizations a visual brand.\r\n\r\nWorking to a brief that has been agreed with the client, creative director or account manager, you&#39;ll develop appropriate creative ideas and concepts for the client&#39;s objectives.\r\n\r\nThe work demands creative flair, up-to-date knowledge of industry software and a professional approach to time, costs and deadlines.\r\n\r\nSalary start from LKR 75000.', 0, 10, 0, 0, 0, 0, 1, '2022-03-25 14:27:25'),
-(13, 7, 'jobpost', '1648198891_job3.png', 'Vacancy for Business Analysts', 'We are hiring a business analyst to join our project team. You will work alongside other business analysts and report directly to the project manager. Your main tasks will include performing detailed requirements analysis, documenting processes, and performing some user acceptance testing. To succeed in this role you should have a natural analytical way of thinking and be able to explain difficult concepts to non-technical users.\r\n\r\nSalary starts from LKR 100000', 0, 5, 0, 0, 0, 0, 1, '2022-03-25 14:31:31'),
-(14, 7, 'jobpost', '1648199118_job4.jpeg', 'Architect Vacancies', 'As an architect, you&#39;ll design new buildings or extensions or alterations to existing structures and advise on the restoration and conservation of old properties. You may work on individual buildings or on large redevelopment schemes, and your responsibility can extend to the design of the surrounding landscape and spaces.\r\n\r\nWorking closely with clients and users, you&#39;ll make sure that projected designs match requirements and are functional, safe and economical, and in some cases highly innovative. You&#39;ll usually control a project from start to finish and work with a number of construction professionals, including surveyors and engineers.\r\n\r\nSalary starts from LKR 150000', 0, 10, 0, 0, 0, 0, 1, '2022-03-25 14:35:18'),
-(15, 7, 'jobpost', '1648199909_job5.jpeg', 'Apply For Senior Software Engineers', 'Must Have skills:\r\n\r\n* Working experience in C#, ASP .Net MVC, Web API and Entity Framework\r\n   Experience in writing TSQL with SQL Server\r\n* Knowledge in HTML, CSS\r\n* Experience in JAVAscript, Typescript and JQuery\r\n* Knowledge in creating SPA based applications preferably Angular or \r\n   React\r\n\r\nTeamwork, quality of life, professional and personal development\\: values that Virtusa is proud to embody. When you join us, you join a team of 21,000 people globally that cares about your growth — one that seeks to provide you with exciting projects, opportunities and work with state of the art technologies throughout your career with us.\r\n\r\nGreat minds, great potential\\: it all comes together at Virtusa. We value collaboration and the team environment of our company and seek to provide great minds with a dynamic place to nurture new ideas and foster excellence.\r\n\r\nVirtusa was founded on principles of equal opportunity for all, and so does not discriminate on the basis of race, religion, color, sex, gender identity, sexual orientation, age, non-disqualifying physical or mental disability, national origin, veteran status or any other basis covered by appropriate law. All employment is decided on the basis of qualifications, merit, and business need.', 0, 15, 0, 0, 0, 0, 1, '2022-03-25 14:48:29'),
-(16, 8, 'banner', '1648219759_banner1.jpg', 'Online Business Workshop', 'Online Business Workshop with Jonaton Dew, e-commerce expert will be held on 20th December 2022 from 10 a.m - 5. p.m', 0, 200, 0, 0, 0, 0, 1, '2022-03-25 20:19:19'),
-(17, 8, 'banner', '1648220257_banner2.jpg', 'Social Media Marketing Conference', 'Join with us on 29th September', 0, 100, 0, 0, 0, 0, 1, '2022-03-25 20:27:37'),
-(18, 8, 'banner', '1648220589_banner3.jpg', 'Future of Graphic Design', 'An online seminar on &#34;Graphic design strategy&#34; & &#34;Future of graphic design&#34; will be held on 12th December 2022 at 5 p.m. Join with us !', 0, 150, 0, 0, 0, 0, 1, '2022-03-25 20:33:09'),
-(19, 8, 'banner', '1648220725_banner4.jpg', 'Career Counselling', 'For School, College students & Graduates. Join with us !', 0, 250, 0, 0, 0, 0, 1, '2022-03-25 20:35:25'),
-(20, 8, 'banner', '1648220822_banner5.jpg', 'LIVE', 'LIVE with Thomas Pesaco', 0, 500, 0, 0, 0, 0, 1, '2022-03-25 20:37:02'),
-(21, 9, 'poster', '1648221920_poster1.jpg', 'Online Tutoring Session', 'From Sunday- Wednesday at 11 a.m', 0, 20, 0, 0, 0, 0, 1, '2022-03-25 20:55:20'),
-(22, 9, 'poster', '1648222926_poster2.jpeg', 'HTML, CSS and Javascript', 'On every Saturday at 6.00 p.m', 0, 10, 0, 0, 0, 0, 1, '2022-03-25 21:12:06'),
-(23, 9, 'poster', '1648223157_poster3.jpg', 'Software Engineering', 'Software Engineering from the beginning. \r\nOn Every Wednesday at 5 p.m', 0, 70, 0, 0, 0, 0, 1, '2022-03-25 21:15:57'),
-(24, 9, 'poster', '1648223832_poster4.jpg', 'Hardware & Software Components', 'On 2nd April at 7.00 p.m', 0, 150, 0, 0, 0, 0, 1, '2022-03-25 21:27:12'),
-(25, 9, 'poster', '1648223991_poster5.png', 'C++  for beginners', 'On 5th May', 0, 200, 0, 0, 0, 0, 1, '2022-03-25 21:29:51');
+(1, 6, 'coursepost', '1648267914_course1.jpeg', 'Computer Science', 'Through the development of new applications in science, engineering, and business, Computer Science is radically changing the way in which we experience our world. This programme equips students with the skills needed to contribute to this exciting and rapidly evolving field. Computer Science is our most flexible programme, allowing you to chose course units to reflect your developing and changing interests. Furthermore, a wide range of themes from across the discipline allow you to specialize in the second and third years. You will gain not only knowledge and practical experience of the latest technologies, but also a grounding in the underlying principles of the subject. It is this combination of skills that enable our graduates to keep pace with this fast moving subject, and secure rewarding careers that can be pursued almost anywhere in the world.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-26 09:41:54'),
+(2, 6, 'coursepost', '1648268070_course2.jpeg', 'Advanced Certificate in English', 'Having an excellent grasp of spoken and written English is a fundamental requirement for success in the corporate world or other careers. Such knowledge also builds confidence and helps in forming relationships in business and social settings. This course is intended to develop the Listening, Speaking, Reading, and Writing Skills of students. The course will use interactive sessions and technologies based on the ‘Communicative Approach to Language Teaching’, which is the latest language teaching methodology practiced around the world. The syllabus covers a broad range of topics required to reach a level of competence in using English effectively and confidently. Entry Requirements Completion of GCE O/L, A/L examinations AND Certificate in English (CIE) course', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-26 09:44:30'),
+(3, 6, 'coursepost', '1648268136_course3.jpeg', 'Artificial Intelligence', 'Artificial intelligence courses after 12th are related to the domain of Computer Science which focuses on developing programmed machines or computers that can function similarly to a human brain. In India, many institutes and websites offer Artificial Intelligence Courses After 12th. Candidates would be eligible to apply for the Artificial Intelligence course after the completion of their class 12th exam.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-26 09:45:36'),
+(4, 6, 'coursepost', '1648268237_course4.jpeg', 'Mathematics and Statistic', 'B.Sc Mathematics is a 3-year undergraduate course that deals with the discipline of mathematics and the analysis of numbers, structure, transition, and space is the focus of the B.Sc Maths program. Aspirants will find job opportunities in finance, information technology, and research firms after completing the B.Sc Mathematics course.B.Sc Mathematics Course Details Degree -	Bachelors Full Form -	Bachelor of Science in Mathematics Duration -	Course Duration of Bachelor of Science [B.Sc] (Mathematics) is 3 Years. Age -	        The minimum age to join B.Sc course is 18 years. There is no upper age limit.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-26 09:47:17'),
+(5, 6, 'coursepost', '1648268321_course5.jpeg', 'Civil Engineering', 'The Faculty of Engineering is the epicenter of engineering education, research, knowledge creation and distribution in Sri Lanka. Comprised of prominent lecturers, researchers and a helpful academic staff, the students are guaranteed to receive quality education and knowledge. he students will be well guided so that they study their courses and learn that they are working for knowledge and career, not just to pass examinations. Our academic programs are dedicated to create innovative leaders in a world of modern technology.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-26 09:48:41'),
+(6, 6, 'noticepost', '1648268561_intake1.jpeg', 'CALLING INTERVIEW AND REGISTRATION FOR INFORMATION TECHNOLOGY', 'Closing Date - 2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in Physical stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-26 09:52:41'),
+(7, 6, 'noticepost', '1648268756_intake2.jpeg', 'INTERVIEW AND REGISTRATION FOR ENGLISH', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in any stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-26 09:55:56'),
+(8, 6, 'noticepost', '1648268836_intake3.png', 'INTAKE FOR 2023', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in Physical stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-26 09:57:16'),
+(9, 6, 'noticepost', '1648268904_intake4.jpeg', 'REGISTRATION DEADLINE EXTENDED', 'Closing Date  -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in any stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-26 09:58:24'),
+(10, 6, 'noticepost', '1648268964_intake5.jpeg', 'MBA and EMBA INTAKE FOR 2022', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in Commerce stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-26 09:59:24'),
+(11, 7, 'jobpost', '1648269184_job1.jpeg', 'Vacancies for Full Stack Developers', 'A Java, C#, .Net, C, Sybase and Oracle Software Developer is generally responsible for the development, design and implementation of new or modified software products or ongoing business projects. Typically sitting within the IT team of a business, a Software Developer will be involved in liaising with the Business Analysts and Development Managers to ensure software projects meet requirements.', 0, 40, 0, 0, 0, 0, 1, '2022-03-26 10:03:04'),
+(12, 7, 'jobpost', '1648269314_job2.png', 'Hiring Graphic Designers', 'You work on a variety of products and activities, such as websites, advertising, books, magazines, posters, computer games, product packaging, exhibitions and displays, corporate communications and corporate identity, i.e. giving organizations a visual brand. Working to a brief that has been agreed with the client, creative director or account manager, you&#39;ll develop appropriate creative ideas and concepts for the client&#39;s objectives. The work demands creative flair, up-to-date knowledge of industry software and a professional approach to time, costs and deadlines. Salary start from LKR 75000.', 0, 10, 0, 0, 0, 0, 1, '2022-03-26 10:05:14'),
+(13, 7, 'jobpost', '1648269409_job3.png', 'Vacancy for Business Analysts', 'We are hiring a business analyst to join our project team. You will work alongside other business analysts and report directly to the project manager. Your main tasks will include performing detailed requirements analysis, documenting processes, and performing some user acceptance testing. To succeed in this role you should have a natural analytical way of thinking and be able to explain difficult concepts to non-technical users. Salary starts from LKR 100000', 0, 5, 0, 0, 0, 0, 1, '2022-03-26 10:06:49'),
+(14, 7, 'jobpost', '1648269534_job4.jpeg', 'Architect Vacancies', 'As an architect, you&#39;ll design new buildings or extensions or alterations to existing structures and advise on the restoration and conservation of old properties. You may work on individual buildings or on large redevelopment schemes, and your responsibility can extend to the design of the surrounding landscape and spaces. Working closely with clients and users, you&#39;ll make sure that projected designs match requirements and are functional, safe and economical, and in some cases highly innovative. You&#39;ll usually control a project from start to finish and work with a number of construction professionals, including surveyors and engineers. Salary starts from LKR 150000', 0, 10, 0, 0, 0, 0, 1, '2022-03-26 10:08:54'),
+(15, 7, 'jobpost', '1648269740_job5.jpeg', 'Apply For Senior Software Engineers', 'Must Have skills: \r\n* Working experience in C#, ASP .Net MVC, Web API and Entity Framework\r\n*Experience in writing TSQL with SQL Server\r\n*Knowledge in HTML, CSS\r\n*Experience in JAVAscript, Typescript and JQuery\r\n*Knowledge in creating SPA based applications preferably Angular or React Teamwork, quality of life, professional and personal development: values that Virtusa is proud to embody. When you join us, you join a team of 21,000 people globally that cares about your growth — one that seeks to provide you with exciting projects, opportunities and work with state of the art technologies throughout your career with us. Great minds, great potential: it all comes together at Virtusa. We value collaboration and the team environment of our company and seek to provide great minds with a dynamic place to nurture new ideas and foster excellence. Virtusa was founded on principles of equal opportunity for all, and so does not discriminate on the basis of race, religion, color, sex, gender identity, sexual orientation, age, non-disqualifying physical or mental disability, national origin, veteran status or any other basis covered by appropriate law. All employment is decided on the basis of qualifications, merit, and business need.', 0, 15, 0, 0, 0, 0, 1, '2022-03-26 10:12:20'),
+(16, 8, 'banner', '1648270630_banner1.jpg', 'Online Business Workshop', 'Online Business Workshop with Jonaton Dew, e-commerce expert will be held on 20th December 2022 from 10 a.m - 5. p.m', 0, 200, 0, 0, 0, 0, 1, '2022-03-26 10:27:10'),
+(17, 8, 'banner', '1648270730_banner2.jpg', 'Social Media Marketing Conference', 'Join with us on 29th September', 0, 100, 0, 0, 0, 0, 1, '2022-03-26 10:28:50'),
+(18, 8, 'banner', '1648270790_banner3.jpg', 'Future of Graphic Design', 'An online seminar on  Graphic design strategy- Future of graphic design will be held on 12th December 2022 at 5 p.m. Join with us !', 0, 150, 0, 0, 0, 0, 1, '2022-03-26 10:29:50'),
+(19, 8, 'banner', '1648270836_banner4.jpg', 'Career Counselling', 'For School, College students & Graduates. Join with us !', 0, 250, 0, 0, 0, 0, 1, '2022-03-26 10:30:36'),
+(20, 8, 'banner', '1648270863_banner5.jpg', 'LIVE', 'LIVE with Thomas Pesaco', 0, 500, 0, 0, 0, 0, 1, '2022-03-26 10:31:03'),
+(21, 9, 'poster', '1648270965_poster1.jpg', 'Online Tutoring Session', 'From Sunday- Wednesday at 11 a.m', 0, 20, 0, 0, 0, 0, 1, '2022-03-26 10:32:45'),
+(22, 9, 'poster', '1648270997_poster2.jpeg', 'HTML, CSS and Javascript', 'On every Saturday at 6.00 p.m', 0, 10, 0, 0, 0, 0, 1, '2022-03-26 10:33:17'),
+(23, 9, 'poster', '1648271029_poster3.jpg', 'Software Engineering', 'Software Engineering from the beginning. On Every Wednesday at 5 p.m', 0, 70, 0, 0, 0, 0, 1, '2022-03-26 10:33:49'),
+(24, 9, 'poster', '1648271051_poster4.jpg', 'Hardware & Software Components', 'On 2nd April at 7.00 p.m', 0, 150, 0, 0, 0, 0, 1, '2022-03-26 10:34:11'),
+(25, 9, 'poster', '1648271074_poster5.png', 'C++  for beginners', 'On 5th May', 0, 200, 0, 0, 0, 0, 1, '2022-03-26 10:34:34');
 
 -- --------------------------------------------------------
 
@@ -2088,6 +2088,32 @@ CREATE TABLE `transactions` (
   `user_id` int(11) DEFAULT NULL,
   `amount` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`transaction_id`, `post_id`, `user_id`, `amount`) VALUES
+(1, 6, 6, 100),
+(2, 7, 6, 100),
+(3, 8, 6, 100),
+(4, 9, 6, 100),
+(5, 10, 6, 100),
+(6, 11, 7, 150),
+(7, 12, 7, 150),
+(8, 13, 7, 150),
+(9, 14, 7, 150),
+(10, 15, 7, 150),
+(11, 16, 8, 100),
+(12, 17, 8, 100),
+(13, 18, 8, 100),
+(14, 19, 8, 100),
+(15, 20, 8, 100),
+(16, 21, 9, 100),
+(17, 22, 9, 100),
+(18, 23, 9, 100),
+(19, 24, 9, 100),
+(20, 25, 9, 100);
 
 -- --------------------------------------------------------
 
@@ -9201,7 +9227,7 @@ ALTER TABLE `teacherenrollments`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `universitytype`
