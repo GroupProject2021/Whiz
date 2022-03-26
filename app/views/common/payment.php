@@ -85,7 +85,7 @@
                                         </table>
                                     </div>
                                     <div class="payment-details">
-                                        <h2>Cutomer Details</h2>
+                                        <h2>Customer Details</h2>
                                         <br>
                                         <table cellspacing="5">
                                             <tr>
