@@ -126,8 +126,7 @@
                         </div>
                         </form>
                     <br>
-                    <br>
-                    <br>
+                    
                         <div class="card-flex-box">
                     
                     <!-- COURSE POST -->
