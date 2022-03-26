@@ -44,7 +44,7 @@
                                 <td class="gov-course-intake"><?php echo $post->applied;?>/<?php echo $post->capacity;?></td>
                                 
                                 <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_M_Enrolment_List/enrolStudentList/'.$post->post_id;?>"><button class="btn3">View more</button></a></td>
-
+                                
                                 <!-- <td>
                                     <?php if($data['link'] != Null):?>
                                         <a href="<?php echo URLROOT.'/C_M_Enrolment_List/viewlink/'.$post->postId; ?>"><input class="btn1 post-back" type="button" value="Session Link"></a>
@@ -57,6 +57,7 @@
                                 </tr>
                                 <?php endif; ?>
                             <?php endforeach; ?>
+                            <hr>
                         </table>
                         <hr>
                     </div>
