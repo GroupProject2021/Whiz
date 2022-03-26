@@ -27,10 +27,10 @@
                         <form action="<?php echo URLROOT; ?>/C_M_Settings/editSettingsGuider" method="post">
                             <div class="settings-header">
                                     <div class="settings-header-item"><h2>Basic details</h2></div>
-                                    <div class="settings-header-item"><a href="<?php echo URLROOT.'/C_M_Settings/settings/'.$data['mentorid'].'/'.$_SESSION['user_id']; ?>"><input class="cancel-button" type="button" value="Cancel"></a></div>
+                                    <div class="settings-header-item"><a href="<?php echo URLROOT.'/C_M_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id']; ?>"><input class="cancel-button" type="button" value="Cancel"></a></div>
                                     <div class="settings-header-item"><a href=""><input class="save-button" type="submit" value="Save"></a></div>
                                     <!-- <div class="settings-header-item"><button type="submit">Save</button></div> -->
-                                    <br><br><?php print_r($data); ?>
+                                    <br><br>
                             </div>                      
                             <br>
                             <div class="table-section">
