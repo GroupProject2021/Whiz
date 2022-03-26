@@ -57,7 +57,7 @@
                         <td><input type="radio" name="radio_religion" value="A" checked>A</td>
                         <td><input type="radio" name="radio_religion" value="B">B</td>
                         <td><input type="radio" name="radio_religion" value="C">C</td>
-                        <td><input type="radio" name="radio_religion" value="D">D</td>
+                        <td><input type="radio" name="radio_religion" value="S">S</td>
                         <td><input type="radio" name="radio_religion" value="E">E</td>
                         <td><input type="radio" name="radio_religion" value="F">F</td>                        
                     </tr>
@@ -79,7 +79,7 @@
                         <td><input type="radio" name="radio_primary_language" value="A" checked>A</td>
                         <td><input type="radio" name="radio_primary_language" value="B">B</td>
                         <td><input type="radio" name="radio_primary_language" value="C">C</td>
-                        <td><input type="radio" name="radio_primary_language" value="D">D</td>
+                        <td><input type="radio" name="radio_primary_language" value="S">S</td>
                         <td><input type="radio" name="radio_primary_language" value="E">E</td>
                         <td><input type="radio" name="radio_primary_language" value="F">F</td>                        
                     </tr>
@@ -101,7 +101,7 @@
                         <td><input type="radio" name="radio_secondary_language" value="A" checked>A</td>
                         <td><input type="radio" name="radio_secondary_language" value="B">B</td>
                         <td><input type="radio" name="radio_secondary_language" value="C">C</td>
-                        <td><input type="radio" name="radio_secondary_language" value="D">D</td>
+                        <td><input type="radio" name="radio_secondary_language" value="S">S</td>
                         <td><input type="radio" name="radio_secondary_language" value="E">E</td>
                         <td><input type="radio" name="radio_secondary_language" value="F">F</td>                        
                     </tr>
@@ -123,7 +123,7 @@
                         <td><input type="radio" name="radio_history" value="A" checked>A</td>
                         <td><input type="radio" name="radio_history" value="B">B</td>
                         <td><input type="radio" name="radio_history" value="C">C</td>
-                        <td><input type="radio" name="radio_history" value="D">D</td>
+                        <td><input type="radio" name="radio_history" value="S">S</td>
                         <td><input type="radio" name="radio_history" value="E">E</td>
                         <td><input type="radio" name="radio_history" value="F">F</td>                        
                     </tr>
@@ -145,7 +145,7 @@
                         <td><input type="radio" name="radio_science" value="A" checked>A</td>
                         <td><input type="radio" name="radio_science" value="B">B</td>
                         <td><input type="radio" name="radio_science" value="C">C</td>
-                        <td><input type="radio" name="radio_science" value="D">D</td>
+                        <td><input type="radio" name="radio_science" value="S">S</td>
                         <td><input type="radio" name="radio_science" value="E">E</td>
                         <td><input type="radio" name="radio_science" value="F">F</td>                        
                     </tr>
@@ -167,7 +167,7 @@
                         <td><input type="radio" name="radio_mathematics" value="A" checked>A</td>
                         <td><input type="radio" name="radio_mathematics" value="B">B</td>
                         <td><input type="radio" name="radio_mathematics" value="C">C</td>
-                        <td><input type="radio" name="radio_mathematics" value="D">D</td>
+                        <td><input type="radio" name="radio_mathematics" value="S">S</td>
                         <td><input type="radio" name="radio_mathematics" value="E">E</td>
                         <td><input type="radio" name="radio_mathematics" value="F">F</td>                        
                     </tr>
@@ -189,7 +189,7 @@
                         <td><input type="radio" name="radio_basket_1" value="A" checked>A</td>
                         <td><input type="radio" name="radio_basket_1" value="B">B</td>
                         <td><input type="radio" name="radio_basket_1" value="C">C</td>
-                        <td><input type="radio" name="radio_basket_1" value="D">D</td>
+                        <td><input type="radio" name="radio_basket_1" value="S">S</td>
                         <td><input type="radio" name="radio_basket_1" value="E">E</td>
                         <td><input type="radio" name="radio_basket_1" value="F">F</td>                        
                     </tr>
@@ -211,7 +211,7 @@
                         <td><input type="radio" name="radio_basket_2" value="A" checked>A</td>
                         <td><input type="radio" name="radio_basket_2" value="B">B</td>
                         <td><input type="radio" name="radio_basket_2" value="C">C</td>
-                        <td><input type="radio" name="radio_basket_2" value="D">D</td>
+                        <td><input type="radio" name="radio_basket_2" value="S">S</td>
                         <td><input type="radio" name="radio_basket_2" value="E">E</td>
                         <td><input type="radio" name="radio_basket_2" value="F">F</td>                        
                     </tr>
@@ -233,7 +233,7 @@
                         <td><input type="radio" name="radio_basket_3" value="A" checked>A</td>
                         <td><input type="radio" name="radio_basket_3" value="B">B</td>
                         <td><input type="radio" name="radio_basket_3" value="C">C</td>
-                        <td><input type="radio" name="radio_basket_3" value="D">D</td>
+                        <td><input type="radio" name="radio_basket_3" value="S">S</td>
                         <td><input type="radio" name="radio_basket_3" value="E">E</td>
                         <td><input type="radio" name="radio_basket_3" value="F">F</td>                        
                     </tr>
