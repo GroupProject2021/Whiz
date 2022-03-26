@@ -93,12 +93,11 @@
                                 </div>
                                 </form>
                             </div>
-                        </div>
                             <br>
 
                             <!-- COMMENT THREAD - AJAX REQUESTS IN REAL-TIME -->
                             <div id="results"></div>
-                            
+                        </div>
                         </div>
 
                         <!-- test msg for comment results - CHECK FOR COMMENT INSERTING ONLY -->

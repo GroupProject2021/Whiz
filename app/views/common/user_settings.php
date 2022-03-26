@@ -27,6 +27,7 @@
                     <div class="middle-panel-single">
                         <?php flash('acc_settings_msg'); ?>
 
+                        <?php if($_SESSION['actor_type'] != 'Admin'): ?>
                         <h2>Audience and Visibility</h2>
                         <p>Control who can see your profile and details</p>
                         <br>
@@ -113,9 +114,11 @@
                         </table>
                         </form>
                         <?php endif; ?>
+                        <br><hr>
+                        <?php endif; ?>
 
                         <!-- Account delete -->
-                        <br><hr><br>
+                        <br>
                         <?php if($data['id'] == $_SESSION['user_id']):?>
                         <h2>Delete account</h2>
                         <p>This will delete your profile as well as the posts, posts interactions and other activities.</p>
