@@ -55,6 +55,7 @@
             </a>
 
             <!-- Notifications -->
+            <?php if($_SESSION['actor_type'] != 'Admin'): ?>
             <div class="dropdown" id="notification-button">
                 <button class="dropbtn">
                     <img src="<?php echo URLROOT.'/imgs/components/topNavBar/notifications-icon.png' ?>" alt="">
@@ -82,8 +83,10 @@
                     </div>          -->
                 </div>
             </div>
+            <?php endif; ?>
 
             <!-- connections -->
+            <?php if($_SESSION['actor_type'] != 'Admin'): ?>
             <div class="dropdown">
                 <button class="dropbtn">
                     <img src="<?php echo URLROOT.'/imgs/components/topNavBar/connections-icon.png' ?>" alt="">
@@ -101,6 +104,7 @@
                     </a>
                 </div>
             </div>
+            <?php endif; ?>
 
             <!-- Currect profile -->
             <?php 
@@ -118,7 +122,6 @@
                         break;
 
                     case 'Admin':
-                        echo '<a href="'.URLROOT.'/C_A_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id'].'" class="topnav-link">';
                         break;
 
                     default:

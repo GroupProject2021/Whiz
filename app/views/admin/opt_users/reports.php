@@ -29,14 +29,12 @@
                     <div class="middle-panel-single">
                         
                         <table class="gov-course-table">
-                            <tr>
-                                
+                            <tr>                                
                                 <th>Report</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
                             </tr>
-                            <tr><td colspan="4"><hr></td></tr>
                             <?php foreach($data['report_list'] as $reportItem): ?>
                             <tr>
                                 <td class="gov-course-name" style="width: 60%;"><?php echo $reportItem->report; ?></td>                                
