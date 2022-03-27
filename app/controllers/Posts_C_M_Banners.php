@@ -382,11 +382,17 @@
                 // $res1 = $this->commentModel->deleteComment($id);
                 // $res2 = $this->reviewModel->deleteReview($id);
                 // $res3 = $this->postUpvoteDownvoteModel->deleteInteraction($id);
-                $res4 = $this->postModel->deletePost($id);
 
-                // validate and upload profile image
-                $postImage = PUBROOT.'/imgs/posts/banners/'.$post->image;
-                $res5 = deleteImage($postImage);
+                // validate and delete image
+                if(!empty($post->image)){
+                    $postImage = PUBROOT.'/imgs/posts/banners/'.$post->image;
+                    $res5 = deleteImage($postImage);
+                }
+                else {
+                    $res5 = true;
+                }
+
+                $res4 = $this->postModel->deletePost($id);                
 
                 // session link
                 $link = $this->sessionLinkModel->deleteLink($id);

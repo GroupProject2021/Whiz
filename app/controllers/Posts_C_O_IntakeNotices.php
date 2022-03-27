@@ -337,11 +337,18 @@
                 // $res1 = $this->commentModel->deleteComment($id);
                 // $res2 = $this->reviewModel->deleteReview($id);
                 // $res3 = $this->postModel->deleteInteraction($id);
-                $res4 = $this->postModel->deletePost($id);
 
-                // validate and upload profile image
-                $postImage = PUBROOT.'/imgs/posts/notices/'.$post->image;
-                $res5 = deleteImage($postImage);
+                // validate and delete image
+                if(!empty($post->image)){
+                    $postImage = PUBROOT.'/imgs/posts/notices/'.$post->image;
+                    $res5 = deleteImage($postImage);
+                }
+                else {
+                    $res5 = true;
+                }
+
+                $res4 = $this->postModel->deletePost($id);
+                
                 
                 if($res4 && $res5) {
                     flash('post_message', 'Post Removed');

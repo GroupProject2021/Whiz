@@ -405,11 +405,19 @@
                 // $res1 = $this->commentModel->deleteComment($id);
                 // $res2 = $this->reviewModel->deleteReview($id);
                 // $res3 = $this->postModel->deleteInteraction($id);
+
+                // validate and delete image
+                if(!empty($post->image)){
+                    $postImage = PUBROOT.'/imgs/posts/courseposts/'.$post->image;
+                    $res5 = deleteImage($postImage);
+                }
+                else {
+                    $res5 = true;
+                }
+
                 $res4 = $this->postModel->deletePost($id);
 
-                // validate and upload profile image
-                $postImage = PUBROOT.'/imgs/posts/courseposts/'.$post->image;
-                $res5 = deleteImage($postImage);
+                
                 
                 if($res4 && $res5) {
                     flash('post_message', 'Course Removed');
