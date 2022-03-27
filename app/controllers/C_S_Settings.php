@@ -523,7 +523,9 @@ class C_S_Settings extends Controller {
             if(empty($data['name_err']) && empty($data['gender_err'])
                 && empty($data['date_of_birth_err']) && empty($data['address_err']) && empty($data['phn_no_err'])) {
                 // Validated                    
-                $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+                // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+                $id = $_SESSION['user_id'];
+
                 if($this->settingsModel->updateStudentSettings($id, $data)) {
                     flash('settings_message', 'Student data updated');
                     $this->updateUserSessions($_SESSION['user_id']);
@@ -540,7 +542,9 @@ class C_S_Settings extends Controller {
             }
         }
         else {
-            $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+            // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+            $id = $_SESSION['user_id'];
+
             // Get existing post from model                
             $studentData = $this->settingsModel->getStudentDetails($id);
 
@@ -664,7 +668,9 @@ class C_S_Settings extends Controller {
             // Make sure all errors are empty
             if(empty($data['ol_school_err']) && empty($data['ol_district_err']) && empty($data['ol_results_err']) && empty($data['file_err'])) {
                 // Validated                    
-                $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+                // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+                $id = $_SESSION['user_id'];
+
                 if($this->settingsModel->updateStudentOLSettings($id, $data)) {
                     flash('settings_message', 'OL data updated');
                     redirect('C_S_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id']);
@@ -679,7 +685,9 @@ class C_S_Settings extends Controller {
             }
         }
         else {
-            $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+            // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+            $id = $_SESSION['user_id'];
+
             // Get existing post from model                
             $studentData = $this->settingsModel->getStudentOLDetails($id);
 
@@ -846,7 +854,9 @@ class C_S_Settings extends Controller {
                 && empty($data['al_district_err']) && empty($data['general_test_grade_err']) && empty($data['radio_general_english_err'])
                 && empty($data['al_results_err']) && empty($data['file_err'])) {
                 // Validated                    
-                $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+                // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+                $id = $_SESSION['user_id'];
+
                 if($this->settingsModel->updateStudentALSettings($id, $data)) {
                     flash('settings_message', 'AL data updated');
                     redirect('C_S_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id']);
@@ -861,7 +871,9 @@ class C_S_Settings extends Controller {
             }
         }
         else {
-            $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+            // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+            $id = $_SESSION['user_id'];
+
             // Get existing post from model                
             $studentData = $this->settingsModel->getStudentALDetails($id);
 
@@ -942,7 +954,9 @@ class C_S_Settings extends Controller {
             // Make sure no errors
             if(empty($data['degree_err']) && empty($data['uni_name_err']) && empty($data['gpa_err'])) {
                 // Validated                    
-                $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+                // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+                $id = $_SESSION['user_id'];
+
                 if($this->settingsModel->updateStudentUGSettings($id, $data)) {
                     flash('settings_message', 'University data updated');
                     redirect('C_S_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id']);
@@ -957,7 +971,9 @@ class C_S_Settings extends Controller {
             }
         }
         else {
-            $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+            // $id = $this->settingsModel->findStudentIdbyEmail($_SESSION['user_email']);
+            $id = $_SESSION['user_id'];
+            
             // Get existing post from model                
             $studentData = $this->settingsModel->getStudentUniversity($id);
 

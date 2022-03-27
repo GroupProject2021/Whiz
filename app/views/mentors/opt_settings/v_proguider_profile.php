@@ -105,6 +105,8 @@
                                         <?php if($data['user']->id == $_SESSION['user_id']): ?>
                                         <div class="editable">
                                             <a href="<?php echo URLROOT; ?>/C_M_Settings/editSettingsGuider"><button class="btn1-small">Edit</button></a>
+                                            <!-- <a href="<?php echo URLROOT.'/C_M_Settings/editSettingsGuider/'.$_SESSION['user_id']; ?>"><button class="btn1-small">Edit</button></a> -->
+
                                         </div>
                                         <?php endif; ?>
                                     </div>

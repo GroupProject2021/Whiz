@@ -87,7 +87,7 @@
 
                 // Validate institute
                 if(empty($data['institute'])) {
-                    $data['institute_err'] = 'Please enter mentor type';
+                    $data['institute_err'] = 'Please enter about';
                 }
 
                 // Validata password

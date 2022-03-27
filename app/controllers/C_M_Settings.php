@@ -127,6 +127,7 @@ class C_M_Settings extends Controller{
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             
             $data = [
+                'mentorid' => trim($_POST['mentorid']),
                 'first_name' => trim($_POST['first_name']),                
                 'last_name' => trim($_POST['last_name']),
                 'gender' => trim($_POST['gender']),
@@ -170,12 +171,14 @@ class C_M_Settings extends Controller{
             if(empty($data['name_err']) && empty($data['gender_err'])
                 && empty($data['institute_err']) && empty($data['address_err']) && empty($data['phn_no_err'])) {
                 // Validated                    
-                $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
+                // $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
+                $id = $_SESSION['user_id'];
+
                 if($this->mentorSettingsModel->updateGuiderSettings($id, $data)) {
                     flash('settings_message', 'Profile data updated');
                     $this->updateUserSessions($_SESSION['user_id']);
                     
-                    redirect('C_M_Settings/settings/'.$_SESSION['user_id']);
+                    redirect('C_M_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');
@@ -187,11 +190,14 @@ class C_M_Settings extends Controller{
             }
         }
         else {
-            $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
+            // $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
+            $id = $_SESSION['user_id'];
+
             // Get existing post from model                
             $mentorData = $this->mentorSettingsModel->getMentorDetails($id);
 
             $data = [
+                'mentorid' => $mentorData->mentor_id,
                 'first_name' => $mentorData->first_name,
                 'last_name' => $mentorData->last_name,
                 'gender' => $mentorData->gender,
@@ -256,12 +262,14 @@ class C_M_Settings extends Controller{
             if(empty($data['name_err']) && empty($data['gender_err'])
                 && empty($data['address_err']) && empty($data['phn_no_err'])) {
                 // Validated                    
-                $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
+                // $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
+                $id = $_SESSION['user_id'];
+
                 if($this->mentorSettingsModel->updateTeacherSettings($id, $data)) {
                     flash('settings_message', 'Profile data updated');
                     $this->updateUserSessions($_SESSION['user_id']);
                     
-                    redirect('C_M_Settings/settings/'.$_SESSION['user_id']);
+                    redirect('C_M_Settings/settings/'.$_SESSION['user_id'].'/'.$_SESSION['user_id']);
                 }
                 else {
                     die('Something went wrong');
@@ -273,7 +281,9 @@ class C_M_Settings extends Controller{
             }
         }
         else {
-            $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
+            // $id = $this->mentorSettingsModel->findMentorIdbyEmail($_SESSION['user_email']);
+            $id = $_SESSION['user_id'];
+            
             // Get existing post from model                
             $mentorData = $this->mentorSettingsModel->getMentorDetails($id);
 

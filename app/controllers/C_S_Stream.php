@@ -153,7 +153,7 @@ class C_S_Stream extends Controller {
             case 'C': 
                 return 4;
                 break;
-            case 'D': 
+            case 'S': 
                 return 3;
                 break;
             case 'E': 

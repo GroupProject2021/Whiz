@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2022 at 06:27 AM
+-- Generation Time: Mar 26, 2022 at 08:26 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -123,8 +123,8 @@ CREATE TABLE `alqualifiedstudent` (
 --
 
 INSERT INTO `alqualifiedstudent` (`stu_id`, `al_school`, `stream`, `z_score`, `al_district`, `al_general_test_grade`, `al_general_english_grade`, `al_sub1_id`, `al_sub1_grade`, `al_sub2_id`, `al_sub2_grade`, `al_sub3_id`, `al_sub3_grade`, `al_result_file`) VALUES
-(4, 'Ananda college', '4', '3.4529', 'Colombo', 83, 'A', 44, 'A', 45, 'A', 47, 'A', '1648165427_AL_res_sheet._gimantha.pdf'),
-(5, 'Ananda college', '4', '3.7168', 'Colombo', 87, 'A', 44, 'A', 45, 'A', 47, 'A', '1648165678_AL_res_sheet_dhanushka.pdf');
+(4, 'Ananda college', '4', '3.8258', 'Colombo', 50, 'A', 44, 'A', 45, 'A', 47, 'A', '1648319317_AL_res_sheet._gimantha.pdf'),
+(5, 'Ananda College', '4', '3.9061', 'Colombo', 93, 'A', 44, 'A', 45, 'A', 47, 'A', '1648319537_AL_res_sheet_asela.pdf');
 
 -- --------------------------------------------------------
 
@@ -211,11 +211,11 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`banner_id`, `session_fee`) VALUES
-(16, '1500.00'),
-(17, '1000.00'),
-(18, '500.00'),
-(19, '1000.00'),
-(20, '500.00');
+(16, '1000.00'),
+(17, '2500.00'),
+(18, '1200.00'),
+(19, '2500.00'),
+(20, '3000.00');
 
 -- --------------------------------------------------------
 
@@ -1170,11 +1170,11 @@ CREATE TABLE `intakenotices` (
 --
 
 INSERT INTO `intakenotices` (`notice_id`, `paid_date`, `private_uni_id`, `post_id`) VALUES
-(1, '2022-03-26', 6, 6),
-(2, '2022-03-26', 6, 7),
-(3, '2022-03-26', 6, 8),
-(4, '2022-03-26', 6, 9),
-(5, '2022-03-26', 6, 10);
+(1, '2022-03-27', 6, 6),
+(2, '2022-03-27', 6, 7),
+(3, '2022-03-27', 6, 8),
+(4, '2022-03-27', 6, 9),
+(5, '2022-03-27', 6, 10);
 
 -- --------------------------------------------------------
 
@@ -1208,11 +1208,11 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`job_id`, `paid_date`, `company_id`, `post_id`) VALUES
-(1, '2022-03-26', 7, 11),
-(2, '2022-03-26', 7, 12),
-(3, '2022-03-26', 7, 13),
-(4, '2022-03-26', 7, 14),
-(5, '2022-03-26', 7, 15);
+(1, '2022-03-27', 7, 11),
+(2, '2022-03-27', 7, 12),
+(3, '2022-03-27', 7, 13),
+(4, '2022-03-27', 7, 14),
+(5, '2022-03-27', 7, 15);
 
 -- --------------------------------------------------------
 
@@ -1236,8 +1236,8 @@ CREATE TABLE `mentor` (
 --
 
 INSERT INTO `mentor` (`mentor_id`, `email`, `phn_no`, `address`, `gender`, `mentor_type`, `institute`, `password`) VALUES
-(8, 'tharindu4151@gmail.com', 361486291, 'No 30, Esplanade Rd Uyanwatta, Matara', 'Male', 'Professional Guider', 'ABC Institute', '$2y$10$RKBNERSx16.RIBLQcvyc7O5qzeI3gTbabzKPLiX67ZrQepY4p1OVe'),
-(9, 'pubudu4151@gmail.com', 768913423, 'No 57, Lake, Circular Rd, Kurunegala', 'Male', 'Teacher', NULL, '$2y$10$IClFeGC3dMePJI9xLvjgXelKvA8mNKXQpb.gDnTcal6WUjkQcbsRO');
+(8, 'tharindu4151@gmail.com', 361486291, 'No 30, Esplanade Rd Uyanwatta, Matara', 'Male', 'Professional Guider', 'ABC Institute', '$2y$10$nNJ7/g7mdMyDKGs2H4Y.Zu3Wwfwx1aBLFNBMYDQqAAILFLXij8REK'),
+(9, 'pubudu4151@gmail.com', 768913423, 'No 57, Lake, Circular Rd, Kurunegala', 'Male', 'Teacher', NULL, '$2y$10$HI0cJzDSlGnU4.18PhtUqeM.dvJlrZwd17g6RYfixUC71YkM/i7Za');
 
 -- --------------------------------------------------------
 
@@ -1289,9 +1289,9 @@ CREATE TABLE `olqualifiedstudent` (
 --
 
 INSERT INTO `olqualifiedstudent` (`stu_id`, `ol_school`, `ol_district`, `ol_sub1_id`, `ol_sub1_grade`, `ol_sub2_id`, `ol_sub2_grade`, `ol_sub3_id`, `ol_sub3_grade`, `ol_sub4_id`, `ol_sub4_grade`, `ol_sub5_id`, `ol_sub5_grade`, `ol_sub6_id`, `ol_sub6_grade`, `ol_sub7_id`, `ol_sub7_grade`, `ol_sub8_id`, `ol_sub8_grade`, `ol_sub9_id`, `ol_sub9_grade`, `ol_result_file`) VALUES
-(3, 'Ananda College', 'Colombo', 1, 'A', 6, 'A', 8, 'B', 9, 'B', 10, 'A', 11, 'C', 12, 'D', 28, 'D', 39, 'E', '1648164273_OL_res_sheet_divanjana.pdf'),
-(4, 'Royal Institute', 'Colombo', 2, 'A', 7, 'B', 8, 'C', 9, 'D', 10, 'E', 11, 'D', 12, 'C', 28, 'B', 39, 'A', '1648165349_OL_res_sheet_gimantha.pdf'),
-(5, 'Asoka Vidyalaya, Colombo 10', 'Colombo', 1, 'A', 6, 'A', 8, 'B', 9, 'A', 10, 'A', 11, 'A', 12, 'A', 33, 'B', 39, 'A', '1648165617_OL_res_sheet_dhanushka.pdf');
+(3, 'Ananda College', 'Colombo', 1, 'A', 6, 'B', 8, 'C', 9, 'S', 10, 'A', 11, 'A', 12, 'B', 28, 'C', 39, 'S', '1648319094_OL_res_sheet_divanjana.pdf'),
+(4, 'Royal College Colombo', 'Colombo', 1, 'A', 6, 'A', 8, 'B', 9, 'B', 10, 'C', 11, 'C', 12, 'S', 28, 'S', 39, 'A', '1648319243_OL_res_sheet_gimantha.pdf'),
+(5, 'Asoka Vidyalaya, Colombo 10', 'Colombo', 1, 'A', 6, 'B', 8, 'C', 9, 'C', 10, 'S', 11, 'S', 12, 'C', 28, 'B', 39, 'A', '1648319498_OL_res_sheet_asela.pdf');
 
 -- --------------------------------------------------------
 
@@ -1384,8 +1384,8 @@ CREATE TABLE `organization` (
 --
 
 INSERT INTO `organization` (`org_id`, `address`, `email`, `password`, `phone_no`, `website_address`, `founder`, `founded_year`, `org_type`) VALUES
-(6, '123, Jasmine Road, Colombo 3', 'unisliitlk@gmail.com', '$2y$10$tVG9a52xww5m4TELh6TMAuNsTLnj.QZEOzUKkTFX3XvbH.O6mdpDC', '0714526390', 'www.sliit.lk', 'Mandila', 2004, 'University'),
-(7, '456, Galle road, Colombo', 'abcgroup202@gmail.com', '$2y$10$U5t6Wvzf9S5ibseS5SS5b.VUU/E9Yj1PVK2qh8J2Kl1rIOwfz1Nxi', '0112345678', 'www.abc.com', 'Mark perera', 2004, 'Company');
+(6, '123, Jasmine Road, Colombo 3', 'unisliitlk@gmail.com', '$2y$10$AQiFGjgte9v7YEBWHWf3bOrF90WPFMPQpaH12U9rsdlxFokkfVet6', '0714526390', 'www.sliit.lk', 'Mandila', 2004, 'University'),
+(7, '456, Galle road, Colombo', 'abcgroup202@gmail.com', '$2y$10$asN26irqhAZFqdfS2druXO1BZm.A6H8Fm9NFJKtkezEsdQ7b0jmRK', '0112345678', 'www.abc.com', 'Mark perera', 2004, 'Company');
 
 -- --------------------------------------------------------
 
@@ -1403,11 +1403,11 @@ CREATE TABLE `poster` (
 --
 
 INSERT INTO `poster` (`poster_id`, `session_fee`) VALUES
-(21, '250.00'),
-(22, '250.00'),
-(23, '100.00'),
-(24, '200.00'),
-(25, '100.00');
+(21, '1000.00'),
+(22, '999.00'),
+(23, '1500.00'),
+(24, '2000.00'),
+(25, '2300.00');
 
 -- --------------------------------------------------------
 
@@ -1450,31 +1450,31 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `type`, `image`, `title`, `body`, `applied`, `capacity`, `ups`, `downs`, `shares`, `views`, `payed`, `created_at`) VALUES
-(1, 6, 'coursepost', '1648267914_course1.jpeg', 'Computer Science', 'Through the development of new applications in science, engineering, and business, Computer Science is radically changing the way in which we experience our world. This programme equips students with the skills needed to contribute to this exciting and rapidly evolving field. Computer Science is our most flexible programme, allowing you to chose course units to reflect your developing and changing interests. Furthermore, a wide range of themes from across the discipline allow you to specialize in the second and third years. You will gain not only knowledge and practical experience of the latest technologies, but also a grounding in the underlying principles of the subject. It is this combination of skills that enable our graduates to keep pace with this fast moving subject, and secure rewarding careers that can be pursued almost anywhere in the world.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-26 09:41:54'),
-(2, 6, 'coursepost', '1648268070_course2.jpeg', 'Advanced Certificate in English', 'Having an excellent grasp of spoken and written English is a fundamental requirement for success in the corporate world or other careers. Such knowledge also builds confidence and helps in forming relationships in business and social settings. This course is intended to develop the Listening, Speaking, Reading, and Writing Skills of students. The course will use interactive sessions and technologies based on the ‘Communicative Approach to Language Teaching’, which is the latest language teaching methodology practiced around the world. The syllabus covers a broad range of topics required to reach a level of competence in using English effectively and confidently. Entry Requirements Completion of GCE O/L, A/L examinations AND Certificate in English (CIE) course', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-26 09:44:30'),
-(3, 6, 'coursepost', '1648268136_course3.jpeg', 'Artificial Intelligence', 'Artificial intelligence courses after 12th are related to the domain of Computer Science which focuses on developing programmed machines or computers that can function similarly to a human brain. In India, many institutes and websites offer Artificial Intelligence Courses After 12th. Candidates would be eligible to apply for the Artificial Intelligence course after the completion of their class 12th exam.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-26 09:45:36'),
-(4, 6, 'coursepost', '1648268237_course4.jpeg', 'Mathematics and Statistic', 'B.Sc Mathematics is a 3-year undergraduate course that deals with the discipline of mathematics and the analysis of numbers, structure, transition, and space is the focus of the B.Sc Maths program. Aspirants will find job opportunities in finance, information technology, and research firms after completing the B.Sc Mathematics course.B.Sc Mathematics Course Details Degree -	Bachelors Full Form -	Bachelor of Science in Mathematics Duration -	Course Duration of Bachelor of Science [B.Sc] (Mathematics) is 3 Years. Age -	        The minimum age to join B.Sc course is 18 years. There is no upper age limit.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-26 09:47:17'),
-(5, 6, 'coursepost', '1648268321_course5.jpeg', 'Civil Engineering', 'The Faculty of Engineering is the epicenter of engineering education, research, knowledge creation and distribution in Sri Lanka. Comprised of prominent lecturers, researchers and a helpful academic staff, the students are guaranteed to receive quality education and knowledge. he students will be well guided so that they study their courses and learn that they are working for knowledge and career, not just to pass examinations. Our academic programs are dedicated to create innovative leaders in a world of modern technology.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-26 09:48:41'),
-(6, 6, 'noticepost', '1648268561_intake1.jpeg', 'CALLING INTERVIEW AND REGISTRATION FOR INFORMATION TECHNOLOGY', 'Closing Date - 2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in Physical stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-26 09:52:41'),
-(7, 6, 'noticepost', '1648268756_intake2.jpeg', 'INTERVIEW AND REGISTRATION FOR ENGLISH', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in any stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-26 09:55:56'),
-(8, 6, 'noticepost', '1648268836_intake3.png', 'INTAKE FOR 2023', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in Physical stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-26 09:57:16'),
-(9, 6, 'noticepost', '1648268904_intake4.jpeg', 'REGISTRATION DEADLINE EXTENDED', 'Closing Date  -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in any stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-26 09:58:24'),
-(10, 6, 'noticepost', '1648268964_intake5.jpeg', 'MBA and EMBA INTAKE FOR 2022', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in Commerce stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-26 09:59:24'),
-(11, 7, 'jobpost', '1648269184_job1.jpeg', 'Vacancies for Full Stack Developers', 'A Java, C#, .Net, C, Sybase and Oracle Software Developer is generally responsible for the development, design and implementation of new or modified software products or ongoing business projects. Typically sitting within the IT team of a business, a Software Developer will be involved in liaising with the Business Analysts and Development Managers to ensure software projects meet requirements.', 0, 40, 0, 0, 0, 0, 1, '2022-03-26 10:03:04'),
-(12, 7, 'jobpost', '1648269314_job2.png', 'Hiring Graphic Designers', 'You work on a variety of products and activities, such as websites, advertising, books, magazines, posters, computer games, product packaging, exhibitions and displays, corporate communications and corporate identity, i.e. giving organizations a visual brand. Working to a brief that has been agreed with the client, creative director or account manager, you&#39;ll develop appropriate creative ideas and concepts for the client&#39;s objectives. The work demands creative flair, up-to-date knowledge of industry software and a professional approach to time, costs and deadlines. Salary start from LKR 75000.', 0, 10, 0, 0, 0, 0, 1, '2022-03-26 10:05:14'),
-(13, 7, 'jobpost', '1648269409_job3.png', 'Vacancy for Business Analysts', 'We are hiring a business analyst to join our project team. You will work alongside other business analysts and report directly to the project manager. Your main tasks will include performing detailed requirements analysis, documenting processes, and performing some user acceptance testing. To succeed in this role you should have a natural analytical way of thinking and be able to explain difficult concepts to non-technical users. Salary starts from LKR 100000', 0, 5, 0, 0, 0, 0, 1, '2022-03-26 10:06:49'),
-(14, 7, 'jobpost', '1648269534_job4.jpeg', 'Architect Vacancies', 'As an architect, you&#39;ll design new buildings or extensions or alterations to existing structures and advise on the restoration and conservation of old properties. You may work on individual buildings or on large redevelopment schemes, and your responsibility can extend to the design of the surrounding landscape and spaces. Working closely with clients and users, you&#39;ll make sure that projected designs match requirements and are functional, safe and economical, and in some cases highly innovative. You&#39;ll usually control a project from start to finish and work with a number of construction professionals, including surveyors and engineers. Salary starts from LKR 150000', 0, 10, 0, 0, 0, 0, 1, '2022-03-26 10:08:54'),
-(15, 7, 'jobpost', '1648269740_job5.jpeg', 'Apply For Senior Software Engineers', 'Must Have skills: \r\n* Working experience in C#, ASP .Net MVC, Web API and Entity Framework\r\n*Experience in writing TSQL with SQL Server\r\n*Knowledge in HTML, CSS\r\n*Experience in JAVAscript, Typescript and JQuery\r\n*Knowledge in creating SPA based applications preferably Angular or React Teamwork, quality of life, professional and personal development: values that Virtusa is proud to embody. When you join us, you join a team of 21,000 people globally that cares about your growth — one that seeks to provide you with exciting projects, opportunities and work with state of the art technologies throughout your career with us. Great minds, great potential: it all comes together at Virtusa. We value collaboration and the team environment of our company and seek to provide great minds with a dynamic place to nurture new ideas and foster excellence. Virtusa was founded on principles of equal opportunity for all, and so does not discriminate on the basis of race, religion, color, sex, gender identity, sexual orientation, age, non-disqualifying physical or mental disability, national origin, veteran status or any other basis covered by appropriate law. All employment is decided on the basis of qualifications, merit, and business need.', 0, 15, 0, 0, 0, 0, 1, '2022-03-26 10:12:20'),
-(16, 8, 'banner', '1648270630_banner1.jpg', 'Online Business Workshop', 'Online Business Workshop with Jonaton Dew, e-commerce expert will be held on 20th December 2022 from 10 a.m - 5. p.m', 0, 200, 0, 0, 0, 0, 1, '2022-03-26 10:27:10'),
-(17, 8, 'banner', '1648270730_banner2.jpg', 'Social Media Marketing Conference', 'Join with us on 29th September', 0, 100, 0, 0, 0, 0, 1, '2022-03-26 10:28:50'),
-(18, 8, 'banner', '1648270790_banner3.jpg', 'Future of Graphic Design', 'An online seminar on  Graphic design strategy- Future of graphic design will be held on 12th December 2022 at 5 p.m. Join with us !', 0, 150, 0, 0, 0, 0, 1, '2022-03-26 10:29:50'),
-(19, 8, 'banner', '1648270836_banner4.jpg', 'Career Counselling', 'For School, College students & Graduates. Join with us !', 0, 250, 0, 0, 0, 0, 1, '2022-03-26 10:30:36'),
-(20, 8, 'banner', '1648270863_banner5.jpg', 'LIVE', 'LIVE with Thomas Pesaco', 0, 500, 0, 0, 0, 0, 1, '2022-03-26 10:31:03'),
-(21, 9, 'poster', '1648270965_poster1.jpg', 'Online Tutoring Session', 'From Sunday- Wednesday at 11 a.m', 0, 20, 0, 0, 0, 0, 1, '2022-03-26 10:32:45'),
-(22, 9, 'poster', '1648270997_poster2.jpeg', 'HTML, CSS and Javascript', 'On every Saturday at 6.00 p.m', 0, 10, 0, 0, 0, 0, 1, '2022-03-26 10:33:17'),
-(23, 9, 'poster', '1648271029_poster3.jpg', 'Software Engineering', 'Software Engineering from the beginning. On Every Wednesday at 5 p.m', 0, 70, 0, 0, 0, 0, 1, '2022-03-26 10:33:49'),
-(24, 9, 'poster', '1648271051_poster4.jpg', 'Hardware & Software Components', 'On 2nd April at 7.00 p.m', 0, 150, 0, 0, 0, 0, 1, '2022-03-26 10:34:11'),
-(25, 9, 'poster', '1648271074_poster5.png', 'C++  for beginners', 'On 5th May', 0, 200, 0, 0, 0, 0, 1, '2022-03-26 10:34:34');
+(1, 6, 'coursepost', '1648320812_course1.png', 'Computer Science', 'Through the development of new applications in science, engineering, and business, Computer Science is radically changing the way in which we experience our world. This program equips students with the skills needed to contribute to this exciting and rapidly evolving field. Computer Science is our most flexible program , allowing you to chose course units to reflect your developing and changing interests. Furthermore, a wide range of themes from across the discipline allow you to specialize in the second and third years. You will gain not only knowledge and practical experience of the latest technologies, but also a grounding in the underlying principles of the subject. It is this combination of skills that enable our graduates to keep pace with this fast moving subject, and secure rewarding careers that can be pursued almost anywhere in the world.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-27 00:23:32'),
+(2, 6, 'coursepost', '1648320867_course2.png', 'Advanced Certificate in English', 'Having an excellent grasp of spoken and written English is a fundamental requirement for success in the corporate world or other careers. Such knowledge also builds confidence and helps in forming relationships in business and social settings. This course is intended to develop the Listening, Speaking, Reading, and Writing Skills of students. The course will use interactive sessions and technologies based on the ‘Communicative Approach to Language Teaching’, which is the latest language teaching methodology practiced around the world. The syllabus covers a broad range of topics required to reach a level of competence in using English effectively and confidently. Entry Requirements Completion of GCE O/L, A/L examinations AND Certificate in English (CIE) course', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-27 00:24:27'),
+(3, 6, 'coursepost', '1648320919_course3.png', 'Artificial Intelligence', 'Artificial intelligence courses after 12th are related to the domain of Computer Science which focuses on developing programmed machines or computers that can function similarly to a human brain. In India, many institutes and websites offer Artificial Intelligence Courses After 12th. Candidates would be eligible to apply for the Artificial Intelligence course after the completion of their class 12th exam.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-27 00:25:19'),
+(4, 6, 'coursepost', '1648321000_course4.jpg', 'Mathematics and Statistic', 'B.Sc Mathematics is a 3-year undergraduate course that deals with the discipline of mathematics and the analysis of numbers, structure, transition, and space is the focus of the B.Sc Maths program. Aspirants will find job opportunities in finance, information technology, and research firms after completing the B.Sc Mathematics course. B.Sc Mathematics Course Details Degree - Bachelors Full Form - Bachelor of Science in Mathematics Duration - Course Duration of Bachelor of Science [B.Sc] (Mathematics) is 3 Years. Age - The minimum age to join B.Sc course is 18 years. There is no upper age limit.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-27 00:26:40'),
+(5, 6, 'coursepost', '1648321055_course5.jpg', 'Civil Engineering', 'The Faculty of Engineering is the epicenter of engineering education, research, knowledge creation and distribution in Sri Lanka. Comprised of prominent lecturers, researchers and a helpful academic staff, the students are guaranteed to receive quality education and knowledge. The students will be well guided so that they study their courses and learn that they are working for knowledge and career, not just to pass examinations. Our academic programs are dedicated to create innovative leaders in a world of modern technology.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-27 00:27:35'),
+(6, 6, 'noticepost', '1648321178_intake1.jpg', 'CALLING INTERVIEW AND REGISTRATION FOR INFORMATION TECHNOLOGY', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in Physical stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-27 00:29:38'),
+(7, 6, 'noticepost', '1648321229_intake2.jpg', 'INTERVIEW AND REGISTRATION FOR ENGLISH', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in any stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-27 00:30:29'),
+(8, 6, 'noticepost', '1648321279_intake3.jpg', 'INTAKE FOR 2023', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in Physical stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-27 00:31:19'),
+(9, 6, 'noticepost', '1648321323_intake4.jpeg', 'REGISTRATION DEADLINE EXTENDED', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in any stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-27 00:32:03'),
+(10, 6, 'noticepost', '1648321368_intake5.jpg', 'MBA and EMBA INTAKE FOR 2022', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in Commerce stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-27 00:32:48'),
+(11, 7, 'jobpost', '1648321469_job1.jpg', 'Vacancies for Full Stack Developers', 'A Java, C#, .Net, C, Sybase and Oracle Software Developer is generally responsible for the development, design and implementation of new or modified software products or ongoing business projects. Typically sitting within the IT team of a business, a Software Developer will be involved in liaising with the Business Analysts and Development Managers to ensure software projects meet requirements.', 0, 40, 0, 0, 0, 0, 1, '2022-03-27 00:34:29'),
+(12, 7, 'jobpost', '1648321522_job2.png', 'Hiring Graphic Designers', 'You&#39;ll work on a variety of products and activities, such as websites, advertising, books, magazines, posters, computer games, product packaging, exhibitions and displays, corporate communications and corporate identity, i.e. giving organizations a visual brand. Working to a brief that has been agreed with the client, creative director or account manager, you&#39;ll develop appropriate creative ideas and concepts for the client&#39;s objectives. The work demands creative flair, up-to-date knowledge of industry software and a professional approach to time, costs and deadlines. Salary start from LKR 75000.', 0, 10, 0, 0, 0, 0, 1, '2022-03-27 00:35:22'),
+(13, 7, 'jobpost', '1648321571_job3.jpg', 'Vacancy for Business Analysts', 'We are hiring a business analyst to join our project team. You will work alongside other business analysts and report directly to the project manager. Your main tasks will include performing detailed requirements analysis, documenting processes, and performing some user acceptance testing. To succeed in this role you should have a natural analytical way of thinking and be able to explain difficult concepts to non-technical users. Salary starts from LKR 100000.', 0, 5, 0, 0, 0, 0, 1, '2022-03-27 00:36:11'),
+(14, 7, 'jobpost', '1648321625_job4.jpg', 'Architect Vacancies', 'As an architect, you&#39;ll design new buildings or extensions or alterations to existing structures and advise on the restoration and conservation of old properties. You may work on individual buildings or on large redevelopment schemes, and your responsibility can extend to the design of the surrounding landscape and spaces. Working closely with clients and users, you&#39;ll make sure that projected designs match requirements and are functional, safe and economical, and in some cases highly innovative. You&#39;ll usually control a project from start to finish and work with a number of construction professionals, including surveyors and engineers. Salary starts from LKR 150000', 0, 10, 0, 0, 0, 0, 1, '2022-03-27 00:37:05'),
+(15, 7, 'jobpost', '1648321717_job5.jpg', 'Apply For Senior Software Engineers', 'Must Have skills:\r\n* Working experience in C#, ASP .Net MVC, Web API and Entity Framework\r\n* Experience in writing TSQL with SQL Server\r\n* Knowledge in HTML, CSS\\r\\n* Experience in JAVAscript, Typescript and JQuery\r\n* Knowledge in creating SPA based applications preferably Angular or React Teamwork, quality of life, professional and personal development\\\\: values that Virtusa is proud to embody. When you join us, you join a team of 21,000 people globally that cares about your growth — one that seeks to provide you with exciting projects, opportunities and work with state of the art technologies throughout your career with us. Great minds, great potential: it all comes together at Virtusa. We value collaboration and the team environment of our company and seek to provide great minds with a dynamic place to nurture new ideas and foster excellence. Virtusa was founded on principles of equal opportunity for all, and so does not discriminate on the basis of race, religion, color, sex, gender identity, sexual orientation, age, non-disqualifying physical or mental disability, national origin, veteran status or any other basis covered by appropriate law. All employment is decided on the basis of qualifications, merit, and business need.', 0, 15, 0, 0, 0, 0, 1, '2022-03-27 00:38:37'),
+(16, 8, 'banner', '1648321861_job1.jpg', 'Online Business Workshop', 'Online Business Workshop with Jonaton Dew, e-commerce expert will be held on 20th December 2022 from 10 a.m - 5. p.m', 0, 200, 0, 0, 0, 0, 1, '2022-03-27 00:41:01'),
+(17, 8, 'banner', '1648322069_banner2.jpg', 'Social Media Marketing Conference', 'Join with us on 29th September', 0, 100, 0, 0, 0, 0, 1, '2022-03-27 00:44:29'),
+(18, 8, 'banner', '1648322136_banner3.jpg', 'Future of Graphic Design', 'An online seminar on &#34;Graphic design strategy Future of graphic design will be held on 12th December 2022 at 5 p.m. Join with us !', 0, 150, 0, 0, 0, 0, 1, '2022-03-27 00:45:36'),
+(19, 8, 'banner', '1648322182_banner4.jpg', 'Career Counselling', 'For School, College students & Graduates. Join with us !', 0, 250, 0, 0, 0, 0, 1, '2022-03-27 00:46:22'),
+(20, 8, 'banner', '1648322225_banner5.jpg', 'LIVE', 'LIVE with Thomas Pesaco', 0, 500, 0, 0, 0, 0, 1, '2022-03-27 00:47:05'),
+(21, 9, 'poster', '1648322374_poster1.jpg', 'Online Tutoring Session', 'From Sunday- Wednesday at 11 a.m', 0, 20, 0, 0, 0, 0, 1, '2022-03-27 00:49:34'),
+(22, 9, 'poster', '1648322417_poster2.jpeg', 'HTML, CSS and Javascript', 'On every Saturday at 6.00 p.m', 0, 10, 0, 0, 0, 0, 1, '2022-03-27 00:50:17'),
+(23, 9, 'poster', '1648322465_poster3.jpg', 'Software Engineering', 'Software Engineering from the beginning. On Every Wednesday at 5 p.m', 0, 70, 0, 0, 0, 0, 1, '2022-03-27 00:51:05'),
+(24, 9, 'poster', '1648322507_poster4.jpg', 'Hardware & Software Components', 'On 2nd April at 7.00 p.m', 0, 150, 0, 0, 0, 0, 1, '2022-03-27 00:51:47'),
+(25, 9, 'poster', '1648322546_poster5.png', 'C++  for beginners', 'On 5th May', 0, 200, 0, 0, 0, 0, 1, '2022-03-27 00:52:26');
 
 -- --------------------------------------------------------
 
@@ -1495,7 +1495,7 @@ CREATE TABLE `privatecourses` (
 --
 
 INSERT INTO `privatecourses` (`privatecourse_id`, `provide_degree`, `course_fee`, `private_uni_id`, `post_id`) VALUES
-(1, 'Bsc.(Hons in Computer Science', '1000000', 6, 1),
+(1, 'Bsc.(Hons) in Computer Science', '1000000', 6, 1),
 (2, 'Diploma in English', '95000', 6, 2),
 (3, 'BSc. in Artificial Intelligence', '4500000', 6, 3),
 (4, 'BSc in Mathematics', '200000', 6, 4),
@@ -1522,7 +1522,7 @@ CREATE TABLE `privateuniversity` (
 --
 
 INSERT INTO `privateuniversity` (`privateuni_id`, `ugc_approval`, `world_rank`, `student_amount`, `graduate_job_rate`, `description`, `uni_type`) VALUES
-(6, 'Yes', 8156, 4140, 84, 'We are a leading non-state degree awarding institute approved by the University Grants Commission (UGC)', 'Private');
+(6, 'Yes', 7711, 5289, 84, 'We are a leading non-state degree awarding institute approved by the University Grants Commission (UGC)', 'Private');
 
 -- --------------------------------------------------------
 
@@ -2047,7 +2047,7 @@ INSERT INTO `student` (`stu_id`, `address`, `gender`, `date_of_birth`, `email`, 
 (2, '12/a, Kahahena, Waga', 'Male', '2002-05-15', 'denethchamodya03@gmail.com', '0714526390'),
 (3, '34/c, Meepe, Padukka', 'Male', '2001-03-17', 'disaladivanjana@gmail.com', '0719236558'),
 (4, '34/e, Kotikawatta, Padukka', 'Male', '2000-03-17', 'gimanthaanupama008@gmail.com', '0763399475'),
-(5, '131/c Kahatapitiya hanwella', 'Male', '1999-11-12', 'dhanushkasandakelum711@gmail.com', '0775642956');
+(5, '131/c, Godakawila, Padukka', 'Male', '1999-11-12', 'pasinduasela119@gmail.com', '0775642956');
 
 -- --------------------------------------------------------
 
@@ -2112,8 +2112,9 @@ INSERT INTO `transactions` (`transaction_id`, `post_id`, `user_id`, `amount`) VA
 (16, 21, 9, 100),
 (17, 22, 9, 100),
 (18, 23, 9, 100),
-(19, 24, 9, 100),
-(20, 25, 9, 100);
+(19, NULL, 9, 100),
+(20, 24, 9, 100),
+(21, 25, 9, 100);
 
 -- --------------------------------------------------------
 
@@ -2134,7 +2135,7 @@ CREATE TABLE `undergraduategraduate` (
 --
 
 INSERT INTO `undergraduategraduate` (`stu_id`, `degree`, `uni_type`, `uni_name`, `gpa`) VALUES
-(5, 'Computer Science', 'Government', 'University of Colombo School of Computing', '3.9126');
+(5, 'Computer Science', 'Government', 'University of Colombo School of Computing', '3.8204');
 
 -- --------------------------------------------------------
 
@@ -2191,15 +2192,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `profile_image`, `first_name`, `last_name`, `email`, `password`, `actor_type`, `specialized_actor_type`, `status`) VALUES
-(1, '1648161276_admin-profile-pic.png', 'Admin', NULL, 'whizweblk@gmail.com', '$2y$10$ccZ7gG.oSnBt/7sh439CRewu.doRhpAdQnfvbzaRIlvtu22UDGknG', 'Admin', 'Admin', 'verified'),
-(2, '1648161424_deneth76619278_544743686322459_5761430540020350976_n.jpg', 'Deneth', 'Chamodya', 'denethchamodya03@gmail.com', '$2y$10$p6nTc3owqj.dZRFOagNh7OkdNo5OkODphlXFMeDRWIRlH..9mSWzS', 'Student', 'Beginner', 'not verified'),
-(3, '1648163707_divanjana175432290_2988468581430438_8059759429240737324_n.jpg', 'Divanjana', 'Chamodya', 'disaladivanjana@gmail.com', '$2y$10$EFwABYwNjawhHLk3O4Yeye6mg0zFFPTEVeG3eFhouQCzZtXOTQvFm', 'Student', 'OL qualified', 'not verified'),
-(4, '1648164369_gimantha57104149_2292669454124047_8613897447199997952_n.jpg', 'Gimantha', 'Anupama', 'gimanthaanupama008@gmail.com', '$2y$10$re7sOxOuJCV00wZrD3RpyedmjCPFNXKpxs/v5AOlG4JML3U4fOtTC', 'Student', 'AL qualified', 'not verified'),
-(5, '1648165529_Dhanushka_pic.jpg', 'Dhanushka', 'sandakelum', 'dhanushkasandakelum711@gmail.com', '$2y$10$UrOhMCqJhSMPY6u4SJIcE.95eiFB7ClBxtHtiMHXfAe7UYObw8yam', 'Student', 'Undergraduate Graduate', 'not verified'),
-(6, '1648165946_sliitfd61a3b2-fbf1-4d5b-9b0f-8702058bdd5c.jpg', 'SLIIT', NULL, 'unisliitlk@gmail.com', '$2y$10$tVG9a52xww5m4TELh6TMAuNsTLnj.QZEOzUKkTFX3XvbH.O6mdpDC', 'Organization', 'University', 'not verified'),
-(7, '1648166053_abc2296d3db-eac7-4616-aae0-65ee01127d26.jpg', 'ABC', NULL, 'abcgroup202@gmail.com', '$2y$10$U5t6Wvzf9S5ibseS5SS5b.VUU/E9Yj1PVK2qh8J2Kl1rIOwfz1Nxi', 'Organization', 'Company', 'not verified'),
-(8, '1648166124_tharindu82271b09-b13a-46fa-9e8d-a55f1aa64186.jpg', 'Tharindu', 'Amarasekara', 'tharindu4151@gmail.com', '$2y$10$RKBNERSx16.RIBLQcvyc7O5qzeI3gTbabzKPLiX67ZrQepY4p1OVe', 'Mentor', 'Professional Guider', 'not verified'),
-(9, '1648166221_pubudu73f7e870-17f5-4f53-a479-570d74961101.jpg', 'Pubudu', 'Pathirana', 'pubudu4151@gmail.com', '$2y$10$IClFeGC3dMePJI9xLvjgXelKvA8mNKXQpb.gDnTcal6WUjkQcbsRO', 'Mentor', 'Teacher', 'not verified');
+(1, '1648318124_adminwhiz.png', 'Admin', NULL, 'whizweblk@gmail.com', '$2y$10$.luL7/HPbAux0Ss530ruBe0/GK1X0v3XiNwFBH8OBO8zIlepdSYd6', 'Admin', 'Admin', 'verified'),
+(2, '1648318238_deneth.jpg', 'Deneth', 'Chamodya', 'denethchamodya03@gmail.com', '$2y$10$XJ5AD.PoliFlSgFu0thoVeRkD84PEUSHDMWPfwV9PqMT3jpx9ljgu', 'Student', 'Beginner', 'not verified'),
+(3, '1648318327_divanjana.jpg', 'Divanjana', 'Disala', 'disaladivanjana@gmail.com', '$2y$10$s66KzP8SOZyf41jEX1UoJ.CipU3K843/YRiqHsxA8079fukOAHHQi', 'Student', 'OL qualified', 'not verified'),
+(4, '1648319177_gimantha.jpg', 'Gimantha', 'Anupama', 'gimanthaanupama008@gmail.com', '$2y$10$1sw6oHV3QUyLwkCWbn.mCe9kGqtQW/hrov.QT9tl3on0E9NCLEduy', 'Student', 'AL qualified', 'not verified'),
+(5, '1648319440_asela.jpg', 'Pasindu', 'Asela', 'pasinduasela119@gmail.com', '$2y$10$z06eN5eA.UvwDyFvagT9a.DjN8cnlQewCXiEl/a./J.8U8QBSDaFq', 'Student', 'Undergraduate Graduate', 'not verified'),
+(6, '1648319645_sliit.jpg', 'SLIIT', NULL, 'unisliitlk@gmail.com', '$2y$10$AQiFGjgte9v7YEBWHWf3bOrF90WPFMPQpaH12U9rsdlxFokkfVet6', 'Organization', 'University', 'not verified'),
+(7, '1648319792_abc.jpg', 'ABC', NULL, 'abcgroup202@gmail.com', '$2y$10$asN26irqhAZFqdfS2druXO1BZm.A6H8Fm9NFJKtkezEsdQ7b0jmRK', 'Organization', 'Company', 'not verified'),
+(8, '1648319903_tharindu.jpg', 'Tharindu', 'Amarasekara', 'tharindu4151@gmail.com', '$2y$10$nNJ7/g7mdMyDKGs2H4Y.Zu3Wwfwx1aBLFNBMYDQqAAILFLXij8REK', 'Mentor', 'Professional Guider', 'not verified'),
+(9, '1648319948_pubudu.jpg', 'Pubudu', 'Pathirana', 'pubudu4151@gmail.com', '$2y$10$HI0cJzDSlGnU4.18PhtUqeM.dvJlrZwd17g6RYfixUC71YkM/i7Za', 'Mentor', 'Teacher', 'not verified');
 
 -- --------------------------------------------------------
 
@@ -9227,7 +9228,7 @@ ALTER TABLE `teacherenrollments`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `universitytype`
@@ -9557,7 +9558,7 @@ ALTER TABLE `teacherenrollments`
 -- Constraints for table `undergraduategraduate`
 --
 ALTER TABLE `undergraduategraduate`
-  ADD CONSTRAINT `undergraduategraduate_ibfk_2` FOREIGN KEY (`stu_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `undergraduategraduate_ibfk_1` FOREIGN KEY (`stu_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `unicodes`

@@ -264,7 +264,9 @@ class C_O_Settings extends Controller {
             }
         }
         else {
-            $id = $this->settingsModel->findOrganizationIdbyEmail($_SESSION['user_email']);
+            // $id = $this->settingsModel->findOrganizationIdbyEmail($_SESSION['user_email']);
+            $id = $_SESSION['user_id'];
+
             // Get existing post from model                
             $orgData = $this->settingsModel->getOrganizationDetails($id);
             $uniData = $this->settingsModel->getUniversityDetails($id);
@@ -429,7 +431,9 @@ class C_O_Settings extends Controller {
             }
         }
         else {
-            $id = $this->settingsModel->findOrganizationIdbyEmail($_SESSION['user_email']);
+            // $id = $this->settingsModel->findOrganizationIdbyEmail($_SESSION['user_email']);
+            $id = $_SESSION['user_id'];
+            
             // Get existing post from model                
             $orgData = $this->settingsModel->getOrganizationDetails($id);
             $comData = $this->settingsModel->getCompanyDetails($id);
