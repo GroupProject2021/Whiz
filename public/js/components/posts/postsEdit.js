@@ -16,7 +16,6 @@ if(imageplaceholder.getAttribute('src') != ''){
 
 function toggleBrowse() {
     inputPath.click();
-    alert('asd');
 }
 
 
