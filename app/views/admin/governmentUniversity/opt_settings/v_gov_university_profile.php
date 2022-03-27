@@ -78,15 +78,15 @@
                                 <div class="beginner-detials">
                                     <div class="world_rank">
                                         <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/admin/governmentUniversity/world-rank-icon.png'; ?>" alt="">World Rank</div>
-                                        <div class="text"><?php echo $data['world_rank'];?></div>                                        
+                                        <div class="text"><?php if($data['world_rank'] != -1){echo $data['world_rank'];} else {echo 'Not specified'; }?></div>                                        
                                     </div>
                                     <div class="student_amount">
                                         <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/admin/governmentUniversity/student-amount-icon.png'; ?>" alt="">Student Amount</div>
-                                        <div class="text"><?php echo $data['student_amount'];?></div>
+                                        <div class="text"><?php if($data['student_amount'] != -1){echo $data['student_amount'];} else {echo 'Not specified'; }?></div>
                                     </div>
                                     <div class="graduate_job_rate">
                                         <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/admin/governmentUniversity/job-rate-icon.png'; ?>" alt="">Graduate Job Rate</div>
-                                        <div class="text"><?php echo $data['graduate_job_rate'];?></div>                                        
+                                        <div class="text"><?php if($data['graduate_job_rate'] != -1){echo $data['graduate_job_rate'];} else {echo 'Not specified'; }?></div>                                        
                                     </div>
                                     <div class="description">
                                         <div class="title"><img src="<?php echo URLROOT.'/imgs/profiles/admin/governmentUniversity/description-icon.png'; ?>" alt="">Description</div>

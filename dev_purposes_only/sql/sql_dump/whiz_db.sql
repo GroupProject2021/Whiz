@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2022 at 10:14 AM
+-- Generation Time: Mar 27, 2022 at 06:04 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -781,28 +781,28 @@ CREATE TABLE `govermentuniversity` (
 --
 
 INSERT INTO `govermentuniversity` (`gov_uni_id`, `uni_name`, `description`, `world_rank`, `student_amount`, `graduate_job_rate`, `logo`, `bg_img`) VALUES
-(1, 'University of Colombo', NULL, NULL, NULL, NULL, 'university_of_colombo_logo.png', 'university_of_colombo_bg.jpg'),
-(2, 'University of Peradeniya', NULL, NULL, NULL, NULL, 'university_of_peradeniya_logo.png', 'university_of_peradeniya_bg.jpg'),
-(3, 'University of Sri Jayawardenepura', NULL, NULL, NULL, NULL, 'university_of_sri_jayaawardhanapura_logo.png', 'university_of_sri_jayaawardhanapura_bg.jpg'),
-(4, 'University of Kelaniya', NULL, NULL, NULL, NULL, 'university_of_kelaniya_logo.png', 'university_of_kelaniya_bg.jpg'),
-(5, 'University of Moratuwa', NULL, NULL, NULL, NULL, 'university_of_moratuwa_logo.png', 'university_of_moratuwa_bg.jpg'),
-(6, 'University of Jaffna', NULL, NULL, NULL, NULL, 'university_of_jaffna_logo.png', 'university_of_jaffna_bg.png'),
-(7, 'University of Ruhuna', NULL, NULL, NULL, NULL, 'university_of_ruhuna_logo.png', 'university_of_ruhuna_bg.jpg'),
-(8, 'Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'esatern_university_logo.png', 'esatern_university_bg.jpg'),
-(9, 'South Eastern University of Sri Lanka ', NULL, NULL, NULL, NULL, 'south_esatern_university_logo.png', 'south_esatern_university_bg.jpg'),
-(10, 'Rajarata University of Sri Lanka ', NULL, NULL, NULL, NULL, 'rajarata_university_logo.png', 'rajarata_university_bg.jpg'),
-(11, 'Sabaragamuwa University of Sri Lanka', NULL, NULL, NULL, NULL, 'sabaragamuwa_university_logo.png', 'sabaragamuwa_university_bg.jpg'),
-(12, 'Wayamba University of Sri Lanka', NULL, NULL, NULL, NULL, 'wayamba_university_logo.png', 'wayamba_university_logo.jpg'),
-(13, 'Uva Wellassa University of Sri Lanka', NULL, NULL, NULL, NULL, 'uva_wellassa_university_logo.png', 'uva_wellassa_university_bg.jpg'),
-(14, 'University of the Visual & Performing Arts', NULL, NULL, NULL, NULL, 'university_of_the_visual_&_performing_arts.png', 'university_of_the_visual_&_performing_arts_bg.jpg'),
-(15, 'Sripalee Campus, University of Colombo', NULL, NULL, NULL, NULL, 'sri_palee_campus_logo.png', 'sri_palee_campus_bg.jpg'),
-(16, 'Trincomalee Campus, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'trincomalee_campus_logo.png', 'trincomalee_campus_bg.jpg'),
-(17, 'Vavuniya Campus, University of Jaffna', NULL, NULL, NULL, NULL, 'vavuniya_campus_logo.png', 'vavuniya_campus_logo.jpg'),
-(18, 'Institute of Indigenous Medicine, University of Colombo', NULL, NULL, NULL, NULL, 'institute_of_indigenous_medicine_logo.png', 'institute_of_ndigenous_medicine_bg.jpg'),
-(19, 'Gampaha Wickramaarachchi Ayurveda Institute, University of Colombo', NULL, NULL, NULL, NULL, 'gampaha_wickramarachchi_university_of_indigenous_medicine_logo.png', 'gampaha_wickramarachchi_university_of_indigenous_medicine_bg.jpg'),
-(20, 'University of Colombo School of Computing', NULL, NULL, NULL, NULL, 'university_of_colombo_school_of_computing_logo.png', 'university_of_colombo_school_of_computing_bg.jpg'),
-(21, 'Swami Vipulananda Institure of Aesthetic Studies, Eastern University, Sri Lanka', NULL, NULL, NULL, NULL, 'swami_vipulananda_institure_of_aesthetic_studies_logo.png', 'swami_vipulananda_institure_of_aesthetic_studies_bg.jpg'),
-(22, 'Ramanathan Academy of Fine Arts, University of Jaffna', NULL, NULL, NULL, NULL, 'ramanathan_academy_of_fine_arts_logo.png', 'ramanathan_academy_of_fine_arts_bg.jpg');
+(1, 'University of Colombo', 'The University of Colombo (informally Colombo University or UoC) is a public research university located primarily in Colombo, Sri Lanka. It is the oldest institution of modern higher education in Sri Lanka.', 1634, 37636, 9, 'university_of_colombo_logo.png', 'university_of_colombo_bg.jpg'),
+(2, 'University of Peradeniya', 'The University of Peradeniya (Sinhala: පේරාදෙණිය විශ්වවිද්‍යාලය, Tamil: பேராதனைப் பல்கலைக்கழகம்) is a public university in Sri Lanka, funded by the University Grants Commission.', 2030, 11065, 9, 'university_of_peradeniya_logo.png', 'university_of_peradeniya_bg.jpg'),
+(3, 'University of Sri Jayawardenepura', 'The University of Sri Jayewardenepura has a long history dating back to 1873 when the Vidyodaya Pirivena was established by the erudite monk Venerable Ven. Hikkaduwe Sri Sumangala Thero who established the pirivena as a center for Oriental learning.', 2166, 13000, 9, 'university_of_sri_jayaawardhanapura_logo.png', 'university_of_sri_jayaawardhanapura_bg.jpg'),
+(4, 'University of Kelaniya', 'The University of Kelaniya is a public university in Sri Lanka. Just outside the municipal limits of Colombo, in the city of Kelaniya, the university has two major campuses, seven locations, six faculties and four institutions.', 3015, 11143, 9, 'university_of_kelaniya_logo.png', 'university_of_kelaniya_bg.jpg'),
+(5, 'University of Moratuwa', 'The University of Moratuwa is a public university in Sri Lanka. It is located on the bank of the Bolgoda Lake in Katubedda, Moratuwa.', 2863, 10654, 9, 'university_of_moratuwa_logo.png', 'university_of_moratuwa_bg.jpg'),
+(6, 'University of Jaffna', 'The University of Jaffna is a public university in the city of Jaffna in Sri Lanka. Established in 1974 as the sixth campus of the University of Sri Lanka, it became an independent, autonomous university in 1979. UoJ has two campuses — the main campus in ', 3897, 7972, 9, 'university_of_jaffna_logo.png', 'university_of_jaffna_bg.png'),
+(7, 'University of Ruhuna', 'The University of Ruhuna is a public university in Matara, Sri Lanka. It is the only university in the southern region of Sri Lanka. It was established by a Special Presidential Decree on 1 September 1978 as Ruhuna University College and upgraded to a ful', 2291, 11000, 9, 'university_of_ruhuna_logo.png', 'university_of_ruhuna_bg.jpg'),
+(8, 'Eastern University, Sri Lanka', 'The Eastern University, Sri Lanka is a public university in Vantharumoolai, Eastern Province, Sri Lanka. It was established on 1 October 1986. The university was preceded by the Batticaloa University College established on 1 August 1981 which was started ', 5533, 11000, 9, 'esatern_university_logo.png', 'esatern_university_bg.jpg'),
+(9, 'South Eastern University of Sri Lanka ', 'The South Eastern University of Sri Lanka is a public university in Oluvil in Sri Lanka. Established in 1995 as a university college, it became a full-fledged university in 1996. The campus is in Oluvil near Oluvil Harbour. It also has faculty in Sammanth', 7941, 2237, 9, 'south_esatern_university_logo.png', 'south_esatern_university_bg.jpg'),
+(10, 'Rajarata University of Sri Lanka ', 'Rajarata University of Sri Lanka is a public university located in the historic city of Mihintale, near Anuradhapura, Sri Lanka. The Rajarata University of Sri Lanka was established as the eleventh University in Sri Lanka and was opened on 31 January 1996', 3509, 4000, 9, 'rajarata_university_logo.png', 'rajarata_university_bg.jpg'),
+(11, 'Sabaragamuwa University of Sri Lanka', 'The Sabaragamuwa University of Sri Lanka is a public university in Belihuloya, Balangoda, Sri Lanka. It was founded on 20 November 1991 and consists of Eight faculties.', 4775, 14250, 9, 'sabaragamuwa_university_logo.png', 'sabaragamuwa_university_bg.jpg'),
+(12, 'Wayamba University of Sri Lanka', 'The Wayamba University of Sri Lanka is headquartered at Kuliyapitiya, Sri Lanka. Its six faculties are in Makandura and Kuliyapitiya. The Faculty of Applied Sciences, Faculty of Business Studies, Finance and Faculty of Technology and Faculty of Medicine w', 4517, 4423, 9, 'wayamba_university_logo.png', 'wayamba_university_logo.jpg'),
+(13, 'Uva Wellassa University of Sri Lanka', 'Uva Wellassa University is a Sri Lankan national university. The university was established by government gazette effective 1 June 2005 in Badulla, Sri Lanka as the 14th national university of Sri Lanka. President Chandrika Kumaratunga established the uni', 7796, 2503, 9, 'uva_wellassa_university_logo.png', 'uva_wellassa_university_bg.jpg'),
+(14, 'University of the Visual & Performing Arts', 'Sri Lanka is an island nation with a distinctive history of painting and sculpture that dates back to  the 3rd century BC. Historically, painting and sculpture education and practices in Sri Lanka were grounded in the Buddhist philosophy and related ritua', 17040, 330, 9, 'university_of_the_visual_&_performing_arts.png', 'university_of_the_visual_&_performing_arts_bg.jpg'),
+(15, 'Sripalee Campus, University of Colombo', 'The Sri Palee Campus of the University of Colombo is located in Wewala, Horana, Sri Lanka. Established in 1996 it conducts undergraduate and postgraduate courses in the fields of performing arts and mass media.', 1634, 619, 9, 'sri_palee_campus_logo.png', 'sri_palee_campus_bg.jpg'),
+(16, 'Trincomalee Campus, Eastern University, Sri Lanka', 'Trincomalee campus has educated talented youth from diverse backgrounds and transformed them to high-quality professionals, academics and leaders. The efforts of my predecessor rectors, fully supported by councils, staff, students and society have elevate', 5533, -1, -1, 'trincomalee_campus_logo.png', 'trincomalee_campus_bg.jpg'),
+(17, 'Vavuniya Campus, University of Jaffna', 'Situated in the land that was once part of the kingdom of the legendary Vanni Kings, the University of Vavuniya is a higher seat of learning and research in this region, which provides higher education in the fields of Applied Science ,Business Management', 3897, 1500, 9, 'vavuniya_campus_logo.png', 'vavuniya_campus_logo.jpg'),
+(18, 'Institute of Indigenous Medicine, University of Colombo', 'The Institute of Indigenous Medicine is an affiliated institute of the University of Colombo, specialising in Ayurveda and the Sri Lankan traditional medicine. Founded as the College of Indigenous Medicine in 1929, it became part of the University of Colo', 1634, -1, 9, 'institute_of_indigenous_medicine_logo.png', 'institute_of_ndigenous_medicine_bg.jpg'),
+(19, 'Gampaha Wickramaarachchi Ayurveda Institute, University of Colombo', 'he Gampaha Wickramarachchi University of Indigenous Medicine, is a public university located in Yakkala, Sri Lanka. It was established by Ayurveda Cakrawarti Pandit G.P.', 1634, 398, 9, 'gampaha_wickramarachchi_university_of_indigenous_medicine_logo.png', 'gampaha_wickramarachchi_university_of_indigenous_medicine_bg.jpg'),
+(20, 'University of Colombo School of Computing', 'The University of Colombo, founded in 1921, is Sri Lanka’s oldest Higher Education Institution. In keeping with its motto बुद्धिः शर्वत्र भ्रजते (Buddhi Sarvathra Bhrajate), translated from Sanskrit as “Wisdom Enlightens”, the University of Colombo contin', 1634, 1000, 9, 'university_of_colombo_school_of_computing_logo.png', 'university_of_colombo_school_of_computing_bg.jpg'),
+(21, 'Swami Vipulananda Institure of Aesthetic Studies, Eastern University, Sri Lanka', 'he Batticaloa University College was established on 1 of August 1981 to fill a long felt need for the development of a Higher Educational Institution in the Eastern Province, Sri Lanka. This College began with two faculties: the Faculty of Science and the', 5533, -1, 9, 'swami_vipulananda_institure_of_aesthetic_studies_logo.png', 'swami_vipulananda_institure_of_aesthetic_studies_bg.jpg'),
+(22, 'Ramanathan Academy of Fine Arts, University of Jaffna', 'The Ramanathan Academy of Fine Arts is a school of fine art and a division of the University of Jaffna in northern Sri Lanka.', 3897, -1, 9, 'ramanathan_academy_of_fine_arts_logo.png', 'ramanathan_academy_of_fine_arts_bg.jpg');
 
 -- --------------------------------------------------------
 
