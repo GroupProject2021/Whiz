@@ -113,10 +113,6 @@
                                     <button id="comment">
                                         <div class="post-footer-commentbtn"><img src="<?php echo URLROOT;?>/imgs/components/posts/comment-icon.png" alt=""></div>
                                     </button>
-                                    <button id="share">
-                                        <div class="post-footer-sharebtn"><img src="<?php echo URLROOT;?>/imgs/components/posts/share-icon.png" alt=""></div>
-                                        <div class="post-footer-text">Share</div>
-                                    </button>
                                 </div>
                                 </form>
                             </div>
