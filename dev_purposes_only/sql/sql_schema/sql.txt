@@ -7891,7 +7891,9 @@ CREATE VIEW v_posts_jobs AS
 -- report
 CREATE TABLE Report(
 	reported_id INT,
+	reported_actor_type VARCHAR(20),
 	reporter_id INT,
+	reporter_actor_type VARCHAR(20),
 	report VARCHAR(255),
 	PRIMARY KEY(reported_id, reporter_id),
 	FOREIGN KEY(reported_id) REFERENCES Users(id) ON DELETE CASCADE,

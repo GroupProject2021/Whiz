@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2022 at 06:04 PM
+-- Generation Time: Mar 27, 2022 at 07:43 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -1721,9 +1721,11 @@ INSERT INTO `profguiderenrollments` (`enroll_id`, `user_id`, `post_id`, `interac
 
 CREATE TABLE `report` (
   `reported_id` int(11) NOT NULL,
+  `reported_actor_type` varchar(20) DEFAULT NULL,
   `reporter_id` int(11) NOT NULL,
+  `reporter_actor_type` varchar(20) DEFAULT NULL,
   `report` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 

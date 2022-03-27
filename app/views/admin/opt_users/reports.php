@@ -39,9 +39,36 @@
                             <tr>
                                 <td class="gov-course-name" style="width: 60%;"><?php echo $reportItem->report; ?></td>                                
                                 <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_A_Users/deleteReportedAccount/'.$reportItem->reported_id;?>"><button class="btn4">Delete Reported profile</button></a></td>
-                                <!-- fix over here -->
-                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_S_Settings/settings/'.$reportItem->reported_id.'/'.$_SESSION['user_id'];?>"><button class="btn2">Reported profile</button></a></td>
-                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_S_Settings/settings/'.$reportItem->reporter_id.'/'.$_SESSION['user_id'];?>"><button class="btn3">Reporter's profile</button></a></td>
+                                <td class="gov-course-viewmore">
+                                <?php switch($reportItem->reported_actor_type) {
+                                    case 'Student':
+                                        echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$reportItem->reported_id.'/'.$_SESSION['user_id'].'"><button class="btn2">Reported profile</button></a>';
+                                        break;
+
+                                    case 'Organization':
+                                        echo '<a href="'.URLROOT.'/C_O_Settings/settings/'.$reportItem->reported_id.'/'.$_SESSION['user_id'].'"><button class="btn2">Reported profile</button></a>';
+                                        break;
+
+                                    case 'Mentor':
+                                        echo '<a href="'.URLROOT.'/C_M_Settings/settings/'.$reportItem->reported_id.'/'.$_SESSION['user_id'].'"><button class="btn2">Reported profile</button></a>';
+                                        break;
+                                }?>
+                                </td>
+                                <td class="gov-course-viewmore">
+                                <?php switch($reportItem->reporter_actor_type) {
+                                    case 'Student':
+                                        echo '<a href="'.URLROOT.'/C_S_Settings/settings/'.$reportItem->reporter_id.'/'.$_SESSION['user_id'].'"><button class="btn3">Reporter profile</button></a>';
+                                        break;
+
+                                    case 'Organization':
+                                        echo '<a href="'.URLROOT.'/C_O_Settings/settings/'.$reportItem->reporter_id.'/'.$_SESSION['user_id'].'"><button class="btn3">Reporter profile</button></a>';
+                                        break;
+
+                                    case 'Mentor':
+                                        echo '<a href="'.URLROOT.'/C_M_Settings/settings/'.$reportItem->reporter_id.'/'.$_SESSION['user_id'].'"><button class="btn3">Reporter profile</button></a>';
+                                        break;
+                                }?>
+                                </td>
                             </tr>
                             <tr><td colspan="4"><hr></td></tr>
                             <?php endforeach; ?>

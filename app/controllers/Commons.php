@@ -458,10 +458,15 @@
                 // Sanitize POST data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+                $reported_actor_type = $this->commonModel->getUserById($reportedId)->actor_type;
+                $reporter_actor_type = $this->commonModel->getUserById($reporterId)->actor_type;
+
                 // Init data
                 $data = [
                     'reported_id' => $reportedId,
+                    'reported_actor_type' => $reported_actor_type,
                     'reporter_id' => $reporterId,
+                    'reporter_actor_type' => $reporter_actor_type,
                     'report' => trim($_POST['report'])
                 ];
 
