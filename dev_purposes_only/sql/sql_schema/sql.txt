@@ -7941,8 +7941,8 @@ CREATE TABLE Notifications (
 	notification VARCHAR(255),
 	send_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(notification_id),                                            
-	FOREIGN KEY(sender_id) REFERENCES Users(id),
-	FOREIGN KEY(receiver_id) REFERENCES Users(id)
+	FOREIGN KEY(sender_id) REFERENCES Users(id) ON DELETE CASCADE,
+	FOREIGN KEY(receiver_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 
 

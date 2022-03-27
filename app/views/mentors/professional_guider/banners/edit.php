@@ -49,6 +49,10 @@
                                 </div>
                                 <br>
                                 <hr>
+                                <div class="interaction-detail">Session Fee
+                                    <input type="text" name="session_fee" id="session_fee"  placeholder="Session Fee" value="<?php echo $data['session_fee']; ?>">
+                                    <span class="form-invalid"><?php echo $data['session_fee_err']; ?></span>
+                                </div>
                                 <div class="interaction-detail">
                                     Maximum enroll capacity <input type="number" name="capacity" id="capacity" value = "<?php echo $data['capacity']; ?>" placeholder="capacity" min=0>
                                 </div>
@@ -67,7 +71,7 @@
             </main>
         </div>
 
-        <!-- post edit javascript -->
+        <!-- post add javascript -->
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/posts/postsEdit.js"></script>
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>

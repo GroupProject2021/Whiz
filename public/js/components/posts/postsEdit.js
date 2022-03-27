@@ -1,20 +1,30 @@
 const addImageBtn = document.getElementById("addImageBtn");
 const removeImageBtn = document.getElementById("removeImageBtn");
 const imageplaceholder = document.getElementById("image_placeholder");
+const isImageRemoved = document.getElementById("isImageRemoved");
 
 let inputPath = document.querySelector("#image");
 
 let file;
 
+// if image exists
+if(imageplaceholder.getAttribute('src') != ''){
+    addImageBtn.style.display = "none";
+    removeImageBtn.style.display = "block";
+    imageplaceholder.style.display = "block";
+}
+
 function toggleBrowse() {
     inputPath.click();
-    
 }
+
+
 
 function removeImage() {
     addImageBtn.style.display = "block";
     removeImageBtn.style.display = "none";
     imageplaceholder.style.display = "none";
+    isImageRemoved.value = "removed";
 
     imageplaceholder.setAttribute('src', '');
 
@@ -27,6 +37,7 @@ inputPath.addEventListener("change", function() {
     addImageBtn.style.display = "none";
     removeImageBtn.style.display = "block";
     imageplaceholder.style.display = "block";
+    isImageRemoved.value = "";
 
     showImage();    
 });
