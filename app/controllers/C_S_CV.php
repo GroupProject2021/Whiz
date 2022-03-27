@@ -77,7 +77,7 @@ class C_S_CV extends Controller {
                         $pdf->Cell(10, 5, '', 0, 0);
                         $pdf->Cell(90, 7, 'CONTACT', 0, 1);
                         pdf_p($pdf);
-            $text = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, impedit? Obcaecati ducimus, alias minima sunt dolore quod ut iste distinctio? Inventore obcaecati incidunt perspiciatis expedita corrupti id, blanditiis rerum dolores!';
+            $text = 'Hard working , loyal and resourceful individual with following education qualifications and skills. Known for exceeding employer expectations. Willing to learn and gain new experiences with your company to develop my career.';
             $lines = pdf_auto_wrap_p($pdf, $text);
                         $pdf->Cell(17, 6, '', 0, 0);
                         $pdf->Image( URLROOT.'/imgs/profiles/student/phnno-icon.png', 111, 53, 5, 5);
