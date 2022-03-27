@@ -45,6 +45,9 @@
                        
                         <div>
                         <table class="gov-course-table">
+                            
+
+                            <?php if($data['applied'] != 0): ?>
                             <tr>
                                 <th>    </th>
                                 <th>Student Name</th>
@@ -55,9 +58,6 @@
                                 <th></th>
                             </tr>
                             <tr><td colspan="4"><hr></td></tr>
-
-                            <?php if($data['applied'] != 0): ?>
-
                                 <?php foreach($data['enrollments'] as $studentList): ?>
 
                                     
