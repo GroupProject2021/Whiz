@@ -224,6 +224,14 @@
             $this->db->bind(":id", $data['id']);
             $this->db->bind(":title", $data['title']);
             $this->db->bind(":body", $data['body']);
+            $this->db->bind(":capacity", $data['capacity']);
+
+            $this->db->execute();
+
+            $this->db->query('UPDATE Poster SET session_fee = :session_fee WHERE poster_id = :id');
+            // bind values
+            $this->db->bind(":id", $data['id']);
+            $this->db->bind(":session_fee", $data['session_fee']);
 
             // Execute
             if($this->db->execute()) {
