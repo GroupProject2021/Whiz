@@ -71,7 +71,7 @@
             </main>
         </div>
         
-        <!-- post edit javascript -->
+        <!-- post add javascript -->
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/components/posts/postsEdit.js"></script>
         
 <?php require APPROOT.'/views/inc/footer.php'; ?>
