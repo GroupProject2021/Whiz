@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2022 at 08:26 PM
+-- Generation Time: Mar 27, 2022 at 06:49 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -494,6 +494,26 @@ CREATE TABLE `commentinteractions` (
   `comment_interaction` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `commentinteractions`
+--
+
+INSERT INTO `commentinteractions` (`comment_interaction_id`, `user_id`, `comment_id`, `comment_interaction`) VALUES
+(1, 2, 1, 'liked'),
+(2, 2, 2, 'liked'),
+(3, 2, 3, 'liked'),
+(4, 2, 4, 'liked'),
+(5, 3, 5, 'liked'),
+(6, 3, 1, 'liked'),
+(7, 3, 7, 'liked'),
+(8, 3, 8, 'liked'),
+(9, 3, 2, 'liked'),
+(10, 4, 11, 'liked'),
+(11, 4, 4, 'liked'),
+(12, 4, 13, 'liked'),
+(13, 4, 14, 'liked'),
+(14, 6, 5, 'liked');
+
 -- --------------------------------------------------------
 
 --
@@ -510,6 +530,27 @@ CREATE TABLE `comments` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`comment_id`, `post_id`, `user_id`, `content`, `ups`, `downs`, `created_at`) VALUES
+(1, 4, 2, 'Is this course good for a student whos interested in Quantity surveying?', 2, 0, '2022-03-27 09:25:43'),
+(2, 20, 2, 'Seems interesting? are there anybody whos going to this session', 2, 0, '2022-03-27 09:27:47'),
+(3, 14, 2, 'Architect is interesting. This is related to my dream career as well. : )', 1, 0, '2022-03-27 09:28:33'),
+(4, 15, 2, 'What sort of programming languages are best?', 2, 0, '2022-03-27 09:29:02'),
+(5, 5, 3, 'I am interested in Engineering.', 2, 0, '2022-03-27 09:37:21'),
+(6, 4, 3, 'Interesting...', 0, 0, '2022-03-27 09:37:40'),
+(7, 3, 3, 'WOW this seems to be cool? How long is this course going to be held?', 1, 0, '2022-03-27 09:38:16'),
+(8, 1, 3, 'UCSC is the best so far i guess', 1, 0, '2022-03-27 09:40:19'),
+(9, 11, 3, 'I am interested in front end. Is this going to be helpful for me?', 0, 0, '2022-03-27 09:41:52'),
+(10, 2, 4, 'Amazing course. Currently following it.', 0, 0, '2022-03-27 09:48:20'),
+(11, 15, 4, 'Not quite interested. But seems to be cool.', 1, 0, '2022-03-27 09:48:52'),
+(12, 12, 4, 'This seems to be interesting', 0, 0, '2022-03-27 09:52:03'),
+(13, 23, 4, 'SE is always amazing. However it has some difficult parts as well. ', 1, 0, '2022-03-27 09:54:48'),
+(14, 22, 4, 'Coooool', 1, 0, '2022-03-27 09:55:19'),
+(15, 20, 5, 'Currently following it.', 0, 0, '2022-03-27 09:59:07');
+
 -- --------------------------------------------------------
 
 --
@@ -525,6 +566,14 @@ CREATE TABLE `community` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `community`
+--
+
+INSERT INTO `community` (`thread_id`, `user_id`, `title`, `body`, `views`, `created_at`) VALUES
+(1, 2, 'What is quantity surveying and who does quantity surveying?', 'What is the importance and purpose of quantity surveying and costing in construction work? Does anybody help me?', 5, '2022-03-27 09:35:34'),
+(2, 3, 'Does anyboby know how to fill that courses table when we are applying for Universities?', 'I am so confused with course selections. What are the best courses for a student who&#39;s interested in engineering? Some says moratuwa is the best. Others says go to a foreign university. Does anybody know the pros and cons of those stuffs?', 1, '2022-03-27 09:46:09');
+
 -- --------------------------------------------------------
 
 --
@@ -537,6 +586,16 @@ CREATE TABLE `communitycommentinteractions` (
   `comment_id` int(11) DEFAULT NULL,
   `comment_interaction` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `communitycommentinteractions`
+--
+
+INSERT INTO `communitycommentinteractions` (`comment_interaction_id`, `user_id`, `comment_id`, `comment_interaction`) VALUES
+(1, 3, 1, 'liked'),
+(2, 4, 1, 'liked'),
+(3, 4, 2, 'liked'),
+(4, 4, 3, 'liked');
 
 -- --------------------------------------------------------
 
@@ -553,6 +612,15 @@ CREATE TABLE `communitycomments` (
   `downs` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `communitycomments`
+--
+
+INSERT INTO `communitycomments` (`comment_id`, `thread_id`, `user_id`, `content`, `ups`, `downs`, `created_at`) VALUES
+(1, 1, 3, 'In my observation over the years, the young quantity surveyors put their eyes on money rather than the requisite practical experience on the field. This is a very wrong notion, a misplaced order and the worst idea. If things must work well, this situation must be reversed because this profession requires lots of practical experience if they must excel .  The second mistake is not to have mentorship from the experienced ones. This is absolutely important.  The 3rd mistake is not trying to understand the position of the other quantity surveyors’ points of view before forming their judgement. The thinking of a consultant surveyor is different from that of a contractor\'s quantity surveyor.  4th mistake is not continually having personal development through organised seminars.  The last but not the least is not socializing. This is where contacts are made….if you like call it a form of Marketing.', 2, 0, '2022-03-27 09:43:53'),
+(2, 1, 4, 'Most times they questions depend on the client, However, below stated points can be a guide  1.pls explain yourself.(2) what is the work of a QS? 3. what can you do as a QS?  4.which project were you involved in and what was your role in the project?', 1, 0, '2022-03-27 09:55:56'),
+(3, 2, 4, 'You can check that from Whiz course page', 1, 0, '2022-03-27 09:57:14');
 
 -- --------------------------------------------------------
 
@@ -600,6 +668,27 @@ CREATE TABLE `connections` (
   `from_user_id` int(11) DEFAULT NULL,
   `to_user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `connections`
+--
+
+INSERT INTO `connections` (`connection_id`, `from_user_id`, `to_user_id`) VALUES
+(1, 2, 3),
+(2, 2, 4),
+(3, 2, 5),
+(4, 3, 6),
+(5, 3, 2),
+(6, 3, 5),
+(7, 3, 8),
+(8, 8, 2),
+(9, 8, 3),
+(10, 8, 4),
+(11, 8, 5),
+(12, 9, 8),
+(13, 9, 5),
+(14, 4, 8),
+(15, 4, 9);
 
 -- --------------------------------------------------------
 
@@ -1253,6 +1342,30 @@ CREATE TABLE `notifications` (
   `send_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`notification_id`, `sender_id`, `receiver_id`, `notification`, `send_at`) VALUES
+(1, 2, 3, 'follows you', '2022-03-27 09:24:44'),
+(2, 2, 4, 'follows you', '2022-03-27 09:24:50'),
+(3, 2, 5, 'follows you', '2022-03-27 09:24:56'),
+(4, 3, 6, 'follows you', '2022-03-27 09:36:24'),
+(5, 3, 2, 'follows you', '2022-03-27 09:46:29'),
+(6, 3, 5, 'follows you', '2022-03-27 09:46:38'),
+(7, 3, 8, 'follows you', '2022-03-27 09:46:53'),
+(8, 8, 2, 'follows you', '2022-03-27 10:13:29'),
+(9, 8, 3, 'follows you', '2022-03-27 10:13:36'),
+(10, 8, 4, 'follows you', '2022-03-27 10:13:43'),
+(11, 8, 5, 'follows you', '2022-03-27 10:13:51'),
+(12, 9, 8, 'follows you', '2022-03-27 10:15:05'),
+(13, 9, 5, 'follows you', '2022-03-27 10:15:14'),
+(14, 9, 4, 'Add a session link', '2022-03-27 10:16:27'),
+(15, 9, 4, 'Add a session link', '2022-03-27 10:16:48'),
+(16, 9, 4, 'Add a session link', '2022-03-27 10:17:06'),
+(17, 4, 8, 'follows you', '2022-03-27 10:17:48'),
+(18, 4, 9, 'follows you', '2022-03-27 10:17:55');
+
 -- --------------------------------------------------------
 
 --
@@ -1422,6 +1535,42 @@ CREATE TABLE `postinteractions` (
   `interaction` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `postinteractions`
+--
+
+INSERT INTO `postinteractions` (`interaction_id`, `user_id`, `post_id`, `interaction`) VALUES
+(1, 2, 4, 'liked'),
+(2, 2, 5, 'liked'),
+(3, 2, 2, 'liked'),
+(4, 2, 15, 'liked'),
+(5, 2, 12, 'liked'),
+(6, 2, 20, 'liked'),
+(7, 2, 14, 'liked'),
+(8, 3, 5, 'liked'),
+(9, 3, 4, 'liked'),
+(10, 3, 3, 'liked'),
+(11, 3, 2, 'liked'),
+(12, 3, 1, 'liked'),
+(13, 3, 11, 'liked'),
+(14, 3, 19, 'liked'),
+(15, 3, 18, 'disliked'),
+(16, 3, 17, 'liked'),
+(17, 3, 20, 'disliked'),
+(18, 4, 4, 'liked'),
+(19, 4, 2, 'liked'),
+(20, 4, 15, 'disliked'),
+(21, 4, 14, 'liked'),
+(22, 4, 12, 'liked'),
+(23, 4, 20, 'liked'),
+(24, 4, 16, 'liked'),
+(25, 4, 25, 'liked'),
+(26, 4, 24, 'liked'),
+(27, 4, 23, 'liked'),
+(28, 4, 22, 'liked'),
+(29, 5, 15, 'liked'),
+(30, 9, 25, 'liked');
+
 -- --------------------------------------------------------
 
 --
@@ -1450,31 +1599,31 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `type`, `image`, `title`, `body`, `applied`, `capacity`, `ups`, `downs`, `shares`, `views`, `payed`, `created_at`) VALUES
-(1, 6, 'coursepost', '1648320812_course1.png', 'Computer Science', 'Through the development of new applications in science, engineering, and business, Computer Science is radically changing the way in which we experience our world. This program equips students with the skills needed to contribute to this exciting and rapidly evolving field. Computer Science is our most flexible program , allowing you to chose course units to reflect your developing and changing interests. Furthermore, a wide range of themes from across the discipline allow you to specialize in the second and third years. You will gain not only knowledge and practical experience of the latest technologies, but also a grounding in the underlying principles of the subject. It is this combination of skills that enable our graduates to keep pace with this fast moving subject, and secure rewarding careers that can be pursued almost anywhere in the world.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-27 00:23:32'),
-(2, 6, 'coursepost', '1648320867_course2.png', 'Advanced Certificate in English', 'Having an excellent grasp of spoken and written English is a fundamental requirement for success in the corporate world or other careers. Such knowledge also builds confidence and helps in forming relationships in business and social settings. This course is intended to develop the Listening, Speaking, Reading, and Writing Skills of students. The course will use interactive sessions and technologies based on the ‘Communicative Approach to Language Teaching’, which is the latest language teaching methodology practiced around the world. The syllabus covers a broad range of topics required to reach a level of competence in using English effectively and confidently. Entry Requirements Completion of GCE O/L, A/L examinations AND Certificate in English (CIE) course', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-27 00:24:27'),
-(3, 6, 'coursepost', '1648320919_course3.png', 'Artificial Intelligence', 'Artificial intelligence courses after 12th are related to the domain of Computer Science which focuses on developing programmed machines or computers that can function similarly to a human brain. In India, many institutes and websites offer Artificial Intelligence Courses After 12th. Candidates would be eligible to apply for the Artificial Intelligence course after the completion of their class 12th exam.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-27 00:25:19'),
-(4, 6, 'coursepost', '1648321000_course4.jpg', 'Mathematics and Statistic', 'B.Sc Mathematics is a 3-year undergraduate course that deals with the discipline of mathematics and the analysis of numbers, structure, transition, and space is the focus of the B.Sc Maths program. Aspirants will find job opportunities in finance, information technology, and research firms after completing the B.Sc Mathematics course. B.Sc Mathematics Course Details Degree - Bachelors Full Form - Bachelor of Science in Mathematics Duration - Course Duration of Bachelor of Science [B.Sc] (Mathematics) is 3 Years. Age - The minimum age to join B.Sc course is 18 years. There is no upper age limit.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-27 00:26:40'),
-(5, 6, 'coursepost', '1648321055_course5.jpg', 'Civil Engineering', 'The Faculty of Engineering is the epicenter of engineering education, research, knowledge creation and distribution in Sri Lanka. Comprised of prominent lecturers, researchers and a helpful academic staff, the students are guaranteed to receive quality education and knowledge. The students will be well guided so that they study their courses and learn that they are working for knowledge and career, not just to pass examinations. Our academic programs are dedicated to create innovative leaders in a world of modern technology.', NULL, NULL, 0, 0, 0, 0, 0, '2022-03-27 00:27:35'),
+(1, 6, 'coursepost', '1648320812_course1.png', 'Computer Science', 'Through the development of new applications in science, engineering, and business, Computer Science is radically changing the way in which we experience our world. This program equips students with the skills needed to contribute to this exciting and rapidly evolving field. Computer Science is our most flexible program , allowing you to chose course units to reflect your developing and changing interests. Furthermore, a wide range of themes from across the discipline allow you to specialize in the second and third years. You will gain not only knowledge and practical experience of the latest technologies, but also a grounding in the underlying principles of the subject. It is this combination of skills that enable our graduates to keep pace with this fast moving subject, and secure rewarding careers that can be pursued almost anywhere in the world.', NULL, NULL, 1, 0, 0, 0, 0, '2022-03-27 00:23:32'),
+(2, 6, 'coursepost', '1648320867_course2.png', 'Advanced Certificate in English', 'Having an excellent grasp of spoken and written English is a fundamental requirement for success in the corporate world or other careers. Such knowledge also builds confidence and helps in forming relationships in business and social settings. This course is intended to develop the Listening, Speaking, Reading, and Writing Skills of students. The course will use interactive sessions and technologies based on the ‘Communicative Approach to Language Teaching’, which is the latest language teaching methodology practiced around the world. The syllabus covers a broad range of topics required to reach a level of competence in using English effectively and confidently. Entry Requirements Completion of GCE O/L, A/L examinations AND Certificate in English (CIE) course', NULL, NULL, 3, 0, 0, 0, 0, '2022-03-27 00:24:27'),
+(3, 6, 'coursepost', '1648320919_course3.png', 'Artificial Intelligence', 'Artificial intelligence courses after 12th are related to the domain of Computer Science which focuses on developing programmed machines or computers that can function similarly to a human brain. In India, many institutes and websites offer Artificial Intelligence Courses After 12th. Candidates would be eligible to apply for the Artificial Intelligence course after the completion of their class 12th exam.', NULL, NULL, 1, 0, 0, 0, 0, '2022-03-27 00:25:19'),
+(4, 6, 'coursepost', '1648321000_course4.jpg', 'Mathematics and Statistic', 'B.Sc Mathematics is a 3-year undergraduate course that deals with the discipline of mathematics and the analysis of numbers, structure, transition, and space is the focus of the B.Sc Maths program. Aspirants will find job opportunities in finance, information technology, and research firms after completing the B.Sc Mathematics course. B.Sc Mathematics Course Details Degree - Bachelors Full Form - Bachelor of Science in Mathematics Duration - Course Duration of Bachelor of Science [B.Sc] (Mathematics) is 3 Years. Age - The minimum age to join B.Sc course is 18 years. There is no upper age limit.', NULL, NULL, 3, 0, 0, 0, 0, '2022-03-27 00:26:40'),
+(5, 6, 'coursepost', '1648321055_course5.jpg', 'Civil Engineering', 'The Faculty of Engineering is the epicenter of engineering education, research, knowledge creation and distribution in Sri Lanka. Comprised of prominent lecturers, researchers and a helpful academic staff, the students are guaranteed to receive quality education and knowledge. The students will be well guided so that they study their courses and learn that they are working for knowledge and career, not just to pass examinations. Our academic programs are dedicated to create innovative leaders in a world of modern technology.', NULL, NULL, 2, 0, 0, 0, 0, '2022-03-27 00:27:35'),
 (6, 6, 'noticepost', '1648321178_intake1.jpg', 'CALLING INTERVIEW AND REGISTRATION FOR INFORMATION TECHNOLOGY', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in Physical stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-27 00:29:38'),
 (7, 6, 'noticepost', '1648321229_intake2.jpg', 'INTERVIEW AND REGISTRATION FOR ENGLISH', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in any stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-27 00:30:29'),
 (8, 6, 'noticepost', '1648321279_intake3.jpg', 'INTAKE FOR 2023', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in Physical stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-27 00:31:19'),
 (9, 6, 'noticepost', '1648321323_intake4.jpeg', 'REGISTRATION DEADLINE EXTENDED', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in any stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-27 00:32:03'),
 (10, 6, 'noticepost', '1648321368_intake5.jpg', 'MBA and EMBA INTAKE FOR 2022', 'Closing Date -  2022/05/31 Minimum Qualification -  C for G.C.E. O/L English Pass G.C.E. Advanced Level in Commerce stream', NULL, NULL, 0, 0, 0, 0, 1, '2022-03-27 00:32:48'),
-(11, 7, 'jobpost', '1648321469_job1.jpg', 'Vacancies for Full Stack Developers', 'A Java, C#, .Net, C, Sybase and Oracle Software Developer is generally responsible for the development, design and implementation of new or modified software products or ongoing business projects. Typically sitting within the IT team of a business, a Software Developer will be involved in liaising with the Business Analysts and Development Managers to ensure software projects meet requirements.', 0, 40, 0, 0, 0, 0, 1, '2022-03-27 00:34:29'),
-(12, 7, 'jobpost', '1648321522_job2.png', 'Hiring Graphic Designers', 'You&#39;ll work on a variety of products and activities, such as websites, advertising, books, magazines, posters, computer games, product packaging, exhibitions and displays, corporate communications and corporate identity, i.e. giving organizations a visual brand. Working to a brief that has been agreed with the client, creative director or account manager, you&#39;ll develop appropriate creative ideas and concepts for the client&#39;s objectives. The work demands creative flair, up-to-date knowledge of industry software and a professional approach to time, costs and deadlines. Salary start from LKR 75000.', 0, 10, 0, 0, 0, 0, 1, '2022-03-27 00:35:22'),
+(11, 7, 'jobpost', '1648321469_job1.jpg', 'Vacancies for Full Stack Developers', 'A Java, C#, .Net, C, Sybase and Oracle Software Developer is generally responsible for the development, design and implementation of new or modified software products or ongoing business projects. Typically sitting within the IT team of a business, a Software Developer will be involved in liaising with the Business Analysts and Development Managers to ensure software projects meet requirements.', 0, 40, 1, 0, 0, 0, 1, '2022-03-27 00:34:29'),
+(12, 7, 'jobpost', '1648321522_job2.png', 'Hiring Graphic Designers', 'You&#39;ll work on a variety of products and activities, such as websites, advertising, books, magazines, posters, computer games, product packaging, exhibitions and displays, corporate communications and corporate identity, i.e. giving organizations a visual brand. Working to a brief that has been agreed with the client, creative director or account manager, you&#39;ll develop appropriate creative ideas and concepts for the client&#39;s objectives. The work demands creative flair, up-to-date knowledge of industry software and a professional approach to time, costs and deadlines. Salary start from LKR 75000.', 0, 10, 2, 0, 0, 0, 1, '2022-03-27 00:35:22'),
 (13, 7, 'jobpost', '1648321571_job3.jpg', 'Vacancy for Business Analysts', 'We are hiring a business analyst to join our project team. You will work alongside other business analysts and report directly to the project manager. Your main tasks will include performing detailed requirements analysis, documenting processes, and performing some user acceptance testing. To succeed in this role you should have a natural analytical way of thinking and be able to explain difficult concepts to non-technical users. Salary starts from LKR 100000.', 0, 5, 0, 0, 0, 0, 1, '2022-03-27 00:36:11'),
-(14, 7, 'jobpost', '1648321625_job4.jpg', 'Architect Vacancies', 'As an architect, you&#39;ll design new buildings or extensions or alterations to existing structures and advise on the restoration and conservation of old properties. You may work on individual buildings or on large redevelopment schemes, and your responsibility can extend to the design of the surrounding landscape and spaces. Working closely with clients and users, you&#39;ll make sure that projected designs match requirements and are functional, safe and economical, and in some cases highly innovative. You&#39;ll usually control a project from start to finish and work with a number of construction professionals, including surveyors and engineers. Salary starts from LKR 150000', 0, 10, 0, 0, 0, 0, 1, '2022-03-27 00:37:05'),
-(15, 7, 'jobpost', '1648321717_job5.jpg', 'Apply For Senior Software Engineers', 'Must Have skills:\r\n* Working experience in C#, ASP .Net MVC, Web API and Entity Framework\r\n* Experience in writing TSQL with SQL Server\r\n* Knowledge in HTML, CSS\\r\\n* Experience in JAVAscript, Typescript and JQuery\r\n* Knowledge in creating SPA based applications preferably Angular or React Teamwork, quality of life, professional and personal development\\\\: values that Virtusa is proud to embody. When you join us, you join a team of 21,000 people globally that cares about your growth — one that seeks to provide you with exciting projects, opportunities and work with state of the art technologies throughout your career with us. Great minds, great potential: it all comes together at Virtusa. We value collaboration and the team environment of our company and seek to provide great minds with a dynamic place to nurture new ideas and foster excellence. Virtusa was founded on principles of equal opportunity for all, and so does not discriminate on the basis of race, religion, color, sex, gender identity, sexual orientation, age, non-disqualifying physical or mental disability, national origin, veteran status or any other basis covered by appropriate law. All employment is decided on the basis of qualifications, merit, and business need.', 0, 15, 0, 0, 0, 0, 1, '2022-03-27 00:38:37'),
-(16, 8, 'banner', '1648321861_job1.jpg', 'Online Business Workshop', 'Online Business Workshop with Jonaton Dew, e-commerce expert will be held on 20th December 2022 from 10 a.m - 5. p.m', 0, 200, 0, 0, 0, 0, 1, '2022-03-27 00:41:01'),
-(17, 8, 'banner', '1648322069_banner2.jpg', 'Social Media Marketing Conference', 'Join with us on 29th September', 0, 100, 0, 0, 0, 0, 1, '2022-03-27 00:44:29'),
-(18, 8, 'banner', '1648322136_banner3.jpg', 'Future of Graphic Design', 'An online seminar on &#34;Graphic design strategy Future of graphic design will be held on 12th December 2022 at 5 p.m. Join with us !', 0, 150, 0, 0, 0, 0, 1, '2022-03-27 00:45:36'),
-(19, 8, 'banner', '1648322182_banner4.jpg', 'Career Counselling', 'For School, College students & Graduates. Join with us !', 0, 250, 0, 0, 0, 0, 1, '2022-03-27 00:46:22'),
-(20, 8, 'banner', '1648322225_banner5.jpg', 'LIVE', 'LIVE with Thomas Pesaco', 0, 500, 0, 0, 0, 0, 1, '2022-03-27 00:47:05'),
+(14, 7, 'jobpost', '1648321625_job4.jpg', 'Architect Vacancies', 'As an architect, you&#39;ll design new buildings or extensions or alterations to existing structures and advise on the restoration and conservation of old properties. You may work on individual buildings or on large redevelopment schemes, and your responsibility can extend to the design of the surrounding landscape and spaces. Working closely with clients and users, you&#39;ll make sure that projected designs match requirements and are functional, safe and economical, and in some cases highly innovative. You&#39;ll usually control a project from start to finish and work with a number of construction professionals, including surveyors and engineers. Salary starts from LKR 150000', 0, 10, 2, 0, 0, 0, 1, '2022-03-27 00:37:05'),
+(15, 7, 'jobpost', '1648321717_job5.jpg', 'Apply For Senior Software Engineers', 'Must Have skills:\r\n* Working experience in C#, ASP .Net MVC, Web API and Entity Framework\r\n* Experience in writing TSQL with SQL Server\r\n* Knowledge in HTML, CSS\\r\\n* Experience in JAVAscript, Typescript and JQuery\r\n* Knowledge in creating SPA based applications preferably Angular or React Teamwork, quality of life, professional and personal development\\\\: values that Virtusa is proud to embody. When you join us, you join a team of 21,000 people globally that cares about your growth — one that seeks to provide you with exciting projects, opportunities and work with state of the art technologies throughout your career with us. Great minds, great potential: it all comes together at Virtusa. We value collaboration and the team environment of our company and seek to provide great minds with a dynamic place to nurture new ideas and foster excellence. Virtusa was founded on principles of equal opportunity for all, and so does not discriminate on the basis of race, religion, color, sex, gender identity, sexual orientation, age, non-disqualifying physical or mental disability, national origin, veteran status or any other basis covered by appropriate law. All employment is decided on the basis of qualifications, merit, and business need.', 0, 15, 2, 1, 0, 0, 1, '2022-03-27 00:38:37'),
+(16, 8, 'banner', '1648321861_job1.jpg', 'Online Business Workshop', 'Online Business Workshop with Jonaton Dew, e-commerce expert will be held on 20th December 2022 from 10 a.m - 5. p.m', 0, 200, 1, 0, 0, 0, 1, '2022-03-27 00:41:01'),
+(17, 8, 'banner', '1648322069_banner2.jpg', 'Social Media Marketing Conference', 'Join with us on 29th September', 1, 100, 1, 0, 0, 0, 1, '2022-03-27 00:44:29'),
+(18, 8, 'banner', '1648322136_banner3.jpg', 'Future of Graphic Design', 'An online seminar on &#34;Graphic design strategy Future of graphic design will be held on 12th December 2022 at 5 p.m. Join with us !', 0, 150, 0, 1, 0, 0, 1, '2022-03-27 00:45:36'),
+(19, 8, 'banner', '1648322182_banner4.jpg', 'Career Counselling', 'For School, College students & Graduates. Join with us !', 1, 250, 1, 0, 0, 0, 1, '2022-03-27 00:46:22'),
+(20, 8, 'banner', '1648322225_banner5.jpg', 'LIVE', 'LIVE with Thomas Pesaco', 3, 500, 2, 1, 0, 0, 1, '2022-03-27 00:47:05'),
 (21, 9, 'poster', '1648322374_poster1.jpg', 'Online Tutoring Session', 'From Sunday- Wednesday at 11 a.m', 0, 20, 0, 0, 0, 0, 1, '2022-03-27 00:49:34'),
-(22, 9, 'poster', '1648322417_poster2.jpeg', 'HTML, CSS and Javascript', 'On every Saturday at 6.00 p.m', 0, 10, 0, 0, 0, 0, 1, '2022-03-27 00:50:17'),
-(23, 9, 'poster', '1648322465_poster3.jpg', 'Software Engineering', 'Software Engineering from the beginning. On Every Wednesday at 5 p.m', 0, 70, 0, 0, 0, 0, 1, '2022-03-27 00:51:05'),
-(24, 9, 'poster', '1648322507_poster4.jpg', 'Hardware & Software Components', 'On 2nd April at 7.00 p.m', 0, 150, 0, 0, 0, 0, 1, '2022-03-27 00:51:47'),
-(25, 9, 'poster', '1648322546_poster5.png', 'C++  for beginners', 'On 5th May', 0, 200, 0, 0, 0, 0, 1, '2022-03-27 00:52:26');
+(22, 9, 'poster', '1648322417_poster2.jpeg', 'HTML, CSS and Javascript', 'On every Saturday at 6.00 p.m', 1, 10, 1, 0, 0, 0, 1, '2022-03-27 00:50:17'),
+(23, 9, 'poster', '1648322465_poster3.jpg', 'Software Engineering', 'Software Engineering from the beginning. On Every Wednesday at 5 p.m', 1, 70, 1, 0, 0, 0, 1, '2022-03-27 00:51:05'),
+(24, 9, 'poster', '1648322507_poster4.jpg', 'Hardware & Software Components', 'On 2nd April at 7.00 p.m', 1, 150, 1, 0, 0, 0, 1, '2022-03-27 00:51:47'),
+(25, 9, 'poster', '1648322546_poster5.png', 'C++  for beginners', 'On 5th May', 0, 200, 2, 0, 0, 0, 1, '2022-03-27 00:52:26');
 
 -- --------------------------------------------------------
 
@@ -1553,6 +1702,17 @@ CREATE TABLE `profguiderenrollments` (
   `applied_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `profguiderenrollments`
+--
+
+INSERT INTO `profguiderenrollments` (`enroll_id`, `user_id`, `post_id`, `interaction`, `applied_date`) VALUES
+(1, 2, 20, 'applied', '2022-03-27 03:57:52'),
+(2, 3, 17, 'applied', '2022-03-27 04:12:51'),
+(3, 4, 20, 'applied', '2022-03-27 04:22:33'),
+(4, 4, 19, 'applied', '2022-03-27 04:22:48'),
+(5, 5, 20, 'applied', '2022-03-27 04:28:58');
+
 -- --------------------------------------------------------
 
 --
@@ -1579,6 +1739,27 @@ CREATE TABLE `review` (
   `review` text DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`review_id`, `post_id`, `user_id`, `rate`, `review`, `created_at`) VALUES
+(1, 2, 3, 4, 'Good course. I also followed this when I was doing my OLs', '2022-03-27 09:38:51'),
+(2, 5, 3, 4, 'Obviously fascinating course. Highly recommended.', '2022-03-27 09:39:18'),
+(3, 4, 3, 5, 'Highly recommended', '2022-03-27 09:39:37'),
+(4, 3, 3, 3, 'Good.', '2022-03-27 09:39:53'),
+(5, 1, 3, 2, 'Cool. but low interaction with students i guess.', '2022-03-27 09:40:48'),
+(6, 18, 3, 1, 'Not recommended. But some contents are helpful.', '2022-03-27 09:42:36'),
+(7, 17, 3, 5, 'Highly recommended', '2022-03-27 09:42:59'),
+(8, 4, 4, 4, 'Yes this is a good course.', '2022-03-27 09:47:50'),
+(9, 20, 4, 3, 'Good one.', '2022-03-27 09:52:30'),
+(10, 19, 4, 4, 'Currently following. So far so good.', '2022-03-27 09:53:09'),
+(11, 16, 4, 4, 'Obviously good.', '2022-03-27 09:53:38'),
+(12, 23, 4, 4, 'Amazing.', '2022-03-27 09:54:56'),
+(13, 22, 4, 5, 'Perfect', '2022-03-27 09:55:11'),
+(14, 4, 4, 4, 'Amazing', '2022-03-27 09:57:43'),
+(15, 20, 5, 5, 'Cool sessions', '2022-03-27 09:59:15');
 
 -- --------------------------------------------------------
 
@@ -1970,6 +2151,15 @@ CREATE TABLE `sessionlink` (
   `body` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `sessionlink`
+--
+
+INSERT INTO `sessionlink` (`id`, `post_id`, `date`, `time`, `body`) VALUES
+(1, 24, '2022-06-15', '10:15:00', 'https://learn.zoom.us/j/66023267900?pwd=U3hrbS85dHJwRm5UN3FuSkoxQzE3dz09'),
+(2, 23, '2022-07-06', '10:17:00', 'https://learn.zoom.us/j/69452048844?pwd=MlNMU3huRjAzeGpHK2krcTZvbGhOdz09'),
+(3, 22, '2022-10-04', '10:17:00', 'https://learn.zoom.us/j/65975259338?pwd=dUFUdnFsTGdDNHM0YitRQjJUY1FaZz09');
+
 -- --------------------------------------------------------
 
 --
@@ -2075,6 +2265,15 @@ CREATE TABLE `teacherenrollments` (
   `interaction` varchar(100) DEFAULT NULL,
   `applied_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `teacherenrollments`
+--
+
+INSERT INTO `teacherenrollments` (`enroll_id`, `user_id`, `post_id`, `interaction`, `applied_date`) VALUES
+(1, 4, 24, 'applied', '2022-03-27 04:24:03'),
+(2, 4, 23, 'applied', '2022-03-27 04:24:08'),
+(3, 4, 22, 'applied', '2022-03-27 04:25:05');
 
 -- --------------------------------------------------------
 
@@ -9042,31 +9241,31 @@ ALTER TABLE `city`
 -- AUTO_INCREMENT for table `commentinteractions`
 --
 ALTER TABLE `commentinteractions`
-  MODIFY `comment_interaction_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_interaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `community`
 --
 ALTER TABLE `community`
-  MODIFY `thread_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `thread_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `communitycommentinteractions`
 --
 ALTER TABLE `communitycommentinteractions`
-  MODIFY `comment_interaction_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_interaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `communitycomments`
 --
 ALTER TABLE `communitycomments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `complaint`
@@ -9078,7 +9277,7 @@ ALTER TABLE `complaint`
 -- AUTO_INCREMENT for table `connections`
 --
 ALTER TABLE `connections`
-  MODIFY `connection_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `connection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `cv`
@@ -9144,7 +9343,7 @@ ALTER TABLE `mentor`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `olsubject`
@@ -9156,7 +9355,7 @@ ALTER TABLE `olsubject`
 -- AUTO_INCREMENT for table `postinteractions`
 --
 ALTER TABLE `postinteractions`
-  MODIFY `interaction_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `interaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -9180,13 +9379,13 @@ ALTER TABLE `profguide`
 -- AUTO_INCREMENT for table `profguiderenrollments`
 --
 ALTER TABLE `profguiderenrollments`
-  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `school`
@@ -9198,7 +9397,7 @@ ALTER TABLE `school`
 -- AUTO_INCREMENT for table `sessionlink`
 --
 ALTER TABLE `sessionlink`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `socialprofiles`
@@ -9222,7 +9421,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `teacherenrollments`
 --
 ALTER TABLE `teacherenrollments`
-  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `transactions`
