@@ -175,9 +175,11 @@
                     'title' => trim($_POST['title']),
                     'body' => trim($_POST['body']),
                     'capacity' => $_POST['capacity'],
+                    'session_fee' => $_POST['session_fee'],
                     'user_id' => $_SESSION['user_id'],
                     'title_err' => '',
                     'body_err' => '',
+                    'session_fee_err' => '',
                     'isImageRemoved' => $_POST['isImageRemoved']
                 ];
 
@@ -249,9 +251,12 @@
                     'id' => $id,
                     'title' => $post->title,
                     'body' => $post->body,     
-                    'capacity' => $post->capacity,               
+                    'capacity' => $post->capacity, 
+                    'session_fee' => $post->session_fee,              
                     'title_err' => '',
-                    'body_err' => ''
+                    'body_err' => '',
+                    'session_fee_err' => ''
+
                 ];
             }
 
