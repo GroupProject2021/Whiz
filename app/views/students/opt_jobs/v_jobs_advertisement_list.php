@@ -142,7 +142,7 @@
                                 <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
                             </div>
                             <div class="advertisement-body">
-                                <div class="title"><?php echo $post->jobName; ?></div>
+                                <div class="title"><?php if(strlen($post->jobName) < 25) {echo $post->jobName; } else { echo substr($post->jobName, 0, 25).'...'; }?></div>
                                 <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
                                 <div class="poles">
                                     <div class="pole-prg-bar">

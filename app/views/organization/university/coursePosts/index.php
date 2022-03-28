@@ -145,7 +145,7 @@
                                     <img src="<?php echo URLROOT.'/profileimages/'.getActorTypeForIcons($post->actor_type).'/'.$post->profile_image;?>" alt="">
                                 </div>
                                 <div class="postedat">Posted At: <?php echo convertedToReadableTimeFormat($post->postCreated); ?></div>
-                                <div class="title"><?php echo $post->courseName; ?></div>
+                                <div class="title"><?php if(strlen($post->courseName) < 25) {echo $post->courseName; } else { echo substr($post->courseName, 0, 25).'...'; }?></div>
                                 <div class="degree"><?php echo $post->provide_degree; ?></div>
                                 <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
                                <div class="price"><?php echo $post->course_fee.' LKR'; ?></div>

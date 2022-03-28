@@ -110,7 +110,7 @@
                                     <?php if(date("Y-m-d") > $exp_date){ echo "<font color=red>(Expired)</font>";} ?>
                                     Posted At: <?php echo convertedToReadableTimeFormat($post->postCreated); ?>
                                 </div>
-                                <div class="title"><?php echo $post->noticeName; ?></div>
+                                <div class="title"><?php if(strlen($post->noticeName) < 25) {echo $post->noticeName; } else { echo substr($post->noticeName, 0, 25).'...'; }?></div>
                                 <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
                             </div>
                             <div class="coursepost-stats">
