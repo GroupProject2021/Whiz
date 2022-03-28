@@ -294,7 +294,7 @@
                                     </div>
                                     <?php endif; ?>
                                     <div class="poster-body">
-                                        <div class="title"><?php echo $post->title; ?></div>
+                                        <div class="title"><?php if(strlen($post->title) < 25) {echo $post->title; } else { echo substr($post->title, 0, 25).'...'; }?></div>
                                         <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
                                         <div class="poles">
                                             <div class="pole-prg-bar">

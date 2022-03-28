@@ -118,7 +118,7 @@
                                         <span class="red-text">[Not payed]</span>
                                     <?php endif; ?>
                                 </div>
-                                <div class="title"><?php echo $post->noticeName; ?></div>
+                                <div class="title"><?php if(strlen($post->noticeName) < 25) {echo $post->noticeName; } else { echo substr($post->noticeName, 0, 25).'...'; }?></div>
                                 <div class="postedby"><?php echo $post->first_name.' '.$post->last_name; ?></div>
                             </div>
                             <div class="coursepost-stats">

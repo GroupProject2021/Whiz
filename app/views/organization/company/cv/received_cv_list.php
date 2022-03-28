@@ -34,7 +34,7 @@
                             <?php foreach($data['applied_cv_list'] as $cv): ?>
                             <tr>
                                 <td class="gov-course-name">
-                                    <a href="<?php echo URLROOT;?>/C_O_Settings/settings/<?php echo $cv->user_id; ?>/<?php echo $_SESSION['user_id']; ?>" class="post-link">
+                                    <a href="<?php echo URLROOT;?>/C_S_Settings/settings/<?php echo $cv->user_id; ?>/<?php echo $_SESSION['user_id']; ?>" class="post-link">
                                         <?php echo $cv->first_name.' '.$cv->last_name; ?>
                                     </a>
                                 </td>                               
