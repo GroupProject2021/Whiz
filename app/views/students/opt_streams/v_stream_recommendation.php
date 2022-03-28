@@ -40,7 +40,7 @@
                                 <div class="settings-header-item"><h2>Results</h2></div>
                         </div>                                      
                         <br>               
-
+                        
                         <?php 
                             $index = 1;     
                                 
@@ -48,7 +48,7 @@
                             $recommendStream = $data['recommended_streams'];
 
                             foreach($recommendStream as $recommendStream => $recommendStream_value) {
-                                echo '<a href="'.URLROOT.'/C_S_Stream/streamSelectionRedirect/'.$index.'" class="card-link">';
+                                echo '<a href="'.URLROOT.'/C_S_Stream/streamSelectionRedirect/'.$recommendStream_value[1].'" class="card-link">';
                                 if($recommendStream_value[0] >= 4) {
                                     echo '<div class="rec-stream good">';
                                 }
