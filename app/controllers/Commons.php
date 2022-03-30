@@ -460,6 +460,7 @@
 
                 $reported_actor_type = $this->commonModel->getUserById($reportedId)->actor_type;
                 $reporter_actor_type = $this->commonModel->getUserById($reporterId)->actor_type;
+                $reporter_first_name = $this->commonModel->getUserById($reporterId)->first_name;
 
                 // Init data
                 $data = [
@@ -467,6 +468,7 @@
                     'reported_actor_type' => $reported_actor_type,
                     'reporter_id' => $reporterId,
                     'reporter_actor_type' => $reporter_actor_type,
+                    'reporter_first_name' => $reporter_first_name,
                     'report' => trim($_POST['report'])
                 ];
 

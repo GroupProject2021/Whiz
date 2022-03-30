@@ -8,7 +8,7 @@
 
         public function getReports() {
 
-            $this->db->query("SELECT * FROM Report");
+            $this->db->query("SELECT * FROM Report ORDER BY reporter_first_name");
             
 
             $results = $this->db->resultSet();

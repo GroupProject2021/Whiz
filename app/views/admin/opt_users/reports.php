@@ -38,7 +38,7 @@
                             <?php foreach($data['report_list'] as $reportItem): ?>
                             <tr>
                                 <td class="gov-course-name" style="width: 60%;"><?php echo $reportItem->report; ?></td>                                
-                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_A_Users/deleteReportedAccount/'.$reportItem->reported_id;?>"><button class="btn4">Delete Reported profile</button></a></td>
+                                <td class="gov-course-viewmore"><a href="<?php echo URLROOT.'/C_A_Users/confirmation/'.$reportItem->reported_id;?>"><button class="btn4">Delete Reported profile</button></a></td>
                                 <td class="gov-course-viewmore">
                                 <?php switch($reportItem->reported_actor_type) {
                                     case 'Student':
@@ -86,5 +86,9 @@
 
         
         <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/externalLibraries/jQuery/jquery-3.6.0.js"></script>
+
+        <!-- javascript -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/adminRelated/report.js"></script>
+
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>

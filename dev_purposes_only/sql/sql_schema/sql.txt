@@ -7894,6 +7894,7 @@ CREATE TABLE Report(
 	reported_actor_type VARCHAR(20),
 	reporter_id INT,
 	reporter_actor_type VARCHAR(20),
+	reporter_first_name VARCHAR(100),
 	report VARCHAR(255),
 	PRIMARY KEY(reported_id, reporter_id),
 	FOREIGN KEY(reported_id) REFERENCES Users(id) ON DELETE CASCADE,

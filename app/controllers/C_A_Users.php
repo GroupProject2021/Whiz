@@ -30,6 +30,14 @@ class C_A_Users extends Controller {
             die('Something went wrong');
         }
     }
+
+    public function confirmation($id) {
+        $data = [
+            'report_id' => $id
+        ];
+
+        $this->view('admin/opt_users/report_delete_confirmation', $data);
+    }
 }
 
 ?>

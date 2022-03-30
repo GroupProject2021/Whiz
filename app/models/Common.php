@@ -85,12 +85,13 @@
 
         // report
         public function sendReport($data) {
-            $this->db->query('INSERT INTO Report(reported_id, reported_actor_type, reporter_id, reporter_actor_type, report) VALUES(:reported_id, :reported_actor_type, :reporter_id, :reporter_actor_type, :report)');
+            $this->db->query('INSERT INTO Report(reported_id, reported_actor_type, reporter_id, reporter_actor_type, reporter_first_name, report) VALUES(:reported_id, :reported_actor_type, :reporter_id, :reporter_actor_type, :reporter_first_name, :report)');
             // bind values
             $this->db->bind(":reported_id", $data['reported_id']);
             $this->db->bind(":reported_actor_type", $data['reported_actor_type']);
             $this->db->bind(":reporter_id", $data['reporter_id']);
-            $this->db->bind(":reporter_actor_type", $data['reporter_actor_type']);
+            $this->db->bind(":reporter_actor_type", $data['reporter_actor_type']);            
+            $this->db->bind(":reporter_first_name", $data['reporter_first_name']);
             $this->db->bind(":report", $data['report']);
     
             // Execute

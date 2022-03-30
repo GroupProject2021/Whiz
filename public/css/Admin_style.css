@@ -1,30 +1,34 @@
 /* If CSS didn't apply try Ctrl+F5 clear cache and then reload */
 /* seperate component styles */
-@import url('components/topnav.css');
-@import url('components/adminform.css');
-@import url('components/sidebar.css');
-@import url('components/dashboard.css');
 
-/* fonts */
-@font-face {
-    font-family: Poppins-Regular;
-    src: url(fonts/poppins/Poppins-Regular.ttf);
+
+/* new styles */
+
+.report-confirm-form {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 16px;
+    background-color: rgb(245, 245, 245);
+    /* width: 26%; */
+    width: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #d3d3d3;
 }
 
-:root {
-    --main-background-color: #a1a2ac;
+.report-confirm-form .content {
+    font-size: 17px;
+    font-weight: 600;
+    background-color: inherit;
+    margin: 10px;
 }
 
-/* global styles */
-* {
-    box-sizing: border-box;
+.report-confirm-form .footer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
-body {
-    margin: 0;
-    /* font-family: Arial, Arial, Helvetica, sans-serif; */
-    font-family: Poppins-Regular;
-    font-size: small;
-    background-color: var(--main-background-color);
-    text-align: left;
+.report-confirm-form .footer .left {
+    margin-left: 120px;
 }
